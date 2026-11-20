@@ -18,6 +18,7 @@ nDotNetWrapHandle = 0
 
 # Cache of type objects used for static members (type name --> DotNetObject)
 aDotNetTypes = []
+aDotNetTypeItems = []          # type name --> its wire item (see dnTypeItem)
 
 # Arguments (a list) and result of the Ring callback that .NET is running now;
 # callback code can read aDotNetArgs and set xDotNetResult

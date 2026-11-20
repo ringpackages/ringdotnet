@@ -87,20 +87,12 @@ Class ConcurrentStringQueue from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -174,20 +166,12 @@ Class ConcurrentObjectQueue from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -261,20 +245,12 @@ Class ConcurrentObjectStack from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -362,20 +338,12 @@ Class ConcurrentObjectBag from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -452,20 +420,12 @@ Class ConcurrentObjectDictionary from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -586,20 +546,12 @@ Class ConcurrentStringDictionary from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -719,20 +671,12 @@ Class BlockingObjectCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

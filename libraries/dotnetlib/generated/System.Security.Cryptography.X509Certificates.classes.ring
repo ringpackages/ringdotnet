@@ -332,10 +332,6 @@ Class CertificateRevocationListBuilder from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -452,20 +448,12 @@ Class Pkcs12LoaderLimits from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -699,10 +687,6 @@ Class SubjectAlternativeNameBuilder from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -804,10 +788,6 @@ Class X500DistinguishedNameBuilder from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -916,20 +896,12 @@ Class X509Certificate from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1112,20 +1084,12 @@ Class X509CertificateCollection from CollectionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1240,20 +1204,12 @@ Class X509Chain from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1460,10 +1416,6 @@ Class X509ChainPolicy from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1578,10 +1530,6 @@ Class X509ChainStatus from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1658,10 +1606,6 @@ Class X509ExtensionCollection from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1789,20 +1733,12 @@ Class X509Store from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1895,20 +1831,12 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1954,20 +1882,12 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2039,20 +1959,12 @@ Class X509BasicConstraintsExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2137,20 +2049,12 @@ Class X509Certificate2 from X509Certificate
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2323,20 +2227,12 @@ Class X509Certificate2Collection from X509CertificateCollection
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2401,20 +2297,12 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2454,20 +2342,12 @@ Class X509KeyUsageExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2505,20 +2385,12 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2559,20 +2431,12 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

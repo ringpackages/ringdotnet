@@ -1045,10 +1045,6 @@ Class AccessText from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.AccessText, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1286,10 +1282,6 @@ Class AddingNewItemEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.AddingNewItemEventArgs, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1320,10 +1312,6 @@ Class AdornedElementPlaceholder from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.AdornedElementPlaceholder, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1361,10 +1349,6 @@ Class AlternationConverter from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.AlternationConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1401,10 +1385,6 @@ Class BooleanToVisibilityConverter from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.BooleanToVisibilityConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1434,10 +1414,6 @@ Class BorderGapMaskConverter from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.BorderGapMaskConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1475,10 +1451,6 @@ Class WpfButton from WpfButtonBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Button, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1663,20 +1635,12 @@ Class CalendarDateRange from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.CalendarDateRange, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1761,10 +1725,6 @@ Class WpfCheckBox from ToggleButton
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.CheckBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1929,10 +1889,6 @@ Class WpfComboBox from Selector
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ComboBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2117,10 +2073,6 @@ Class ContentPresenter from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ContentPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2243,10 +2195,6 @@ Class ContextMenu from MenuBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ContextMenu, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2640,10 +2588,6 @@ Class WpfControl from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Control, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2885,20 +2829,12 @@ Class ControlTemplate from FrameworkTemplate
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ControlTemplate, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ControlTemplate, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3054,10 +2990,6 @@ Class DataGrid from MultiSelector
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGrid, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4224,20 +4156,12 @@ Class DataGridCellInfo from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridCellInfo, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridCellInfo, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4291,20 +4215,12 @@ Class DataGridClipboardCellContent from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4748,20 +4664,12 @@ Class DataGridLength from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridLength, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4864,10 +4772,6 @@ Class DataGridLengthConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridLengthConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5074,10 +4978,6 @@ Class DataTemplateSelector from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataTemplateSelector, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5143,10 +5043,6 @@ Class Decorator from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Decorator, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5242,10 +5138,6 @@ Class DocumentViewer from DocumentViewerBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DocumentViewer, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5593,10 +5485,6 @@ Class FlowDocumentPageViewer from DocumentViewerBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.FlowDocumentPageViewer, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5776,10 +5664,6 @@ Class GridSplitter from Thumb
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GridSplitter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5897,10 +5781,6 @@ Class GridViewColumn from DependencyObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.GridViewColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -6042,10 +5922,6 @@ Class GridViewColumnCollection from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GridViewColumnCollection, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -6141,10 +6017,6 @@ Class GridViewColumnHeader from WpfButtonBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GridViewColumnHeader, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -6204,10 +6076,6 @@ Class GridViewHeaderRowPresenter from GridViewRowPresenterBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.GridViewHeaderRowPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -6324,10 +6192,6 @@ Class GridViewRowPresenter from GridViewRowPresenterBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GridViewRowPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -6372,10 +6236,6 @@ Class GroupStyle from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.GroupStyle, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -6473,20 +6333,12 @@ Class HierarchicalVirtualizationConstraints from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6539,20 +6391,12 @@ Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6605,20 +6449,12 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6706,10 +6542,6 @@ Class WpfImage from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Image, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -6845,10 +6677,6 @@ Class InkCanvas from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.InkCanvas, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -7573,10 +7401,6 @@ Class ItemContainerTemplate from DataTemplate
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemContainerTemplate, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -7604,20 +7428,12 @@ Class ItemContainerTemplateKey from TemplateKey
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7667,20 +7483,12 @@ Class ItemsPanelTemplate from FrameworkTemplate
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7712,10 +7520,6 @@ Class ItemsPresenter from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemsPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -7741,10 +7545,6 @@ Class WpfListBox from Selector
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ListBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -7840,10 +7640,6 @@ Class MediaElement from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.MediaElement, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8143,10 +7939,6 @@ Class Menu from MenuBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Menu, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8180,10 +7972,6 @@ Class MenuScrollingVisibilityConverter from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.MenuScrollingVisibilityConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8236,10 +8024,6 @@ Class Page from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Page, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8418,20 +8202,12 @@ Class PageRange from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.PageRange, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8570,10 +8346,6 @@ Class WpfPrintDialog from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.PrintDialog, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8689,10 +8461,6 @@ Class WpfProgressBar from RangeBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ProgressBar, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8743,10 +8511,6 @@ Class WpfRadioButton from ToggleButton
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.RadioButton, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8787,20 +8551,12 @@ Class WpfRichTextBox from WpfTextBoxBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.RichTextBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.RichTextBox, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9243,10 +8999,6 @@ Class Slider from RangeBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Slider, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9489,10 +9241,6 @@ Class SoundPlayerAction from TriggerAction
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.SoundPlayerAction, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9636,10 +9384,6 @@ Class StyleSelector from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.StyleSelector, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9683,10 +9427,6 @@ Class WpfTabControl from Selector
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.TabControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -9852,20 +9592,12 @@ Class TextBlock from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.TextBlock, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.TextBlock, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10272,10 +10004,6 @@ Class WpfTextBox from WpfTextBoxBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.TextBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -10624,10 +10352,6 @@ Class ToolBarTray from FrameworkElement
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ToolBarTray, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -11328,10 +11052,6 @@ Class Viewport3D from FrameworkElement
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Viewport3D, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11381,20 +11101,12 @@ Class VirtualizationCacheLength from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11437,10 +11149,6 @@ Class VirtualizationCacheLengthConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLengthConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -11552,10 +11260,6 @@ Class WpfWebBrowser from DotNetObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.WebBrowser, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13376,10 +13080,6 @@ Class Border from Decorator
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Border, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13491,10 +13191,6 @@ Class WpfCalendar from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Calendar, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13712,10 +13408,6 @@ Class Canvas from WpfPanel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Canvas, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13797,10 +13489,6 @@ Class ColumnDefinition from DefinitionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ColumnDefinition, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13884,10 +13572,6 @@ Class ContentControl from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ContentControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13976,10 +13660,6 @@ Class DataErrorValidationRule from ValidationRule
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataErrorValidationRule, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14108,10 +13788,6 @@ Class DataGridComboBoxColumn from DataGridColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridComboBoxColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14268,10 +13944,6 @@ Class DataGridRow from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridRow, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14533,10 +14205,6 @@ Class DataGridTemplateColumn from DataGridColumn
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridTemplateColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -14632,10 +14300,6 @@ Class DatePicker from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DatePicker, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14833,10 +14497,6 @@ Class DockPanel from WpfPanel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DockPanel, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -14883,10 +14543,6 @@ Class ExceptionValidationRule from ValidationRule
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ExceptionValidationRule, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14953,10 +14609,6 @@ Class FlowDocumentReader from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.FlowDocumentReader, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -15316,10 +14968,6 @@ Class FlowDocumentScrollViewer from WpfControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.FlowDocumentScrollViewer, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -15569,10 +15217,6 @@ Class Grid from WpfPanel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Grid, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -15709,10 +15353,6 @@ Class GridView from ViewBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.GridView, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -15869,10 +15509,6 @@ Class InkPresenter from Decorator
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.InkPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -15949,10 +15585,6 @@ Class ItemsControl from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemsControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -16222,10 +15854,6 @@ Class WpfListView from WpfListBox
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ListView, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -16259,10 +15887,6 @@ Class NotifyDataErrorValidationRule from ValidationRule
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.NotifyDataErrorValidationRule, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -16304,10 +15928,6 @@ Class PasswordBox from WpfControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.PasswordBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -16478,10 +16098,6 @@ Class RowDefinition from DefinitionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.RowDefinition, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -16566,10 +16182,6 @@ Class ScrollContentPresenter from ContentPresenter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ScrollContentPresenter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -16721,10 +16333,6 @@ Class Separator from WpfControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Separator, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -16757,10 +16365,6 @@ Class StackPanel from WpfPanel
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.StackPanel, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17120,10 +16724,6 @@ Class Viewbox from Decorator
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Viewbox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -17313,10 +16913,6 @@ Class WrapPanel from WpfPanel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.WrapPanel, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -17387,10 +16983,6 @@ Class DataGridCell from ContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridCell, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17485,10 +17077,6 @@ Class DataGridCellsPanel from VirtualizingPanel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridCellsPanel, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -17514,10 +17102,6 @@ Class DataGridCheckBoxColumn from DataGridBoundColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridCheckBoxColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17570,10 +17154,6 @@ Class DataGridHyperlinkColumn from DataGridBoundColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridHyperlinkColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17640,10 +17220,6 @@ Class DataGridTextColumn from DataGridBoundColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridTextColumn, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17761,10 +17337,6 @@ Class Frame from ContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Frame, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17992,10 +17564,6 @@ Class GroupItem from ContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GroupItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -18027,10 +17595,6 @@ Class HeaderedContentControl from ContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.HeaderedContentControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -18128,10 +17692,6 @@ Class HeaderedItemsControl from ItemsControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.HeaderedItemsControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -18223,10 +17783,6 @@ Class WpfLabel from ContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.Label, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -18265,10 +17821,6 @@ Class ListBoxItem from ContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ListBoxItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -18365,10 +17917,6 @@ Class ScrollViewer from ContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ScrollViewer, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -18777,10 +18325,6 @@ Class WpfToolTip from ContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ToolTip, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -18962,10 +18506,6 @@ Class WpfTreeView from ItemsControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.TreeView, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -19038,10 +18578,6 @@ Class WpfUserControl from ContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.UserControl, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -19075,10 +18611,6 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.VirtualizingStackPanel, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -19247,10 +18779,6 @@ Class ComboBoxItem from ListBoxItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.ComboBoxItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -19290,10 +18818,6 @@ Class Expander from HeaderedContentControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Expander, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -19364,10 +18888,6 @@ Class WpfGroupBox from HeaderedContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.GroupBox, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -19388,10 +18908,6 @@ Class WpfListViewItem from ListBoxItem
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ListViewItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -19454,10 +18970,6 @@ Class MenuItem from HeaderedItemsControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.MenuItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -19761,10 +19273,6 @@ Class TabItem from HeaderedContentControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Controls.TabItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -19831,10 +19339,6 @@ Class ToolBar from HeaderedItemsControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.ToolBar, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -20000,10 +19504,6 @@ Class TreeViewItem from HeaderedItemsControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.TreeViewItem, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)

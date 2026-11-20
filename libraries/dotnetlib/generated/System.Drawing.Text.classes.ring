@@ -60,10 +60,6 @@ Class InstalledFontCollection from FontCollection
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Text.InstalledFontCollection, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -84,10 +80,6 @@ Class PrivateFontCollection from FontCollection
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Text.PrivateFontCollection, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)

@@ -704,20 +704,12 @@ Class AsyncServiceScope from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.AsyncServiceScope, Microsoft.Extensions.DependencyInjection.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.DependencyInjection.AsyncServiceScope, Microsoft.Extensions.DependencyInjection.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1033,20 +1025,12 @@ Class DefaultServiceProviderFactory from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory, Microsoft.Extensions.DependencyInjection',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory, Microsoft.Extensions.DependencyInjection',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2834,10 +2818,6 @@ Class ServiceCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceCollection, Microsoft.Extensions.DependencyInjection.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3223,10 +3203,6 @@ Class ServiceProviderOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceProviderOptions, Microsoft.Extensions.DependencyInjection',[])
 		oDotNetGuard = dotnet_guard(nHandle)

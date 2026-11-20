@@ -139,20 +139,12 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -259,10 +251,6 @@ Class ParallelLoopResult from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Threading.Tasks.ParallelLoopResult, System.Threading.Tasks.Parallel',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -351,10 +339,6 @@ Class ParallelOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.Tasks.ParallelOptions, System.Threading.Tasks.Parallel',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -650,20 +634,12 @@ Class TaskCompletionSource from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -769,20 +745,12 @@ Class TaskFactory from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -981,20 +949,12 @@ Class ValueTask from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ValueTask, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

@@ -406,10 +406,6 @@ func buildPlan cTypeName, nForceInit
 			ok
 		next
 		if lDefaultRegion
-			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
-			cCode += "			dotnet_unguard(oDotNetGuard)" + nl
-			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
-			cCode += "		ok" + nl
 		ok
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(nInit) + "])" + nl
 		cCode += "		oDotNetGuard = dotnet_guard(nHandle)" + nl
@@ -427,11 +423,7 @@ func buildPlan cTypeName, nForceInit
 	if lOtherCtor
 		cCode += "	Func New_ P1" + nl
 		if lDefaultRegion
-			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
-			cCode += "			dotnet_unguard(oDotNetGuard)" + nl
-			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
-			cCode += "			nHandle = 0" + nl
-			cCode += "		ok" + nl
+			cCode += "		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group" + nl
 		ok
 		cCode += "		if dnIsNamed(P1)" + nl
 		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl

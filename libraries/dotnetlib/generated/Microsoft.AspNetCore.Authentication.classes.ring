@@ -525,10 +525,6 @@ Class AuthenticationFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -685,10 +681,6 @@ Class AuthenticationOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -786,20 +778,12 @@ Class AuthenticationProperties from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -992,10 +976,6 @@ Class AuthenticationSchemeOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1282,10 +1262,6 @@ Class AuthenticationToken from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1693,10 +1669,6 @@ Class NoopClaimsTransformation from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1838,10 +1810,6 @@ Class PropertiesSerializer from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1888,10 +1856,6 @@ Class RemoteAuthenticationEvents from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2039,10 +2003,6 @@ Class RequestPathBaseCookieBuilder from CookieBuilder
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2214,10 +2174,6 @@ Class TicketSerializer from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2263,10 +2219,6 @@ Class HandleRequestResult from AuthenticateResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2319,10 +2271,6 @@ Class PolicySchemeOptions from AuthenticationSchemeOptions
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2355,10 +2303,6 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication',[])
 		oDotNetGuard = dotnet_guard(nHandle)

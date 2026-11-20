@@ -746,10 +746,6 @@ Class DatabaseProviderDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DatabaseProviderDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1947,20 +1943,12 @@ Class MaterializationContext from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2044,10 +2032,6 @@ Class ParameterNameGenerator from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGenerator, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2078,10 +2062,6 @@ Class ParameterNameGeneratorDependencies from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2446,20 +2426,12 @@ Class RelationalCommandParameterObject from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2785,10 +2757,6 @@ Class RelationalDataReader from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalDataReader, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3258,10 +3226,6 @@ Class RelationalSqlGenerationHelperDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3443,20 +3407,12 @@ Class RelationalTypeMappingInfo from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3659,20 +3615,12 @@ Class TypeMappingInfo from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3911,20 +3859,12 @@ Class ValueBuffer from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

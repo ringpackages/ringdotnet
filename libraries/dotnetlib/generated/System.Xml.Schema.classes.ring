@@ -580,10 +580,6 @@ Class XmlSchemaCompilationSettings from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -674,10 +670,6 @@ Class XmlSchemaInference from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInference, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -730,10 +722,6 @@ Class XmlSchemaInfo from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -871,20 +859,12 @@ Class XmlSchemaObjectCollection from CollectionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1029,20 +1009,12 @@ Class XmlSchemaSet from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1305,10 +1277,6 @@ Class XmlSchema from XmlSchemaObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchema, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1475,10 +1443,6 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1525,10 +1489,6 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1573,10 +1533,6 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1615,10 +1571,6 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1710,10 +1662,6 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1760,10 +1708,6 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1866,10 +1810,6 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1924,10 +1864,6 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2023,10 +1959,6 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2072,10 +2004,6 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2127,10 +2055,6 @@ Class XmlSchemaImport from XmlSchemaExternal
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaImport, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2168,10 +2092,6 @@ Class XmlSchemaInclude from XmlSchemaExternal
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2203,10 +2123,6 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2300,10 +2216,6 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2371,10 +2283,6 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaType, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2471,10 +2379,6 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2505,10 +2409,6 @@ Class XmlSchemaAny from XmlSchemaParticle
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAny, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2547,10 +2447,6 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2583,10 +2479,6 @@ Class XmlSchemaComplexContentExtension from XmlSchemaContent
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2640,10 +2532,6 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2704,10 +2592,6 @@ Class XmlSchemaComplexType from XmlSchemaType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2819,10 +2703,6 @@ Class XmlSchemaElement from XmlSchemaParticle
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaElement, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2965,10 +2845,6 @@ Class XmlSchemaEnumerationFacet from XmlSchemaFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3013,10 +2889,6 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3051,10 +2923,6 @@ Class XmlSchemaKey from XmlSchemaIdentityConstraint
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKey, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3077,10 +2945,6 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3110,10 +2974,6 @@ Class XmlSchemaMaxExclusiveFacet from XmlSchemaFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3134,10 +2994,6 @@ Class XmlSchemaMaxInclusiveFacet from XmlSchemaFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3160,10 +3016,6 @@ Class XmlSchemaMinExclusiveFacet from XmlSchemaFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3184,10 +3036,6 @@ Class XmlSchemaMinInclusiveFacet from XmlSchemaFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3222,10 +3070,6 @@ Class XmlSchemaPatternFacet from XmlSchemaFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3246,10 +3090,6 @@ Class XmlSchemaSimpleContent from XmlSchemaContentModel
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3275,10 +3115,6 @@ Class XmlSchemaSimpleContentExtension from XmlSchemaContent
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3326,10 +3162,6 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3387,10 +3219,6 @@ Class XmlSchemaSimpleType from XmlSchemaType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3422,10 +3250,6 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3473,10 +3297,6 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3522,10 +3342,6 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3566,10 +3382,6 @@ Class XmlSchemaUnique from XmlSchemaIdentityConstraint
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3590,10 +3402,6 @@ Class XmlSchemaWhiteSpaceFacet from XmlSchemaFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3616,10 +3424,6 @@ Class XmlSchemaAll from XmlSchemaGroupBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAll, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3640,10 +3444,6 @@ Class XmlSchemaChoice from XmlSchemaGroupBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3666,10 +3466,6 @@ Class XmlSchemaFractionDigitsFacet from XmlSchemaNumericFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3690,10 +3486,6 @@ Class XmlSchemaLengthFacet from XmlSchemaNumericFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3716,10 +3508,6 @@ Class XmlSchemaMaxLengthFacet from XmlSchemaNumericFacet
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3740,10 +3528,6 @@ Class XmlSchemaMinLengthFacet from XmlSchemaNumericFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3766,10 +3550,6 @@ Class XmlSchemaSequence from XmlSchemaGroupBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3790,10 +3570,6 @@ Class XmlSchemaTotalDigitsFacet from XmlSchemaNumericFacet
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)

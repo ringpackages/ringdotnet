@@ -459,10 +459,6 @@ Class ContainerUIElement3D from UIElement3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ContainerUIElement3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -545,20 +541,12 @@ Class GeneralTransform3DCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -711,20 +699,12 @@ Class MaterialCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -823,20 +803,12 @@ Class Matrix3D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Matrix3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1087,10 +1059,6 @@ Class Matrix3DConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1155,20 +1123,12 @@ Class Model3DCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1248,10 +1208,6 @@ Class ModelUIElement3D from UIElement3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1290,20 +1246,12 @@ Class Point3D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1389,20 +1337,12 @@ Class Point3DCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1488,10 +1428,6 @@ Class Point3DCollectionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollectionConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1512,10 +1448,6 @@ Class Point3DConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1543,20 +1475,12 @@ Class Point4D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point4D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1647,10 +1571,6 @@ Class Point4DConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point4DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1682,20 +1602,12 @@ Class WpfQuaternion from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Quaternion, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1830,10 +1742,6 @@ Class QuaternionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1900,20 +1808,12 @@ Class Rect3D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Rect3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2070,10 +1970,6 @@ Class Rect3DConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2127,20 +2023,12 @@ Class Size3D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Size3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2223,10 +2111,6 @@ Class Size3DConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Size3DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2250,20 +2134,12 @@ Class Transform3DCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2346,20 +2222,12 @@ Class Vector3D from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2473,20 +2341,12 @@ Class Vector3DCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2572,10 +2432,6 @@ Class Vector3DCollectionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollectionConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2596,10 +2452,6 @@ Class Vector3DConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2637,10 +2489,6 @@ Class Viewport3DVisual from Visual
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2902,20 +2750,12 @@ Class AxisAngleRotation3D from Rotation3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2980,20 +2820,12 @@ Class DiffuseMaterial from Material
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3069,20 +2901,12 @@ Class EmissiveMaterial from Material
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3143,10 +2967,6 @@ Class GeneralTransform3DGroup from GeneralTransform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3188,20 +3008,12 @@ Class GeometryModel3D from Model3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3303,10 +3115,6 @@ Class MaterialGroup from Material
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialGroup, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3346,20 +3154,12 @@ Class MatrixCamera from Camera
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3425,10 +3225,6 @@ Class MeshGeometry3D from Geometry3D
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3506,10 +3302,6 @@ Class Model3DGroup from Model3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DGroup, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3547,10 +3339,6 @@ Class ModelVisual3D from Visual3D
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3686,20 +3474,12 @@ Class QuaternionRotation3D from Rotation3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3842,20 +3622,12 @@ Class SpecularMaterial from Material
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3970,10 +3742,6 @@ Class Viewport2DVisual3D from Visual3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4072,20 +3840,12 @@ Class AmbientLight from Light
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AmbientLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4120,20 +3880,12 @@ Class DirectionalLight from Light
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4181,20 +3933,12 @@ Class MatrixTransform3D from Transform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4242,20 +3986,12 @@ Class OrthographicCamera from ProjectionCamera
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4303,20 +4039,12 @@ Class PerspectiveCamera from ProjectionCamera
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4452,10 +4180,6 @@ Class Transform3DGroup from Transform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4490,20 +4214,12 @@ Class PointLight from PointLightBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PointLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4544,20 +4260,12 @@ Class RotateTransform3D from AffineTransform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4654,20 +4362,12 @@ Class ScaleTransform3D from AffineTransform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4784,20 +4484,12 @@ Class SpotLight from PointLightBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpotLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4875,20 +4567,12 @@ Class TranslateTransform3D from AffineTransform3D
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

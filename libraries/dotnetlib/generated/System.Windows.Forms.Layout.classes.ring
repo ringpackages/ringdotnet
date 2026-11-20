@@ -92,10 +92,6 @@ Class TableLayoutSettingsTypeConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Layout.TableLayoutSettingsTypeConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self

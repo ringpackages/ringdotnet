@@ -134,10 +134,6 @@ Class JsonDocumentOptions from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Text.Json.JsonDocumentOptions, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -181,10 +177,6 @@ Class JsonElement from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonElement, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -349,10 +341,6 @@ Class JsonEncodedText from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Text.Json.JsonEncodedText, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -449,10 +437,6 @@ Class JsonProperty from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Text.Json.JsonProperty, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -497,10 +481,6 @@ Class JsonReaderOptions from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderOptions, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -553,20 +533,12 @@ Class JsonReaderState from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonReaderState, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -713,20 +685,12 @@ Class JsonSerializerOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonSerializerOptions, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1005,10 +969,6 @@ Class JsonWriterOptions from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonWriterOptions, System.Text.Json',[])
 		oDotNetGuard = dotnet_guard(nHandle)

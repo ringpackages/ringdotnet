@@ -775,20 +775,12 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1078,20 +1070,12 @@ Class CommandBinding from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1171,20 +1155,12 @@ Class CommandBindingCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBindingCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1291,10 +1267,6 @@ Class CommandConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandConverter, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1653,10 +1625,6 @@ Class WpfCursorConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CursorConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2105,10 +2073,6 @@ Class InertiaExpansionBehavior from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaExpansionBehavior, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2165,10 +2129,6 @@ Class InertiaRotationBehavior from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaRotationBehavior, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2217,10 +2177,6 @@ Class InertiaTranslationBehavior from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaTranslationBehavior, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2341,20 +2297,12 @@ Class InputBindingCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputBindingCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2542,20 +2490,12 @@ Class InputGestureCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputGestureCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3164,10 +3104,6 @@ Class InputScope from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3218,10 +3154,6 @@ Class InputScopeConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3245,20 +3177,12 @@ Class InputScopeName from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopeName, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3308,10 +3232,6 @@ Class InputScopeNameConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeNameConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3335,20 +3255,12 @@ Class InputScopePhrase from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopePhrase, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3398,10 +3310,6 @@ Class KeyConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.KeyConverter, WindowsBase',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3423,10 +3331,6 @@ Class KeyGestureConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3447,10 +3351,6 @@ Class KeyGestureValueSerializer from ValueSerializer
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureValueSerializer, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3493,10 +3393,6 @@ Class KeyValueSerializer from ValueSerializer
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyValueSerializer, WindowsBase',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3941,20 +3837,12 @@ Class ManipulationPivot from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.ManipulationPivot, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4226,10 +4114,6 @@ Class ModifierKeysConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysConverter, WindowsBase',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4253,10 +4137,6 @@ Class ModifierKeysValueSerializer from ValueSerializer
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4614,10 +4494,6 @@ Class MouseActionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4638,10 +4514,6 @@ Class MouseActionValueSerializer from ValueSerializer
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionValueSerializer, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4664,10 +4536,6 @@ Class MouseGestureConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4688,10 +4556,6 @@ Class MouseGestureValueSerializer from ValueSerializer
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureValueSerializer, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4873,20 +4737,12 @@ Class RoutedCommand from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedCommand, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5567,20 +5423,12 @@ Class StylusPoint from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPoint, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5676,20 +5524,12 @@ Class StylusPointCollection from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5803,20 +5643,12 @@ Class StylusPointDescription from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointDescription, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6110,10 +5942,6 @@ Class TabletDeviceCollection from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.TabletDeviceCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -6460,10 +6288,6 @@ Class TouchPointCollection from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -6617,20 +6441,12 @@ Class KeyBinding from InputBinding
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7163,20 +6979,12 @@ Class MouseBinding from InputBinding
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7396,20 +7204,12 @@ Class MouseGesture from InputGesture
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseGesture, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7481,20 +7281,12 @@ Class RoutedUICommand from RoutedCommand
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedUICommand, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

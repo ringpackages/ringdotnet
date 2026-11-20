@@ -116,20 +116,12 @@ Class BitmapEffectCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -214,20 +206,12 @@ Class BitmapEffectInput from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -332,10 +316,6 @@ Class PixelShader from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.PixelShader, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -405,10 +385,6 @@ Class BevelBitmapEffect from BitmapEffect
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -499,10 +475,6 @@ Class BitmapEffectGroup from BitmapEffect
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectGroup, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -541,10 +513,6 @@ Class BlurBitmapEffect from BitmapEffect
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -599,10 +567,6 @@ Class BlurEffect from Effect
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BlurEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -676,10 +640,6 @@ Class DropShadowBitmapEffect from BitmapEffect
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -793,10 +753,6 @@ Class DropShadowEffect from Effect
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -901,10 +857,6 @@ Class EmbossBitmapEffect from BitmapEffect
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -960,10 +912,6 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)

@@ -308,6 +308,8 @@ namespace RingDotNet
 			{
 				case "version":
 					return RuntimeInformation.FrameworkDescription;
+				case "handlecount":
+					return (double)Handles.Count;          /* the objects that Ring holds (for tests of the release of handles) */
 				case "load":
 					return Initialize(Assembly.LoadFrom(Str(a, 0))).FullName;
 				case "loadname":
@@ -322,6 +324,12 @@ namespace RingDotNet
 					return CallMethodNamed(a[0], Str(a, 1), a.Length > 2 ? a[2] : null);
 				case "newnamed":
 					return CreateInstanceNamed(TypeOf(a, 0), a.Length > 1 ? a[1] : null);
+				/* the same, answering with the handle of the new object as a number (0 for a value such as an Int32 that has no object): the
+				   generated classes only need the handle, so the object is not described and wrapped for Ring */
+				case "newhandle":
+					return NewHandle(CreateInstance(TypeOf(a, 0), Rest(a, 1)));
+				case "newnamedhandle":
+					return NewHandle(CreateInstanceNamed(TypeOf(a, 0), a.Length > 1 ? a[1] : null));
 				case "get":
 					return GetMember(a[0], Str(a, 1));
 				case "set":
@@ -1525,6 +1533,28 @@ namespace RingDotNet
 			return found.ToArray();
 		}
 
+		/* The handle of a new object; 0 when the value is not an object for Ring (it travels as a text, a number...: see Encode) */
+		private static object NewHandle(object value)
+		{
+			switch (value)
+			{
+				case null or string or char or bool or byte[] or Enum or decimal or double or float:
+				case sbyte or byte or short or ushort or int or uint or long or ulong:
+				case List<object>:
+					return 0.0;
+				default:
+					return (double)Register(value);
+			}
+		}
+
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, ConstructorInfo[]> Constructors =
+			new System.Collections.Concurrent.ConcurrentDictionary<Type, ConstructorInfo[]>();
+
+		private static ConstructorInfo[] ConstructorsOf(Type t)
+		{
+			return Constructors.GetOrAdd(t, type => type.GetConstructors(BindingFlags.Public | BindingFlags.Instance));
+		}
+
 		private static object CreateInstance(Type t, object[] args)
 		{
 			if (t.IsAbstract)
@@ -1535,7 +1565,7 @@ namespace RingDotNet
 			{
 				return Activator.CreateInstance(t);
 			}
-			ConstructorInfo ctor = Pick(t.GetConstructors(BindingFlags.Public | BindingFlags.Instance), args, out object[] conv) as ConstructorInfo;
+			ConstructorInfo ctor = Pick(ConstructorsOf(t), args, out object[] conv) as ConstructorInfo;
 			if (ctor == null)
 			{
 				throw new MissingMethodException("No public constructor of " + t.FullName + " matches the " + args.Length + " argument(s)");
@@ -1731,7 +1761,7 @@ namespace RingDotNet
 			SplitPairs(pairs, out string[] names, out object[] values);
 			if (t.IsAbstract) throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
 			if (names.Length == 0 && t.IsValueType) return Activator.CreateInstance(t);
-			ConstructorInfo ctor = PickNamed(t.GetConstructors(BindingFlags.Public | BindingFlags.Instance), names, values, out object[] conv) as ConstructorInfo;
+			ConstructorInfo ctor = PickNamed(ConstructorsOf(t), names, values, out object[] conv) as ConstructorInfo;
 			if (ctor == null)
 			{
 				throw new MissingMethodException("No public constructor of " + t.FullName + " has the parameters (" + Describe(names) + ")");

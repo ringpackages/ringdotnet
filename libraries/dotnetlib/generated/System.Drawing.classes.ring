@@ -1300,10 +1300,6 @@ Class BufferedGraphicsContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.BufferedGraphicsContext, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1372,20 +1368,12 @@ Class CharacterRange from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.CharacterRange, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1583,10 +1571,6 @@ Class Color from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Color, System.Drawing.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2763,10 +2747,6 @@ Class FontConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.FontConverter, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3492,10 +3472,6 @@ Class IconConverter from ExpandableObjectConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.IconConverter, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3751,10 +3727,6 @@ Class ImageConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.ImageConverter, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3775,10 +3747,6 @@ Class ImageFormatConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.ImageFormatConverter, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5504,20 +5472,12 @@ Class Region from MarshalByRefObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Region, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5789,20 +5749,12 @@ Class StringFormat from MarshalByRefObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.StringFormat, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

@@ -799,10 +799,6 @@ Class DateTimeFormatInfo from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1154,10 +1150,6 @@ Class IdnMapping from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.IdnMapping, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1238,10 +1230,6 @@ Class NumberFormatInfo from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.NumberFormatInfo, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1670,20 +1658,12 @@ Class StringInfo from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.StringInfo, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1917,20 +1897,12 @@ Class GregorianCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.GregorianCalendar, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1977,10 +1949,6 @@ Class HebrewCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.HebrewCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2010,10 +1978,6 @@ Class HijriCalendar from Calendar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.HijriCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2049,10 +2013,6 @@ Class JapaneseCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.JapaneseCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2075,10 +2035,6 @@ Class JulianCalendar from Calendar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JulianCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2109,10 +2065,6 @@ Class KoreanCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.KoreanCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2142,10 +2094,6 @@ Class PersianCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.PersianCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2173,10 +2121,6 @@ Class TaiwanCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.TaiwanCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2199,10 +2143,6 @@ Class ThaiBuddhistCalendar from Calendar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2233,10 +2173,6 @@ Class UmAlQuraCalendar from Calendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2265,10 +2201,6 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2299,10 +2231,6 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2332,10 +2260,6 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2362,10 +2286,6 @@ Class TaiwanLunisolarCalendar from EastAsianLunisolarCalendar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib',[])
 		oDotNetGuard = dotnet_guard(nHandle)

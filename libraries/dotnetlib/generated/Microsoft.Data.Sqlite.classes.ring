@@ -98,20 +98,12 @@ Class SqliteCommand from DbCommand
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -146,20 +138,12 @@ Class SqliteConnection from DbConnection
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -270,20 +254,12 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -419,20 +395,12 @@ Class SqliteParameter from DbParameter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

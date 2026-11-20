@@ -347,10 +347,6 @@ Class DefaultSessionFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -385,20 +381,12 @@ Class FeatureCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -558,10 +546,6 @@ Class FormOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -686,10 +670,6 @@ Class HttpConnectionFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -758,10 +738,6 @@ Class HttpRequestFeature from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -852,10 +828,6 @@ Class HttpRequestIdentifierFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -888,10 +860,6 @@ Class HttpRequestLifetimeFeature from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -933,10 +901,6 @@ Class HttpResponseFeature from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2037,10 +2001,6 @@ Class ItemsFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2224,10 +2184,6 @@ Class RouteValuesFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2261,10 +2217,6 @@ Class ServiceProvidersFeature from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2297,10 +2249,6 @@ Class TlsConnectionFeature from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)

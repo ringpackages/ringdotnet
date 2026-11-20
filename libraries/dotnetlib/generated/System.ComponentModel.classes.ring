@@ -647,20 +647,12 @@ Class AddingNewEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -857,20 +849,12 @@ Class CancelEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -940,10 +924,6 @@ Class Component from MarshalByRefObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Component, System.ComponentModel.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1033,20 +1013,12 @@ Class ComponentResourceManager from ResourceManager
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1090,10 +1062,6 @@ Class Container from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Container, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1345,10 +1313,6 @@ Class EventHandlerList from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1398,20 +1362,12 @@ Class HandledEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2270,10 +2226,6 @@ Class LicenseContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2487,20 +2439,12 @@ Class ListSortDescriptionCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2561,10 +2505,6 @@ Class MarshalByValueComponent from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3198,10 +3138,6 @@ Class TypeConverter from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3597,10 +3533,6 @@ Class BackgroundWorker from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3708,10 +3640,6 @@ Class BooleanConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3732,10 +3660,6 @@ Class CharConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3758,10 +3682,6 @@ Class CollectionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3782,10 +3702,6 @@ Class CultureInfoConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3808,10 +3724,6 @@ Class DateOnlyConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3833,10 +3745,6 @@ Class DateTimeConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3857,10 +3765,6 @@ Class DateTimeOffsetConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3969,10 +3873,6 @@ Class ExpandableObjectConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3993,10 +3893,6 @@ Class GuidConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4019,10 +3915,6 @@ Class LicFileLicenseProvider from LicenseProvider
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4043,10 +3935,6 @@ Class MultilineStringConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4269,10 +4157,6 @@ Class StringConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4294,10 +4178,6 @@ Class TimeOnlyConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4318,10 +4198,6 @@ Class TimeSpanConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4356,10 +4232,6 @@ Class VersionConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4381,10 +4253,6 @@ Class ArrayConverter from CollectionConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4405,10 +4273,6 @@ Class ByteConverter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4445,10 +4309,6 @@ Class DecimalConverter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4469,10 +4329,6 @@ Class DoubleConverter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4495,10 +4351,6 @@ Class HalfConverter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4519,10 +4371,6 @@ Class Int128Converter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4545,10 +4393,6 @@ Class Int16Converter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4569,10 +4413,6 @@ Class Int32Converter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4595,10 +4435,6 @@ Class Int64Converter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4619,10 +4455,6 @@ Class SByteConverter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4645,10 +4477,6 @@ Class SingleConverter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4669,10 +4497,6 @@ Class UInt128Converter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4695,10 +4519,6 @@ Class UInt16Converter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4720,10 +4540,6 @@ Class UInt32Converter from BaseNumberConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4744,10 +4560,6 @@ Class UInt64Converter from BaseNumberConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter',[])
 		oDotNetGuard = dotnet_guard(nHandle)

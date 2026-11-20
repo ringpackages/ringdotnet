@@ -1398,10 +1398,6 @@ Class BeginStoryboard from TriggerAction
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1509,10 +1505,6 @@ Class BooleanKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1670,10 +1662,6 @@ Class ByteKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1829,10 +1817,6 @@ Class CharKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2237,10 +2221,6 @@ Class ColorKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2418,10 +2398,6 @@ Class DecimalKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2577,10 +2553,6 @@ Class DoubleKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2886,10 +2858,6 @@ Class Int16KeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3045,10 +3013,6 @@ Class Int32KeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3206,10 +3170,6 @@ Class Int64KeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3309,20 +3269,12 @@ Class KeySpline from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.KeySpline, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3382,10 +3334,6 @@ Class KeyTime from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeyTime, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3515,10 +3463,6 @@ Class MatrixKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3676,10 +3620,6 @@ Class ObjectKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3835,10 +3775,6 @@ Class Point3DKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3996,10 +3932,6 @@ Class PointKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4155,10 +4087,6 @@ Class QuaternionKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4316,10 +4244,6 @@ Class RectKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4422,20 +4346,12 @@ Class RepeatBehavior from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4511,10 +4427,6 @@ Class RepeatBehaviorConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4596,10 +4508,6 @@ Class Rotation3DKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4757,10 +4665,6 @@ Class SingleKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4916,10 +4820,6 @@ Class SizeKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5077,10 +4977,6 @@ Class StringKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5236,10 +5132,6 @@ Class ThicknessKeyFrameCollection from Freezable
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5397,10 +5289,6 @@ Class Vector3DKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5557,10 +5445,6 @@ Class VectorKeyFrameCollection from Freezable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5675,10 +5559,6 @@ Class BackEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BackEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5717,10 +5597,6 @@ Class BounceEase from EasingFunctionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BounceEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5769,10 +5645,6 @@ Class CircleEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CircleEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5814,10 +5686,6 @@ Class CubicEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CubicEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -5839,20 +5707,12 @@ Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5884,20 +5744,12 @@ Class DiscreteByteKeyFrame from ByteKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5929,20 +5781,12 @@ Class DiscreteCharKeyFrame from CharKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5974,20 +5818,12 @@ Class DiscreteColorKeyFrame from ColorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6019,20 +5855,12 @@ Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6064,20 +5892,12 @@ Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6109,20 +5929,12 @@ Class DiscreteInt16KeyFrame from Int16KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6154,20 +5966,12 @@ Class DiscreteInt32KeyFrame from Int32KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6199,20 +6003,12 @@ Class DiscreteInt64KeyFrame from Int64KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6244,20 +6040,12 @@ Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6289,20 +6077,12 @@ Class DiscreteObjectKeyFrame from ObjectKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6334,20 +6114,12 @@ Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6379,20 +6151,12 @@ Class DiscretePointKeyFrame from PointKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6424,20 +6188,12 @@ Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6469,20 +6225,12 @@ Class DiscreteRectKeyFrame from RectKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6514,20 +6262,12 @@ Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6559,20 +6299,12 @@ Class DiscreteSingleKeyFrame from SingleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6604,20 +6336,12 @@ Class DiscreteSizeKeyFrame from SizeKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6649,20 +6373,12 @@ Class DiscreteStringKeyFrame from StringKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6694,20 +6410,12 @@ Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6739,20 +6447,12 @@ Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6784,20 +6484,12 @@ Class DiscreteVectorKeyFrame from VectorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6832,20 +6524,12 @@ Class EasingByteKeyFrame from ByteKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6893,20 +6577,12 @@ Class EasingColorKeyFrame from ColorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6954,20 +6630,12 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7015,20 +6683,12 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7076,20 +6736,12 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7137,20 +6789,12 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7198,20 +6842,12 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7259,20 +6895,12 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7320,20 +6948,12 @@ Class EasingPointKeyFrame from PointKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7383,20 +7003,12 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7457,20 +7069,12 @@ Class EasingRectKeyFrame from RectKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7518,20 +7122,12 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7579,20 +7175,12 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7640,20 +7228,12 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7701,20 +7281,12 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7762,20 +7334,12 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7823,20 +7387,12 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7885,10 +7441,6 @@ Class ElasticEase from EasingFunctionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ElasticEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -7940,10 +7492,6 @@ Class ExponentialEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ExponentialEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -7978,20 +7526,12 @@ Class LinearByteKeyFrame from ByteKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8023,20 +7563,12 @@ Class LinearColorKeyFrame from ColorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8068,20 +7600,12 @@ Class LinearDecimalKeyFrame from DecimalKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8113,20 +7637,12 @@ Class LinearDoubleKeyFrame from DoubleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8158,20 +7674,12 @@ Class LinearInt16KeyFrame from Int16KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8203,20 +7711,12 @@ Class LinearInt32KeyFrame from Int32KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8248,20 +7748,12 @@ Class LinearInt64KeyFrame from Int64KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8293,20 +7785,12 @@ Class LinearPoint3DKeyFrame from Point3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8338,20 +7822,12 @@ Class LinearPointKeyFrame from PointKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8386,20 +7862,12 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8444,20 +7912,12 @@ Class LinearRectKeyFrame from RectKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8489,20 +7949,12 @@ Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8534,20 +7986,12 @@ Class LinearSingleKeyFrame from SingleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8579,20 +8023,12 @@ Class LinearSizeKeyFrame from SizeKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8624,20 +8060,12 @@ Class LinearThicknessKeyFrame from ThicknessKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8669,20 +8097,12 @@ Class LinearVector3DKeyFrame from Vector3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8714,20 +8134,12 @@ Class LinearVectorKeyFrame from VectorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8759,10 +8171,6 @@ Class PauseStoryboard from ControllableStoryboardAction
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8786,10 +8194,6 @@ Class PowerEase from EasingFunctionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PowerEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8825,10 +8229,6 @@ Class QuadraticEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuadraticEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8849,10 +8249,6 @@ Class QuarticEase from EasingFunctionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuarticEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8875,10 +8271,6 @@ Class QuinticEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuinticEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8900,10 +8292,6 @@ Class RemoveStoryboard from ControllableStoryboardAction
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -8924,10 +8312,6 @@ Class ResumeStoryboard from ControllableStoryboardAction
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8952,10 +8336,6 @@ Class SeekStoryboard from ControllableStoryboardAction
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8997,10 +8377,6 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9029,10 +8405,6 @@ Class SineEase from EasingFunctionBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SineEase, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9053,10 +8425,6 @@ Class SkipStoryboardToFill from ControllableStoryboardAction
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -9082,20 +8450,12 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9143,20 +8503,12 @@ Class SplineColorKeyFrame from ColorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9204,20 +8556,12 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9265,20 +8609,12 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9326,20 +8662,12 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9387,20 +8715,12 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9448,20 +8768,12 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9509,20 +8821,12 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9570,20 +8874,12 @@ Class SplinePointKeyFrame from PointKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9633,20 +8929,12 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9707,20 +8995,12 @@ Class SplineRectKeyFrame from RectKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9768,20 +9048,12 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9829,20 +9101,12 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9890,20 +9154,12 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9951,20 +9207,12 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10012,20 +9260,12 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10073,20 +9313,12 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10130,10 +9362,6 @@ Class StopStoryboard from ControllableStoryboardAction
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StopStoryboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -10369,20 +9597,12 @@ Class TimelineCollection from Animatable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.TimelineCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10666,20 +9886,12 @@ Class ParallelTimeline from TimelineGroup
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10858,10 +10070,6 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -10904,20 +10112,12 @@ Class ByteAnimation from ByteAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ByteAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11019,10 +10219,6 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11070,10 +10266,6 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11116,20 +10308,12 @@ Class ColorAnimation from ColorAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ColorAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11231,10 +10415,6 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11291,20 +10471,12 @@ Class DecimalAnimation from DecimalAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11406,10 +10578,6 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11466,20 +10634,12 @@ Class DoubleAnimation from DoubleAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11581,10 +10741,6 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11636,10 +10792,6 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -11713,20 +10865,12 @@ Class Int16Animation from Int16AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int16Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11828,10 +10972,6 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11888,20 +11028,12 @@ Class Int32Animation from Int32AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int32Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12003,10 +11135,6 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12063,20 +11191,12 @@ Class Int64Animation from Int64AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int64Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12178,10 +11298,6 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12229,10 +11345,6 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12273,10 +11385,6 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -12360,10 +11468,6 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12406,20 +11510,12 @@ Class Point3DAnimation from Point3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12521,10 +11617,6 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12581,20 +11673,12 @@ Class PointAnimation from PointAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.PointAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12696,10 +11780,6 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12749,10 +11829,6 @@ Class PointAnimationUsingPath from PointAnimationBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -12815,20 +11891,12 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12943,10 +12011,6 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13003,20 +12067,12 @@ Class RectAnimation from RectAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RectAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13118,10 +12174,6 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13178,20 +12230,12 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13293,10 +12337,6 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13353,20 +12393,12 @@ Class SingleAnimation from SingleAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SingleAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13468,10 +12500,6 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13528,20 +12556,12 @@ Class SizeAnimation from SizeAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SizeAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13643,10 +12663,6 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13695,10 +12711,6 @@ Class Storyboard from ParallelTimeline
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13909,10 +12921,6 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13955,20 +12963,12 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14070,10 +13070,6 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -14130,20 +13126,12 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14245,10 +13233,6 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -14305,20 +13289,12 @@ Class VectorAnimation from VectorAnimationBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.VectorAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14419,10 +13395,6 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)

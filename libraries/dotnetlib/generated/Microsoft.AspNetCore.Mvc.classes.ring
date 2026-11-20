@@ -434,20 +434,12 @@ Class ActionContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -539,10 +531,6 @@ Class ApiBehaviorOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -617,10 +605,6 @@ Class ApiDescriptionActionData from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -657,10 +641,6 @@ Class CacheProfile from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -723,10 +703,6 @@ Class ClientErrorData from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1178,10 +1154,6 @@ Class CookieTempDataProviderOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1387,10 +1359,6 @@ Class JsonOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1456,10 +1424,6 @@ Class MvcOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1674,10 +1638,6 @@ Class MvcViewOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1727,10 +1687,6 @@ Class ProblemDetails from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1801,20 +1757,12 @@ Class SerializableError from ObjectDictionary
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1891,20 +1839,12 @@ Class ValidationProblemDetails from HttpValidationProblemDetails
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2061,20 +2001,12 @@ Class ChallengeResult from ActionResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2123,10 +2055,6 @@ Class ContentResult from ActionResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2253,20 +2181,12 @@ Class ControllerContext from ActionContext
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2304,10 +2224,6 @@ Class EmptyResult from ActionResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2385,20 +2301,12 @@ Class ForbidResult from ActionResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2634,10 +2542,6 @@ Class PartialViewResult from ActionResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3093,20 +2997,12 @@ Class SignOutResult from ActionResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3182,10 +3078,6 @@ Class ViewComponentResult from ActionResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3270,10 +3162,6 @@ Class ViewResult from ActionResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3447,20 +3335,12 @@ Class AcceptedResult from ObjectResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3513,10 +3393,6 @@ Class BadRequestResult from StatusCodeResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3551,10 +3427,6 @@ Class ConflictResult from StatusCodeResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3680,20 +3552,12 @@ Class CreatedResult from ObjectResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3778,10 +3642,6 @@ Class NoContentResult from StatusCodeResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3817,10 +3677,6 @@ Class NotFoundResult from StatusCodeResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3855,10 +3711,6 @@ Class OkResult from StatusCodeResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3918,10 +3770,6 @@ Class UnauthorizedResult from StatusCodeResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3957,10 +3805,6 @@ Class UnprocessableEntityResult from StatusCodeResult
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3981,10 +3825,6 @@ Class UnsupportedMediaTypeResult from StatusCodeResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4037,10 +3877,6 @@ Class AntiforgeryValidationFailedResult from BadRequestResult
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)

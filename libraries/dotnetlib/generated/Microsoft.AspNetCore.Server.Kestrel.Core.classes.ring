@@ -66,10 +66,6 @@ Class Http2Limits from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -151,10 +147,6 @@ Class Http3Limits from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -243,10 +235,6 @@ Class KestrelServerLimits from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -380,10 +368,6 @@ Class KestrelServerOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)

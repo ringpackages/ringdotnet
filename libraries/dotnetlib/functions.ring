@@ -140,6 +140,11 @@ func dnExchange  cRequest
 func dnFlush
 	dotnet_flush()
 
+# The number of .NET objects that Ring holds now (handles in the table of the bridge): a test of the release of handles compares it before
+# and after the objects were dropped (call callgc() and dnFlush() first)
+func dnHandleCount
+	return dnRequest("handlecount",[])
+
 # Version of the .NET runtime that is hosted in this process
 func dnVersion
 	return dnRequest("version",[])
@@ -199,12 +204,28 @@ func dnTypeCached  cTypeName
 
 # Create a .NET object and return its handle (used by the generated classes)
 func dnCreate  cTypeName, aParameters
-	dn_xNew = dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters))
-	if isobject(dn_xNew)
-		dotnet_unguard(dn_xNew.oDotNetGuard)          # the class that is being made keeps the handle (and makes its own guard)
-		return dn_xNew.nHandle
+	return dnNewHandle("s9:newhandle",cTypeName,dnPack(aParameters))
+
+# The wire item of a type (its handle), made once for each type name
+func dnTypeItem  cTypeName
+	dn_cItem = aDotNetTypeItems[cTypeName]
+	if dn_cItem != ""
+		return dn_cItem
 	ok
-	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
+	dn_cHandle = string(dnTypeCached(cTypeName).nHandle)
+	dn_cItem = C_DOTNET_OBJECT + len(dn_cHandle) + ":" + dn_cHandle
+	aDotNetTypeItems[cTypeName] = dn_cItem
+	return dn_cItem
+
+# Make an object and read its handle from the answer: the answer is a number, so the object is not wrapped for Ring (0: a value such as an
+# Int32 has no object, its class is used for static members)
+func dnNewHandle  cOperation, cTypeName, cArgs
+	dn_cResponse = dotnet_invoke(cOperation + dnTypeItem(cTypeName) + cArgs)
+	if left(dn_cResponse,1) = C_DOTNET_NUMBER
+		return number(substr(dn_cResponse,substr(dn_cResponse,":") + 1,len(dn_cResponse)))
+	ok
+	dn_aItems = dnUnpack(dn_cResponse)          # an error answer raises it
+	return 0
 
 # True for a list of [name, value] pairs, the way Ring passes named arguments: [ :server = "x", :port = 80 ]  ([] too)
 func dnIsNamed  aValue
@@ -220,12 +241,7 @@ func dnIsNamed  aValue
 
 # The handle of an object created with named arguments (used by generated code)
 func dnCreateNamed  cTypeName, aNamed
-	dn_xNew = dnRequest("newnamed",[dnTypeCached(cTypeName),aNamed])
-	if isobject(dn_xNew)
-		dotnet_unguard(dn_xNew.oDotNetGuard)
-		return dn_xNew.nHandle
-	ok
-	return 0
+	return dnNewHandle("s14:newnamedhandle",cTypeName,dnPackItem(aNamed))
 
 # Public API of a type (used by tools/dotnettools/gendotnet.ring)
 func dnDescribe  cTypeName

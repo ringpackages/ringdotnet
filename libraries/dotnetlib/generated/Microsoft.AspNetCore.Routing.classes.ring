@@ -1186,10 +1186,6 @@ Class LinkOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.LinkOptions, Microsoft.AspNetCore.Routing.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1514,10 +1510,6 @@ Class RouteCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteCollection, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1652,20 +1644,12 @@ Class RouteData from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1801,10 +1785,6 @@ Class RouteGroupContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteGroupContext, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1885,10 +1865,6 @@ Class RouteHandlerOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteHandlerOptions, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1968,10 +1944,6 @@ Class RouteOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteOptions, Microsoft.AspNetCore.Components',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2034,20 +2006,12 @@ Class RouteValueDictionary from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2141,10 +2105,6 @@ Class RouteValueEqualityComparer from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2190,10 +2150,6 @@ Class RouteValuesAddress from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValuesAddress, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2241,10 +2197,6 @@ Class RoutingFeature from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RoutingFeature, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2300,10 +2252,6 @@ Class SuppressLinkGenerationMetadata from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2335,10 +2283,6 @@ Class SuppressMatchingMetadata from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressMatchingMetadata, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)

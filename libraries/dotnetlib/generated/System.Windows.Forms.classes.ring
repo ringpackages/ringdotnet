@@ -2498,10 +2498,6 @@ Class AccessibleObject from StandardOleMarshalObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.AccessibleObject, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2624,10 +2620,6 @@ Class AmbientProperties from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AmbientProperties, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3011,20 +3003,12 @@ Class ApplicationContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3093,10 +3077,6 @@ Class AutoCompleteStringCollection from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3201,10 +3181,6 @@ Class BaseCollection from MarshalByRefObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BaseCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3531,10 +3507,6 @@ Class BindingContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingContext, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3731,20 +3703,12 @@ Class BindingMemberInfo from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3822,20 +3786,12 @@ Class BindingSource from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4468,20 +4424,12 @@ Class ColumnHeader from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4593,10 +4541,6 @@ Class ColumnHeaderConverter from ExpandableObjectConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4902,20 +4846,12 @@ Class Control from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6498,10 +6434,6 @@ Class CreateParams from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -6711,10 +6643,6 @@ Class CursorConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CursorConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -7121,10 +7049,6 @@ Class DataGridViewAdvancedBorderStyle from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -7494,20 +7418,12 @@ Class DataGridViewCellStyle from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7685,10 +7601,6 @@ Class DataGridViewCellStyleConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -7864,10 +7776,6 @@ Class DataGridViewElement from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -8555,20 +8463,12 @@ Class DataObject from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9380,20 +9280,12 @@ Class ErrorProvider from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9600,10 +9492,6 @@ Class FileDialogCustomPlacesCollection from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -9781,10 +9669,6 @@ Class FormCollection from ReadOnlyCollectionBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FormCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -10100,10 +9984,6 @@ Class HelpProvider from Component
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HelpProvider, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -11770,10 +11650,6 @@ Class ImageIndexConverter from Int32Converter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -11794,10 +11670,6 @@ Class ImageKeyConverter from StringConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -11829,20 +11701,12 @@ Class ImageList from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12004,10 +11868,6 @@ Class ImeModeConversion from ValueType
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImeModeConversion, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -12457,10 +12317,6 @@ Class KeysConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.KeysConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12600,20 +12456,12 @@ Class LinkArea from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12716,10 +12564,6 @@ Class LinkConverter from TypeConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -12784,10 +12628,6 @@ Class ListBindingConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBindingConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -12860,20 +12700,12 @@ Class ListViewGroup from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13200,20 +13032,12 @@ Class ListViewItem from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13420,10 +13244,6 @@ Class ListViewItemConverter from ExpandableObjectConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -13635,10 +13455,6 @@ Class Message from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13781,10 +13597,6 @@ Class NativeWindow from MarshalByRefObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.NativeWindow, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -13917,20 +13729,12 @@ Class NotifyIcon from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14143,10 +13947,6 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -14204,10 +14004,6 @@ Class OpacityConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.OpacityConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14283,20 +14079,12 @@ Class Padding from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14392,10 +14180,6 @@ Class PaddingConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -14705,10 +14489,6 @@ Class ProfessionalColorTable from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -15613,20 +15393,12 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -15718,20 +15490,12 @@ Class QuestionEventArgs from EventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -16230,20 +15994,12 @@ Class SelectionRange from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -16291,10 +16047,6 @@ Class SelectionRangeConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17305,20 +17057,12 @@ Class TableLayoutPanelCellPosition from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -17469,10 +17213,6 @@ Class TaskDialogButtonCollection from DotNetObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -17724,10 +17464,6 @@ Class TaskDialogPage from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogPage, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -17908,10 +17644,6 @@ Class TaskDialogRadioButtonCollection from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -18051,20 +17783,12 @@ Class FormsTimer from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -19088,20 +18812,12 @@ Class ToolTip from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -19395,20 +19111,12 @@ Class TreeNode from MarshalByRefObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -19792,10 +19500,6 @@ Class TreeNodeConverter from TypeConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -20191,10 +19895,6 @@ Class WindowsFormsSection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -20227,10 +19927,6 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -20874,20 +20570,12 @@ Class ListViewSubItem from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -21627,10 +21315,6 @@ Class ColorDialog from CommonDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ColorDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -21703,20 +21387,12 @@ Class ColumnStyle from TableLayoutStyle
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -21874,10 +21550,6 @@ Class DataGridView from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridView, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -24360,10 +24032,6 @@ Class DateTimePicker from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DateTimePicker, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -24813,10 +24481,6 @@ Class FolderBrowserDialog from CommonDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -24950,10 +24614,6 @@ Class FontDialog from CommonDialog
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FontDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -25093,10 +24753,6 @@ Class GroupBox from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.GroupBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -25205,10 +24861,6 @@ Class Label from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Label, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -25543,10 +25195,6 @@ Class ListView from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -26110,10 +25758,6 @@ Class ListViewItemStateImageIndexConverter from ImageIndexConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -26136,10 +25780,6 @@ Class MdiClient from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MdiClient, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -26194,10 +25834,6 @@ Class MonthCalendar from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MonthCalendar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -26518,10 +26154,6 @@ Class PageSetupDialog from CommonDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.PageSetupDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -26627,10 +26259,6 @@ Class PictureBox from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PictureBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -26765,10 +26393,6 @@ Class PrintDialog from CommonDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -26868,10 +26492,6 @@ Class PrintPreviewControl from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -26962,10 +26582,6 @@ Class ProgressBar from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ProgressBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -27052,10 +26668,6 @@ Class PropertyManager from BindingManagerBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyManager, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -27079,20 +26691,12 @@ Class RowStyle from TableLayoutStyle
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -27216,10 +26820,6 @@ Class ScrollableControl from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ScrollableControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -27308,10 +26908,6 @@ Class Splitter from Control
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Splitter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -27392,10 +26988,6 @@ Class TabControl from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -27810,20 +27402,12 @@ Class TaskDialogButton from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -27971,20 +27555,12 @@ Class TaskDialogExpander from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28062,20 +27638,12 @@ Class TaskDialogFootnote from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28127,20 +27695,12 @@ Class TaskDialogProgressBar from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28211,20 +27771,12 @@ Class TaskDialogRadioButton from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28288,20 +27840,12 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -29522,20 +29066,12 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -29602,10 +29138,6 @@ Class ToolStripSystemRenderer from ToolStripRenderer
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -29636,10 +29168,6 @@ Class TrackBar from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TrackBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -29812,10 +29340,6 @@ Class TreeView from Control
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeView, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -30202,10 +29726,6 @@ Class TreeViewImageIndexConverter from ImageIndexConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -30226,10 +29746,6 @@ Class TreeViewImageKeyConverter from ImageKeyConverter
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -30309,10 +29825,6 @@ Class Button from ButtonBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Button, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -30362,10 +29874,6 @@ Class CheckBox from ButtonBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -30474,10 +29982,6 @@ Class ComboBox from ListControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ComboBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -30747,10 +30251,6 @@ Class ContainerControl from ScrollableControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ContainerControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -30901,10 +30401,6 @@ Class DataGridViewButtonCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -30951,20 +30447,12 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -31071,20 +30559,12 @@ Class DataGridViewColumn from DataGridViewBand
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -31284,10 +30764,6 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -31388,10 +30864,6 @@ Class DataGridViewHeaderCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -31417,20 +30889,12 @@ Class DataGridViewImageCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -31490,10 +30954,6 @@ Class DataGridViewLinkCell from DataGridViewCell
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -31577,10 +31037,6 @@ Class DataGridViewRow from DataGridViewBand
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRow, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -31712,10 +31168,6 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -31747,10 +31199,6 @@ Class HScrollBar from ScrollBar
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.HScrollBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -31780,10 +31228,6 @@ Class LinkLabel from Label
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkLabel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -31891,10 +31335,6 @@ Class ListBox from ListControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -32155,20 +31595,12 @@ Class MaskedTextBox from TextBoxBase
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -32408,10 +31840,6 @@ Class OpenFileDialog from FileDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.OpenFileDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -32486,10 +31914,6 @@ Class Panel from ScrollableControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.Panel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -32529,10 +31953,6 @@ Class RadioButton from ButtonBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RadioButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -32630,10 +32050,6 @@ Class RichTextBox from TextBoxBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RichTextBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -32943,10 +32359,6 @@ Class SaveFileDialog from FileDialog
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.SaveFileDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -33001,20 +32413,12 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -33063,10 +32467,6 @@ Class TextBox from TextBoxBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -33203,20 +32603,12 @@ Class ToolStrip from ScrollableControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -33491,20 +32883,12 @@ Class ToolStripButton from ToolStripItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -33806,20 +33190,12 @@ Class ToolStripLabel from ToolStripItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -33893,10 +33269,6 @@ Class ToolStripSeparator from ToolStripItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -33917,10 +33289,6 @@ Class VScrollBar from ScrollBar
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.VScrollBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -33964,10 +33332,6 @@ Class WebBrowser from WebBrowserBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowser, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -34287,20 +33651,12 @@ Class BindingNavigator from ToolStrip
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -34431,10 +33787,6 @@ Class CheckedListBox from ListBox
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckedListBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -34515,10 +33867,6 @@ Class DataGridViewButtonColumn from DataGridViewColumn
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -34567,20 +33915,12 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -34649,10 +33989,6 @@ Class DataGridViewColumnHeaderCell from DataGridViewHeaderCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -34692,10 +34028,6 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -34801,10 +34133,6 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -34886,20 +34214,12 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -34974,10 +34294,6 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -35048,10 +34364,6 @@ Class DataGridViewRowHeaderCell from DataGridViewHeaderCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -35074,10 +34386,6 @@ Class DataGridViewTextBoxColumn from DataGridViewColumn
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -35113,10 +34421,6 @@ Class DataGridViewTextBoxEditingControl from TextBox
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -35195,10 +34499,6 @@ Class FlowLayoutPanel from Panel
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -35285,10 +34585,6 @@ Class Form from ContainerControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Form, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -35876,10 +35172,6 @@ Class MenuStrip from ToolStrip
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.MenuStrip, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -35958,10 +35250,6 @@ Class PropertyGrid from ContainerControl
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyGrid, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -36288,10 +35576,6 @@ Class SplitContainer from ContainerControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitContainer, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -36457,10 +35741,6 @@ Class StatusStrip from ToolStrip
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.StatusStrip, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -36500,20 +35780,12 @@ Class TabPage from Panel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -36583,10 +35855,6 @@ Class TableLayoutPanel from Panel
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -36731,20 +35999,12 @@ Class ToolStripComboBox from ToolStripControlHost
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -36995,10 +36255,6 @@ Class ToolStripContainer from ContainerControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContainer, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -37081,10 +36337,6 @@ Class ToolStripContentPanel from Panel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -37143,10 +36395,6 @@ Class ToolStripDropDown from ToolStrip
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -37275,20 +36523,12 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -37335,20 +36575,12 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -37451,10 +36683,6 @@ Class ToolStripPanel from ContainerControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripPanel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -37553,20 +36781,12 @@ Class ToolStripProgressBar from ToolStripControlHost
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -37679,20 +36899,12 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -37821,20 +37033,12 @@ Class ToolStripStatusLabel from ToolStripLabel
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -37917,20 +37121,12 @@ Class ToolStripTextBox from ToolStripControlHost
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -38320,10 +37516,6 @@ Class UserControl from ContainerControl
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.UserControl, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -38367,10 +37559,6 @@ Class DataGridViewTopLeftHeaderCell from DataGridViewColumnHeaderCell
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -38397,10 +37585,6 @@ Class DomainUpDown from UpDownBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DomainUpDown, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -38473,10 +37657,6 @@ Class NumericUpDown from UpDownBase
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDown, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -38574,10 +37754,6 @@ Class PrintPreviewDialog from Form
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -38635,10 +37811,6 @@ Class ToolStripDropDownMenu from ToolStripDropDown
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -38703,20 +37875,12 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

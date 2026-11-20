@@ -910,20 +910,12 @@ Class EntityMaterializerSourceParameters from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1139,10 +1131,6 @@ Class ExpressionPrinter from ExpressionVisitor
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2116,10 +2104,6 @@ Class LiftableConstantExpressionDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2333,10 +2317,6 @@ Class NavigationExpansionExtensibilityHelperDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2415,20 +2395,12 @@ Class EfPathSegment from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2512,10 +2484,6 @@ Class ProjectionMember from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ProjectionMember, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3124,10 +3092,6 @@ Class QueryTranslationPostprocessorDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryTranslationPostprocessorDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3245,10 +3209,6 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3882,10 +3842,6 @@ Class RelationalEvaluatableExpressionFilterDependencies from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalEvaluatableExpressionFilterDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3985,10 +3941,6 @@ Class RelationalLiftableConstantExpressionDependencies from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalLiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4850,10 +4802,6 @@ Class SqlAliasManager from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManager, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4883,10 +4831,6 @@ Class SqlAliasManagerFactory from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManagerFactory, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -5144,10 +5088,6 @@ Class SqlTreePruner from ExpressionVisitor
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlTreePruner, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)

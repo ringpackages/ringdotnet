@@ -436,20 +436,12 @@ Class Cookie from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.Cookie, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Cookie, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -586,10 +578,6 @@ Class CookieCollection from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.CookieCollection, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -670,20 +658,12 @@ Class CookieContainer from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.CookieContainer, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.CookieContainer, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -786,10 +766,6 @@ Class CredentialCache from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.CredentialCache, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1033,10 +1009,6 @@ Class HttpListener from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.HttpListener, System.Net.HttpListener',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2151,10 +2123,6 @@ Class IPHostEntry from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.IPHostEntry, System.Net.NameResolution',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2203,20 +2171,12 @@ Class IPNetwork from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.IPNetwork, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPNetwork, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2338,20 +2298,12 @@ Class NetworkCredential from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.NetworkCredential, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkCredential, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2459,10 +2411,6 @@ Class PathList from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.PathList, System.Net.Primitives',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2840,10 +2788,6 @@ Class WebClient from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.WebClient, System.Net.WebClient',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3199,10 +3143,6 @@ Class WebHeaderCollection from NameValueCollection
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3240,20 +3180,12 @@ Class WebProxy from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.WebProxy, System.Net.WebProxy',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebProxy, System.Net.WebProxy',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3651,10 +3583,6 @@ Class WriteStreamClosedEventArgs from EventArgs
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WriteStreamClosedEventArgs, System.Net.WebClient',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -4206,10 +4134,6 @@ Class HttpWebResponse from WebResponse
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.HttpWebResponse, System.Net.Requests',[])
 		oDotNetGuard = dotnet_guard(nHandle)

@@ -93,10 +93,6 @@ Class AttributeRouteInfo from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -309,10 +305,6 @@ Class UrlActionContext from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -417,10 +409,6 @@ Class UrlHelperFactory from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -453,10 +441,6 @@ Class UrlRouteContext from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)

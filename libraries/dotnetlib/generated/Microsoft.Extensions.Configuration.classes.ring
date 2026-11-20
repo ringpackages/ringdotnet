@@ -240,10 +240,6 @@ Class BinderOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -352,10 +348,6 @@ Class ChainedConfigurationSource from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -455,10 +447,6 @@ Class ConfigurationBuilder from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -506,20 +494,12 @@ Class ConfigurationDebugViewContext from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -610,10 +590,6 @@ Class ConfigurationKeyComparer from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -648,10 +624,6 @@ Class ConfigurationManager from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -766,10 +738,6 @@ Class ConfigurationReloadToken from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1069,10 +1037,6 @@ Class FileLoadExceptionContext from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions',[])
 		oDotNetGuard = dotnet_guard(nHandle)

@@ -1114,10 +1114,6 @@ Class CookiePolicyOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.CookiePolicyOptions, Microsoft.AspNetCore.CookiePolicy',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1266,20 +1262,12 @@ Class DefaultFilesOptions from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1375,10 +1363,6 @@ Class DeveloperExceptionPageOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DeveloperExceptionPageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1443,20 +1427,12 @@ Class DirectoryBrowserOptions from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1678,10 +1654,6 @@ Class ExceptionHandlerOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ExceptionHandlerOptions, Microsoft.AspNetCore.Diagnostics',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1799,10 +1771,6 @@ Class FileServerOptions from DotNetObject
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.FileServerOptions, Microsoft.AspNetCore.StaticFiles',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1925,10 +1893,6 @@ Class ForwardedHeadersOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ForwardedHeadersOptions, Microsoft.AspNetCore.HttpOverrides',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2229,10 +2193,6 @@ Class HttpMethodOverrideOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.HttpMethodOverrideOptions, Microsoft.AspNetCore.HttpOverrides',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2439,10 +2399,6 @@ Class IISOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISOptions, Microsoft.AspNetCore.Server.IISIntegration',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2493,10 +2449,6 @@ Class IISServerOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISServerOptions, Microsoft.AspNetCore.Server.IIS',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -2915,10 +2867,6 @@ Class RequestLocalizationOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.RequestLocalizationOptions, Microsoft.AspNetCore.Localization',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3341,10 +3289,6 @@ Class SessionOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.SessionOptions, Microsoft.AspNetCore.Session',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -3442,20 +3386,12 @@ Class StaticFileOptions from DotNetObject
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3614,10 +3550,6 @@ Class StatusCodePagesOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StatusCodePagesOptions, Microsoft.AspNetCore.Diagnostics',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -3932,10 +3864,6 @@ Class WebApplicationOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebApplicationOptions, Microsoft.AspNetCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4021,10 +3949,6 @@ Class WebSocketOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebSocketOptions, Microsoft.AspNetCore.WebSockets',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -4098,10 +4022,6 @@ Class WelcomePageOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WelcomePageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		oDotNetGuard = dotnet_guard(nHandle)

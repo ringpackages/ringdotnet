@@ -116,20 +116,12 @@ Class Margins from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.Margins, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -195,10 +187,6 @@ Class MarginsConverter from ExpandableObjectConverter
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.MarginsConverter, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -232,20 +220,12 @@ Class PageSettings from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PageSettings, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -370,20 +350,12 @@ Class PaperSize from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PaperSize, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -455,10 +427,6 @@ Class PaperSource from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -580,10 +548,6 @@ Class PrintDocument from Component
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintDocument, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -678,10 +642,6 @@ Class PrintEventArgs from CancelEventArgs
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -772,10 +732,6 @@ Class PrinterResolution from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterResolution, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -844,10 +800,6 @@ Class PrinterSettings from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterSettings, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -1077,10 +1029,6 @@ Class PreviewPrintController from PrintController
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -1134,10 +1082,6 @@ Class StandardPrintController from PrintController
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.StandardPrintController, System.Drawing.Common',[])
 		oDotNetGuard = dotnet_guard(nHandle)

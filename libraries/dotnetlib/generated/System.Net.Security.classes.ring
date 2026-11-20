@@ -271,10 +271,6 @@ Class NegotiateAuthenticationClientOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -354,10 +350,6 @@ Class NegotiateAuthenticationServerOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -429,20 +421,12 @@ Class SslApplicationProtocol from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslApplicationProtocol, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -538,10 +522,6 @@ Class SslClientAuthenticationOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)
@@ -661,20 +641,12 @@ Class SslClientHelloInfo from ValueType
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslClientHelloInfo, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -731,10 +703,6 @@ Class SslServerAuthenticationOptions from Object
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security',[])
 		oDotNetGuard = dotnet_guard(nHandle)

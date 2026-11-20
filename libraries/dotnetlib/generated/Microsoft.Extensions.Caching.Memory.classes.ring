@@ -385,10 +385,6 @@ Class MemoryCacheEntryOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -468,10 +464,6 @@ Class MemoryCacheOptions from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -550,10 +542,6 @@ Class MemoryCacheStatistics from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -609,10 +597,6 @@ Class PostEvictionCallbackRegistration from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -650,10 +634,6 @@ Class MemoryDistributedCacheOptions from MemoryCacheOptions
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory',[])
 		oDotNetGuard = dotnet_guard(nHandle)

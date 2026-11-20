@@ -327,10 +327,6 @@ Class XmlConvert from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -472,20 +468,12 @@ Class XmlImplementation from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1107,20 +1095,12 @@ Class XmlQualifiedName from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1712,10 +1692,6 @@ Class XmlReaderSettings from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlReaderSettings, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2234,10 +2210,6 @@ Class XmlWriterSettings from Object
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlWriterSettings, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2373,10 +2345,6 @@ Class NameTable from XmlNameTable
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.NameTable, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
@@ -2471,20 +2439,12 @@ Class XmlDocument from XmlNode
 		if nHandle != 0          # made by the class body
 			return self
 		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-		ok
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
-			nHandle = 0
-		ok
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2993,10 +2953,6 @@ Class XmlUrlResolver from XmlResolver
 		ok
 		if nHandle != 0          # made by the class body
 			return self
-		ok
-		if nHandle != 0          # the default object made for the class body is not needed
-			dotnet_unguard(oDotNetGuard)
-			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlUrlResolver, System.Private.Xml',[])
 		oDotNetGuard = dotnet_guard(nHandle)
