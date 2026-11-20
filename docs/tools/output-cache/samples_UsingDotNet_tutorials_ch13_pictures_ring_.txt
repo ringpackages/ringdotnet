@@ -1,0 +1,5 @@
+1. the picture is 200 x 100 pixels
+2. corner (0,0): 32, 96, 192
+   centre of the circle (150,50): 255, 204, 0
+3. a PNG file was written: 1, 1
+4. read back: 200 x 100, centre 255, 204, 0

@@ -89,7 +89,7 @@ On Linux, `using { "System.Windows.Forms" }` does not give an error that the pro
 5. **Time zone names**: Windows has `Eastern Standard Time` and Linux has `America/New_York`; see [Time zones](tut-68-timezones.html).
 6. **Tests on both systems**, or at least a look at the output of one program on the other system. A difference such as the one in step 3 shows only when the program runs.
 
-> [!NOTE] `System.Drawing` (pictures, `Bitmap`, `Graphics`) is a Windows feature in current versions of .NET. A program that must make pictures on Linux needs a package that does not use it.
+> [!NOTE] `System.Drawing` (pictures, `Bitmap`, `Graphics`) is a Windows feature in current versions of .NET. A program that must make pictures on Linux needs a package that does not use it, such as SkiaSharp (the lesson [Pictures on every system](tut-168-pictures.html)).
 
 ## What you learned
 

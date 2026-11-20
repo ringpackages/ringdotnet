@@ -95,4 +95,4 @@ The names of the parameters are in the files that the generator wrote (`Excel/cl
 
 ## Next
 
-[Testing your programs](tut-28-testing.html)
+[Pictures on every system](tut-168-pictures.html)
