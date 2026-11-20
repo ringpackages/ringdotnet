@@ -253,7 +253,7 @@
 <h2 id="loading-assemblies">Loading assemblies<a class="anchor" href="#loading-assemblies">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Function</th><th>What it does</th></tr></thead><tbody><tr><td><code>dnLoad("path/to/Library.dll")</code></td><td>Loads an assembly from a path and returns its name. Its dependencies are found next to it.</td></tr><tr><td><code>dnLoadName("System.Xml")</code></td><td>Loads an assembly by name.</td></tr></tbody></table></div>
 <h2 id="without-wrapper-classes">Without wrapper classes<a class="anchor" href="#without-wrapper-classes">#</a></h2>
-<p>Any type is usable without generated classes:</p>
+<p>Any type is usable without generated classes. The generated classes (<code>new X(...)</code>, <code>oObject.Method()</code>, braces) are the usual way to write code; these functions are for a type that has no class, or a constructor that <code>new</code> cannot choose:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a type, for static members</span>
 oConsole = <span class="f">dnType</span>(<span class="s">"System.Console"</span>)
 oConsole.<span class="f">callMethod</span>(<span class="s">"WriteLine"</span>,[<span class="s">"Hello from .NET"</span>])
@@ -288,7 +288,7 @@ oObject.<span class="f">release</span>()                            <span class=
 <span class="f">dnTestSummary</span>()                         <span class="c"># prints "TESTS: n passed, m failed"</span></code></pre></div>
 <p><code>nDotNetPass</code> and <code>nDotNetFail</code> hold the counters. See <a href="testing.html">Testing</a>.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<ul><li><a href="collections-linq.html">Collections &amp; LINQ</a>: lists, dictionaries and queries.</li><li><a href="callbacks-events.html">Callbacks &amp; events</a>: passing Ring code to .NET.</li><li>The tutorial chapter <a href="tutorials.html#the-basics">The basics</a> uses these functions step by step.</li></ul>
+<ul><li><a href="collections-linq.html">Collections &amp; LINQ</a>: lists, dictionaries and queries.</li><li><a href="callbacks-events.html">Callbacks &amp; events</a>: passing Ring code to .NET.</li><li>The tutorial <a href="tut-160-generic-calls.html">The generic functions</a> shows when each of these functions is needed; the programs of the tutorials otherwise use the generated classes (<code>new</code>, the dot and braces).</li></ul>
 <div class="pager"><a href="concepts.html"><small>Previous</small>Core concepts</a><a class="next" href="collections-linq.html"><small>Next</small>Collections & LINQ</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

@@ -397,7 +397,7 @@ Response       : Hello Ring, this is .NET speaking Ring!
 UrlEncode      : ring+%26+.net+%3D+fun
 Loopback       : 127.0.0.1
 Host name set  : 1</code></pre></div>
-<div class="callout tip"><span class="t">Tip</span><p>For HTTP requests use <code>HttpClient</code>. Methods that return a <code>Task</code> give you an object: call <code>Wait()</code> and read <code>getProp("Result")</code>. A complete example is the self test of [<code>samples/UsingDotNet/applications/WebApi</code>](aspnet.html).</p></div>
+<div class="callout tip"><span class="t">Tip</span><p>For HTTP requests use <code>HttpClient</code>. Methods that return a <code>Task</code> give you an object: call <code>Wait()</code> and read its property <code>Result</code>. A complete example is the self test of [<code>samples/UsingDotNet/applications/WebApi</code>](aspnet.html).</p></div>
 <h2 id="cryptography-and-globalization">Cryptography and globalization<a class="anchor" href="#cryptography-and-globalization">#</a></h2>
 <p>Hashes (<code>SHA256</code>, <code>MD5</code>), HMAC, random bytes, AES, culture-aware formatting:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test13_security.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test13_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Hashes, HMAC and AES encryption</span>
@@ -582,7 +582,7 @@ oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
 ? oTask.IsCompleted
 
 oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="f">FromResult</span>(<span class="s">"done"</span>)
-? oResult.<span class="f">getProp</span>(<span class="s">"Result"</span>)                      <span class="c"># the Result of a Task&lt;T&gt;</span></code></pre></div>
+? oResult.Result                                 <span class="c"># the Result of a Task&lt;T&gt;</span></code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>Ring code runs on the Ring thread only. A callback invoked from a pool thread prints a message on stderr instead. Use tasks for pure .NET work (HTTP, files, hashing), then <code>Wait()</code> for them on the Ring thread.</p></div>
 <h2 id="a-bigger-example">A bigger example<a class="anchor" href="#a-bigger-example">#</a></h2>
 <p><code>samples/UsingDotNet/introduction/test16_forms_app.ring</code> and <code>demo_todo.ring</code> combine collections, files, JSON and a form. For complete programs see <a href="gallery-apps.html">Applications</a>.</p>

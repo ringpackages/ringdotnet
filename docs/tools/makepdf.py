@@ -98,6 +98,9 @@ img { max-width: 100%; break-inside: avoid; }
 figure, .shot { break-inside: avoid; }
 h1, h2, h3 { break-after: avoid; }
 .callout { break-inside: avoid; }
+.code.keep { break-inside: avoid; }
+.code .bar { break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
 .cards { display: block !important; }
 .cards .card { display: block !important; margin: 2px 0; padding: 2px 0; box-shadow: none !important; border: 0 !important; background: none !important; }
 .hero .btns { display: none; }
@@ -125,7 +128,9 @@ def main():
 <base href="../"><link rel="stylesheet" href="assets/style.css"><style>%s</style></head><body>
 <section class="cover"><h1>RingDotNet</h1><p>Use .NET classes and methods from Ring programs</p><p style="margin-top:22px;font-size:15px">Documentation: overview, tutorials, guides and reference. The class reference (one page for each namespace) is only in the HTML documentation.</p></section>
 <section class="doc-contents"><h1>Contents</h1>%s</section>
-<main>%s</main></body></html>""" % (CSS, "".join(toc), "".join(parts))
+<main>%s</main>
+<script>/* a short code block stays on one page; a long one may be split */
+document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 480) { c.classList.add('keep'); } });</script></body></html>""" % (CSS, "".join(toc), "".join(parts))
     page = os.path.join(OUT, "RingDotNet-documentation.html")
     open(page, "w", encoding="utf-8").write(doc)
     pdf = os.path.join(OUT, "RingDotNet-documentation.pdf")

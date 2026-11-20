@@ -46,7 +46,7 @@ The others keep their name: `Window`, `Grid`, `StackPanel`, `Canvas`, `Slider`, 
 | `wpfXaml(text)` | the objects of a XAML text |
 | `wpfFind(root, name)` | an element by its `x:Name` |
 | `wpfRun(window)` | shows the window and runs the message loop |
-| `wpfTest(window, code)`, `wpfEnd()` | self test (`--selftest`) |
+| `wpfRun(window)` with `--selftest` | runs the checks of `selftest/<program>.ring` (as for Windows Forms); `wpfTest(window, code)` and `wpfEnd()` do the same steps by hand |
 | `wpfPixel(element, w, h, x, y)` | the color of a pixel of a rendered element (tests) |
 
 ## XAML

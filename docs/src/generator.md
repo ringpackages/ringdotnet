@@ -1,6 +1,6 @@
 ---
 title: Class generator
-lead: How the wrapper classes are made, how to add namespaces, closed generic types and overload preferences, and how to regenerate them.
+lead: How the wrapper classes are made, how to add namespaces and closed generic types, how the overloads are named, and how to regenerate them.
 ---
 
 ## What the generator does
@@ -83,7 +83,8 @@ The generator names the methods of a class like this:
 Class StringBuilder from Object
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])
@@ -92,7 +93,7 @@ Class StringBuilder from Object
 		dnRequest("set",[self,"Length",P1])
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it.
+Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method makes its target from a **local copy** of the handle (`dn_nTarget`): the arguments of `new DotNetObject(...)` are read together with the new object, and a name that is an attribute of both objects (`nHandle`) could be looked up in the wrong one after an error that was caught. A property accessor passes `self`, so it needs no copy.
 
 ## Wrapping your own assembly
 

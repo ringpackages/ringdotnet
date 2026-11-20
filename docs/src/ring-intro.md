@@ -88,7 +88,7 @@ Some differences from other popular languages, as facts:
 | `"a" + 1` and `1 + "a"` the same | the left side decides |
 | methods overloaded by parameters | one function per name, with a fixed number of parameters |
 | `{ }` blocks | words in the first style (`ok`, `next`, `end`, `off`, `done`); braces are allowed too |
-| `string` is characters | text is **bytes** (UTF-8) |
+| `string` is characters | text is a sequence of **bytes** (any byte, usually UTF-8) |
 | references to objects | objects and lists are **copied** on assignment |
 | keywords are not case sensitive | `or`, `in`, `to`, `on`, `do`... also apply to names that spell them: `oR` is read as `or`, so a name like `oReader` is used instead |
 

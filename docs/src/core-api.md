@@ -44,7 +44,7 @@ using {
 
 ## Without wrapper classes
 
-Any type is usable without generated classes:
+Any type is usable without generated classes. The generated classes (`new X(...)`, `oObject.Method()`, braces) are the usual way to write code; these functions are for a type that has no class, or a constructor that `new` cannot choose:
 
 ```ring
 # a type, for static members
@@ -113,4 +113,4 @@ dnTestSummary()                         # prints "TESTS: n passed, m failed"
 
 - [Collections & LINQ](collections-linq.html): lists, dictionaries and queries.
 - [Callbacks & events](callbacks-events.html): passing Ring code to .NET.
-- The tutorial chapter [The basics](tutorials.html#the-basics) uses these functions step by step.
+- The tutorial [The generic functions](tut-160-generic-calls.html) shows when each of these functions is needed; the programs of the tutorials otherwise use the generated classes (`new`, the dot and braces).

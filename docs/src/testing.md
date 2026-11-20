@@ -28,7 +28,7 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 
 | Test file | Covers |
 |---|---|
-| `test_foundation.ring`, `test_runtime.ring` | the bridge: types, overloads, properties, enums, errors |
+| `test_foundation.ring`, `test_runtime.ring`, `test_after_error.ring` | the bridge: types, overloads, properties, enums, errors, a call after a caught error |
 | `test_collections.ring`, `test_linq.ring` | typed collections, LINQ |
 | `test_system.ring`, `test_io.ring`, `test_net.ring`, `test_services.ring` | the class library |
 | `test_access.ring` | Microsoft Access through ODBC (`System.Data.Odbc`): makes an `.accdb` file with ADOX, tables, parameters, NULL, Unicode, transactions. Windows with the 64-bit Access Database Engine only; it prints `SKIPPED` and passes anywhere else |

@@ -50,7 +50,7 @@ Other namespaces and any DLL: [Your own assemblies](own-assemblies.html).
 
 {{output:samples/UsingDotNet/introduction/test12_network.ring}}
 
-> [!TIP] For HTTP requests use `HttpClient`. Methods that return a `Task` give you an object: call `Wait()` and read `getProp("Result")`. A complete example is the self test of [`samples/UsingDotNet/applications/WebApi`](aspnet.html).
+> [!TIP] For HTTP requests use `HttpClient`. Methods that return a `Task` give you an object: call `Wait()` and read its property `Result`. A complete example is the self test of [`samples/UsingDotNet/applications/WebApi`](aspnet.html).
 
 ## Cryptography and globalization
 
@@ -100,7 +100,7 @@ oTask.Wait(NULL)
 ? oTask.IsCompleted
 
 oResult = new Task().FromResult("done")
-? oResult.getProp("Result")                      # the Result of a Task<T>
+? oResult.Result                                 # the Result of a Task<T>
 ```
 
 > [!NOTE] Ring code runs on the Ring thread only. A callback invoked from a pool thread prints a message on stderr instead. Use tasks for pure .NET work (HTTP, files, hashing), then `Wait()` for them on the Ring thread.

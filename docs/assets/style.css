@@ -44,7 +44,9 @@ body {
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-code, pre, kbd { font-family: "Cascadia Code", "JetBrains Mono", Consolas, "SF Mono", Menlo, monospace; }
+code, pre, kbd { font-family: "Cascadia Code", "JetBrains Mono", Consolas, "SF Mono", Menlo, monospace;
+  /* code is shown as it is written: != and >= must not turn into one sign */
+  font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 
 /* ---- top bar */
 .topbar {
