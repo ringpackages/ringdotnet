@@ -213,6 +213,28 @@ func dnCreate  cTypeName, aParameters
 # function wraps it as the generated class of the type; null is 0; any other answer is the list [1, answer] that dnFinish reads.
 func dnObj  dn_xInfo
 	if isstring(dn_xInfo)
+		dn_nBar = substr(dn_xInfo,"|")
+		if dn_nBar > 0
+			dn_cChain = substr(dn_xInfo,dn_nBar + 1)
+			dn_cFactory = aDotNetWrapCache[dn_cChain]
+			if dn_cFactory = ""
+				dn_cFactory = dnFindFactory(dn_cChain)
+				aDotNetWrapCache[dn_cChain] = dn_cFactory
+			ok
+			if dn_cFactory != "-"
+				# a ready object of the class (made once, with no handle) is copied: a copy is cheaper than new, which runs the class bodies
+				# and init of every parent class (a Button has about 110 attributes)
+				dn_oObject = aDotNetPrototypes[dn_cFactory]
+				if not isobject(dn_oObject)
+					dnMakePrototype(dn_cFactory)
+					dn_oObject = aDotNetPrototypes[dn_cFactory]
+				ok
+				dn_nHandle = number(left(dn_xInfo,dn_nBar - 1))
+				dn_oObject.nHandle = dn_nHandle
+				dn_oObject.oDotNetGuard = dotnet_guard(dn_nHandle)          # this object owns the handle: it is released when the last copy is gone
+				return dn_oObject
+			ok
+		ok
 		dnWrapInto(dn_xInfo)
 		dn_oObject = oDotNetNew          # a copy: the next wrapped object replaces oDotNetNew, and a method of this object may be running (a global that is replaced while
 		oDotNetNew = ""          # its method runs is an error). The global must not keep the object alive: it owns the handle
@@ -222,6 +244,16 @@ func dnObj  dn_xInfo
 		return new DotNetObject(0)
 	ok
 	return dnFinish(dn_xInfo[2])
+
+# Make the ready object of the class of a factory function (no handle, no guard) once, and keep it in aDotNetPrototypes
+func dnMakePrototype  dn_cFactory
+	nDotNetWrapHandle = -1          # a handle that is not released (the guard of a negative handle queues nothing)
+	call dn_cFactory()
+	dn_oProto = oDotNetNew
+	oDotNetNew = ""
+	dn_oProto.oDotNetGuard = ""
+	dn_oProto.nHandle = 0
+	aDotNetPrototypes[dn_cFactory] = dn_oProto
 
 # The answer of dotnet_calla (any answer): the extension answers a text, a number or a yes/no itself and an object as the list [2, "<handle>|<type>..."]
 func dnAny  dn_aAnswer
