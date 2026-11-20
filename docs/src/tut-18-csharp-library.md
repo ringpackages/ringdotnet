@@ -64,7 +64,7 @@ Open `Greeter/classes/Tutorial.Greetings/Greeter.ring`: it is a plain Ring class
 
 ## Using a NuGet package
 
-A package is a set of `.dll` files. Download it (or copy it from `~/.nuget/packages`), put the DLLs together, and follow the same steps: `wrapassembly.ring`, `dnLoad`, `dnImportFrom`. See [Your own assemblies](own-assemblies.html).
+A package is a set of `.dll` files, and the .NET SDK can get it and its dependencies for you with a project file and `dotnet publish`. The tutorial [A NuGet package](tut-162-nuget.html) shows it for a real package, and then the steps are the same: `wrapassembly.ring`, `dnLoad`, `dnImportFrom`. See also [Your own assemblies](own-assemblies.html).
 
 ## What you learned
 

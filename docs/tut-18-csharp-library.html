@@ -204,6 +204,7 @@
 <a href="tut-18-csharp-library.html" class="cur">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-162-nuget.html">A NuGet package</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -370,7 +371,7 @@ The event ran 1 time(s)</code></pre></div>
 <h3 id="what-the-wrapper-made">What the wrapper made<a class="anchor" href="#what-the-wrapper-made">#</a></h3>
 <p>Open <code>Greeter/classes/Tutorial.Greetings/Greeter.ring</code>: it is a plain Ring class with one method per C# method. Nothing is hidden.</p>
 <h2 id="using-a-nuget-package">Using a NuGet package<a class="anchor" href="#using-a-nuget-package">#</a></h2>
-<p>A package is a set of <code>.dll</code> files. Download it (or copy it from <code>~/.nuget/packages</code>), put the DLLs together, and follow the same steps: <code>wrapassembly.ring</code>, <code>dnLoad</code>, <code>dnImportFrom</code>. See <a href="own-assemblies.html">Your own assemblies</a>.</p>
+<p>A package is a set of <code>.dll</code> files, and the .NET SDK can get it and its dependencies for you with a project file and <code>dotnet publish</code>. The tutorial <a href="tut-162-nuget.html">A NuGet package</a> shows it for a real package, and then the steps are the same: <code>wrapassembly.ring</code>, <code>dnLoad</code>, <code>dnImportFrom</code>. See also <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>wrap → load → use,</li><li>C# properties, overloads, statics, <code>out</code>, events and enums map to Ring as shown,</li><li>you can use any .NET library without writing C#.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

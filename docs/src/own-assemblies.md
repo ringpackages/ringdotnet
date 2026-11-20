@@ -60,16 +60,19 @@ The generated classes support the same things as the built-in ones: real inherit
 
 ## NuGet packages
 
-A NuGet package is a set of DLL files. Copy the DLLs of the package (for example from `~/.nuget/packages/<name>/<version>/lib/net8.0/`) and the DLLs it depends on next to each other, then wrap and load as above:
+A NuGet package is a set of DLL files. Let the .NET SDK collect them: a project file with a `PackageReference` and `dotnet publish -o libs` copy the package and the DLLs it depends on into one folder. Then wrap and load as above:
 
 ```bash
-ring wrapassembly.ring Newtonsoft.Json.dll ../../json
+ring wrapassembly.ring libs/Newtonsoft.Json.dll ../../json
 ```
 
 ```ring
-dnLoad("Newtonsoft.Json.dll")
+dnLoad("libs/Newtonsoft.Json.dll")
+dnImportFrom("json/","Newtonsoft.Json.Linq")      # a namespace that needs another namespace of the same DLL loads it from the same folder
 dnImportFrom("json/","Newtonsoft.Json")
 ```
+
+The tutorial [A NuGet package](tut-162-nuget.html) walks through this with a real package.
 
 Entity Framework Core is wrapped the same way — that is how its classes were generated.
 

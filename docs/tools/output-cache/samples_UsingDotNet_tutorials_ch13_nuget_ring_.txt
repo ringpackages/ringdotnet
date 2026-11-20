@@ -1,0 +1,32 @@
+name    : Ann
+age     : 31
+city    : Cairo
+tags    : 2
+
+the document with the new property:
+{
+
+  "name": "Ann",
+
+  "age": 31,
+
+  "tags": [
+
+    "ring",
+
+    "dotnet"
+
+  ],
+
+  "address": {
+
+    "city": "Cairo"
+
+  },
+
+  "country": "Egypt"
+
+}
+
+a text as JSON   : "a b"
+a number as JSON : 42.0

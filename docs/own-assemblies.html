@@ -204,6 +204,7 @@
 <a href="tut-18-csharp-library.html">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-162-nuget.html">A NuGet package</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -351,10 +352,12 @@ oCounter.<span class="f">Add</span>(<span class="n">2</span>)
 
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>
-<p>A NuGet package is a set of DLL files. Copy the DLLs of the package (for example from <code>~/.nuget/packages/&lt;name&gt;/&lt;version&gt;/lib/net8.0/</code>) and the DLLs it depends on next to each other, then wrap and load as above:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring wrapassembly.ring Newtonsoft.Json.dll ../../json</code></pre></div>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnLoad</span>(<span class="s">"Newtonsoft.Json.dll"</span>)
+<p>A NuGet package is a set of DLL files. Let the .NET SDK collect them: a project file with a <code>PackageReference</code> and <code>dotnet publish -o libs</code> copy the package and the DLLs it depends on into one folder. Then wrap and load as above:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring wrapassembly.ring libs/Newtonsoft.Json.dll ../../json</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnLoad</span>(<span class="s">"libs/Newtonsoft.Json.dll"</span>)
+<span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json.Linq"</span>)      <span class="c"># a namespace that needs another namespace of the same DLL loads it from the same folder</span>
 <span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json"</span>)</code></pre></div>
+<p>The tutorial <a href="tut-162-nuget.html">A NuGet package</a> walks through this with a real package.</p>
 <p>Entity Framework Core is wrapped the same way — that is how its classes were generated.</p>
 <h2 id="which-namespaces-to-wrap">Which namespaces to wrap<a class="anchor" href="#which-namespaces-to-wrap">#</a></h2>
 <p><code>wrapassembly.ring &lt;dll&gt; &lt;folder&gt; [namespace ...]</code> wraps only the namespaces you list. Without names, every namespace of the assembly is wrapped.</p>
