@@ -88,10 +88,10 @@ func request cMethod, cPath, cBody
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return [statusNumber(oResponse.StatusCode),oBody.getProp("Result")]
+	return [statusNumber(oResponse.StatusCode),oBody.Result]
 
 # enums are strings: the status names the example uses
 func statusNumber cName

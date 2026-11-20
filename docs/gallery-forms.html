@@ -645,7 +645,7 @@ oTimer.<span class="f">Start</span>()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">tick</span>
-	oNow = <span class="f">dnType</span>(<span class="s">"System.DateTime"</span>).<span class="f">getProp</span>(<span class="s">"Now"</span>)
+	oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).Now
 	oClock.Text = oNow.<span class="f">Format</span>(<span class="s">"HH:mm:ss"</span>)</code></pre></div></details></div></div><div class="item" id="splitcontainer"><div class="pic"><img src="img/shots/forms-19_splitcontainer.png" alt="Splitcontainer" loading="lazy"></div><div class="info"><h3>Splitcontainer</h3><p>A split container with two panels</p><div class="run"><code>ring samples/UsingDotNet/Forms/19_splitcontainer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A split container with two panels</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -757,7 +757,7 @@ oPanel = <span class="f">uiPanel</span>(oForm,<span class="n">15</span>,<span cl
 oPanel.BackColor = <span class="f">uiColor</span>(<span class="s">"Lavender"</span>)
 oMenu = <span class="k">new</span> <span class="t">ContextMenuStrip</span>()
 <span class="k">for</span> cColor <span class="k">in</span> [<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>]
-	oItem = <span class="f">dnNew</span>(<span class="s">"ToolStripMenuItem"</span>,[ :text = cColor ])
+	oItem = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_</span>([ :text = cColor ])
 	oItem.<span class="f">setClickEvent</span>(<span class="s">"oPanel.BackColor = uiColor('"</span> + cColor + <span class="s">"')"</span>)
 	oMenu.Items.<span class="f">Add</span>(oItem)
 <span class="k">next</span>

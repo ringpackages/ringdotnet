@@ -66,6 +66,6 @@ func twoDigits n
 	return cText
 
 func tick
-	oNow = dnType("System.DateTime").getProp("Now")
+	oNow = new DateTime(2000,1,1).Now
 	drawClock(oNow.Hour,oNow.Minute,oNow.Second)
 	oDigital.Text = twoDigits(oNow.Hour) + ":" + twoDigits(oNow.Minute) + ":" + twoDigits(oNow.Second)

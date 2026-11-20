@@ -35,12 +35,12 @@ func factsOf oDate
 	cText += "Day of the year: " + oDate.DayOfYear + nl
 	cText += "ISO week: " + new ISOWeek().GetWeekOfYear(oDate) + nl
 	cText += "Days left in the year: " + floor(oEndOfYear.Subtract(oDate).TotalDays) + nl
-	if dnStatic("System.DateTime","IsLeapYear",[nYear])
+	if new DateTime(2000,1,1).IsLeapYear(nYear)
 		cText += "Leap year: yes" + nl
 	else
 		cText += "Leap year: no" + nl
 	ok
-	cText += "Days in the month: " + dnStatic("System.DateTime","DaysInMonth",[nYear,oDate.Month]) + nl
+	cText += "Days in the month: " + new DateTime(2000,1,1).DaysInMonth(nYear,oDate.Month) + nl
 	cText += "Quarter: " + (floor((oDate.Month - 1) / 3) + 1)
 	return cText
 

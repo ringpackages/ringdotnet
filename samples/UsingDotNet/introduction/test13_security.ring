@@ -11,7 +11,7 @@ using {
 oConvert = new Convert()
 ? "SHA256(abc)    : " + lower(oConvert.ToHexString(new SHA256().HashData("abc")))
 ? "MD5(abc)       : " + lower(oConvert.ToHexString(new MD5().HashData("abc")))
-oHmac = dnNew("HMACSHA256",[ :key = "secret key" ])
+oHmac = new HMACSHA256().New_([ :key = "secret key" ])
 ? "HMAC           : " + left(lower(oConvert.ToHexString(oHmac.ComputeHash("message"))),32) + "..."
 
 # AES encryption round trip

@@ -384,7 +384,7 @@ oContext.Response.OutputStream.<span class="f">Write</span>(aBytes,<span class="
 oContext.Response.<span class="f">Close</span>(<span class="k">NULL</span>)
 
 oRequest.<span class="f">Wait</span>(<span class="k">NULL</span>)
-? <span class="s">"Response       : "</span> + oRequest.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+? <span class="s">"Response       : "</span> + oRequest.Result
 oServer.<span class="f">Stop</span>()
 
 <span class="c"># URL and address helpers</span>
@@ -413,7 +413,7 @@ using {
 oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 ? <span class="s">"SHA256(abc)    : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
 ? <span class="s">"MD5(abc)       : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">MD5</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
-oHmac = <span class="f">dnNew</span>(<span class="s">"HMACSHA256"</span>,[ :key = <span class="s">"secret key"</span> ])
+oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_</span>([ :key = <span class="s">"secret key"</span> ])
 ? <span class="s">"HMAC           : "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(oHmac.<span class="f">ComputeHash</span>(<span class="s">"message"</span>))),<span class="n">32</span>) + <span class="s">"..."</span>
 
 <span class="c"># AES encryption round trip</span>
@@ -533,7 +533,7 @@ nFactorial = oBig.<span class="f">Parse</span>(<span class="s">"1"</span>)
 <span class="k">next</span>
 ? <span class="s">"40!            : "</span> + nFactorial.<span class="f">ToString</span>()
 ? <span class="s">"2^200          : "</span> + oBig.<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">200</span>).<span class="f">ToString</span>()
-oZ = <span class="f">dnNew</span>(<span class="s">"Complex"</span>,[ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
+oZ = <span class="k">new</span> <span class="t">Complex</span>().<span class="f">New_</span>([ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
 ? <span class="s">"|3+4i|         : "</span> + oZ.Magnitude
 
 <span class="c"># Reflection: explore a type</span>

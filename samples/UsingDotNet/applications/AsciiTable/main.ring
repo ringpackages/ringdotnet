@@ -65,7 +65,7 @@ func fillTable
 		ok
 		cRow = "" + nCode + " " + lower(cHex) + " " + lower(cName)
 		if cFilter = "" or substr(cRow,cFilter)
-			oItem = dnNew("ListViewItem",[ :text = "" + nCode ])
+			oItem = new ListViewItem().New_([ :text = "" + nCode ])
 			oItem.SubItems.Add(cHex)
 			oItem.SubItems.Add(binary(nCode))
 			oItem.SubItems.Add(cName)

@@ -17,7 +17,7 @@ for nLoop = 2 to 40
 next
 ? "40!            : " + nFactorial.ToString()
 ? "2^200          : " + oBig.Pow(2,200).ToString()
-oZ = dnNew("Complex",[ :real = 3, :imaginary = 4 ])
+oZ = new Complex().New_([ :real = 3, :imaginary = 4 ])
 ? "|3+4i|         : " + oZ.Magnitude
 
 # Reflection: explore a type

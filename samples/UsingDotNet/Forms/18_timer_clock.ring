@@ -21,5 +21,5 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func tick
-	oNow = dnType("System.DateTime").getProp("Now")
+	oNow = new DateTime(2000,1,1).Now
 	oClock.Text = oNow.Format("HH:mm:ss")

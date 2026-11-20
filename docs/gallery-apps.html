@@ -416,7 +416,7 @@ oTimer.<span class="f">Start</span>()
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">tick</span>
-	oNow = <span class="f">dnType</span>(<span class="s">"System.DateTime"</span>).<span class="f">getProp</span>(<span class="s">"Now"</span>)
+	oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).Now
 	drawClock(oNow.Hour,oNow.Minute,oNow.Second)
 	oDigital.Text = twoDigits(oNow.Hour) + <span class="s">":"</span> + twoDigits(oNow.Minute) + <span class="s">":"</span> + twoDigits(oNow.Second)</code></pre></div></details></div></div><div class="item" id="ascii-table"><div class="pic"><img src="img/shots/app-AsciiTable.png" alt="Ascii Table" loading="lazy"></div><div class="info"><h3>Ascii Table</h3><p>ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</p><div class="run"><code>cd samples/UsingDotNet/applications/AsciiTable  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</span>
 
@@ -485,7 +485,7 @@ fillTable()
 		<span class="k">ok</span>
 		cRow = <span class="s">""</span> + nCode + <span class="s">" "</span> + lower(cHex) + <span class="s">" "</span> + lower(cName)
 		<span class="k">if</span> cFilter = <span class="s">""</span> <span class="k">or</span> substr(cRow,cFilter)
-			oItem = <span class="f">dnNew</span>(<span class="s">"ListViewItem"</span>,[ :text = <span class="s">""</span> + nCode ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = <span class="s">""</span> + nCode ])
 			oItem.SubItems.<span class="f">Add</span>(cHex)
 			oItem.SubItems.<span class="f">Add</span>(binary(nCode))
 			oItem.SubItems.<span class="f">Add</span>(cName)
@@ -792,12 +792,12 @@ showFacts()
 	cText += <span class="s">"Day of the year: "</span> + oDate.DayOfYear + nl
 	cText += <span class="s">"ISO week: "</span> + <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetWeekOfYear</span>(oDate) + nl
 	cText += <span class="s">"Days left in the year: "</span> + floor(oEndOfYear.<span class="f">Subtract</span>(oDate).TotalDays) + nl
-	<span class="k">if</span> <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"IsLeapYear"</span>,[nYear])
+	<span class="k">if</span> <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">IsLeapYear</span>(nYear)
 		cText += <span class="s">"Leap year: yes"</span> + nl
 	<span class="k">else</span>
 		cText += <span class="s">"Leap year: no"</span> + nl
 	<span class="k">ok</span>
-	cText += <span class="s">"Days in the month: "</span> + <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"DaysInMonth"</span>,[nYear,oDate.Month]) + nl
+	cText += <span class="s">"Days in the month: "</span> + <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">DaysInMonth</span>(nYear,oDate.Month) + nl
 	cText += <span class="s">"Quarter: "</span> + (floor((oDate.Month - <span class="n">1</span>) / <span class="n">3</span>) + <span class="n">1</span>)
 	<span class="k">return</span> cText
 
@@ -1482,7 +1482,7 @@ oTree {
 	<span class="k">try</span>
 		<span class="k">for</span> cFile <span class="k">in</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>()
 			oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
-			oItem = <span class="f">dnNew</span>(<span class="s">"ListViewItem"</span>,[ :text = oInfo.Name ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = oInfo.Name ])
 			oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
 			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
 			oList.Items.<span class="f">Add</span>(oItem)
@@ -2211,7 +2211,7 @@ calculate()
 		nBalance -= nPrincipal
 		nTotalInterest += nInterestPart
 		<span class="k">if</span> nMonth &lt;= <span class="n">12</span>
-			oItem = <span class="f">dnNew</span>(<span class="s">"ListViewItem"</span>,[ :text = <span class="s">""</span> + nMonth ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = <span class="s">""</span> + nMonth ])
 			oItem.SubItems.<span class="f">Add</span>(money(nPayment))
 			oItem.SubItems.<span class="f">Add</span>(money(nInterestPart))
 			oItem.SubItems.<span class="f">Add</span>(money(nPrincipal))
@@ -2480,7 +2480,7 @@ oInfo.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<sp
 	oButton = <span class="f">uiButton</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + nColumn * C_SIZE,<span class="n">44</span> + nRow * C_SIZE,C_SIZE,C_SIZE,<span class="s">""</span>)
 	oButton {
 		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
-		Margin = <span class="f">dnNew</span>(<span class="s">"Padding"</span>,[ :all = <span class="n">0</span> ])
+		Margin = <span class="k">new</span> <span class="t">Padding</span>().<span class="f">New_</span>([ :all = <span class="n">0</span> ])
 		setMouseUpEvent(<span class="s">"cellClicked("</span> + nCell + <span class="s">",aDotNetArgs[2].Button)"</span>)
 	}
 	aButtons + oButton

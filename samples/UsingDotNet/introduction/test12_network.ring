@@ -29,7 +29,7 @@ oContext.Response.OutputStream.Write(aBytes,0,len(aBytes))
 oContext.Response.Close(NULL)
 
 oRequest.Wait(NULL)
-? "Response       : " + oRequest.getProp("Result")
+? "Response       : " + oRequest.Result
 oServer.Stop()
 
 # URL and address helpers

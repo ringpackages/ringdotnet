@@ -91,8 +91,8 @@ oProcess = new Process().Start([ :startInfo = oInfo ])        # by name
 oSB = new StringBuilder("a")
 oSB.Append([ :value = "b" ])
 
-oSB = dnNew("StringBuilder",[ :value = "Hello" ])             # a constructor chosen by names
-oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
+oZ = new Complex().New_([ :real = 3, :imaginary = 4 ])         # a constructor chosen by names
+oSB = dnNew("StringBuilder",[ :value = "Hello" ])             # the same with the generic function (it names the class as a text)
 ```
 
 Rules and limits:

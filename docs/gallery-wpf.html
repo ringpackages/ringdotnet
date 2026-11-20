@@ -315,7 +315,7 @@ oSlider = <span class="k">new</span> <span class="t">Slider</span>() {
 }
 oText = <span class="k">new</span> <span class="t">WpfTextBox</span>()
 oText.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>)
-oBinding = <span class="f">dnNew</span>(<span class="s">"WpfBinding"</span>,[ :path = <span class="s">"Value"</span> ])
+oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])
 oBinding.Source = oSlider
 oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)
 oPanel {
