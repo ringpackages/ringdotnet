@@ -36,6 +36,9 @@ oCalc.setChangedEvent("nEvents++")
 oCalc.Add(1)
 dnAssert("user event",nEvents,1)
 
+# a parameter of the type System.Enum does not say which enum it is: the text gives the full name of the member
+dnAssert("a System.Enum parameter takes the full name of an enum member",new Calculator().EnumName("MyCompany.Tools.Level.High"),"Level.High")
+
 # a class that is not public comes back as the interface named after it (IBox), and an interface has the members of the interfaces it inherits
 oBox = new Shapes().NewBox(3)
 dnAssert("a non-public class is wrapped as the interface named after it",classname(oBox),"ibox")

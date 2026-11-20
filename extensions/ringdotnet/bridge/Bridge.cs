@@ -1240,6 +1240,24 @@ namespace RingDotNet
 			}
 			if (v is string s)
 			{
+				if (ut == typeof(Enum))
+				{
+					/* a parameter of the type System.Enum (Humanize(Enum value)) does not say which enum: the text gives the full name of the member,
+					   "System.DayOfWeek.Friday" */
+					int dot = s.LastIndexOf('.');
+					if (dot > 0)
+					{
+						Type enumType = null;
+						try { enumType = ResolveSimple(s.Substring(0, dot)); } catch (Exception) { }
+						if (enumType != null && enumType.IsEnum && Enum.TryParse(enumType, s.Substring(dot + 1), true, out object member))
+						{
+							result = member;
+							score = 1;
+							return true;
+						}
+					}
+					return false;
+				}
 				if (ut.IsEnum)
 				{
 					/* TryParse: a text that is not a name of this enum is common while overloads are compared, and an exception is slow */
