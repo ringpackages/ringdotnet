@@ -190,10 +190,10 @@ Class AuthenticationHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getScheme
 		return dnSend("s3:get",nHandle,"s6:Scheme","")
@@ -248,10 +248,10 @@ Class CacheControlHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNoCache
 		return dnSend("s3:get",nHandle,"s7:NoCache","")
@@ -390,10 +390,10 @@ Class ContentDispositionHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getDispositionType
 		return dnSend("s3:get",nHandle,"s15:DispositionType","")
@@ -497,10 +497,10 @@ Class ContentRangeHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
 		return dnSend("s3:get",nHandle,"s4:Unit","")
@@ -576,10 +576,10 @@ Class EntityTagHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getTag
 		return dnSend("s3:get",nHandle,"s3:Tag","")
@@ -594,7 +594,7 @@ Class EntityTagHeaderValue from Object
 		raise("DotNet Error: IsWeak is a read-only property")
 
 	Func getAny
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http').nHandle,"s3:Any","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s3:Any","")
 
 	Func setAny P1
 		raise("DotNet Error: Any is a read-only property")
@@ -758,10 +758,10 @@ Class MediaTypeHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getCharSet
 		return dnSend("s3:get",nHandle,"s7:CharSet","")
@@ -819,10 +819,10 @@ Class NameValueHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -873,10 +873,10 @@ Class ProductHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -926,10 +926,10 @@ Class ProductInfoHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getProduct
 		return dnSend("s3:get",nHandle,"s7:Product","")
@@ -964,10 +964,10 @@ Class RangeConditionHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getDate
 		return dnSend("s3:get",nHandle,"s4:Date","")
@@ -1025,10 +1025,10 @@ Class RangeHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
 		return dnSend("s3:get",nHandle,"s4:Unit","")
@@ -1096,10 +1096,10 @@ Class RetryConditionHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getDate
 		return dnSend("s3:get",nHandle,"s4:Date","")
@@ -1149,10 +1149,10 @@ Class StringWithQualityHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1187,10 +1187,10 @@ Class TransferCodingHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1242,10 +1242,10 @@ Class ViaHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getProtocolName
 		return dnSend("s3:get",nHandle,"s12:ProtocolName","")
@@ -1309,10 +1309,10 @@ Class WarningHeaderValue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getCode
 		return dnSend("s3:get",nHandle,"s4:Code","")
@@ -1882,10 +1882,10 @@ Class MediaTypeWithQualityHeaderValue from MediaTypeHeaderValue
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getQuality
 		return dnSend("s3:get",nHandle,"s7:Quality","")
@@ -1926,10 +1926,10 @@ Class NameValueWithParametersHeaderValue from NameValueHeaderValue
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getParameters
 		return dnSend("s3:get",nHandle,"s10:Parameters","")
@@ -1969,10 +1969,10 @@ Class TransferCodingWithQualityHeaderValue from TransferCodingHeaderValue
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getQuality
 		return dnSend("s3:get",nHandle,"s7:Quality","")

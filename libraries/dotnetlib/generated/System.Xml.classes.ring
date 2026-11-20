@@ -334,122 +334,122 @@ Class XmlConvert from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func EncodeName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:EncodeName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:EncodeName",dnPackItem(P1))
 
 	Func EncodeNmToken P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s13:EncodeNmToken",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:EncodeNmToken",dnPackItem(P1))
 
 	Func EncodeLocalName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s15:EncodeLocalName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s15:EncodeLocalName",dnPackItem(P1))
 
 	Func DecodeName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:DecodeName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:DecodeName",dnPackItem(P1))
 
 	Func VerifyName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:VerifyName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:VerifyName",dnPackItem(P1))
 
 	Func VerifyNCName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s12:VerifyNCName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:VerifyNCName",dnPackItem(P1))
 
 	Func VerifyTOKEN P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s11:VerifyTOKEN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s11:VerifyTOKEN",dnPackItem(P1))
 
 	Func VerifyNMTOKEN P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s13:VerifyNMTOKEN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:VerifyNMTOKEN",dnPackItem(P1))
 
 	Func VerifyXmlChars P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:VerifyXmlChars",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyXmlChars",dnPackItem(P1))
 
 	Func VerifyPublicId P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:VerifyPublicId",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyPublicId",dnPackItem(P1))
 
 	Func VerifyWhitespace P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:VerifyWhitespace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:VerifyWhitespace",dnPackItem(P1))
 
 	Func IsStartNCNameChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s17:IsStartNCNameChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s17:IsStartNCNameChar",dnPackItem(P1))
 
 	Func IsNCNameChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s12:IsNCNameChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:IsNCNameChar",dnPackItem(P1))
 
 	Func IsXmlChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:IsXmlChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:IsXmlChar",dnPackItem(P1))
 
 	Func IsXmlSurrogatePair P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s18:IsXmlSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s18:IsXmlSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsPublicIdChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:IsPublicIdChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:IsPublicIdChar",dnPackItem(P1))
 
 	Func IsWhitespaceChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:IsWhitespaceChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:IsWhitespaceChar",dnPackItem(P1))
 
 	Func ToBoolean P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:ToBoolean",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToBoolean",dnPackItem(P1))
 
 	Func ToChar P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToChar",dnPackItem(P1))
 
 	Func ToDecimal P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:ToDecimal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToDecimal",dnPackItem(P1))
 
 	Func ToSByte P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToSByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToSByte",dnPackItem(P1))
 
 	Func ToInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt16",dnPackItem(P1))
 
 	Func ToInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt64",dnPackItem(P1))
 
 	Func ToByte P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToByte",dnPackItem(P1))
 
 	Func ToUInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToUInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToUInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToSingle",dnPackItem(P1))
 
 	Func ToDouble P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToDouble",dnPackItem(P1))
 
 	Func ToTimeSpan P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToTimeSpan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:ToTimeSpan",dnPackItem(P1))
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToDateTime",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:ToDateTime",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToDateTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:ToDateTime",dnPackItem(P1))
 
 	Func ToDateTimeOffset P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:ToDateTimeOffset",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:ToDateTimeOffset",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:ToDateTimeOffset",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:ToDateTimeOffset",dnPackItem(P1))
 
 	Func ToGuid P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToGuid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToGuid",dnPackItem(P1))
 
 
 Class XmlImplementation from Object
@@ -1118,7 +1118,7 @@ Class XmlQualifiedName from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlQualifiedName, System.Private.Xml'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
@@ -1146,7 +1146,7 @@ Class XmlQualifiedName from Object
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.XmlQualifiedName, System.Private.Xml'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1492,16 +1492,16 @@ Class XmlReader from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsName P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:IsName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:IsName",dnPackItem(P1))
 
 	Func IsNameToken P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s11:IsNameToken",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s11:IsNameToken",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:Create",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1873,13 +1873,13 @@ Class XmlResolver from Object
 		return self
 
 	Func getFileSystemResolver
-		return dnSend("s3:get",dnTypeCached('System.Xml.XmlResolver, System.Private.Xml').nHandle,"s18:FileSystemResolver","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.XmlResolver, System.Private.Xml'),"s18:FileSystemResolver","")
 
 	Func setFileSystemResolver P1
 		raise("DotNet Error: FileSystemResolver is a read-only property")
 
 	Func getThrowingResolver
-		return dnSend("s3:get",dnTypeCached('System.Xml.XmlResolver, System.Private.Xml').nHandle,"s16:ThrowingResolver","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.XmlResolver, System.Private.Xml'),"s16:ThrowingResolver","")
 
 	Func setThrowingResolver P1
 		raise("DotNet Error: ThrowingResolver is a read-only property")
@@ -2149,9 +2149,9 @@ Class XmlWriter from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlWriter, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlWriter, System.Private.Xml'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XmlWriter, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlWriter, System.Private.Xml'),"s6:Create",dnPackItem(P1))
 
 	Func getSettings
 		return dnSend("s3:get",nHandle,"s8:Settings","")

@@ -240,19 +240,19 @@ Class Environments from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDevelopment
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s11:Development","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s11:Development","")
 
 	Func setDevelopment P1
 		raise("DotNet Error: Development is a read-only property")
 
 	Func getStaging
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s7:Staging","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s7:Staging","")
 
 	Func setStaging P1
 		raise("DotNet Error: Staging is a read-only property")
 
 	Func getProduction
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s10:Production","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s10:Production","")
 
 	Func setProduction P1
 		raise("DotNet Error: Production is a read-only property")
@@ -274,7 +274,7 @@ Class GenericHostBuilderExtensions from Object
 
 	Func ConfigureWebHostDefaults P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore').nHandle,"s24:ConfigureWebHostDefaults",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"s24:ConfigureWebHostDefaults",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConfigureWebHostDefaults does not take one argument: use named arguments, ConfigureWebHostDefaults([ :parameter = value, ... ])")
 
@@ -295,12 +295,12 @@ Class GenericHostWebHostBuilderExtensions from Object
 
 	Func ConfigureWebHost P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s16:ConfigureWebHost",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"s16:ConfigureWebHost",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConfigureWebHost does not take one argument: use named arguments, ConfigureWebHost([ :parameter = value, ... ])")
 
 	Func ConfigureSlimWebHost P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s20:ConfigureSlimWebHost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"s20:ConfigureSlimWebHost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class Host from Object
@@ -319,24 +319,24 @@ Class Host from Object
 
 	Func CreateDefaultBuilder P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s20:CreateDefaultBuilder",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s20:CreateDefaultBuilder","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s20:CreateDefaultBuilder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder",dnPackItem(P1))
 
 	Func CreateApplicationBuilder P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s24:CreateApplicationBuilder",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s24:CreateApplicationBuilder","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s24:CreateApplicationBuilder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder",dnPackItem(P1))
 
 	Func CreateEmptyApplicationBuilder P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting').nHandle,"s29:CreateEmptyApplicationBuilder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s29:CreateEmptyApplicationBuilder",dnPackItem(P1))
 
 
 Class HostApplicationBuilder from Object
@@ -609,19 +609,19 @@ Class HostDefaults from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getApplicationKey
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s14:ApplicationKey","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ApplicationKey","")
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getEnvironmentKey
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s14:EnvironmentKey","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:EnvironmentKey","")
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getContentRootKey
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s14:ContentRootKey","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ContentRootKey","")
 
 	Func setContentRootKey P1
 		raise("DotNet Error: ContentRootKey is a read-only property")
@@ -642,16 +642,16 @@ Class HostEnvironmentEnvExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsDevelopment P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s13:IsDevelopment",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",dnPackItem(P1))
 
 	Func IsStaging P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s9:IsStaging",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",dnPackItem(P1))
 
 	Func IsProduction P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s12:IsProduction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",dnPackItem(P1))
 
 	Func IsEnvironment P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s13:IsEnvironment",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HostOptions from Object
@@ -734,13 +734,13 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Start P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s5:Start",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",dnPackItem(P1))
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s10:StartAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s10:StartAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s10:StartAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s10:StartAsync",dnPackItem(P1))
 
 
 Class HostingAbstractionsHostExtensions from Object
@@ -758,31 +758,31 @@ Class HostingAbstractionsHostExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Start P1
-		dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s5:Start",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",dnPackItem(P1))
 		return self
 
 	Func StopAsync P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WaitForShutdown P1
-		dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s15:WaitForShutdown",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s15:WaitForShutdown",dnPackItem(P1))
 		return self
 
 	Func Run P1
-		dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s3:Run",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s3:Run",dnPackItem(P1))
 		return self
 
 	Func RunAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s8:RunAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s8:RunAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s8:RunAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s8:RunAsync",dnPackItem(P1))
 
 	Func WaitForShutdownAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s20:WaitForShutdownAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s20:WaitForShutdownAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s20:WaitForShutdownAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s20:WaitForShutdownAsync",dnPackItem(P1))
 
 
 Class AspHostingEnvironmentExtensions from Object
@@ -800,16 +800,16 @@ Class AspHostingEnvironmentExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsDevelopment P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s13:IsDevelopment",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",dnPackItem(P1))
 
 	Func IsStaging P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s9:IsStaging",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",dnPackItem(P1))
 
 	Func IsProduction P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s12:IsProduction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",dnPackItem(P1))
 
 	Func IsEnvironment P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s13:IsEnvironment",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HostingHostBuilderExtensions from Object
@@ -827,46 +827,46 @@ Class HostingHostBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseEnvironment P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s14:UseEnvironment",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s14:UseEnvironment",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseContentRoot P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s14:UseContentRoot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s14:UseContentRoot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseDefaultServiceProvider P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s25:UseDefaultServiceProvider",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s25:UseDefaultServiceProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureLogging P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s16:ConfigureLogging",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s16:ConfigureLogging",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureHostOptions P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s20:ConfigureHostOptions",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s20:ConfigureHostOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureAppConfiguration P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s25:ConfigureAppConfiguration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureServices P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s17:ConfigureServices",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s17:ConfigureServices",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureContainer P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s18:ConfigureContainer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:ConfigureContainer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureDefaults P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s17:ConfigureDefaults",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s17:ConfigureDefaults",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseConsoleLifetime P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s18:UseConsoleLifetime",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:UseConsoleLifetime",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s18:UseConsoleLifetime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:UseConsoleLifetime",dnPackItem(P1))
 
 	Func RunConsoleAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s15:RunConsoleAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s15:RunConsoleAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s15:RunConsoleAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s15:RunConsoleAsync",dnPackItem(P1))
 
 	Func ConfigureMetrics P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting').nHandle,"s16:ConfigureMetrics",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s16:ConfigureMetrics",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IHost from DotNetObject

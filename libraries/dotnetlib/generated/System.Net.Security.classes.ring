@@ -448,19 +448,19 @@ Class SslApplicationProtocol from ValueType
 		raise("DotNet Error: Protocol is a read-only property")
 
 	Func getHttp3
-		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s5:Http3","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"s5:Http3","")
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
 
 	Func getHttp2
-		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s5:Http2","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"s5:Http2","")
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp11
-		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s6:Http11","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"s6:Http11","")
 
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
@@ -482,15 +482,15 @@ Class SslCertificateTrust from Object
 
 	Func CreateForX509Store P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s18:CreateForX509Store",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s18:CreateForX509Store",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s18:CreateForX509Store",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s18:CreateForX509Store",dnPackItem(P1))
 
 	Func CreateForX509Collection P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s23:CreateForX509Collection",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s23:CreateForX509Collection",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s23:CreateForX509Collection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s23:CreateForX509Collection",dnPackItem(P1))
 
 
 Class SslClientAuthenticationOptions from Object
@@ -822,7 +822,7 @@ Class SslStreamCertificateContext from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 

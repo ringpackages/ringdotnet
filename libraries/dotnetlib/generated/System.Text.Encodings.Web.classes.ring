@@ -158,10 +158,10 @@ Class HtmlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -182,16 +182,16 @@ Class JavaScriptEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getUnsafeRelaxedJsonEscaping
-		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s25:UnsafeRelaxedJsonEscaping","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s25:UnsafeRelaxedJsonEscaping","")
 
 	Func setUnsafeRelaxedJsonEscaping P1
 		raise("DotNet Error: UnsafeRelaxedJsonEscaping is a read-only property")
@@ -211,10 +211,10 @@ Class UrlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")

@@ -892,7 +892,7 @@ Class Object from DotNetObject
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Object, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Object, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -902,7 +902,7 @@ Class Object from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func ReferenceEquals P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Object, System.Private.CoreLib').nHandle,"s15:ReferenceEquals",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Object, System.Private.CoreLib'),"s15:ReferenceEquals",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class Type from MemberInfo
@@ -992,14 +992,14 @@ Class Type from MemberInfo
 	Func GetType P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:GetType",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s7:GetType",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:GetType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s7:GetType","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:GetType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s7:GetType",dnPackItem(P1))
 
 	Func GetElementType 
 		return dnSend("s4:call",nHandle,"s14:GetElementType","")
@@ -1218,37 +1218,37 @@ Class Type from MemberInfo
 		return dnSend("s4:call",nHandle,"s16:IsAssignableFrom",dnPackItem(P1))
 
 	Func GetTypeFromHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s17:GetTypeFromHandle",dnPackItem(P1))
 
 	Func GetTypeHandle_ P1
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s13:GetTypeHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s13:GetTypeHandle",dnPackItem(P1))
 
 	Func GetTypeArray P1
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s12:GetTypeArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s12:GetTypeArray",dnPackItem(P1))
 
 	Func GetTypeCode P1
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s11:GetTypeCode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s11:GetTypeCode",dnPackItem(P1))
 
 	Func GetTypeFromCLSID P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s16:GetTypeFromCLSID",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s16:GetTypeFromCLSID",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s16:GetTypeFromCLSID",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s16:GetTypeFromCLSID",dnPackItem(P1))
 
 	Func GetTypeFromProgID P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromProgID",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s17:GetTypeFromProgID",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromProgID",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s17:GetTypeFromProgID",dnPackItem(P1))
 
 	Func MakeGenericSignatureType P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s24:MakeGenericSignatureType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s24:MakeGenericSignatureType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MakeGenericMethodParameter P1
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s26:MakeGenericMethodParameter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s26:MakeGenericMethodParameter",dnPackItem(P1))
 
 	Func ReflectionOnlyGetType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s21:ReflectionOnlyGetType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Type, System.Private.CoreLib'),"s21:ReflectionOnlyGetType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getNamespace
 		return dnSend("s3:get",nHandle,"s9:Namespace","")
@@ -1641,43 +1641,43 @@ Class Type from MemberInfo
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getDefaultBinder
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s13:DefaultBinder","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s13:DefaultBinder","")
 
 	Func setDefaultBinder P1
 		raise("DotNet Error: DefaultBinder is a read-only property")
 
 	Func getDelimiter
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s9:Delimiter","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s9:Delimiter","")
 
 	Func setDelimiter P1
 		raise("DotNet Error: Delimiter is a read-only property")
 
 	Func getEmptyTypes
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s10:EmptyTypes","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s10:EmptyTypes","")
 
 	Func setEmptyTypes P1
 		raise("DotNet Error: EmptyTypes is a read-only property")
 
 	Func getMissing
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:Missing","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s7:Missing","")
 
 	Func setMissing P1
 		raise("DotNet Error: Missing is a read-only property")
 
 	Func getFilterAttribute
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s15:FilterAttribute","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s15:FilterAttribute","")
 
 	Func setFilterAttribute P1
 		raise("DotNet Error: FilterAttribute is a read-only property")
 
 	Func getFilterName
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s10:FilterName","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s10:FilterName","")
 
 	Func setFilterName P1
 		raise("DotNet Error: FilterName is a read-only property")
 
 	Func getFilterNameIgnoreCase
-		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s20:FilterNameIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('System.Type, System.Private.CoreLib'),"s20:FilterNameIgnoreCase","")
 
 	Func setFilterNameIgnoreCase P1
 		raise("DotNet Error: FilterNameIgnoreCase is a read-only property")
@@ -1699,16 +1699,16 @@ Class Activator from Object
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s14:CreateInstance",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance","")
+			return dnSend("s4:call",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s14:CreateInstance","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s14:CreateInstance",dnPackItem(P1))
 
 	Func CreateInstanceFrom P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s18:CreateInstanceFrom",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s18:CreateInstanceFrom",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
@@ -1731,27 +1731,27 @@ Class AppContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetData P1
-		return dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s7:GetData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func TryGetSwitch P1
-		return dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s12:TryGetSwitch",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s12:TryGetSwitch",dnPackItem(P1))
 
 	Func SetSwitch P1,P2
-		dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s9:SetSwitch",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s9:SetSwitch",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getBaseDirectory
-		return dnSend("s3:get",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s13:BaseDirectory","")
+		return dnSend("s3:get",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s13:BaseDirectory","")
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getTargetFrameworkName
-		return dnSend("s3:get",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s19:TargetFrameworkName","")
+		return dnSend("s3:get",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s19:TargetFrameworkName","")
 
 	Func setTargetFrameworkName P1
 		raise("DotNet Error: TargetFrameworkName is a read-only property")
@@ -1906,119 +1906,119 @@ Class Array from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConstrainedCopy P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s15:ConstrainedCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s15:ConstrainedCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func Clear P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Clear",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s5:Clear",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Clear",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s5:Clear",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:AsReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s10:AsReadOnly",dnPackItem(P1))
 
 	Func Resize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s6:Resize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s6:Resize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s14:CreateInstance",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateInstanceFromArrayType P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s27:CreateInstanceFromArrayType",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s27:CreateInstanceFromArrayType",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFromArrayType does not take one argument: use named arguments, CreateInstanceFromArrayType([ :parameter = value, ... ])")
 
 	Func Copy P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s12:BinarySearch",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s12:BinarySearch",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BinarySearch does not take one argument: use named arguments, BinarySearch([ :parameter = value, ... ])")
 
 	Func ConvertAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:ConvertAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s10:ConvertAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Empty 
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Empty","")
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s5:Empty","")
 
 	Func Exists P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s6:Exists",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s6:Exists",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Fill P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Fill",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Fill",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Fill does not take one argument: use named arguments, Fill([ :parameter = value, ... ])")
 
 	Func Find P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Find",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Find",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:FindAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:FindAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s9:FindIndex",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s9:FindIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: FindIndex does not take one argument: use named arguments, FindIndex([ :parameter = value, ... ])")
 
 	Func FindLast P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s8:FindLast",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s8:FindLast",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s13:FindLastIndex",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s13:FindLastIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: FindLastIndex does not take one argument: use named arguments, FindLastIndex([ :parameter = value, ... ])")
 
 	Func ForEach_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:ForEach",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:ForEach",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:IndexOf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:IndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s11:LastIndexOf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s11:LastIndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:Reverse",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:Reverse",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:Reverse",dnPackItem(P1))
 		return self
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Sort",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Sort",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Sort",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func TrueForAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:TrueForAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s10:TrueForAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getLength
 		return dnSend("s3:get",nHandle,"s6:Length","")
@@ -2063,7 +2063,7 @@ Class Array from Object
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getMaxLength
-		return dnSend("s3:get",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s9:MaxLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Array, System.Private.CoreLib'),"s9:MaxLength","")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -2085,95 +2085,95 @@ Class BitConverter from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetBytes P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:GetBytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:GetBytes",dnPackItem(P1))
 
 	Func ToChar P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s6:ToChar",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt16 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s7:ToInt16",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt32 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s7:ToInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt64 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s7:ToInt64",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt128 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToInt128",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToInt128",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt16 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToUInt16",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt32 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToUInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt64 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToUInt64",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt128 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s9:ToUInt128",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s9:ToUInt128",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToHalf P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s6:ToHalf",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s6:ToHalf",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToSingle P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToSingle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToDouble P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToDouble",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToBoolean P1,P2
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s9:ToBoolean",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DoubleToInt64Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:DoubleToInt64Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s17:DoubleToInt64Bits",dnPackItem(P1))
 
 	Func Int64BitsToDouble P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:Int64BitsToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s17:Int64BitsToDouble",dnPackItem(P1))
 
 	Func SingleToInt32Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:SingleToInt32Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s17:SingleToInt32Bits",dnPackItem(P1))
 
 	Func Int32BitsToSingle P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:Int32BitsToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s17:Int32BitsToSingle",dnPackItem(P1))
 
 	Func HalfToInt16Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s15:HalfToInt16Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s15:HalfToInt16Bits",dnPackItem(P1))
 
 	Func Int16BitsToHalf P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s15:Int16BitsToHalf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s15:Int16BitsToHalf",dnPackItem(P1))
 
 	Func DoubleToUInt64Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:DoubleToUInt64Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s18:DoubleToUInt64Bits",dnPackItem(P1))
 
 	Func UInt64BitsToDouble P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:UInt64BitsToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s18:UInt64BitsToDouble",dnPackItem(P1))
 
 	Func SingleToUInt32Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:SingleToUInt32Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s18:SingleToUInt32Bits",dnPackItem(P1))
 
 	Func UInt32BitsToSingle P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:UInt32BitsToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s18:UInt32BitsToSingle",dnPackItem(P1))
 
 	Func HalfToUInt16Bits P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s16:HalfToUInt16Bits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s16:HalfToUInt16Bits",dnPackItem(P1))
 
 	Func UInt16BitsToHalf P1
-		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s16:UInt16BitsToHalf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s16:UInt16BitsToHalf",dnPackItem(P1))
 
 	Func getIsLittleEndian
-		return dnSend("s3:get",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s14:IsLittleEndian","")
+		return dnSend("s3:get",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s14:IsLittleEndian","")
 
 	Func setIsLittleEndian P1
 		raise("DotNet Error: IsLittleEndian is a read-only property")
@@ -2194,17 +2194,17 @@ Class Buffer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BlockCopy P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s9:BlockCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('System.Buffer, System.Private.CoreLib'),"s9:BlockCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ByteLength P1
-		return dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s10:ByteLength",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Buffer, System.Private.CoreLib'),"s10:ByteLength",dnPackItem(P1))
 
 	Func GetByte P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s7:GetByte",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Buffer, System.Private.CoreLib'),"s7:GetByte",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetByte P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s7:SetByte",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Buffer, System.Private.CoreLib'),"s7:SetByte",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -2289,121 +2289,121 @@ Class Console from Object
 
 	Func ReadKey P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s7:ReadKey",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey","")
+			return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s7:ReadKey","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s7:ReadKey",dnPackItem(P1))
 
 	Func ResetColor 
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s10:ResetColor","")
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s10:ResetColor","")
 		return self
 
 	Func SetBufferSize P1,P2
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s13:SetBufferSize",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s13:SetBufferSize",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetWindowPosition P1,P2
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:SetWindowPosition",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:SetWindowPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetWindowSize P1,P2
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s13:SetWindowSize",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s13:SetWindowSize",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCursorPosition 
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:GetCursorPosition","")
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:GetCursorPosition","")
 
 	Func Beep P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s4:Beep",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s4:Beep",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s4:Beep","")
+			dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s4:Beep","")
 		return self
 		ok
 		raise("DotNet Error: Beep does not take one argument: use named arguments, Beep([ :parameter = value, ... ])")
 
 	Func MoveBufferArea P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s14:MoveBufferArea",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s14:MoveBufferArea",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MoveBufferArea does not take one argument: use named arguments, MoveBufferArea([ :parameter = value, ... ])")
 
 	Func Clear 
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:Clear","")
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s5:Clear","")
 		return self
 
 	Func SetCursorPosition P1,P2
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:SetCursorPosition",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:SetCursorPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OpenStandardInput P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardInput",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput","")
+			return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardInput","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardInput",dnPackItem(P1))
 
 	Func OpenStandardOutput P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s18:OpenStandardOutput",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput","")
+			return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s18:OpenStandardOutput","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s18:OpenStandardOutput",dnPackItem(P1))
 
 	Func OpenStandardError P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardError",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError","")
+			return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardError","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardError",dnPackItem(P1))
 
 	Func SetIn P1
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:SetIn",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s5:SetIn",dnPackItem(P1))
 		return self
 
 	Func SetOut P1
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s6:SetOut",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s6:SetOut",dnPackItem(P1))
 		return self
 
 	Func SetError P1
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s8:SetError",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s8:SetError",dnPackItem(P1))
 		return self
 
 	Func Read 
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s4:Read","")
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s4:Read","")
 
 	Func ReadLine 
-		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s8:ReadLine","")
+		return dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s8:ReadLine","")
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine","")
+			dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s9:WriteLine","")
 		return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s9:WriteLine",dnPackItem(P1))
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s5:Write",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:Write",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Console, System.Console'),"s5:Write",dnPackItem(P1))
 		return self
 
 	Func setCancelKeyPressEvent P1
@@ -2415,172 +2415,172 @@ Class Console from Object
 		return self
 
 	Func getIn
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s2:In","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s2:In","")
 
 	Func getInputEncoding
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s13:InputEncoding","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s13:InputEncoding","")
 
 	Func setInputEncoding P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s13:InputEncoding",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s13:InputEncoding",dnPackItem(P1))
 		return self
 
 	Func getOutputEncoding
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s14:OutputEncoding","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s14:OutputEncoding","")
 
 	Func setOutputEncoding P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s14:OutputEncoding",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s14:OutputEncoding",dnPackItem(P1))
 		return self
 
 	Func getKeyAvailable
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:KeyAvailable","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s12:KeyAvailable","")
 
 	Func setKeyAvailable P1
 		raise("DotNet Error: KeyAvailable is a read-only property")
 
 	Func getOut
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s3:Out","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s3:Out","")
 
 	Func getError
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s5:Error","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s5:Error","")
 
 	Func getIsInputRedirected
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s17:IsInputRedirected","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s17:IsInputRedirected","")
 
 	Func setIsInputRedirected P1
 		raise("DotNet Error: IsInputRedirected is a read-only property")
 
 	Func getIsOutputRedirected
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s18:IsOutputRedirected","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s18:IsOutputRedirected","")
 
 	Func setIsOutputRedirected P1
 		raise("DotNet Error: IsOutputRedirected is a read-only property")
 
 	Func getIsErrorRedirected
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s17:IsErrorRedirected","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s17:IsErrorRedirected","")
 
 	Func setIsErrorRedirected P1
 		raise("DotNet Error: IsErrorRedirected is a read-only property")
 
 	Func getCursorSize
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s10:CursorSize","")
 
 	Func setCursorSize P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorSize",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s10:CursorSize",dnPackItem(P1))
 		return self
 
 	Func getNumberLock
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:NumberLock","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s10:NumberLock","")
 
 	Func setNumberLock P1
 		raise("DotNet Error: NumberLock is a read-only property")
 
 	Func getCapsLock
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s8:CapsLock","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s8:CapsLock","")
 
 	Func setCapsLock P1
 		raise("DotNet Error: CapsLock is a read-only property")
 
 	Func getBackgroundColor
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s15:BackgroundColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s15:BackgroundColor","")
 
 	Func setBackgroundColor P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s15:BackgroundColor",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s15:BackgroundColor",dnPackItem(P1))
 		return self
 
 	Func getForegroundColor
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s15:ForegroundColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s15:ForegroundColor","")
 
 	Func setForegroundColor P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s15:ForegroundColor",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s15:ForegroundColor",dnPackItem(P1))
 		return self
 
 	Func getBufferWidth
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s11:BufferWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s11:BufferWidth","")
 
 	Func setBufferWidth P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s11:BufferWidth",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s11:BufferWidth",dnPackItem(P1))
 		return self
 
 	Func getBufferHeight
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:BufferHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s12:BufferHeight","")
 
 	Func setBufferHeight P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s12:BufferHeight",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s12:BufferHeight",dnPackItem(P1))
 		return self
 
 	Func getWindowLeft
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:WindowLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s10:WindowLeft","")
 
 	Func setWindowLeft P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:WindowLeft",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s10:WindowLeft",dnPackItem(P1))
 		return self
 
 	Func getWindowTop
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s9:WindowTop","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s9:WindowTop","")
 
 	Func setWindowTop P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s9:WindowTop",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s9:WindowTop",dnPackItem(P1))
 		return self
 
 	Func getWindowWidth
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s11:WindowWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s11:WindowWidth","")
 
 	Func setWindowWidth P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s11:WindowWidth",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s11:WindowWidth",dnPackItem(P1))
 		return self
 
 	Func getWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:WindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s12:WindowHeight","")
 
 	Func setWindowHeight P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s12:WindowHeight",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s12:WindowHeight",dnPackItem(P1))
 		return self
 
 	Func getLargestWindowWidth
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s18:LargestWindowWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s18:LargestWindowWidth","")
 
 	Func setLargestWindowWidth P1
 		raise("DotNet Error: LargestWindowWidth is a read-only property")
 
 	Func getLargestWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s19:LargestWindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s19:LargestWindowHeight","")
 
 	Func setLargestWindowHeight P1
 		raise("DotNet Error: LargestWindowHeight is a read-only property")
 
 	Func getCursorVisible
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s13:CursorVisible","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s13:CursorVisible","")
 
 	Func setCursorVisible P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s13:CursorVisible",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s13:CursorVisible",dnPackItem(P1))
 		return self
 
 	Func getCursorLeft
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s10:CursorLeft","")
 
 	Func setCursorLeft P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorLeft",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s10:CursorLeft",dnPackItem(P1))
 		return self
 
 	Func getCursorTop
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s9:CursorTop","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s9:CursorTop","")
 
 	Func setCursorTop P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s9:CursorTop",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s9:CursorTop",dnPackItem(P1))
 		return self
 
 	Func getTitle
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s5:Title","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s5:Title","")
 
 	Func setTitle P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s5:Title",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s5:Title",dnPackItem(P1))
 		return self
 
 	Func getTreatControlCAsInput
-		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s20:TreatControlCAsInput","")
+		return dnSend("s3:get",dnTypeHandle('System.Console, System.Console'),"s20:TreatControlCAsInput","")
 
 	Func setTreatControlCAsInput P1
-		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s20:TreatControlCAsInput",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Console, System.Console'),"s20:TreatControlCAsInput",dnPackItem(P1))
 		return self
 
 
@@ -2600,146 +2600,146 @@ Class Convert from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetTypeCode P1
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:GetTypeCode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s11:GetTypeCode",dnPackItem(P1))
 
 	Func IsDBNull P1
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:IsDBNull",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:IsDBNull",dnPackItem(P1))
 
 	Func ChangeType P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ChangeType",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s10:ChangeType",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func ToBoolean P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToBoolean",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToBoolean",dnPackItem(P1))
 
 	Func ToChar P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToChar",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToChar",dnPackItem(P1))
 
 	Func ToSByte P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToSByte",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToSByte",dnPackItem(P1))
 
 	Func ToByte P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToByte",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToByte",dnPackItem(P1))
 
 	Func ToInt16 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt16",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt16",dnPackItem(P1))
 
 	Func ToUInt16 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt16",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToInt32 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt32",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt32",dnPackItem(P1))
 
 	Func ToUInt32 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt32",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt64",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt64",dnPackItem(P1))
 
 	Func ToUInt64 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt64",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToSingle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToSingle",dnPackItem(P1))
 
 	Func ToDouble P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToDouble",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToDouble",dnPackItem(P1))
 
 	Func ToDecimal P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToDecimal",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToDecimal",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToDecimal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToDecimal",dnPackItem(P1))
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s10:ToDateTime",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s10:ToDateTime",dnPackItem(P1))
 
 	Func ToBase64String P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s14:ToBase64String",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s14:ToBase64String",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s14:ToBase64String",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s14:ToBase64String",dnPackItem(P1))
 
 	Func ToBase64CharArray P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s17:ToBase64CharArray",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s17:ToBase64CharArray",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToBase64CharArray does not take one argument: use named arguments, ToBase64CharArray([ :parameter = value, ... ])")
 
 	Func FromBase64String P1
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:FromBase64String",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s16:FromBase64String",dnPackItem(P1))
 
 	Func FromBase64CharArray P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s19:FromBase64CharArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s19:FromBase64CharArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FromHexString P1
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s13:FromHexString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s13:FromHexString",dnPackItem(P1))
 
 	Func ToHexString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:ToHexString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s11:ToHexString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:ToHexString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s11:ToHexString",dnPackItem(P1))
 
 	Func ToHexStringLower P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:ToHexStringLower",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s16:ToHexStringLower",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:ToHexStringLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s16:ToHexStringLower",dnPackItem(P1))
 
 	Func getDBNull
-		return dnSend("s3:get",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:DBNull","")
+		return dnSend("s3:get",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:DBNull","")
 
 	Func setDBNull P1
 		raise("DotNet Error: DBNull is a read-only property")
@@ -2775,7 +2775,7 @@ Class DBNull from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValue
-		return dnSend("s3:get",dnTypeCached('System.DBNull, System.Private.CoreLib').nHandle,"s5:Value","")
+		return dnSend("s3:get",dnTypeHandle('System.DBNull, System.Private.CoreLib'),"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2822,202 +2822,202 @@ Class Environment from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Exit_ P1
-		dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s4:Exit",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s4:Exit",dnPackItem(P1))
 		return self
 
 	Func FailFast P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:FailFast",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:FailFast",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:FailFast",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:FailFast",dnPackItem(P1))
 		return self
 
 	Func GetEnvironmentVariable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:GetEnvironmentVariable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:GetEnvironmentVariable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:GetEnvironmentVariable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:GetEnvironmentVariable",dnPackItem(P1))
 
 	Func GetEnvironmentVariables P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s23:GetEnvironmentVariables",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables","")
+			return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s23:GetEnvironmentVariables","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s23:GetEnvironmentVariables",dnPackItem(P1))
 
 	Func SetEnvironmentVariable P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:SetEnvironmentVariable",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:SetEnvironmentVariable",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetEnvironmentVariable does not take one argument: use named arguments, SetEnvironmentVariable([ :parameter = value, ... ])")
 
 	Func GetCommandLineArgs 
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s18:GetCommandLineArgs","")
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s18:GetCommandLineArgs","")
 
 	Func ExpandEnvironmentVariables P1
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s26:ExpandEnvironmentVariables",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s26:ExpandEnvironmentVariables",dnPackItem(P1))
 
 	Func GetFolderPath P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s13:GetFolderPath",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s13:GetFolderPath",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s13:GetFolderPath",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s13:GetFolderPath",dnPackItem(P1))
 
 	Func GetLogicalDrives 
-		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:GetLogicalDrives","")
+		return dnSend("s4:call",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s16:GetLogicalDrives","")
 
 	Func getCurrentManagedThreadId
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:CurrentManagedThreadId","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:CurrentManagedThreadId","")
 
 	Func setCurrentManagedThreadId P1
 		raise("DotNet Error: CurrentManagedThreadId is a read-only property")
 
 	Func getExitCode
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:ExitCode","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:ExitCode","")
 
 	Func setExitCode P1
-		dnSend("s3:set",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:ExitCode",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:ExitCode",dnPackItem(P1))
 		return self
 
 	Func getTickCount
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:TickCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s9:TickCount","")
 
 	Func setTickCount P1
 		raise("DotNet Error: TickCount is a read-only property")
 
 	Func getTickCount64
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:TickCount64","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s11:TickCount64","")
 
 	Func setTickCount64 P1
 		raise("DotNet Error: TickCount64 is a read-only property")
 
 	Func getProcessorCount
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:ProcessorCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s14:ProcessorCount","")
 
 	Func setProcessorCount P1
 		raise("DotNet Error: ProcessorCount is a read-only property")
 
 	Func getIsPrivilegedProcess
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s19:IsPrivilegedProcess","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s19:IsPrivilegedProcess","")
 
 	Func setIsPrivilegedProcess P1
 		raise("DotNet Error: IsPrivilegedProcess is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s18:HasShutdownStarted","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s18:HasShutdownStarted","")
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getCommandLine
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:CommandLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s11:CommandLine","")
 
 	Func setCommandLine P1
 		raise("DotNet Error: CommandLine is a read-only property")
 
 	Func getCurrentDirectory
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:CurrentDirectory","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s16:CurrentDirectory","")
 
 	Func setCurrentDirectory P1
-		dnSend("s3:set",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:CurrentDirectory",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s16:CurrentDirectory",dnPackItem(P1))
 		return self
 
 	Func getProcessId
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:ProcessId","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s9:ProcessId","")
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getProcessPath
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:ProcessPath","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s11:ProcessPath","")
 
 	Func setProcessPath P1
 		raise("DotNet Error: ProcessPath is a read-only property")
 
 	Func getIs64BitProcess
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:Is64BitProcess","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s14:Is64BitProcess","")
 
 	Func setIs64BitProcess P1
 		raise("DotNet Error: Is64BitProcess is a read-only property")
 
 	Func getIs64BitOperatingSystem
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:Is64BitOperatingSystem","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:Is64BitOperatingSystem","")
 
 	Func setIs64BitOperatingSystem P1
 		raise("DotNet Error: Is64BitOperatingSystem is a read-only property")
 
 	Func getNewLine
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s7:NewLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s7:NewLine","")
 
 	Func setNewLine P1
 		raise("DotNet Error: NewLine is a read-only property")
 
 	Func getOSVersion
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:OSVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s9:OSVersion","")
 
 	Func setOSVersion P1
 		raise("DotNet Error: OSVersion is a read-only property")
 
 	Func getStackTrace
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s10:StackTrace","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s10:StackTrace","")
 
 	Func setStackTrace P1
 		raise("DotNet Error: StackTrace is a read-only property")
 
 	Func getSystemPageSize
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:SystemPageSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s14:SystemPageSize","")
 
 	Func setSystemPageSize P1
 		raise("DotNet Error: SystemPageSize is a read-only property")
 
 	Func getUserName
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:UserName","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:UserName","")
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getUserDomainName
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:UserDomainName","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s14:UserDomainName","")
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getMachineName
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:MachineName","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s11:MachineName","")
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
 
 	Func getSystemDirectory
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s15:SystemDirectory","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s15:SystemDirectory","")
 
 	Func setSystemDirectory P1
 		raise("DotNet Error: SystemDirectory is a read-only property")
 
 	Func getUserInteractive
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s15:UserInteractive","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s15:UserInteractive","")
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getWorkingSet
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s10:WorkingSet","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s10:WorkingSet","")
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
 
 	Func getCpuUsage
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:CpuUsage","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:CpuUsage","")
 
 	Func setCpuUsage P1
 		raise("DotNet Error: CpuUsage is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s7:Version","")
+		return dnSend("s3:get",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -3049,7 +3049,7 @@ Class EventArgs from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.EventArgs, System.Private.CoreLib').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.EventArgs, System.Private.CoreLib'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3085,10 +3085,10 @@ Class FormattableString from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Invariant P1
-		return dnSend("s4:call",dnTypeCached('System.FormattableString, System.Private.CoreLib').nHandle,"s9:Invariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.FormattableString, System.Private.CoreLib'),"s9:Invariant",dnPackItem(P1))
 
 	Func CurrentCulture P1
-		return dnSend("s4:call",dnTypeCached('System.FormattableString, System.Private.CoreLib').nHandle,"s14:CurrentCulture",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.FormattableString, System.Private.CoreLib'),"s14:CurrentCulture",dnPackItem(P1))
 
 	Func getFormat
 		return dnSend("s3:get",nHandle,"s6:Format","")
@@ -3121,134 +3121,134 @@ Class GC from Object
 
 	Func GetGCMemoryInfo P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s15:GetGCMemoryInfo",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo","")
+			return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s15:GetGCMemoryInfo","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s15:GetGCMemoryInfo",dnPackItem(P1))
 
 	Func AddMemoryPressure P1
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s17:AddMemoryPressure",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s17:AddMemoryPressure",dnPackItem(P1))
 		return self
 
 	Func RemoveMemoryPressure P1
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s20:RemoveMemoryPressure",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s20:RemoveMemoryPressure",dnPackItem(P1))
 		return self
 
 	Func GetGeneration P1
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:GetGeneration",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:GetGeneration",dnPackItem(P1))
 
 	Func Collect P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s7:Collect",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect","")
+			dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s7:Collect","")
 		return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s7:Collect",dnPackItem(P1))
 		return self
 
 	Func CollectionCount P1
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:CollectionCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s15:CollectionCount",dnPackItem(P1))
 
 	Func KeepAlive P1
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s9:KeepAlive",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s9:KeepAlive",dnPackItem(P1))
 		return self
 
 	Func WaitForPendingFinalizers 
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s24:WaitForPendingFinalizers","")
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s24:WaitForPendingFinalizers","")
 		return self
 
 	Func SuppressFinalize P1
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s16:SuppressFinalize",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s16:SuppressFinalize",dnPackItem(P1))
 		return self
 
 	Func ReRegisterForFinalize P1
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:ReRegisterForFinalize",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:ReRegisterForFinalize",dnPackItem(P1))
 		return self
 
 	Func GetTotalMemory P1
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s14:GetTotalMemory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s14:GetTotalMemory",dnPackItem(P1))
 
 	Func GetAllocatedBytesForCurrentThread 
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s33:GetAllocatedBytesForCurrentThread","")
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s33:GetAllocatedBytesForCurrentThread","")
 
 	Func GetTotalAllocatedBytes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s22:GetTotalAllocatedBytes",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes","")
+			return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s22:GetTotalAllocatedBytes","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s22:GetTotalAllocatedBytes",dnPackItem(P1))
 
 	Func RegisterForFullGCNotification P1,P2
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s29:RegisterForFullGCNotification",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s29:RegisterForFullGCNotification",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CancelFullGCNotification 
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s24:CancelFullGCNotification","")
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s24:CancelFullGCNotification","")
 		return self
 
 	Func WaitForFullGCApproach P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCApproach",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach","")
+			return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCApproach","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCApproach",dnPackItem(P1))
 
 	Func WaitForFullGCComplete P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCComplete",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete","")
+			return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCComplete","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCComplete",dnPackItem(P1))
 
 	Func TryStartNoGCRegion P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:TryStartNoGCRegion",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s18:TryStartNoGCRegion",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:TryStartNoGCRegion",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s18:TryStartNoGCRegion",dnPackItem(P1))
 
 	Func EndNoGCRegion 
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:EndNoGCRegion","")
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:EndNoGCRegion","")
 		return self
 
 	Func RegisterNoGCRegionCallback P1,P2
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:RegisterNoGCRegionCallback",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s26:RegisterNoGCRegionCallback",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AllocateUninitializedArray P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:AllocateUninitializedArray",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s26:AllocateUninitializedArray",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:AllocateUninitializedArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s26:AllocateUninitializedArray",dnPackItem(P1))
 
 	Func AllocateArray P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:AllocateArray",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:AllocateArray",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:AllocateArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:AllocateArray",dnPackItem(P1))
 
 	Func GetTotalPauseDuration 
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:GetTotalPauseDuration","")
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:GetTotalPauseDuration","")
 
 	Func GetConfigurationVariables 
-		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s25:GetConfigurationVariables","")
+		return dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s25:GetConfigurationVariables","")
 
 	Func RefreshMemoryLimit 
-		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:RefreshMemoryLimit","")
+		dnSend("s4:call",dnTypeHandle('System.GC, System.Private.CoreLib'),"s18:RefreshMemoryLimit","")
 		return self
 
 	Func getMaxGeneration
-		return dnSend("s3:get",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:MaxGeneration","")
+		return dnSend("s3:get",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:MaxGeneration","")
 
 	Func setMaxGeneration P1
 		raise("DotNet Error: MaxGeneration is a read-only property")
@@ -3309,154 +3309,154 @@ Class Math from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func BigMul P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IEEERemainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Math, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s2:PI","")
+		return dnSend("s3:get",dnTypeHandle('System.Math, System.Private.CoreLib'),"s2:PI","")
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -3481,145 +3481,145 @@ Class MathF from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IEEERemainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s2:PI","")
+		return dnSend("s3:get",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s2:PI","")
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -3641,37 +3641,37 @@ Class MemoryExtensions from Object
 
 	Func AsSpan P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:AsSpan",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s6:AsSpan",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:AsSpan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s6:AsSpan",dnPackItem(P1))
 
 	Func AsMemory P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s8:AsMemory",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s8:AsMemory",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s8:AsMemory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s8:AsMemory",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Trim P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s4:Trim",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s4:Trim",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s4:Trim",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s4:Trim",dnPackItem(P1))
 
 	Func TrimStart P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s9:TrimStart",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s9:TrimStart",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s9:TrimStart",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s9:TrimStart",dnPackItem(P1))
 
 	Func TrimEnd P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s7:TrimEnd",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s7:TrimEnd",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s7:TrimEnd",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s7:TrimEnd",dnPackItem(P1))
 
 
 Class Nullable from Object
@@ -3688,20 +3688,20 @@ Class Nullable from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetUnderlyingType P1
-		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s17:GetUnderlyingType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s17:GetUnderlyingType",dnPackItem(P1))
 
 	Func GetValueRefOrDefaultRef P1
-		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s23:GetValueRefOrDefaultRef",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s23:GetValueRefOrDefaultRef",dnPackItem(P1))
 
 
 Class OperatingSystem from Object
@@ -3733,94 +3733,94 @@ Class OperatingSystem from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsOSPlatform P1
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s12:IsOSPlatform",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s12:IsOSPlatform",dnPackItem(P1))
 
 	Func IsOSPlatformVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s26:IsOSPlatformVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s26:IsOSPlatformVersionAtLeast",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsOSPlatformVersionAtLeast does not take one argument: use named arguments, IsOSPlatformVersionAtLeast([ :parameter = value, ... ])")
 
 	Func IsBrowser 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsBrowser","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s9:IsBrowser","")
 
 	Func IsWasi 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s6:IsWasi","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s6:IsWasi","")
 
 	Func IsLinux 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s7:IsLinux","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s7:IsLinux","")
 
 	Func IsFreeBSD 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsFreeBSD","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s9:IsFreeBSD","")
 
 	Func IsFreeBSDVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
 
 	Func IsAndroid 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsAndroid","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s9:IsAndroid","")
 
 	Func IsAndroidVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
 
 	Func IsIOS 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s5:IsIOS","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s5:IsIOS","")
 
 	Func IsIOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s19:IsIOSVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s19:IsIOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s19:IsIOSVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s19:IsIOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsMacOS 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s7:IsMacOS","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s7:IsMacOS","")
 
 	Func IsMacOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsMacCatalyst 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s13:IsMacCatalyst","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s13:IsMacCatalyst","")
 
 	Func IsMacCatalystVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
 
 	Func IsTvOS 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s6:IsTvOS","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s6:IsTvOS","")
 
 	Func IsTvOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsWatchOS 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsWatchOS","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s9:IsWatchOS","")
 
 	Func IsWatchOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsWindows 
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsWindows","")
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s9:IsWindows","")
 
 	Func IsWindowsVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
 
 	Func getPlatform
 		return dnSend("s3:get",nHandle,"s8:Platform","")
@@ -3928,7 +3928,7 @@ Class Random from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getShared
-		return dnSend("s3:get",dnTypeCached('System.Random, System.Private.CoreLib').nHandle,"s6:Shared","")
+		return dnSend("s3:get",dnTypeHandle('System.Random, System.Private.CoreLib'),"s6:Shared","")
 
 	Func setShared P1
 		raise("DotNet Error: Shared is a read-only property")
@@ -3975,7 +3975,7 @@ Class String from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -4172,50 +4172,50 @@ Class String from Object
 		return dnSend("s4:call",nHandle,"s14:LastIndexOfAny",dnPackItem(P1))
 
 	Func Intern P1
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Intern",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Intern",dnPackItem(P1))
 
 	Func IsInterned P1
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s10:IsInterned",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s10:IsInterned",dnPackItem(P1))
 
 	Func Compare P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func CompareOrdinal P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s14:CompareOrdinal",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s14:CompareOrdinal",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CompareOrdinal does not take one argument: use named arguments, CompareOrdinal([ :parameter = value, ... ])")
 
 	Func Create P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Copy P1
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1))
 
 	Func IsNullOrEmpty P1
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s13:IsNullOrEmpty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s13:IsNullOrEmpty",dnPackItem(P1))
 
 	Func IsNullOrWhiteSpace P1
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s18:IsNullOrWhiteSpace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s18:IsNullOrWhiteSpace",dnPackItem(P1))
 
 	Func Concat P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Concat",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Concat",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Concat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Concat",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Format",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Format",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Format does not take one argument: use named arguments, Format([ :parameter = value, ... ])")
 
 	Func Join P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s4:Join",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
@@ -4229,7 +4229,7 @@ Class String from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.String, System.Private.CoreLib'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4272,49 +4272,49 @@ Class StringComparer from Object
 		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func FromComparison P1
-		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s14:FromComparison",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s14:FromComparison",dnPackItem(P1))
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsWellKnownOrdinalComparer P1
-		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s26:IsWellKnownOrdinalComparer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s26:IsWellKnownOrdinalComparer",dnPackItem(P1))
 
 	Func IsWellKnownCultureAwareComparer P1
-		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s31:IsWellKnownCultureAwareComparer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s31:IsWellKnownCultureAwareComparer",dnPackItem(P1))
 
 	Func getInvariantCulture
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s16:InvariantCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s16:InvariantCulture","")
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
 
 	Func getInvariantCultureIgnoreCase
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s26:InvariantCultureIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s26:InvariantCultureIgnoreCase","")
 
 	Func setInvariantCultureIgnoreCase P1
 		raise("DotNet Error: InvariantCultureIgnoreCase is a read-only property")
 
 	Func getCurrentCulture
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s14:CurrentCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
 		raise("DotNet Error: CurrentCulture is a read-only property")
 
 	Func getCurrentCultureIgnoreCase
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s24:CurrentCultureIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s24:CurrentCultureIgnoreCase","")
 
 	Func setCurrentCultureIgnoreCase P1
 		raise("DotNet Error: CurrentCultureIgnoreCase is a read-only property")
 
 	Func getOrdinal
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s7:Ordinal","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s7:Ordinal","")
 
 	Func setOrdinal P1
 		raise("DotNet Error: Ordinal is a read-only property")
 
 	Func getOrdinalIgnoreCase
-		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s17:OrdinalIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('System.StringComparer, System.Private.CoreLib'),"s17:OrdinalIgnoreCase","")
 
 	Func setOrdinalIgnoreCase P1
 		raise("DotNet Error: OrdinalIgnoreCase is a read-only property")
@@ -4336,15 +4336,15 @@ Class StringNormalizationExtensions from Object
 
 	Func IsNormalized P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s12:IsNormalized",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s12:IsNormalized",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s12:IsNormalized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s12:IsNormalized",dnPackItem(P1))
 
 	Func Normalize P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 
 Class TimeProvider from Object
@@ -4396,7 +4396,7 @@ Class TimeProvider from Object
 		raise("DotNet Error: TimestampFrequency is a read-only property")
 
 	Func getSystem
-		return dnSend("s3:get",dnTypeCached('System.TimeProvider, System.Private.CoreLib').nHandle,"s6:System","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeProvider, System.Private.CoreLib'),"s6:System","")
 
 	Func setSystem P1
 		raise("DotNet Error: System is a read-only property")
@@ -4451,62 +4451,62 @@ Class TimeZoneInfo from Object
 		return dnSend("s4:call",nHandle,"s18:GetAdjustmentRules","")
 
 	Func ClearCachedData 
-		dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s15:ClearCachedData","")
+		dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s15:ClearCachedData","")
 		return self
 
 	Func ConvertTimeBySystemTimeZoneId P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s29:ConvertTimeBySystemTimeZoneId",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s29:ConvertTimeBySystemTimeZoneId",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConvertTimeBySystemTimeZoneId does not take one argument: use named arguments, ConvertTimeBySystemTimeZoneId([ :parameter = value, ... ])")
 
 	Func FindSystemTimeZoneById P1
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s22:FindSystemTimeZoneById",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s22:FindSystemTimeZoneById",dnPackItem(P1))
 
 	Func TryFindSystemTimeZoneById P1
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s25:TryFindSystemTimeZoneById",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s25:TryFindSystemTimeZoneById",dnPackItem(P1))
 
 	Func ConvertTime P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s11:ConvertTime",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s11:ConvertTime",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConvertTime does not take one argument: use named arguments, ConvertTime([ :parameter = value, ... ])")
 
 	Func ConvertTimeFromUtc P1,P2
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:ConvertTimeFromUtc",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s18:ConvertTimeFromUtc",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConvertTimeToUtc P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s16:ConvertTimeToUtc",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s16:ConvertTimeToUtc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s16:ConvertTimeToUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s16:ConvertTimeToUtc",dnPackItem(P1))
 
 	Func FromSerializedString P1
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s20:FromSerializedString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s20:FromSerializedString",dnPackItem(P1))
 
 	Func GetSystemTimeZones P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s18:GetSystemTimeZones",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones","")
+			return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s18:GetSystemTimeZones","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s18:GetSystemTimeZones",dnPackItem(P1))
 
 	Func CreateCustomTimeZone P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s20:CreateCustomTimeZone",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s20:CreateCustomTimeZone",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateCustomTimeZone does not take one argument: use named arguments, CreateCustomTimeZone([ :parameter = value, ... ])")
 
 	Func TryConvertIanaIdToWindowsId P1
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertIanaIdToWindowsId",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertIanaIdToWindowsId",dnPackItem(P1))
 
 	Func TryConvertWindowsIdToIanaId P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 
 	Func getId
 		return dnSend("s3:get",nHandle,"s2:Id","")
@@ -4551,13 +4551,13 @@ Class TimeZoneInfo from Object
 		raise("DotNet Error: SupportsDaylightSavingTime is a read-only property")
 
 	Func getLocal
-		return dnSend("s3:get",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s5:Local","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s5:Local","")
 
 	Func setLocal P1
 		raise("DotNet Error: Local is a read-only property")
 
 	Func getUtc
-		return dnSend("s3:get",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s3:Utc","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s3:Utc","")
 
 	Func setUtc P1
 		raise("DotNet Error: Utc is a read-only property")
@@ -4579,9 +4579,9 @@ Class Tuple from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Tuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Tuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Tuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Tuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 
 Class TupleExtensions from Object
@@ -4599,13 +4599,13 @@ Class TupleExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Deconstruct P1
-		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s11:Deconstruct",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TupleExtensions, System.Private.CoreLib'),"s11:Deconstruct",dnPackItem(P1))
 
 	Func ToValueTuple P1
-		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s12:ToValueTuple",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TupleExtensions, System.Private.CoreLib'),"s12:ToValueTuple",dnPackItem(P1))
 
 	Func ToTuple P1
-		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s7:ToTuple",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TupleExtensions, System.Private.CoreLib'),"s7:ToTuple",dnPackItem(P1))
 
 
 Class Uri from Object
@@ -4698,43 +4698,43 @@ Class Uri from Object
 		return dnSend("s4:call",nHandle,"s8:IsBaseOf",dnPackItem(P1))
 
 	Func CheckHostName P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:CheckHostName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:CheckHostName",dnPackItem(P1))
 
 	Func HexEscape P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s9:HexEscape",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s9:HexEscape",dnPackItem(P1))
 
 	Func HexUnescape P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s11:HexUnescape",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s11:HexUnescape",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsHexEncoding P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:IsHexEncoding",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:IsHexEncoding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CheckSchemeName P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:CheckSchemeName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:CheckSchemeName",dnPackItem(P1))
 
 	Func IsHexDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s10:IsHexDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s10:IsHexDigit",dnPackItem(P1))
 
 	Func FromHex P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s7:FromHex",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s7:FromHex",dnPackItem(P1))
 
 	Func TryCreate P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s9:TryCreate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s9:TryCreate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Compare P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func IsWellFormedUriString P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s21:IsWellFormedUriString",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s21:IsWellFormedUriString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnescapeDataString P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s18:UnescapeDataString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s18:UnescapeDataString",dnPackItem(P1))
 
 	Func EscapeUriString P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:EscapeUriString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:EscapeUriString",dnPackItem(P1))
 
 	Func EscapeDataString P1
-		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s16:EscapeDataString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s16:EscapeDataString",dnPackItem(P1))
 
 	Func getAbsolutePath
 		return dnSend("s3:get",nHandle,"s12:AbsolutePath","")
@@ -4869,103 +4869,103 @@ Class Uri from Object
 		raise("DotNet Error: UserInfo is a read-only property")
 
 	Func getUriSchemeFile
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeFile","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeFile","")
 
 	Func setUriSchemeFile P1
 		raise("DotNet Error: UriSchemeFile is a read-only property")
 
 	Func getUriSchemeFtp
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeFtp","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s12:UriSchemeFtp","")
 
 	Func setUriSchemeFtp P1
 		raise("DotNet Error: UriSchemeFtp is a read-only property")
 
 	Func getUriSchemeSftp
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeSftp","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeSftp","")
 
 	Func setUriSchemeSftp P1
 		raise("DotNet Error: UriSchemeSftp is a read-only property")
 
 	Func getUriSchemeFtps
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeFtps","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeFtps","")
 
 	Func setUriSchemeFtps P1
 		raise("DotNet Error: UriSchemeFtps is a read-only property")
 
 	Func getUriSchemeGopher
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeGopher","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:UriSchemeGopher","")
 
 	Func setUriSchemeGopher P1
 		raise("DotNet Error: UriSchemeGopher is a read-only property")
 
 	Func getUriSchemeHttp
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeHttp","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeHttp","")
 
 	Func setUriSchemeHttp P1
 		raise("DotNet Error: UriSchemeHttp is a read-only property")
 
 	Func getUriSchemeHttps
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s14:UriSchemeHttps","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s14:UriSchemeHttps","")
 
 	Func setUriSchemeHttps P1
 		raise("DotNet Error: UriSchemeHttps is a read-only property")
 
 	Func getUriSchemeWs
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s11:UriSchemeWs","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s11:UriSchemeWs","")
 
 	Func setUriSchemeWs P1
 		raise("DotNet Error: UriSchemeWs is a read-only property")
 
 	Func getUriSchemeWss
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeWss","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s12:UriSchemeWss","")
 
 	Func setUriSchemeWss P1
 		raise("DotNet Error: UriSchemeWss is a read-only property")
 
 	Func getUriSchemeMailto
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeMailto","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:UriSchemeMailto","")
 
 	Func setUriSchemeMailto P1
 		raise("DotNet Error: UriSchemeMailto is a read-only property")
 
 	Func getUriSchemeNews
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeNews","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeNews","")
 
 	Func setUriSchemeNews P1
 		raise("DotNet Error: UriSchemeNews is a read-only property")
 
 	Func getUriSchemeNntp
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeNntp","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s13:UriSchemeNntp","")
 
 	Func setUriSchemeNntp P1
 		raise("DotNet Error: UriSchemeNntp is a read-only property")
 
 	Func getUriSchemeSsh
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeSsh","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s12:UriSchemeSsh","")
 
 	Func setUriSchemeSsh P1
 		raise("DotNet Error: UriSchemeSsh is a read-only property")
 
 	Func getUriSchemeTelnet
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeTelnet","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:UriSchemeTelnet","")
 
 	Func setUriSchemeTelnet P1
 		raise("DotNet Error: UriSchemeTelnet is a read-only property")
 
 	Func getUriSchemeNetTcp
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeNetTcp","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:UriSchemeNetTcp","")
 
 	Func setUriSchemeNetTcp P1
 		raise("DotNet Error: UriSchemeNetTcp is a read-only property")
 
 	Func getUriSchemeNetPipe
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s16:UriSchemeNetPipe","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s16:UriSchemeNetPipe","")
 
 	Func setUriSchemeNetPipe P1
 		raise("DotNet Error: UriSchemeNetPipe is a read-only property")
 
 	Func getSchemeDelimiter
-		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:SchemeDelimiter","")
+		return dnSend("s3:get",dnTypeHandle('System.Uri, System.Private.Uri'),"s15:SchemeDelimiter","")
 
 	Func setSchemeDelimiter P1
 		raise("DotNet Error: SchemeDelimiter is a read-only property")
@@ -5098,11 +5098,11 @@ Class UriParser from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Register P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.UriParser, System.Private.Uri').nHandle,"s8:Register",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.UriParser, System.Private.Uri'),"s8:Register",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func IsKnownScheme P1
-		return dnSend("s4:call",dnTypeCached('System.UriParser, System.Private.Uri').nHandle,"s13:IsKnownScheme",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UriParser, System.Private.Uri'),"s13:IsKnownScheme",dnPackItem(P1))
 
 
 Class ValueType from Object
@@ -5183,10 +5183,10 @@ Class Version from Object
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Version, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Version, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Version, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Version, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func getMajor
 		return dnSend("s3:get",nHandle,"s5:Major","")
@@ -5416,14 +5416,14 @@ Class AppDomain from MarshalByRefObject
 		raise("DotNet Error: CreateInstanceFromAndUnwrap does not take one argument: use named arguments, CreateInstanceFromAndUnwrap([ :parameter = value, ... ])")
 
 	Func CreateDomain P1
-		return dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s12:CreateDomain",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s12:CreateDomain",dnPackItem(P1))
 
 	Func Unload P1
-		dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s6:Unload",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s6:Unload",dnPackItem(P1))
 		return self
 
 	Func GetCurrentThreadId 
-		return dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s18:GetCurrentThreadId","")
+		return dnSend("s4:call",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s18:GetCurrentThreadId","")
 
 	Func setUnhandledExceptionEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnhandledException",dnCallback(P1)])
@@ -5573,20 +5573,20 @@ Class AppDomain from MarshalByRefObject
 		raise("DotNet Error: MonitoringTotalProcessorTime is a read-only property")
 
 	Func getCurrentDomain
-		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s13:CurrentDomain","")
+		return dnSend("s3:get",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s13:CurrentDomain","")
 
 	Func setCurrentDomain P1
 		raise("DotNet Error: CurrentDomain is a read-only property")
 
 	Func getMonitoringIsEnabled
-		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s19:MonitoringIsEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s19:MonitoringIsEnabled","")
 
 	Func setMonitoringIsEnabled P1
-		dnSend("s3:set",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s19:MonitoringIsEnabled",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s19:MonitoringIsEnabled",dnPackItem(P1))
 		return self
 
 	Func getMonitoringSurvivedProcessMemorySize
-		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s35:MonitoringSurvivedProcessMemorySize","")
+		return dnSend("s3:get",dnTypeHandle('System.AppDomain, System.Private.CoreLib'),"s35:MonitoringSurvivedProcessMemorySize","")
 
 	Func setMonitoringSurvivedProcessMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedProcessMemorySize is a read-only property")
@@ -5650,19 +5650,19 @@ Class Boolean from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func getTrueString
-		return dnSend("s3:get",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s10:TrueString","")
+		return dnSend("s3:get",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s10:TrueString","")
 
 	Func setTrueString P1
 		raise("DotNet Error: TrueString is a read-only property")
 
 	Func getFalseString
-		return dnSend("s3:get",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s11:FalseString","")
+		return dnSend("s3:get",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s11:FalseString","")
 
 	Func setFalseString P1
 		raise("DotNet Error: FalseString is a read-only property")
@@ -5705,75 +5705,75 @@ Class Byte from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -5808,12 +5808,12 @@ Class Char from ValueType
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
+			return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
@@ -5821,172 +5821,172 @@ Class Char from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsAscii P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsAscii",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsAscii",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsAsciiLetter P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsAsciiLetter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s13:IsAsciiLetter",dnPackItem(P1))
 
 	Func IsAsciiLetterLower P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:IsAsciiLetterLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s18:IsAsciiLetterLower",dnPackItem(P1))
 
 	Func IsAsciiLetterUpper P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:IsAsciiLetterUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s18:IsAsciiLetterUpper",dnPackItem(P1))
 
 	Func IsAsciiDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsAsciiDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s12:IsAsciiDigit",dnPackItem(P1))
 
 	Func IsAsciiLetterOrDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiLetterOrDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s20:IsAsciiLetterOrDigit",dnPackItem(P1))
 
 	Func IsAsciiHexDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsAsciiHexDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsAsciiHexDigit",dnPackItem(P1))
 
 	Func IsAsciiHexDigitUpper P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiHexDigitUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s20:IsAsciiHexDigitUpper",dnPackItem(P1))
 
 	Func IsAsciiHexDigitLower P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiHexDigitLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s20:IsAsciiHexDigitLower",dnPackItem(P1))
 
 	Func IsDigit P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsDigit",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsDigit",dnPackItem(P1))
 
 	Func IsBetween P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsBetween",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s9:IsBetween",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IsLetter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsLetter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsLetter",dnPackItem(P1))
 
 	Func IsWhiteSpace P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s12:IsWhiteSpace",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s12:IsWhiteSpace",dnPackItem(P1))
 
 	Func IsUpper P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsUpper",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsUpper",dnPackItem(P1))
 
 	Func IsLower P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsLower",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsLower",dnPackItem(P1))
 
 	Func IsPunctuation P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s13:IsPunctuation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s13:IsPunctuation",dnPackItem(P1))
 
 	Func IsLetterOrDigit P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsLetterOrDigit",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsLetterOrDigit",dnPackItem(P1))
 
 	Func ToUpper P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1))
 
 	Func ToUpperInvariant P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ToUpperInvariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s16:ToUpperInvariant",dnPackItem(P1))
 
 	Func ToLower P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1))
 
 	Func ToLowerInvariant P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ToLowerInvariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s16:ToLowerInvariant",dnPackItem(P1))
 
 	Func IsControl P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s9:IsControl",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s9:IsControl",dnPackItem(P1))
 
 	Func IsNumber P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsNumber",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsNumber",dnPackItem(P1))
 
 	Func IsSeparator P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSeparator",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSeparator",dnPackItem(P1))
 
 	Func IsSurrogate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSurrogate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSurrogate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSurrogate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSurrogate",dnPackItem(P1))
 
 	Func IsSymbol P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsSymbol",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsSymbol",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 
 	Func IsHighSurrogate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsHighSurrogate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsHighSurrogate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsHighSurrogate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsHighSurrogate",dnPackItem(P1))
 
 	Func IsLowSurrogate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:IsLowSurrogate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s14:IsLowSurrogate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:IsLowSurrogate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s14:IsLowSurrogate",dnPackItem(P1))
 
 	Func IsSurrogatePair P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConvertFromUtf32 P1
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ConvertFromUtf32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s16:ConvertFromUtf32",dnPackItem(P1))
 
 	Func ConvertToUtf32 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:ConvertToUtf32",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Char, System.Private.CoreLib'),"s14:ConvertToUtf32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -6178,32 +6178,32 @@ Class DateOnly from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func FromDayNumber P1
-		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s13:FromDayNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s13:FromDayNumber",dnPackItem(P1))
 
 	Func FromDateTime P1
-		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s12:FromDateTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s12:FromDateTime",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -6244,13 +6244,13 @@ Class DateOnly from ValueType
 		raise("DotNet Error: DayNumber is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -6342,7 +6342,7 @@ Class DateTime from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -6406,49 +6406,49 @@ Class DateTime from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DaysInMonth P1,P2
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s11:DaysInMonth",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s11:DaysInMonth",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromBinary P1
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:FromBinary",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s10:FromBinary",dnPackItem(P1))
 
 	Func FromFileTime P1
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s12:FromFileTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s12:FromFileTime",dnPackItem(P1))
 
 	Func FromFileTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s15:FromFileTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s15:FromFileTimeUtc",dnPackItem(P1))
 
 	Func FromOADate P1
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:FromOADate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s10:FromOADate",dnPackItem(P1))
 
 	Func SpecifyKind P1,P2
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s11:SpecifyKind",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s11:SpecifyKind",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsLeapYear P1
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:IsLeapYear",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s10:IsLeapYear",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getDate
 		return dnSend("s3:get",nHandle,"s4:Date","")
@@ -6541,37 +6541,37 @@ Class DateTime from ValueType
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getNow
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s3:Now","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s3:Now","")
 
 	Func setNow P1
 		raise("DotNet Error: Now is a read-only property")
 
 	Func getToday
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Today","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s5:Today","")
 
 	Func setToday P1
 		raise("DotNet Error: Today is a read-only property")
 
 	Func getUtcNow
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s6:UtcNow","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s6:UtcNow","")
 
 	Func setUtcNow P1
 		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getUnixEpoch
-		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s9:UnixEpoch","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s9:UnixEpoch","")
 
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
@@ -6678,7 +6678,7 @@ Class DateTimeOffset from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -6715,37 +6715,37 @@ Class DateTimeOffset from ValueType
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromFileTime P1
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s12:FromFileTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s12:FromFileTime",dnPackItem(P1))
 
 	Func FromUnixTimeSeconds P1
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s19:FromUnixTimeSeconds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s19:FromUnixTimeSeconds",dnPackItem(P1))
 
 	Func FromUnixTimeMilliseconds P1
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s24:FromUnixTimeMilliseconds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s24:FromUnixTimeMilliseconds",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getDateTime
 		return dnSend("s3:get",nHandle,"s8:DateTime","")
@@ -6868,31 +6868,31 @@ Class DateTimeOffset from ValueType
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getUtcNow
-		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s6:UtcNow","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s6:UtcNow","")
 
 	Func setUtcNow P1
 		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getNow
-		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s3:Now","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s3:Now","")
 
 	Func setNow P1
 		raise("DotNet Error: Now is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getUnixEpoch
-		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s9:UnixEpoch","")
+		return dnSend("s3:get",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s9:UnixEpoch","")
 
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
@@ -6947,7 +6947,7 @@ Class Decimal from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -6963,148 +6963,148 @@ Class Decimal from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func FromOACurrency P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s14:FromOACurrency",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s14:FromOACurrency",dnPackItem(P1))
 
 	Func ToOACurrency P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:ToOACurrency",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s12:ToOACurrency",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func GetBits P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:GetBits",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:GetBits",dnPackItem(P1))
 
 	Func Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToByte P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s6:ToByte",dnPackItem(P1))
 
 	Func ToSByte P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:ToSByte",dnPackItem(P1))
 
 	Func ToInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:ToInt16",dnPackItem(P1))
 
 	Func ToDouble P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:ToDouble",dnPackItem(P1))
 
 	Func ToInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:ToInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s7:ToInt64",dnPackItem(P1))
 
 	Func ToUInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToUInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToUInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:ToSingle",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsCanonical P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s11:IsCanonical",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s11:IsCanonical",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getScale
 		return dnSend("s3:get",nHandle,"s5:Scale","")
@@ -7113,31 +7113,31 @@ Class Decimal from ValueType
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MinusOne","")
+		return dnSend("s3:get",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:MinusOne","")
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -7187,337 +7187,337 @@ Class Double from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsFinite P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:LogP1",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:TanPi",dnPackItem(P1))
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -7545,63 +7545,63 @@ Class Enum from ValueType
 
 	Func GetName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s7:GetName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s7:GetName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s7:GetName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s7:GetName",dnPackItem(P1))
 
 	Func GetNames P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:GetNames",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames","")
+			return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:GetNames","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:GetNames",dnPackItem(P1))
 
 	Func GetUnderlyingType P1
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s17:GetUnderlyingType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s17:GetUnderlyingType",dnPackItem(P1))
 
 	Func GetValues P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:GetValues",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues","")
+			return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:GetValues","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:GetValues",dnPackItem(P1))
 
 	Func GetValuesAsUnderlyingType P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType","")
+			return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s25:GetValuesAsUnderlyingType","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
 
 	Func IsDefined P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:IsDefined",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:IsDefined",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:IsDefined",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:IsDefined",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func Format P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s6:Format",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s6:Format",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ToObject P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:ToObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:ToObject",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FileStyleUriParser from UriParser
@@ -7926,33 +7926,33 @@ Class Guid from ValueType
 
 	Func CreateVersion7 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s14:CreateVersion7",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7","")
+			return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s14:CreateVersion7","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s14:CreateVersion7",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func ParseExact P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryParseExact P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NewGuid 
-		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s7:NewGuid","")
+		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s7:NewGuid","")
 
 	Func getVariant
 		return dnSend("s3:get",nHandle,"s7:Variant","")
@@ -7967,13 +7967,13 @@ Class Guid from ValueType
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getAllBitsSet
-		return dnSend("s3:get",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s10:AllBitsSet","")
+		return dnSend("s3:get",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s10:AllBitsSet","")
 
 	Func setAllBitsSet P1
 		raise("DotNet Error: AllBitsSet is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -8024,361 +8024,361 @@ Class Half from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func IsFinite P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:LogP1",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:TanPi",dnPackItem(P1))
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getMultiplicativeIdentity
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:MultiplicativeIdentity","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s22:MultiplicativeIdentity","")
 
 	Func setMultiplicativeIdentity P1
 		raise("DotNet Error: MultiplicativeIdentity is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getNegativeOne
-		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s11:NegativeOne","")
+		return dnSend("s3:get",dnTypeHandle('System.Half, System.Private.CoreLib'),"s11:NegativeOne","")
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
@@ -8417,9 +8417,9 @@ Class HashCode from ValueType
 
 	Func Combine P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.HashCode, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.HashCode, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.HashCode, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.HashCode, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
 
 
 Class HttpStyleUriParser from UriParser
@@ -8487,10 +8487,10 @@ Class Index from ValueType
 		return dnSend("s4:call",nHandle,"s9:GetOffset",dnPackItem(P1))
 
 	Func FromStart P1
-		return dnSend("s4:call",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s9:FromStart",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Index, System.Private.CoreLib'),"s9:FromStart",dnPackItem(P1))
 
 	Func FromEnd P1
-		return dnSend("s4:call",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s7:FromEnd",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Index, System.Private.CoreLib'),"s7:FromEnd",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -8505,13 +8505,13 @@ Class Index from ValueType
 		raise("DotNet Error: IsFromEnd is a read-only property")
 
 	Func getStart
-		return dnSend("s3:get",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s5:Start","")
+		return dnSend("s3:get",dnTypeHandle('System.Index, System.Private.CoreLib'),"s5:Start","")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnSend("s3:get",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s3:End","")
+		return dnSend("s3:get",dnTypeHandle('System.Index, System.Private.CoreLib'),"s3:End","")
 
 
 Class Int128 from ValueType
@@ -8567,111 +8567,111 @@ Class Int128 from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getNegativeOne
-		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s11:NegativeOne","")
+		return dnSend("s3:get",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s11:NegativeOne","")
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
@@ -8714,93 +8714,93 @@ Class Int16 from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -8842,97 +8842,97 @@ Class Int32 from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -8974,97 +8974,97 @@ Class Int64 from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -9130,112 +9130,112 @@ Class IntPtr from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getSize
-		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Size","")
+		return dnSend("s3:get",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -9319,7 +9319,7 @@ Class ModuleHandle from ValueType
 		raise("DotNet Error: MDStreamVersion is a read-only property")
 
 	Func getEmptyHandle
-		return dnSend("s3:get",dnTypeCached('System.ModuleHandle, System.Private.CoreLib').nHandle,"s11:EmptyHandle","")
+		return dnSend("s3:get",dnTypeHandle('System.ModuleHandle, System.Private.CoreLib'),"s11:EmptyHandle","")
 
 	Func setEmptyHandle P1
 		raise("DotNet Error: EmptyHandle is a read-only property")
@@ -9443,10 +9443,10 @@ Class Range from ValueType
 		return dnSend("s4:call",nHandle,"s18:GetOffsetAndLength",dnPackItem(P1))
 
 	Func StartAt P1
-		return dnSend("s4:call",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s7:StartAt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Range, System.Private.CoreLib'),"s7:StartAt",dnPackItem(P1))
 
 	Func EndAt P1
-		return dnSend("s4:call",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s5:EndAt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Range, System.Private.CoreLib'),"s5:EndAt",dnPackItem(P1))
 
 	Func getStart
 		return dnSend("s3:get",nHandle,"s5:Start","")
@@ -9458,7 +9458,7 @@ Class Range from ValueType
 		return dnSend("s3:get",nHandle,"s3:End","")
 
 	Func getAll
-		return dnSend("s3:get",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s3:All","")
+		return dnSend("s3:get",dnTypeHandle('System.Range, System.Private.CoreLib'),"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
@@ -9535,10 +9535,10 @@ Class RuntimeFieldHandle from ValueType
 		return self
 
 	Func FromIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeFieldHandle, System.Private.CoreLib'),"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeFieldHandle, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -9577,10 +9577,10 @@ Class RuntimeMethodHandle from ValueType
 		return dnSend("s4:call",nHandle,"s18:GetFunctionPointer","")
 
 	Func FromIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeMethodHandle, System.Private.CoreLib'),"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeMethodHandle, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -9619,10 +9619,10 @@ Class RuntimeTypeHandle from ValueType
 		return self
 
 	Func FromIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeTypeHandle, System.Private.CoreLib'),"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.RuntimeTypeHandle, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -9668,93 +9668,93 @@ Class SByte from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -9804,337 +9804,337 @@ Class Single from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsFinite P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:LogP1",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:TanPi",dnPackItem(P1))
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -10220,32 +10220,32 @@ Class TimeOnly from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func FromTimeSpan P1
-		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s12:FromTimeSpan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s12:FromTimeSpan",dnPackItem(P1))
 
 	Func FromDateTime P1
-		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s12:FromDateTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s12:FromDateTime",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -10292,13 +10292,13 @@ Class TimeOnly from ValueType
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -10393,7 +10393,7 @@ Class TimeSpan from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -10418,65 +10418,65 @@ Class TimeSpan from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromDays P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:FromDays",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:FromDays",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:FromDays",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:FromDays",dnPackItem(P1))
 
 	Func FromHours P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromHours",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s9:FromHours",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromHours",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s9:FromHours",dnPackItem(P1))
 
 	Func FromMinutes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromMinutes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromMinutes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromMinutes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromMinutes",dnPackItem(P1))
 
 	Func FromSeconds P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromSeconds",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromSeconds",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromSeconds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromSeconds",dnPackItem(P1))
 
 	Func FromMilliseconds P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMilliseconds",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s16:FromMilliseconds",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMilliseconds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s16:FromMilliseconds",dnPackItem(P1))
 
 	Func FromMicroseconds P1
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMicroseconds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s16:FromMicroseconds",dnPackItem(P1))
 
 	Func FromTicks P1
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromTicks",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s9:FromTicks",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -10571,151 +10571,151 @@ Class TimeSpan from ValueType
 		raise("DotNet Error: TotalSeconds is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNanosecondsPerTick
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:NanosecondsPerTick","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s18:NanosecondsPerTick","")
 
 	Func setNanosecondsPerTick P1
 		raise("DotNet Error: NanosecondsPerTick is a read-only property")
 
 	Func getTicksPerMicrosecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:TicksPerMicrosecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s19:TicksPerMicrosecond","")
 
 	Func setTicksPerMicrosecond P1
 		raise("DotNet Error: TicksPerMicrosecond is a read-only property")
 
 	Func getTicksPerMillisecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:TicksPerMillisecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s19:TicksPerMillisecond","")
 
 	Func setTicksPerMillisecond P1
 		raise("DotNet Error: TicksPerMillisecond is a read-only property")
 
 	Func getTicksPerSecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:TicksPerSecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s14:TicksPerSecond","")
 
 	Func setTicksPerSecond P1
 		raise("DotNet Error: TicksPerSecond is a read-only property")
 
 	Func getTicksPerMinute
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:TicksPerMinute","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s14:TicksPerMinute","")
 
 	Func setTicksPerMinute P1
 		raise("DotNet Error: TicksPerMinute is a read-only property")
 
 	Func getTicksPerHour
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s12:TicksPerHour","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s12:TicksPerHour","")
 
 	Func setTicksPerHour P1
 		raise("DotNet Error: TicksPerHour is a read-only property")
 
 	Func getTicksPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:TicksPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:TicksPerDay","")
 
 	Func setTicksPerDay P1
 		raise("DotNet Error: TicksPerDay is a read-only property")
 
 	Func getMicrosecondsPerMillisecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s26:MicrosecondsPerMillisecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s26:MicrosecondsPerMillisecond","")
 
 	Func setMicrosecondsPerMillisecond P1
 		raise("DotNet Error: MicrosecondsPerMillisecond is a read-only property")
 
 	Func getMicrosecondsPerSecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MicrosecondsPerSecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s21:MicrosecondsPerSecond","")
 
 	Func setMicrosecondsPerSecond P1
 		raise("DotNet Error: MicrosecondsPerSecond is a read-only property")
 
 	Func getMicrosecondsPerMinute
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MicrosecondsPerMinute","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s21:MicrosecondsPerMinute","")
 
 	Func setMicrosecondsPerMinute P1
 		raise("DotNet Error: MicrosecondsPerMinute is a read-only property")
 
 	Func getMicrosecondsPerHour
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:MicrosecondsPerHour","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s19:MicrosecondsPerHour","")
 
 	Func setMicrosecondsPerHour P1
 		raise("DotNet Error: MicrosecondsPerHour is a read-only property")
 
 	Func getMicrosecondsPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:MicrosecondsPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s18:MicrosecondsPerDay","")
 
 	Func setMicrosecondsPerDay P1
 		raise("DotNet Error: MicrosecondsPerDay is a read-only property")
 
 	Func getMillisecondsPerSecond
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MillisecondsPerSecond","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s21:MillisecondsPerSecond","")
 
 	Func setMillisecondsPerSecond P1
 		raise("DotNet Error: MillisecondsPerSecond is a read-only property")
 
 	Func getMillisecondsPerMinute
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MillisecondsPerMinute","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s21:MillisecondsPerMinute","")
 
 	Func setMillisecondsPerMinute P1
 		raise("DotNet Error: MillisecondsPerMinute is a read-only property")
 
 	Func getMillisecondsPerHour
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:MillisecondsPerHour","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s19:MillisecondsPerHour","")
 
 	Func setMillisecondsPerHour P1
 		raise("DotNet Error: MillisecondsPerHour is a read-only property")
 
 	Func getMillisecondsPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:MillisecondsPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s18:MillisecondsPerDay","")
 
 	Func setMillisecondsPerDay P1
 		raise("DotNet Error: MillisecondsPerDay is a read-only property")
 
 	Func getSecondsPerMinute
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:SecondsPerMinute","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s16:SecondsPerMinute","")
 
 	Func setSecondsPerMinute P1
 		raise("DotNet Error: SecondsPerMinute is a read-only property")
 
 	Func getSecondsPerHour
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:SecondsPerHour","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s14:SecondsPerHour","")
 
 	Func setSecondsPerHour P1
 		raise("DotNet Error: SecondsPerHour is a read-only property")
 
 	Func getSecondsPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:SecondsPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s13:SecondsPerDay","")
 
 	Func setSecondsPerDay P1
 		raise("DotNet Error: SecondsPerDay is a read-only property")
 
 	Func getMinutesPerHour
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:MinutesPerHour","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s14:MinutesPerHour","")
 
 	Func setMinutesPerHour P1
 		raise("DotNet Error: MinutesPerHour is a read-only property")
 
 	Func getMinutesPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:MinutesPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s13:MinutesPerDay","")
 
 	Func setMinutesPerDay P1
 		raise("DotNet Error: MinutesPerDay is a read-only property")
 
 	Func getHoursPerDay
-		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:HoursPerDay","")
+		return dnSend("s3:get",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:HoursPerDay","")
 
 	Func setHoursPerDay P1
 		raise("DotNet Error: HoursPerDay is a read-only property")
@@ -10773,87 +10773,87 @@ Class UInt128 from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -10896,75 +10896,75 @@ Class UInt16 from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11006,79 +11006,79 @@ Class UInt32 from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11120,79 +11120,79 @@ Class UInt64 from ValueType
 		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11258,94 +11258,94 @@ Class UIntPtr from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getSize
-		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Size","")
+		return dnSend("s3:get",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -11435,12 +11435,12 @@ Class ValueTuple from ValueType
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ValueTuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.ValueTuple, System.Private.CoreLib'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ValueTuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 
 Class Void from ValueType

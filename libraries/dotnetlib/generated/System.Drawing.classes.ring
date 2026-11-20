@@ -397,847 +397,847 @@ Class Brushes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTransparent
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:Transparent","")
 
 	Func setTransparent P1
 		raise("DotNet Error: Transparent is a read-only property")
 
 	Func getAliceBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:AliceBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:AliceBlue","")
 
 	Func setAliceBlue P1
 		raise("DotNet Error: AliceBlue is a read-only property")
 
 	Func getAntiqueWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:AntiqueWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:AntiqueWhite","")
 
 	Func setAntiqueWhite P1
 		raise("DotNet Error: AntiqueWhite is a read-only property")
 
 	Func getAqua
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Aqua","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Aqua","")
 
 	Func setAqua P1
 		raise("DotNet Error: Aqua is a read-only property")
 
 	Func getAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:Aquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:Aquamarine","")
 
 	Func setAquamarine P1
 		raise("DotNet Error: Aquamarine is a read-only property")
 
 	Func getAzure
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Azure","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Azure","")
 
 	Func setAzure P1
 		raise("DotNet Error: Azure is a read-only property")
 
 	Func getBeige
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Beige","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Beige","")
 
 	Func setBeige P1
 		raise("DotNet Error: Beige is a read-only property")
 
 	Func getBisque
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Bisque","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Bisque","")
 
 	Func setBisque P1
 		raise("DotNet Error: Bisque is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getBlanchedAlmond
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:BlanchedAlmond","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:BlanchedAlmond","")
 
 	Func setBlanchedAlmond P1
 		raise("DotNet Error: BlanchedAlmond is a read-only property")
 
 	Func getBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Blue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Blue","")
 
 	Func setBlue P1
 		raise("DotNet Error: Blue is a read-only property")
 
 	Func getBlueViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:BlueViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:BlueViolet","")
 
 	Func setBlueViolet P1
 		raise("DotNet Error: BlueViolet is a read-only property")
 
 	Func getBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Brown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Brown","")
 
 	Func setBrown P1
 		raise("DotNet Error: Brown is a read-only property")
 
 	Func getBurlyWood
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:BurlyWood","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:BurlyWood","")
 
 	Func setBurlyWood P1
 		raise("DotNet Error: BurlyWood is a read-only property")
 
 	Func getCadetBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:CadetBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:CadetBlue","")
 
 	Func setCadetBlue P1
 		raise("DotNet Error: CadetBlue is a read-only property")
 
 	Func getChartreuse
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:Chartreuse","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:Chartreuse","")
 
 	Func setChartreuse P1
 		raise("DotNet Error: Chartreuse is a read-only property")
 
 	Func getChocolate
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:Chocolate","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:Chocolate","")
 
 	Func setChocolate P1
 		raise("DotNet Error: Chocolate is a read-only property")
 
 	Func getCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Coral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Coral","")
 
 	Func setCoral P1
 		raise("DotNet Error: Coral is a read-only property")
 
 	Func getCornflowerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:CornflowerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:CornflowerBlue","")
 
 	Func setCornflowerBlue P1
 		raise("DotNet Error: CornflowerBlue is a read-only property")
 
 	Func getCornsilk
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:Cornsilk","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:Cornsilk","")
 
 	Func setCornsilk P1
 		raise("DotNet Error: Cornsilk is a read-only property")
 
 	Func getCrimson
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:Crimson","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:Crimson","")
 
 	Func setCrimson P1
 		raise("DotNet Error: Crimson is a read-only property")
 
 	Func getCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Cyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Cyan","")
 
 	Func setCyan P1
 		raise("DotNet Error: Cyan is a read-only property")
 
 	Func getDarkBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:DarkBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:DarkBlue","")
 
 	Func setDarkBlue P1
 		raise("DotNet Error: DarkBlue is a read-only property")
 
 	Func getDarkCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:DarkCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:DarkCyan","")
 
 	Func setDarkCyan P1
 		raise("DotNet Error: DarkCyan is a read-only property")
 
 	Func getDarkGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:DarkGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:DarkGoldenrod","")
 
 	Func setDarkGoldenrod P1
 		raise("DotNet Error: DarkGoldenrod is a read-only property")
 
 	Func getDarkGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:DarkGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:DarkGray","")
 
 	Func setDarkGray P1
 		raise("DotNet Error: DarkGray is a read-only property")
 
 	Func getDarkGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:DarkGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:DarkGreen","")
 
 	Func setDarkGreen P1
 		raise("DotNet Error: DarkGreen is a read-only property")
 
 	Func getDarkKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:DarkKhaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:DarkKhaki","")
 
 	Func setDarkKhaki P1
 		raise("DotNet Error: DarkKhaki is a read-only property")
 
 	Func getDarkMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:DarkMagenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:DarkMagenta","")
 
 	Func setDarkMagenta P1
 		raise("DotNet Error: DarkMagenta is a read-only property")
 
 	Func getDarkOliveGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:DarkOliveGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:DarkOliveGreen","")
 
 	Func setDarkOliveGreen P1
 		raise("DotNet Error: DarkOliveGreen is a read-only property")
 
 	Func getDarkOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:DarkOrange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:DarkOrange","")
 
 	Func setDarkOrange P1
 		raise("DotNet Error: DarkOrange is a read-only property")
 
 	Func getDarkOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:DarkOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:DarkOrchid","")
 
 	Func setDarkOrchid P1
 		raise("DotNet Error: DarkOrchid is a read-only property")
 
 	Func getDarkRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:DarkRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:DarkRed","")
 
 	Func setDarkRed P1
 		raise("DotNet Error: DarkRed is a read-only property")
 
 	Func getDarkSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:DarkSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:DarkSalmon","")
 
 	Func setDarkSalmon P1
 		raise("DotNet Error: DarkSalmon is a read-only property")
 
 	Func getDarkSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:DarkSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:DarkSeaGreen","")
 
 	Func setDarkSeaGreen P1
 		raise("DotNet Error: DarkSeaGreen is a read-only property")
 
 	Func getDarkSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:DarkSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:DarkSlateBlue","")
 
 	Func setDarkSlateBlue P1
 		raise("DotNet Error: DarkSlateBlue is a read-only property")
 
 	Func getDarkSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:DarkSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:DarkSlateGray","")
 
 	Func setDarkSlateGray P1
 		raise("DotNet Error: DarkSlateGray is a read-only property")
 
 	Func getDarkTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:DarkTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:DarkTurquoise","")
 
 	Func setDarkTurquoise P1
 		raise("DotNet Error: DarkTurquoise is a read-only property")
 
 	Func getDarkViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:DarkViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:DarkViolet","")
 
 	Func setDarkViolet P1
 		raise("DotNet Error: DarkViolet is a read-only property")
 
 	Func getDeepPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:DeepPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:DeepPink","")
 
 	Func setDeepPink P1
 		raise("DotNet Error: DeepPink is a read-only property")
 
 	Func getDeepSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:DeepSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:DeepSkyBlue","")
 
 	Func setDeepSkyBlue P1
 		raise("DotNet Error: DeepSkyBlue is a read-only property")
 
 	Func getDimGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:DimGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:DimGray","")
 
 	Func setDimGray P1
 		raise("DotNet Error: DimGray is a read-only property")
 
 	Func getDodgerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:DodgerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:DodgerBlue","")
 
 	Func setDodgerBlue P1
 		raise("DotNet Error: DodgerBlue is a read-only property")
 
 	Func getFirebrick
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:Firebrick","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:Firebrick","")
 
 	Func setFirebrick P1
 		raise("DotNet Error: Firebrick is a read-only property")
 
 	Func getFloralWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:FloralWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:FloralWhite","")
 
 	Func setFloralWhite P1
 		raise("DotNet Error: FloralWhite is a read-only property")
 
 	Func getForestGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:ForestGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:ForestGreen","")
 
 	Func setForestGreen P1
 		raise("DotNet Error: ForestGreen is a read-only property")
 
 	Func getFuchsia
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:Fuchsia","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:Fuchsia","")
 
 	Func setFuchsia P1
 		raise("DotNet Error: Fuchsia is a read-only property")
 
 	Func getGainsboro
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:Gainsboro","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:Gainsboro","")
 
 	Func setGainsboro P1
 		raise("DotNet Error: Gainsboro is a read-only property")
 
 	Func getGhostWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:GhostWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:GhostWhite","")
 
 	Func setGhostWhite P1
 		raise("DotNet Error: GhostWhite is a read-only property")
 
 	Func getGold
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Gold","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Gold","")
 
 	Func setGold P1
 		raise("DotNet Error: Gold is a read-only property")
 
 	Func getGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:Goldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:Goldenrod","")
 
 	Func setGoldenrod P1
 		raise("DotNet Error: Goldenrod is a read-only property")
 
 	Func getGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Gray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Gray","")
 
 	Func setGray P1
 		raise("DotNet Error: Gray is a read-only property")
 
 	Func getGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Green","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Green","")
 
 	Func setGreen P1
 		raise("DotNet Error: Green is a read-only property")
 
 	Func getGreenYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:GreenYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:GreenYellow","")
 
 	Func setGreenYellow P1
 		raise("DotNet Error: GreenYellow is a read-only property")
 
 	Func getHoneydew
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:Honeydew","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:Honeydew","")
 
 	Func setHoneydew P1
 		raise("DotNet Error: Honeydew is a read-only property")
 
 	Func getHotPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:HotPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:HotPink","")
 
 	Func setHotPink P1
 		raise("DotNet Error: HotPink is a read-only property")
 
 	Func getIndianRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:IndianRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:IndianRed","")
 
 	Func setIndianRed P1
 		raise("DotNet Error: IndianRed is a read-only property")
 
 	Func getIndigo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Indigo","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Indigo","")
 
 	Func setIndigo P1
 		raise("DotNet Error: Indigo is a read-only property")
 
 	Func getIvory
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Ivory","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Ivory","")
 
 	Func setIvory P1
 		raise("DotNet Error: Ivory is a read-only property")
 
 	Func getKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Khaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Khaki","")
 
 	Func setKhaki P1
 		raise("DotNet Error: Khaki is a read-only property")
 
 	Func getLavender
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:Lavender","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:Lavender","")
 
 	Func setLavender P1
 		raise("DotNet Error: Lavender is a read-only property")
 
 	Func getLavenderBlush
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:LavenderBlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:LavenderBlush","")
 
 	Func setLavenderBlush P1
 		raise("DotNet Error: LavenderBlush is a read-only property")
 
 	Func getLawnGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LawnGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LawnGreen","")
 
 	Func setLawnGreen P1
 		raise("DotNet Error: LawnGreen is a read-only property")
 
 	Func getLemonChiffon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:LemonChiffon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:LemonChiffon","")
 
 	Func setLemonChiffon P1
 		raise("DotNet Error: LemonChiffon is a read-only property")
 
 	Func getLightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LightBlue","")
 
 	Func setLightBlue P1
 		raise("DotNet Error: LightBlue is a read-only property")
 
 	Func getLightCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:LightCoral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:LightCoral","")
 
 	Func setLightCoral P1
 		raise("DotNet Error: LightCoral is a read-only property")
 
 	Func getLightCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LightCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LightCyan","")
 
 	Func setLightCyan P1
 		raise("DotNet Error: LightCyan is a read-only property")
 
 	Func getLightGoldenrodYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s20:LightGoldenrodYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s20:LightGoldenrodYellow","")
 
 	Func setLightGoldenrodYellow P1
 		raise("DotNet Error: LightGoldenrodYellow is a read-only property")
 
 	Func getLightGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:LightGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:LightGreen","")
 
 	Func setLightGreen P1
 		raise("DotNet Error: LightGreen is a read-only property")
 
 	Func getLightGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LightGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LightGray","")
 
 	Func setLightGray P1
 		raise("DotNet Error: LightGray is a read-only property")
 
 	Func getLightPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LightPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LightPink","")
 
 	Func setLightPink P1
 		raise("DotNet Error: LightPink is a read-only property")
 
 	Func getLightSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:LightSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:LightSalmon","")
 
 	Func setLightSalmon P1
 		raise("DotNet Error: LightSalmon is a read-only property")
 
 	Func getLightSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:LightSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:LightSeaGreen","")
 
 	Func setLightSeaGreen P1
 		raise("DotNet Error: LightSeaGreen is a read-only property")
 
 	Func getLightSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:LightSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:LightSkyBlue","")
 
 	Func setLightSkyBlue P1
 		raise("DotNet Error: LightSkyBlue is a read-only property")
 
 	Func getLightSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:LightSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:LightSlateGray","")
 
 	Func setLightSlateGray P1
 		raise("DotNet Error: LightSlateGray is a read-only property")
 
 	Func getLightSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:LightSteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:LightSteelBlue","")
 
 	Func setLightSteelBlue P1
 		raise("DotNet Error: LightSteelBlue is a read-only property")
 
 	Func getLightYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:LightYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:LightYellow","")
 
 	Func setLightYellow P1
 		raise("DotNet Error: LightYellow is a read-only property")
 
 	Func getLime
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Lime","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Lime","")
 
 	Func setLime P1
 		raise("DotNet Error: Lime is a read-only property")
 
 	Func getLimeGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:LimeGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:LimeGreen","")
 
 	Func setLimeGreen P1
 		raise("DotNet Error: LimeGreen is a read-only property")
 
 	Func getLinen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Linen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Linen","")
 
 	Func setLinen P1
 		raise("DotNet Error: Linen is a read-only property")
 
 	Func getMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:Magenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:Magenta","")
 
 	Func setMagenta P1
 		raise("DotNet Error: Magenta is a read-only property")
 
 	Func getMaroon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Maroon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Maroon","")
 
 	Func setMaroon P1
 		raise("DotNet Error: Maroon is a read-only property")
 
 	Func getMediumAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s16:MediumAquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s16:MediumAquamarine","")
 
 	Func setMediumAquamarine P1
 		raise("DotNet Error: MediumAquamarine is a read-only property")
 
 	Func getMediumBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:MediumBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:MediumBlue","")
 
 	Func setMediumBlue P1
 		raise("DotNet Error: MediumBlue is a read-only property")
 
 	Func getMediumOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:MediumOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:MediumOrchid","")
 
 	Func setMediumOrchid P1
 		raise("DotNet Error: MediumOrchid is a read-only property")
 
 	Func getMediumPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:MediumPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:MediumPurple","")
 
 	Func setMediumPurple P1
 		raise("DotNet Error: MediumPurple is a read-only property")
 
 	Func getMediumSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s14:MediumSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s14:MediumSeaGreen","")
 
 	Func setMediumSeaGreen P1
 		raise("DotNet Error: MediumSeaGreen is a read-only property")
 
 	Func getMediumSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s15:MediumSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s15:MediumSlateBlue","")
 
 	Func setMediumSlateBlue P1
 		raise("DotNet Error: MediumSlateBlue is a read-only property")
 
 	Func getMediumSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s17:MediumSpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s17:MediumSpringGreen","")
 
 	Func setMediumSpringGreen P1
 		raise("DotNet Error: MediumSpringGreen is a read-only property")
 
 	Func getMediumTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s15:MediumTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s15:MediumTurquoise","")
 
 	Func setMediumTurquoise P1
 		raise("DotNet Error: MediumTurquoise is a read-only property")
 
 	Func getMediumVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s15:MediumVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s15:MediumVioletRed","")
 
 	Func setMediumVioletRed P1
 		raise("DotNet Error: MediumVioletRed is a read-only property")
 
 	Func getMidnightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s12:MidnightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s12:MidnightBlue","")
 
 	Func setMidnightBlue P1
 		raise("DotNet Error: MidnightBlue is a read-only property")
 
 	Func getMintCream
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:MintCream","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:MintCream","")
 
 	Func setMintCream P1
 		raise("DotNet Error: MintCream is a read-only property")
 
 	Func getMistyRose
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:MistyRose","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:MistyRose","")
 
 	Func setMistyRose P1
 		raise("DotNet Error: MistyRose is a read-only property")
 
 	Func getMoccasin
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:Moccasin","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:Moccasin","")
 
 	Func setMoccasin P1
 		raise("DotNet Error: Moccasin is a read-only property")
 
 	Func getNavajoWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:NavajoWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:NavajoWhite","")
 
 	Func setNavajoWhite P1
 		raise("DotNet Error: NavajoWhite is a read-only property")
 
 	Func getNavy
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Navy","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Navy","")
 
 	Func setNavy P1
 		raise("DotNet Error: Navy is a read-only property")
 
 	Func getOldLace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:OldLace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:OldLace","")
 
 	Func setOldLace P1
 		raise("DotNet Error: OldLace is a read-only property")
 
 	Func getOlive
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Olive","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Olive","")
 
 	Func setOlive P1
 		raise("DotNet Error: Olive is a read-only property")
 
 	Func getOliveDrab
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:OliveDrab","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:OliveDrab","")
 
 	Func setOliveDrab P1
 		raise("DotNet Error: OliveDrab is a read-only property")
 
 	Func getOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Orange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Orange","")
 
 	Func setOrange P1
 		raise("DotNet Error: Orange is a read-only property")
 
 	Func getOrangeRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:OrangeRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:OrangeRed","")
 
 	Func setOrangeRed P1
 		raise("DotNet Error: OrangeRed is a read-only property")
 
 	Func getOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Orchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Orchid","")
 
 	Func setOrchid P1
 		raise("DotNet Error: Orchid is a read-only property")
 
 	Func getPaleGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:PaleGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:PaleGoldenrod","")
 
 	Func setPaleGoldenrod P1
 		raise("DotNet Error: PaleGoldenrod is a read-only property")
 
 	Func getPaleGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:PaleGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:PaleGreen","")
 
 	Func setPaleGreen P1
 		raise("DotNet Error: PaleGreen is a read-only property")
 
 	Func getPaleTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:PaleTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:PaleTurquoise","")
 
 	Func setPaleTurquoise P1
 		raise("DotNet Error: PaleTurquoise is a read-only property")
 
 	Func getPaleVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s13:PaleVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s13:PaleVioletRed","")
 
 	Func setPaleVioletRed P1
 		raise("DotNet Error: PaleVioletRed is a read-only property")
 
 	Func getPapayaWhip
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:PapayaWhip","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:PapayaWhip","")
 
 	Func setPapayaWhip P1
 		raise("DotNet Error: PapayaWhip is a read-only property")
 
 	Func getPeachPuff
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:PeachPuff","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:PeachPuff","")
 
 	Func setPeachPuff P1
 		raise("DotNet Error: PeachPuff is a read-only property")
 
 	Func getPeru
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Peru","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Peru","")
 
 	Func setPeru P1
 		raise("DotNet Error: Peru is a read-only property")
 
 	Func getPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Pink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Pink","")
 
 	Func setPink P1
 		raise("DotNet Error: Pink is a read-only property")
 
 	Func getPlum
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Plum","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Plum","")
 
 	Func setPlum P1
 		raise("DotNet Error: Plum is a read-only property")
 
 	Func getPowderBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:PowderBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:PowderBlue","")
 
 	Func setPowderBlue P1
 		raise("DotNet Error: PowderBlue is a read-only property")
 
 	Func getPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Purple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Purple","")
 
 	Func setPurple P1
 		raise("DotNet Error: Purple is a read-only property")
 
 	Func getRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s3:Red","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s3:Red","")
 
 	Func setRed P1
 		raise("DotNet Error: Red is a read-only property")
 
 	Func getRosyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:RosyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:RosyBrown","")
 
 	Func setRosyBrown P1
 		raise("DotNet Error: RosyBrown is a read-only property")
 
 	Func getRoyalBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:RoyalBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:RoyalBlue","")
 
 	Func setRoyalBlue P1
 		raise("DotNet Error: RoyalBlue is a read-only property")
 
 	Func getSaddleBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:SaddleBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:SaddleBrown","")
 
 	Func setSaddleBrown P1
 		raise("DotNet Error: SaddleBrown is a read-only property")
 
 	Func getSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Salmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Salmon","")
 
 	Func setSalmon P1
 		raise("DotNet Error: Salmon is a read-only property")
 
 	Func getSandyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:SandyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:SandyBrown","")
 
 	Func setSandyBrown P1
 		raise("DotNet Error: SandyBrown is a read-only property")
 
 	Func getSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:SeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:SeaGreen","")
 
 	Func setSeaGreen P1
 		raise("DotNet Error: SeaGreen is a read-only property")
 
 	Func getSeaShell
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s8:SeaShell","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s8:SeaShell","")
 
 	Func setSeaShell P1
 		raise("DotNet Error: SeaShell is a read-only property")
 
 	Func getSienna
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Sienna","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Sienna","")
 
 	Func setSienna P1
 		raise("DotNet Error: Sienna is a read-only property")
 
 	Func getSilver
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Silver","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Silver","")
 
 	Func setSilver P1
 		raise("DotNet Error: Silver is a read-only property")
 
 	Func getSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:SkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:SkyBlue","")
 
 	Func setSkyBlue P1
 		raise("DotNet Error: SkyBlue is a read-only property")
 
 	Func getSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:SlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:SlateBlue","")
 
 	Func setSlateBlue P1
 		raise("DotNet Error: SlateBlue is a read-only property")
 
 	Func getSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:SlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:SlateGray","")
 
 	Func setSlateGray P1
 		raise("DotNet Error: SlateGray is a read-only property")
 
 	Func getSnow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Snow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Snow","")
 
 	Func setSnow P1
 		raise("DotNet Error: Snow is a read-only property")
 
 	Func getSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:SpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:SpringGreen","")
 
 	Func setSpringGreen P1
 		raise("DotNet Error: SpringGreen is a read-only property")
 
 	Func getSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:SteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:SteelBlue","")
 
 	Func setSteelBlue P1
 		raise("DotNet Error: SteelBlue is a read-only property")
 
 	Func getTan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s3:Tan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s3:Tan","")
 
 	Func setTan P1
 		raise("DotNet Error: Tan is a read-only property")
 
 	Func getTeal
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s4:Teal","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s4:Teal","")
 
 	Func setTeal P1
 		raise("DotNet Error: Teal is a read-only property")
 
 	Func getThistle
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s7:Thistle","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s7:Thistle","")
 
 	Func setThistle P1
 		raise("DotNet Error: Thistle is a read-only property")
 
 	Func getTomato
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Tomato","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Tomato","")
 
 	Func setTomato P1
 		raise("DotNet Error: Tomato is a read-only property")
 
 	Func getTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s9:Turquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s9:Turquoise","")
 
 	Func setTurquoise P1
 		raise("DotNet Error: Turquoise is a read-only property")
 
 	Func getViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Violet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Violet","")
 
 	Func setViolet P1
 		raise("DotNet Error: Violet is a read-only property")
 
 	Func getWheat
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:Wheat","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:Wheat","")
 
 	Func setWheat P1
 		raise("DotNet Error: Wheat is a read-only property")
 
 	Func getWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s5:White","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s5:White","")
 
 	Func setWhite P1
 		raise("DotNet Error: White is a read-only property")
 
 	Func getWhiteSmoke
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s10:WhiteSmoke","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s10:WhiteSmoke","")
 
 	Func setWhiteSmoke P1
 		raise("DotNet Error: WhiteSmoke is a read-only property")
 
 	Func getYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s6:Yellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s6:Yellow","")
 
 	Func setYellow P1
 		raise("DotNet Error: Yellow is a read-only property")
 
 	Func getYellowGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Brushes, System.Drawing.Common').nHandle,"s11:YellowGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Brushes, System.Drawing.Common'),"s11:YellowGreen","")
 
 	Func setYellowGreen P1
 		raise("DotNet Error: YellowGreen is a read-only property")
@@ -1343,7 +1343,7 @@ Class BufferedGraphicsManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Drawing.BufferedGraphicsManager, System.Drawing.Common').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.BufferedGraphicsManager, System.Drawing.Common'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1593,15 +1593,15 @@ Class Color from ValueType
 
 	Func FromArgb P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:FromArgb",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:FromArgb",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:FromArgb",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:FromArgb",dnPackItem(P1))
 
 	Func FromKnownColor P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:FromKnownColor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:FromKnownColor",dnPackItem(P1))
 
 	Func FromName P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:FromName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:FromName",dnPackItem(P1))
 
 	Func getR
 		return dnSend("s3:get",nHandle,"s1:R","")
@@ -1658,859 +1658,859 @@ Class Color from ValueType
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getTransparent
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:Transparent","")
 
 	Func setTransparent P1
 		raise("DotNet Error: Transparent is a read-only property")
 
 	Func getAliceBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:AliceBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:AliceBlue","")
 
 	Func setAliceBlue P1
 		raise("DotNet Error: AliceBlue is a read-only property")
 
 	Func getAntiqueWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:AntiqueWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:AntiqueWhite","")
 
 	Func setAntiqueWhite P1
 		raise("DotNet Error: AntiqueWhite is a read-only property")
 
 	Func getAqua
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Aqua","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Aqua","")
 
 	Func setAqua P1
 		raise("DotNet Error: Aqua is a read-only property")
 
 	Func getAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:Aquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:Aquamarine","")
 
 	Func setAquamarine P1
 		raise("DotNet Error: Aquamarine is a read-only property")
 
 	Func getAzure
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Azure","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Azure","")
 
 	Func setAzure P1
 		raise("DotNet Error: Azure is a read-only property")
 
 	Func getBeige
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Beige","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Beige","")
 
 	Func setBeige P1
 		raise("DotNet Error: Beige is a read-only property")
 
 	Func getBisque
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Bisque","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Bisque","")
 
 	Func setBisque P1
 		raise("DotNet Error: Bisque is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getBlanchedAlmond
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:BlanchedAlmond","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:BlanchedAlmond","")
 
 	Func setBlanchedAlmond P1
 		raise("DotNet Error: BlanchedAlmond is a read-only property")
 
 	Func getBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Blue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Blue","")
 
 	Func setBlue P1
 		raise("DotNet Error: Blue is a read-only property")
 
 	Func getBlueViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:BlueViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:BlueViolet","")
 
 	Func setBlueViolet P1
 		raise("DotNet Error: BlueViolet is a read-only property")
 
 	Func getBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Brown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Brown","")
 
 	Func setBrown P1
 		raise("DotNet Error: Brown is a read-only property")
 
 	Func getBurlyWood
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:BurlyWood","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:BurlyWood","")
 
 	Func setBurlyWood P1
 		raise("DotNet Error: BurlyWood is a read-only property")
 
 	Func getCadetBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:CadetBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:CadetBlue","")
 
 	Func setCadetBlue P1
 		raise("DotNet Error: CadetBlue is a read-only property")
 
 	Func getChartreuse
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:Chartreuse","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:Chartreuse","")
 
 	Func setChartreuse P1
 		raise("DotNet Error: Chartreuse is a read-only property")
 
 	Func getChocolate
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:Chocolate","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:Chocolate","")
 
 	Func setChocolate P1
 		raise("DotNet Error: Chocolate is a read-only property")
 
 	Func getCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Coral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Coral","")
 
 	Func setCoral P1
 		raise("DotNet Error: Coral is a read-only property")
 
 	Func getCornflowerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:CornflowerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:CornflowerBlue","")
 
 	Func setCornflowerBlue P1
 		raise("DotNet Error: CornflowerBlue is a read-only property")
 
 	Func getCornsilk
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:Cornsilk","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:Cornsilk","")
 
 	Func setCornsilk P1
 		raise("DotNet Error: Cornsilk is a read-only property")
 
 	Func getCrimson
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:Crimson","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:Crimson","")
 
 	Func setCrimson P1
 		raise("DotNet Error: Crimson is a read-only property")
 
 	Func getCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Cyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Cyan","")
 
 	Func setCyan P1
 		raise("DotNet Error: Cyan is a read-only property")
 
 	Func getDarkBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:DarkBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:DarkBlue","")
 
 	Func setDarkBlue P1
 		raise("DotNet Error: DarkBlue is a read-only property")
 
 	Func getDarkCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:DarkCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:DarkCyan","")
 
 	Func setDarkCyan P1
 		raise("DotNet Error: DarkCyan is a read-only property")
 
 	Func getDarkGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:DarkGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:DarkGoldenrod","")
 
 	Func setDarkGoldenrod P1
 		raise("DotNet Error: DarkGoldenrod is a read-only property")
 
 	Func getDarkGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:DarkGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:DarkGray","")
 
 	Func setDarkGray P1
 		raise("DotNet Error: DarkGray is a read-only property")
 
 	Func getDarkGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:DarkGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:DarkGreen","")
 
 	Func setDarkGreen P1
 		raise("DotNet Error: DarkGreen is a read-only property")
 
 	Func getDarkKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:DarkKhaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:DarkKhaki","")
 
 	Func setDarkKhaki P1
 		raise("DotNet Error: DarkKhaki is a read-only property")
 
 	Func getDarkMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:DarkMagenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:DarkMagenta","")
 
 	Func setDarkMagenta P1
 		raise("DotNet Error: DarkMagenta is a read-only property")
 
 	Func getDarkOliveGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:DarkOliveGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:DarkOliveGreen","")
 
 	Func setDarkOliveGreen P1
 		raise("DotNet Error: DarkOliveGreen is a read-only property")
 
 	Func getDarkOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:DarkOrange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:DarkOrange","")
 
 	Func setDarkOrange P1
 		raise("DotNet Error: DarkOrange is a read-only property")
 
 	Func getDarkOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:DarkOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:DarkOrchid","")
 
 	Func setDarkOrchid P1
 		raise("DotNet Error: DarkOrchid is a read-only property")
 
 	Func getDarkRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:DarkRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:DarkRed","")
 
 	Func setDarkRed P1
 		raise("DotNet Error: DarkRed is a read-only property")
 
 	Func getDarkSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:DarkSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:DarkSalmon","")
 
 	Func setDarkSalmon P1
 		raise("DotNet Error: DarkSalmon is a read-only property")
 
 	Func getDarkSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:DarkSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:DarkSeaGreen","")
 
 	Func setDarkSeaGreen P1
 		raise("DotNet Error: DarkSeaGreen is a read-only property")
 
 	Func getDarkSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:DarkSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:DarkSlateBlue","")
 
 	Func setDarkSlateBlue P1
 		raise("DotNet Error: DarkSlateBlue is a read-only property")
 
 	Func getDarkSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:DarkSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:DarkSlateGray","")
 
 	Func setDarkSlateGray P1
 		raise("DotNet Error: DarkSlateGray is a read-only property")
 
 	Func getDarkTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:DarkTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:DarkTurquoise","")
 
 	Func setDarkTurquoise P1
 		raise("DotNet Error: DarkTurquoise is a read-only property")
 
 	Func getDarkViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:DarkViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:DarkViolet","")
 
 	Func setDarkViolet P1
 		raise("DotNet Error: DarkViolet is a read-only property")
 
 	Func getDeepPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:DeepPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:DeepPink","")
 
 	Func setDeepPink P1
 		raise("DotNet Error: DeepPink is a read-only property")
 
 	Func getDeepSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:DeepSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:DeepSkyBlue","")
 
 	Func setDeepSkyBlue P1
 		raise("DotNet Error: DeepSkyBlue is a read-only property")
 
 	Func getDimGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:DimGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:DimGray","")
 
 	Func setDimGray P1
 		raise("DotNet Error: DimGray is a read-only property")
 
 	Func getDodgerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:DodgerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:DodgerBlue","")
 
 	Func setDodgerBlue P1
 		raise("DotNet Error: DodgerBlue is a read-only property")
 
 	Func getFirebrick
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:Firebrick","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:Firebrick","")
 
 	Func setFirebrick P1
 		raise("DotNet Error: Firebrick is a read-only property")
 
 	Func getFloralWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:FloralWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:FloralWhite","")
 
 	Func setFloralWhite P1
 		raise("DotNet Error: FloralWhite is a read-only property")
 
 	Func getForestGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:ForestGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:ForestGreen","")
 
 	Func setForestGreen P1
 		raise("DotNet Error: ForestGreen is a read-only property")
 
 	Func getFuchsia
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:Fuchsia","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:Fuchsia","")
 
 	Func setFuchsia P1
 		raise("DotNet Error: Fuchsia is a read-only property")
 
 	Func getGainsboro
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:Gainsboro","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:Gainsboro","")
 
 	Func setGainsboro P1
 		raise("DotNet Error: Gainsboro is a read-only property")
 
 	Func getGhostWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:GhostWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:GhostWhite","")
 
 	Func setGhostWhite P1
 		raise("DotNet Error: GhostWhite is a read-only property")
 
 	Func getGold
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Gold","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Gold","")
 
 	Func setGold P1
 		raise("DotNet Error: Gold is a read-only property")
 
 	Func getGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:Goldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:Goldenrod","")
 
 	Func setGoldenrod P1
 		raise("DotNet Error: Goldenrod is a read-only property")
 
 	Func getGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Gray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Gray","")
 
 	Func setGray P1
 		raise("DotNet Error: Gray is a read-only property")
 
 	Func getGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Green","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Green","")
 
 	Func setGreen P1
 		raise("DotNet Error: Green is a read-only property")
 
 	Func getGreenYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:GreenYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:GreenYellow","")
 
 	Func setGreenYellow P1
 		raise("DotNet Error: GreenYellow is a read-only property")
 
 	Func getHoneydew
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:Honeydew","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:Honeydew","")
 
 	Func setHoneydew P1
 		raise("DotNet Error: Honeydew is a read-only property")
 
 	Func getHotPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:HotPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:HotPink","")
 
 	Func setHotPink P1
 		raise("DotNet Error: HotPink is a read-only property")
 
 	Func getIndianRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:IndianRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:IndianRed","")
 
 	Func setIndianRed P1
 		raise("DotNet Error: IndianRed is a read-only property")
 
 	Func getIndigo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Indigo","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Indigo","")
 
 	Func setIndigo P1
 		raise("DotNet Error: Indigo is a read-only property")
 
 	Func getIvory
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Ivory","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Ivory","")
 
 	Func setIvory P1
 		raise("DotNet Error: Ivory is a read-only property")
 
 	Func getKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Khaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Khaki","")
 
 	Func setKhaki P1
 		raise("DotNet Error: Khaki is a read-only property")
 
 	Func getLavender
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:Lavender","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:Lavender","")
 
 	Func setLavender P1
 		raise("DotNet Error: Lavender is a read-only property")
 
 	Func getLavenderBlush
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:LavenderBlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:LavenderBlush","")
 
 	Func setLavenderBlush P1
 		raise("DotNet Error: LavenderBlush is a read-only property")
 
 	Func getLawnGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LawnGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LawnGreen","")
 
 	Func setLawnGreen P1
 		raise("DotNet Error: LawnGreen is a read-only property")
 
 	Func getLemonChiffon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:LemonChiffon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:LemonChiffon","")
 
 	Func setLemonChiffon P1
 		raise("DotNet Error: LemonChiffon is a read-only property")
 
 	Func getLightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LightBlue","")
 
 	Func setLightBlue P1
 		raise("DotNet Error: LightBlue is a read-only property")
 
 	Func getLightCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:LightCoral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:LightCoral","")
 
 	Func setLightCoral P1
 		raise("DotNet Error: LightCoral is a read-only property")
 
 	Func getLightCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LightCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LightCyan","")
 
 	Func setLightCyan P1
 		raise("DotNet Error: LightCyan is a read-only property")
 
 	Func getLightGoldenrodYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s20:LightGoldenrodYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s20:LightGoldenrodYellow","")
 
 	Func setLightGoldenrodYellow P1
 		raise("DotNet Error: LightGoldenrodYellow is a read-only property")
 
 	Func getLightGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:LightGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:LightGreen","")
 
 	Func setLightGreen P1
 		raise("DotNet Error: LightGreen is a read-only property")
 
 	Func getLightGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LightGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LightGray","")
 
 	Func setLightGray P1
 		raise("DotNet Error: LightGray is a read-only property")
 
 	Func getLightPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LightPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LightPink","")
 
 	Func setLightPink P1
 		raise("DotNet Error: LightPink is a read-only property")
 
 	Func getLightSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:LightSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:LightSalmon","")
 
 	Func setLightSalmon P1
 		raise("DotNet Error: LightSalmon is a read-only property")
 
 	Func getLightSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:LightSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:LightSeaGreen","")
 
 	Func setLightSeaGreen P1
 		raise("DotNet Error: LightSeaGreen is a read-only property")
 
 	Func getLightSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:LightSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:LightSkyBlue","")
 
 	Func setLightSkyBlue P1
 		raise("DotNet Error: LightSkyBlue is a read-only property")
 
 	Func getLightSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:LightSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:LightSlateGray","")
 
 	Func setLightSlateGray P1
 		raise("DotNet Error: LightSlateGray is a read-only property")
 
 	Func getLightSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:LightSteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:LightSteelBlue","")
 
 	Func setLightSteelBlue P1
 		raise("DotNet Error: LightSteelBlue is a read-only property")
 
 	Func getLightYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:LightYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:LightYellow","")
 
 	Func setLightYellow P1
 		raise("DotNet Error: LightYellow is a read-only property")
 
 	Func getLime
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Lime","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Lime","")
 
 	Func setLime P1
 		raise("DotNet Error: Lime is a read-only property")
 
 	Func getLimeGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:LimeGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:LimeGreen","")
 
 	Func setLimeGreen P1
 		raise("DotNet Error: LimeGreen is a read-only property")
 
 	Func getLinen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Linen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Linen","")
 
 	Func setLinen P1
 		raise("DotNet Error: Linen is a read-only property")
 
 	Func getMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:Magenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:Magenta","")
 
 	Func setMagenta P1
 		raise("DotNet Error: Magenta is a read-only property")
 
 	Func getMaroon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Maroon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Maroon","")
 
 	Func setMaroon P1
 		raise("DotNet Error: Maroon is a read-only property")
 
 	Func getMediumAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s16:MediumAquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s16:MediumAquamarine","")
 
 	Func setMediumAquamarine P1
 		raise("DotNet Error: MediumAquamarine is a read-only property")
 
 	Func getMediumBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:MediumBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:MediumBlue","")
 
 	Func setMediumBlue P1
 		raise("DotNet Error: MediumBlue is a read-only property")
 
 	Func getMediumOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:MediumOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:MediumOrchid","")
 
 	Func setMediumOrchid P1
 		raise("DotNet Error: MediumOrchid is a read-only property")
 
 	Func getMediumPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:MediumPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:MediumPurple","")
 
 	Func setMediumPurple P1
 		raise("DotNet Error: MediumPurple is a read-only property")
 
 	Func getMediumSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s14:MediumSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s14:MediumSeaGreen","")
 
 	Func setMediumSeaGreen P1
 		raise("DotNet Error: MediumSeaGreen is a read-only property")
 
 	Func getMediumSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s15:MediumSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s15:MediumSlateBlue","")
 
 	Func setMediumSlateBlue P1
 		raise("DotNet Error: MediumSlateBlue is a read-only property")
 
 	Func getMediumSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s17:MediumSpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s17:MediumSpringGreen","")
 
 	Func setMediumSpringGreen P1
 		raise("DotNet Error: MediumSpringGreen is a read-only property")
 
 	Func getMediumTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s15:MediumTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s15:MediumTurquoise","")
 
 	Func setMediumTurquoise P1
 		raise("DotNet Error: MediumTurquoise is a read-only property")
 
 	Func getMediumVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s15:MediumVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s15:MediumVioletRed","")
 
 	Func setMediumVioletRed P1
 		raise("DotNet Error: MediumVioletRed is a read-only property")
 
 	Func getMidnightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s12:MidnightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s12:MidnightBlue","")
 
 	Func setMidnightBlue P1
 		raise("DotNet Error: MidnightBlue is a read-only property")
 
 	Func getMintCream
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:MintCream","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:MintCream","")
 
 	Func setMintCream P1
 		raise("DotNet Error: MintCream is a read-only property")
 
 	Func getMistyRose
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:MistyRose","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:MistyRose","")
 
 	Func setMistyRose P1
 		raise("DotNet Error: MistyRose is a read-only property")
 
 	Func getMoccasin
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:Moccasin","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:Moccasin","")
 
 	Func setMoccasin P1
 		raise("DotNet Error: Moccasin is a read-only property")
 
 	Func getNavajoWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:NavajoWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:NavajoWhite","")
 
 	Func setNavajoWhite P1
 		raise("DotNet Error: NavajoWhite is a read-only property")
 
 	Func getNavy
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Navy","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Navy","")
 
 	Func setNavy P1
 		raise("DotNet Error: Navy is a read-only property")
 
 	Func getOldLace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:OldLace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:OldLace","")
 
 	Func setOldLace P1
 		raise("DotNet Error: OldLace is a read-only property")
 
 	Func getOlive
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Olive","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Olive","")
 
 	Func setOlive P1
 		raise("DotNet Error: Olive is a read-only property")
 
 	Func getOliveDrab
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:OliveDrab","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:OliveDrab","")
 
 	Func setOliveDrab P1
 		raise("DotNet Error: OliveDrab is a read-only property")
 
 	Func getOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Orange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Orange","")
 
 	Func setOrange P1
 		raise("DotNet Error: Orange is a read-only property")
 
 	Func getOrangeRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:OrangeRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:OrangeRed","")
 
 	Func setOrangeRed P1
 		raise("DotNet Error: OrangeRed is a read-only property")
 
 	Func getOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Orchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Orchid","")
 
 	Func setOrchid P1
 		raise("DotNet Error: Orchid is a read-only property")
 
 	Func getPaleGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:PaleGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:PaleGoldenrod","")
 
 	Func setPaleGoldenrod P1
 		raise("DotNet Error: PaleGoldenrod is a read-only property")
 
 	Func getPaleGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:PaleGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:PaleGreen","")
 
 	Func setPaleGreen P1
 		raise("DotNet Error: PaleGreen is a read-only property")
 
 	Func getPaleTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:PaleTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:PaleTurquoise","")
 
 	Func setPaleTurquoise P1
 		raise("DotNet Error: PaleTurquoise is a read-only property")
 
 	Func getPaleVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:PaleVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:PaleVioletRed","")
 
 	Func setPaleVioletRed P1
 		raise("DotNet Error: PaleVioletRed is a read-only property")
 
 	Func getPapayaWhip
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:PapayaWhip","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:PapayaWhip","")
 
 	Func setPapayaWhip P1
 		raise("DotNet Error: PapayaWhip is a read-only property")
 
 	Func getPeachPuff
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:PeachPuff","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:PeachPuff","")
 
 	Func setPeachPuff P1
 		raise("DotNet Error: PeachPuff is a read-only property")
 
 	Func getPeru
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Peru","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Peru","")
 
 	Func setPeru P1
 		raise("DotNet Error: Peru is a read-only property")
 
 	Func getPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Pink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Pink","")
 
 	Func setPink P1
 		raise("DotNet Error: Pink is a read-only property")
 
 	Func getPlum
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Plum","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Plum","")
 
 	Func setPlum P1
 		raise("DotNet Error: Plum is a read-only property")
 
 	Func getPowderBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:PowderBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:PowderBlue","")
 
 	Func setPowderBlue P1
 		raise("DotNet Error: PowderBlue is a read-only property")
 
 	Func getPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Purple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Purple","")
 
 	Func setPurple P1
 		raise("DotNet Error: Purple is a read-only property")
 
 	Func getRebeccaPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s13:RebeccaPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s13:RebeccaPurple","")
 
 	Func setRebeccaPurple P1
 		raise("DotNet Error: RebeccaPurple is a read-only property")
 
 	Func getRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s3:Red","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s3:Red","")
 
 	Func setRed P1
 		raise("DotNet Error: Red is a read-only property")
 
 	Func getRosyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:RosyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:RosyBrown","")
 
 	Func setRosyBrown P1
 		raise("DotNet Error: RosyBrown is a read-only property")
 
 	Func getRoyalBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:RoyalBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:RoyalBlue","")
 
 	Func setRoyalBlue P1
 		raise("DotNet Error: RoyalBlue is a read-only property")
 
 	Func getSaddleBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:SaddleBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:SaddleBrown","")
 
 	Func setSaddleBrown P1
 		raise("DotNet Error: SaddleBrown is a read-only property")
 
 	Func getSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Salmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Salmon","")
 
 	Func setSalmon P1
 		raise("DotNet Error: Salmon is a read-only property")
 
 	Func getSandyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:SandyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:SandyBrown","")
 
 	Func setSandyBrown P1
 		raise("DotNet Error: SandyBrown is a read-only property")
 
 	Func getSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:SeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:SeaGreen","")
 
 	Func setSeaGreen P1
 		raise("DotNet Error: SeaGreen is a read-only property")
 
 	Func getSeaShell
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s8:SeaShell","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s8:SeaShell","")
 
 	Func setSeaShell P1
 		raise("DotNet Error: SeaShell is a read-only property")
 
 	Func getSienna
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Sienna","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Sienna","")
 
 	Func setSienna P1
 		raise("DotNet Error: Sienna is a read-only property")
 
 	Func getSilver
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Silver","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Silver","")
 
 	Func setSilver P1
 		raise("DotNet Error: Silver is a read-only property")
 
 	Func getSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:SkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:SkyBlue","")
 
 	Func setSkyBlue P1
 		raise("DotNet Error: SkyBlue is a read-only property")
 
 	Func getSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:SlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:SlateBlue","")
 
 	Func setSlateBlue P1
 		raise("DotNet Error: SlateBlue is a read-only property")
 
 	Func getSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:SlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:SlateGray","")
 
 	Func setSlateGray P1
 		raise("DotNet Error: SlateGray is a read-only property")
 
 	Func getSnow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Snow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Snow","")
 
 	Func setSnow P1
 		raise("DotNet Error: Snow is a read-only property")
 
 	Func getSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:SpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:SpringGreen","")
 
 	Func setSpringGreen P1
 		raise("DotNet Error: SpringGreen is a read-only property")
 
 	Func getSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:SteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:SteelBlue","")
 
 	Func setSteelBlue P1
 		raise("DotNet Error: SteelBlue is a read-only property")
 
 	Func getTan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s3:Tan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s3:Tan","")
 
 	Func setTan P1
 		raise("DotNet Error: Tan is a read-only property")
 
 	Func getTeal
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s4:Teal","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s4:Teal","")
 
 	Func setTeal P1
 		raise("DotNet Error: Teal is a read-only property")
 
 	Func getThistle
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s7:Thistle","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s7:Thistle","")
 
 	Func setThistle P1
 		raise("DotNet Error: Thistle is a read-only property")
 
 	Func getTomato
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Tomato","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Tomato","")
 
 	Func setTomato P1
 		raise("DotNet Error: Tomato is a read-only property")
 
 	Func getTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s9:Turquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s9:Turquoise","")
 
 	Func setTurquoise P1
 		raise("DotNet Error: Turquoise is a read-only property")
 
 	Func getViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Violet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Violet","")
 
 	Func setViolet P1
 		raise("DotNet Error: Violet is a read-only property")
 
 	Func getWheat
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Wheat","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Wheat","")
 
 	Func setWheat P1
 		raise("DotNet Error: Wheat is a read-only property")
 
 	Func getWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:White","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:White","")
 
 	Func setWhite P1
 		raise("DotNet Error: White is a read-only property")
 
 	Func getWhiteSmoke
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s10:WhiteSmoke","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s10:WhiteSmoke","")
 
 	Func setWhiteSmoke P1
 		raise("DotNet Error: WhiteSmoke is a read-only property")
 
 	Func getYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s6:Yellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s6:Yellow","")
 
 	Func setYellow P1
 		raise("DotNet Error: Yellow is a read-only property")
 
 	Func getYellowGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s11:YellowGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s11:YellowGreen","")
 
 	Func setYellowGreen P1
 		raise("DotNet Error: YellowGreen is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Color, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Color, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2531,22 +2531,22 @@ Class ColorTranslator from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ToWin32 P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s7:ToWin32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s7:ToWin32",dnPackItem(P1))
 
 	Func ToOle P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s5:ToOle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s5:ToOle",dnPackItem(P1))
 
 	Func FromOle P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s7:FromOle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s7:FromOle",dnPackItem(P1))
 
 	Func FromWin32 P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s9:FromWin32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s9:FromWin32",dnPackItem(P1))
 
 	Func FromHtml P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s8:FromHtml",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s8:FromHtml",dnPackItem(P1))
 
 	Func ToHtml P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives').nHandle,"s6:ToHtml",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s6:ToHtml",dnPackItem(P1))
 
 
 Class Font from MarshalByRefObject
@@ -2623,16 +2623,16 @@ Class Font from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s7:ToHfont","")
 
 	Func FromHfont P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Font, System.Drawing.Common').nHandle,"s9:FromHfont",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Font, System.Drawing.Common'),"s9:FromHfont",dnPackItem(P1))
 
 	Func FromLogFont P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Font, System.Drawing.Common').nHandle,"s11:FromLogFont",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Font, System.Drawing.Common'),"s11:FromLogFont",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Font, System.Drawing.Common').nHandle,"s11:FromLogFont",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Font, System.Drawing.Common'),"s11:FromLogFont",dnPackItem(P1))
 
 	Func FromHdc P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Font, System.Drawing.Common').nHandle,"s7:FromHdc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Font, System.Drawing.Common'),"s7:FromHdc",dnPackItem(P1))
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
@@ -2809,7 +2809,7 @@ Class FontFamily from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s14:GetLineSpacing",dnPackItem(P1))
 
 	Func GetFamilies_ P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common').nHandle,"s11:GetFamilies",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.FontFamily, System.Drawing.Common'),"s11:GetFamilies",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -2818,25 +2818,25 @@ Class FontFamily from MarshalByRefObject
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFamilies
-		return dnSend("s3:get",dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common').nHandle,"s8:Families","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.FontFamily, System.Drawing.Common'),"s8:Families","")
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")
 
 	Func getGenericSansSerif
-		return dnSend("s3:get",dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common').nHandle,"s16:GenericSansSerif","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.FontFamily, System.Drawing.Common'),"s16:GenericSansSerif","")
 
 	Func setGenericSansSerif P1
 		raise("DotNet Error: GenericSansSerif is a read-only property")
 
 	Func getGenericSerif
-		return dnSend("s3:get",dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common').nHandle,"s12:GenericSerif","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.FontFamily, System.Drawing.Common'),"s12:GenericSerif","")
 
 	Func setGenericSerif P1
 		raise("DotNet Error: GenericSerif is a read-only property")
 
 	Func getGenericMonospace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common').nHandle,"s16:GenericMonospace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.FontFamily, System.Drawing.Common'),"s16:GenericMonospace","")
 
 	Func setGenericMonospace P1
 		raise("DotNet Error: GenericMonospace is a read-only property")
@@ -3206,24 +3206,24 @@ Class Graphics from MarshalByRefObject
 
 	Func FromHdc P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s7:FromHdc",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s7:FromHdc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s7:FromHdc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s7:FromHdc",dnPackItem(P1))
 
 	Func FromHdcInternal P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s15:FromHdcInternal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s15:FromHdcInternal",dnPackItem(P1))
 
 	Func FromHwnd P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s8:FromHwnd",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s8:FromHwnd",dnPackItem(P1))
 
 	Func FromHwndInternal P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s16:FromHwndInternal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s16:FromHwndInternal",dnPackItem(P1))
 
 	Func FromImage P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s9:FromImage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s9:FromImage",dnPackItem(P1))
 
 	Func GetHalftonePalette 
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Graphics, System.Drawing.Common').nHandle,"s18:GetHalftonePalette","")
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Graphics, System.Drawing.Common'),"s18:GetHalftonePalette","")
 
 	Func getClip
 		return dnSend("s3:get",nHandle,"s4:Clip","")
@@ -3420,14 +3420,14 @@ Class Icon from MarshalByRefObject
 		return self
 
 	Func ExtractAssociatedIcon P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Icon, System.Drawing.Common').nHandle,"s21:ExtractAssociatedIcon",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Icon, System.Drawing.Common'),"s21:ExtractAssociatedIcon",dnPackItem(P1))
 
 	Func FromHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Icon, System.Drawing.Common').nHandle,"s10:FromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Icon, System.Drawing.Common'),"s10:FromHandle",dnPackItem(P1))
 
 	Func ExtractIcon P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Icon, System.Drawing.Common').nHandle,"s11:ExtractIcon",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Icon, System.Drawing.Common'),"s11:ExtractIcon",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExtractIcon does not take one argument: use named arguments, ExtractIcon([ :parameter = value, ... ])")
 
@@ -3558,33 +3558,33 @@ Class Image from MarshalByRefObject
 
 	Func FromFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s8:FromFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s8:FromFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s8:FromFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s8:FromFile",dnPackItem(P1))
 
 	Func FromStream P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s10:FromStream",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s10:FromStream",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s10:FromStream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s10:FromStream",dnPackItem(P1))
 
 	Func FromHbitmap P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s11:FromHbitmap",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s11:FromHbitmap",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s11:FromHbitmap",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s11:FromHbitmap",dnPackItem(P1))
 
 	Func IsExtendedPixelFormat P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s21:IsExtendedPixelFormat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s21:IsExtendedPixelFormat",dnPackItem(P1))
 
 	Func IsCanonicalPixelFormat P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s22:IsCanonicalPixelFormat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s22:IsCanonicalPixelFormat",dnPackItem(P1))
 
 	Func GetPixelFormatSize P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s18:GetPixelFormatSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:GetPixelFormatSize",dnPackItem(P1))
 
 	Func IsAlphaPixelFormat P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Image, System.Drawing.Common').nHandle,"s18:IsAlphaPixelFormat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:IsAlphaPixelFormat",dnPackItem(P1))
 
 	Func getTag
 		return dnSend("s3:get",nHandle,"s3:Tag","")
@@ -3689,25 +3689,25 @@ Class ImageAnimator from Object
 
 	Func UpdateFrames P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s12:UpdateFrames",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s12:UpdateFrames","")
+			dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames","")
 		return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s12:UpdateFrames",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames",dnPackItem(P1))
 		return self
 
 	Func Animate P1,P2
-		dnSend("s4:call",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s7:Animate",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s7:Animate",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CanAnimate P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s10:CanAnimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s10:CanAnimate",dnPackItem(P1))
 
 	Func StopAnimate P1,P2
-		dnSend("s4:call",dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common').nHandle,"s11:StopAnimate",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s11:StopAnimate",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -4120,847 +4120,847 @@ Class Pens from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTransparent
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:Transparent","")
 
 	Func setTransparent P1
 		raise("DotNet Error: Transparent is a read-only property")
 
 	Func getAliceBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:AliceBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:AliceBlue","")
 
 	Func setAliceBlue P1
 		raise("DotNet Error: AliceBlue is a read-only property")
 
 	Func getAntiqueWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:AntiqueWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:AntiqueWhite","")
 
 	Func setAntiqueWhite P1
 		raise("DotNet Error: AntiqueWhite is a read-only property")
 
 	Func getAqua
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Aqua","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Aqua","")
 
 	Func setAqua P1
 		raise("DotNet Error: Aqua is a read-only property")
 
 	Func getAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:Aquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:Aquamarine","")
 
 	Func setAquamarine P1
 		raise("DotNet Error: Aquamarine is a read-only property")
 
 	Func getAzure
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Azure","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Azure","")
 
 	Func setAzure P1
 		raise("DotNet Error: Azure is a read-only property")
 
 	Func getBeige
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Beige","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Beige","")
 
 	Func setBeige P1
 		raise("DotNet Error: Beige is a read-only property")
 
 	Func getBisque
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Bisque","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Bisque","")
 
 	Func setBisque P1
 		raise("DotNet Error: Bisque is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getBlanchedAlmond
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:BlanchedAlmond","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:BlanchedAlmond","")
 
 	Func setBlanchedAlmond P1
 		raise("DotNet Error: BlanchedAlmond is a read-only property")
 
 	Func getBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Blue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Blue","")
 
 	Func setBlue P1
 		raise("DotNet Error: Blue is a read-only property")
 
 	Func getBlueViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:BlueViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:BlueViolet","")
 
 	Func setBlueViolet P1
 		raise("DotNet Error: BlueViolet is a read-only property")
 
 	Func getBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Brown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Brown","")
 
 	Func setBrown P1
 		raise("DotNet Error: Brown is a read-only property")
 
 	Func getBurlyWood
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:BurlyWood","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:BurlyWood","")
 
 	Func setBurlyWood P1
 		raise("DotNet Error: BurlyWood is a read-only property")
 
 	Func getCadetBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:CadetBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:CadetBlue","")
 
 	Func setCadetBlue P1
 		raise("DotNet Error: CadetBlue is a read-only property")
 
 	Func getChartreuse
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:Chartreuse","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:Chartreuse","")
 
 	Func setChartreuse P1
 		raise("DotNet Error: Chartreuse is a read-only property")
 
 	Func getChocolate
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:Chocolate","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:Chocolate","")
 
 	Func setChocolate P1
 		raise("DotNet Error: Chocolate is a read-only property")
 
 	Func getCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Coral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Coral","")
 
 	Func setCoral P1
 		raise("DotNet Error: Coral is a read-only property")
 
 	Func getCornflowerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:CornflowerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:CornflowerBlue","")
 
 	Func setCornflowerBlue P1
 		raise("DotNet Error: CornflowerBlue is a read-only property")
 
 	Func getCornsilk
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:Cornsilk","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:Cornsilk","")
 
 	Func setCornsilk P1
 		raise("DotNet Error: Cornsilk is a read-only property")
 
 	Func getCrimson
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:Crimson","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:Crimson","")
 
 	Func setCrimson P1
 		raise("DotNet Error: Crimson is a read-only property")
 
 	Func getCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Cyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Cyan","")
 
 	Func setCyan P1
 		raise("DotNet Error: Cyan is a read-only property")
 
 	Func getDarkBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:DarkBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:DarkBlue","")
 
 	Func setDarkBlue P1
 		raise("DotNet Error: DarkBlue is a read-only property")
 
 	Func getDarkCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:DarkCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:DarkCyan","")
 
 	Func setDarkCyan P1
 		raise("DotNet Error: DarkCyan is a read-only property")
 
 	Func getDarkGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:DarkGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:DarkGoldenrod","")
 
 	Func setDarkGoldenrod P1
 		raise("DotNet Error: DarkGoldenrod is a read-only property")
 
 	Func getDarkGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:DarkGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:DarkGray","")
 
 	Func setDarkGray P1
 		raise("DotNet Error: DarkGray is a read-only property")
 
 	Func getDarkGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:DarkGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:DarkGreen","")
 
 	Func setDarkGreen P1
 		raise("DotNet Error: DarkGreen is a read-only property")
 
 	Func getDarkKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:DarkKhaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:DarkKhaki","")
 
 	Func setDarkKhaki P1
 		raise("DotNet Error: DarkKhaki is a read-only property")
 
 	Func getDarkMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:DarkMagenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:DarkMagenta","")
 
 	Func setDarkMagenta P1
 		raise("DotNet Error: DarkMagenta is a read-only property")
 
 	Func getDarkOliveGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:DarkOliveGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:DarkOliveGreen","")
 
 	Func setDarkOliveGreen P1
 		raise("DotNet Error: DarkOliveGreen is a read-only property")
 
 	Func getDarkOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:DarkOrange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:DarkOrange","")
 
 	Func setDarkOrange P1
 		raise("DotNet Error: DarkOrange is a read-only property")
 
 	Func getDarkOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:DarkOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:DarkOrchid","")
 
 	Func setDarkOrchid P1
 		raise("DotNet Error: DarkOrchid is a read-only property")
 
 	Func getDarkRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:DarkRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:DarkRed","")
 
 	Func setDarkRed P1
 		raise("DotNet Error: DarkRed is a read-only property")
 
 	Func getDarkSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:DarkSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:DarkSalmon","")
 
 	Func setDarkSalmon P1
 		raise("DotNet Error: DarkSalmon is a read-only property")
 
 	Func getDarkSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:DarkSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:DarkSeaGreen","")
 
 	Func setDarkSeaGreen P1
 		raise("DotNet Error: DarkSeaGreen is a read-only property")
 
 	Func getDarkSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:DarkSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:DarkSlateBlue","")
 
 	Func setDarkSlateBlue P1
 		raise("DotNet Error: DarkSlateBlue is a read-only property")
 
 	Func getDarkSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:DarkSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:DarkSlateGray","")
 
 	Func setDarkSlateGray P1
 		raise("DotNet Error: DarkSlateGray is a read-only property")
 
 	Func getDarkTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:DarkTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:DarkTurquoise","")
 
 	Func setDarkTurquoise P1
 		raise("DotNet Error: DarkTurquoise is a read-only property")
 
 	Func getDarkViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:DarkViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:DarkViolet","")
 
 	Func setDarkViolet P1
 		raise("DotNet Error: DarkViolet is a read-only property")
 
 	Func getDeepPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:DeepPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:DeepPink","")
 
 	Func setDeepPink P1
 		raise("DotNet Error: DeepPink is a read-only property")
 
 	Func getDeepSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:DeepSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:DeepSkyBlue","")
 
 	Func setDeepSkyBlue P1
 		raise("DotNet Error: DeepSkyBlue is a read-only property")
 
 	Func getDimGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:DimGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:DimGray","")
 
 	Func setDimGray P1
 		raise("DotNet Error: DimGray is a read-only property")
 
 	Func getDodgerBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:DodgerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:DodgerBlue","")
 
 	Func setDodgerBlue P1
 		raise("DotNet Error: DodgerBlue is a read-only property")
 
 	Func getFirebrick
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:Firebrick","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:Firebrick","")
 
 	Func setFirebrick P1
 		raise("DotNet Error: Firebrick is a read-only property")
 
 	Func getFloralWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:FloralWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:FloralWhite","")
 
 	Func setFloralWhite P1
 		raise("DotNet Error: FloralWhite is a read-only property")
 
 	Func getForestGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:ForestGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:ForestGreen","")
 
 	Func setForestGreen P1
 		raise("DotNet Error: ForestGreen is a read-only property")
 
 	Func getFuchsia
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:Fuchsia","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:Fuchsia","")
 
 	Func setFuchsia P1
 		raise("DotNet Error: Fuchsia is a read-only property")
 
 	Func getGainsboro
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:Gainsboro","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:Gainsboro","")
 
 	Func setGainsboro P1
 		raise("DotNet Error: Gainsboro is a read-only property")
 
 	Func getGhostWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:GhostWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:GhostWhite","")
 
 	Func setGhostWhite P1
 		raise("DotNet Error: GhostWhite is a read-only property")
 
 	Func getGold
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Gold","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Gold","")
 
 	Func setGold P1
 		raise("DotNet Error: Gold is a read-only property")
 
 	Func getGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:Goldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:Goldenrod","")
 
 	Func setGoldenrod P1
 		raise("DotNet Error: Goldenrod is a read-only property")
 
 	Func getGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Gray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Gray","")
 
 	Func setGray P1
 		raise("DotNet Error: Gray is a read-only property")
 
 	Func getGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Green","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Green","")
 
 	Func setGreen P1
 		raise("DotNet Error: Green is a read-only property")
 
 	Func getGreenYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:GreenYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:GreenYellow","")
 
 	Func setGreenYellow P1
 		raise("DotNet Error: GreenYellow is a read-only property")
 
 	Func getHoneydew
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:Honeydew","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:Honeydew","")
 
 	Func setHoneydew P1
 		raise("DotNet Error: Honeydew is a read-only property")
 
 	Func getHotPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:HotPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:HotPink","")
 
 	Func setHotPink P1
 		raise("DotNet Error: HotPink is a read-only property")
 
 	Func getIndianRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:IndianRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:IndianRed","")
 
 	Func setIndianRed P1
 		raise("DotNet Error: IndianRed is a read-only property")
 
 	Func getIndigo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Indigo","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Indigo","")
 
 	Func setIndigo P1
 		raise("DotNet Error: Indigo is a read-only property")
 
 	Func getIvory
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Ivory","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Ivory","")
 
 	Func setIvory P1
 		raise("DotNet Error: Ivory is a read-only property")
 
 	Func getKhaki
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Khaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Khaki","")
 
 	Func setKhaki P1
 		raise("DotNet Error: Khaki is a read-only property")
 
 	Func getLavender
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:Lavender","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:Lavender","")
 
 	Func setLavender P1
 		raise("DotNet Error: Lavender is a read-only property")
 
 	Func getLavenderBlush
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:LavenderBlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:LavenderBlush","")
 
 	Func setLavenderBlush P1
 		raise("DotNet Error: LavenderBlush is a read-only property")
 
 	Func getLawnGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LawnGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LawnGreen","")
 
 	Func setLawnGreen P1
 		raise("DotNet Error: LawnGreen is a read-only property")
 
 	Func getLemonChiffon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:LemonChiffon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:LemonChiffon","")
 
 	Func setLemonChiffon P1
 		raise("DotNet Error: LemonChiffon is a read-only property")
 
 	Func getLightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LightBlue","")
 
 	Func setLightBlue P1
 		raise("DotNet Error: LightBlue is a read-only property")
 
 	Func getLightCoral
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:LightCoral","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:LightCoral","")
 
 	Func setLightCoral P1
 		raise("DotNet Error: LightCoral is a read-only property")
 
 	Func getLightCyan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LightCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LightCyan","")
 
 	Func setLightCyan P1
 		raise("DotNet Error: LightCyan is a read-only property")
 
 	Func getLightGoldenrodYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s20:LightGoldenrodYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s20:LightGoldenrodYellow","")
 
 	Func setLightGoldenrodYellow P1
 		raise("DotNet Error: LightGoldenrodYellow is a read-only property")
 
 	Func getLightGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:LightGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:LightGreen","")
 
 	Func setLightGreen P1
 		raise("DotNet Error: LightGreen is a read-only property")
 
 	Func getLightGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LightGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LightGray","")
 
 	Func setLightGray P1
 		raise("DotNet Error: LightGray is a read-only property")
 
 	Func getLightPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LightPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LightPink","")
 
 	Func setLightPink P1
 		raise("DotNet Error: LightPink is a read-only property")
 
 	Func getLightSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:LightSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:LightSalmon","")
 
 	Func setLightSalmon P1
 		raise("DotNet Error: LightSalmon is a read-only property")
 
 	Func getLightSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:LightSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:LightSeaGreen","")
 
 	Func setLightSeaGreen P1
 		raise("DotNet Error: LightSeaGreen is a read-only property")
 
 	Func getLightSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:LightSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:LightSkyBlue","")
 
 	Func setLightSkyBlue P1
 		raise("DotNet Error: LightSkyBlue is a read-only property")
 
 	Func getLightSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:LightSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:LightSlateGray","")
 
 	Func setLightSlateGray P1
 		raise("DotNet Error: LightSlateGray is a read-only property")
 
 	Func getLightSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:LightSteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:LightSteelBlue","")
 
 	Func setLightSteelBlue P1
 		raise("DotNet Error: LightSteelBlue is a read-only property")
 
 	Func getLightYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:LightYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:LightYellow","")
 
 	Func setLightYellow P1
 		raise("DotNet Error: LightYellow is a read-only property")
 
 	Func getLime
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Lime","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Lime","")
 
 	Func setLime P1
 		raise("DotNet Error: Lime is a read-only property")
 
 	Func getLimeGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:LimeGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:LimeGreen","")
 
 	Func setLimeGreen P1
 		raise("DotNet Error: LimeGreen is a read-only property")
 
 	Func getLinen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Linen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Linen","")
 
 	Func setLinen P1
 		raise("DotNet Error: Linen is a read-only property")
 
 	Func getMagenta
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:Magenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:Magenta","")
 
 	Func setMagenta P1
 		raise("DotNet Error: Magenta is a read-only property")
 
 	Func getMaroon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Maroon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Maroon","")
 
 	Func setMaroon P1
 		raise("DotNet Error: Maroon is a read-only property")
 
 	Func getMediumAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s16:MediumAquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s16:MediumAquamarine","")
 
 	Func setMediumAquamarine P1
 		raise("DotNet Error: MediumAquamarine is a read-only property")
 
 	Func getMediumBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:MediumBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:MediumBlue","")
 
 	Func setMediumBlue P1
 		raise("DotNet Error: MediumBlue is a read-only property")
 
 	Func getMediumOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:MediumOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:MediumOrchid","")
 
 	Func setMediumOrchid P1
 		raise("DotNet Error: MediumOrchid is a read-only property")
 
 	Func getMediumPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:MediumPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:MediumPurple","")
 
 	Func setMediumPurple P1
 		raise("DotNet Error: MediumPurple is a read-only property")
 
 	Func getMediumSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s14:MediumSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s14:MediumSeaGreen","")
 
 	Func setMediumSeaGreen P1
 		raise("DotNet Error: MediumSeaGreen is a read-only property")
 
 	Func getMediumSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s15:MediumSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s15:MediumSlateBlue","")
 
 	Func setMediumSlateBlue P1
 		raise("DotNet Error: MediumSlateBlue is a read-only property")
 
 	Func getMediumSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s17:MediumSpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s17:MediumSpringGreen","")
 
 	Func setMediumSpringGreen P1
 		raise("DotNet Error: MediumSpringGreen is a read-only property")
 
 	Func getMediumTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s15:MediumTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s15:MediumTurquoise","")
 
 	Func setMediumTurquoise P1
 		raise("DotNet Error: MediumTurquoise is a read-only property")
 
 	Func getMediumVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s15:MediumVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s15:MediumVioletRed","")
 
 	Func setMediumVioletRed P1
 		raise("DotNet Error: MediumVioletRed is a read-only property")
 
 	Func getMidnightBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s12:MidnightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s12:MidnightBlue","")
 
 	Func setMidnightBlue P1
 		raise("DotNet Error: MidnightBlue is a read-only property")
 
 	Func getMintCream
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:MintCream","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:MintCream","")
 
 	Func setMintCream P1
 		raise("DotNet Error: MintCream is a read-only property")
 
 	Func getMistyRose
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:MistyRose","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:MistyRose","")
 
 	Func setMistyRose P1
 		raise("DotNet Error: MistyRose is a read-only property")
 
 	Func getMoccasin
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:Moccasin","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:Moccasin","")
 
 	Func setMoccasin P1
 		raise("DotNet Error: Moccasin is a read-only property")
 
 	Func getNavajoWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:NavajoWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:NavajoWhite","")
 
 	Func setNavajoWhite P1
 		raise("DotNet Error: NavajoWhite is a read-only property")
 
 	Func getNavy
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Navy","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Navy","")
 
 	Func setNavy P1
 		raise("DotNet Error: Navy is a read-only property")
 
 	Func getOldLace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:OldLace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:OldLace","")
 
 	Func setOldLace P1
 		raise("DotNet Error: OldLace is a read-only property")
 
 	Func getOlive
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Olive","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Olive","")
 
 	Func setOlive P1
 		raise("DotNet Error: Olive is a read-only property")
 
 	Func getOliveDrab
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:OliveDrab","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:OliveDrab","")
 
 	Func setOliveDrab P1
 		raise("DotNet Error: OliveDrab is a read-only property")
 
 	Func getOrange
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Orange","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Orange","")
 
 	Func setOrange P1
 		raise("DotNet Error: Orange is a read-only property")
 
 	Func getOrangeRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:OrangeRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:OrangeRed","")
 
 	Func setOrangeRed P1
 		raise("DotNet Error: OrangeRed is a read-only property")
 
 	Func getOrchid
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Orchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Orchid","")
 
 	Func setOrchid P1
 		raise("DotNet Error: Orchid is a read-only property")
 
 	Func getPaleGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:PaleGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:PaleGoldenrod","")
 
 	Func setPaleGoldenrod P1
 		raise("DotNet Error: PaleGoldenrod is a read-only property")
 
 	Func getPaleGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:PaleGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:PaleGreen","")
 
 	Func setPaleGreen P1
 		raise("DotNet Error: PaleGreen is a read-only property")
 
 	Func getPaleTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:PaleTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:PaleTurquoise","")
 
 	Func setPaleTurquoise P1
 		raise("DotNet Error: PaleTurquoise is a read-only property")
 
 	Func getPaleVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s13:PaleVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s13:PaleVioletRed","")
 
 	Func setPaleVioletRed P1
 		raise("DotNet Error: PaleVioletRed is a read-only property")
 
 	Func getPapayaWhip
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:PapayaWhip","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:PapayaWhip","")
 
 	Func setPapayaWhip P1
 		raise("DotNet Error: PapayaWhip is a read-only property")
 
 	Func getPeachPuff
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:PeachPuff","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:PeachPuff","")
 
 	Func setPeachPuff P1
 		raise("DotNet Error: PeachPuff is a read-only property")
 
 	Func getPeru
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Peru","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Peru","")
 
 	Func setPeru P1
 		raise("DotNet Error: Peru is a read-only property")
 
 	Func getPink
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Pink","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Pink","")
 
 	Func setPink P1
 		raise("DotNet Error: Pink is a read-only property")
 
 	Func getPlum
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Plum","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Plum","")
 
 	Func setPlum P1
 		raise("DotNet Error: Plum is a read-only property")
 
 	Func getPowderBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:PowderBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:PowderBlue","")
 
 	Func setPowderBlue P1
 		raise("DotNet Error: PowderBlue is a read-only property")
 
 	Func getPurple
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Purple","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Purple","")
 
 	Func setPurple P1
 		raise("DotNet Error: Purple is a read-only property")
 
 	Func getRed
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s3:Red","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s3:Red","")
 
 	Func setRed P1
 		raise("DotNet Error: Red is a read-only property")
 
 	Func getRosyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:RosyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:RosyBrown","")
 
 	Func setRosyBrown P1
 		raise("DotNet Error: RosyBrown is a read-only property")
 
 	Func getRoyalBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:RoyalBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:RoyalBlue","")
 
 	Func setRoyalBlue P1
 		raise("DotNet Error: RoyalBlue is a read-only property")
 
 	Func getSaddleBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:SaddleBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:SaddleBrown","")
 
 	Func setSaddleBrown P1
 		raise("DotNet Error: SaddleBrown is a read-only property")
 
 	Func getSalmon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Salmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Salmon","")
 
 	Func setSalmon P1
 		raise("DotNet Error: Salmon is a read-only property")
 
 	Func getSandyBrown
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:SandyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:SandyBrown","")
 
 	Func setSandyBrown P1
 		raise("DotNet Error: SandyBrown is a read-only property")
 
 	Func getSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:SeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:SeaGreen","")
 
 	Func setSeaGreen P1
 		raise("DotNet Error: SeaGreen is a read-only property")
 
 	Func getSeaShell
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s8:SeaShell","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s8:SeaShell","")
 
 	Func setSeaShell P1
 		raise("DotNet Error: SeaShell is a read-only property")
 
 	Func getSienna
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Sienna","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Sienna","")
 
 	Func setSienna P1
 		raise("DotNet Error: Sienna is a read-only property")
 
 	Func getSilver
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Silver","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Silver","")
 
 	Func setSilver P1
 		raise("DotNet Error: Silver is a read-only property")
 
 	Func getSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:SkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:SkyBlue","")
 
 	Func setSkyBlue P1
 		raise("DotNet Error: SkyBlue is a read-only property")
 
 	Func getSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:SlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:SlateBlue","")
 
 	Func setSlateBlue P1
 		raise("DotNet Error: SlateBlue is a read-only property")
 
 	Func getSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:SlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:SlateGray","")
 
 	Func setSlateGray P1
 		raise("DotNet Error: SlateGray is a read-only property")
 
 	Func getSnow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Snow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Snow","")
 
 	Func setSnow P1
 		raise("DotNet Error: Snow is a read-only property")
 
 	Func getSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:SpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:SpringGreen","")
 
 	Func setSpringGreen P1
 		raise("DotNet Error: SpringGreen is a read-only property")
 
 	Func getSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:SteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:SteelBlue","")
 
 	Func setSteelBlue P1
 		raise("DotNet Error: SteelBlue is a read-only property")
 
 	Func getTan
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s3:Tan","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s3:Tan","")
 
 	Func setTan P1
 		raise("DotNet Error: Tan is a read-only property")
 
 	Func getTeal
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s4:Teal","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s4:Teal","")
 
 	Func setTeal P1
 		raise("DotNet Error: Teal is a read-only property")
 
 	Func getThistle
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s7:Thistle","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s7:Thistle","")
 
 	Func setThistle P1
 		raise("DotNet Error: Thistle is a read-only property")
 
 	Func getTomato
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Tomato","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Tomato","")
 
 	Func setTomato P1
 		raise("DotNet Error: Tomato is a read-only property")
 
 	Func getTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s9:Turquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s9:Turquoise","")
 
 	Func setTurquoise P1
 		raise("DotNet Error: Turquoise is a read-only property")
 
 	Func getViolet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Violet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Violet","")
 
 	Func setViolet P1
 		raise("DotNet Error: Violet is a read-only property")
 
 	Func getWheat
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:Wheat","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:Wheat","")
 
 	Func setWheat P1
 		raise("DotNet Error: Wheat is a read-only property")
 
 	Func getWhite
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s5:White","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s5:White","")
 
 	Func setWhite P1
 		raise("DotNet Error: White is a read-only property")
 
 	Func getWhiteSmoke
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s10:WhiteSmoke","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s10:WhiteSmoke","")
 
 	Func setWhiteSmoke P1
 		raise("DotNet Error: WhiteSmoke is a read-only property")
 
 	Func getYellow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s6:Yellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s6:Yellow","")
 
 	Func setYellow P1
 		raise("DotNet Error: Yellow is a read-only property")
 
 	Func getYellowGreen
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Pens, System.Drawing.Common').nHandle,"s11:YellowGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Pens, System.Drawing.Common'),"s11:YellowGreen","")
 
 	Func setYellowGreen P1
 		raise("DotNet Error: YellowGreen is a read-only property")
@@ -5008,19 +5008,19 @@ Class Point from ValueType
 		return self
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s8:Truncate",dnPackItem(P1))
 
 	Func Round P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s5:Round",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -5043,7 +5043,7 @@ Class Point from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Point, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Point, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5086,10 +5086,10 @@ Class PointF from ValueType
 		return dnSend("s4:call",nHandle,"s9:ToVector2","")
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.PointF, System.Drawing.Primitives').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.PointF, System.Drawing.Primitives'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.PointF, System.Drawing.Primitives').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.PointF, System.Drawing.Primitives'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -5112,7 +5112,7 @@ Class PointF from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.PointF, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.PointF, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5168,7 +5168,7 @@ Class Rectangle from ValueType
 	Func Inflate P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s7:Inflate",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s7:Inflate",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Inflate",dnPackItem(P1))
 		ok
@@ -5178,7 +5178,7 @@ Class Rectangle from ValueType
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s9:Intersect",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s9:Intersect",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
@@ -5197,19 +5197,19 @@ Class Rectangle from ValueType
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s8:FromLTRB",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s8:FromLTRB",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s8:Truncate",dnPackItem(P1))
 
 	Func Round P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s5:Round",dnPackItem(P1))
 
 	Func Union P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s5:Union",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s5:Union",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getLocation
 		return dnSend("s3:get",nHandle,"s8:Location","")
@@ -5284,7 +5284,7 @@ Class Rectangle from ValueType
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Rectangle, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5343,7 +5343,7 @@ Class RectangleF from ValueType
 	Func Inflate P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives').nHandle,"s7:Inflate",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.RectangleF, System.Drawing.Primitives'),"s7:Inflate",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Inflate",dnPackItem(P1))
 		ok
@@ -5353,7 +5353,7 @@ Class RectangleF from ValueType
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives').nHandle,"s9:Intersect",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.RectangleF, System.Drawing.Primitives'),"s9:Intersect",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
@@ -5372,10 +5372,10 @@ Class RectangleF from ValueType
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives').nHandle,"s8:FromLTRB",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.RectangleF, System.Drawing.Primitives'),"s8:FromLTRB",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Union P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives').nHandle,"s5:Union",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.RectangleF, System.Drawing.Primitives'),"s5:Union",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getLocation
 		return dnSend("s3:get",nHandle,"s8:Location","")
@@ -5450,7 +5450,7 @@ Class RectangleF from ValueType
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.RectangleF, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5570,7 +5570,7 @@ Class Region from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s14:GetRegionScans",dnPackItem(P1))
 
 	Func FromHrgn P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Region, System.Drawing.Common').nHandle,"s8:FromHrgn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Region, System.Drawing.Common'),"s8:FromHrgn",dnPackItem(P1))
 
 
 Class Size from ValueType
@@ -5607,19 +5607,19 @@ Class Size from ValueType
 		return self
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s8:Truncate",dnPackItem(P1))
 
 	Func Round P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s5:Round",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -5642,7 +5642,7 @@ Class Size from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Size, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Size, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5691,10 +5691,10 @@ Class SizeF from ValueType
 		return dnSend("s4:call",nHandle,"s6:ToSize","")
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SizeF, System.Drawing.Primitives'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SizeF, System.Drawing.Primitives'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -5717,7 +5717,7 @@ Class SizeF from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SizeF, System.Drawing.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5839,13 +5839,13 @@ Class StringFormat from MarshalByRefObject
 		raise("DotNet Error: DigitSubstitutionLanguage is a read-only property")
 
 	Func getGenericDefault
-		return dnSend("s3:get",dnTypeCached('System.Drawing.StringFormat, System.Drawing.Common').nHandle,"s14:GenericDefault","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.StringFormat, System.Drawing.Common'),"s14:GenericDefault","")
 
 	Func setGenericDefault P1
 		raise("DotNet Error: GenericDefault is a read-only property")
 
 	Func getGenericTypographic
-		return dnSend("s3:get",dnTypeCached('System.Drawing.StringFormat, System.Drawing.Common').nHandle,"s18:GenericTypographic","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.StringFormat, System.Drawing.Common'),"s18:GenericTypographic","")
 
 	Func setGenericTypographic P1
 		raise("DotNet Error: GenericTypographic is a read-only property")
@@ -5900,202 +5900,202 @@ Class SystemBrushes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromSystemColor P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s15:FromSystemColor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s15:FromSystemColor",dnPackItem(P1))
 
 	Func getActiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s12:ActiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s12:ActiveBorder","")
 
 	Func setActiveBorder P1
 		raise("DotNet Error: ActiveBorder is a read-only property")
 
 	Func getActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s13:ActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s13:ActiveCaption","")
 
 	Func setActiveCaption P1
 		raise("DotNet Error: ActiveCaption is a read-only property")
 
 	Func getActiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s17:ActiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s17:ActiveCaptionText","")
 
 	Func setActiveCaptionText P1
 		raise("DotNet Error: ActiveCaptionText is a read-only property")
 
 	Func getAppWorkspace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s12:AppWorkspace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s12:AppWorkspace","")
 
 	Func setAppWorkspace P1
 		raise("DotNet Error: AppWorkspace is a read-only property")
 
 	Func getButtonFace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s10:ButtonFace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s10:ButtonFace","")
 
 	Func setButtonFace P1
 		raise("DotNet Error: ButtonFace is a read-only property")
 
 	Func getButtonHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s15:ButtonHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s15:ButtonHighlight","")
 
 	Func setButtonHighlight P1
 		raise("DotNet Error: ButtonHighlight is a read-only property")
 
 	Func getButtonShadow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s12:ButtonShadow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s12:ButtonShadow","")
 
 	Func setButtonShadow P1
 		raise("DotNet Error: ButtonShadow is a read-only property")
 
 	Func getControl
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s7:Control","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s7:Control","")
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getControlLightLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s17:ControlLightLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s17:ControlLightLight","")
 
 	Func setControlLightLight P1
 		raise("DotNet Error: ControlLightLight is a read-only property")
 
 	Func getControlLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s12:ControlLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s12:ControlLight","")
 
 	Func setControlLight P1
 		raise("DotNet Error: ControlLight is a read-only property")
 
 	Func getControlDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s11:ControlDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s11:ControlDark","")
 
 	Func setControlDark P1
 		raise("DotNet Error: ControlDark is a read-only property")
 
 	Func getControlDarkDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s15:ControlDarkDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s15:ControlDarkDark","")
 
 	Func setControlDarkDark P1
 		raise("DotNet Error: ControlDarkDark is a read-only property")
 
 	Func getControlText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s11:ControlText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s11:ControlText","")
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getDesktop
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s7:Desktop","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s7:Desktop","")
 
 	Func setDesktop P1
 		raise("DotNet Error: Desktop is a read-only property")
 
 	Func getGradientActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s21:GradientActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s21:GradientActiveCaption","")
 
 	Func setGradientActiveCaption P1
 		raise("DotNet Error: GradientActiveCaption is a read-only property")
 
 	Func getGradientInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s23:GradientInactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s23:GradientInactiveCaption","")
 
 	Func setGradientInactiveCaption P1
 		raise("DotNet Error: GradientInactiveCaption is a read-only property")
 
 	Func getGrayText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s8:GrayText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s8:GrayText","")
 
 	Func setGrayText P1
 		raise("DotNet Error: GrayText is a read-only property")
 
 	Func getHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s9:Highlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s9:Highlight","")
 
 	Func setHighlight P1
 		raise("DotNet Error: Highlight is a read-only property")
 
 	Func getHighlightText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s13:HighlightText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s13:HighlightText","")
 
 	Func setHighlightText P1
 		raise("DotNet Error: HighlightText is a read-only property")
 
 	Func getHotTrack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s8:HotTrack","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s8:HotTrack","")
 
 	Func setHotTrack P1
 		raise("DotNet Error: HotTrack is a read-only property")
 
 	Func getInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s15:InactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s15:InactiveCaption","")
 
 	Func setInactiveCaption P1
 		raise("DotNet Error: InactiveCaption is a read-only property")
 
 	Func getInactiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s14:InactiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s14:InactiveBorder","")
 
 	Func setInactiveBorder P1
 		raise("DotNet Error: InactiveBorder is a read-only property")
 
 	Func getInactiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s19:InactiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s19:InactiveCaptionText","")
 
 	Func setInactiveCaptionText P1
 		raise("DotNet Error: InactiveCaptionText is a read-only property")
 
 	Func getInfo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s4:Info","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s4:Info","")
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getInfoText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s8:InfoText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s8:InfoText","")
 
 	Func setInfoText P1
 		raise("DotNet Error: InfoText is a read-only property")
 
 	Func getMenu
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s4:Menu","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s4:Menu","")
 
 	Func setMenu P1
 		raise("DotNet Error: Menu is a read-only property")
 
 	Func getMenuBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s7:MenuBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s7:MenuBar","")
 
 	Func setMenuBar P1
 		raise("DotNet Error: MenuBar is a read-only property")
 
 	Func getMenuHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s13:MenuHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s13:MenuHighlight","")
 
 	Func setMenuHighlight P1
 		raise("DotNet Error: MenuHighlight is a read-only property")
 
 	Func getMenuText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s8:MenuText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s8:MenuText","")
 
 	Func setMenuText P1
 		raise("DotNet Error: MenuText is a read-only property")
 
 	Func getScrollBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s9:ScrollBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s9:ScrollBar","")
 
 	Func setScrollBar P1
 		raise("DotNet Error: ScrollBar is a read-only property")
 
 	Func getWindow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s6:Window","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s6:Window","")
 
 	Func setWindow P1
 		raise("DotNet Error: Window is a read-only property")
 
 	Func getWindowFrame
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s11:WindowFrame","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s11:WindowFrame","")
 
 	Func setWindowFrame P1
 		raise("DotNet Error: WindowFrame is a read-only property")
 
 	Func getWindowText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common').nHandle,"s10:WindowText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemBrushes, System.Drawing.Common'),"s10:WindowText","")
 
 	Func setWindowText P1
 		raise("DotNet Error: WindowText is a read-only property")
@@ -6151,208 +6151,208 @@ Class SystemColors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s12:ActiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s12:ActiveBorder","")
 
 	Func setActiveBorder P1
 		raise("DotNet Error: ActiveBorder is a read-only property")
 
 	Func getActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s13:ActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s13:ActiveCaption","")
 
 	Func setActiveCaption P1
 		raise("DotNet Error: ActiveCaption is a read-only property")
 
 	Func getActiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s17:ActiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s17:ActiveCaptionText","")
 
 	Func setActiveCaptionText P1
 		raise("DotNet Error: ActiveCaptionText is a read-only property")
 
 	Func getAppWorkspace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s12:AppWorkspace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s12:AppWorkspace","")
 
 	Func setAppWorkspace P1
 		raise("DotNet Error: AppWorkspace is a read-only property")
 
 	Func getButtonFace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s10:ButtonFace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s10:ButtonFace","")
 
 	Func setButtonFace P1
 		raise("DotNet Error: ButtonFace is a read-only property")
 
 	Func getButtonHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s15:ButtonHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s15:ButtonHighlight","")
 
 	Func setButtonHighlight P1
 		raise("DotNet Error: ButtonHighlight is a read-only property")
 
 	Func getButtonShadow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s12:ButtonShadow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s12:ButtonShadow","")
 
 	Func setButtonShadow P1
 		raise("DotNet Error: ButtonShadow is a read-only property")
 
 	Func getControl
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s7:Control","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s7:Control","")
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getControlDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s11:ControlDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s11:ControlDark","")
 
 	Func setControlDark P1
 		raise("DotNet Error: ControlDark is a read-only property")
 
 	Func getControlDarkDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s15:ControlDarkDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s15:ControlDarkDark","")
 
 	Func setControlDarkDark P1
 		raise("DotNet Error: ControlDarkDark is a read-only property")
 
 	Func getControlLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s12:ControlLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s12:ControlLight","")
 
 	Func setControlLight P1
 		raise("DotNet Error: ControlLight is a read-only property")
 
 	Func getControlLightLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s17:ControlLightLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s17:ControlLightLight","")
 
 	Func setControlLightLight P1
 		raise("DotNet Error: ControlLightLight is a read-only property")
 
 	Func getControlText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s11:ControlText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s11:ControlText","")
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getDesktop
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s7:Desktop","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s7:Desktop","")
 
 	Func setDesktop P1
 		raise("DotNet Error: Desktop is a read-only property")
 
 	Func getGradientActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s21:GradientActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s21:GradientActiveCaption","")
 
 	Func setGradientActiveCaption P1
 		raise("DotNet Error: GradientActiveCaption is a read-only property")
 
 	Func getGradientInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s23:GradientInactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s23:GradientInactiveCaption","")
 
 	Func setGradientInactiveCaption P1
 		raise("DotNet Error: GradientInactiveCaption is a read-only property")
 
 	Func getGrayText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s8:GrayText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s8:GrayText","")
 
 	Func setGrayText P1
 		raise("DotNet Error: GrayText is a read-only property")
 
 	Func getHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s9:Highlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s9:Highlight","")
 
 	Func setHighlight P1
 		raise("DotNet Error: Highlight is a read-only property")
 
 	Func getHighlightText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s13:HighlightText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s13:HighlightText","")
 
 	Func setHighlightText P1
 		raise("DotNet Error: HighlightText is a read-only property")
 
 	Func getHotTrack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s8:HotTrack","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s8:HotTrack","")
 
 	Func setHotTrack P1
 		raise("DotNet Error: HotTrack is a read-only property")
 
 	Func getInactiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s14:InactiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s14:InactiveBorder","")
 
 	Func setInactiveBorder P1
 		raise("DotNet Error: InactiveBorder is a read-only property")
 
 	Func getInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s15:InactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s15:InactiveCaption","")
 
 	Func setInactiveCaption P1
 		raise("DotNet Error: InactiveCaption is a read-only property")
 
 	Func getInactiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s19:InactiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s19:InactiveCaptionText","")
 
 	Func setInactiveCaptionText P1
 		raise("DotNet Error: InactiveCaptionText is a read-only property")
 
 	Func getInfo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s4:Info","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s4:Info","")
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getInfoText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s8:InfoText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s8:InfoText","")
 
 	Func setInfoText P1
 		raise("DotNet Error: InfoText is a read-only property")
 
 	Func getMenu
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s4:Menu","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s4:Menu","")
 
 	Func setMenu P1
 		raise("DotNet Error: Menu is a read-only property")
 
 	Func getMenuBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s7:MenuBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s7:MenuBar","")
 
 	Func setMenuBar P1
 		raise("DotNet Error: MenuBar is a read-only property")
 
 	Func getMenuHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s13:MenuHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s13:MenuHighlight","")
 
 	Func setMenuHighlight P1
 		raise("DotNet Error: MenuHighlight is a read-only property")
 
 	Func getMenuText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s8:MenuText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s8:MenuText","")
 
 	Func setMenuText P1
 		raise("DotNet Error: MenuText is a read-only property")
 
 	Func getScrollBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s9:ScrollBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s9:ScrollBar","")
 
 	Func setScrollBar P1
 		raise("DotNet Error: ScrollBar is a read-only property")
 
 	Func getWindow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s6:Window","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s6:Window","")
 
 	Func setWindow P1
 		raise("DotNet Error: Window is a read-only property")
 
 	Func getWindowFrame
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s11:WindowFrame","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s11:WindowFrame","")
 
 	Func setWindowFrame P1
 		raise("DotNet Error: WindowFrame is a read-only property")
 
 	Func getWindowText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s10:WindowText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s10:WindowText","")
 
 	Func setWindowText P1
 		raise("DotNet Error: WindowText is a read-only property")
 
 	Func getUseAlternativeColorSet
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s22:UseAlternativeColorSet","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet","")
 
 	Func setUseAlternativeColorSet P1
-		dnSend("s3:set",dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives').nHandle,"s22:UseAlternativeColorSet",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet",dnPackItem(P1))
 		return self
 
 
@@ -6380,52 +6380,52 @@ Class SystemFonts from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetFontByName P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s13:GetFontByName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s13:GetFontByName",dnPackItem(P1))
 
 	Func getCaptionFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s11:CaptionFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s11:CaptionFont","")
 
 	Func setCaptionFont P1
 		raise("DotNet Error: CaptionFont is a read-only property")
 
 	Func getSmallCaptionFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s16:SmallCaptionFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s16:SmallCaptionFont","")
 
 	Func setSmallCaptionFont P1
 		raise("DotNet Error: SmallCaptionFont is a read-only property")
 
 	Func getMenuFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s8:MenuFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s8:MenuFont","")
 
 	Func setMenuFont P1
 		raise("DotNet Error: MenuFont is a read-only property")
 
 	Func getStatusFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s10:StatusFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s10:StatusFont","")
 
 	Func setStatusFont P1
 		raise("DotNet Error: StatusFont is a read-only property")
 
 	Func getMessageBoxFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s14:MessageBoxFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s14:MessageBoxFont","")
 
 	Func setMessageBoxFont P1
 		raise("DotNet Error: MessageBoxFont is a read-only property")
 
 	Func getIconTitleFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s13:IconTitleFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s13:IconTitleFont","")
 
 	Func setIconTitleFont P1
 		raise("DotNet Error: IconTitleFont is a read-only property")
 
 	Func getDefaultFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s11:DefaultFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s11:DefaultFont","")
 
 	Func setDefaultFont P1
 		raise("DotNet Error: DefaultFont is a read-only property")
 
 	Func getDialogFont
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common').nHandle,"s10:DialogFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemFonts, System.Drawing.Common'),"s10:DialogFont","")
 
 	Func setDialogFont P1
 		raise("DotNet Error: DialogFont is a read-only property")
@@ -6458,66 +6458,66 @@ Class SystemIcons from Object
 
 	Func GetStockIcon P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s12:GetStockIcon",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s12:GetStockIcon",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s12:GetStockIcon",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s12:GetStockIcon",dnPackItem(P1))
 
 	Func getApplication
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s11:Application","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s11:Application","")
 
 	Func setApplication P1
 		raise("DotNet Error: Application is a read-only property")
 
 	Func getAsterisk
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s8:Asterisk","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s8:Asterisk","")
 
 	Func setAsterisk P1
 		raise("DotNet Error: Asterisk is a read-only property")
 
 	Func getError
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s5:Error","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s5:Error","")
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getExclamation
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s11:Exclamation","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s11:Exclamation","")
 
 	Func setExclamation P1
 		raise("DotNet Error: Exclamation is a read-only property")
 
 	Func getHand
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s4:Hand","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s4:Hand","")
 
 	Func setHand P1
 		raise("DotNet Error: Hand is a read-only property")
 
 	Func getInformation
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s11:Information","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s11:Information","")
 
 	Func setInformation P1
 		raise("DotNet Error: Information is a read-only property")
 
 	Func getQuestion
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s8:Question","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s8:Question","")
 
 	Func setQuestion P1
 		raise("DotNet Error: Question is a read-only property")
 
 	Func getWarning
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s7:Warning","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s7:Warning","")
 
 	Func setWarning P1
 		raise("DotNet Error: Warning is a read-only property")
 
 	Func getWinLogo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s7:WinLogo","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s7:WinLogo","")
 
 	Func setWinLogo P1
 		raise("DotNet Error: WinLogo is a read-only property")
 
 	Func getShield
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common').nHandle,"s6:Shield","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemIcons, System.Drawing.Common'),"s6:Shield","")
 
 	Func setShield P1
 		raise("DotNet Error: Shield is a read-only property")
@@ -6572,202 +6572,202 @@ Class SystemPens from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromSystemColor P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s15:FromSystemColor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s15:FromSystemColor",dnPackItem(P1))
 
 	Func getActiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s12:ActiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s12:ActiveBorder","")
 
 	Func setActiveBorder P1
 		raise("DotNet Error: ActiveBorder is a read-only property")
 
 	Func getActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s13:ActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s13:ActiveCaption","")
 
 	Func setActiveCaption P1
 		raise("DotNet Error: ActiveCaption is a read-only property")
 
 	Func getActiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s17:ActiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s17:ActiveCaptionText","")
 
 	Func setActiveCaptionText P1
 		raise("DotNet Error: ActiveCaptionText is a read-only property")
 
 	Func getAppWorkspace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s12:AppWorkspace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s12:AppWorkspace","")
 
 	Func setAppWorkspace P1
 		raise("DotNet Error: AppWorkspace is a read-only property")
 
 	Func getButtonFace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s10:ButtonFace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s10:ButtonFace","")
 
 	Func setButtonFace P1
 		raise("DotNet Error: ButtonFace is a read-only property")
 
 	Func getButtonHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s15:ButtonHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s15:ButtonHighlight","")
 
 	Func setButtonHighlight P1
 		raise("DotNet Error: ButtonHighlight is a read-only property")
 
 	Func getButtonShadow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s12:ButtonShadow","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s12:ButtonShadow","")
 
 	Func setButtonShadow P1
 		raise("DotNet Error: ButtonShadow is a read-only property")
 
 	Func getControl
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s7:Control","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s7:Control","")
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getControlText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s11:ControlText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s11:ControlText","")
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getControlDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s11:ControlDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s11:ControlDark","")
 
 	Func setControlDark P1
 		raise("DotNet Error: ControlDark is a read-only property")
 
 	Func getControlDarkDark
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s15:ControlDarkDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s15:ControlDarkDark","")
 
 	Func setControlDarkDark P1
 		raise("DotNet Error: ControlDarkDark is a read-only property")
 
 	Func getControlLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s12:ControlLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s12:ControlLight","")
 
 	Func setControlLight P1
 		raise("DotNet Error: ControlLight is a read-only property")
 
 	Func getControlLightLight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s17:ControlLightLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s17:ControlLightLight","")
 
 	Func setControlLightLight P1
 		raise("DotNet Error: ControlLightLight is a read-only property")
 
 	Func getDesktop
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s7:Desktop","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s7:Desktop","")
 
 	Func setDesktop P1
 		raise("DotNet Error: Desktop is a read-only property")
 
 	Func getGradientActiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s21:GradientActiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s21:GradientActiveCaption","")
 
 	Func setGradientActiveCaption P1
 		raise("DotNet Error: GradientActiveCaption is a read-only property")
 
 	Func getGradientInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s23:GradientInactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s23:GradientInactiveCaption","")
 
 	Func setGradientInactiveCaption P1
 		raise("DotNet Error: GradientInactiveCaption is a read-only property")
 
 	Func getGrayText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s8:GrayText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s8:GrayText","")
 
 	Func setGrayText P1
 		raise("DotNet Error: GrayText is a read-only property")
 
 	Func getHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s9:Highlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s9:Highlight","")
 
 	Func setHighlight P1
 		raise("DotNet Error: Highlight is a read-only property")
 
 	Func getHighlightText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s13:HighlightText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s13:HighlightText","")
 
 	Func setHighlightText P1
 		raise("DotNet Error: HighlightText is a read-only property")
 
 	Func getHotTrack
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s8:HotTrack","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s8:HotTrack","")
 
 	Func setHotTrack P1
 		raise("DotNet Error: HotTrack is a read-only property")
 
 	Func getInactiveBorder
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s14:InactiveBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s14:InactiveBorder","")
 
 	Func setInactiveBorder P1
 		raise("DotNet Error: InactiveBorder is a read-only property")
 
 	Func getInactiveCaption
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s15:InactiveCaption","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s15:InactiveCaption","")
 
 	Func setInactiveCaption P1
 		raise("DotNet Error: InactiveCaption is a read-only property")
 
 	Func getInactiveCaptionText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s19:InactiveCaptionText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s19:InactiveCaptionText","")
 
 	Func setInactiveCaptionText P1
 		raise("DotNet Error: InactiveCaptionText is a read-only property")
 
 	Func getInfo
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s4:Info","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s4:Info","")
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getInfoText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s8:InfoText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s8:InfoText","")
 
 	Func setInfoText P1
 		raise("DotNet Error: InfoText is a read-only property")
 
 	Func getMenu
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s4:Menu","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s4:Menu","")
 
 	Func setMenu P1
 		raise("DotNet Error: Menu is a read-only property")
 
 	Func getMenuBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s7:MenuBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s7:MenuBar","")
 
 	Func setMenuBar P1
 		raise("DotNet Error: MenuBar is a read-only property")
 
 	Func getMenuHighlight
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s13:MenuHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s13:MenuHighlight","")
 
 	Func setMenuHighlight P1
 		raise("DotNet Error: MenuHighlight is a read-only property")
 
 	Func getMenuText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s8:MenuText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s8:MenuText","")
 
 	Func setMenuText P1
 		raise("DotNet Error: MenuText is a read-only property")
 
 	Func getScrollBar
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s9:ScrollBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s9:ScrollBar","")
 
 	Func setScrollBar P1
 		raise("DotNet Error: ScrollBar is a read-only property")
 
 	Func getWindow
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s6:Window","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s6:Window","")
 
 	Func setWindow P1
 		raise("DotNet Error: Window is a read-only property")
 
 	Func getWindowFrame
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s11:WindowFrame","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s11:WindowFrame","")
 
 	Func setWindowFrame P1
 		raise("DotNet Error: WindowFrame is a read-only property")
 
 	Func getWindowText
-		return dnSend("s3:get",dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common').nHandle,"s10:WindowText","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.SystemPens, System.Drawing.Common'),"s10:WindowText","")
 
 	Func setWindowText P1
 		raise("DotNet Error: WindowText is a read-only property")
@@ -6872,10 +6872,10 @@ Class Bitmap from Image
 		return self
 
 	Func FromHicon P1
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Bitmap, System.Drawing.Common').nHandle,"s9:FromHicon",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Bitmap, System.Drawing.Common'),"s9:FromHicon",dnPackItem(P1))
 
 	Func FromResource P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Bitmap, System.Drawing.Common').nHandle,"s12:FromResource",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Bitmap, System.Drawing.Common'),"s12:FromResource",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class SolidBrush from Brush

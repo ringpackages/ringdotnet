@@ -306,49 +306,49 @@ Class HttpMethod from Object
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getGet
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s3:Get","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s3:Get","")
 
 	Func getPut
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s3:Put","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s3:Put","")
 
 	Func getPost
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s4:Post","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s4:Post","")
 
 	Func setPost P1
 		raise("DotNet Error: Post is a read-only property")
 
 	Func getDelete
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s6:Delete","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s6:Delete","")
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getHead
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s4:Head","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s4:Head","")
 
 	Func setHead P1
 		raise("DotNet Error: Head is a read-only property")
 
 	Func getOptions
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s7:Options","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getTrace
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s5:Trace","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s5:Trace","")
 
 	Func setTrace P1
 		raise("DotNet Error: Trace is a read-only property")
 
 	Func getPatch
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s5:Patch","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s5:Patch","")
 
 	Func setPatch P1
 		raise("DotNet Error: Patch is a read-only property")
 
 	Func getConnect
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpMethod, System.Net.Http').nHandle,"s7:Connect","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpMethod, System.Net.Http'),"s7:Connect","")
 
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
@@ -704,7 +704,7 @@ Class ResponseTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Net.Http.HttpResponseMessage, System.Net.Http, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Net.Http.HttpResponseMessage, System.Net.Http, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class ByteArrayContent from HttpContent
@@ -907,10 +907,10 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func getDefaultProxy
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpClient, System.Net.Http').nHandle,"s12:DefaultProxy","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpClient, System.Net.Http'),"s12:DefaultProxy","")
 
 	Func setDefaultProxy P1
-		dnSend("s3:set",dnTypeCached('System.Net.Http.HttpClient, System.Net.Http').nHandle,"s12:DefaultProxy",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.Http.HttpClient, System.Net.Http'),"s12:DefaultProxy",dnPackItem(P1))
 		return self
 
 
@@ -1124,7 +1124,7 @@ Class HttpClientHandler from HttpMessageHandler
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDangerousAcceptAnyServerCertificateValidator
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.HttpClientHandler, System.Net.Http').nHandle,"s44:DangerousAcceptAnyServerCertificateValidator","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpClientHandler, System.Net.Http'),"s44:DangerousAcceptAnyServerCertificateValidator","")
 
 	Func setDangerousAcceptAnyServerCertificateValidator P1
 		raise("DotNet Error: DangerousAcceptAnyServerCertificateValidator is a read-only property")
@@ -1475,7 +1475,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Net.Http.SocketsHttpHandler, System.Net.Http').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Http.SocketsHttpHandler, System.Net.Http'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

@@ -769,7 +769,7 @@ Class DbContextTransactionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDbTransaction P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:GetDbTransaction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:GetDbTransaction",dnPackItem(P1))
 
 
 Class ExecutionStrategy from Object
@@ -801,7 +801,7 @@ Class ExecutionStrategy from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CallOnWrappedException P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore').nHandle,"s22:CallOnWrappedException",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"s22:CallOnWrappedException",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxRetryCount
 		return dnSend("s3:get",nHandle,"s13:MaxRetryCount","")
@@ -822,7 +822,7 @@ Class ExecutionStrategy from Object
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1976,7 +1976,7 @@ Class MaterializationContext from ValueType
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getGetValueBufferMethod
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore').nHandle,"s20:GetValueBufferMethod","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore'),"s20:GetValueBufferMethod","")
 
 	Func setGetValueBufferMethod P1
 		raise("DotNet Error: GetValueBufferMethod is a read-only property")
@@ -2147,10 +2147,10 @@ Class ReaderColumn from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func GetConstructor P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:GetConstructor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational'),"s14:GetConstructor",dnPackItem(P1))
 
 	Func getType
 		return dnSend("s3:get",nHandle,"s4:Type","")
@@ -2358,28 +2358,28 @@ Class RelationalCommandBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AppendLine P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s10:AppendLine",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s10:AppendLine",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AppendLines P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s11:AppendLines",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s11:AppendLines",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AppendLines does not take one argument: use named arguments, AppendLines([ :parameter = value, ... ])")
 
 	Func Indent P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s6:Indent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s6:Indent",dnPackItem(P1))
 
 	Func AddParameter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s12:AddParameter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s12:AddParameter",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddParameter does not take one argument: use named arguments, AddParameter([ :parameter = value, ... ])")
 
 	Func AddCompositeParameter P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:AddCompositeParameter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:AddCompositeParameter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AddRawParameter P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:AddRawParameter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s15:AddRawParameter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class RelationalCommandBuilderFactory from Object
@@ -3084,13 +3084,13 @@ Class RelationalExecutionStrategyExtensions from Object
 
 	Func ExecuteInTransaction P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:ExecuteInTransaction",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:ExecuteInTransaction",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
 
 	Func ExecuteInTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:ExecuteInTransactionAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:ExecuteInTransactionAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
@@ -3577,13 +3577,13 @@ Class RelationalTypeMappingSourceExtensions from Object
 
 	Func GetMappingForValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:GetMappingForValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:GetMappingForValue",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetMappingForValue does not take one argument: use named arguments, GetMappingForValue([ :parameter = value, ... ])")
 
 	Func GetMapping P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s10:GetMapping",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"s10:GetMapping",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetMapping does not take one argument: use named arguments, GetMapping([ :parameter = value, ... ])")
 
@@ -3899,7 +3899,7 @@ Class ValueBuffer from ValueType
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3965,14 +3965,14 @@ Class RelationalTypeMapping from CoreTypeMapping
 	Func GetDataReaderMethod P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:GetDataReaderMethod",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s19:GetDataReaderMethod",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s19:GetDataReaderMethod",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:GetDataReaderMethod",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s19:GetDataReaderMethod",dnPackItem(P1))
 
 	Func CustomizeDataReaderExpression P1
 		return dnSend("s4:call",nHandle,"s29:CustomizeDataReaderExpression",dnPackItem(P1))
@@ -4032,7 +4032,7 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getNullMapping
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s11:NullMapping","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s11:NullMapping","")
 
 	Func setNullMapping P1
 		raise("DotNet Error: NullMapping is a read-only property")
@@ -4096,7 +4096,7 @@ Class BoolTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4136,7 +4136,7 @@ Class ByteArrayTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4176,7 +4176,7 @@ Class ByteTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4216,7 +4216,7 @@ Class CharTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4256,7 +4256,7 @@ Class DateOnlyTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4296,7 +4296,7 @@ Class DateTimeOffsetTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4336,7 +4336,7 @@ Class DateTimeTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4376,7 +4376,7 @@ Class DecimalTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4416,7 +4416,7 @@ Class DoubleTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4456,7 +4456,7 @@ Class FloatTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4496,7 +4496,7 @@ Class GuidTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4536,7 +4536,7 @@ Class IntTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4591,7 +4591,7 @@ Class LongTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4631,7 +4631,7 @@ Class SByteTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4671,7 +4671,7 @@ Class ShortTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4711,7 +4711,7 @@ Class StringTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4751,7 +4751,7 @@ Class TimeOnlyTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4791,7 +4791,7 @@ Class TimeSpanTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4831,7 +4831,7 @@ Class UIntTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4871,7 +4871,7 @@ Class ULongTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -4911,7 +4911,7 @@ Class UShortTypeMapping from RelationalTypeMapping
 		return dnSend("s4:call",nHandle,"s19:GetDataReaderMethod","")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")

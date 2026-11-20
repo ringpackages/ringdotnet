@@ -57,25 +57,25 @@ Class MemoryMappedFile from Object
 
 	Func OpenExisting P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s12:OpenExisting",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:OpenExisting",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s12:OpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:OpenExisting",dnPackItem(P1))
 
 	Func CreateFromFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s14:CreateFromFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s14:CreateFromFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s14:CreateFromFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s14:CreateFromFile",dnPackItem(P1))
 
 	Func CreateNew P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s9:CreateNew",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s9:CreateNew",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateNew does not take one argument: use named arguments, CreateNew([ :parameter = value, ... ])")
 
 	Func CreateOrOpen P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles').nHandle,"s12:CreateOrOpen",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:CreateOrOpen",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateOrOpen does not take one argument: use named arguments, CreateOrOpen([ :parameter = value, ... ])")
 

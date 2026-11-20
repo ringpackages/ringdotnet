@@ -730,19 +730,19 @@ Class CookieContainer from Object
 		return self
 
 	Func getDefaultCookieLimit
-		return dnSend("s3:get",dnTypeCached('System.Net.CookieContainer, System.Net.Primitives').nHandle,"s18:DefaultCookieLimit","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s18:DefaultCookieLimit","")
 
 	Func setDefaultCookieLimit P1
 		raise("DotNet Error: DefaultCookieLimit is a read-only property")
 
 	Func getDefaultPerDomainCookieLimit
-		return dnSend("s3:get",dnTypeCached('System.Net.CookieContainer, System.Net.Primitives').nHandle,"s27:DefaultPerDomainCookieLimit","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s27:DefaultPerDomainCookieLimit","")
 
 	Func setDefaultPerDomainCookieLimit P1
 		raise("DotNet Error: DefaultPerDomainCookieLimit is a read-only property")
 
 	Func getDefaultCookieLengthLimit
-		return dnSend("s3:get",dnTypeCached('System.Net.CookieContainer, System.Net.Primitives').nHandle,"s24:DefaultCookieLengthLimit","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s24:DefaultCookieLengthLimit","")
 
 	Func setDefaultCookieLengthLimit P1
 		raise("DotNet Error: DefaultCookieLengthLimit is a read-only property")
@@ -798,13 +798,13 @@ Class CredentialCache from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefaultCredentials
-		return dnSend("s3:get",dnTypeCached('System.Net.CredentialCache, System.Net.Primitives').nHandle,"s18:DefaultCredentials","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.CredentialCache, System.Net.Primitives'),"s18:DefaultCredentials","")
 
 	Func setDefaultCredentials P1
 		raise("DotNet Error: DefaultCredentials is a read-only property")
 
 	Func getDefaultNetworkCredentials
-		return dnSend("s3:get",dnTypeCached('System.Net.CredentialCache, System.Net.Primitives').nHandle,"s25:DefaultNetworkCredentials","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.CredentialCache, System.Net.Primitives'),"s25:DefaultNetworkCredentials","")
 
 	Func setDefaultNetworkCredentials P1
 		raise("DotNet Error: DefaultNetworkCredentials is a read-only property")
@@ -825,64 +825,64 @@ Class Dns from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHostName 
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s11:GetHostName","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s11:GetHostName","")
 
 	Func GetHostEntry P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s12:GetHostEntry",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s12:GetHostEntry",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s12:GetHostEntry",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s12:GetHostEntry",dnPackItem(P1))
 
 	Func GetHostEntryAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s17:GetHostEntryAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s17:GetHostEntryAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s17:GetHostEntryAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s17:GetHostEntryAsync",dnPackItem(P1))
 
 	Func BeginGetHostEntry P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s17:BeginGetHostEntry",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s17:BeginGetHostEntry",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EndGetHostEntry P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s15:EndGetHostEntry",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s15:EndGetHostEntry",dnPackItem(P1))
 
 	Func GetHostAddresses P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s16:GetHostAddresses",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s16:GetHostAddresses",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s16:GetHostAddresses",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s16:GetHostAddresses",dnPackItem(P1))
 
 	Func GetHostAddressesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s21:GetHostAddressesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s21:GetHostAddressesAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s21:GetHostAddressesAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s21:GetHostAddressesAsync",dnPackItem(P1))
 
 	Func BeginGetHostAddresses P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s21:BeginGetHostAddresses",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s21:BeginGetHostAddresses",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EndGetHostAddresses P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s19:EndGetHostAddresses",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s19:EndGetHostAddresses",dnPackItem(P1))
 
 	Func GetHostByName P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s13:GetHostByName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s13:GetHostByName",dnPackItem(P1))
 
 	Func BeginGetHostByName P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s18:BeginGetHostByName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s18:BeginGetHostByName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EndGetHostByName P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s16:EndGetHostByName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s16:EndGetHostByName",dnPackItem(P1))
 
 	Func GetHostByAddress P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s16:GetHostByAddress",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s16:GetHostByAddress",dnPackItem(P1))
 
 	Func Resolve P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s7:Resolve",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s7:Resolve",dnPackItem(P1))
 
 	Func BeginResolve P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s12:BeginResolve",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s12:BeginResolve",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EndResolve P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Dns, System.Net.NameResolution').nHandle,"s10:EndResolve",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s10:EndResolve",dnPackItem(P1))
 
 
 Class DownloadDataCompletedEventArgs from AsyncCompletedEventArgs
@@ -1119,7 +1119,7 @@ Class HttpListener from Object
 		raise("DotNet Error: TimeoutManager is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpListener, System.Net.HttpListener').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpListener, System.Net.HttpListener'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -1826,31 +1826,31 @@ Class HttpVersion from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getUnknown
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpVersion, System.Net.Primitives').nHandle,"s7:Unknown","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpVersion, System.Net.Primitives'),"s7:Unknown","")
 
 	Func setUnknown P1
 		raise("DotNet Error: Unknown is a read-only property")
 
 	Func getVersion10
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpVersion, System.Net.Primitives').nHandle,"s9:Version10","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpVersion, System.Net.Primitives'),"s9:Version10","")
 
 	Func setVersion10 P1
 		raise("DotNet Error: Version10 is a read-only property")
 
 	Func getVersion11
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpVersion, System.Net.Primitives').nHandle,"s9:Version11","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpVersion, System.Net.Primitives'),"s9:Version11","")
 
 	Func setVersion11 P1
 		raise("DotNet Error: Version11 is a read-only property")
 
 	Func getVersion20
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpVersion, System.Net.Primitives').nHandle,"s9:Version20","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpVersion, System.Net.Primitives'),"s9:Version20","")
 
 	Func setVersion20 P1
 		raise("DotNet Error: Version20 is a read-only property")
 
 	Func getVersion30
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpVersion, System.Net.Primitives').nHandle,"s9:Version30","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpVersion, System.Net.Primitives'),"s9:Version30","")
 
 	Func setVersion30 P1
 		raise("DotNet Error: Version30 is a read-only property")
@@ -1990,19 +1990,19 @@ Class IPAddress from Object
 		return dnSend("s4:call",nHandle,"s9:MapToIPv4","")
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s8:TryParse",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s5:Parse",dnPackItem(P1))
 
 	Func HostToNetworkOrder P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s18:HostToNetworkOrder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:HostToNetworkOrder",dnPackItem(P1))
 
 	Func NetworkToHostOrder P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s18:NetworkToHostOrder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:NetworkToHostOrder",dnPackItem(P1))
 
 	Func IsLoopback P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s10:IsLoopback",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s10:IsLoopback",dnPackItem(P1))
 
 	Func getAddressFamily
 		return dnSend("s3:get",nHandle,"s13:AddressFamily","")
@@ -2061,43 +2061,43 @@ Class IPAddress from Object
 		return self
 
 	Func getAny
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s3:Any","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s3:Any","")
 
 	Func setAny P1
 		raise("DotNet Error: Any is a read-only property")
 
 	Func getLoopback
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s8:Loopback","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s8:Loopback","")
 
 	Func setLoopback P1
 		raise("DotNet Error: Loopback is a read-only property")
 
 	Func getBroadcast
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s9:Broadcast","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s9:Broadcast","")
 
 	Func setBroadcast P1
 		raise("DotNet Error: Broadcast is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getIPv6Any
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s7:IPv6Any","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s7:IPv6Any","")
 
 	Func setIPv6Any P1
 		raise("DotNet Error: IPv6Any is a read-only property")
 
 	Func getIPv6Loopback
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s12:IPv6Loopback","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s12:IPv6Loopback","")
 
 	Func setIPv6Loopback P1
 		raise("DotNet Error: IPv6Loopback is a read-only property")
 
 	Func getIPv6None
-		return dnSend("s3:get",dnTypeCached('System.Net.IPAddress, System.Net.Primitives').nHandle,"s8:IPv6None","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s8:IPv6None","")
 
 	Func setIPv6None P1
 		raise("DotNet Error: IPv6None is a read-only property")
@@ -2195,10 +2195,10 @@ Class IPNetwork from ValueType
 		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPNetwork, System.Net.Primitives').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPNetwork, System.Net.Primitives'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPNetwork, System.Net.Primitives').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPNetwork, System.Net.Primitives'),"s8:TryParse",dnPackItem(P1))
 
 	Func getBaseAddress
 		return dnSend("s3:get",nHandle,"s11:BaseAddress","")
@@ -2591,7 +2591,7 @@ Class SocketAddress from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetMaximumAddressSize P1
-		return dnSend("s4:call",dnTypeCached('System.Net.SocketAddress, System.Net.Primitives').nHandle,"s21:GetMaximumAddressSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.SocketAddress, System.Net.Primitives'),"s21:GetMaximumAddressSize",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -3152,9 +3152,9 @@ Class WebHeaderCollection from NameValueCollection
 
 	Func IsRestricted P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection').nHandle,"s12:IsRestricted",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection').nHandle,"s12:IsRestricted",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",dnPackItem(P1))
 
 
 Class WebProxy from Object
@@ -3210,7 +3210,7 @@ Class WebProxy from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDefaultProxy 
-		return dnSend("s4:call",dnTypeCached('System.Net.WebProxy, System.Net.WebProxy').nHandle,"s15:GetDefaultProxy","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebProxy, System.Net.WebProxy'),"s15:GetDefaultProxy","")
 
 	Func getAddress
 		return dnSend("s3:get",nHandle,"s7:Address","")
@@ -3311,19 +3311,19 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s6:Create",dnPackItem(P1))
 
 	Func CreateDefault P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s13:CreateDefault",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s13:CreateDefault",dnPackItem(P1))
 
 	Func CreateHttp P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s10:CreateHttp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s10:CreateHttp",dnPackItem(P1))
 
 	Func RegisterPrefix P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s14:RegisterPrefix",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s14:RegisterPrefix",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetSystemWebProxy 
-		return dnSend("s4:call",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s17:GetSystemWebProxy","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s17:GetSystemWebProxy","")
 
 	Func getCachePolicy
 		return dnSend("s3:get",nHandle,"s11:CachePolicy","")
@@ -3423,17 +3423,17 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getDefaultCachePolicy
-		return dnSend("s3:get",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dnSend("s3:set",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1))
 		return self
 
 	Func getDefaultWebProxy
-		return dnSend("s3:get",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s15:DefaultWebProxy","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s15:DefaultWebProxy","")
 
 	Func setDefaultWebProxy P1
-		dnSend("s3:set",dnTypeCached('System.Net.WebRequest, System.Net.Requests').nHandle,"s15:DefaultWebProxy",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s15:DefaultWebProxy",dnPackItem(P1))
 		return self
 
 
@@ -3543,27 +3543,27 @@ Class WebUtility from Object
 
 	Func HtmlEncode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s10:HtmlEncode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s10:HtmlEncode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",dnPackItem(P1))
 
 	Func HtmlDecode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s10:HtmlDecode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s10:HtmlDecode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",dnPackItem(P1))
 
 	Func UrlEncode P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s9:UrlEncode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlEncode",dnPackItem(P1))
 
 	Func UrlEncodeToBytes P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s16:UrlEncodeToBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s16:UrlEncodeToBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UrlDecode P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s9:UrlDecode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlDecode",dnPackItem(P1))
 
 	Func UrlDecodeToBytes P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Net.WebUtility, System.Private.CoreLib').nHandle,"s16:UrlDecodeToBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s16:UrlDecodeToBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class WriteStreamClosedEventArgs from EventArgs
@@ -3756,10 +3756,10 @@ Class FtpWebRequest from WebRequest
 		return self
 
 	Func getDefaultCachePolicy
-		return dnSend("s3:get",dnTypeCached('System.Net.FtpWebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.FtpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dnSend("s3:set",dnTypeCached('System.Net.FtpWebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.FtpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1))
 		return self
 
 
@@ -4088,24 +4088,24 @@ Class HttpWebRequest from WebRequest
 		raise("DotNet Error: SupportsCookieContainer is a read-only property")
 
 	Func getDefaultMaximumResponseHeadersLength
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s35:DefaultMaximumResponseHeadersLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength","")
 
 	Func setDefaultMaximumResponseHeadersLength P1
-		dnSend("s3:set",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s35:DefaultMaximumResponseHeadersLength",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength",dnPackItem(P1))
 		return self
 
 	Func getDefaultMaximumErrorResponseLength
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s33:DefaultMaximumErrorResponseLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength","")
 
 	Func setDefaultMaximumErrorResponseLength P1
-		dnSend("s3:set",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s33:DefaultMaximumErrorResponseLength",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength",dnPackItem(P1))
 		return self
 
 	Func getDefaultCachePolicy
-		return dnSend("s3:get",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dnSend("s3:set",dnTypeCached('System.Net.HttpWebRequest, System.Net.Requests').nHandle,"s18:DefaultCachePolicy",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1))
 		return self
 
 
@@ -4223,10 +4223,10 @@ Class IPEndPoint from EndPoint
 		return self
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPEndPoint, System.Net.Primitives').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s8:TryParse",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.IPEndPoint, System.Net.Primitives').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s5:Parse",dnPackItem(P1))
 
 	Func getAddress
 		return dnSend("s3:get",nHandle,"s7:Address","")
@@ -4243,13 +4243,13 @@ Class IPEndPoint from EndPoint
 		return self
 
 	Func getMinPort
-		return dnSend("s3:get",dnTypeCached('System.Net.IPEndPoint, System.Net.Primitives').nHandle,"s7:MinPort","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MinPort","")
 
 	Func setMinPort P1
 		raise("DotNet Error: MinPort is a read-only property")
 
 	Func getMaxPort
-		return dnSend("s3:get",dnTypeCached('System.Net.IPEndPoint, System.Net.Primitives').nHandle,"s7:MaxPort","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MaxPort","")
 
 	Func setMaxPort P1
 		raise("DotNet Error: MaxPort is a read-only property")

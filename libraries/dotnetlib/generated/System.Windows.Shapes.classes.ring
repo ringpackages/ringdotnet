@@ -167,67 +167,67 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStretchProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s15:StretchProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s15:StretchProperty","")
 
 	Func setStretchProperty P1
 		raise("DotNet Error: StretchProperty is a read-only property")
 
 	Func getFillProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s12:FillProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s12:FillProperty","")
 
 	Func setFillProperty P1
 		raise("DotNet Error: FillProperty is a read-only property")
 
 	Func getStrokeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s14:StrokeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s14:StrokeProperty","")
 
 	Func setStrokeProperty P1
 		raise("DotNet Error: StrokeProperty is a read-only property")
 
 	Func getStrokeThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s23:StrokeThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s23:StrokeThicknessProperty","")
 
 	Func setStrokeThicknessProperty P1
 		raise("DotNet Error: StrokeThicknessProperty is a read-only property")
 
 	Func getStrokeStartLineCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s26:StrokeStartLineCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s26:StrokeStartLineCapProperty","")
 
 	Func setStrokeStartLineCapProperty P1
 		raise("DotNet Error: StrokeStartLineCapProperty is a read-only property")
 
 	Func getStrokeEndLineCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s24:StrokeEndLineCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeEndLineCapProperty","")
 
 	Func setStrokeEndLineCapProperty P1
 		raise("DotNet Error: StrokeEndLineCapProperty is a read-only property")
 
 	Func getStrokeDashCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s21:StrokeDashCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s21:StrokeDashCapProperty","")
 
 	Func setStrokeDashCapProperty P1
 		raise("DotNet Error: StrokeDashCapProperty is a read-only property")
 
 	Func getStrokeLineJoinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s22:StrokeLineJoinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s22:StrokeLineJoinProperty","")
 
 	Func setStrokeLineJoinProperty P1
 		raise("DotNet Error: StrokeLineJoinProperty is a read-only property")
 
 	Func getStrokeMiterLimitProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s24:StrokeMiterLimitProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeMiterLimitProperty","")
 
 	Func setStrokeMiterLimitProperty P1
 		raise("DotNet Error: StrokeMiterLimitProperty is a read-only property")
 
 	Func getStrokeDashOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s24:StrokeDashOffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeDashOffsetProperty","")
 
 	Func setStrokeDashOffsetProperty P1
 		raise("DotNet Error: StrokeDashOffsetProperty is a read-only property")
 
 	Func getStrokeDashArrayProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Shape, PresentationFramework').nHandle,"s23:StrokeDashArrayProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s23:StrokeDashArrayProperty","")
 
 	Func setStrokeDashArrayProperty P1
 		raise("DotNet Error: StrokeDashArrayProperty is a read-only property")
@@ -312,25 +312,25 @@ Class Line from Shape
 		return self
 
 	Func getX1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Line, PresentationFramework').nHandle,"s10:X1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:X1Property","")
 
 	Func setX1Property P1
 		raise("DotNet Error: X1Property is a read-only property")
 
 	Func getY1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Line, PresentationFramework').nHandle,"s10:Y1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:Y1Property","")
 
 	Func setY1Property P1
 		raise("DotNet Error: Y1Property is a read-only property")
 
 	Func getX2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Line, PresentationFramework').nHandle,"s10:X2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:X2Property","")
 
 	Func setX2Property P1
 		raise("DotNet Error: X2Property is a read-only property")
 
 	Func getY2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Line, PresentationFramework').nHandle,"s10:Y2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:Y2Property","")
 
 	Func setY2Property P1
 		raise("DotNet Error: Y2Property is a read-only property")
@@ -367,7 +367,7 @@ Class WpfPath from Shape
 		return self
 
 	Func getDataProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Path, PresentationFramework').nHandle,"s12:DataProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Path, PresentationFramework'),"s12:DataProperty","")
 
 	Func setDataProperty P1
 		raise("DotNet Error: DataProperty is a read-only property")
@@ -413,13 +413,13 @@ Class Polygon from Shape
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Polygon, PresentationFramework').nHandle,"s14:PointsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polygon, PresentationFramework'),"s14:PointsProperty","")
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Polygon, PresentationFramework').nHandle,"s16:FillRuleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polygon, PresentationFramework'),"s16:FillRuleProperty","")
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
@@ -465,13 +465,13 @@ Class Polyline from Shape
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Polyline, PresentationFramework').nHandle,"s14:PointsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polyline, PresentationFramework'),"s14:PointsProperty","")
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Polyline, PresentationFramework').nHandle,"s16:FillRuleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polyline, PresentationFramework'),"s16:FillRuleProperty","")
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
@@ -517,13 +517,13 @@ Class WpfRectangle from Shape
 		return self
 
 	Func getRadiusXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Rectangle, PresentationFramework').nHandle,"s15:RadiusXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Rectangle, PresentationFramework'),"s15:RadiusXProperty","")
 
 	Func setRadiusXProperty P1
 		raise("DotNet Error: RadiusXProperty is a read-only property")
 
 	Func getRadiusYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Shapes.Rectangle, PresentationFramework').nHandle,"s15:RadiusYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Rectangle, PresentationFramework'),"s15:RadiusYProperty","")
 
 	Func setRadiusYProperty P1
 		raise("DotNet Error: RadiusYProperty is a read-only property")

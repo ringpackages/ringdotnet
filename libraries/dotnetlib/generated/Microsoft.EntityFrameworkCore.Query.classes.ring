@@ -1092,7 +1092,7 @@ Class ExpressionEqualityComparer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInstance
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore').nHandle,"s8:Instance","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore'),"s8:Instance","")
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -1113,7 +1113,7 @@ Class EfExpressionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func InferTypeMapping P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:InferTypeMapping",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:InferTypeMapping",dnPackItem(P1))
 
 
 Class ExpressionPrinter from ExpressionVisitor
@@ -1181,10 +1181,10 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
 
 	Func Print P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore').nHandle,"s5:Print",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s5:Print",dnPackItem(P1))
 
 	Func PrintDebug P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore').nHandle,"s10:PrintDebug",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s10:PrintDebug",dnPackItem(P1))
 
 
 Class GroupByShaperExpression from ExpressionsExpression
@@ -2127,31 +2127,31 @@ Class LiftableConstantExpressionHelpers from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsLiteral P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s9:IsLiteral",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s9:IsLiteral",dnPackItem(P1))
 
 	Func BuildMemberAccessForEntityOrComplexType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s39:BuildMemberAccessForEntityOrComplexType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s39:BuildMemberAccessForEntityOrComplexType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BuildMemberAccessLambdaForEntityOrComplexType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s45:BuildMemberAccessLambdaForEntityOrComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s45:BuildMemberAccessLambdaForEntityOrComplexType",dnPackItem(P1))
 
 	Func BuildMemberAccessForProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s28:BuildMemberAccessForProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s28:BuildMemberAccessForProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BuildMemberAccessLambdaForProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s34:BuildMemberAccessLambdaForProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s34:BuildMemberAccessLambdaForProperty",dnPackItem(P1))
 
 	Func BuildNavigationAccess P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s21:BuildNavigationAccess",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s21:BuildNavigationAccess",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BuildNavigationAccessLambda P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s27:BuildNavigationAccessLambda",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s27:BuildNavigationAccessLambda",dnPackItem(P1))
 
 	Func BuildClrCollectionAccessor P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s26:BuildClrCollectionAccessor",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s26:BuildClrCollectionAccessor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BuildClrCollectionAccessorLambda P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore').nHandle,"s32:BuildClrCollectionAccessorLambda",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s32:BuildClrCollectionAccessorLambda",dnPackItem(P1))
 
 
 Class LiftableConstantFactory from Object
@@ -2659,19 +2659,19 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: SupportsPrecompiledQuery is a read-only property")
 
 	Func getQueryContextParameter
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore').nHandle,"s21:QueryContextParameter","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s21:QueryContextParameter","")
 
 	Func setQueryContextParameter P1
 		raise("DotNet Error: QueryContextParameter is a read-only property")
 
 	Func getNotTranslatedExpression
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore').nHandle,"s23:NotTranslatedExpression","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s23:NotTranslatedExpression","")
 
 	Func setNotTranslatedExpression P1
 		raise("DotNet Error: NotTranslatedExpression is a read-only property")
 
 	Func getQueryParameterPrefix
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore').nHandle,"s20:QueryParameterPrefix","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s20:QueryParameterPrefix","")
 
 	Func setQueryParameterPrefix P1
 		raise("DotNet Error: QueryParameterPrefix is a read-only property")
@@ -3291,367 +3291,367 @@ Class QueryableMethods from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsAverageWithoutSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s24:IsAverageWithoutSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s24:IsAverageWithoutSelector",dnPackItem(P1))
 
 	Func IsAverageWithSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s21:IsAverageWithSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:IsAverageWithSelector",dnPackItem(P1))
 
 	Func IsSumWithoutSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s20:IsSumWithoutSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s20:IsSumWithoutSelector",dnPackItem(P1))
 
 	Func IsSumWithSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s17:IsSumWithSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:IsSumWithSelector",dnPackItem(P1))
 
 	Func GetAverageWithoutSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s25:GetAverageWithoutSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s25:GetAverageWithoutSelector",dnPackItem(P1))
 
 	Func GetAverageWithSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s22:GetAverageWithSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:GetAverageWithSelector",dnPackItem(P1))
 
 	Func GetSumWithoutSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s21:GetSumWithoutSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:GetSumWithoutSelector",dnPackItem(P1))
 
 	Func GetSumWithSelector P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:GetSumWithSelector",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:GetSumWithSelector",dnPackItem(P1))
 
 	Func getAll
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s3:All","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getAnyWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s19:AnyWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s19:AnyWithoutPredicate","")
 
 	Func setAnyWithoutPredicate P1
 		raise("DotNet Error: AnyWithoutPredicate is a read-only property")
 
 	Func getAnyWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s16:AnyWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s16:AnyWithPredicate","")
 
 	Func setAnyWithPredicate P1
 		raise("DotNet Error: AnyWithPredicate is a read-only property")
 
 	Func getAsQueryable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s11:AsQueryable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s11:AsQueryable","")
 
 	Func setAsQueryable P1
 		raise("DotNet Error: AsQueryable is a read-only property")
 
 	Func getCast
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s4:Cast","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Cast","")
 
 	Func setCast P1
 		raise("DotNet Error: Cast is a read-only property")
 
 	Func getConcat
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s6:Concat","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Concat","")
 
 	Func setConcat P1
 		raise("DotNet Error: Concat is a read-only property")
 
 	Func getContains
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s8:Contains","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s8:Contains","")
 
 	Func setContains P1
 		raise("DotNet Error: Contains is a read-only property")
 
 	Func getCountWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s21:CountWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:CountWithoutPredicate","")
 
 	Func setCountWithoutPredicate P1
 		raise("DotNet Error: CountWithoutPredicate is a read-only property")
 
 	Func getCountWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:CountWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:CountWithPredicate","")
 
 	Func setCountWithPredicate P1
 		raise("DotNet Error: CountWithPredicate is a read-only property")
 
 	Func getDefaultIfEmptyWithoutArgument
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s29:DefaultIfEmptyWithoutArgument","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:DefaultIfEmptyWithoutArgument","")
 
 	Func setDefaultIfEmptyWithoutArgument P1
 		raise("DotNet Error: DefaultIfEmptyWithoutArgument is a read-only property")
 
 	Func getDefaultIfEmptyWithArgument
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s26:DefaultIfEmptyWithArgument","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s26:DefaultIfEmptyWithArgument","")
 
 	Func setDefaultIfEmptyWithArgument P1
 		raise("DotNet Error: DefaultIfEmptyWithArgument is a read-only property")
 
 	Func getDistinct
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s8:Distinct","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s8:Distinct","")
 
 	Func setDistinct P1
 		raise("DotNet Error: Distinct is a read-only property")
 
 	Func getElementAt
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s9:ElementAt","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:ElementAt","")
 
 	Func setElementAt P1
 		raise("DotNet Error: ElementAt is a read-only property")
 
 	Func getElementAtOrDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:ElementAtOrDefault","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:ElementAtOrDefault","")
 
 	Func setElementAtOrDefault P1
 		raise("DotNet Error: ElementAtOrDefault is a read-only property")
 
 	Func getExcept
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s6:Except","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Except","")
 
 	Func setExcept P1
 		raise("DotNet Error: Except is a read-only property")
 
 	Func getFirstWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s21:FirstWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:FirstWithoutPredicate","")
 
 	Func setFirstWithoutPredicate P1
 		raise("DotNet Error: FirstWithoutPredicate is a read-only property")
 
 	Func getFirstWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:FirstWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:FirstWithPredicate","")
 
 	Func setFirstWithPredicate P1
 		raise("DotNet Error: FirstWithPredicate is a read-only property")
 
 	Func getFirstOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s30:FirstOrDefaultWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s30:FirstOrDefaultWithoutPredicate","")
 
 	Func setFirstOrDefaultWithoutPredicate P1
 		raise("DotNet Error: FirstOrDefaultWithoutPredicate is a read-only property")
 
 	Func getFirstOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s27:FirstOrDefaultWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s27:FirstOrDefaultWithPredicate","")
 
 	Func setFirstOrDefaultWithPredicate P1
 		raise("DotNet Error: FirstOrDefaultWithPredicate is a read-only property")
 
 	Func getGroupByWithKeySelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s22:GroupByWithKeySelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:GroupByWithKeySelector","")
 
 	Func setGroupByWithKeySelector P1
 		raise("DotNet Error: GroupByWithKeySelector is a read-only property")
 
 	Func getGroupByWithKeyElementSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s29:GroupByWithKeyElementSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:GroupByWithKeyElementSelector","")
 
 	Func setGroupByWithKeyElementSelector P1
 		raise("DotNet Error: GroupByWithKeyElementSelector is a read-only property")
 
 	Func getGroupByWithKeyElementResultSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s35:GroupByWithKeyElementResultSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s35:GroupByWithKeyElementResultSelector","")
 
 	Func setGroupByWithKeyElementResultSelector P1
 		raise("DotNet Error: GroupByWithKeyElementResultSelector is a read-only property")
 
 	Func getGroupByWithKeyResultSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s28:GroupByWithKeyResultSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s28:GroupByWithKeyResultSelector","")
 
 	Func setGroupByWithKeyResultSelector P1
 		raise("DotNet Error: GroupByWithKeyResultSelector is a read-only property")
 
 	Func getGroupJoin
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s9:GroupJoin","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:GroupJoin","")
 
 	Func setGroupJoin P1
 		raise("DotNet Error: GroupJoin is a read-only property")
 
 	Func getIntersect
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s9:Intersect","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:Intersect","")
 
 	Func setIntersect P1
 		raise("DotNet Error: Intersect is a read-only property")
 
 	Func getJoin
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s4:Join","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Join","")
 
 	Func setJoin P1
 		raise("DotNet Error: Join is a read-only property")
 
 	Func getLastWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s20:LastWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s20:LastWithoutPredicate","")
 
 	Func setLastWithoutPredicate P1
 		raise("DotNet Error: LastWithoutPredicate is a read-only property")
 
 	Func getLastWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s17:LastWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:LastWithPredicate","")
 
 	Func setLastWithPredicate P1
 		raise("DotNet Error: LastWithPredicate is a read-only property")
 
 	Func getLastOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s29:LastOrDefaultWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:LastOrDefaultWithoutPredicate","")
 
 	Func setLastOrDefaultWithoutPredicate P1
 		raise("DotNet Error: LastOrDefaultWithoutPredicate is a read-only property")
 
 	Func getLastOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s26:LastOrDefaultWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s26:LastOrDefaultWithPredicate","")
 
 	Func setLastOrDefaultWithPredicate P1
 		raise("DotNet Error: LastOrDefaultWithPredicate is a read-only property")
 
 	Func getLongCountWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s25:LongCountWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s25:LongCountWithoutPredicate","")
 
 	Func setLongCountWithoutPredicate P1
 		raise("DotNet Error: LongCountWithoutPredicate is a read-only property")
 
 	Func getLongCountWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s22:LongCountWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:LongCountWithPredicate","")
 
 	Func setLongCountWithPredicate P1
 		raise("DotNet Error: LongCountWithPredicate is a read-only property")
 
 	Func getMaxWithoutSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:MaxWithoutSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:MaxWithoutSelector","")
 
 	Func setMaxWithoutSelector P1
 		raise("DotNet Error: MaxWithoutSelector is a read-only property")
 
 	Func getMaxWithSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s15:MaxWithSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:MaxWithSelector","")
 
 	Func setMaxWithSelector P1
 		raise("DotNet Error: MaxWithSelector is a read-only property")
 
 	Func getMinWithoutSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s18:MinWithoutSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:MinWithoutSelector","")
 
 	Func setMinWithoutSelector P1
 		raise("DotNet Error: MinWithoutSelector is a read-only property")
 
 	Func getMinWithSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s15:MinWithSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:MinWithSelector","")
 
 	Func setMinWithSelector P1
 		raise("DotNet Error: MinWithSelector is a read-only property")
 
 	Func getOfType
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s6:OfType","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:OfType","")
 
 	Func setOfType P1
 		raise("DotNet Error: OfType is a read-only property")
 
 	Func getOrder
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s5:Order","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Order","")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getOrderBy
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s7:OrderBy","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s7:OrderBy","")
 
 	Func setOrderBy P1
 		raise("DotNet Error: OrderBy is a read-only property")
 
 	Func getOrderByDescending
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s17:OrderByDescending","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:OrderByDescending","")
 
 	Func setOrderByDescending P1
 		raise("DotNet Error: OrderByDescending is a read-only property")
 
 	Func getOrderDescending
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s15:OrderDescending","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:OrderDescending","")
 
 	Func setOrderDescending P1
 		raise("DotNet Error: OrderDescending is a read-only property")
 
 	Func getReverse
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s7:Reverse","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s7:Reverse","")
 
 	Func setReverse P1
 		raise("DotNet Error: Reverse is a read-only property")
 
 	Func getSelect
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s6:Select","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Select","")
 
 	Func setSelect P1
 		raise("DotNet Error: Select is a read-only property")
 
 	Func getSelectManyWithoutCollectionSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s35:SelectManyWithoutCollectionSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s35:SelectManyWithoutCollectionSelector","")
 
 	Func setSelectManyWithoutCollectionSelector P1
 		raise("DotNet Error: SelectManyWithoutCollectionSelector is a read-only property")
 
 	Func getSelectManyWithCollectionSelector
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s32:SelectManyWithCollectionSelector","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s32:SelectManyWithCollectionSelector","")
 
 	Func setSelectManyWithCollectionSelector P1
 		raise("DotNet Error: SelectManyWithCollectionSelector is a read-only property")
 
 	Func getSingleWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s22:SingleWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:SingleWithoutPredicate","")
 
 	Func setSingleWithoutPredicate P1
 		raise("DotNet Error: SingleWithoutPredicate is a read-only property")
 
 	Func getSingleWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s19:SingleWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s19:SingleWithPredicate","")
 
 	Func setSingleWithPredicate P1
 		raise("DotNet Error: SingleWithPredicate is a read-only property")
 
 	Func getSingleOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s31:SingleOrDefaultWithoutPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s31:SingleOrDefaultWithoutPredicate","")
 
 	Func setSingleOrDefaultWithoutPredicate P1
 		raise("DotNet Error: SingleOrDefaultWithoutPredicate is a read-only property")
 
 	Func getSingleOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s28:SingleOrDefaultWithPredicate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s28:SingleOrDefaultWithPredicate","")
 
 	Func setSingleOrDefaultWithPredicate P1
 		raise("DotNet Error: SingleOrDefaultWithPredicate is a read-only property")
 
 	Func getSkip
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s4:Skip","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Skip","")
 
 	Func setSkip P1
 		raise("DotNet Error: Skip is a read-only property")
 
 	Func getSkipWhile
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s9:SkipWhile","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:SkipWhile","")
 
 	Func setSkipWhile P1
 		raise("DotNet Error: SkipWhile is a read-only property")
 
 	Func getTake
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s4:Take","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Take","")
 
 	Func setTake P1
 		raise("DotNet Error: Take is a read-only property")
 
 	Func getTakeWhile
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s9:TakeWhile","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:TakeWhile","")
 
 	Func setTakeWhile P1
 		raise("DotNet Error: TakeWhile is a read-only property")
 
 	Func getThenBy
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s6:ThenBy","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:ThenBy","")
 
 	Func setThenBy P1
 		raise("DotNet Error: ThenBy is a read-only property")
 
 	Func getThenByDescending
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s16:ThenByDescending","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s16:ThenByDescending","")
 
 	Func setThenByDescending P1
 		raise("DotNet Error: ThenByDescending is a read-only property")
 
 	Func getUnion
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s5:Union","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Union","")
 
 	Func setUnion P1
 		raise("DotNet Error: Union is a read-only property")
 
 	Func getWhere
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore').nHandle,"s5:Where","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Where","")
 
 	Func setWhere P1
 		raise("DotNet Error: Where is a read-only property")
@@ -3865,19 +3865,19 @@ Class RelationalExpressionQuotingUtilities from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func QuoteOrNull P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational').nHandle,"s11:QuoteOrNull",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s11:QuoteOrNull",dnPackItem(P1))
 
 	Func QuoteTypeMapping P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:QuoteTypeMapping",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s16:QuoteTypeMapping",dnPackItem(P1))
 
 	Func QuoteTableBase P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:QuoteTableBase",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s14:QuoteTableBase",dnPackItem(P1))
 
 	Func QuoteTags P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational').nHandle,"s9:QuoteTags",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s9:QuoteTags",dnPackItem(P1))
 
 	Func QuoteAnnotations P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:QuoteAnnotations",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s16:QuoteAnnotations",dnPackItem(P1))
 
 
 Class RelationalGroupByResultExpression from ExpressionsExpression
@@ -4481,10 +4481,10 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
 
 	Func ParameterValueExtractor P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:ParameterValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s23:ParameterValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ParameterListValueExtractor P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:ParameterListValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s27:ParameterListValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getTranslationErrorDetails
 		return dnSend("s3:get",nHandle,"s23:TranslationErrorDetails","")
@@ -4615,7 +4615,7 @@ Class ReplacingExpressionVisitor from ExpressionVisitor
 		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
 
 	Func Replace P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s7:Replace",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s7:Replace",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
@@ -4634,18 +4634,18 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 
 	Func SingleAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s11:SingleAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s11:SingleAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s11:SingleAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s11:SingleAsync",dnPackItem(P1))
 
 	Func SingleOrDefaultAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s20:SingleOrDefaultAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s20:SingleOrDefaultAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s20:SingleOrDefaultAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s20:SingleOrDefaultAsync",dnPackItem(P1))
 
 	Func CreateNullKeyValueInNoTrackingQuery P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore').nHandle,"s35:CreateNullKeyValueInNoTrackingQuery",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s35:CreateNullKeyValueInNoTrackingQuery",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class ShapedQueryCompilingExpressionVisitorDependencies from Object
@@ -5217,7 +5217,7 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return dnSend("s4:call",nHandle,"s15:DebuggerDisplay","")
 
 	Func CreateUnableToDiscriminateException P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore').nHandle,"s35:CreateUnableToDiscriminateException",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"s35:CreateUnableToDiscriminateException",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getStructuralType
 		return dnSend("s3:get",nHandle,"s14:StructuralType","")
@@ -5259,7 +5259,7 @@ Class TransparentIdentifierFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.TransparentIdentifierFactory, Microsoft.EntityFrameworkCore').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.TransparentIdentifierFactory, Microsoft.EntityFrameworkCore'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class EntityQueryRootExpression from QueryRootExpression
@@ -5645,13 +5645,13 @@ Class RelationalQueryableMethodTranslatingExpressionVisitor from QueryableMethod
 		return self
 
 	Func getValuesOrderingColumnName
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:ValuesOrderingColumnName","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s24:ValuesOrderingColumnName","")
 
 	Func setValuesOrderingColumnName P1
 		raise("DotNet Error: ValuesOrderingColumnName is a read-only property")
 
 	Func getValuesValueColumnName
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ValuesValueColumnName","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s21:ValuesValueColumnName","")
 
 	Func setValuesValueColumnName P1
 		raise("DotNet Error: ValuesValueColumnName is a read-only property")
@@ -5671,10 +5671,10 @@ Class RelationalShapedQueryCompilingExpressionVisitor from ShapedQueryCompilingE
 		return self
 
 	Func NonQueryResult P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:NonQueryResult",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s14:NonQueryResult",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func NonQueryResultAsync P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:NonQueryResultAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s19:NonQueryResultAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 
 Class RelationalStructuralTypeShaperExpression from StructuralTypeShaperExpression

@@ -778,22 +778,22 @@ Class AbstractionsStrings from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ArgumentIsEmpty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s15:ArgumentIsEmpty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s15:ArgumentIsEmpty",dnPackItem(P1))
 
 	Func ArgumentIsNegativeNumber P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s24:ArgumentIsNegativeNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s24:ArgumentIsNegativeNumber",dnPackItem(P1))
 
 	Func CollectionArgumentHasEmptyElements P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s34:CollectionArgumentHasEmptyElements",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s34:CollectionArgumentHasEmptyElements",dnPackItem(P1))
 
 	Func CollectionArgumentIsEmpty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s25:CollectionArgumentIsEmpty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s25:CollectionArgumentIsEmpty",dnPackItem(P1))
 
 	Func InvalidNumberOfIndexSortOrderValues P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s35:InvalidNumberOfIndexSortOrderValues",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s35:InvalidNumberOfIndexSortOrderValues",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getCannotSpecifyBothIsDescendingAndAllDescending
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s45:CannotSpecifyBothIsDescendingAndAllDescending","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"s45:CannotSpecifyBothIsDescendingAndAllDescending","")
 
 	Func setCannotSpecifyBothIsDescendingAndAllDescending P1
 		raise("DotNet Error: CannotSpecifyBothIsDescendingAndAllDescending is a read-only property")
@@ -890,451 +890,451 @@ Class CoreEventId from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSaveChangesFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s17:SaveChangesFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s17:SaveChangesFailed","")
 
 	Func setSaveChangesFailed P1
 		raise("DotNet Error: SaveChangesFailed is a read-only property")
 
 	Func getSaveChangesCanceled
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s19:SaveChangesCanceled","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:SaveChangesCanceled","")
 
 	Func setSaveChangesCanceled P1
 		raise("DotNet Error: SaveChangesCanceled is a read-only property")
 
 	Func getDuplicateDependentEntityTypeInstanceWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s43:DuplicateDependentEntityTypeInstanceWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s43:DuplicateDependentEntityTypeInstanceWarning","")
 
 	Func setDuplicateDependentEntityTypeInstanceWarning P1
 		raise("DotNet Error: DuplicateDependentEntityTypeInstanceWarning is a read-only property")
 
 	Func getQueryIterationFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s20:QueryIterationFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:QueryIterationFailed","")
 
 	Func setQueryIterationFailed P1
 		raise("DotNet Error: QueryIterationFailed is a read-only property")
 
 	Func getQueryExecutionPlanned
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:QueryExecutionPlanned","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:QueryExecutionPlanned","")
 
 	Func setQueryExecutionPlanned P1
 		raise("DotNet Error: QueryExecutionPlanned is a read-only property")
 
 	Func getPossibleUnintendedCollectionNavigationNullComparisonWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning","")
 
 	Func setPossibleUnintendedCollectionNavigationNullComparisonWarning P1
 		raise("DotNet Error: PossibleUnintendedCollectionNavigationNullComparisonWarning is a read-only property")
 
 	Func getPossibleUnintendedReferenceComparisonWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s44:PossibleUnintendedReferenceComparisonWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s44:PossibleUnintendedReferenceComparisonWarning","")
 
 	Func setPossibleUnintendedReferenceComparisonWarning P1
 		raise("DotNet Error: PossibleUnintendedReferenceComparisonWarning is a read-only property")
 
 	Func getInvalidIncludePathError
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s23:InvalidIncludePathError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:InvalidIncludePathError","")
 
 	Func setInvalidIncludePathError P1
 		raise("DotNet Error: InvalidIncludePathError is a read-only property")
 
 	Func getQueryCompilationStarting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s24:QueryCompilationStarting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:QueryCompilationStarting","")
 
 	Func setQueryCompilationStarting P1
 		raise("DotNet Error: QueryCompilationStarting is a read-only property")
 
 	Func getNavigationBaseIncluded
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s22:NavigationBaseIncluded","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:NavigationBaseIncluded","")
 
 	Func setNavigationBaseIncluded P1
 		raise("DotNet Error: NavigationBaseIncluded is a read-only property")
 
 	Func getNavigationBaseIncludeIgnored
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s28:NavigationBaseIncludeIgnored","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:NavigationBaseIncludeIgnored","")
 
 	Func setNavigationBaseIncludeIgnored P1
 		raise("DotNet Error: NavigationBaseIncludeIgnored is a read-only property")
 
 	Func getRowLimitingOperationWithoutOrderByWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s41:RowLimitingOperationWithoutOrderByWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s41:RowLimitingOperationWithoutOrderByWarning","")
 
 	Func setRowLimitingOperationWithoutOrderByWarning P1
 		raise("DotNet Error: RowLimitingOperationWithoutOrderByWarning is a read-only property")
 
 	Func getFirstWithoutOrderByAndFilterWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s35:FirstWithoutOrderByAndFilterWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:FirstWithoutOrderByAndFilterWarning","")
 
 	Func setFirstWithoutOrderByAndFilterWarning P1
 		raise("DotNet Error: FirstWithoutOrderByAndFilterWarning is a read-only property")
 
 	Func getDistinctAfterOrderByWithoutRowLimitingOperatorWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning","")
 
 	Func setDistinctAfterOrderByWithoutRowLimitingOperatorWarning P1
 		raise("DotNet Error: DistinctAfterOrderByWithoutRowLimitingOperatorWarning is a read-only property")
 
 	Func getQueryCanceled
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s13:QueryCanceled","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s13:QueryCanceled","")
 
 	Func setQueryCanceled P1
 		raise("DotNet Error: QueryCanceled is a read-only property")
 
 	Func getStringEnumValueInJson
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:StringEnumValueInJson","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:StringEnumValueInJson","")
 
 	Func setStringEnumValueInJson P1
 		raise("DotNet Error: StringEnumValueInJson is a read-only property")
 
 	Func getSensitiveDataLoggingEnabledWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s34:SensitiveDataLoggingEnabledWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s34:SensitiveDataLoggingEnabledWarning","")
 
 	Func setSensitiveDataLoggingEnabledWarning P1
 		raise("DotNet Error: SensitiveDataLoggingEnabledWarning is a read-only property")
 
 	Func getServiceProviderCreated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s22:ServiceProviderCreated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:ServiceProviderCreated","")
 
 	Func setServiceProviderCreated P1
 		raise("DotNet Error: ServiceProviderCreated is a read-only property")
 
 	Func getManyServiceProvidersCreatedWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s34:ManyServiceProvidersCreatedWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s34:ManyServiceProvidersCreatedWarning","")
 
 	Func setManyServiceProvidersCreatedWarning P1
 		raise("DotNet Error: ManyServiceProvidersCreatedWarning is a read-only property")
 
 	Func getContextInitialized
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s18:ContextInitialized","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s18:ContextInitialized","")
 
 	Func setContextInitialized P1
 		raise("DotNet Error: ContextInitialized is a read-only property")
 
 	Func getServiceProviderDebugInfo
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s24:ServiceProviderDebugInfo","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:ServiceProviderDebugInfo","")
 
 	Func setServiceProviderDebugInfo P1
 		raise("DotNet Error: ServiceProviderDebugInfo is a read-only property")
 
 	Func getExecutionStrategyRetrying
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s25:ExecutionStrategyRetrying","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s25:ExecutionStrategyRetrying","")
 
 	Func setExecutionStrategyRetrying P1
 		raise("DotNet Error: ExecutionStrategyRetrying is a read-only property")
 
 	Func getNavigationLazyLoading
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:NavigationLazyLoading","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:NavigationLazyLoading","")
 
 	Func setNavigationLazyLoading P1
 		raise("DotNet Error: NavigationLazyLoading is a read-only property")
 
 	Func getLazyLoadOnDisposedContextWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s32:LazyLoadOnDisposedContextWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s32:LazyLoadOnDisposedContextWarning","")
 
 	Func setLazyLoadOnDisposedContextWarning P1
 		raise("DotNet Error: LazyLoadOnDisposedContextWarning is a read-only property")
 
 	Func getDetachedLazyLoadingWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s26:DetachedLazyLoadingWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s26:DetachedLazyLoadingWarning","")
 
 	Func setDetachedLazyLoadingWarning P1
 		raise("DotNet Error: DetachedLazyLoadingWarning is a read-only property")
 
 	Func getRedundantAddServicesCallWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s31:RedundantAddServicesCallWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s31:RedundantAddServicesCallWarning","")
 
 	Func setRedundantAddServicesCallWarning P1
 		raise("DotNet Error: RedundantAddServicesCallWarning is a read-only property")
 
 	Func getOldModelVersionWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s22:OldModelVersionWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:OldModelVersionWarning","")
 
 	Func setOldModelVersionWarning P1
 		raise("DotNet Error: OldModelVersionWarning is a read-only property")
 
 	Func getShadowPropertyCreated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:ShadowPropertyCreated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:ShadowPropertyCreated","")
 
 	Func setShadowPropertyCreated P1
 		raise("DotNet Error: ShadowPropertyCreated is a read-only property")
 
 	Func getShadowForeignKeyPropertyCreated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s31:ShadowForeignKeyPropertyCreated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s31:ShadowForeignKeyPropertyCreated","")
 
 	Func setShadowForeignKeyPropertyCreated P1
 		raise("DotNet Error: ShadowForeignKeyPropertyCreated is a read-only property")
 
 	Func getMappedEntityTypeIgnoredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s30:MappedEntityTypeIgnoredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:MappedEntityTypeIgnoredWarning","")
 
 	Func setMappedEntityTypeIgnoredWarning P1
 		raise("DotNet Error: MappedEntityTypeIgnoredWarning is a read-only property")
 
 	Func getMappedNavigationIgnoredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s30:MappedNavigationIgnoredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:MappedNavigationIgnoredWarning","")
 
 	Func setMappedNavigationIgnoredWarning P1
 		raise("DotNet Error: MappedNavigationIgnoredWarning is a read-only property")
 
 	Func getMappedPropertyIgnoredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s28:MappedPropertyIgnoredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MappedPropertyIgnoredWarning","")
 
 	Func setMappedPropertyIgnoredWarning P1
 		raise("DotNet Error: MappedPropertyIgnoredWarning is a read-only property")
 
 	Func getMappedComplexPropertyIgnoredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s35:MappedComplexPropertyIgnoredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:MappedComplexPropertyIgnoredWarning","")
 
 	Func setMappedComplexPropertyIgnoredWarning P1
 		raise("DotNet Error: MappedComplexPropertyIgnoredWarning is a read-only property")
 
 	Func getTypeLoadingErrorWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s23:TypeLoadingErrorWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:TypeLoadingErrorWarning","")
 
 	Func setTypeLoadingErrorWarning P1
 		raise("DotNet Error: TypeLoadingErrorWarning is a read-only property")
 
 	Func getSkippedEntityTypeConfigurationWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s37:SkippedEntityTypeConfigurationWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s37:SkippedEntityTypeConfigurationWarning","")
 
 	Func setSkippedEntityTypeConfigurationWarning P1
 		raise("DotNet Error: SkippedEntityTypeConfigurationWarning is a read-only property")
 
 	Func getNoEntityTypeConfigurationsWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s33:NoEntityTypeConfigurationsWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s33:NoEntityTypeConfigurationsWarning","")
 
 	Func setNoEntityTypeConfigurationsWarning P1
 		raise("DotNet Error: NoEntityTypeConfigurationsWarning is a read-only property")
 
 	Func getRedundantIndexRemoved
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:RedundantIndexRemoved","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:RedundantIndexRemoved","")
 
 	Func setRedundantIndexRemoved P1
 		raise("DotNet Error: RedundantIndexRemoved is a read-only property")
 
 	Func getIncompatibleMatchingForeignKeyProperties
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s40:IncompatibleMatchingForeignKeyProperties","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s40:IncompatibleMatchingForeignKeyProperties","")
 
 	Func setIncompatibleMatchingForeignKeyProperties P1
 		raise("DotNet Error: IncompatibleMatchingForeignKeyProperties is a read-only property")
 
 	Func getAmbiguousEndRequiredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s27:AmbiguousEndRequiredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s27:AmbiguousEndRequiredWarning","")
 
 	Func setAmbiguousEndRequiredWarning P1
 		raise("DotNet Error: AmbiguousEndRequiredWarning is a read-only property")
 
 	Func getAccidentalEntityType
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s20:AccidentalEntityType","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:AccidentalEntityType","")
 
 	Func setAccidentalEntityType P1
 		raise("DotNet Error: AccidentalEntityType is a read-only property")
 
 	Func getRequiredAttributeOnCollection
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s29:RequiredAttributeOnCollection","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s29:RequiredAttributeOnCollection","")
 
 	Func setRequiredAttributeOnCollection P1
 		raise("DotNet Error: RequiredAttributeOnCollection is a read-only property")
 
 	Func getRequiredAttributeOnSkipNavigation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s33:RequiredAttributeOnSkipNavigation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s33:RequiredAttributeOnSkipNavigation","")
 
 	Func setRequiredAttributeOnSkipNavigation P1
 		raise("DotNet Error: RequiredAttributeOnSkipNavigation is a read-only property")
 
 	Func getConflictingShadowForeignKeysWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s35:ConflictingShadowForeignKeysWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:ConflictingShadowForeignKeysWarning","")
 
 	Func setConflictingShadowForeignKeysWarning P1
 		raise("DotNet Error: ConflictingShadowForeignKeysWarning is a read-only property")
 
 	Func getMultiplePrimaryKeyCandidates
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s28:MultiplePrimaryKeyCandidates","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MultiplePrimaryKeyCandidates","")
 
 	Func setMultiplePrimaryKeyCandidates P1
 		raise("DotNet Error: MultiplePrimaryKeyCandidates is a read-only property")
 
 	Func getMultipleNavigationProperties
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s28:MultipleNavigationProperties","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MultipleNavigationProperties","")
 
 	Func setMultipleNavigationProperties P1
 		raise("DotNet Error: MultipleNavigationProperties is a read-only property")
 
 	Func getMultipleInversePropertiesSameTargetWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s42:MultipleInversePropertiesSameTargetWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s42:MultipleInversePropertiesSameTargetWarning","")
 
 	Func setMultipleInversePropertiesSameTargetWarning P1
 		raise("DotNet Error: MultipleInversePropertiesSameTargetWarning is a read-only property")
 
 	Func getNonDefiningInverseNavigationWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s35:NonDefiningInverseNavigationWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:NonDefiningInverseNavigationWarning","")
 
 	Func setNonDefiningInverseNavigationWarning P1
 		raise("DotNet Error: NonDefiningInverseNavigationWarning is a read-only property")
 
 	Func getNonOwnershipInverseNavigationWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s36:NonOwnershipInverseNavigationWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s36:NonOwnershipInverseNavigationWarning","")
 
 	Func setNonOwnershipInverseNavigationWarning P1
 		raise("DotNet Error: NonOwnershipInverseNavigationWarning is a read-only property")
 
 	Func getForeignKeyAttributesOnBothPropertiesWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s43:ForeignKeyAttributesOnBothPropertiesWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s43:ForeignKeyAttributesOnBothPropertiesWarning","")
 
 	Func setForeignKeyAttributesOnBothPropertiesWarning P1
 		raise("DotNet Error: ForeignKeyAttributesOnBothPropertiesWarning is a read-only property")
 
 	Func getForeignKeyAttributesOnBothNavigationsWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s44:ForeignKeyAttributesOnBothNavigationsWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s44:ForeignKeyAttributesOnBothNavigationsWarning","")
 
 	Func setForeignKeyAttributesOnBothNavigationsWarning P1
 		raise("DotNet Error: ForeignKeyAttributesOnBothNavigationsWarning is a read-only property")
 
 	Func getConflictingForeignKeyAttributesOnNavigationAndPropertyWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning","")
 
 	Func setConflictingForeignKeyAttributesOnNavigationAndPropertyWarning P1
 		raise("DotNet Error: ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning is a read-only property")
 
 	Func getRedundantForeignKeyWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s26:RedundantForeignKeyWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s26:RedundantForeignKeyWarning","")
 
 	Func setRedundantForeignKeyWarning P1
 		raise("DotNet Error: RedundantForeignKeyWarning is a read-only property")
 
 	Func getConflictingKeylessAndKeyAttributesWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s41:ConflictingKeylessAndKeyAttributesWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s41:ConflictingKeylessAndKeyAttributesWarning","")
 
 	Func setConflictingKeylessAndKeyAttributesWarning P1
 		raise("DotNet Error: ConflictingKeylessAndKeyAttributesWarning is a read-only property")
 
 	Func getPossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning","")
 
 	Func setPossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning P1
 		raise("DotNet Error: PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning is a read-only property")
 
 	Func getDetectChangesStarting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s21:DetectChangesStarting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:DetectChangesStarting","")
 
 	Func setDetectChangesStarting P1
 		raise("DotNet Error: DetectChangesStarting is a read-only property")
 
 	Func getDetectChangesCompleted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s22:DetectChangesCompleted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:DetectChangesCompleted","")
 
 	Func setDetectChangesCompleted P1
 		raise("DotNet Error: DetectChangesCompleted is a read-only property")
 
 	Func getPropertyChangeDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s22:PropertyChangeDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:PropertyChangeDetected","")
 
 	Func setPropertyChangeDetected P1
 		raise("DotNet Error: PropertyChangeDetected is a read-only property")
 
 	Func getForeignKeyChangeDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s24:ForeignKeyChangeDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:ForeignKeyChangeDetected","")
 
 	Func setForeignKeyChangeDetected P1
 		raise("DotNet Error: ForeignKeyChangeDetected is a read-only property")
 
 	Func getCollectionChangeDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s24:CollectionChangeDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:CollectionChangeDetected","")
 
 	Func setCollectionChangeDetected P1
 		raise("DotNet Error: CollectionChangeDetected is a read-only property")
 
 	Func getSkipCollectionChangeDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s28:SkipCollectionChangeDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:SkipCollectionChangeDetected","")
 
 	Func setSkipCollectionChangeDetected P1
 		raise("DotNet Error: SkipCollectionChangeDetected is a read-only property")
 
 	Func getReferenceChangeDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s23:ReferenceChangeDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:ReferenceChangeDetected","")
 
 	Func setReferenceChangeDetected P1
 		raise("DotNet Error: ReferenceChangeDetected is a read-only property")
 
 	Func getStartedTracking
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s15:StartedTracking","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s15:StartedTracking","")
 
 	Func setStartedTracking P1
 		raise("DotNet Error: StartedTracking is a read-only property")
 
 	Func getStateChanged
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s12:StateChanged","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s12:StateChanged","")
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")
 
 	Func getValueGenerated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s14:ValueGenerated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s14:ValueGenerated","")
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
 
 	Func getCascadeDelete
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s13:CascadeDelete","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s13:CascadeDelete","")
 
 	Func setCascadeDelete P1
 		raise("DotNet Error: CascadeDelete is a read-only property")
 
 	Func getCascadeDeleteOrphan
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s19:CascadeDeleteOrphan","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:CascadeDeleteOrphan","")
 
 	Func setCascadeDeleteOrphan P1
 		raise("DotNet Error: CascadeDeleteOrphan is a read-only property")
 
 	Func getSaveChangesStarting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s19:SaveChangesStarting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:SaveChangesStarting","")
 
 	Func setSaveChangesStarting P1
 		raise("DotNet Error: SaveChangesStarting is a read-only property")
 
 	Func getSaveChangesCompleted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s20:SaveChangesCompleted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:SaveChangesCompleted","")
 
 	Func setSaveChangesCompleted P1
 		raise("DotNet Error: SaveChangesCompleted is a read-only property")
 
 	Func getOptimisticConcurrencyException
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s30:OptimisticConcurrencyException","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:OptimisticConcurrencyException","")
 
 	Func setOptimisticConcurrencyException P1
 		raise("DotNet Error: OptimisticConcurrencyException is a read-only property")
 
 	Func getContextDisposed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s15:ContextDisposed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s15:ContextDisposed","")
 
 	Func setContextDisposed P1
 		raise("DotNet Error: ContextDisposed is a read-only property")
 
 	Func getCollectionWithoutComparer
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s25:CollectionWithoutComparer","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s25:CollectionWithoutComparer","")
 
 	Func setCollectionWithoutComparer P1
 		raise("DotNet Error: CollectionWithoutComparer is a read-only property")
 
 	Func getCoreBaseId
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s10:CoreBaseId","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s10:CoreBaseId","")
 
 	Func setCoreBaseId P1
 		raise("DotNet Error: CoreBaseId is a read-only property")
 
 	Func getRelationalBaseId
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s16:RelationalBaseId","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s16:RelationalBaseId","")
 
 	Func setRelationalBaseId P1
 		raise("DotNet Error: RelationalBaseId is a read-only property")
 
 	Func getProviderBaseId
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s14:ProviderBaseId","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s14:ProviderBaseId","")
 
 	Func setProviderBaseId P1
 		raise("DotNet Error: ProviderBaseId is a read-only property")
 
 	Func getProviderDesignBaseId
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore').nHandle,"s20:ProviderDesignBaseId","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:ProviderDesignBaseId","")
 
 	Func setProviderDesignBaseId P1
 		raise("DotNet Error: ProviderDesignBaseId is a read-only property")
@@ -1355,349 +1355,349 @@ Class CoreLoggerExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SaveChangesFailed P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s17:SaveChangesFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s17:SaveChangesFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func SaveChangesFailedAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:SaveChangesFailedAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:SaveChangesFailedAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SaveChangesFailedAsync does not take one argument: use named arguments, SaveChangesFailedAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesCanceled P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s19:SaveChangesCanceled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:SaveChangesCanceled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SaveChangesCanceledAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:SaveChangesCanceledAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:SaveChangesCanceledAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SaveChangesCanceledAsync does not take one argument: use named arguments, SaveChangesCanceledAsync([ :parameter = value, ... ])")
 
 	Func OldModelVersionWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:OldModelVersionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:OldModelVersionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func OptimisticConcurrencyException P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s30:OptimisticConcurrencyException",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:OptimisticConcurrencyException",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func OptimisticConcurrencyExceptionAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s35:OptimisticConcurrencyExceptionAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:OptimisticConcurrencyExceptionAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OptimisticConcurrencyExceptionAsync does not take one argument: use named arguments, OptimisticConcurrencyExceptionAsync([ :parameter = value, ... ])")
 
 	Func DuplicateDependentEntityTypeInstanceWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s43:DuplicateDependentEntityTypeInstanceWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s43:DuplicateDependentEntityTypeInstanceWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func QueryIterationFailed P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s20:QueryIterationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s20:QueryIterationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func QueryCanceled P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s13:QueryCanceled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s13:QueryCanceled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func QueryCompilationStarting P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:QueryCompilationStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:QueryCompilationStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func FirstWithoutOrderByAndFilterWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s35:FirstWithoutOrderByAndFilterWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:FirstWithoutOrderByAndFilterWarning",dnPackItem(P1))
 		return self
 
 	Func RowLimitingOperationWithoutOrderByWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s41:RowLimitingOperationWithoutOrderByWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s41:RowLimitingOperationWithoutOrderByWarning",dnPackItem(P1))
 		return self
 
 	Func DistinctAfterOrderByWithoutRowLimitingOperatorWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning",dnPackItem(P1))
 		return self
 
 	Func NavigationBaseIncluded P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:NavigationBaseIncluded",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:NavigationBaseIncluded",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func NavigationBaseIncludeIgnored P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:NavigationBaseIncludeIgnored",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:NavigationBaseIncludeIgnored",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func QueryExecutionPlanned P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:QueryExecutionPlanned",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:QueryExecutionPlanned",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func SensitiveDataLoggingEnabledWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s34:SensitiveDataLoggingEnabledWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s34:SensitiveDataLoggingEnabledWarning",dnPackItem(P1))
 		return self
 
 	Func TypeLoadingErrorWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s23:TypeLoadingErrorWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:TypeLoadingErrorWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func SkippedEntityTypeConfigurationWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s37:SkippedEntityTypeConfigurationWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s37:SkippedEntityTypeConfigurationWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func NoEntityTypeConfigurationsWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s33:NoEntityTypeConfigurationsWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:NoEntityTypeConfigurationsWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func PossibleUnintendedCollectionNavigationNullComparisonWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func PossibleUnintendedReferenceComparisonWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s44:PossibleUnintendedReferenceComparisonWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s44:PossibleUnintendedReferenceComparisonWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func InvalidIncludePathError P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s23:InvalidIncludePathError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:InvalidIncludePathError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ServiceProviderCreated P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:ServiceProviderCreated",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:ServiceProviderCreated",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ManyServiceProvidersCreatedWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s34:ManyServiceProvidersCreatedWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s34:ManyServiceProvidersCreatedWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ServiceProviderDebugInfo P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:ServiceProviderDebugInfo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:ServiceProviderDebugInfo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ContextInitialized P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s18:ContextInitialized",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s18:ContextInitialized",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExecutionStrategyRetrying P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s25:ExecutionStrategyRetrying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s25:ExecutionStrategyRetrying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func LazyLoadOnDisposedContextWarning P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s32:LazyLoadOnDisposedContextWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s32:LazyLoadOnDisposedContextWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func NavigationLazyLoading P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:NavigationLazyLoading",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:NavigationLazyLoading",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func DetachedLazyLoadingWarning P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s26:DetachedLazyLoadingWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s26:DetachedLazyLoadingWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func RedundantAddServicesCallWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s31:RedundantAddServicesCallWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:RedundantAddServicesCallWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ShadowForeignKeyPropertyCreated P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s31:ShadowForeignKeyPropertyCreated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:ShadowForeignKeyPropertyCreated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ShadowPropertyCreated P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:ShadowPropertyCreated",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:ShadowPropertyCreated",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CollectionWithoutComparer P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s25:CollectionWithoutComparer",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s25:CollectionWithoutComparer",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RedundantIndexRemoved P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:RedundantIndexRemoved",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:RedundantIndexRemoved",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func RedundantForeignKeyWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s26:RedundantForeignKeyWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s26:RedundantForeignKeyWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IncompatibleMatchingForeignKeyProperties P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s40:IncompatibleMatchingForeignKeyProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s40:IncompatibleMatchingForeignKeyProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func AccidentalEntityType P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s20:AccidentalEntityType",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s20:AccidentalEntityType",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AmbiguousEndRequiredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s27:AmbiguousEndRequiredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s27:AmbiguousEndRequiredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RequiredAttributeOnCollection P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s29:RequiredAttributeOnCollection",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s29:RequiredAttributeOnCollection",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RequiredAttributeOnSkipNavigation P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s33:RequiredAttributeOnSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:RequiredAttributeOnSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ConflictingShadowForeignKeysWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s35:ConflictingShadowForeignKeysWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:ConflictingShadowForeignKeysWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MultiplePrimaryKeyCandidates P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:MultiplePrimaryKeyCandidates",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MultiplePrimaryKeyCandidates",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MultipleNavigationProperties P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:MultipleNavigationProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MultipleNavigationProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MultipleInversePropertiesSameTargetWarning P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s42:MultipleInversePropertiesSameTargetWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s42:MultipleInversePropertiesSameTargetWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func NonOwnershipInverseNavigationWarning P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s36:NonOwnershipInverseNavigationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s36:NonOwnershipInverseNavigationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func ForeignKeyAttributesOnBothPropertiesWarning P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s43:ForeignKeyAttributesOnBothPropertiesWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s43:ForeignKeyAttributesOnBothPropertiesWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ForeignKeyAttributesOnBothNavigationsWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s44:ForeignKeyAttributesOnBothNavigationsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s44:ForeignKeyAttributesOnBothNavigationsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DetectChangesStarting P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:DetectChangesStarting",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:DetectChangesStarting",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DetectChangesCompleted P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:DetectChangesCompleted",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:DetectChangesCompleted",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func PropertyChangeDetected P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:PropertyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:PropertyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func PropertyChangeDetectedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s31:PropertyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:PropertyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ForeignKeyChangeDetected P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:ForeignKeyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:ForeignKeyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ForeignKeyChangeDetectedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s33:ForeignKeyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:ForeignKeyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func CollectionChangeDetected P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:CollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:CollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func CollectionChangeDetectedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s33:CollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:CollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func SkipCollectionChangeDetected P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:SkipCollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:SkipCollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func SkipCollectionChangeDetectedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s37:SkipCollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s37:SkipCollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ReferenceChangeDetected P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s23:ReferenceChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:ReferenceChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ReferenceChangeDetectedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s32:ReferenceChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s32:ReferenceChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func StringEnumValueInJson P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:StringEnumValueInJson",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:StringEnumValueInJson",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func StartedTracking P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s15:StartedTracking",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s15:StartedTracking",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func StartedTrackingSensitive P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:StartedTrackingSensitive",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:StartedTrackingSensitive",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func StateChanged P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s12:StateChanged",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s12:StateChanged",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func StateChangedSensitive P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:StateChangedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:StateChangedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func ValueGenerated P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s14:ValueGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s14:ValueGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ValueGeneratedSensitive P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s23:ValueGeneratedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:ValueGeneratedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func CascadeDelete P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s13:CascadeDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s13:CascadeDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func CascadeDeleteSensitive P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:CascadeDeleteSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:CascadeDeleteSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func CascadeDeleteOrphan P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s19:CascadeDeleteOrphan",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:CascadeDeleteOrphan",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func MappedNavigationIgnoredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s30:MappedNavigationIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:MappedNavigationIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MappedPropertyIgnoredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:MappedPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MappedPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MappedComplexPropertyIgnoredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s35:MappedComplexPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:MappedComplexPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MappedEntityTypeIgnoredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s30:MappedEntityTypeIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:MappedEntityTypeIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CascadeDeleteOrphanSensitive P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s28:CascadeDeleteOrphanSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:CascadeDeleteOrphanSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func SaveChangesStarting P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s19:SaveChangesStarting",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:SaveChangesStarting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SaveChangesStartingAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s24:SaveChangesStartingAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:SaveChangesStartingAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SaveChangesStartingAsync does not take one argument: use named arguments, SaveChangesStartingAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesCompleted P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s20:SaveChangesCompleted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s20:SaveChangesCompleted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SaveChangesCompletedAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s25:SaveChangesCompletedAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s25:SaveChangesCompletedAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SaveChangesCompletedAsync does not take one argument: use named arguments, SaveChangesCompletedAsync([ :parameter = value, ... ])")
 
 	Func ContextDisposed P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s15:ContextDisposed",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s15:ContextDisposed",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ConflictingKeylessAndKeyAttributesWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s41:ConflictingKeylessAndKeyAttributesWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s41:ConflictingKeylessAndKeyAttributesWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1770,1417 +1770,1417 @@ Class CoreStrings from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AbstractLeafEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:AbstractLeafEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:AbstractLeafEntityType",dnPackItem(P1))
 
 	Func AddingProxyTypeAsEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:AddingProxyTypeAsEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:AddingProxyTypeAsEntityType",dnPackItem(P1))
 
 	Func AmbiguousDependentEntity P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:AmbiguousDependentEntity",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:AmbiguousDependentEntity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AmbiguousEndRequiredDependent P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:AmbiguousEndRequiredDependent",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:AmbiguousEndRequiredDependent",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AmbiguousEndRequiredDependentNavigation P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s39:AmbiguousEndRequiredDependentNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s39:AmbiguousEndRequiredDependentNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AmbiguousEndRequiredInverted P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:AmbiguousEndRequiredInverted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:AmbiguousEndRequiredInverted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AmbiguousForeignKeyPropertyCandidates P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s37:AmbiguousForeignKeyPropertyCandidates",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s37:AmbiguousForeignKeyPropertyCandidates",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func AmbiguousOneToOneRelationship P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:AmbiguousOneToOneRelationship",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:AmbiguousOneToOneRelationship",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AmbiguousOwnedNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:AmbiguousOwnedNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:AmbiguousOwnedNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AmbiguousSharedTypeEntityTypeName P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:AmbiguousSharedTypeEntityTypeName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:AmbiguousSharedTypeEntityTypeName",dnPackItem(P1))
 
 	Func AnnotationNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:AnnotationNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:AnnotationNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ArgumentNotConstant P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:ArgumentNotConstant",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:ArgumentNotConstant",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ArgumentPropertyNull P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:ArgumentPropertyNull",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:ArgumentPropertyNull",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AttributeNotOnEntityTypeProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:AttributeNotOnEntityTypeProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:AttributeNotOnEntityTypeProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AutoIncludeNavigationCycle P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:AutoIncludeNavigationCycle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:AutoIncludeNavigationCycle",dnPackItem(P1))
 
 	Func BackingFieldOnIndexer P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:BackingFieldOnIndexer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:BackingFieldOnIndexer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func BadBackingFieldType P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:BadBackingFieldType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:BadBackingFieldType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func BadDependencyRegistration P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:BadDependencyRegistration",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:BadDependencyRegistration",dnPackItem(P1))
 
 	Func BadEnumValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s12:BadEnumValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s12:BadEnumValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BadFilterDerivedType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:BadFilterDerivedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:BadFilterDerivedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func BadFilterExpression P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:BadFilterExpression",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:BadFilterExpression",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func BadFilterOwnedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:BadFilterOwnedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:BadFilterOwnedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BadJsonValueReaderWriterType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:BadJsonValueReaderWriterType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:BadJsonValueReaderWriterType",dnPackItem(P1))
 
 	Func BadListType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s11:BadListType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s11:BadListType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BadValueComparerType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:BadValueComparerType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:BadValueComparerType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BadValueConverterType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:BadValueConverterType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:BadValueConverterType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BadValueGeneratorType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:BadValueGeneratorType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:BadValueGeneratorType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotBeNullable P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:CannotBeNullable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:CannotBeNullable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CannotBeNullableElement P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:CannotBeNullableElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:CannotBeNullableElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CannotBeNullablePK P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:CannotBeNullablePK",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:CannotBeNullablePK",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotConvertEnumValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:CannotConvertEnumValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:CannotConvertEnumValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotCreateJsonValueReaderWriter P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:CannotCreateJsonValueReaderWriter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:CannotCreateJsonValueReaderWriter",dnPackItem(P1))
 
 	Func CannotCreateValueComparer P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:CannotCreateValueComparer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:CannotCreateValueComparer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotCreateValueConverter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:CannotCreateValueConverter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:CannotCreateValueConverter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotCreateValueGenerator P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:CannotCreateValueGenerator",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:CannotCreateValueGenerator",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotLoadDetachedShadow P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:CannotLoadDetachedShadow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:CannotLoadDetachedShadow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotMarkNonShared P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:CannotMarkNonShared",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:CannotMarkNonShared",dnPackItem(P1))
 
 	Func CannotMarkShared P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:CannotMarkShared",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:CannotMarkShared",dnPackItem(P1))
 
 	Func CannotMaterializeAbstractType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:CannotMaterializeAbstractType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:CannotMaterializeAbstractType",dnPackItem(P1))
 
 	Func CanOnlyConfigureExistingNavigations P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:CanOnlyConfigureExistingNavigations",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:CanOnlyConfigureExistingNavigations",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ChangeTrackingInterfaceMissing P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s30:ChangeTrackingInterfaceMissing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s30:ChangeTrackingInterfaceMissing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CircularDependency P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:CircularDependency",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:CircularDependency",dnPackItem(P1))
 
 	Func CircularInheritance P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:CircularInheritance",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:CircularInheritance",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClashingMismatchedSharedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:ClashingMismatchedSharedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:ClashingMismatchedSharedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClashingNamedOwnedType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:ClashingNamedOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:ClashingNamedOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ClashingNonOwnedDerivedEntityType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:ClashingNonOwnedDerivedEntityType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:ClashingNonOwnedDerivedEntityType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClashingNonOwnedEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ClashingNonOwnedEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ClashingNonOwnedEntityType",dnPackItem(P1))
 
 	Func ClashingNonSharedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:ClashingNonSharedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:ClashingNonSharedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClashingOwnedDerivedEntityType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s30:ClashingOwnedDerivedEntityType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s30:ClashingOwnedDerivedEntityType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClashingOwnedEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ClashingOwnedEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ClashingOwnedEntityType",dnPackItem(P1))
 
 	Func ClashingSharedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:ClashingSharedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:ClashingSharedType",dnPackItem(P1))
 
 	Func ClientProjectionCapturingConstantInMethodArgument P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s49:ClientProjectionCapturingConstantInMethodArgument",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s49:ClientProjectionCapturingConstantInMethodArgument",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClientProjectionCapturingConstantInMethodInstance P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s49:ClientProjectionCapturingConstantInMethodInstance",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s49:ClientProjectionCapturingConstantInMethodInstance",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClientProjectionCapturingConstantInTree P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s39:ClientProjectionCapturingConstantInTree",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s39:ClientProjectionCapturingConstantInTree",dnPackItem(P1))
 
 	Func CollectionIsReference P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:CollectionIsReference",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:CollectionIsReference",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ComparerPropertyMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:ComparerPropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:ComparerPropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ComparerPropertyMismatchElement P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:ComparerPropertyMismatchElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:ComparerPropertyMismatchElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CompiledModelDuplicateAttribute P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:CompiledModelDuplicateAttribute",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:CompiledModelDuplicateAttribute",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompiledModelIncompatibleTypeMapping P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:CompiledModelIncompatibleTypeMapping",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:CompiledModelIncompatibleTypeMapping",dnPackItem(P1))
 
 	Func CompiledModelMissingInstance P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:CompiledModelMissingInstance",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:CompiledModelMissingInstance",dnPackItem(P1))
 
 	Func CompiledQueryDifferentModel P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:CompiledQueryDifferentModel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:CompiledQueryDifferentModel",dnPackItem(P1))
 
 	Func ComplexCollectionWrongClrType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:ComplexCollectionWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:ComplexCollectionWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ComplexPropertyCollection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:ComplexPropertyCollection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:ComplexPropertyCollection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComplexPropertyIndexer P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:ComplexPropertyIndexer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:ComplexPropertyIndexer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComplexPropertyNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ComplexPropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ComplexPropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComplexPropertyOptional P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ComplexPropertyOptional",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ComplexPropertyOptional",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComplexPropertyShadow P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:ComplexPropertyShadow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:ComplexPropertyShadow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComplexPropertyWrongClrType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:ComplexPropertyWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:ComplexPropertyWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ComplexTypesNotSupported P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:ComplexTypesNotSupported",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:ComplexTypesNotSupported",dnPackItem(P1))
 
 	Func CompositeFkOnProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:CompositeFkOnProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:CompositeFkOnProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompositePKWithDataAnnotation P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:CompositePKWithDataAnnotation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:CompositePKWithDataAnnotation",dnPackItem(P1))
 
 	Func ConflictingBackingFields P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:ConflictingBackingFields",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:ConflictingBackingFields",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConflictingFieldProperty P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:ConflictingFieldProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:ConflictingFieldProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ConflictingForeignKeyAttributes P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:ConflictingForeignKeyAttributes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:ConflictingForeignKeyAttributes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConflictingKeylessAndPrimaryKeyAttributes P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s41:ConflictingKeylessAndPrimaryKeyAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s41:ConflictingKeylessAndPrimaryKeyAttributes",dnPackItem(P1))
 
 	Func ConflictingPropertyOrNavigation P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:ConflictingPropertyOrNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:ConflictingPropertyOrNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConflictingRelationshipConversions P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:ConflictingRelationshipConversions",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:ConflictingRelationshipConversions",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConflictingRelationshipNavigation P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:ConflictingRelationshipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:ConflictingRelationshipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConstructorBindingFailed P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:ConstructorBindingFailed",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:ConstructorBindingFailed",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConstructorConflict P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:ConstructorConflict",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:ConstructorConflict",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConstructorNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:ConstructorNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:ConstructorNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConverterBadType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:ConverterBadType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:ConverterBadType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConverterPropertyMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:ConverterPropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:ConverterPropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConverterPropertyMismatchElement P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:ConverterPropertyMismatchElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:ConverterPropertyMismatchElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConvertersCannotBeComposed P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ConvertersCannotBeComposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ConvertersCannotBeComposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func DbContextMissingConstructor P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:DbContextMissingConstructor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:DbContextMissingConstructor",dnPackItem(P1))
 
 	Func DbSetIncorrectGenericType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:DbSetIncorrectGenericType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:DbSetIncorrectGenericType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DebugViewError P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:DebugViewError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:DebugViewError",dnPackItem(P1))
 
 	Func DebugViewQueryExpressionError P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:DebugViewQueryExpressionError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:DebugViewQueryExpressionError",dnPackItem(P1))
 
 	Func DebugViewQueryStringError P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:DebugViewQueryStringError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:DebugViewQueryStringError",dnPackItem(P1))
 
 	Func DeleteBehaviorAttributeNotOnNavigationProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s46:DeleteBehaviorAttributeNotOnNavigationProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s46:DeleteBehaviorAttributeNotOnNavigationProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DeleteBehaviorAttributeOnPrincipalProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:DeleteBehaviorAttributeOnPrincipalProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:DeleteBehaviorAttributeOnPrincipalProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DependentEntityTypeNotInRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:DependentEntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:DependentEntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DerivedEntityCannotBeKeyless P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:DerivedEntityCannotBeKeyless",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:DerivedEntityCannotBeKeyless",dnPackItem(P1))
 
 	Func DerivedEntityCannotHaveKeys P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:DerivedEntityCannotHaveKeys",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:DerivedEntityCannotHaveKeys",dnPackItem(P1))
 
 	Func DerivedEntityOwnershipMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s30:DerivedEntityOwnershipMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s30:DerivedEntityOwnershipMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func DerivedEntityTypeHasNoKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:DerivedEntityTypeHasNoKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:DerivedEntityTypeHasNoKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DerivedEntityTypeKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:DerivedEntityTypeKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:DerivedEntityTypeKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DerivedTypeDefiningQuery P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:DerivedTypeDefiningQuery",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:DerivedTypeDefiningQuery",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DiscriminatorEntityTypeNotDerived P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:DiscriminatorEntityTypeNotDerived",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:DiscriminatorEntityTypeNotDerived",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DiscriminatorPropertyMustBeOnRoot P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:DiscriminatorPropertyMustBeOnRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:DiscriminatorPropertyMustBeOnRoot",dnPackItem(P1))
 
 	Func DiscriminatorPropertyNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:DiscriminatorPropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:DiscriminatorPropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DiscriminatorValueIncompatible P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s30:DiscriminatorValueIncompatible",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s30:DiscriminatorValueIncompatible",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DuplicateAnnotation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:DuplicateAnnotation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:DuplicateAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicateComplexType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:DuplicateComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:DuplicateComplexType",dnPackItem(P1))
 
 	Func DuplicateDiscriminatorValue P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:DuplicateDiscriminatorValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:DuplicateDiscriminatorValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DuplicateEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:DuplicateEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:DuplicateEntityType",dnPackItem(P1))
 
 	Func DuplicateForeignKey P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:DuplicateForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:DuplicateForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func DuplicateIndex P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:DuplicateIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:DuplicateIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DuplicateKey P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s12:DuplicateKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s12:DuplicateKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DuplicateNamedIndex P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:DuplicateNamedIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:DuplicateNamedIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func DuplicatePropertiesOnBase P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:DuplicatePropertiesOnBase",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:DuplicatePropertiesOnBase",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicatePropertyInForeignKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:DuplicatePropertyInForeignKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:DuplicatePropertyInForeignKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicatePropertyInIndex P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:DuplicatePropertyInIndex",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:DuplicatePropertyInIndex",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicatePropertyInKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:DuplicatePropertyInKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:DuplicatePropertyInKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicateTrigger P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:DuplicateTrigger",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:DuplicateTrigger",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EmptyComplexType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:EmptyComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:EmptyComplexType",dnPackItem(P1))
 
 	Func EntityEqualityOnCompositeKeyEntitySubqueryNotSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s54:EntityEqualityOnCompositeKeyEntitySubqueryNotSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s54:EntityEqualityOnCompositeKeyEntitySubqueryNotSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntityEqualityOnKeylessEntityNotSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s41:EntityEqualityOnKeylessEntityNotSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s41:EntityEqualityOnKeylessEntityNotSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntityRequiresKey P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:EntityRequiresKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:EntityRequiresKey",dnPackItem(P1))
 
 	Func EntityTypeInUseByDerived P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:EntityTypeInUseByDerived",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:EntityTypeInUseByDerived",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntityTypeInUseByReferencingForeignKey P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s38:EntityTypeInUseByReferencingForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s38:EntityTypeInUseByReferencingForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntityTypeInUseByReferencingSkipNavigation P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:EntityTypeInUseByReferencingSkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:EntityTypeInUseByReferencingSkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntityTypeModelMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:EntityTypeModelMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:EntityTypeModelMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntityTypeNotFound P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:EntityTypeNotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:EntityTypeNotFound",dnPackItem(P1))
 
 	Func EntityTypeNotInRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:EntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:EntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntityTypeNotInRelationshipStrict P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:EntityTypeNotInRelationshipStrict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:EntityTypeNotInRelationshipStrict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntityTypesNotInRelationship P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:EntityTypesNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:EntityTypesNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ErrorMaterializingPropertyInvalidCast P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s37:ErrorMaterializingPropertyInvalidCast",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s37:ErrorMaterializingPropertyInvalidCast",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ExecuteQueriesNotSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ExecuteQueriesNotSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ExecuteQueriesNotSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExecutionStrategyExistingTransaction P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:ExecutionStrategyExistingTransaction",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:ExecutionStrategyExistingTransaction",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExpressionParameterizationExceptionSensitive P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s44:ExpressionParameterizationExceptionSensitive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s44:ExpressionParameterizationExceptionSensitive",dnPackItem(P1))
 
 	Func FieldNameMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:FieldNameMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:FieldNameMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FindNotCompositeKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:FindNotCompositeKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:FindNotCompositeKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindValueCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:FindValueCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:FindValueCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FindValueTypeMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:FindValueTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:FindValueTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func FindWrongCount P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:FindWrongCount",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:FindWrongCount",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindWrongType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:FindWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:FindWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FkAttributeOnNonUniquePrincipal P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:FkAttributeOnNonUniquePrincipal",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:FkAttributeOnNonUniquePrincipal",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FkAttributeOnPropertyNavigationMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s39:FkAttributeOnPropertyNavigationMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s39:FkAttributeOnPropertyNavigationMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FkAttributeOnSkipNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:FkAttributeOnSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:FkAttributeOnSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ForeignKeyCountMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ForeignKeyCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ForeignKeyCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ForeignKeyInUseSkipNavigation P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:ForeignKeyInUseSkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:ForeignKeyInUseSkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ForeignKeyPropertiesWrongEntity P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:ForeignKeyPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:ForeignKeyPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ForeignKeyPropertyInKey P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ForeignKeyPropertyInKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ForeignKeyPropertyInKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ForeignKeyReferencedEntityKeyMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s37:ForeignKeyReferencedEntityKeyMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s37:ForeignKeyReferencedEntityKeyMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ForeignKeyTypeMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:ForeignKeyTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:ForeignKeyTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ForeignKeyWrongType P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:ForeignKeyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:ForeignKeyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func FullChangeTrackingRequired P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:FullChangeTrackingRequired",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:FullChangeTrackingRequired",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func FunctionOnClient P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:FunctionOnClient",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:FunctionOnClient",dnPackItem(P1))
 
 	Func GraphDoesNotContainVertex P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:GraphDoesNotContainVertex",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:GraphDoesNotContainVertex",dnPackItem(P1))
 
 	Func IdentifyingRelationshipCycle P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:IdentifyingRelationshipCycle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:IdentifyingRelationshipCycle",dnPackItem(P1))
 
 	Func IdentityConflict P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:IdentityConflict",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:IdentityConflict",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IdentityConflictOwned P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:IdentityConflictOwned",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:IdentityConflictOwned",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IdentityConflictOwnedSensitive P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s30:IdentityConflictOwnedSensitive",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s30:IdentityConflictOwnedSensitive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IdentityConflictSensitive P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:IdentityConflictSensitive",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:IdentityConflictSensitive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ImplementationTypeRequired P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ImplementationTypeRequired",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ImplementationTypeRequired",dnPackItem(P1))
 
 	Func IncludeOnEntityWithDefiningQueryNotSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s44:IncludeOnEntityWithDefiningQueryNotSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s44:IncludeOnEntityWithDefiningQueryNotSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IncludeOnNonEntity P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:IncludeOnNonEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:IncludeOnNonEntity",dnPackItem(P1))
 
 	Func IncludeWithCycle P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:IncludeWithCycle",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:IncludeWithCycle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IncompatibleSentinelValue P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:IncompatibleSentinelValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:IncompatibleSentinelValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InconsistentInheritance P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:InconsistentInheritance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:InconsistentInheritance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncorrectNumberOfArguments P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:IncorrectNumberOfArguments",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:IncorrectNumberOfArguments",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IndexPropertiesWrongEntity P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:IndexPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:IndexPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IndexWrongType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:IndexWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:IndexWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InheritedPropertyCannotBeIgnored P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:InheritedPropertyCannotBeIgnored",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:InheritedPropertyCannotBeIgnored",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InterfacePropertyNotAdded P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:InterfacePropertyNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:InterfacePropertyNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidAlternateKeyValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:InvalidAlternateKeyValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:InvalidAlternateKeyValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidComplexType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:InvalidComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:InvalidComplexType",dnPackItem(P1))
 
 	Func InvalidEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:InvalidEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:InvalidEntityType",dnPackItem(P1))
 
 	Func InvalidEntityTypeConfigurationAttribute P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s39:InvalidEntityTypeConfigurationAttribute",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s39:InvalidEntityTypeConfigurationAttribute",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidEnumValue P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:InvalidEnumValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:InvalidEnumValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidIncludeExpression P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:InvalidIncludeExpression",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:InvalidIncludeExpression",dnPackItem(P1))
 
 	Func InvalidKeyValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:InvalidKeyValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:InvalidKeyValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidMemberExpression P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:InvalidMemberExpression",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:InvalidMemberExpression",dnPackItem(P1))
 
 	Func InvalidMembersExpression P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:InvalidMembersExpression",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:InvalidMembersExpression",dnPackItem(P1))
 
 	Func InvalidNavigationWithInverseProperty P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:InvalidNavigationWithInverseProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:InvalidNavigationWithInverseProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InvalidNumberOfIndexSortOrderValues P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:InvalidNumberOfIndexSortOrderValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:InvalidNumberOfIndexSortOrderValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidPropertyListOnNavigation P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:InvalidPropertyListOnNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:InvalidPropertyListOnNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidRelationshipUsingDataAnnotations P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s39:InvalidRelationshipUsingDataAnnotations",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s39:InvalidRelationshipUsingDataAnnotations",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InvalidReplaceService P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:InvalidReplaceService",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:InvalidReplaceService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidSetKeylessOperation P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:InvalidSetKeylessOperation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:InvalidSetKeylessOperation",dnPackItem(P1))
 
 	Func InvalidSetSameTypeWithDifferentNamespace P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s40:InvalidSetSameTypeWithDifferentNamespace",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s40:InvalidSetSameTypeWithDifferentNamespace",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidSetSharedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:InvalidSetSharedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:InvalidSetSharedType",dnPackItem(P1))
 
 	Func InvalidSetType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:InvalidSetType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:InvalidSetType",dnPackItem(P1))
 
 	Func InvalidSetTypeOwned P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:InvalidSetTypeOwned",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:InvalidSetTypeOwned",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidSwitch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:InvalidSwitch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:InvalidSwitch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s11:InvalidType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s11:InvalidType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InvalidTypeConversationWithInclude P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:InvalidTypeConversationWithInclude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:InvalidTypeConversationWithInclude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidUseService P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:InvalidUseService",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:InvalidUseService",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidValueGeneratorFactoryProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:InvalidValueGeneratorFactoryProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:InvalidValueGeneratorFactoryProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InversePropertyMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:InversePropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:InversePropertyMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InverseToOwnedType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:InverseToOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:InverseToOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func IQueryableNotAsync P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:IQueryableNotAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:IQueryableNotAsync",dnPackItem(P1))
 
 	Func JsonReaderInvalidTokenType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:JsonReaderInvalidTokenType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:JsonReaderInvalidTokenType",dnPackItem(P1))
 
 	Func KeyAttributeOnDerivedEntity P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:KeyAttributeOnDerivedEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:KeyAttributeOnDerivedEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func KeyInUse P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s8:KeyInUse",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s8:KeyInUse",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func KeylessTypeExistingKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:KeylessTypeExistingKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:KeylessTypeExistingKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func KeylessTypeTracked P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:KeylessTypeTracked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:KeylessTypeTracked",dnPackItem(P1))
 
 	Func KeylessTypeWithKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:KeylessTypeWithKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:KeylessTypeWithKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func KeyPropertiesWrongEntity P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:KeyPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:KeyPropertiesWrongEntity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func KeyPropertyCannotBeNullable P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:KeyPropertyCannotBeNullable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:KeyPropertyCannotBeNullable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func KeyPropertyMustBeReadOnly P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:KeyPropertyMustBeReadOnly",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:KeyPropertyMustBeReadOnly",dnPackItem(P1) + dnPackItem(P2))
 
 	Func KeyReadOnly P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s11:KeyReadOnly",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s11:KeyReadOnly",dnPackItem(P1) + dnPackItem(P2))
 
 	Func KeyWrongType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s12:KeyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s12:KeyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func LiteralGenerationNotSupported P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:LiteralGenerationNotSupported",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:LiteralGenerationNotSupported",dnPackItem(P1))
 
 	Func ManyToManyOneNav P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:ManyToManyOneNav",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:ManyToManyOneNav",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MissingBackingField P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:MissingBackingField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:MissingBackingField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ModelNotFinalized P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:ModelNotFinalized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:ModelNotFinalized",dnPackItem(P1))
 
 	Func MultipleFilteredIncludesOnSameNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s40:MultipleFilteredIncludesOnSameNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s40:MultipleFilteredIncludesOnSameNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultipleNavigationsSameFk P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:MultipleNavigationsSameFk",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:MultipleNavigationsSameFk",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MultipleOwnerships P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:MultipleOwnerships",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:MultipleOwnerships",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultipleProvidersConfigured P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:MultipleProvidersConfigured",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:MultipleProvidersConfigured",dnPackItem(P1))
 
 	Func MustRewriteToSameNode P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:MustRewriteToSameNode",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:MustRewriteToSameNode",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MutableKeyProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:MutableKeyProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:MutableKeyProperty",dnPackItem(P1))
 
 	Func NamedIndexDefinedOnIgnoredProperty P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:NamedIndexDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:NamedIndexDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NamedIndexDefinedOnNonExistentProperty P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s38:NamedIndexDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s38:NamedIndexDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NamedIndexWrongType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:NamedIndexWrongType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:NamedIndexWrongType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NavigationArray P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:NavigationArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:NavigationArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NavigationBadType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:NavigationBadType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:NavigationBadType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NavigationCannotCreateType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:NavigationCannotCreateType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:NavigationCannotCreateType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NavigationCollectionWrongClrType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:NavigationCollectionWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:NavigationCollectionWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NavigationForWrongForeignKey P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:NavigationForWrongForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:NavigationForWrongForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NavigationIsProperty P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NavigationIsProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NavigationIsProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func NavigationlessOwnership P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:NavigationlessOwnership",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:NavigationlessOwnership",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NavigationNoSetter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:NavigationNoSetter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:NavigationNoSetter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NavigationNotAdded P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:NavigationNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:NavigationNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NavigationNotAddedAdHoc P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:NavigationNotAddedAdHoc",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:NavigationNotAddedAdHoc",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NavigationNotAddedComplexType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:NavigationNotAddedComplexType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:NavigationNotAddedComplexType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NavigationSingleWrongClrType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:NavigationSingleWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:NavigationSingleWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NavigationToKeylessType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:NavigationToKeylessType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:NavigationToKeylessType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoBackingField P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:NoBackingField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:NoBackingField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NoBackingFieldLazyLoading P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:NoBackingFieldLazyLoading",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:NoBackingFieldLazyLoading",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoClrNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:NoClrNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:NoClrNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoDiscriminatorProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:NoDiscriminatorProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:NoDiscriminatorProperty",dnPackItem(P1))
 
 	Func NoDiscriminatorValue P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NoDiscriminatorValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NoDiscriminatorValue",dnPackItem(P1))
 
 	Func NoFieldOrGetter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:NoFieldOrGetter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:NoFieldOrGetter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoFieldOrSetter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:NoFieldOrSetter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:NoFieldOrSetter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoGetter P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s8:NoGetter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s8:NoGetter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NonComparableKeyType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NonComparableKeyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NonComparableKeyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NonComparableKeyTypes P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:NonComparableKeyTypes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:NonComparableKeyTypes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NonConfiguredNavigationToSharedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:NonConfiguredNavigationToSharedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:NonConfiguredNavigationToSharedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonGenericOptions P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:NonGenericOptions",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:NonGenericOptions",dnPackItem(P1))
 
 	Func NonIndexerEntityType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NonIndexerEntityType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NonIndexerEntityType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NonNotifyingCollection P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:NonNotifyingCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:NonNotifyingCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NonQueryTranslationFailedWithDetails P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:NonQueryTranslationFailedWithDetails",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:NonQueryTranslationFailedWithDetails",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonUniqueRequiredDependentForeignKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:NonUniqueRequiredDependentForeignKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:NonUniqueRequiredDependentForeignKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonUniqueRequiredDependentNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:NonUniqueRequiredDependentNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:NonUniqueRequiredDependentNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoParameterlessConstructor P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:NoParameterlessConstructor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:NoParameterlessConstructor",dnPackItem(P1))
 
 	Func NoProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s10:NoProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s10:NoProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NoPropertyType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:NoPropertyType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:NoPropertyType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoProviderConfiguredFailedToResolveService P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:NoProviderConfiguredFailedToResolveService",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:NoProviderConfiguredFailedToResolveService",dnPackItem(P1))
 
 	Func NoSetter P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s8:NoSetter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s8:NoSetter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NotAnEFService P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s14:NotAnEFService",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s14:NotAnEFService",dnPackItem(P1))
 
 	Func NotAProviderService P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:NotAProviderService",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:NotAProviderService",dnPackItem(P1))
 
 	Func NotAssignableClrBaseType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:NotAssignableClrBaseType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:NotAssignableClrBaseType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func NotCollection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:NotCollection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:NotCollection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s72:NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s72:NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NoValueGenerator P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:NoValueGenerator",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:NoValueGenerator",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NullableKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s11:NullableKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s11:NullableKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NullRequiredComplexProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:NullRequiredComplexProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:NullRequiredComplexProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NullRequiredPrimitiveCollection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:NullRequiredPrimitiveCollection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:NullRequiredPrimitiveCollection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ObjectRemovedFromModel P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:ObjectRemovedFromModel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:ObjectRemovedFromModel",dnPackItem(P1))
 
 	Func OptionsExtensionNotFound P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:OptionsExtensionNotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:OptionsExtensionNotFound",dnPackItem(P1))
 
 	Func OriginalValueNotTracked P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:OriginalValueNotTracked",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:OriginalValueNotTracked",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OwnedDerivedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:OwnedDerivedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:OwnedDerivedType",dnPackItem(P1))
 
 	Func OwnerlessOwnedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:OwnerlessOwnedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:OwnerlessOwnedType",dnPackItem(P1))
 
 	Func OwnershipToDependent P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:OwnershipToDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:OwnershipToDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PoolingContextCtorError P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:PoolingContextCtorError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:PoolingContextCtorError",dnPackItem(P1))
 
 	Func PrimaryKeyAttributeOnDerivedEntity P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:PrimaryKeyAttributeOnDerivedEntity",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:PrimaryKeyAttributeOnDerivedEntity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PrimaryKeyDefinedOnIgnoredProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:PrimaryKeyDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:PrimaryKeyDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PrimaryKeyDefinedOnNonExistentProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s38:PrimaryKeyDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s38:PrimaryKeyDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PrincipalEndIncompatibleNavigations P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:PrincipalEndIncompatibleNavigations",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:PrincipalEndIncompatibleNavigations",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PrincipalEntityTypeNotInRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:PrincipalEntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:PrincipalEntityTypeNotInRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PrincipalKeylessType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:PrincipalKeylessType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:PrincipalKeylessType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PrincipalOwnedType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:PrincipalOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:PrincipalOwnedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyClashingNonIndexer P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:PropertyClashingNonIndexer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:PropertyClashingNonIndexer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PropertyConceptualNull P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:PropertyConceptualNull",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:PropertyConceptualNull",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PropertyConceptualNullSensitive P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:PropertyConceptualNullSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:PropertyConceptualNullSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyDoesNotBelong P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:PropertyDoesNotBelong",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:PropertyDoesNotBelong",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyInUseForeignKey P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:PropertyInUseForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:PropertyInUseForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func PropertyInUseIndex P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:PropertyInUseIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:PropertyInUseIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func PropertyInUseKey P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:PropertyInUseKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:PropertyInUseKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyNotAdded P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:PropertyNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:PropertyNotAdded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyNotAddedAdHoc P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:PropertyNotAddedAdHoc",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:PropertyNotAddedAdHoc",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:PropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:PropertyNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PropertyNotMapped P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:PropertyNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:PropertyNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyReadOnlyAfterSave P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:PropertyReadOnlyAfterSave",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:PropertyReadOnlyAfterSave",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PropertyReadOnlyBeforeSave P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:PropertyReadOnlyBeforeSave",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:PropertyReadOnlyBeforeSave",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PropertyWrongClrType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:PropertyWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:PropertyWrongClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func PropertyWrongEntityClrType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:PropertyWrongEntityClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:PropertyWrongEntityClrType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyWrongName P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:PropertyWrongName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:PropertyWrongName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PropertyWrongType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:PropertyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:PropertyWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func QueryEntityMaterializationConditionWrongShape P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s45:QueryEntityMaterializationConditionWrongShape",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s45:QueryEntityMaterializationConditionWrongShape",dnPackItem(P1))
 
 	Func QueryInvalidMaterializationType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:QueryInvalidMaterializationType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:QueryInvalidMaterializationType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func QueryRootDifferentEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:QueryRootDifferentEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:QueryRootDifferentEntityType",dnPackItem(P1))
 
 	Func QueryUnableToTranslateEFProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:QueryUnableToTranslateEFProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:QueryUnableToTranslateEFProperty",dnPackItem(P1))
 
 	Func QueryUnableToTranslateMember P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:QueryUnableToTranslateMember",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:QueryUnableToTranslateMember",dnPackItem(P1) + dnPackItem(P2))
 
 	Func QueryUnableToTranslateMethod P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:QueryUnableToTranslateMethod",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:QueryUnableToTranslateMethod",dnPackItem(P1) + dnPackItem(P2))
 
 	Func QueryUnhandledQueryRootExpression P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:QueryUnhandledQueryRootExpression",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:QueryUnhandledQueryRootExpression",dnPackItem(P1))
 
 	Func ReferencedShadowKey P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:ReferencedShadowKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:ReferencedShadowKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ReferenceIsCollection P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:ReferenceIsCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:ReferenceIsCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ReferenceMustBeLoaded P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:ReferenceMustBeLoaded",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:ReferenceMustBeLoaded",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RelationshipConceptualNull P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:RelationshipConceptualNull",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:RelationshipConceptualNull",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RelationshipConceptualNullSensitive P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:RelationshipConceptualNullSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:RelationshipConceptualNullSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func RelationshipCycle P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:RelationshipCycle",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:RelationshipCycle",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func RequiredSkipNavigation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:RequiredSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:RequiredSkipNavigation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RetryLimitExceeded P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:RetryLimitExceeded",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:RetryLimitExceeded",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SameParameterInstanceUsedInMultipleLambdas P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:SameParameterInstanceUsedInMultipleLambdas",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:SameParameterInstanceUsedInMultipleLambdas",dnPackItem(P1))
 
 	Func SaveOwnedWithoutOwner P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:SaveOwnedWithoutOwner",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:SaveOwnedWithoutOwner",dnPackItem(P1))
 
 	Func SeedDatumComplexProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:SeedDatumComplexProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:SeedDatumComplexProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedDatumComplexPropertySensitive P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:SeedDatumComplexPropertySensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:SeedDatumComplexPropertySensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SeedDatumDefaultValue P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:SeedDatumDefaultValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:SeedDatumDefaultValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SeedDatumDerivedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:SeedDatumDerivedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:SeedDatumDerivedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedDatumDuplicate P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:SeedDatumDuplicate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:SeedDatumDuplicate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedDatumDuplicateSensitive P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:SeedDatumDuplicateSensitive",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:SeedDatumDuplicateSensitive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedDatumIncompatibleValue P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:SeedDatumIncompatibleValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:SeedDatumIncompatibleValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SeedDatumIncompatibleValueSensitive P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:SeedDatumIncompatibleValueSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:SeedDatumIncompatibleValueSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SeedDatumMissingValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:SeedDatumMissingValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:SeedDatumMissingValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedDatumNavigation P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:SeedDatumNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:SeedDatumNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SeedDatumNavigationSensitive P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:SeedDatumNavigationSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:SeedDatumNavigationSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func SeedDatumSignedNumericValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:SeedDatumSignedNumericValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:SeedDatumSignedNumericValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SeedKeylessEntity P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:SeedKeylessEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:SeedKeylessEntity",dnPackItem(P1))
 
 	Func SelfReferencingNavigationWithInverseProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s44:SelfReferencingNavigationWithInverseProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s44:SelfReferencingNavigationWithInverseProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ServiceProviderConfigAdded P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ServiceProviderConfigAdded",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ServiceProviderConfigAdded",dnPackItem(P1))
 
 	Func ServiceProviderConfigChanged P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:ServiceProviderConfigChanged",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:ServiceProviderConfigChanged",dnPackItem(P1))
 
 	Func ServiceProviderConfigRemoved P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:ServiceProviderConfigRemoved",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:ServiceProviderConfigRemoved",dnPackItem(P1))
 
 	Func SharedTypeDerivedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:SharedTypeDerivedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:SharedTypeDerivedType",dnPackItem(P1))
 
 	Func SingletonOptionChanged P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:SingletonOptionChanged",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:SingletonOptionChanged",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SingletonRequired P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:SingletonRequired",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:SingletonRequired",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SkipInverseMismatchedForeignKey P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:SkipInverseMismatchedForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:SkipInverseMismatchedForeignKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func SkipInverseMismatchedJoinType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:SkipInverseMismatchedJoinType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:SkipInverseMismatchedJoinType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SkipNavigationForeignKeyWrongDependentType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:SkipNavigationForeignKeyWrongDependentType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:SkipNavigationForeignKeyWrongDependentType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SkipNavigationForeignKeyWrongPrincipalType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:SkipNavigationForeignKeyWrongPrincipalType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:SkipNavigationForeignKeyWrongPrincipalType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SkipNavigationInUseBySkipNavigation P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:SkipNavigationInUseBySkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:SkipNavigationInUseBySkipNavigation",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SkipNavigationNoForeignKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:SkipNavigationNoForeignKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:SkipNavigationNoForeignKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SkipNavigationNoInverse P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:SkipNavigationNoInverse",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:SkipNavigationNoInverse",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SkipNavigationNonCollection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:SkipNavigationNonCollection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:SkipNavigationNonCollection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SkipNavigationWrongInverse P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:SkipNavigationWrongInverse",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:SkipNavigationWrongInverse",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SkipNavigationWrongType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:SkipNavigationWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:SkipNavigationWrongType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoreGenValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:StoreGenValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:StoreGenValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TempValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s9:TempValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s9:TempValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TempValuePersists P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:TempValuePersists",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:TempValuePersists",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func TrackingTypeMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:TrackingTypeMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:TrackingTypeMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TranslationFailed P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:TranslationFailed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:TranslationFailed",dnPackItem(P1))
 
 	Func TranslationFailedWithDetails P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:TranslationFailedWithDetails",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:TranslationFailedWithDetails",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TypeConfigurationConflict P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:TypeConfigurationConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:TypeConfigurationConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TypeNotMarkedAsShared P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:TypeNotMarkedAsShared",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:TypeNotMarkedAsShared",dnPackItem(P1))
 
 	Func UnableToDiscriminate P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:UnableToDiscriminate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:UnableToDiscriminate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnableToSetIsUnique P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s19:UnableToSetIsUnique",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s19:UnableToSetIsUnique",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UnconfigurableType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:UnconfigurableType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:UnconfigurableType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func UnconfigurableTypeMapping P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s25:UnconfigurableTypeMapping",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s25:UnconfigurableTypeMapping",dnPackItem(P1))
 
 	Func UnhandledExpressionNode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:UnhandledExpressionNode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:UnhandledExpressionNode",dnPackItem(P1))
 
 	Func UnhandledMemberBinding P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:UnhandledMemberBinding",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:UnhandledMemberBinding",dnPackItem(P1))
 
 	Func UnhandledNavigationBase P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:UnhandledNavigationBase",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:UnhandledNavigationBase",dnPackItem(P1))
 
 	Func UnknownEntity P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:UnknownEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:UnknownEntity",dnPackItem(P1))
 
 	Func UnknownKeyValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:UnknownKeyValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:UnknownKeyValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnknownShadowKeyValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:UnknownShadowKeyValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:UnknownShadowKeyValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnnamedIndexDefinedOnIgnoredProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:UnnamedIndexDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:UnnamedIndexDefinedOnIgnoredProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UnnamedIndexDefinedOnNonExistentProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s40:UnnamedIndexDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s40:UnnamedIndexDefinedOnNonExistentProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UntrackedDependentEntity P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:UntrackedDependentEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:UntrackedDependentEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ValueCannotBeNull P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:ValueCannotBeNull",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:ValueCannotBeNull",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func VisitIsNotAllowed P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:VisitIsNotAllowed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:VisitIsNotAllowed",dnPackItem(P1))
 
 	Func WarningAsErrorTemplate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:WarningAsErrorTemplate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:WarningAsErrorTemplate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func WrongGenericPropertyType P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:WrongGenericPropertyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:WrongGenericPropertyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func WrongStateManager P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:WrongStateManager",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:WrongStateManager",dnPackItem(P1))
 
 	Func getCannotConvertQueryableToEnumerableMethod
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s40:CannotConvertQueryableToEnumerableMethod","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s40:CannotConvertQueryableToEnumerableMethod","")
 
 	Func setCannotConvertQueryableToEnumerableMethod P1
 		raise("DotNet Error: CannotConvertQueryableToEnumerableMethod is a read-only property")
 
 	Func getConcurrentMethodInvocation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:ConcurrentMethodInvocation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:ConcurrentMethodInvocation","")
 
 	Func setConcurrentMethodInvocation P1
 		raise("DotNet Error: ConcurrentMethodInvocation is a read-only property")
 
 	Func getContextDisposed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:ContextDisposed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:ContextDisposed","")
 
 	Func setContextDisposed P1
 		raise("DotNet Error: ContextDisposed is a read-only property")
 
 	Func getConventionsInfiniteLoop
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:ConventionsInfiniteLoop","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:ConventionsInfiniteLoop","")
 
 	Func setConventionsInfiniteLoop P1
 		raise("DotNet Error: ConventionsInfiniteLoop is a read-only property")
 
 	Func getDataBindingToLocalWithIListSource
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s33:DataBindingToLocalWithIListSource","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s33:DataBindingToLocalWithIListSource","")
 
 	Func setDataBindingToLocalWithIListSource P1
 		raise("DotNet Error: DataBindingToLocalWithIListSource is a read-only property")
 
 	Func getDataBindingWithIListSource
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:DataBindingWithIListSource","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:DataBindingWithIListSource","")
 
 	Func setDataBindingWithIListSource P1
 		raise("DotNet Error: DataBindingWithIListSource is a read-only property")
 
 	Func getDefaultMethodInvoked
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:DefaultMethodInvoked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:DefaultMethodInvoked","")
 
 	Func setDefaultMethodInvoked P1
 		raise("DotNet Error: DefaultMethodInvoked is a read-only property")
 
 	Func getEFConstantInvoked
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:EFConstantInvoked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:EFConstantInvoked","")
 
 	Func setEFConstantInvoked P1
 		raise("DotNet Error: EFConstantInvoked is a read-only property")
 
 	Func getEFConstantNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:EFConstantNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:EFConstantNotSupported","")
 
 	Func setEFConstantNotSupported P1
 		raise("DotNet Error: EFConstantNotSupported is a read-only property")
 
 	Func getEFConstantNotSupportedInPrecompiledQueries
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s42:EFConstantNotSupportedInPrecompiledQueries","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s42:EFConstantNotSupportedInPrecompiledQueries","")
 
 	Func setEFConstantNotSupportedInPrecompiledQueries P1
 		raise("DotNet Error: EFConstantNotSupportedInPrecompiledQueries is a read-only property")
 
 	Func getEFConstantWithNonEvaluatableArgument
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s36:EFConstantWithNonEvaluatableArgument","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s36:EFConstantWithNonEvaluatableArgument","")
 
 	Func setEFConstantWithNonEvaluatableArgument P1
 		raise("DotNet Error: EFConstantWithNonEvaluatableArgument is a read-only property")
 
 	Func getEFParameterInvoked
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:EFParameterInvoked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:EFParameterInvoked","")
 
 	Func setEFParameterInvoked P1
 		raise("DotNet Error: EFParameterInvoked is a read-only property")
 
 	Func getEFParameterWithNonEvaluatableArgument
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s37:EFParameterWithNonEvaluatableArgument","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s37:EFParameterWithNonEvaluatableArgument","")
 
 	Func setEFParameterWithNonEvaluatableArgument P1
 		raise("DotNet Error: EFParameterWithNonEvaluatableArgument is a read-only property")
 
 	Func getEmptyJsonString
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:EmptyJsonString","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:EmptyJsonString","")
 
 	Func setEmptyJsonString P1
 		raise("DotNet Error: EmptyJsonString is a read-only property")
 
 	Func getEnumerableResetNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:EnumerableResetNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:EnumerableResetNotSupported","")
 
 	Func setEnumerableResetNotSupported P1
 		raise("DotNet Error: EnumerableResetNotSupported is a read-only property")
 
 	Func getErrorInvalidQueryable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:ErrorInvalidQueryable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:ErrorInvalidQueryable","")
 
 	Func setErrorInvalidQueryable P1
 		raise("DotNet Error: ErrorInvalidQueryable is a read-only property")
 
 	Func getExpressionParameterizationException
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s35:ExpressionParameterizationException","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s35:ExpressionParameterizationException","")
 
 	Func setExpressionParameterizationException P1
 		raise("DotNet Error: ExpressionParameterizationException is a read-only property")
 
 	Func getHiLoBadBlockSize
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:HiLoBadBlockSize","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:HiLoBadBlockSize","")
 
 	Func setHiLoBadBlockSize P1
 		raise("DotNet Error: HiLoBadBlockSize is a read-only property")
 
 	Func getIncompatibleSourcesForSetOperation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:IncompatibleSourcesForSetOperation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:IncompatibleSourcesForSetOperation","")
 
 	Func setIncompatibleSourcesForSetOperation P1
 		raise("DotNet Error: IncompatibleSourcesForSetOperation is a read-only property")
 
 	Func getInvalidDbContext
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s16:InvalidDbContext","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s16:InvalidDbContext","")
 
 	Func setInvalidDbContext P1
 		raise("DotNet Error: InvalidDbContext is a read-only property")
 
 	Func getInvalidPoolSize
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s15:InvalidPoolSize","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s15:InvalidPoolSize","")
 
 	Func setInvalidPoolSize P1
 		raise("DotNet Error: InvalidPoolSize is a read-only property")
 
 	Func getIQueryableProviderNotAsync
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:IQueryableProviderNotAsync","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:IQueryableProviderNotAsync","")
 
 	Func setIQueryableProviderNotAsync P1
 		raise("DotNet Error: IQueryableProviderNotAsync is a read-only property")
 
 	Func getMemberListBindingNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s29:MemberListBindingNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s29:MemberListBindingNotSupported","")
 
 	Func setMemberListBindingNotSupported P1
 		raise("DotNet Error: MemberListBindingNotSupported is a read-only property")
 
 	Func getMemberMemberBindingNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s31:MemberMemberBindingNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s31:MemberMemberBindingNotSupported","")
 
 	Func setMemberMemberBindingNotSupported P1
 		raise("DotNet Error: MemberMemberBindingNotSupported is a read-only property")
 
 	Func getMissingAsyncSeeder
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s18:MissingAsyncSeeder","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s18:MissingAsyncSeeder","")
 
 	Func setMissingAsyncSeeder P1
 		raise("DotNet Error: MissingAsyncSeeder is a read-only property")
 
 	Func getMissingSeeder
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:MissingSeeder","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:MissingSeeder","")
 
 	Func setMissingSeeder P1
 		raise("DotNet Error: MissingSeeder is a read-only property")
 
 	Func getModelMutable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s12:ModelMutable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s12:ModelMutable","")
 
 	Func setModelMutable P1
 		raise("DotNet Error: ModelMutable is a read-only property")
 
 	Func getModelReadOnly
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s13:ModelReadOnly","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s13:ModelReadOnly","")
 
 	Func setModelReadOnly P1
 		raise("DotNet Error: ModelReadOnly is a read-only property")
 
 	Func getNativeAotDesignTimeModel
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:NativeAotDesignTimeModel","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:NativeAotDesignTimeModel","")
 
 	Func setNativeAotDesignTimeModel P1
 		raise("DotNet Error: NativeAotDesignTimeModel is a read-only property")
 
 	Func getNativeAotNoCompiledModel
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:NativeAotNoCompiledModel","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:NativeAotNoCompiledModel","")
 
 	Func setNativeAotNoCompiledModel P1
 		raise("DotNet Error: NativeAotNoCompiledModel is a read-only property")
 
 	Func getNoEfServices
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s12:NoEfServices","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s12:NoEfServices","")
 
 	Func setNoEfServices P1
 		raise("DotNet Error: NoEfServices is a read-only property")
 
 	Func getNoInterceptionResult
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NoInterceptionResult","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NoInterceptionResult","")
 
 	Func setNoInterceptionResult P1
 		raise("DotNet Error: NoInterceptionResult is a read-only property")
 
 	Func getNoProviderConfigured
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s20:NoProviderConfigured","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s20:NoProviderConfigured","")
 
 	Func setNoProviderConfigured P1
 		raise("DotNet Error: NoProviderConfigured is a read-only property")
 
 	Func getNotQueryingEnumerable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:NotQueryingEnumerable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:NotQueryingEnumerable","")
 
 	Func setNotQueryingEnumerable P1
 		raise("DotNet Error: NotQueryingEnumerable is a read-only property")
 
 	Func getOwnedEntitiesCannotBeTrackedWithoutTheirOwner
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s45:OwnedEntitiesCannotBeTrackedWithoutTheirOwner","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s45:OwnedEntitiesCannotBeTrackedWithoutTheirOwner","")
 
 	Func setOwnedEntitiesCannotBeTrackedWithoutTheirOwner P1
 		raise("DotNet Error: OwnedEntitiesCannotBeTrackedWithoutTheirOwner is a read-only property")
 
 	Func getPoolingOptionsModified
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:PoolingOptionsModified","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:PoolingOptionsModified","")
 
 	Func setPoolingOptionsModified P1
 		raise("DotNet Error: PoolingOptionsModified is a read-only property")
 
 	Func getPrecompiledQueryNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:PrecompiledQueryNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:PrecompiledQueryNotSupported","")
 
 	Func setPrecompiledQueryNotSupported P1
 		raise("DotNet Error: PrecompiledQueryNotSupported is a read-only property")
 
 	Func getPropertyMethodInvoked
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:PropertyMethodInvoked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:PropertyMethodInvoked","")
 
 	Func setPropertyMethodInvoked P1
 		raise("DotNet Error: PropertyMethodInvoked is a read-only property")
 
 	Func getQuerySelectContainsGrouping
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s27:QuerySelectContainsGrouping","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s27:QuerySelectContainsGrouping","")
 
 	Func setQuerySelectContainsGrouping P1
 		raise("DotNet Error: QuerySelectContainsGrouping is a read-only property")
 
 	Func getQueryUnableToTranslateStringEqualsWithStringComparison
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s54:QueryUnableToTranslateStringEqualsWithStringComparison","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s54:QueryUnableToTranslateStringEqualsWithStringComparison","")
 
 	Func setQueryUnableToTranslateStringEqualsWithStringComparison P1
 		raise("DotNet Error: QueryUnableToTranslateStringEqualsWithStringComparison is a read-only property")
 
 	Func getRecursiveOnConfiguring
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:RecursiveOnConfiguring","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:RecursiveOnConfiguring","")
 
 	Func setRecursiveOnConfiguring P1
 		raise("DotNet Error: RecursiveOnConfiguring is a read-only property")
 
 	Func getRecursiveOnModelCreating
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:RecursiveOnModelCreating","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:RecursiveOnModelCreating","")
 
 	Func setRecursiveOnModelCreating P1
 		raise("DotNet Error: RecursiveOnModelCreating is a read-only property")
 
 	Func getRelationshipCannotBeInverted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s28:RelationshipCannotBeInverted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s28:RelationshipCannotBeInverted","")
 
 	Func setRelationshipCannotBeInverted P1
 		raise("DotNet Error: RelationshipCannotBeInverted is a read-only property")
 
 	Func getResetNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s17:ResetNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s17:ResetNotSupported","")
 
 	Func setResetNotSupported P1
 		raise("DotNet Error: ResetNotSupported is a read-only property")
 
 	Func getRuntimeModelMissingData
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s23:RuntimeModelMissingData","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s23:RuntimeModelMissingData","")
 
 	Func setRuntimeModelMissingData P1
 		raise("DotNet Error: RuntimeModelMissingData is a read-only property")
 
 	Func getRuntimeParameterMissingParameter
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s32:RuntimeParameterMissingParameter","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s32:RuntimeParameterMissingParameter","")
 
 	Func setRuntimeParameterMissingParameter P1
 		raise("DotNet Error: RuntimeParameterMissingParameter is a read-only property")
 
 	Func getSavepointsNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s22:SavepointsNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s22:SavepointsNotSupported","")
 
 	Func setSavepointsNotSupported P1
 		raise("DotNet Error: SavepointsNotSupported is a read-only property")
 
 	Func getSensitiveDataDisabled
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s21:SensitiveDataDisabled","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s21:SensitiveDataDisabled","")
 
 	Func setSensitiveDataDisabled P1
 		raise("DotNet Error: SensitiveDataDisabled is a read-only property")
 
 	Func getSequenceContainsMoreThanOneElement
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s34:SequenceContainsMoreThanOneElement","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s34:SequenceContainsMoreThanOneElement","")
 
 	Func setSequenceContainsMoreThanOneElement P1
 		raise("DotNet Error: SequenceContainsMoreThanOneElement is a read-only property")
 
 	Func getSequenceContainsNoElements
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s26:SequenceContainsNoElements","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s26:SequenceContainsNoElements","")
 
 	Func setSequenceContainsNoElements P1
 		raise("DotNet Error: SequenceContainsNoElements is a read-only property")
 
 	Func getSetOperationWithDifferentIncludesInOperands
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s43:SetOperationWithDifferentIncludesInOperands","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s43:SetOperationWithDifferentIncludesInOperands","")
 
 	Func setSetOperationWithDifferentIncludesInOperands P1
 		raise("DotNet Error: SetOperationWithDifferentIncludesInOperands is a read-only property")
 
 	Func getSetPropertyMethodInvoked
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:SetPropertyMethodInvoked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:SetPropertyMethodInvoked","")
 
 	Func setSetPropertyMethodInvoked P1
 		raise("DotNet Error: SetPropertyMethodInvoked is a read-only property")
 
 	Func getTransactionsNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore').nHandle,"s24:TransactionsNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore'),"s24:TransactionsNotSupported","")
 
 	Func setTransactionsNotSupported P1
 		raise("DotNet Error: TransactionsNotSupported is a read-only property")
@@ -4656,7 +4656,7 @@ Class InterceptionResult from ValueType
 		return self
 
 	Func Suppress 
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore').nHandle,"s8:Suppress","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore'),"s8:Suppress","")
 
 	Func getIsSuppressed
 		return dnSend("s3:get",nHandle,"s12:IsSuppressed","")
@@ -5505,445 +5505,445 @@ Class RelationalEventId from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getConnectionOpening
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:ConnectionOpening","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionOpening","")
 
 	Func setConnectionOpening P1
 		raise("DotNet Error: ConnectionOpening is a read-only property")
 
 	Func getConnectionOpened
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:ConnectionOpened","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:ConnectionOpened","")
 
 	Func setConnectionOpened P1
 		raise("DotNet Error: ConnectionOpened is a read-only property")
 
 	Func getConnectionClosing
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:ConnectionClosing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionClosing","")
 
 	Func setConnectionClosing P1
 		raise("DotNet Error: ConnectionClosing is a read-only property")
 
 	Func getConnectionClosed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:ConnectionClosed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:ConnectionClosed","")
 
 	Func setConnectionClosed P1
 		raise("DotNet Error: ConnectionClosed is a read-only property")
 
 	Func getConnectionDisposing
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ConnectionDisposing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ConnectionDisposing","")
 
 	Func setConnectionDisposing P1
 		raise("DotNet Error: ConnectionDisposing is a read-only property")
 
 	Func getConnectionDisposed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:ConnectionDisposed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:ConnectionDisposed","")
 
 	Func setConnectionDisposed P1
 		raise("DotNet Error: ConnectionDisposed is a read-only property")
 
 	Func getConnectionError
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:ConnectionError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:ConnectionError","")
 
 	Func setConnectionError P1
 		raise("DotNet Error: ConnectionError is a read-only property")
 
 	Func getConnectionCreating
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:ConnectionCreating","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:ConnectionCreating","")
 
 	Func setConnectionCreating P1
 		raise("DotNet Error: ConnectionCreating is a read-only property")
 
 	Func getConnectionCreated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:ConnectionCreated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionCreated","")
 
 	Func setConnectionCreated P1
 		raise("DotNet Error: ConnectionCreated is a read-only property")
 
 	Func getCommandCanceled
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:CommandCanceled","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandCanceled","")
 
 	Func setCommandCanceled P1
 		raise("DotNet Error: CommandCanceled is a read-only property")
 
 	Func getCommandCreating
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:CommandCreating","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandCreating","")
 
 	Func setCommandCreating P1
 		raise("DotNet Error: CommandCreating is a read-only property")
 
 	Func getCommandCreated
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:CommandCreated","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s14:CommandCreated","")
 
 	Func setCommandCreated P1
 		raise("DotNet Error: CommandCreated is a read-only property")
 
 	Func getCommandInitialized
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:CommandInitialized","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:CommandInitialized","")
 
 	Func setCommandInitialized P1
 		raise("DotNet Error: CommandInitialized is a read-only property")
 
 	Func getCommandExecuting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:CommandExecuting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:CommandExecuting","")
 
 	Func setCommandExecuting P1
 		raise("DotNet Error: CommandExecuting is a read-only property")
 
 	Func getCommandExecuted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:CommandExecuted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandExecuted","")
 
 	Func setCommandExecuted P1
 		raise("DotNet Error: CommandExecuted is a read-only property")
 
 	Func getCommandError
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s12:CommandError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s12:CommandError","")
 
 	Func setCommandError P1
 		raise("DotNet Error: CommandError is a read-only property")
 
 	Func getTransactionStarted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:TransactionStarted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:TransactionStarted","")
 
 	Func setTransactionStarted P1
 		raise("DotNet Error: TransactionStarted is a read-only property")
 
 	Func getTransactionStarting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:TransactionStarting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionStarting","")
 
 	Func setTransactionStarting P1
 		raise("DotNet Error: TransactionStarting is a read-only property")
 
 	Func getTransactionUsed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:TransactionUsed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:TransactionUsed","")
 
 	Func setTransactionUsed P1
 		raise("DotNet Error: TransactionUsed is a read-only property")
 
 	Func getTransactionCommitting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TransactionCommitting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionCommitting","")
 
 	Func setTransactionCommitting P1
 		raise("DotNet Error: TransactionCommitting is a read-only property")
 
 	Func getTransactionCommitted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:TransactionCommitted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s20:TransactionCommitted","")
 
 	Func setTransactionCommitted P1
 		raise("DotNet Error: TransactionCommitted is a read-only property")
 
 	Func getTransactionRollingBack
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:TransactionRollingBack","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:TransactionRollingBack","")
 
 	Func setTransactionRollingBack P1
 		raise("DotNet Error: TransactionRollingBack is a read-only property")
 
 	Func getTransactionRolledBack
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TransactionRolledBack","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionRolledBack","")
 
 	Func setTransactionRolledBack P1
 		raise("DotNet Error: TransactionRolledBack is a read-only property")
 
 	Func getCreatingTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:CreatingTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:CreatingTransactionSavepoint","")
 
 	Func setCreatingTransactionSavepoint P1
 		raise("DotNet Error: CreatingTransactionSavepoint is a read-only property")
 
 	Func getCreatedTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:CreatedTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:CreatedTransactionSavepoint","")
 
 	Func setCreatedTransactionSavepoint P1
 		raise("DotNet Error: CreatedTransactionSavepoint is a read-only property")
 
 	Func getRollingBackToTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:RollingBackToTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s33:RollingBackToTransactionSavepoint","")
 
 	Func setRollingBackToTransactionSavepoint P1
 		raise("DotNet Error: RollingBackToTransactionSavepoint is a read-only property")
 
 	Func getRolledBackToTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:RolledBackToTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:RolledBackToTransactionSavepoint","")
 
 	Func setRolledBackToTransactionSavepoint P1
 		raise("DotNet Error: RolledBackToTransactionSavepoint is a read-only property")
 
 	Func getReleasingTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ReleasingTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:ReleasingTransactionSavepoint","")
 
 	Func setReleasingTransactionSavepoint P1
 		raise("DotNet Error: ReleasingTransactionSavepoint is a read-only property")
 
 	Func getReleasedTransactionSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:ReleasedTransactionSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:ReleasedTransactionSavepoint","")
 
 	Func setReleasedTransactionSavepoint P1
 		raise("DotNet Error: ReleasedTransactionSavepoint is a read-only property")
 
 	Func getTransactionDisposed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:TransactionDisposed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionDisposed","")
 
 	Func setTransactionDisposed P1
 		raise("DotNet Error: TransactionDisposed is a read-only property")
 
 	Func getTransactionError
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:TransactionError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:TransactionError","")
 
 	Func setTransactionError P1
 		raise("DotNet Error: TransactionError is a read-only property")
 
 	Func getAmbientTransactionWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:AmbientTransactionWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:AmbientTransactionWarning","")
 
 	Func setAmbientTransactionWarning P1
 		raise("DotNet Error: AmbientTransactionWarning is a read-only property")
 
 	Func getAmbientTransactionEnlisted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:AmbientTransactionEnlisted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s26:AmbientTransactionEnlisted","")
 
 	Func setAmbientTransactionEnlisted P1
 		raise("DotNet Error: AmbientTransactionEnlisted is a read-only property")
 
 	Func getExplicitTransactionEnlisted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:ExplicitTransactionEnlisted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:ExplicitTransactionEnlisted","")
 
 	Func setExplicitTransactionEnlisted P1
 		raise("DotNet Error: ExplicitTransactionEnlisted is a read-only property")
 
 	Func getDataReaderDisposing
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:DataReaderDisposing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:DataReaderDisposing","")
 
 	Func setDataReaderDisposing P1
 		raise("DotNet Error: DataReaderDisposing is a read-only property")
 
 	Func getDataReaderClosing
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:DataReaderClosing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:DataReaderClosing","")
 
 	Func setDataReaderClosing P1
 		raise("DotNet Error: DataReaderClosing is a read-only property")
 
 	Func getMigrateUsingConnection
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:MigrateUsingConnection","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:MigrateUsingConnection","")
 
 	Func setMigrateUsingConnection P1
 		raise("DotNet Error: MigrateUsingConnection is a read-only property")
 
 	Func getMigrationReverting
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:MigrationReverting","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationReverting","")
 
 	Func setMigrationReverting P1
 		raise("DotNet Error: MigrationReverting is a read-only property")
 
 	Func getMigrationApplying
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:MigrationApplying","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:MigrationApplying","")
 
 	Func setMigrationApplying P1
 		raise("DotNet Error: MigrationApplying is a read-only property")
 
 	Func getMigrationGeneratingDownScript
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:MigrationGeneratingDownScript","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:MigrationGeneratingDownScript","")
 
 	Func setMigrationGeneratingDownScript P1
 		raise("DotNet Error: MigrationGeneratingDownScript is a read-only property")
 
 	Func getMigrationGeneratingUpScript
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:MigrationGeneratingUpScript","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:MigrationGeneratingUpScript","")
 
 	Func setMigrationGeneratingUpScript P1
 		raise("DotNet Error: MigrationGeneratingUpScript is a read-only property")
 
 	Func getMigrationsNotApplied
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:MigrationsNotApplied","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s20:MigrationsNotApplied","")
 
 	Func setMigrationsNotApplied P1
 		raise("DotNet Error: MigrationsNotApplied is a read-only property")
 
 	Func getMigrationsNotFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:MigrationsNotFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationsNotFound","")
 
 	Func setMigrationsNotFound P1
 		raise("DotNet Error: MigrationsNotFound is a read-only property")
 
 	Func getMigrationAttributeMissingWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MigrationAttributeMissingWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationAttributeMissingWarning","")
 
 	Func setMigrationAttributeMissingWarning P1
 		raise("DotNet Error: MigrationAttributeMissingWarning is a read-only property")
 
 	Func getColumnOrderIgnoredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:ColumnOrderIgnoredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:ColumnOrderIgnoredWarning","")
 
 	Func setColumnOrderIgnoredWarning P1
 		raise("DotNet Error: ColumnOrderIgnoredWarning is a read-only property")
 
 	Func getPendingModelChangesWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:PendingModelChangesWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s26:PendingModelChangesWarning","")
 
 	Func setPendingModelChangesWarning P1
 		raise("DotNet Error: PendingModelChangesWarning is a read-only property")
 
 	Func getNonTransactionalMigrationOperationWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:NonTransactionalMigrationOperationWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s41:NonTransactionalMigrationOperationWarning","")
 
 	Func setNonTransactionalMigrationOperationWarning P1
 		raise("DotNet Error: NonTransactionalMigrationOperationWarning is a read-only property")
 
 	Func getAcquiringMigrationLock
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:AcquiringMigrationLock","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:AcquiringMigrationLock","")
 
 	Func setAcquiringMigrationLock P1
 		raise("DotNet Error: AcquiringMigrationLock is a read-only property")
 
 	Func getMigrationsUserTransactionWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MigrationsUserTransactionWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationsUserTransactionWarning","")
 
 	Func setMigrationsUserTransactionWarning P1
 		raise("DotNet Error: MigrationsUserTransactionWarning is a read-only property")
 
 	Func getModelSnapshotNotFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ModelSnapshotNotFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:ModelSnapshotNotFound","")
 
 	Func setModelSnapshotNotFound P1
 		raise("DotNet Error: ModelSnapshotNotFound is a read-only property")
 
 	Func getQueryPossibleUnintendedUseOfEqualsWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:QueryPossibleUnintendedUseOfEqualsWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s41:QueryPossibleUnintendedUseOfEqualsWarning","")
 
 	Func setQueryPossibleUnintendedUseOfEqualsWarning P1
 		raise("DotNet Error: QueryPossibleUnintendedUseOfEqualsWarning is a read-only property")
 
 	Func getMultipleCollectionIncludeWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MultipleCollectionIncludeWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MultipleCollectionIncludeWarning","")
 
 	Func setMultipleCollectionIncludeWarning P1
 		raise("DotNet Error: MultipleCollectionIncludeWarning is a read-only property")
 
 	Func getNonQueryOperationFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:NonQueryOperationFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s23:NonQueryOperationFailed","")
 
 	Func setNonQueryOperationFailed P1
 		raise("DotNet Error: NonQueryOperationFailed is a read-only property")
 
 	Func getExecuteDeleteFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ExecuteDeleteFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteDeleteFailed","")
 
 	Func setExecuteDeleteFailed P1
 		raise("DotNet Error: ExecuteDeleteFailed is a read-only property")
 
 	Func getExecuteUpdateFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ExecuteUpdateFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteUpdateFailed","")
 
 	Func setExecuteUpdateFailed P1
 		raise("DotNet Error: ExecuteUpdateFailed is a read-only property")
 
 	Func getModelValidationKeyDefaultValueWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:ModelValidationKeyDefaultValueWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:ModelValidationKeyDefaultValueWarning","")
 
 	Func setModelValidationKeyDefaultValueWarning P1
 		raise("DotNet Error: ModelValidationKeyDefaultValueWarning is a read-only property")
 
 	Func getBoolWithDefaultWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:BoolWithDefaultWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:BoolWithDefaultWarning","")
 
 	Func setBoolWithDefaultWarning P1
 		raise("DotNet Error: BoolWithDefaultWarning is a read-only property")
 
 	Func getAllIndexPropertiesNotToMappedToAnyTable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:AllIndexPropertiesNotToMappedToAnyTable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s39:AllIndexPropertiesNotToMappedToAnyTable","")
 
 	Func setAllIndexPropertiesNotToMappedToAnyTable P1
 		raise("DotNet Error: AllIndexPropertiesNotToMappedToAnyTable is a read-only property")
 
 	Func getIndexPropertiesBothMappedAndNotMappedToTable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:IndexPropertiesBothMappedAndNotMappedToTable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s44:IndexPropertiesBothMappedAndNotMappedToTable","")
 
 	Func setIndexPropertiesBothMappedAndNotMappedToTable P1
 		raise("DotNet Error: IndexPropertiesBothMappedAndNotMappedToTable is a read-only property")
 
 	Func getIndexPropertiesMappedToNonOverlappingTables
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:IndexPropertiesMappedToNonOverlappingTables","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s43:IndexPropertiesMappedToNonOverlappingTables","")
 
 	Func setIndexPropertiesMappedToNonOverlappingTables P1
 		raise("DotNet Error: IndexPropertiesMappedToNonOverlappingTables is a read-only property")
 
 	Func getKeyPropertiesNotMappedToTable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:KeyPropertiesNotMappedToTable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:KeyPropertiesNotMappedToTable","")
 
 	Func setKeyPropertiesNotMappedToTable P1
 		raise("DotNet Error: KeyPropertiesNotMappedToTable is a read-only property")
 
 	Func getStoredProcedureConcurrencyTokenNotMapped
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:StoredProcedureConcurrencyTokenNotMapped","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureConcurrencyTokenNotMapped","")
 
 	Func setStoredProcedureConcurrencyTokenNotMapped P1
 		raise("DotNet Error: StoredProcedureConcurrencyTokenNotMapped is a read-only property")
 
 	Func getTriggerOnNonRootTphEntity
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:TriggerOnNonRootTphEntity","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:TriggerOnNonRootTphEntity","")
 
 	Func setTriggerOnNonRootTphEntity P1
 		raise("DotNet Error: TriggerOnNonRootTphEntity is a read-only property")
 
 	Func getForeignKeyPropertiesMappedToUnrelatedTables
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:ForeignKeyPropertiesMappedToUnrelatedTables","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s43:ForeignKeyPropertiesMappedToUnrelatedTables","")
 
 	Func setForeignKeyPropertiesMappedToUnrelatedTables P1
 		raise("DotNet Error: ForeignKeyPropertiesMappedToUnrelatedTables is a read-only property")
 
 	Func getForeignKeyTpcPrincipalWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ForeignKeyTpcPrincipalWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:ForeignKeyTpcPrincipalWarning","")
 
 	Func setForeignKeyTpcPrincipalWarning P1
 		raise("DotNet Error: ForeignKeyTpcPrincipalWarning is a read-only property")
 
 	Func getTpcStoreGeneratedIdentityWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:TpcStoreGeneratedIdentityWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:TpcStoreGeneratedIdentityWarning","")
 
 	Func setTpcStoreGeneratedIdentityWarning P1
 		raise("DotNet Error: TpcStoreGeneratedIdentityWarning is a read-only property")
 
 	Func getOptionalDependentWithoutIdentifyingPropertyWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s50:OptionalDependentWithoutIdentifyingPropertyWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s50:OptionalDependentWithoutIdentifyingPropertyWarning","")
 
 	Func setOptionalDependentWithoutIdentifyingPropertyWarning P1
 		raise("DotNet Error: OptionalDependentWithoutIdentifyingPropertyWarning is a read-only property")
 
 	Func getDuplicateColumnOrders
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:DuplicateColumnOrders","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:DuplicateColumnOrders","")
 
 	Func setDuplicateColumnOrders P1
 		raise("DotNet Error: DuplicateColumnOrders is a read-only property")
 
 	Func getBatchReadyForExecution
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:BatchReadyForExecution","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:BatchReadyForExecution","")
 
 	Func setBatchReadyForExecution P1
 		raise("DotNet Error: BatchReadyForExecution is a read-only property")
 
 	Func getBatchSmallerThanMinBatchSize
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:BatchSmallerThanMinBatchSize","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:BatchSmallerThanMinBatchSize","")
 
 	Func setBatchSmallerThanMinBatchSize P1
 		raise("DotNet Error: BatchSmallerThanMinBatchSize is a read-only property")
 
 	Func getBatchExecutorFailedToRollbackToSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:BatchExecutorFailedToRollbackToSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s40:BatchExecutorFailedToRollbackToSavepoint","")
 
 	Func setBatchExecutorFailedToRollbackToSavepoint P1
 		raise("DotNet Error: BatchExecutorFailedToRollbackToSavepoint is a read-only property")
 
 	Func getBatchExecutorFailedToReleaseSavepoint
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:BatchExecutorFailedToReleaseSavepoint","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:BatchExecutorFailedToReleaseSavepoint","")
 
 	Func setBatchExecutorFailedToReleaseSavepoint P1
 		raise("DotNet Error: BatchExecutorFailedToReleaseSavepoint is a read-only property")
 
 	Func getOptionalDependentWithAllNullPropertiesWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s45:OptionalDependentWithAllNullPropertiesWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s45:OptionalDependentWithAllNullPropertiesWarning","")
 
 	Func setOptionalDependentWithAllNullPropertiesWarning P1
 		raise("DotNet Error: OptionalDependentWithAllNullPropertiesWarning is a read-only property")
 
 	Func getUnexpectedTrailingResultSetWhenSaving
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:UnexpectedTrailingResultSetWhenSaving","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:UnexpectedTrailingResultSetWhenSaving","")
 
 	Func setUnexpectedTrailingResultSetWhenSaving P1
 		raise("DotNet Error: UnexpectedTrailingResultSetWhenSaving is a read-only property")
@@ -5964,311 +5964,311 @@ Class RelationalLoggerExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TransactionStarting P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:TransactionStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func TransactionStartingAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:TransactionStartingAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s24:TransactionStartingAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionStartingAsync does not take one argument: use named arguments, TransactionStartingAsync([ :parameter = value, ... ])")
 
 	Func TransactionStarted P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:TransactionStarted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:TransactionStarted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func TransactionStartedAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:TransactionStartedAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s23:TransactionStartedAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:TransactionUsed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s15:TransactionUsed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func TransactionUsedAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:TransactionUsedAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:TransactionUsedAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TransactionCommitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionCommitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func TransactionCommittingAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:TransactionCommittingAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:TransactionCommittingAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionCommittingAsync does not take one argument: use named arguments, TransactionCommittingAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitted P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:TransactionCommitted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:TransactionCommitted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func TransactionCommittedAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:TransactionCommittedAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:TransactionCommittedAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRolledBack P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TransactionRolledBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionRolledBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func TransactionRolledBackAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:TransactionRolledBackAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:TransactionRolledBackAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:TransactionRollingBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:TransactionRollingBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func TransactionRollingBackAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:TransactionRollingBackAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:TransactionRollingBackAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionRollingBackAsync does not take one argument: use named arguments, TransactionRollingBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:CreatingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:CreatingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func CreatingTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:CreatingTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s33:CreatingTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreatingTransactionSavepointAsync does not take one argument: use named arguments, CreatingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func CreatedTransactionSavepoint P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:CreatedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:CreatedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func CreatedTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:CreatedTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:CreatedTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreatedTransactionSavepointAsync does not take one argument: use named arguments, CreatedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:RollingBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s33:RollingBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func RollingBackToTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:RollingBackToTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s38:RollingBackToTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RollingBackToTransactionSavepointAsync does not take one argument: use named arguments, RollingBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RolledBackToTransactionSavepoint P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:RolledBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:RolledBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func RolledBackToTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:RolledBackToTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:RolledBackToTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RolledBackToTransactionSavepointAsync does not take one argument: use named arguments, RolledBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ReleasingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:ReleasingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ReleasingTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:ReleasingTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s34:ReleasingTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReleasingTransactionSavepointAsync does not take one argument: use named arguments, ReleasingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasedTransactionSavepoint P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:ReleasedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:ReleasedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ReleasedTransactionSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:ReleasedTransactionSavepointAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s33:ReleasedTransactionSavepointAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReleasedTransactionSavepointAsync does not take one argument: use named arguments, ReleasedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionDisposed P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:TransactionDisposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionDisposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func TriggerOnNonRootTphEntity P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:TriggerOnNonRootTphEntity",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:TriggerOnNonRootTphEntity",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func TransactionError P1,P2,P3,P4,P5,P6,P7,P8
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:TransactionError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:TransactionError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 		return self
 
 	Func TransactionErrorAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TransactionErrorAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionErrorAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TransactionErrorAsync does not take one argument: use named arguments, TransactionErrorAsync([ :parameter = value, ... ])")
 
 	Func AmbientTransactionWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:AmbientTransactionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:AmbientTransactionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func AmbientTransactionEnlisted P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:AmbientTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:AmbientTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExplicitTransactionEnlisted P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:ExplicitTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:ExplicitTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MigrateUsingConnection P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:MigrateUsingConnection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:MigrateUsingConnection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MigrationReverting P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:MigrationReverting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationReverting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MigrationApplying P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:MigrationApplying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s17:MigrationApplying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MigrationGeneratingDownScript P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:MigrationGeneratingDownScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:MigrationGeneratingDownScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func MigrationGeneratingUpScript P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:MigrationGeneratingUpScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:MigrationGeneratingUpScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func MigrationsNotApplied P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:MigrationsNotApplied",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:MigrationsNotApplied",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MigrationsNotFound P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:MigrationsNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationsNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MigrationAttributeMissingWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MigrationAttributeMissingWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationAttributeMissingWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func PendingModelChangesWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:PendingModelChangesWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:PendingModelChangesWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func NonDeterministicModel P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:NonDeterministicModel",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:NonDeterministicModel",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ModelSnapshotNotFound P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ModelSnapshotNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:ModelSnapshotNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func NonTransactionalMigrationOperationWarning P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:NonTransactionalMigrationOperationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s41:NonTransactionalMigrationOperationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func AcquiringMigrationLock P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:AcquiringMigrationLock",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:AcquiringMigrationLock",dnPackItem(P1))
 		return self
 
 	Func MigrationsUserTransactionWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MigrationsUserTransactionWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationsUserTransactionWarning",dnPackItem(P1))
 		return self
 
 	Func QueryPossibleUnintendedUseOfEqualsWarning P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:QueryPossibleUnintendedUseOfEqualsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s41:QueryPossibleUnintendedUseOfEqualsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExecuteDeleteFailed P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ExecuteDeleteFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteDeleteFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExecuteUpdateFailed P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ExecuteUpdateFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteUpdateFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func NonQueryOperationFailed P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:NonQueryOperationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s23:NonQueryOperationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func MultipleCollectionIncludeWarning P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:MultipleCollectionIncludeWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MultipleCollectionIncludeWarning",dnPackItem(P1))
 		return self
 
 	Func ModelValidationKeyDefaultValueWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:ModelValidationKeyDefaultValueWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:ModelValidationKeyDefaultValueWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func BoolWithDefaultWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:BoolWithDefaultWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:BoolWithDefaultWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func BatchReadyForExecution P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:BatchReadyForExecution",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:BatchReadyForExecution",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func BatchSmallerThanMinBatchSize P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:BatchSmallerThanMinBatchSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:BatchSmallerThanMinBatchSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func AllIndexPropertiesNotToMappedToAnyTable P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:AllIndexPropertiesNotToMappedToAnyTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s39:AllIndexPropertiesNotToMappedToAnyTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func IndexPropertiesBothMappedAndNotMappedToTable P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:IndexPropertiesBothMappedAndNotMappedToTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s44:IndexPropertiesBothMappedAndNotMappedToTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func IndexPropertiesMappedToNonOverlappingTables P1,P2,P3,P4,P5,P6,P7
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:IndexPropertiesMappedToNonOverlappingTables",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s43:IndexPropertiesMappedToNonOverlappingTables",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 		return self
 
 	Func KeyPropertiesNotMappedToTable P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:KeyPropertiesNotMappedToTable",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:KeyPropertiesNotMappedToTable",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ForeignKeyPropertiesMappedToUnrelatedTables P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:ForeignKeyPropertiesMappedToUnrelatedTables",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s43:ForeignKeyPropertiesMappedToUnrelatedTables",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ForeignKeyTpcPrincipalWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ForeignKeyTpcPrincipalWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:ForeignKeyTpcPrincipalWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func TpcStoreGeneratedIdentityWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:TpcStoreGeneratedIdentityWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:TpcStoreGeneratedIdentityWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OptionalDependentWithoutIdentifyingPropertyWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s50:OptionalDependentWithoutIdentifyingPropertyWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s50:OptionalDependentWithoutIdentifyingPropertyWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func StoredProcedureConcurrencyTokenNotMapped P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:StoredProcedureConcurrencyTokenNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureConcurrencyTokenNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func BatchExecutorFailedToRollbackToSavepoint P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:BatchExecutorFailedToRollbackToSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s40:BatchExecutorFailedToRollbackToSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func BatchExecutorFailedToReleaseSavepoint P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:BatchExecutorFailedToReleaseSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:BatchExecutorFailedToReleaseSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func OptionalDependentWithAllNullPropertiesWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s45:OptionalDependentWithAllNullPropertiesWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s45:OptionalDependentWithAllNullPropertiesWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OptionalDependentWithAllNullPropertiesWarningSensitive P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s54:OptionalDependentWithAllNullPropertiesWarningSensitive",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s54:OptionalDependentWithAllNullPropertiesWarningSensitive",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DuplicateColumnOrders P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:DuplicateColumnOrders",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:DuplicateColumnOrders",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ColumnOrderIgnoredWarning P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:ColumnOrderIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:ColumnOrderIgnoredWarning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func UnexpectedTrailingResultSetWhenSaving P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:UnexpectedTrailingResultSetWhenSaving",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:UnexpectedTrailingResultSetWhenSaving",dnPackItem(P1))
 		return self
 
 
@@ -6335,1003 +6335,1003 @@ Class RelationalStrings from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AbstractTpc P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s11:AbstractTpc",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s11:AbstractTpc",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CannotProjectNullableComplexType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:CannotProjectNullableComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:CannotProjectNullableComplexType",dnPackItem(P1))
 
 	Func CannotTranslateNonConstantNewArrayExpression P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:CannotTranslateNonConstantNewArrayExpression",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:CannotTranslateNonConstantNewArrayExpression",dnPackItem(P1))
 
 	Func CompiledModelFunctionTranslation P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:CompiledModelFunctionTranslation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:CompiledModelFunctionTranslation",dnPackItem(P1))
 
 	Func ComputedColumnSqlUnspecified P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:ComputedColumnSqlUnspecified",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:ComputedColumnSqlUnspecified",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConflictingColumnServerGeneration P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:ConflictingColumnServerGeneration",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:ConflictingColumnServerGeneration",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConflictingOriginalRowValues P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:ConflictingOriginalRowValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:ConflictingOriginalRowValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ConflictingOriginalRowValuesSensitive P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:ConflictingOriginalRowValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:ConflictingOriginalRowValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func ConflictingRowUpdateTypes P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:ConflictingRowUpdateTypes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:ConflictingRowUpdateTypes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConflictingRowUpdateTypesSensitive P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:ConflictingRowUpdateTypesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:ConflictingRowUpdateTypesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func ConflictingRowValues P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:ConflictingRowValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:ConflictingRowValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ConflictingRowValuesSensitive P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ConflictingRowValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:ConflictingRowValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func ConflictingSeedValues P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ConflictingSeedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:ConflictingSeedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConflictingSeedValuesSensitive P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:ConflictingSeedValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:ConflictingSeedValuesSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func ConflictingTypeMappingsInferredForColumn P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:ConflictingTypeMappingsInferredForColumn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:ConflictingTypeMappingsInferredForColumn",dnPackItem(P1))
 
 	Func ContainerTypeOnNestedOwnedEntityType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:ContainerTypeOnNestedOwnedEntityType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:ContainerTypeOnNestedOwnedEntityType",dnPackItem(P1))
 
 	Func ContainerTypeOnNonContainer P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:ContainerTypeOnNonContainer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:ContainerTypeOnNonContainer",dnPackItem(P1))
 
 	Func CreateIndexOperationWithInvalidSortOrder P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:CreateIndexOperationWithInvalidSortOrder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:CreateIndexOperationWithInvalidSortOrder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DataOperationNoProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:DataOperationNoProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:DataOperationNoProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DataOperationNoTable P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:DataOperationNoTable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:DataOperationNoTable",dnPackItem(P1))
 
 	Func DbFunctionExpressionIsNotMethodCall P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:DbFunctionExpressionIsNotMethodCall",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:DbFunctionExpressionIsNotMethodCall",dnPackItem(P1))
 
 	Func DbFunctionGenericMethodNotSupported P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:DbFunctionGenericMethodNotSupported",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:DbFunctionGenericMethodNotSupported",dnPackItem(P1))
 
 	Func DbFunctionInvalidInstanceType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:DbFunctionInvalidInstanceType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:DbFunctionInvalidInstanceType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DbFunctionInvalidIQueryableOwnedReturnType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:DbFunctionInvalidIQueryableOwnedReturnType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:DbFunctionInvalidIQueryableOwnedReturnType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DbFunctionInvalidIQueryableReturnType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:DbFunctionInvalidIQueryableReturnType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:DbFunctionInvalidIQueryableReturnType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DbFunctionInvalidParameterName P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:DbFunctionInvalidParameterName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:DbFunctionInvalidParameterName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DbFunctionInvalidParameterType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:DbFunctionInvalidParameterType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:DbFunctionInvalidParameterType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DbFunctionInvalidReturnEntityType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:DbFunctionInvalidReturnEntityType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:DbFunctionInvalidReturnEntityType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DbFunctionInvalidReturnType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:DbFunctionInvalidReturnType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:DbFunctionInvalidReturnType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DbFunctionNonScalarCustomTranslation P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:DbFunctionNonScalarCustomTranslation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:DbFunctionNonScalarCustomTranslation",dnPackItem(P1))
 
 	Func DbFunctionNullableValueReturnType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:DbFunctionNullableValueReturnType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:DbFunctionNullableValueReturnType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DefaultValueSqlUnspecified P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:DefaultValueSqlUnspecified",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:DefaultValueSqlUnspecified",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DefaultValueUnspecified P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:DefaultValueUnspecified",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:DefaultValueUnspecified",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DeleteDataOperationNoModel P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:DeleteDataOperationNoModel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:DeleteDataOperationNoModel",dnPackItem(P1))
 
 	Func DeleteDataOperationTypesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:DeleteDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:DeleteDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DeleteDataOperationValuesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:DeleteDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:DeleteDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DerivedStrategy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:DerivedStrategy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:DerivedStrategy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicateCheckConstraint P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:DuplicateCheckConstraint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:DuplicateCheckConstraint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DuplicateCheckConstraintSqlMismatch P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:DuplicateCheckConstraintSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:DuplicateCheckConstraintSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func DuplicateColumnNameCollationMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:DuplicateColumnNameCollationMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:DuplicateColumnNameCollationMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameCommentMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:DuplicateColumnNameCommentMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:DuplicateColumnNameCommentMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameComputedSqlMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:DuplicateColumnNameComputedSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:DuplicateColumnNameComputedSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameConcurrencyTokenMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:DuplicateColumnNameConcurrencyTokenMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s43:DuplicateColumnNameConcurrencyTokenMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateColumnNameDataTypeMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:DuplicateColumnNameDataTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:DuplicateColumnNameDataTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameDefaultSqlMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:DuplicateColumnNameDefaultSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:DuplicateColumnNameDefaultSqlMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameFixedLengthMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:DuplicateColumnNameFixedLengthMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:DuplicateColumnNameFixedLengthMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateColumnNameIsStoredMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:DuplicateColumnNameIsStoredMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:DuplicateColumnNameIsStoredMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameMaxLengthMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:DuplicateColumnNameMaxLengthMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:DuplicateColumnNameMaxLengthMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameNullabilityMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:DuplicateColumnNameNullabilityMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:DuplicateColumnNameNullabilityMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateColumnNameOrderMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateColumnNameOrderMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateColumnNameOrderMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNamePrecisionMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:DuplicateColumnNamePrecisionMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:DuplicateColumnNamePrecisionMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameProviderTypeMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:DuplicateColumnNameProviderTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:DuplicateColumnNameProviderTypeMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameSameHierarchy P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateColumnNameSameHierarchy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateColumnNameSameHierarchy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateColumnNameScaleMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateColumnNameScaleMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateColumnNameScaleMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateColumnNameUnicodenessMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:DuplicateColumnNameUnicodenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:DuplicateColumnNameUnicodenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateForeignKeyColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:DuplicateForeignKeyColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:DuplicateForeignKeyColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateForeignKeyDeleteBehaviorMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:DuplicateForeignKeyDeleteBehaviorMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:DuplicateForeignKeyDeleteBehaviorMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateForeignKeyPrincipalColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:DuplicateForeignKeyPrincipalColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:DuplicateForeignKeyPrincipalColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateForeignKeyPrincipalTableMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:DuplicateForeignKeyPrincipalTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:DuplicateForeignKeyPrincipalTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateForeignKeyTableMismatch P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateForeignKeyTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateForeignKeyTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func DuplicateForeignKeyUniquenessMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:DuplicateForeignKeyUniquenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:DuplicateForeignKeyUniquenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateIndexColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:DuplicateIndexColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:DuplicateIndexColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateIndexFiltersMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:DuplicateIndexFiltersMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:DuplicateIndexFiltersMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateIndexSortOrdersMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateIndexSortOrdersMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateIndexSortOrdersMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateIndexTableMismatch P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:DuplicateIndexTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:DuplicateIndexTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func DuplicateIndexUniquenessMismatch P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DuplicateIndexUniquenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DuplicateIndexUniquenessMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func DuplicateKeyColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:DuplicateKeyColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:DuplicateKeyColumnMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
 
 	Func DuplicateKeyTableMismatch P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:DuplicateKeyTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:DuplicateKeyTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func DuplicateSeedData P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:DuplicateSeedData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s17:DuplicateSeedData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DuplicateSeedDataSensitive P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:DuplicateSeedDataSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:DuplicateSeedDataSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntityShortNameNotUnique P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:EntityShortNameNotUnique",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:EntityShortNameNotUnique",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntitySplittingConflictingMainFragment P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:EntitySplittingConflictingMainFragment",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:EntitySplittingConflictingMainFragment",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntitySplittingHierarchy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:EntitySplittingHierarchy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:EntitySplittingHierarchy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntitySplittingMissingPrimaryKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:EntitySplittingMissingPrimaryKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:EntitySplittingMissingPrimaryKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntitySplittingMissingProperties P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:EntitySplittingMissingProperties",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:EntitySplittingMissingProperties",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntitySplittingMissingPropertiesMainFragment P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:EntitySplittingMissingPropertiesMainFragment",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:EntitySplittingMissingPropertiesMainFragment",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EntitySplittingMissingRequiredPropertiesOptionalDependent P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s57:EntitySplittingMissingRequiredPropertiesOptionalDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s57:EntitySplittingMissingRequiredPropertiesOptionalDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntitySplittingUnmappedMainFragment P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:EntitySplittingUnmappedMainFragment",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:EntitySplittingUnmappedMainFragment",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EntitySplittingUnmatchedMainTableSplitting P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:EntitySplittingUnmatchedMainTableSplitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:EntitySplittingUnmatchedMainTableSplitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ErrorMaterializingProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:ErrorMaterializingProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:ErrorMaterializingProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ErrorMaterializingPropertyNullReference P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:ErrorMaterializingPropertyNullReference",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:ErrorMaterializingPropertyNullReference",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ErrorMaterializingValueInvalidCast P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:ErrorMaterializingValueInvalidCast",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:ErrorMaterializingValueInvalidCast",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ErrorMaterializingValueNullReference P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:ErrorMaterializingValueNullReference",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:ErrorMaterializingValueNullReference",dnPackItem(P1))
 
 	Func ExecuteDeleteOnTableSplitting P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ExecuteDeleteOnTableSplitting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:ExecuteDeleteOnTableSplitting",dnPackItem(P1))
 
 	Func ExecuteOperationOnEntitySplitting P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:ExecuteOperationOnEntitySplitting",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:ExecuteOperationOnEntitySplitting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s58:ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s58:ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExecuteOperationOnTPC P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ExecuteOperationOnTPC",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:ExecuteOperationOnTPC",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExecuteOperationOnTPT P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:ExecuteOperationOnTPT",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:ExecuteOperationOnTPT",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExecuteOperationWithUnsupportedOperatorInSqlGeneration P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s54:ExecuteOperationWithUnsupportedOperatorInSqlGeneration",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s54:ExecuteOperationWithUnsupportedOperatorInSqlGeneration",dnPackItem(P1))
 
 	Func ExecuteUpdateSubqueryNotSupportedOverComplexTypes P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s49:ExecuteUpdateSubqueryNotSupportedOverComplexTypes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s49:ExecuteUpdateSubqueryNotSupportedOverComplexTypes",dnPackItem(P1))
 
 	Func FromSqlMissingColumn P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:FromSqlMissingColumn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:FromSqlMissingColumn",dnPackItem(P1))
 
 	Func FunctionOverrideMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:FunctionOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:FunctionOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasDataNotSupportedForEntitiesMappedToJson P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:HasDataNotSupportedForEntitiesMappedToJson",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:HasDataNotSupportedForEntitiesMappedToJson",dnPackItem(P1))
 
 	Func IncompatibleTableCommentMismatch P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:IncompatibleTableCommentMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:IncompatibleTableCommentMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func IncompatibleTableDerivedRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:IncompatibleTableDerivedRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:IncompatibleTableDerivedRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncompatibleTableExcludedMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:IncompatibleTableExcludedMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:IncompatibleTableExcludedMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncompatibleTableKeyNameMismatch P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:IncompatibleTableKeyNameMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:IncompatibleTableKeyNameMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func IncompatibleTableNoRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s31:IncompatibleTableNoRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s31:IncompatibleTableNoRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncompatibleViewDerivedRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:IncompatibleViewDerivedRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:IncompatibleViewDerivedRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncompatibleViewNoRelationship P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:IncompatibleViewNoRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:IncompatibleViewNoRelationship",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InconsistentNumberOfArguments P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:InconsistentNumberOfArguments",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:InconsistentNumberOfArguments",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IncorrectDefaultValueType P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:IncorrectDefaultValueType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:IncorrectDefaultValueType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func InsertDataOperationNoModel P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:InsertDataOperationNoModel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:InsertDataOperationNoModel",dnPackItem(P1))
 
 	Func InsertDataOperationTypesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:InsertDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:InsertDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InsertDataOperationValuesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:InsertDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:InsertDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidCommandTimeout P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:InvalidCommandTimeout",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:InvalidCommandTimeout",dnPackItem(P1))
 
 	Func InvalidDerivedTypeInEntityProjection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:InvalidDerivedTypeInEntityProjection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:InvalidDerivedTypeInEntityProjection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidFromSqlArguments P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:InvalidFromSqlArguments",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:InvalidFromSqlArguments",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidKeySelectorForGroupBy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:InvalidKeySelectorForGroupBy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:InvalidKeySelectorForGroupBy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidMappedFunctionDerivedType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:InvalidMappedFunctionDerivedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:InvalidMappedFunctionDerivedType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidMappedFunctionUnmatchedReturn P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:InvalidMappedFunctionUnmatchedReturn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:InvalidMappedFunctionUnmatchedReturn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func InvalidMappedFunctionWithParameters P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:InvalidMappedFunctionWithParameters",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:InvalidMappedFunctionWithParameters",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func InvalidMappedSqlQueryDerivedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:InvalidMappedSqlQueryDerivedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:InvalidMappedSqlQueryDerivedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidMappingStrategy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:InvalidMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s22:InvalidMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InvalidMaxBatchSize P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:InvalidMaxBatchSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s19:InvalidMaxBatchSize",dnPackItem(P1))
 
 	Func InvalidMinBatchSize P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:InvalidMinBatchSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s19:InvalidMinBatchSize",dnPackItem(P1))
 
 	Func InvalidPropertyInSetProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:InvalidPropertyInSetProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:InvalidPropertyInSetProperty",dnPackItem(P1))
 
 	Func InvalidValueInSetProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:InvalidValueInSetProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:InvalidValueInSetProperty",dnPackItem(P1))
 
 	Func JsonCantNavigateToParentEntity P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:JsonCantNavigateToParentEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:JsonCantNavigateToParentEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func JsonEntityMappedToDifferentTableOrViewThanOwner P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s47:JsonEntityMappedToDifferentTableOrViewThanOwner",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s47:JsonEntityMappedToDifferentTableOrViewThanOwner",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func JsonEntityMissingKeyInformation P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s31:JsonEntityMissingKeyInformation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s31:JsonEntityMissingKeyInformation",dnPackItem(P1))
 
 	Func JsonEntityMultipleRootsMappedToTheSameJsonColumn P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s48:JsonEntityMultipleRootsMappedToTheSameJsonColumn",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s48:JsonEntityMultipleRootsMappedToTheSameJsonColumn",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s57:JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s57:JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery",dnPackItem(P1))
 
 	Func JsonEntityOwnedByNonJsonOwnedType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:JsonEntityOwnedByNonJsonOwnedType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:JsonEntityOwnedByNonJsonOwnedType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityReferencingRegularEntity P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:JsonEntityReferencingRegularEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:JsonEntityReferencingRegularEntity",dnPackItem(P1))
 
 	Func JsonEntityWithDefaultValueSetOnItsProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:JsonEntityWithDefaultValueSetOnItsProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:JsonEntityWithDefaultValueSetOnItsProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s55:JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s55:JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityWithExplicitlyConfiguredKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:JsonEntityWithExplicitlyConfiguredKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:JsonEntityWithExplicitlyConfiguredKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityWithIncorrectNumberOfKeyProperties P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:JsonEntityWithIncorrectNumberOfKeyProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:JsonEntityWithIncorrectNumberOfKeyProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func JsonEntityWithMultiplePropertiesMappedToSameJsonProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s56:JsonEntityWithMultiplePropertiesMappedToSameJsonProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s56:JsonEntityWithMultiplePropertiesMappedToSameJsonProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonEntityWithNonTphInheritanceOnOwner P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:JsonEntityWithNonTphInheritanceOnOwner",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:JsonEntityWithNonTphInheritanceOnOwner",dnPackItem(P1))
 
 	Func JsonEntityWithOwnerNotMappedToTableOrView P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:JsonEntityWithOwnerNotMappedToTableOrView",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:JsonEntityWithOwnerNotMappedToTableOrView",dnPackItem(P1))
 
 	Func JsonErrorExtractingJsonProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s31:JsonErrorExtractingJsonProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s31:JsonErrorExtractingJsonProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s84:JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s84:JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s68:JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s68:JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JsonProjectingQueryableOperationNoTrackingWithIdentityResolution P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s64:JsonProjectingQueryableOperationNoTrackingWithIdentityResolution",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s64:JsonProjectingQueryableOperationNoTrackingWithIdentityResolution",dnPackItem(P1))
 
 	Func JsonRequiredEntityWithNullJson P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:JsonRequiredEntityWithNullJson",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:JsonRequiredEntityWithNullJson",dnPackItem(P1))
 
 	Func JsonValueReadWriterMissingOnTypeMapping P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:JsonValueReadWriterMissingOnTypeMapping",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:JsonValueReadWriterMissingOnTypeMapping",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func KeylessMappingStrategy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:KeylessMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s22:KeylessMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LastUsedWithoutOrderBy P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:LastUsedWithoutOrderBy",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s22:LastUsedWithoutOrderBy",dnPackItem(P1))
 
 	Func MappedFunctionNotFound P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:MappedFunctionNotFound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s22:MappedFunctionNotFound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MethodOnNonTphRootNotSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:MethodOnNonTphRootNotSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:MethodOnNonTphRootNotSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MigrationNotFound P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:MigrationNotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s17:MigrationNotFound",dnPackItem(P1))
 
 	Func MigrationSqlGenerationMissing P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:MigrationSqlGenerationMissing",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:MigrationSqlGenerationMissing",dnPackItem(P1))
 
 	Func MissingConcurrencyColumn P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:MissingConcurrencyColumn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:MissingConcurrencyColumn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MissingParameterValue P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:MissingParameterValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:MissingParameterValue",dnPackItem(P1))
 
 	Func ModificationCommandInvalidEntityState P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:ModificationCommandInvalidEntityState",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:ModificationCommandInvalidEntityState",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ModificationCommandInvalidEntityStateSensitive P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s46:ModificationCommandInvalidEntityStateSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s46:ModificationCommandInvalidEntityStateSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MultipleTablesInExecuteUpdate P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:MultipleTablesInExecuteUpdate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:MultipleTablesInExecuteUpdate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NamedConnectionStringNotFound P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:NamedConnectionStringNotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:NamedConnectionStringNotFound",dnPackItem(P1))
 
 	Func NestedCollectionsNotSupported P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:NestedCollectionsNotSupported",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:NestedCollectionsNotSupported",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NoAliasOnTable P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:NoAliasOnTable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s14:NoAliasOnTable",dnPackItem(P1))
 
 	Func NonConstantOrParameterAsInExpressionValue P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:NonConstantOrParameterAsInExpressionValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:NonConstantOrParameterAsInExpressionValue",dnPackItem(P1))
 
 	Func NonScalarFunctionCannotBeNullable P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:NonScalarFunctionCannotBeNullable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:NonScalarFunctionCannotBeNullable",dnPackItem(P1))
 
 	Func NonScalarFunctionParameterCannotPropagatesNullability P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s53:NonScalarFunctionParameterCannotPropagatesNullability",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s53:NonScalarFunctionParameterCannotPropagatesNullability",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonTphDiscriminatorValueNotString P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:NonTphDiscriminatorValueNotString",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:NonTphDiscriminatorValueNotString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonTphMappingStrategy P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:NonTphMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:NonTphMappingStrategy",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NonTphStoredProcedureClash P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:NonTphStoredProcedureClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:NonTphStoredProcedureClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NonTphTableClash P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:NonTphTableClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s16:NonTphTableClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NonTphViewClash P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:NonTphViewClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:NonTphViewClash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NullKeyValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s12:NullKeyValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s12:NullKeyValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NullTypeMappingInSqlTree P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:NullTypeMappingInSqlTree",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:NullTypeMappingInSqlTree",dnPackItem(P1))
 
 	Func OneOfThreeValuesMustBeSet P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:OneOfThreeValuesMustBeSet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:OneOfThreeValuesMustBeSet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func OneOfTwoValuesMustBeSet P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:OneOfTwoValuesMustBeSet",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:OneOfTwoValuesMustBeSet",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OptionalDependentWithDependentWithoutIdentifyingProperty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s56:OptionalDependentWithDependentWithoutIdentifyingProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s56:OptionalDependentWithDependentWithoutIdentifyingProperty",dnPackItem(P1))
 
 	Func ParameterNotObjectArray P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:ParameterNotObjectArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:ParameterNotObjectArray",dnPackItem(P1))
 
 	Func PropertyNotMapped P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:PropertyNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s17:PropertyNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func PropertyNotMappedToTable P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:PropertyNotMappedToTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:PropertyNotMappedToTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadonlyEntitySaved P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:ReadonlyEntitySaved",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s19:ReadonlyEntitySaved",dnPackItem(P1))
 
 	Func SelectExpressionNonTphWithCustomTable P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:SelectExpressionNonTphWithCustomTable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:SelectExpressionNonTphWithCustomTable",dnPackItem(P1))
 
 	Func SetOperationOverDifferentStructuralTypes P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:SetOperationOverDifferentStructuralTypes",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:SetOperationOverDifferentStructuralTypes",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetOperationsRequireAtLeastOneSideWithValidTypeMapping P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s54:SetOperationsRequireAtLeastOneSideWithValidTypeMapping",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s54:SetOperationsRequireAtLeastOneSideWithValidTypeMapping",dnPackItem(P1))
 
 	Func SqlQueryOverrideMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:SqlQueryOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:SqlQueryOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SqlQueryUnmappedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:SqlQueryUnmappedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:SqlQueryUnmappedType",dnPackItem(P1))
 
 	Func StoredKeyTypesNotConvertable P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:StoredKeyTypesNotConvertable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:StoredKeyTypesNotConvertable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func StoredProcedureCurrentValueParameterOnDelete P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:StoredProcedureCurrentValueParameterOnDelete",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:StoredProcedureCurrentValueParameterOnDelete",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDeleteNonKeyProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:StoredProcedureDeleteNonKeyProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:StoredProcedureDeleteNonKeyProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureDuplicateOriginalValueParameter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s46:StoredProcedureDuplicateOriginalValueParameter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s46:StoredProcedureDuplicateOriginalValueParameter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDuplicateParameter P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:StoredProcedureDuplicateParameter",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:StoredProcedureDuplicateParameter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDuplicateParameterName P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:StoredProcedureDuplicateParameterName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:StoredProcedureDuplicateParameterName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDuplicateResultColumn P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:StoredProcedureDuplicateResultColumn",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:StoredProcedureDuplicateResultColumn",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDuplicateResultColumnName P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:StoredProcedureDuplicateResultColumnName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureDuplicateResultColumnName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureDuplicateRowsAffectedParameter P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s45:StoredProcedureDuplicateRowsAffectedParameter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s45:StoredProcedureDuplicateRowsAffectedParameter",dnPackItem(P1))
 
 	Func StoredProcedureDuplicateRowsAffectedResultColumn P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s48:StoredProcedureDuplicateRowsAffectedResultColumn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s48:StoredProcedureDuplicateRowsAffectedResultColumn",dnPackItem(P1))
 
 	Func StoredProcedureGeneratedPropertiesNotMapped P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s43:StoredProcedureGeneratedPropertiesNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s43:StoredProcedureGeneratedPropertiesNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureInputParameterForInsertNonSaveProperty P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s53:StoredProcedureInputParameterForInsertNonSaveProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s53:StoredProcedureInputParameterForInsertNonSaveProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func StoredProcedureInputParameterForUpdateNonSaveProperty P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s53:StoredProcedureInputParameterForUpdateNonSaveProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s53:StoredProcedureInputParameterForUpdateNonSaveProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func StoredProcedureKeyless P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s22:StoredProcedureKeyless",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s22:StoredProcedureKeyless",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureNoName P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:StoredProcedureNoName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:StoredProcedureNoName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureOriginalValueParameterOnInsert P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s45:StoredProcedureOriginalValueParameterOnInsert",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s45:StoredProcedureOriginalValueParameterOnInsert",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureOutputParameterConflict P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:StoredProcedureOutputParameterConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:StoredProcedureOutputParameterConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureOutputParameterNotGenerated P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:StoredProcedureOutputParameterNotGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:StoredProcedureOutputParameterNotGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureOverrideMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s31:StoredProcedureOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s31:StoredProcedureOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureParameterInvalidConfiguration P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:StoredProcedureParameterInvalidConfiguration",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:StoredProcedureParameterInvalidConfiguration",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureParameterInvalidDirection P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:StoredProcedureParameterInvalidDirection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureParameterInvalidDirection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureParameterNotFound P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:StoredProcedureParameterNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:StoredProcedureParameterNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedurePropertiesNotMapped P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:StoredProcedurePropertiesNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:StoredProcedurePropertiesNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureResultColumnDelete P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:StoredProcedureResultColumnDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:StoredProcedureResultColumnDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureResultColumnNotFound P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:StoredProcedureResultColumnNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:StoredProcedureResultColumnNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureResultColumnNotGenerated P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:StoredProcedureResultColumnNotGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:StoredProcedureResultColumnNotGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureResultColumnParameterConflict P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:StoredProcedureResultColumnParameterConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:StoredProcedureResultColumnParameterConflict",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureRowsAffectedForInsert P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:StoredProcedureRowsAffectedForInsert",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:StoredProcedureRowsAffectedForInsert",dnPackItem(P1))
 
 	Func StoredProcedureRowsAffectedNotPopulated P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:StoredProcedureRowsAffectedNotPopulated",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:StoredProcedureRowsAffectedNotPopulated",dnPackItem(P1))
 
 	Func StoredProcedureRowsAffectedReturnConflictingParameter P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s53:StoredProcedureRowsAffectedReturnConflictingParameter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s53:StoredProcedureRowsAffectedReturnConflictingParameter",dnPackItem(P1))
 
 	Func StoredProcedureRowsAffectedWithResultColumns P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:StoredProcedureRowsAffectedWithResultColumns",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:StoredProcedureRowsAffectedWithResultColumns",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StoredProcedureTableSharing P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:StoredProcedureTableSharing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:StoredProcedureTableSharing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureTphDuplicate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:StoredProcedureTphDuplicate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:StoredProcedureTphDuplicate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StoredProcedureUnmapped P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:StoredProcedureUnmapped",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:StoredProcedureUnmapped",dnPackItem(P1))
 
 	Func SubqueryOverComplexTypesNotSupported P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:SubqueryOverComplexTypesNotSupported",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:SubqueryOverComplexTypesNotSupported",dnPackItem(P1))
 
 	Func TableNotMappedEntityType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:TableNotMappedEntityType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:TableNotMappedEntityType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TableOverrideMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TableOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:TableOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TableValuedFunctionNonTph P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:TableValuedFunctionNonTph",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:TableValuedFunctionNonTph",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TimeoutTooBig P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s13:TimeoutTooBig",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s13:TimeoutTooBig",dnPackItem(P1))
 
 	Func TimeoutTooSmall P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:TimeoutTooSmall",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:TimeoutTooSmall",dnPackItem(P1))
 
 	Func TooFewReaderFields P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:TooFewReaderFields",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s18:TooFewReaderFields",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TpcTableSharing P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:TpcTableSharing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:TpcTableSharing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func TpcTableSharingDependent P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:TpcTableSharingDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:TpcTableSharingDependent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TphDbFunctionMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s21:TphDbFunctionMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s21:TphDbFunctionMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TphStoredProcedureMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:TphStoredProcedureMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:TphStoredProcedureMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TphTableMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:TphTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s16:TphTableMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TphViewMismatch P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:TphViewMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:TphViewMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func TriggerWithMismatchedTable P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:TriggerWithMismatchedTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:TriggerWithMismatchedTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func UnableToBindMemberToEntityProjection P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s36:UnableToBindMemberToEntityProjection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s36:UnableToBindMemberToEntityProjection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UnhandledAnnotatableType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s24:UnhandledAnnotatableType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s24:UnhandledAnnotatableType",dnPackItem(P1))
 
 	Func UnhandledExpressionInVisitor P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:UnhandledExpressionInVisitor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:UnhandledExpressionInVisitor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UnknownOperation P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:UnknownOperation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s16:UnknownOperation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnmappedNonTPHOwner P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:UnmappedNonTPHOwner",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s19:UnmappedNonTPHOwner",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func UnsupportedDataOperationStoreType P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:UnsupportedDataOperationStoreType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:UnsupportedDataOperationStoreType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnsupportedOperatorForSqlExpression P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:UnsupportedOperatorForSqlExpression",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:UnsupportedOperatorForSqlExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnsupportedPropertyType P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:UnsupportedPropertyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:UnsupportedPropertyType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UnsupportedStoreType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:UnsupportedStoreType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:UnsupportedStoreType",dnPackItem(P1))
 
 	Func UnsupportedType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:UnsupportedType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:UnsupportedType",dnPackItem(P1))
 
 	Func UpdateConcurrencyException P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:UpdateConcurrencyException",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:UpdateConcurrencyException",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UpdateDataOperationKeyTypesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s40:UpdateDataOperationKeyTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s40:UpdateDataOperationKeyTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UpdateDataOperationKeyValuesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:UpdateDataOperationKeyValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:UpdateDataOperationKeyValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UpdateDataOperationNoModel P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:UpdateDataOperationNoModel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:UpdateDataOperationNoModel",dnPackItem(P1))
 
 	Func UpdateDataOperationRowCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:UpdateDataOperationRowCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:UpdateDataOperationRowCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UpdateDataOperationTypesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s37:UpdateDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s37:UpdateDataOperationTypesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UpdateDataOperationValuesCountMismatch P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s38:UpdateDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s38:UpdateDataOperationValuesCountMismatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ViewOverrideMismatch P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:ViewOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:ViewOverrideMismatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getBadSequenceString
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s17:BadSequenceString","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s17:BadSequenceString","")
 
 	Func setBadSequenceString P1
 		raise("DotNet Error: BadSequenceString is a read-only property")
 
 	Func getBadSequenceType
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:BadSequenceType","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:BadSequenceType","")
 
 	Func setBadSequenceType P1
 		raise("DotNet Error: BadSequenceType is a read-only property")
 
 	Func getCannotChangeWhenOpen
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:CannotChangeWhenOpen","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:CannotChangeWhenOpen","")
 
 	Func setCannotChangeWhenOpen P1
 		raise("DotNet Error: CannotChangeWhenOpen is a read-only property")
 
 	Func getCannotCompareComplexTypeToNull
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:CannotCompareComplexTypeToNull","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:CannotCompareComplexTypeToNull","")
 
 	Func setCannotCompareComplexTypeToNull P1
 		raise("DotNet Error: CannotCompareComplexTypeToNull is a read-only property")
 
 	Func getCannotSetAliasOnJoin
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:CannotSetAliasOnJoin","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:CannotSetAliasOnJoin","")
 
 	Func setCannotSetAliasOnJoin P1
 		raise("DotNet Error: CannotSetAliasOnJoin is a read-only property")
 
 	Func getClientGroupByNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:ClientGroupByNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:ClientGroupByNotSupported","")
 
 	Func setClientGroupByNotSupported P1
 		raise("DotNet Error: ClientGroupByNotSupported is a read-only property")
 
 	Func getConflictingAmbientTransaction
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:ConflictingAmbientTransaction","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:ConflictingAmbientTransaction","")
 
 	Func setConflictingAmbientTransaction P1
 		raise("DotNet Error: ConflictingAmbientTransaction is a read-only property")
 
 	Func getConflictingEnlistedTransaction
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:ConflictingEnlistedTransaction","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:ConflictingEnlistedTransaction","")
 
 	Func setConflictingEnlistedTransaction P1
 		raise("DotNet Error: ConflictingEnlistedTransaction is a read-only property")
 
 	Func getDistinctOnCollectionNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s32:DistinctOnCollectionNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s32:DistinctOnCollectionNotSupported","")
 
 	Func setDistinctOnCollectionNotSupported P1
 		raise("DotNet Error: DistinctOnCollectionNotSupported is a read-only property")
 
 	Func getEmptyCollectionNotSupportedAsInlineQueryRoot
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:EmptyCollectionNotSupportedAsInlineQueryRoot","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:EmptyCollectionNotSupportedAsInlineQueryRoot","")
 
 	Func setEmptyCollectionNotSupportedAsInlineQueryRoot P1
 		raise("DotNet Error: EmptyCollectionNotSupportedAsInlineQueryRoot is a read-only property")
 
 	Func getErrorMaterializingValue
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:ErrorMaterializingValue","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:ErrorMaterializingValue","")
 
 	Func setErrorMaterializingValue P1
 		raise("DotNet Error: ErrorMaterializingValue is a read-only property")
 
 	Func getExecuteDeleteOnNonEntityType
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s28:ExecuteDeleteOnNonEntityType","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s28:ExecuteDeleteOnNonEntityType","")
 
 	Func setExecuteDeleteOnNonEntityType P1
 		raise("DotNet Error: ExecuteDeleteOnNonEntityType is a read-only property")
 
 	Func getFromSqlNonComposable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:FromSqlNonComposable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:FromSqlNonComposable","")
 
 	Func setFromSqlNonComposable P1
 		raise("DotNet Error: FromSqlNonComposable is a read-only property")
 
 	Func getInsufficientInformationToIdentifyElementOfCollectionJoin
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s56:InsufficientInformationToIdentifyElementOfCollectionJoin","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s56:InsufficientInformationToIdentifyElementOfCollectionJoin","")
 
 	Func setInsufficientInformationToIdentifyElementOfCollectionJoin P1
 		raise("DotNet Error: InsufficientInformationToIdentifyElementOfCollectionJoin is a read-only property")
 
 	Func getInvalidArgumentToExecuteUpdate
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:InvalidArgumentToExecuteUpdate","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:InvalidArgumentToExecuteUpdate","")
 
 	Func setInvalidArgumentToExecuteUpdate P1
 		raise("DotNet Error: InvalidArgumentToExecuteUpdate is a read-only property")
 
 	Func getJsonEmptyString
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:JsonEmptyString","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s15:JsonEmptyString","")
 
 	Func setJsonEmptyString P1
 		raise("DotNet Error: JsonEmptyString is a read-only property")
 
 	Func getJsonEntityWithTableSplittingIsNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s42:JsonEntityWithTableSplittingIsNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s42:JsonEntityWithTableSplittingIsNotSupported","")
 
 	Func setJsonEntityWithTableSplittingIsNotSupported P1
 		raise("DotNet Error: JsonEntityWithTableSplittingIsNotSupported is a read-only property")
 
 	Func getJsonNodeMustBeHandledByProviderSpecificVisitor
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s46:JsonNodeMustBeHandledByProviderSpecificVisitor","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s46:JsonNodeMustBeHandledByProviderSpecificVisitor","")
 
 	Func setJsonNodeMustBeHandledByProviderSpecificVisitor P1
 		raise("DotNet Error: JsonNodeMustBeHandledByProviderSpecificVisitor is a read-only property")
 
 	Func getJsonPropertyNameShouldBeConfiguredOnNestedNavigation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s52:JsonPropertyNameShouldBeConfiguredOnNestedNavigation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s52:JsonPropertyNameShouldBeConfiguredOnNestedNavigation","")
 
 	Func setJsonPropertyNameShouldBeConfiguredOnNestedNavigation P1
 		raise("DotNet Error: JsonPropertyNameShouldBeConfiguredOnNestedNavigation is a read-only property")
 
 	Func getJsonQueryLinqOperatorsNotSupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s34:JsonQueryLinqOperatorsNotSupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s34:JsonQueryLinqOperatorsNotSupported","")
 
 	Func setJsonQueryLinqOperatorsNotSupported P1
 		raise("DotNet Error: JsonQueryLinqOperatorsNotSupported is a read-only property")
 
 	Func getMappingFragmentMissingName
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:MappingFragmentMissingName","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:MappingFragmentMissingName","")
 
 	Func setMappingFragmentMissingName P1
 		raise("DotNet Error: MappingFragmentMissingName is a read-only property")
 
 	Func getMethodNeedsToBeImplementedInTheProvider
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:MethodNeedsToBeImplementedInTheProvider","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:MethodNeedsToBeImplementedInTheProvider","")
 
 	Func setMethodNeedsToBeImplementedInTheProvider P1
 		raise("DotNet Error: MethodNeedsToBeImplementedInTheProvider is a read-only property")
 
 	Func getMigrationDownMissing
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:MigrationDownMissing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:MigrationDownMissing","")
 
 	Func setMigrationDownMissing P1
 		raise("DotNet Error: MigrationDownMissing is a read-only property")
 
 	Func getMissingOrderingInSelectExpression
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s33:MissingOrderingInSelectExpression","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s33:MissingOrderingInSelectExpression","")
 
 	Func setMissingOrderingInSelectExpression P1
 		raise("DotNet Error: MissingOrderingInSelectExpression is a read-only property")
 
 	Func getMissingResultSetWhenSaving
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s26:MissingResultSetWhenSaving","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s26:MissingResultSetWhenSaving","")
 
 	Func setMissingResultSetWhenSaving P1
 		raise("DotNet Error: MissingResultSetWhenSaving is a read-only property")
 
 	Func getModificationCommandBatchAlreadyComplete
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s39:ModificationCommandBatchAlreadyComplete","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s39:ModificationCommandBatchAlreadyComplete","")
 
 	Func setModificationCommandBatchAlreadyComplete P1
 		raise("DotNet Error: ModificationCommandBatchAlreadyComplete is a read-only property")
 
 	Func getModificationCommandBatchNotComplete
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s35:ModificationCommandBatchNotComplete","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s35:ModificationCommandBatchNotComplete","")
 
 	Func setModificationCommandBatchNotComplete P1
 		raise("DotNet Error: ModificationCommandBatchNotComplete is a read-only property")
 
 	Func getMultipleProvidersConfigured
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s27:MultipleProvidersConfigured","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s27:MultipleProvidersConfigured","")
 
 	Func setMultipleProvidersConfigured P1
 		raise("DotNet Error: MultipleProvidersConfigured is a read-only property")
 
 	Func getNestedAmbientTransactionError
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:NestedAmbientTransactionError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:NestedAmbientTransactionError","")
 
 	Func setNestedAmbientTransactionError P1
 		raise("DotNet Error: NestedAmbientTransactionError is a read-only property")
 
 	Func getNoActiveTransaction
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s19:NoActiveTransaction","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s19:NoActiveTransaction","")
 
 	Func setNoActiveTransaction P1
 		raise("DotNet Error: NoActiveTransaction is a read-only property")
 
 	Func getNoDbCommand
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s11:NoDbCommand","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s11:NoDbCommand","")
 
 	Func setNoDbCommand P1
 		raise("DotNet Error: NoDbCommand is a read-only property")
 
 	Func getNoneRelationalTypeMappingOnARelationalTypeMappingSource
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s55:NoneRelationalTypeMappingOnARelationalTypeMappingSource","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s55:NoneRelationalTypeMappingOnARelationalTypeMappingSource","")
 
 	Func setNoneRelationalTypeMappingOnARelationalTypeMappingSource P1
 		raise("DotNet Error: NoneRelationalTypeMappingOnARelationalTypeMappingSource is a read-only property")
 
 	Func getNoProviderConfigured
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:NoProviderConfigured","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:NoProviderConfigured","")
 
 	Func setNoProviderConfigured P1
 		raise("DotNet Error: NoProviderConfigured is a read-only property")
 
 	Func getNoSetPropertyInvocation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s23:NoSetPropertyInvocation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s23:NoSetPropertyInvocation","")
 
 	Func setNoSetPropertyInvocation P1
 		raise("DotNet Error: NoSetPropertyInvocation is a read-only property")
 
 	Func getOnlyConstantsSupportedInInlineCollectionQueryRoots
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s50:OnlyConstantsSupportedInInlineCollectionQueryRoots","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s50:OnlyConstantsSupportedInInlineCollectionQueryRoots","")
 
 	Func setOnlyConstantsSupportedInInlineCollectionQueryRoots P1
 		raise("DotNet Error: OnlyConstantsSupportedInInlineCollectionQueryRoots is a read-only property")
 
 	Func getPendingAmbientTransaction
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:PendingAmbientTransaction","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:PendingAmbientTransaction","")
 
 	Func setPendingAmbientTransaction P1
 		raise("DotNet Error: PendingAmbientTransaction is a read-only property")
 
 	Func getProjectionMappingCountMismatch
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s30:ProjectionMappingCountMismatch","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s30:ProjectionMappingCountMismatch","")
 
 	Func setProjectionMappingCountMismatch P1
 		raise("DotNet Error: ProjectionMappingCountMismatch is a read-only property")
 
 	Func getRelationalNotInUse
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:RelationalNotInUse","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s18:RelationalNotInUse","")
 
 	Func setRelationalNotInUse P1
 		raise("DotNet Error: RelationalNotInUse is a read-only property")
 
 	Func getSelectCanOnlyBeBuiltOnCollectionJsonQuery
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s41:SelectCanOnlyBeBuiltOnCollectionJsonQuery","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s41:SelectCanOnlyBeBuiltOnCollectionJsonQuery","")
 
 	Func setSelectCanOnlyBeBuiltOnCollectionJsonQuery P1
 		raise("DotNet Error: SelectCanOnlyBeBuiltOnCollectionJsonQuery is a read-only property")
 
 	Func getSelectExpressionUpdateNotSupportedWhileMutable
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s46:SelectExpressionUpdateNotSupportedWhileMutable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s46:SelectExpressionUpdateNotSupportedWhileMutable","")
 
 	Func setSelectExpressionUpdateNotSupportedWhileMutable P1
 		raise("DotNet Error: SelectExpressionUpdateNotSupportedWhileMutable is a read-only property")
 
 	Func getSetOperationsNotAllowedAfterClientEvaluation
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:SetOperationsNotAllowedAfterClientEvaluation","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:SetOperationsNotAllowedAfterClientEvaluation","")
 
 	Func setSetOperationsNotAllowedAfterClientEvaluation P1
 		raise("DotNet Error: SetOperationsNotAllowedAfterClientEvaluation is a read-only property")
 
 	Func getSplitQueryString
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:SplitQueryString","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s16:SplitQueryString","")
 
 	Func setSplitQueryString P1
 		raise("DotNet Error: SplitQueryString is a read-only property")
 
 	Func getTransactionAlreadyStarted
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:TransactionAlreadyStarted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s25:TransactionAlreadyStarted","")
 
 	Func setTransactionAlreadyStarted P1
 		raise("DotNet Error: TransactionAlreadyStarted is a read-only property")
 
 	Func getTransactionAssociatedWithDifferentConnection
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s44:TransactionAssociatedWithDifferentConnection","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s44:TransactionAssociatedWithDifferentConnection","")
 
 	Func setTransactionAssociatedWithDifferentConnection P1
 		raise("DotNet Error: TransactionAssociatedWithDifferentConnection is a read-only property")
 
 	Func getTransactionSuppressedMigrationInUserTransaction
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s47:TransactionSuppressedMigrationInUserTransaction","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s47:TransactionSuppressedMigrationInUserTransaction","")
 
 	Func setTransactionSuppressedMigrationInUserTransaction P1
 		raise("DotNet Error: TransactionSuppressedMigrationInUserTransaction is a read-only property")
 
 	Func getUpdateStoreException
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s20:UpdateStoreException","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s20:UpdateStoreException","")
 
 	Func setUpdateStoreException P1
 		raise("DotNet Error: UpdateStoreException is a read-only property")
 
 	Func getVisitChildrenMustBeOverridden
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational').nHandle,"s29:VisitChildrenMustBeOverridden","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational'),"s29:VisitChildrenMustBeOverridden","")
 
 	Func setVisitChildrenMustBeOverridden P1
 		raise("DotNet Error: VisitChildrenMustBeOverridden is a read-only property")
@@ -7433,109 +7433,109 @@ Class SqliteEventId from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSchemaConfiguredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s23:SchemaConfiguredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s23:SchemaConfiguredWarning","")
 
 	Func setSchemaConfiguredWarning P1
 		raise("DotNet Error: SchemaConfiguredWarning is a read-only property")
 
 	Func getSequenceConfiguredWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s25:SequenceConfiguredWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s25:SequenceConfiguredWarning","")
 
 	Func setSequenceConfiguredWarning P1
 		raise("DotNet Error: SequenceConfiguredWarning is a read-only property")
 
 	Func getCompositeKeyWithValueGeneration
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s31:CompositeKeyWithValueGeneration","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s31:CompositeKeyWithValueGeneration","")
 
 	Func setCompositeKeyWithValueGeneration P1
 		raise("DotNet Error: CompositeKeyWithValueGeneration is a read-only property")
 
 	Func getUnexpectedConnectionTypeWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s31:UnexpectedConnectionTypeWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s31:UnexpectedConnectionTypeWarning","")
 
 	Func setUnexpectedConnectionTypeWarning P1
 		raise("DotNet Error: UnexpectedConnectionTypeWarning is a read-only property")
 
 	Func getTableRebuildPendingWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s26:TableRebuildPendingWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s26:TableRebuildPendingWarning","")
 
 	Func setTableRebuildPendingWarning P1
 		raise("DotNet Error: TableRebuildPendingWarning is a read-only property")
 
 	Func getColumnFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s11:ColumnFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s11:ColumnFound","")
 
 	Func setColumnFound P1
 		raise("DotNet Error: ColumnFound is a read-only property")
 
 	Func getSchemasNotSupportedWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s26:SchemasNotSupportedWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s26:SchemasNotSupportedWarning","")
 
 	Func setSchemasNotSupportedWarning P1
 		raise("DotNet Error: SchemasNotSupportedWarning is a read-only property")
 
 	Func getForeignKeyReferencesMissingTableWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s39:ForeignKeyReferencesMissingTableWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s39:ForeignKeyReferencesMissingTableWarning","")
 
 	Func setForeignKeyReferencesMissingTableWarning P1
 		raise("DotNet Error: ForeignKeyReferencesMissingTableWarning is a read-only property")
 
 	Func getTableFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s10:TableFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s10:TableFound","")
 
 	Func setTableFound P1
 		raise("DotNet Error: TableFound is a read-only property")
 
 	Func getMissingTableWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s19:MissingTableWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s19:MissingTableWarning","")
 
 	Func setMissingTableWarning P1
 		raise("DotNet Error: MissingTableWarning is a read-only property")
 
 	Func getForeignKeyPrincipalColumnMissingWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s39:ForeignKeyPrincipalColumnMissingWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s39:ForeignKeyPrincipalColumnMissingWarning","")
 
 	Func setForeignKeyPrincipalColumnMissingWarning P1
 		raise("DotNet Error: ForeignKeyPrincipalColumnMissingWarning is a read-only property")
 
 	Func getIndexFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s10:IndexFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s10:IndexFound","")
 
 	Func setIndexFound P1
 		raise("DotNet Error: IndexFound is a read-only property")
 
 	Func getForeignKeyFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s15:ForeignKeyFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s15:ForeignKeyFound","")
 
 	Func setForeignKeyFound P1
 		raise("DotNet Error: ForeignKeyFound is a read-only property")
 
 	Func getPrimaryKeyFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s15:PrimaryKeyFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s15:PrimaryKeyFound","")
 
 	Func setPrimaryKeyFound P1
 		raise("DotNet Error: PrimaryKeyFound is a read-only property")
 
 	Func getUniqueConstraintFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s21:UniqueConstraintFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s21:UniqueConstraintFound","")
 
 	Func setUniqueConstraintFound P1
 		raise("DotNet Error: UniqueConstraintFound is a read-only property")
 
 	Func getInferringTypes
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s14:InferringTypes","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s14:InferringTypes","")
 
 	Func setInferringTypes P1
 		raise("DotNet Error: InferringTypes is a read-only property")
 
 	Func getOutOfRangeWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s17:OutOfRangeWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s17:OutOfRangeWarning","")
 
 	Func setOutOfRangeWarning P1
 		raise("DotNet Error: OutOfRangeWarning is a read-only property")
 
 	Func getFormatWarning
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s13:FormatWarning","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s13:FormatWarning","")
 
 	Func setFormatWarning P1
 		raise("DotNet Error: FormatWarning is a read-only property")

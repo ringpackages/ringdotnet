@@ -1036,24 +1036,24 @@ Class WpfApplication from DispatcherObject
 
 	Func LoadComponent P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s13:LoadComponent",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s13:LoadComponent",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s13:LoadComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s13:LoadComponent",dnPackItem(P1))
 
 	Func GetResourceStream P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s17:GetResourceStream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s17:GetResourceStream",dnPackItem(P1))
 
 	Func GetContentStream P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s16:GetContentStream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:GetContentStream",dnPackItem(P1))
 
 	Func GetRemoteStream P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s15:GetRemoteStream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s15:GetRemoteStream",dnPackItem(P1))
 
 	Func GetCookie P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s9:GetCookie",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:GetCookie",dnPackItem(P1))
 
 	Func SetCookie P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s9:SetCookie",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:SetCookie",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setStartupEvent P1
@@ -1208,16 +1208,16 @@ Class WpfApplication from DispatcherObject
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getResourceAssembly
-		return dnSend("s3:get",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s16:ResourceAssembly","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly","")
 
 	Func setResourceAssembly P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Application, PresentationFramework').nHandle,"s16:ResourceAssembly",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly",dnPackItem(P1))
 		return self
 
 
@@ -1263,31 +1263,31 @@ Class BaseCompatibilityPreferences from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getReuseDispatcherSynchronizationContextInstance
-		return dnSend("s3:get",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s45:ReuseDispatcherSynchronizationContextInstance","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance","")
 
 	Func setReuseDispatcherSynchronizationContextInstance P1
-		dnSend("s3:set",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s45:ReuseDispatcherSynchronizationContextInstance",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance",dnPackItem(P1))
 		return self
 
 	Func getFlowDispatcherSynchronizationContextPriority
-		return dnSend("s3:get",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s44:FlowDispatcherSynchronizationContextPriority","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority","")
 
 	Func setFlowDispatcherSynchronizationContextPriority P1
-		dnSend("s3:set",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s44:FlowDispatcherSynchronizationContextPriority",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority",dnPackItem(P1))
 		return self
 
 	Func getInlineDispatcherSynchronizationContextSend
-		return dnSend("s3:get",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s42:InlineDispatcherSynchronizationContextSend","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend","")
 
 	Func setInlineDispatcherSynchronizationContextSend P1
-		dnSend("s3:set",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s42:InlineDispatcherSynchronizationContextSend",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend",dnPackItem(P1))
 		return self
 
 	Func getHandleDispatcherRequestProcessingFailure
-		return dnSend("s3:get",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s40:HandleDispatcherRequestProcessingFailure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure","")
 
 	Func setHandleDispatcherRequestProcessingFailure P1
-		dnSend("s3:set",dnTypeCached('System.Windows.BaseCompatibilityPreferences, WindowsBase').nHandle,"s40:HandleDispatcherRequestProcessingFailure",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure",dnPackItem(P1))
 		return self
 
 
@@ -1306,91 +1306,91 @@ Class WpfClipboard from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Clear 
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s5:Clear","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Clear","")
 		return self
 
 	Func ContainsAudio 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s13:ContainsAudio","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsAudio","")
 
 	Func ContainsData P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s12:ContainsData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsData",dnPackItem(P1))
 
 	Func ContainsFileDropList 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s20:ContainsFileDropList","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s20:ContainsFileDropList","")
 
 	Func ContainsImage 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s13:ContainsImage","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsImage","")
 
 	Func ContainsText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s12:ContainsText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s12:ContainsText","")
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s12:ContainsText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",dnPackItem(P1))
 
 	Func Flush 
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s5:Flush","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Flush","")
 		return self
 
 	Func GetAudioStream 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s14:GetAudioStream","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s14:GetAudioStream","")
 
 	Func GetData P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:GetData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetData",dnPackItem(P1))
 
 	Func GetFileDropList 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s15:GetFileDropList","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s15:GetFileDropList","")
 
 	Func GetImage 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s8:GetImage","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:GetImage","")
 
 	Func GetText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:GetText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:GetText","")
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:GetText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",dnPackItem(P1))
 
 	Func SetAudio P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s8:SetAudio",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetAudio",dnPackItem(P1))
 		return self
 
 	Func SetData P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetFileDropList P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s15:SetFileDropList",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s15:SetFileDropList",dnPackItem(P1))
 		return self
 
 	Func SetImage P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s8:SetImage",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetImage",dnPackItem(P1))
 		return self
 
 	Func SetText P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:SetText",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s7:SetText",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1))
 		return self
 
 	Func GetDataObject 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s13:GetDataObject","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:GetDataObject","")
 
 	Func IsCurrent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s9:IsCurrent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s9:IsCurrent",dnPackItem(P1))
 
 	Func SetDataObject P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s13:SetDataObject",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Clipboard, PresentationCore').nHandle,"s13:SetDataObject",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1))
 		return self
 
 
@@ -1476,11 +1476,11 @@ Class Condition from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Condition, PresentationFramework').nHandle,"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Condition, PresentationFramework').nHandle,"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProperty
@@ -1614,10 +1614,10 @@ Class ContentOperations from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetParent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.ContentOperations, PresentationCore').nHandle,"s9:GetParent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:GetParent",dnPackItem(P1))
 
 	Func SetParent P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.ContentOperations, PresentationCore').nHandle,"s9:SetParent",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:SetParent",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1639,17 +1639,17 @@ Class CoreCompatibilityPreferences from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsAltKeyRequiredInAccessKeyDefaultScope
-		return dnSend("s3:get",dnTypeCached('System.Windows.CoreCompatibilityPreferences, PresentationCore').nHandle,"s39:IsAltKeyRequiredInAccessKeyDefaultScope","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope","")
 
 	Func setIsAltKeyRequiredInAccessKeyDefaultScope P1
-		dnSend("s3:set",dnTypeCached('System.Windows.CoreCompatibilityPreferences, PresentationCore').nHandle,"s39:IsAltKeyRequiredInAccessKeyDefaultScope",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope",dnPackItem(P1))
 		return self
 
 	Func getEnableMultiMonitorDisplayClipping
-		return dnSend("s3:get",dnTypeCached('System.Windows.CoreCompatibilityPreferences, PresentationCore').nHandle,"s33:EnableMultiMonitorDisplayClipping","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping","")
 
 	Func setEnableMultiMonitorDisplayClipping P1
-		dnSend("s3:set",dnTypeCached('System.Windows.CoreCompatibilityPreferences, PresentationCore').nHandle,"s33:EnableMultiMonitorDisplayClipping",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping",dnPackItem(P1))
 		return self
 
 
@@ -1828,142 +1828,142 @@ Class WpfDataFormats from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDataFormat P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s13:GetDataFormat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s13:GetDataFormat",dnPackItem(P1))
 
 	Func getText
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s4:Text","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Text","")
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s11:UnicodeText","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:UnicodeText","")
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s3:Dib","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dib","")
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s6:Bitmap","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Bitmap","")
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s16:EnhancedMetafile","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s16:EnhancedMetafile","")
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePicture
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s15:MetafilePicture","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s15:MetafilePicture","")
 
 	Func setMetafilePicture P1
 		raise("DotNet Error: MetafilePicture is a read-only property")
 
 	Func getSymbolicLink
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s12:SymbolicLink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:SymbolicLink","")
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s3:Dif","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dif","")
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s4:Tiff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Tiff","")
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s7:OemText","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:OemText","")
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s7:Palette","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:Palette","")
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s7:PenData","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:PenData","")
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s4:Riff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Riff","")
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s9:WaveAudio","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s9:WaveAudio","")
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s8:FileDrop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s8:FileDrop","")
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s6:Locale","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Locale","")
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s4:Html","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Html","")
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s3:Rtf","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Rtf","")
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s19:CommaSeparatedValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s19:CommaSeparatedValue","")
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s12:StringFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:StringFormat","")
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s12:Serializable","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:Serializable","")
 
 	Func setSerializable P1
 		raise("DotNet Error: Serializable is a read-only property")
 
 	Func getXaml
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s4:Xaml","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Xaml","")
 
 	Func setXaml P1
 		raise("DotNet Error: Xaml is a read-only property")
 
 	Func getXamlPackage
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataFormats, PresentationCore').nHandle,"s11:XamlPackage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:XamlPackage","")
 
 	Func setXamlPackage P1
 		raise("DotNet Error: XamlPackage is a read-only property")
@@ -2098,43 +2098,43 @@ Class WpfDataObject from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCopyingHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s17:AddCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveCopyingHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s20:RemoveCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemoveCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPastingHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s17:AddPastingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddPastingHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePastingHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s20:RemovePastingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemovePastingHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddSettingDataHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s21:AddSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s21:AddSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveSettingDataHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s24:RemoveSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s24:RemoveSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCopyingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s12:CopyingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s12:CopyingEvent","")
 
 	Func setCopyingEvent P1
 		raise("DotNet Error: CopyingEvent is a read-only property")
 
 	Func getPastingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s12:PastingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s12:PastingEvent","")
 
 	Func setPastingEvent P1
 		raise("DotNet Error: PastingEvent is a read-only property")
 
 	Func getSettingDataEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DataObject, PresentationCore').nHandle,"s16:SettingDataEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s16:SettingDataEvent","")
 
 	Func setSettingDataEvent P1
 		raise("DotNet Error: SettingDataEvent is a read-only property")
@@ -2267,7 +2267,7 @@ Class DependencyObjectType from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromSystemType P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.DependencyObjectType, WindowsBase').nHandle,"s14:FromSystemType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyObjectType, WindowsBase'),"s14:FromSystemType",dnPackItem(P1))
 
 	Func getId
 		return dnSend("s3:get",nHandle,"s2:Id","")
@@ -2341,25 +2341,25 @@ Class DependencyProperty from Object
 
 	Func Register P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.DependencyProperty, WindowsBase').nHandle,"s8:Register",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s8:Register",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Register does not take one argument: use named arguments, Register([ :parameter = value, ... ])")
 
 	Func RegisterReadOnly P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.DependencyProperty, WindowsBase').nHandle,"s16:RegisterReadOnly",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s16:RegisterReadOnly",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RegisterReadOnly does not take one argument: use named arguments, RegisterReadOnly([ :parameter = value, ... ])")
 
 	Func RegisterAttachedReadOnly P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.DependencyProperty, WindowsBase').nHandle,"s24:RegisterAttachedReadOnly",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s24:RegisterAttachedReadOnly",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RegisterAttachedReadOnly does not take one argument: use named arguments, RegisterAttachedReadOnly([ :parameter = value, ... ])")
 
 	Func RegisterAttached P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.DependencyProperty, WindowsBase').nHandle,"s16:RegisterAttached",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s16:RegisterAttached",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
@@ -2406,7 +2406,7 @@ Class DependencyProperty from Object
 		raise("DotNet Error: ReadOnly is a read-only property")
 
 	Func getUnsetValue
-		return dnSend("s3:get",dnTypeCached('System.Windows.DependencyProperty, WindowsBase').nHandle,"s10:UnsetValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s10:UnsetValue","")
 
 	Func setUnsetValue P1
 		raise("DotNet Error: UnsetValue is a read-only property")
@@ -2486,10 +2486,10 @@ Class DependencyPropertyHelper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetValueSource P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.DependencyPropertyHelper, PresentationFramework').nHandle,"s14:GetValueSource",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s14:GetValueSource",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsTemplatedValueDynamic P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.DependencyPropertyHelper, PresentationFramework').nHandle,"s23:IsTemplatedValueDynamic",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s23:IsTemplatedValueDynamic",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class DependencyPropertyKey from Object
@@ -2641,172 +2641,172 @@ Class DragDrop from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddPreviewQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s34:AddPreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s34:AddPreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s37:RemovePreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s37:RemovePreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s27:AddQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s27:AddQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s30:RemoveQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s30:RemoveQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s29:AddPreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:AddPreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s32:RemovePreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s32:RemovePreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s22:AddGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:AddGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s25:RemoveGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:RemoveGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s26:AddPreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s29:RemovePreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s19:AddDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s22:RemoveDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s25:AddPreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:AddPreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s28:RemovePreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s28:RemovePreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s18:AddDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s18:AddDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s21:RemoveDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:RemoveDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s26:AddPreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s29:RemovePreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s19:AddDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s22:RemoveDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewDropHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s21:AddPreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:AddPreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewDropHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s24:RemovePreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s24:RemovePreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddDropHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s14:AddDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:AddDropHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveDropHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s17:RemoveDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s17:RemoveDropHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DoDragDrop P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s10:DoDragDrop",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s10:DoDragDrop",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getPreviewQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s29:PreviewQueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:PreviewQueryContinueDragEvent","")
 
 	Func setPreviewQueryContinueDragEvent P1
 		raise("DotNet Error: PreviewQueryContinueDragEvent is a read-only property")
 
 	Func getQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s22:QueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:QueryContinueDragEvent","")
 
 	Func setQueryContinueDragEvent P1
 		raise("DotNet Error: QueryContinueDragEvent is a read-only property")
 
 	Func getPreviewGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s24:PreviewGiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s24:PreviewGiveFeedbackEvent","")
 
 	Func setPreviewGiveFeedbackEvent P1
 		raise("DotNet Error: PreviewGiveFeedbackEvent is a read-only property")
 
 	Func getGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s17:GiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s17:GiveFeedbackEvent","")
 
 	Func setGiveFeedbackEvent P1
 		raise("DotNet Error: GiveFeedbackEvent is a read-only property")
 
 	Func getPreviewDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s21:PreviewDragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:PreviewDragEnterEvent","")
 
 	Func setPreviewDragEnterEvent P1
 		raise("DotNet Error: PreviewDragEnterEvent is a read-only property")
 
 	Func getDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s14:DragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:DragEnterEvent","")
 
 	Func setDragEnterEvent P1
 		raise("DotNet Error: DragEnterEvent is a read-only property")
 
 	Func getPreviewDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s20:PreviewDragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s20:PreviewDragOverEvent","")
 
 	Func setPreviewDragOverEvent P1
 		raise("DotNet Error: PreviewDragOverEvent is a read-only property")
 
 	Func getDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s13:DragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s13:DragOverEvent","")
 
 	Func setDragOverEvent P1
 		raise("DotNet Error: DragOverEvent is a read-only property")
 
 	Func getPreviewDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s21:PreviewDragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:PreviewDragLeaveEvent","")
 
 	Func setPreviewDragLeaveEvent P1
 		raise("DotNet Error: PreviewDragLeaveEvent is a read-only property")
 
 	Func getDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s14:DragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:DragLeaveEvent","")
 
 	Func setDragLeaveEvent P1
 		raise("DotNet Error: DragLeaveEvent is a read-only property")
 
 	Func getPreviewDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s16:PreviewDropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s16:PreviewDropEvent","")
 
 	Func setPreviewDropEvent P1
 		raise("DotNet Error: PreviewDropEvent is a read-only property")
 
 	Func getDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.DragDrop, PresentationCore').nHandle,"s9:DropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s9:DropEvent","")
 
 	Func setDropEvent P1
 		raise("DotNet Error: DropEvent is a read-only property")
@@ -2859,7 +2859,7 @@ Class Duration from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Duration, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -2869,10 +2869,10 @@ Class Duration from ValueType
 		return dnSend("s4:call",nHandle,"s8:Subtract",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Duration, PresentationCore').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Plus P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Duration, PresentationCore').nHandle,"s4:Plus",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s4:Plus",dnPackItem(P1))
 
 	Func getHasTimeSpan
 		return dnSend("s3:get",nHandle,"s11:HasTimeSpan","")
@@ -2887,13 +2887,13 @@ Class Duration from ValueType
 		raise("DotNet Error: TimeSpan is a read-only property")
 
 	Func getAutomatic
-		return dnSend("s3:get",dnTypeCached('System.Windows.Duration, PresentationCore').nHandle,"s9:Automatic","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s9:Automatic","")
 
 	Func setAutomatic P1
 		raise("DotNet Error: Automatic is a read-only property")
 
 	Func getForever
-		return dnSend("s3:get",dnTypeCached('System.Windows.Duration, PresentationCore').nHandle,"s7:Forever","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s7:Forever","")
 
 	Func setForever P1
 		raise("DotNet Error: Forever is a read-only property")
@@ -3002,20 +3002,20 @@ Class EventManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RegisterRoutedEvent P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Windows.EventManager, PresentationCore').nHandle,"s19:RegisterRoutedEvent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s19:RegisterRoutedEvent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func RegisterClassHandler P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.EventManager, PresentationCore').nHandle,"s20:RegisterClassHandler",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s20:RegisterClassHandler",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: RegisterClassHandler does not take one argument: use named arguments, RegisterClassHandler([ :parameter = value, ... ])")
 
 	Func GetRoutedEvents 
-		return dnSend("s4:call",dnTypeCached('System.Windows.EventManager, PresentationCore').nHandle,"s15:GetRoutedEvents","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s15:GetRoutedEvents","")
 
 	Func GetRoutedEventsForOwner P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.EventManager, PresentationCore').nHandle,"s23:GetRoutedEventsForOwner",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s23:GetRoutedEventsForOwner",dnPackItem(P1))
 
 
 Class EventPrivateKey from Object
@@ -3286,10 +3286,10 @@ Class FontStretch from ValueType
 		return dnSend("s4:call",nHandle,"s17:ToOpenTypeStretch","")
 
 	Func FromOpenTypeStretch P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.FontStretch, PresentationCore').nHandle,"s19:FromOpenTypeStretch",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s19:FromOpenTypeStretch",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.FontStretch, PresentationCore').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FontStretchConverter from TypeConverter
@@ -3339,61 +3339,61 @@ Class FontStretches from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getUltraCondensed
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s14:UltraCondensed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s14:UltraCondensed","")
 
 	Func setUltraCondensed P1
 		raise("DotNet Error: UltraCondensed is a read-only property")
 
 	Func getExtraCondensed
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s14:ExtraCondensed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s14:ExtraCondensed","")
 
 	Func setExtraCondensed P1
 		raise("DotNet Error: ExtraCondensed is a read-only property")
 
 	Func getCondensed
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s9:Condensed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s9:Condensed","")
 
 	Func setCondensed P1
 		raise("DotNet Error: Condensed is a read-only property")
 
 	Func getSemiCondensed
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s13:SemiCondensed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s13:SemiCondensed","")
 
 	Func setSemiCondensed P1
 		raise("DotNet Error: SemiCondensed is a read-only property")
 
 	Func getNormal
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s6:Normal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s6:Normal","")
 
 	Func setNormal P1
 		raise("DotNet Error: Normal is a read-only property")
 
 	Func getMedium
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s6:Medium","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s6:Medium","")
 
 	Func setMedium P1
 		raise("DotNet Error: Medium is a read-only property")
 
 	Func getSemiExpanded
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s12:SemiExpanded","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s12:SemiExpanded","")
 
 	Func setSemiExpanded P1
 		raise("DotNet Error: SemiExpanded is a read-only property")
 
 	Func getExpanded
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s8:Expanded","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s8:Expanded","")
 
 	Func setExpanded P1
 		raise("DotNet Error: Expanded is a read-only property")
 
 	Func getExtraExpanded
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s13:ExtraExpanded","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s13:ExtraExpanded","")
 
 	Func setExtraExpanded P1
 		raise("DotNet Error: ExtraExpanded is a read-only property")
 
 	Func getUltraExpanded
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStretches, PresentationCore').nHandle,"s13:UltraExpanded","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s13:UltraExpanded","")
 
 	Func setUltraExpanded P1
 		raise("DotNet Error: UltraExpanded is a read-only property")
@@ -3460,19 +3460,19 @@ Class FontStyles from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNormal
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStyles, PresentationCore').nHandle,"s6:Normal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStyles, PresentationCore'),"s6:Normal","")
 
 	Func setNormal P1
 		raise("DotNet Error: Normal is a read-only property")
 
 	Func getOblique
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStyles, PresentationCore').nHandle,"s7:Oblique","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStyles, PresentationCore'),"s7:Oblique","")
 
 	Func setOblique P1
 		raise("DotNet Error: Oblique is a read-only property")
 
 	Func getItalic
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontStyles, PresentationCore').nHandle,"s6:Italic","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStyles, PresentationCore'),"s6:Italic","")
 
 	Func setItalic P1
 		raise("DotNet Error: Italic is a read-only property")
@@ -3502,10 +3502,10 @@ Class FontWeight from ValueType
 		return dnSend("s4:call",nHandle,"s16:ToOpenTypeWeight","")
 
 	Func FromOpenTypeWeight P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.FontWeight, PresentationCore').nHandle,"s18:FromOpenTypeWeight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s18:FromOpenTypeWeight",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.FontWeight, PresentationCore').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FontWeightConverter from TypeConverter
@@ -3561,97 +3561,97 @@ Class FontWeights from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getThin
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s4:Thin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s4:Thin","")
 
 	Func setThin P1
 		raise("DotNet Error: Thin is a read-only property")
 
 	Func getExtraLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s10:ExtraLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s10:ExtraLight","")
 
 	Func setExtraLight P1
 		raise("DotNet Error: ExtraLight is a read-only property")
 
 	Func getUltraLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s10:UltraLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s10:UltraLight","")
 
 	Func setUltraLight P1
 		raise("DotNet Error: UltraLight is a read-only property")
 
 	Func getLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s5:Light","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s5:Light","")
 
 	Func setLight P1
 		raise("DotNet Error: Light is a read-only property")
 
 	Func getNormal
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s6:Normal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s6:Normal","")
 
 	Func setNormal P1
 		raise("DotNet Error: Normal is a read-only property")
 
 	Func getRegular
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s7:Regular","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s7:Regular","")
 
 	Func setRegular P1
 		raise("DotNet Error: Regular is a read-only property")
 
 	Func getMedium
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s6:Medium","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s6:Medium","")
 
 	Func setMedium P1
 		raise("DotNet Error: Medium is a read-only property")
 
 	Func getDemiBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s8:DemiBold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s8:DemiBold","")
 
 	Func setDemiBold P1
 		raise("DotNet Error: DemiBold is a read-only property")
 
 	Func getSemiBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s8:SemiBold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s8:SemiBold","")
 
 	Func setSemiBold P1
 		raise("DotNet Error: SemiBold is a read-only property")
 
 	Func getBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s4:Bold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s4:Bold","")
 
 	Func setBold P1
 		raise("DotNet Error: Bold is a read-only property")
 
 	Func getExtraBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s9:ExtraBold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s9:ExtraBold","")
 
 	Func setExtraBold P1
 		raise("DotNet Error: ExtraBold is a read-only property")
 
 	Func getUltraBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s9:UltraBold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s9:UltraBold","")
 
 	Func setUltraBold P1
 		raise("DotNet Error: UltraBold is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getHeavy
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s5:Heavy","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s5:Heavy","")
 
 	Func setHeavy P1
 		raise("DotNet Error: Heavy is a read-only property")
 
 	Func getExtraBlack
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s10:ExtraBlack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s10:ExtraBlack","")
 
 	Func setExtraBlack P1
 		raise("DotNet Error: ExtraBlack is a read-only property")
 
 	Func getUltraBlack
-		return dnSend("s3:get",dnTypeCached('System.Windows.FontWeights, PresentationCore').nHandle,"s10:UltraBlack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s10:UltraBlack","")
 
 	Func setUltraBlack P1
 		raise("DotNet Error: UltraBlack is a read-only property")
@@ -3676,24 +3676,24 @@ Class FrameworkCompatibilityPreferences from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAreInactiveSelectionHighlightBrushKeysSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s47:AreInactiveSelectionHighlightBrushKeysSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported","")
 
 	Func setAreInactiveSelectionHighlightBrushKeysSupported P1
-		dnSend("s3:set",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s47:AreInactiveSelectionHighlightBrushKeysSupported",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported",dnPackItem(P1))
 		return self
 
 	Func getKeepTextBoxDisplaySynchronizedWithTextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s46:KeepTextBoxDisplaySynchronizedWithTextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty","")
 
 	Func setKeepTextBoxDisplaySynchronizedWithTextProperty P1
-		dnSend("s3:set",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",dnPackItem(P1))
 		return self
 
 	Func getShouldThrowOnCopyOrCutFailure
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s29:ShouldThrowOnCopyOrCutFailure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure","")
 
 	Func setShouldThrowOnCopyOrCutFailure P1
-		dnSend("s3:set",dnTypeCached('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework').nHandle,"s29:ShouldThrowOnCopyOrCutFailure",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure",dnPackItem(P1))
 		return self
 
 
@@ -3961,7 +3961,7 @@ Class GridLength from ValueType
 		raise("DotNet Error: GridUnitType is a read-only property")
 
 	Func getAuto
-		return dnSend("s3:get",dnTypeCached('System.Windows.GridLength, PresentationFramework').nHandle,"s4:Auto","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.GridLength, PresentationFramework'),"s4:Auto","")
 
 	Func setAuto P1
 		raise("DotNet Error: Auto is a read-only property")
@@ -4673,7 +4673,7 @@ Class Int32Rect from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Int32Rect, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Int32Rect, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -4686,7 +4686,7 @@ Class Int32Rect from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Int32Rect, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Int32Rect, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
@@ -4729,7 +4729,7 @@ Class Int32Rect from ValueType
 		raise("DotNet Error: HasArea is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Int32Rect, WindowsBase').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Int32Rect, WindowsBase'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4916,27 +4916,27 @@ Class Localization from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetComments P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s11:GetComments",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:GetComments",dnPackItem(P1))
 
 	Func SetComments P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s11:SetComments",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:SetComments",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAttributes P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s13:GetAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:GetAttributes",dnPackItem(P1))
 
 	Func SetAttributes P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCommentsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s16:CommentsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s16:CommentsProperty","")
 
 	Func setCommentsProperty P1
 		raise("DotNet Error: CommentsProperty is a read-only property")
 
 	Func getAttributesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Localization, PresentationFramework').nHandle,"s18:AttributesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s18:AttributesProperty","")
 
 	Func setAttributesProperty P1
 		raise("DotNet Error: AttributesProperty is a read-only property")
@@ -4957,16 +4957,16 @@ Class LogicalTreeHelper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FindLogicalNode P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework').nHandle,"s15:FindLogicalNode",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s15:FindLogicalNode",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetParent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework').nHandle,"s9:GetParent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s9:GetParent",dnPackItem(P1))
 
 	Func GetChildren P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework').nHandle,"s11:GetChildren",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s11:GetChildren",dnPackItem(P1))
 
 	Func BringIntoView P1
-		dnSend("s4:call",dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework').nHandle,"s13:BringIntoView",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s13:BringIntoView",dnPackItem(P1))
 		return self
 
 
@@ -4986,9 +4986,9 @@ Class WpfMessageBox from Object
 
 	Func Show P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.MessageBox, PresentationFramework').nHandle,"s4:Show",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.MessageBox, PresentationFramework'),"s4:Show",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.MessageBox, PresentationFramework').nHandle,"s4:Show",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.MessageBox, PresentationFramework'),"s4:Show",dnPackItem(P1))
 
 
 Class NameScope from Object
@@ -5060,11 +5060,11 @@ Class NameScope from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetNameScope P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.NameScope, WindowsBase').nHandle,"s12:SetNameScope",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s12:SetNameScope",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetNameScope P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.NameScope, WindowsBase').nHandle,"s12:GetNameScope",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s12:GetNameScope",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -5098,7 +5098,7 @@ Class NameScope from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getNameScopeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.NameScope, WindowsBase').nHandle,"s17:NameScopeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s17:NameScopeProperty","")
 
 	Func setNameScopeProperty P1
 		raise("DotNet Error: NameScopeProperty is a read-only property")
@@ -5144,7 +5144,7 @@ Class WpfPoint from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Point, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Point, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -5161,16 +5161,16 @@ Class WpfPoint from ValueType
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Point, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Point, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Point, WindowsBase').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Point, WindowsBase'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Point, WindowsBase').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Point, WindowsBase'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Point, WindowsBase').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Point, WindowsBase'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
@@ -5225,17 +5225,17 @@ Class PresentationSource from DispatcherObject
 		return self
 
 	Func FromVisual P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.PresentationSource, PresentationCore').nHandle,"s10:FromVisual",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s10:FromVisual",dnPackItem(P1))
 
 	Func FromDependencyObject P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.PresentationSource, PresentationCore').nHandle,"s20:FromDependencyObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s20:FromDependencyObject",dnPackItem(P1))
 
 	Func AddSourceChangedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.PresentationSource, PresentationCore').nHandle,"s23:AddSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s23:AddSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveSourceChangedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.PresentationSource, PresentationCore').nHandle,"s26:RemoveSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s26:RemoveSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setContentRenderedEvent P1
@@ -5266,7 +5266,7 @@ Class PresentationSource from DispatcherObject
 		raise("DotNet Error: IsDisposed is a read-only property")
 
 	Func getCurrentSources
-		return dnSend("s3:get",dnTypeCached('System.Windows.PresentationSource, PresentationCore').nHandle,"s14:CurrentSources","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s14:CurrentSources","")
 
 	Func setCurrentSources P1
 		raise("DotNet Error: CurrentSources is a read-only property")
@@ -5454,7 +5454,7 @@ Class Rect from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -5478,7 +5478,7 @@ Class Rect from ValueType
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s9:Intersect",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s9:Intersect",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
@@ -5488,7 +5488,7 @@ Class Rect from ValueType
 	Func Union P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s5:Union",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s5:Union",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
 		ok
@@ -5498,7 +5498,7 @@ Class Rect from ValueType
 	Func Offset P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s6:Offset",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s6:Offset",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
 		ok
@@ -5508,7 +5508,7 @@ Class Rect from ValueType
 	Func Inflate P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s7:Inflate",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s7:Inflate",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Inflate",dnPackItem(P1))
 		ok
@@ -5518,7 +5518,7 @@ Class Rect from ValueType
 	Func Transform P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s9:Transform",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s9:Transform",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
 		ok
@@ -5530,7 +5530,7 @@ Class Rect from ValueType
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -5629,7 +5629,7 @@ Class Rect from ValueType
 		raise("DotNet Error: BottomRight is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Rect, WindowsBase').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -6118,7 +6118,7 @@ Class WpfSize from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Size, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Size, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -6131,7 +6131,7 @@ Class WpfSize from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Size, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Size, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -6154,7 +6154,7 @@ Class WpfSize from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Size, WindowsBase').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Size, WindowsBase'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -6621,913 +6621,913 @@ Class WpfSystemColors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActiveBorderColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ActiveBorderColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ActiveBorderColor","")
 
 	Func setActiveBorderColor P1
 		raise("DotNet Error: ActiveBorderColor is a read-only property")
 
 	Func getActiveCaptionColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:ActiveCaptionColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:ActiveCaptionColor","")
 
 	Func setActiveCaptionColor P1
 		raise("DotNet Error: ActiveCaptionColor is a read-only property")
 
 	Func getActiveCaptionTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:ActiveCaptionTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:ActiveCaptionTextColor","")
 
 	Func setActiveCaptionTextColor P1
 		raise("DotNet Error: ActiveCaptionTextColor is a read-only property")
 
 	Func getAppWorkspaceColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:AppWorkspaceColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:AppWorkspaceColor","")
 
 	Func setAppWorkspaceColor P1
 		raise("DotNet Error: AppWorkspaceColor is a read-only property")
 
 	Func getControlColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:ControlColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:ControlColor","")
 
 	Func setControlColor P1
 		raise("DotNet Error: ControlColor is a read-only property")
 
 	Func getControlDarkColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:ControlDarkColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:ControlDarkColor","")
 
 	Func setControlDarkColor P1
 		raise("DotNet Error: ControlDarkColor is a read-only property")
 
 	Func getControlDarkDarkColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ControlDarkDarkColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ControlDarkDarkColor","")
 
 	Func setControlDarkDarkColor P1
 		raise("DotNet Error: ControlDarkDarkColor is a read-only property")
 
 	Func getControlLightColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ControlLightColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ControlLightColor","")
 
 	Func setControlLightColor P1
 		raise("DotNet Error: ControlLightColor is a read-only property")
 
 	Func getControlLightLightColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:ControlLightLightColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:ControlLightLightColor","")
 
 	Func setControlLightLightColor P1
 		raise("DotNet Error: ControlLightLightColor is a read-only property")
 
 	Func getControlTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:ControlTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:ControlTextColor","")
 
 	Func setControlTextColor P1
 		raise("DotNet Error: ControlTextColor is a read-only property")
 
 	Func getDesktopColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:DesktopColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:DesktopColor","")
 
 	Func setDesktopColor P1
 		raise("DotNet Error: DesktopColor is a read-only property")
 
 	Func getGradientActiveCaptionColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s26:GradientActiveCaptionColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s26:GradientActiveCaptionColor","")
 
 	Func setGradientActiveCaptionColor P1
 		raise("DotNet Error: GradientActiveCaptionColor is a read-only property")
 
 	Func getGradientInactiveCaptionColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s28:GradientInactiveCaptionColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s28:GradientInactiveCaptionColor","")
 
 	Func setGradientInactiveCaptionColor P1
 		raise("DotNet Error: GradientInactiveCaptionColor is a read-only property")
 
 	Func getGrayTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:GrayTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:GrayTextColor","")
 
 	Func setGrayTextColor P1
 		raise("DotNet Error: GrayTextColor is a read-only property")
 
 	Func getHighlightColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:HighlightColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:HighlightColor","")
 
 	Func setHighlightColor P1
 		raise("DotNet Error: HighlightColor is a read-only property")
 
 	Func getHighlightTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:HighlightTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:HighlightTextColor","")
 
 	Func setHighlightTextColor P1
 		raise("DotNet Error: HighlightTextColor is a read-only property")
 
 	Func getHotTrackColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:HotTrackColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:HotTrackColor","")
 
 	Func setHotTrackColor P1
 		raise("DotNet Error: HotTrackColor is a read-only property")
 
 	Func getInactiveBorderColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:InactiveBorderColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:InactiveBorderColor","")
 
 	Func setInactiveBorderColor P1
 		raise("DotNet Error: InactiveBorderColor is a read-only property")
 
 	Func getInactiveCaptionColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:InactiveCaptionColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:InactiveCaptionColor","")
 
 	Func setInactiveCaptionColor P1
 		raise("DotNet Error: InactiveCaptionColor is a read-only property")
 
 	Func getInactiveCaptionTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s24:InactiveCaptionTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s24:InactiveCaptionTextColor","")
 
 	Func setInactiveCaptionTextColor P1
 		raise("DotNet Error: InactiveCaptionTextColor is a read-only property")
 
 	Func getInfoColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s9:InfoColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s9:InfoColor","")
 
 	Func setInfoColor P1
 		raise("DotNet Error: InfoColor is a read-only property")
 
 	Func getInfoTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:InfoTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:InfoTextColor","")
 
 	Func setInfoTextColor P1
 		raise("DotNet Error: InfoTextColor is a read-only property")
 
 	Func getMenuColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s9:MenuColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s9:MenuColor","")
 
 	Func setMenuColor P1
 		raise("DotNet Error: MenuColor is a read-only property")
 
 	Func getMenuBarColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:MenuBarColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:MenuBarColor","")
 
 	Func setMenuBarColor P1
 		raise("DotNet Error: MenuBarColor is a read-only property")
 
 	Func getMenuHighlightColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:MenuHighlightColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:MenuHighlightColor","")
 
 	Func setMenuHighlightColor P1
 		raise("DotNet Error: MenuHighlightColor is a read-only property")
 
 	Func getMenuTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:MenuTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:MenuTextColor","")
 
 	Func setMenuTextColor P1
 		raise("DotNet Error: MenuTextColor is a read-only property")
 
 	Func getScrollBarColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:ScrollBarColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:ScrollBarColor","")
 
 	Func setScrollBarColor P1
 		raise("DotNet Error: ScrollBarColor is a read-only property")
 
 	Func getWindowColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s11:WindowColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s11:WindowColor","")
 
 	Func setWindowColor P1
 		raise("DotNet Error: WindowColor is a read-only property")
 
 	Func getWindowFrameColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:WindowFrameColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:WindowFrameColor","")
 
 	Func setWindowFrameColor P1
 		raise("DotNet Error: WindowFrameColor is a read-only property")
 
 	Func getWindowTextColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:WindowTextColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:WindowTextColor","")
 
 	Func setWindowTextColor P1
 		raise("DotNet Error: WindowTextColor is a read-only property")
 
 	Func getAccentColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s11:AccentColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s11:AccentColor","")
 
 	Func setAccentColor P1
 		raise("DotNet Error: AccentColor is a read-only property")
 
 	Func getAccentColorLight1
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:AccentColorLight1","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:AccentColorLight1","")
 
 	Func setAccentColorLight1 P1
 		raise("DotNet Error: AccentColorLight1 is a read-only property")
 
 	Func getAccentColorLight2
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:AccentColorLight2","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:AccentColorLight2","")
 
 	Func setAccentColorLight2 P1
 		raise("DotNet Error: AccentColorLight2 is a read-only property")
 
 	Func getAccentColorLight3
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:AccentColorLight3","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:AccentColorLight3","")
 
 	Func setAccentColorLight3 P1
 		raise("DotNet Error: AccentColorLight3 is a read-only property")
 
 	Func getAccentColorDark1
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:AccentColorDark1","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:AccentColorDark1","")
 
 	Func setAccentColorDark1 P1
 		raise("DotNet Error: AccentColorDark1 is a read-only property")
 
 	Func getAccentColorDark2
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:AccentColorDark2","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:AccentColorDark2","")
 
 	Func setAccentColorDark2 P1
 		raise("DotNet Error: AccentColorDark2 is a read-only property")
 
 	Func getAccentColorDark3
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:AccentColorDark3","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:AccentColorDark3","")
 
 	Func setAccentColorDark3 P1
 		raise("DotNet Error: AccentColorDark3 is a read-only property")
 
 	Func getActiveBorderColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ActiveBorderColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ActiveBorderColorKey","")
 
 	Func setActiveBorderColorKey P1
 		raise("DotNet Error: ActiveBorderColorKey is a read-only property")
 
 	Func getActiveCaptionColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:ActiveCaptionColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:ActiveCaptionColorKey","")
 
 	Func setActiveCaptionColorKey P1
 		raise("DotNet Error: ActiveCaptionColorKey is a read-only property")
 
 	Func getActiveCaptionTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:ActiveCaptionTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:ActiveCaptionTextColorKey","")
 
 	Func setActiveCaptionTextColorKey P1
 		raise("DotNet Error: ActiveCaptionTextColorKey is a read-only property")
 
 	Func getAppWorkspaceColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:AppWorkspaceColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:AppWorkspaceColorKey","")
 
 	Func setAppWorkspaceColorKey P1
 		raise("DotNet Error: AppWorkspaceColorKey is a read-only property")
 
 	Func getControlColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:ControlColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:ControlColorKey","")
 
 	Func setControlColorKey P1
 		raise("DotNet Error: ControlColorKey is a read-only property")
 
 	Func getControlDarkColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:ControlDarkColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:ControlDarkColorKey","")
 
 	Func setControlDarkColorKey P1
 		raise("DotNet Error: ControlDarkColorKey is a read-only property")
 
 	Func getControlDarkDarkColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s23:ControlDarkDarkColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s23:ControlDarkDarkColorKey","")
 
 	Func setControlDarkDarkColorKey P1
 		raise("DotNet Error: ControlDarkDarkColorKey is a read-only property")
 
 	Func getControlLightColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ControlLightColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ControlLightColorKey","")
 
 	Func setControlLightColorKey P1
 		raise("DotNet Error: ControlLightColorKey is a read-only property")
 
 	Func getControlLightLightColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:ControlLightLightColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:ControlLightLightColorKey","")
 
 	Func setControlLightLightColorKey P1
 		raise("DotNet Error: ControlLightLightColorKey is a read-only property")
 
 	Func getControlTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:ControlTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:ControlTextColorKey","")
 
 	Func setControlTextColorKey P1
 		raise("DotNet Error: ControlTextColorKey is a read-only property")
 
 	Func getDesktopColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:DesktopColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:DesktopColorKey","")
 
 	Func setDesktopColorKey P1
 		raise("DotNet Error: DesktopColorKey is a read-only property")
 
 	Func getGradientActiveCaptionColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s29:GradientActiveCaptionColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s29:GradientActiveCaptionColorKey","")
 
 	Func setGradientActiveCaptionColorKey P1
 		raise("DotNet Error: GradientActiveCaptionColorKey is a read-only property")
 
 	Func getGradientInactiveCaptionColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s31:GradientInactiveCaptionColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s31:GradientInactiveCaptionColorKey","")
 
 	Func setGradientInactiveCaptionColorKey P1
 		raise("DotNet Error: GradientInactiveCaptionColorKey is a read-only property")
 
 	Func getGrayTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:GrayTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:GrayTextColorKey","")
 
 	Func setGrayTextColorKey P1
 		raise("DotNet Error: GrayTextColorKey is a read-only property")
 
 	Func getHighlightColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:HighlightColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:HighlightColorKey","")
 
 	Func setHighlightColorKey P1
 		raise("DotNet Error: HighlightColorKey is a read-only property")
 
 	Func getHighlightTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:HighlightTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:HighlightTextColorKey","")
 
 	Func setHighlightTextColorKey P1
 		raise("DotNet Error: HighlightTextColorKey is a read-only property")
 
 	Func getHotTrackColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:HotTrackColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:HotTrackColorKey","")
 
 	Func setHotTrackColorKey P1
 		raise("DotNet Error: HotTrackColorKey is a read-only property")
 
 	Func getInactiveBorderColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:InactiveBorderColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:InactiveBorderColorKey","")
 
 	Func setInactiveBorderColorKey P1
 		raise("DotNet Error: InactiveBorderColorKey is a read-only property")
 
 	Func getInactiveCaptionColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s23:InactiveCaptionColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s23:InactiveCaptionColorKey","")
 
 	Func setInactiveCaptionColorKey P1
 		raise("DotNet Error: InactiveCaptionColorKey is a read-only property")
 
 	Func getInactiveCaptionTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s27:InactiveCaptionTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s27:InactiveCaptionTextColorKey","")
 
 	Func setInactiveCaptionTextColorKey P1
 		raise("DotNet Error: InactiveCaptionTextColorKey is a read-only property")
 
 	Func getInfoColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:InfoColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:InfoColorKey","")
 
 	Func setInfoColorKey P1
 		raise("DotNet Error: InfoColorKey is a read-only property")
 
 	Func getInfoTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:InfoTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:InfoTextColorKey","")
 
 	Func setInfoTextColorKey P1
 		raise("DotNet Error: InfoTextColorKey is a read-only property")
 
 	Func getMenuColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:MenuColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:MenuColorKey","")
 
 	Func setMenuColorKey P1
 		raise("DotNet Error: MenuColorKey is a read-only property")
 
 	Func getMenuBarColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:MenuBarColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:MenuBarColorKey","")
 
 	Func setMenuBarColorKey P1
 		raise("DotNet Error: MenuBarColorKey is a read-only property")
 
 	Func getMenuHighlightColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:MenuHighlightColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:MenuHighlightColorKey","")
 
 	Func setMenuHighlightColorKey P1
 		raise("DotNet Error: MenuHighlightColorKey is a read-only property")
 
 	Func getMenuTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:MenuTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:MenuTextColorKey","")
 
 	Func setMenuTextColorKey P1
 		raise("DotNet Error: MenuTextColorKey is a read-only property")
 
 	Func getScrollBarColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ScrollBarColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ScrollBarColorKey","")
 
 	Func setScrollBarColorKey P1
 		raise("DotNet Error: ScrollBarColorKey is a read-only property")
 
 	Func getWindowColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:WindowColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:WindowColorKey","")
 
 	Func setWindowColorKey P1
 		raise("DotNet Error: WindowColorKey is a read-only property")
 
 	Func getWindowFrameColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:WindowFrameColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:WindowFrameColorKey","")
 
 	Func setWindowFrameColorKey P1
 		raise("DotNet Error: WindowFrameColorKey is a read-only property")
 
 	Func getWindowTextColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:WindowTextColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:WindowTextColorKey","")
 
 	Func setWindowTextColorKey P1
 		raise("DotNet Error: WindowTextColorKey is a read-only property")
 
 	Func getAccentColorKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:AccentColorKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:AccentColorKey","")
 
 	Func setAccentColorKey P1
 		raise("DotNet Error: AccentColorKey is a read-only property")
 
 	Func getAccentColorLight1Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:AccentColorLight1Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:AccentColorLight1Key","")
 
 	Func setAccentColorLight1Key P1
 		raise("DotNet Error: AccentColorLight1Key is a read-only property")
 
 	Func getAccentColorLight2Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:AccentColorLight2Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:AccentColorLight2Key","")
 
 	Func setAccentColorLight2Key P1
 		raise("DotNet Error: AccentColorLight2Key is a read-only property")
 
 	Func getAccentColorLight3Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:AccentColorLight3Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:AccentColorLight3Key","")
 
 	Func setAccentColorLight3Key P1
 		raise("DotNet Error: AccentColorLight3Key is a read-only property")
 
 	Func getAccentColorDark1Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:AccentColorDark1Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:AccentColorDark1Key","")
 
 	Func setAccentColorDark1Key P1
 		raise("DotNet Error: AccentColorDark1Key is a read-only property")
 
 	Func getAccentColorDark2Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:AccentColorDark2Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:AccentColorDark2Key","")
 
 	Func setAccentColorDark2Key P1
 		raise("DotNet Error: AccentColorDark2Key is a read-only property")
 
 	Func getAccentColorDark3Key
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:AccentColorDark3Key","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:AccentColorDark3Key","")
 
 	Func setAccentColorDark3Key P1
 		raise("DotNet Error: AccentColorDark3Key is a read-only property")
 
 	Func getActiveBorderBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ActiveBorderBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ActiveBorderBrush","")
 
 	Func setActiveBorderBrush P1
 		raise("DotNet Error: ActiveBorderBrush is a read-only property")
 
 	Func getActiveCaptionBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:ActiveCaptionBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:ActiveCaptionBrush","")
 
 	Func setActiveCaptionBrush P1
 		raise("DotNet Error: ActiveCaptionBrush is a read-only property")
 
 	Func getActiveCaptionTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:ActiveCaptionTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:ActiveCaptionTextBrush","")
 
 	Func setActiveCaptionTextBrush P1
 		raise("DotNet Error: ActiveCaptionTextBrush is a read-only property")
 
 	Func getAppWorkspaceBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:AppWorkspaceBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:AppWorkspaceBrush","")
 
 	Func setAppWorkspaceBrush P1
 		raise("DotNet Error: AppWorkspaceBrush is a read-only property")
 
 	Func getControlBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:ControlBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:ControlBrush","")
 
 	Func setControlBrush P1
 		raise("DotNet Error: ControlBrush is a read-only property")
 
 	Func getControlDarkBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:ControlDarkBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:ControlDarkBrush","")
 
 	Func setControlDarkBrush P1
 		raise("DotNet Error: ControlDarkBrush is a read-only property")
 
 	Func getControlDarkDarkBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ControlDarkDarkBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ControlDarkDarkBrush","")
 
 	Func setControlDarkDarkBrush P1
 		raise("DotNet Error: ControlDarkDarkBrush is a read-only property")
 
 	Func getControlLightBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ControlLightBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ControlLightBrush","")
 
 	Func setControlLightBrush P1
 		raise("DotNet Error: ControlLightBrush is a read-only property")
 
 	Func getControlLightLightBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:ControlLightLightBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:ControlLightLightBrush","")
 
 	Func setControlLightLightBrush P1
 		raise("DotNet Error: ControlLightLightBrush is a read-only property")
 
 	Func getControlTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:ControlTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:ControlTextBrush","")
 
 	Func setControlTextBrush P1
 		raise("DotNet Error: ControlTextBrush is a read-only property")
 
 	Func getDesktopBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:DesktopBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:DesktopBrush","")
 
 	Func setDesktopBrush P1
 		raise("DotNet Error: DesktopBrush is a read-only property")
 
 	Func getGradientActiveCaptionBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s26:GradientActiveCaptionBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s26:GradientActiveCaptionBrush","")
 
 	Func setGradientActiveCaptionBrush P1
 		raise("DotNet Error: GradientActiveCaptionBrush is a read-only property")
 
 	Func getGradientInactiveCaptionBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s28:GradientInactiveCaptionBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s28:GradientInactiveCaptionBrush","")
 
 	Func setGradientInactiveCaptionBrush P1
 		raise("DotNet Error: GradientInactiveCaptionBrush is a read-only property")
 
 	Func getGrayTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:GrayTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:GrayTextBrush","")
 
 	Func setGrayTextBrush P1
 		raise("DotNet Error: GrayTextBrush is a read-only property")
 
 	Func getHighlightBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:HighlightBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:HighlightBrush","")
 
 	Func setHighlightBrush P1
 		raise("DotNet Error: HighlightBrush is a read-only property")
 
 	Func getHighlightTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:HighlightTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:HighlightTextBrush","")
 
 	Func setHighlightTextBrush P1
 		raise("DotNet Error: HighlightTextBrush is a read-only property")
 
 	Func getHotTrackBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:HotTrackBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:HotTrackBrush","")
 
 	Func setHotTrackBrush P1
 		raise("DotNet Error: HotTrackBrush is a read-only property")
 
 	Func getInactiveBorderBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:InactiveBorderBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:InactiveBorderBrush","")
 
 	Func setInactiveBorderBrush P1
 		raise("DotNet Error: InactiveBorderBrush is a read-only property")
 
 	Func getInactiveCaptionBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:InactiveCaptionBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:InactiveCaptionBrush","")
 
 	Func setInactiveCaptionBrush P1
 		raise("DotNet Error: InactiveCaptionBrush is a read-only property")
 
 	Func getInactiveCaptionTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s24:InactiveCaptionTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s24:InactiveCaptionTextBrush","")
 
 	Func setInactiveCaptionTextBrush P1
 		raise("DotNet Error: InactiveCaptionTextBrush is a read-only property")
 
 	Func getInfoBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s9:InfoBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s9:InfoBrush","")
 
 	Func setInfoBrush P1
 		raise("DotNet Error: InfoBrush is a read-only property")
 
 	Func getInfoTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:InfoTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:InfoTextBrush","")
 
 	Func setInfoTextBrush P1
 		raise("DotNet Error: InfoTextBrush is a read-only property")
 
 	Func getMenuBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s9:MenuBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s9:MenuBrush","")
 
 	Func setMenuBrush P1
 		raise("DotNet Error: MenuBrush is a read-only property")
 
 	Func getMenuBarBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:MenuBarBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:MenuBarBrush","")
 
 	Func setMenuBarBrush P1
 		raise("DotNet Error: MenuBarBrush is a read-only property")
 
 	Func getMenuHighlightBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:MenuHighlightBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:MenuHighlightBrush","")
 
 	Func setMenuHighlightBrush P1
 		raise("DotNet Error: MenuHighlightBrush is a read-only property")
 
 	Func getMenuTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s13:MenuTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s13:MenuTextBrush","")
 
 	Func setMenuTextBrush P1
 		raise("DotNet Error: MenuTextBrush is a read-only property")
 
 	Func getScrollBarBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:ScrollBarBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:ScrollBarBrush","")
 
 	Func setScrollBarBrush P1
 		raise("DotNet Error: ScrollBarBrush is a read-only property")
 
 	Func getWindowBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s11:WindowBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s11:WindowBrush","")
 
 	Func setWindowBrush P1
 		raise("DotNet Error: WindowBrush is a read-only property")
 
 	Func getWindowFrameBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:WindowFrameBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:WindowFrameBrush","")
 
 	Func setWindowFrameBrush P1
 		raise("DotNet Error: WindowFrameBrush is a read-only property")
 
 	Func getWindowTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:WindowTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:WindowTextBrush","")
 
 	Func setWindowTextBrush P1
 		raise("DotNet Error: WindowTextBrush is a read-only property")
 
 	Func getInactiveSelectionHighlightBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s31:InactiveSelectionHighlightBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s31:InactiveSelectionHighlightBrush","")
 
 	Func setInactiveSelectionHighlightBrush P1
 		raise("DotNet Error: InactiveSelectionHighlightBrush is a read-only property")
 
 	Func getInactiveSelectionHighlightTextBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s35:InactiveSelectionHighlightTextBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s35:InactiveSelectionHighlightTextBrush","")
 
 	Func setInactiveSelectionHighlightTextBrush P1
 		raise("DotNet Error: InactiveSelectionHighlightTextBrush is a read-only property")
 
 	Func getAccentColorBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:AccentColorBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:AccentColorBrush","")
 
 	Func setAccentColorBrush P1
 		raise("DotNet Error: AccentColorBrush is a read-only property")
 
 	Func getAccentColorLight1Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:AccentColorLight1Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:AccentColorLight1Brush","")
 
 	Func setAccentColorLight1Brush P1
 		raise("DotNet Error: AccentColorLight1Brush is a read-only property")
 
 	Func getAccentColorLight2Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:AccentColorLight2Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:AccentColorLight2Brush","")
 
 	Func setAccentColorLight2Brush P1
 		raise("DotNet Error: AccentColorLight2Brush is a read-only property")
 
 	Func getAccentColorLight3Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:AccentColorLight3Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:AccentColorLight3Brush","")
 
 	Func setAccentColorLight3Brush P1
 		raise("DotNet Error: AccentColorLight3Brush is a read-only property")
 
 	Func getAccentColorDark1Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:AccentColorDark1Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:AccentColorDark1Brush","")
 
 	Func setAccentColorDark1Brush P1
 		raise("DotNet Error: AccentColorDark1Brush is a read-only property")
 
 	Func getAccentColorDark2Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:AccentColorDark2Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:AccentColorDark2Brush","")
 
 	Func setAccentColorDark2Brush P1
 		raise("DotNet Error: AccentColorDark2Brush is a read-only property")
 
 	Func getAccentColorDark3Brush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:AccentColorDark3Brush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:AccentColorDark3Brush","")
 
 	Func setAccentColorDark3Brush P1
 		raise("DotNet Error: AccentColorDark3Brush is a read-only property")
 
 	Func getActiveBorderBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ActiveBorderBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ActiveBorderBrushKey","")
 
 	Func setActiveBorderBrushKey P1
 		raise("DotNet Error: ActiveBorderBrushKey is a read-only property")
 
 	Func getActiveCaptionBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:ActiveCaptionBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:ActiveCaptionBrushKey","")
 
 	Func setActiveCaptionBrushKey P1
 		raise("DotNet Error: ActiveCaptionBrushKey is a read-only property")
 
 	Func getActiveCaptionTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:ActiveCaptionTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:ActiveCaptionTextBrushKey","")
 
 	Func setActiveCaptionTextBrushKey P1
 		raise("DotNet Error: ActiveCaptionTextBrushKey is a read-only property")
 
 	Func getAppWorkspaceBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:AppWorkspaceBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:AppWorkspaceBrushKey","")
 
 	Func setAppWorkspaceBrushKey P1
 		raise("DotNet Error: AppWorkspaceBrushKey is a read-only property")
 
 	Func getControlBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:ControlBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:ControlBrushKey","")
 
 	Func setControlBrushKey P1
 		raise("DotNet Error: ControlBrushKey is a read-only property")
 
 	Func getControlDarkBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:ControlDarkBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:ControlDarkBrushKey","")
 
 	Func setControlDarkBrushKey P1
 		raise("DotNet Error: ControlDarkBrushKey is a read-only property")
 
 	Func getControlDarkDarkBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s23:ControlDarkDarkBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s23:ControlDarkDarkBrushKey","")
 
 	Func setControlDarkDarkBrushKey P1
 		raise("DotNet Error: ControlDarkDarkBrushKey is a read-only property")
 
 	Func getControlLightBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s20:ControlLightBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s20:ControlLightBrushKey","")
 
 	Func setControlLightBrushKey P1
 		raise("DotNet Error: ControlLightBrushKey is a read-only property")
 
 	Func getControlLightLightBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:ControlLightLightBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:ControlLightLightBrushKey","")
 
 	Func setControlLightLightBrushKey P1
 		raise("DotNet Error: ControlLightLightBrushKey is a read-only property")
 
 	Func getControlTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:ControlTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:ControlTextBrushKey","")
 
 	Func setControlTextBrushKey P1
 		raise("DotNet Error: ControlTextBrushKey is a read-only property")
 
 	Func getDesktopBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:DesktopBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:DesktopBrushKey","")
 
 	Func setDesktopBrushKey P1
 		raise("DotNet Error: DesktopBrushKey is a read-only property")
 
 	Func getGradientActiveCaptionBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s29:GradientActiveCaptionBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s29:GradientActiveCaptionBrushKey","")
 
 	Func setGradientActiveCaptionBrushKey P1
 		raise("DotNet Error: GradientActiveCaptionBrushKey is a read-only property")
 
 	Func getGradientInactiveCaptionBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s31:GradientInactiveCaptionBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s31:GradientInactiveCaptionBrushKey","")
 
 	Func setGradientInactiveCaptionBrushKey P1
 		raise("DotNet Error: GradientInactiveCaptionBrushKey is a read-only property")
 
 	Func getGrayTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:GrayTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:GrayTextBrushKey","")
 
 	Func setGrayTextBrushKey P1
 		raise("DotNet Error: GrayTextBrushKey is a read-only property")
 
 	Func getHighlightBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:HighlightBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:HighlightBrushKey","")
 
 	Func setHighlightBrushKey P1
 		raise("DotNet Error: HighlightBrushKey is a read-only property")
 
 	Func getHighlightTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:HighlightTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:HighlightTextBrushKey","")
 
 	Func setHighlightTextBrushKey P1
 		raise("DotNet Error: HighlightTextBrushKey is a read-only property")
 
 	Func getHotTrackBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:HotTrackBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:HotTrackBrushKey","")
 
 	Func setHotTrackBrushKey P1
 		raise("DotNet Error: HotTrackBrushKey is a read-only property")
 
 	Func getInactiveBorderBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s22:InactiveBorderBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s22:InactiveBorderBrushKey","")
 
 	Func setInactiveBorderBrushKey P1
 		raise("DotNet Error: InactiveBorderBrushKey is a read-only property")
 
 	Func getInactiveCaptionBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s23:InactiveCaptionBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s23:InactiveCaptionBrushKey","")
 
 	Func setInactiveCaptionBrushKey P1
 		raise("DotNet Error: InactiveCaptionBrushKey is a read-only property")
 
 	Func getInactiveCaptionTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s27:InactiveCaptionTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s27:InactiveCaptionTextBrushKey","")
 
 	Func setInactiveCaptionTextBrushKey P1
 		raise("DotNet Error: InactiveCaptionTextBrushKey is a read-only property")
 
 	Func getInfoBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:InfoBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:InfoBrushKey","")
 
 	Func setInfoBrushKey P1
 		raise("DotNet Error: InfoBrushKey is a read-only property")
 
 	Func getInfoTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:InfoTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:InfoTextBrushKey","")
 
 	Func setInfoTextBrushKey P1
 		raise("DotNet Error: InfoTextBrushKey is a read-only property")
 
 	Func getMenuBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s12:MenuBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s12:MenuBrushKey","")
 
 	Func setMenuBrushKey P1
 		raise("DotNet Error: MenuBrushKey is a read-only property")
 
 	Func getMenuBarBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s15:MenuBarBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s15:MenuBarBrushKey","")
 
 	Func setMenuBarBrushKey P1
 		raise("DotNet Error: MenuBarBrushKey is a read-only property")
 
 	Func getMenuHighlightBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s21:MenuHighlightBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s21:MenuHighlightBrushKey","")
 
 	Func setMenuHighlightBrushKey P1
 		raise("DotNet Error: MenuHighlightBrushKey is a read-only property")
 
 	Func getMenuTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s16:MenuTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s16:MenuTextBrushKey","")
 
 	Func setMenuTextBrushKey P1
 		raise("DotNet Error: MenuTextBrushKey is a read-only property")
 
 	Func getScrollBarBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s17:ScrollBarBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ScrollBarBrushKey","")
 
 	Func setScrollBarBrushKey P1
 		raise("DotNet Error: ScrollBarBrushKey is a read-only property")
 
 	Func getWindowBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s14:WindowBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s14:WindowBrushKey","")
 
 	Func setWindowBrushKey P1
 		raise("DotNet Error: WindowBrushKey is a read-only property")
 
 	Func getWindowFrameBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:WindowFrameBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:WindowFrameBrushKey","")
 
 	Func setWindowFrameBrushKey P1
 		raise("DotNet Error: WindowFrameBrushKey is a read-only property")
 
 	Func getWindowTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s18:WindowTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s18:WindowTextBrushKey","")
 
 	Func setWindowTextBrushKey P1
 		raise("DotNet Error: WindowTextBrushKey is a read-only property")
 
 	Func getInactiveSelectionHighlightBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s34:InactiveSelectionHighlightBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s34:InactiveSelectionHighlightBrushKey","")
 
 	Func setInactiveSelectionHighlightBrushKey P1
 		raise("DotNet Error: InactiveSelectionHighlightBrushKey is a read-only property")
 
 	Func getInactiveSelectionHighlightTextBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s38:InactiveSelectionHighlightTextBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s38:InactiveSelectionHighlightTextBrushKey","")
 
 	Func setInactiveSelectionHighlightTextBrushKey P1
 		raise("DotNet Error: InactiveSelectionHighlightTextBrushKey is a read-only property")
 
 	Func getAccentColorBrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s19:AccentColorBrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s19:AccentColorBrushKey","")
 
 	Func setAccentColorBrushKey P1
 		raise("DotNet Error: AccentColorBrushKey is a read-only property")
 
 	Func getAccentColorLight1BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:AccentColorLight1BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:AccentColorLight1BrushKey","")
 
 	Func setAccentColorLight1BrushKey P1
 		raise("DotNet Error: AccentColorLight1BrushKey is a read-only property")
 
 	Func getAccentColorLight2BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:AccentColorLight2BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:AccentColorLight2BrushKey","")
 
 	Func setAccentColorLight2BrushKey P1
 		raise("DotNet Error: AccentColorLight2BrushKey is a read-only property")
 
 	Func getAccentColorLight3BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s25:AccentColorLight3BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s25:AccentColorLight3BrushKey","")
 
 	Func setAccentColorLight3BrushKey P1
 		raise("DotNet Error: AccentColorLight3BrushKey is a read-only property")
 
 	Func getAccentColorDark1BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s24:AccentColorDark1BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s24:AccentColorDark1BrushKey","")
 
 	Func setAccentColorDark1BrushKey P1
 		raise("DotNet Error: AccentColorDark1BrushKey is a read-only property")
 
 	Func getAccentColorDark2BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s24:AccentColorDark2BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s24:AccentColorDark2BrushKey","")
 
 	Func setAccentColorDark2BrushKey P1
 		raise("DotNet Error: AccentColorDark2BrushKey is a read-only property")
 
 	Func getAccentColorDark3BrushKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemColors, PresentationFramework').nHandle,"s24:AccentColorDark3BrushKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s24:AccentColorDark3BrushKey","")
 
 	Func setAccentColorDark3BrushKey P1
 		raise("DotNet Error: AccentColorDark3BrushKey is a read-only property")
@@ -7554,51 +7554,51 @@ Class SystemCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CloseWindow P1
-		dnSend("s4:call",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s11:CloseWindow",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s11:CloseWindow",dnPackItem(P1))
 		return self
 
 	Func MaximizeWindow P1
-		dnSend("s4:call",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s14:MaximizeWindow",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MaximizeWindow",dnPackItem(P1))
 		return self
 
 	Func MinimizeWindow P1
-		dnSend("s4:call",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s14:MinimizeWindow",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MinimizeWindow",dnPackItem(P1))
 		return self
 
 	Func RestoreWindow P1
-		dnSend("s4:call",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s13:RestoreWindow",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s13:RestoreWindow",dnPackItem(P1))
 		return self
 
 	Func ShowSystemMenu P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s14:ShowSystemMenu",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:ShowSystemMenu",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCloseWindowCommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s18:CloseWindowCommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s18:CloseWindowCommand","")
 
 	Func setCloseWindowCommand P1
 		raise("DotNet Error: CloseWindowCommand is a read-only property")
 
 	Func getMaximizeWindowCommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s21:MaximizeWindowCommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s21:MaximizeWindowCommand","")
 
 	Func setMaximizeWindowCommand P1
 		raise("DotNet Error: MaximizeWindowCommand is a read-only property")
 
 	Func getMinimizeWindowCommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s21:MinimizeWindowCommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s21:MinimizeWindowCommand","")
 
 	Func setMinimizeWindowCommand P1
 		raise("DotNet Error: MinimizeWindowCommand is a read-only property")
 
 	Func getRestoreWindowCommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s20:RestoreWindowCommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s20:RestoreWindowCommand","")
 
 	Func setRestoreWindowCommand P1
 		raise("DotNet Error: RestoreWindowCommand is a read-only property")
 
 	Func getShowSystemMenuCommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemCommands, PresentationFramework').nHandle,"s21:ShowSystemMenuCommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s21:ShowSystemMenuCommand","")
 
 	Func setShowSystemMenuCommand P1
 		raise("DotNet Error: ShowSystemMenuCommand is a read-only property")
@@ -7680,361 +7680,361 @@ Class WpfSystemFonts from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIconFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s12:IconFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:IconFontSize","")
 
 	Func setIconFontSize P1
 		raise("DotNet Error: IconFontSize is a read-only property")
 
 	Func getIconFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s14:IconFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:IconFontFamily","")
 
 	Func setIconFontFamily P1
 		raise("DotNet Error: IconFontFamily is a read-only property")
 
 	Func getIconFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s13:IconFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s13:IconFontStyle","")
 
 	Func setIconFontStyle P1
 		raise("DotNet Error: IconFontStyle is a read-only property")
 
 	Func getIconFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s14:IconFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:IconFontWeight","")
 
 	Func setIconFontWeight P1
 		raise("DotNet Error: IconFontWeight is a read-only property")
 
 	Func getIconFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s23:IconFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s23:IconFontTextDecorations","")
 
 	Func setIconFontTextDecorations P1
 		raise("DotNet Error: IconFontTextDecorations is a read-only property")
 
 	Func getCaptionFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s15:CaptionFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:CaptionFontSize","")
 
 	Func setCaptionFontSize P1
 		raise("DotNet Error: CaptionFontSize is a read-only property")
 
 	Func getCaptionFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:CaptionFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:CaptionFontFamily","")
 
 	Func setCaptionFontFamily P1
 		raise("DotNet Error: CaptionFontFamily is a read-only property")
 
 	Func getCaptionFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:CaptionFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:CaptionFontStyle","")
 
 	Func setCaptionFontStyle P1
 		raise("DotNet Error: CaptionFontStyle is a read-only property")
 
 	Func getCaptionFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:CaptionFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:CaptionFontWeight","")
 
 	Func setCaptionFontWeight P1
 		raise("DotNet Error: CaptionFontWeight is a read-only property")
 
 	Func getCaptionFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s26:CaptionFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s26:CaptionFontTextDecorations","")
 
 	Func setCaptionFontTextDecorations P1
 		raise("DotNet Error: CaptionFontTextDecorations is a read-only property")
 
 	Func getSmallCaptionFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s20:SmallCaptionFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:SmallCaptionFontSize","")
 
 	Func setSmallCaptionFontSize P1
 		raise("DotNet Error: SmallCaptionFontSize is a read-only property")
 
 	Func getSmallCaptionFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s22:SmallCaptionFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s22:SmallCaptionFontFamily","")
 
 	Func setSmallCaptionFontFamily P1
 		raise("DotNet Error: SmallCaptionFontFamily is a read-only property")
 
 	Func getSmallCaptionFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s21:SmallCaptionFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s21:SmallCaptionFontStyle","")
 
 	Func setSmallCaptionFontStyle P1
 		raise("DotNet Error: SmallCaptionFontStyle is a read-only property")
 
 	Func getSmallCaptionFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s22:SmallCaptionFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s22:SmallCaptionFontWeight","")
 
 	Func setSmallCaptionFontWeight P1
 		raise("DotNet Error: SmallCaptionFontWeight is a read-only property")
 
 	Func getSmallCaptionFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s31:SmallCaptionFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s31:SmallCaptionFontTextDecorations","")
 
 	Func setSmallCaptionFontTextDecorations P1
 		raise("DotNet Error: SmallCaptionFontTextDecorations is a read-only property")
 
 	Func getMenuFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s12:MenuFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:MenuFontSize","")
 
 	Func setMenuFontSize P1
 		raise("DotNet Error: MenuFontSize is a read-only property")
 
 	Func getMenuFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s14:MenuFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:MenuFontFamily","")
 
 	Func setMenuFontFamily P1
 		raise("DotNet Error: MenuFontFamily is a read-only property")
 
 	Func getMenuFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s13:MenuFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s13:MenuFontStyle","")
 
 	Func setMenuFontStyle P1
 		raise("DotNet Error: MenuFontStyle is a read-only property")
 
 	Func getMenuFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s14:MenuFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:MenuFontWeight","")
 
 	Func setMenuFontWeight P1
 		raise("DotNet Error: MenuFontWeight is a read-only property")
 
 	Func getMenuFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s23:MenuFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s23:MenuFontTextDecorations","")
 
 	Func setMenuFontTextDecorations P1
 		raise("DotNet Error: MenuFontTextDecorations is a read-only property")
 
 	Func getStatusFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s14:StatusFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:StatusFontSize","")
 
 	Func setStatusFontSize P1
 		raise("DotNet Error: StatusFontSize is a read-only property")
 
 	Func getStatusFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:StatusFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:StatusFontFamily","")
 
 	Func setStatusFontFamily P1
 		raise("DotNet Error: StatusFontFamily is a read-only property")
 
 	Func getStatusFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s15:StatusFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:StatusFontStyle","")
 
 	Func setStatusFontStyle P1
 		raise("DotNet Error: StatusFontStyle is a read-only property")
 
 	Func getStatusFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:StatusFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:StatusFontWeight","")
 
 	Func setStatusFontWeight P1
 		raise("DotNet Error: StatusFontWeight is a read-only property")
 
 	Func getStatusFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s25:StatusFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s25:StatusFontTextDecorations","")
 
 	Func setStatusFontTextDecorations P1
 		raise("DotNet Error: StatusFontTextDecorations is a read-only property")
 
 	Func getMessageFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s15:MessageFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:MessageFontSize","")
 
 	Func setMessageFontSize P1
 		raise("DotNet Error: MessageFontSize is a read-only property")
 
 	Func getMessageFontFamily
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:MessageFontFamily","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:MessageFontFamily","")
 
 	Func setMessageFontFamily P1
 		raise("DotNet Error: MessageFontFamily is a read-only property")
 
 	Func getMessageFontStyle
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:MessageFontStyle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:MessageFontStyle","")
 
 	Func setMessageFontStyle P1
 		raise("DotNet Error: MessageFontStyle is a read-only property")
 
 	Func getMessageFontWeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:MessageFontWeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:MessageFontWeight","")
 
 	Func setMessageFontWeight P1
 		raise("DotNet Error: MessageFontWeight is a read-only property")
 
 	Func getMessageFontTextDecorations
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s26:MessageFontTextDecorations","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s26:MessageFontTextDecorations","")
 
 	Func setMessageFontTextDecorations P1
 		raise("DotNet Error: MessageFontTextDecorations is a read-only property")
 
 	Func getIconFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s15:IconFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:IconFontSizeKey","")
 
 	Func setIconFontSizeKey P1
 		raise("DotNet Error: IconFontSizeKey is a read-only property")
 
 	Func getIconFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:IconFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:IconFontFamilyKey","")
 
 	Func setIconFontFamilyKey P1
 		raise("DotNet Error: IconFontFamilyKey is a read-only property")
 
 	Func getIconFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:IconFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:IconFontStyleKey","")
 
 	Func setIconFontStyleKey P1
 		raise("DotNet Error: IconFontStyleKey is a read-only property")
 
 	Func getIconFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:IconFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:IconFontWeightKey","")
 
 	Func setIconFontWeightKey P1
 		raise("DotNet Error: IconFontWeightKey is a read-only property")
 
 	Func getIconFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s26:IconFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s26:IconFontTextDecorationsKey","")
 
 	Func setIconFontTextDecorationsKey P1
 		raise("DotNet Error: IconFontTextDecorationsKey is a read-only property")
 
 	Func getCaptionFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s18:CaptionFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s18:CaptionFontSizeKey","")
 
 	Func setCaptionFontSizeKey P1
 		raise("DotNet Error: CaptionFontSizeKey is a read-only property")
 
 	Func getCaptionFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s20:CaptionFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:CaptionFontFamilyKey","")
 
 	Func setCaptionFontFamilyKey P1
 		raise("DotNet Error: CaptionFontFamilyKey is a read-only property")
 
 	Func getCaptionFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s19:CaptionFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s19:CaptionFontStyleKey","")
 
 	Func setCaptionFontStyleKey P1
 		raise("DotNet Error: CaptionFontStyleKey is a read-only property")
 
 	Func getCaptionFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s20:CaptionFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:CaptionFontWeightKey","")
 
 	Func setCaptionFontWeightKey P1
 		raise("DotNet Error: CaptionFontWeightKey is a read-only property")
 
 	Func getCaptionFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s29:CaptionFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s29:CaptionFontTextDecorationsKey","")
 
 	Func setCaptionFontTextDecorationsKey P1
 		raise("DotNet Error: CaptionFontTextDecorationsKey is a read-only property")
 
 	Func getSmallCaptionFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s23:SmallCaptionFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s23:SmallCaptionFontSizeKey","")
 
 	Func setSmallCaptionFontSizeKey P1
 		raise("DotNet Error: SmallCaptionFontSizeKey is a read-only property")
 
 	Func getSmallCaptionFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s25:SmallCaptionFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s25:SmallCaptionFontFamilyKey","")
 
 	Func setSmallCaptionFontFamilyKey P1
 		raise("DotNet Error: SmallCaptionFontFamilyKey is a read-only property")
 
 	Func getSmallCaptionFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s24:SmallCaptionFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s24:SmallCaptionFontStyleKey","")
 
 	Func setSmallCaptionFontStyleKey P1
 		raise("DotNet Error: SmallCaptionFontStyleKey is a read-only property")
 
 	Func getSmallCaptionFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s25:SmallCaptionFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s25:SmallCaptionFontWeightKey","")
 
 	Func setSmallCaptionFontWeightKey P1
 		raise("DotNet Error: SmallCaptionFontWeightKey is a read-only property")
 
 	Func getSmallCaptionFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s34:SmallCaptionFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s34:SmallCaptionFontTextDecorationsKey","")
 
 	Func setSmallCaptionFontTextDecorationsKey P1
 		raise("DotNet Error: SmallCaptionFontTextDecorationsKey is a read-only property")
 
 	Func getMenuFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s15:MenuFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:MenuFontSizeKey","")
 
 	Func setMenuFontSizeKey P1
 		raise("DotNet Error: MenuFontSizeKey is a read-only property")
 
 	Func getMenuFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:MenuFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:MenuFontFamilyKey","")
 
 	Func setMenuFontFamilyKey P1
 		raise("DotNet Error: MenuFontFamilyKey is a read-only property")
 
 	Func getMenuFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s16:MenuFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s16:MenuFontStyleKey","")
 
 	Func setMenuFontStyleKey P1
 		raise("DotNet Error: MenuFontStyleKey is a read-only property")
 
 	Func getMenuFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:MenuFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:MenuFontWeightKey","")
 
 	Func setMenuFontWeightKey P1
 		raise("DotNet Error: MenuFontWeightKey is a read-only property")
 
 	Func getMenuFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s26:MenuFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s26:MenuFontTextDecorationsKey","")
 
 	Func setMenuFontTextDecorationsKey P1
 		raise("DotNet Error: MenuFontTextDecorationsKey is a read-only property")
 
 	Func getStatusFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s17:StatusFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s17:StatusFontSizeKey","")
 
 	Func setStatusFontSizeKey P1
 		raise("DotNet Error: StatusFontSizeKey is a read-only property")
 
 	Func getStatusFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s19:StatusFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s19:StatusFontFamilyKey","")
 
 	Func setStatusFontFamilyKey P1
 		raise("DotNet Error: StatusFontFamilyKey is a read-only property")
 
 	Func getStatusFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s18:StatusFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s18:StatusFontStyleKey","")
 
 	Func setStatusFontStyleKey P1
 		raise("DotNet Error: StatusFontStyleKey is a read-only property")
 
 	Func getStatusFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s19:StatusFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s19:StatusFontWeightKey","")
 
 	Func setStatusFontWeightKey P1
 		raise("DotNet Error: StatusFontWeightKey is a read-only property")
 
 	Func getStatusFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s28:StatusFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s28:StatusFontTextDecorationsKey","")
 
 	Func setStatusFontTextDecorationsKey P1
 		raise("DotNet Error: StatusFontTextDecorationsKey is a read-only property")
 
 	Func getMessageFontSizeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s18:MessageFontSizeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s18:MessageFontSizeKey","")
 
 	Func setMessageFontSizeKey P1
 		raise("DotNet Error: MessageFontSizeKey is a read-only property")
 
 	Func getMessageFontFamilyKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s20:MessageFontFamilyKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:MessageFontFamilyKey","")
 
 	Func setMessageFontFamilyKey P1
 		raise("DotNet Error: MessageFontFamilyKey is a read-only property")
 
 	Func getMessageFontStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s19:MessageFontStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s19:MessageFontStyleKey","")
 
 	Func setMessageFontStyleKey P1
 		raise("DotNet Error: MessageFontStyleKey is a read-only property")
 
 	Func getMessageFontWeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s20:MessageFontWeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:MessageFontWeightKey","")
 
 	Func setMessageFontWeightKey P1
 		raise("DotNet Error: MessageFontWeightKey is a read-only property")
 
 	Func getMessageFontTextDecorationsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemFonts, PresentationFramework').nHandle,"s29:MessageFontTextDecorationsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s29:MessageFontTextDecorationsKey","")
 
 	Func setMessageFontTextDecorationsKey P1
 		raise("DotNet Error: MessageFontTextDecorationsKey is a read-only property")
@@ -8315,1507 +8315,1507 @@ Class SystemParameters from Object
 		return self
 
 	Func getFocusBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:FocusBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:FocusBorderWidth","")
 
 	Func setFocusBorderWidth P1
 		raise("DotNet Error: FocusBorderWidth is a read-only property")
 
 	Func getFocusBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:FocusBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:FocusBorderHeight","")
 
 	Func setFocusBorderHeight P1
 		raise("DotNet Error: FocusBorderHeight is a read-only property")
 
 	Func getHighContrast
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:HighContrast","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:HighContrast","")
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
 
 	Func getFocusBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:FocusBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:FocusBorderWidthKey","")
 
 	Func setFocusBorderWidthKey P1
 		raise("DotNet Error: FocusBorderWidthKey is a read-only property")
 
 	Func getFocusBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:FocusBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:FocusBorderHeightKey","")
 
 	Func setFocusBorderHeightKey P1
 		raise("DotNet Error: FocusBorderHeightKey is a read-only property")
 
 	Func getHighContrastKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:HighContrastKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:HighContrastKey","")
 
 	Func setHighContrastKey P1
 		raise("DotNet Error: HighContrastKey is a read-only property")
 
 	Func getDropShadow
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:DropShadow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:DropShadow","")
 
 	Func setDropShadow P1
 		raise("DotNet Error: DropShadow is a read-only property")
 
 	Func getFlatMenu
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s8:FlatMenu","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:FlatMenu","")
 
 	Func setFlatMenu P1
 		raise("DotNet Error: FlatMenu is a read-only property")
 
 	Func getWorkArea
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s8:WorkArea","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:WorkArea","")
 
 	Func setWorkArea P1
 		raise("DotNet Error: WorkArea is a read-only property")
 
 	Func getDropShadowKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:DropShadowKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:DropShadowKey","")
 
 	Func setDropShadowKey P1
 		raise("DotNet Error: DropShadowKey is a read-only property")
 
 	Func getFlatMenuKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:FlatMenuKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:FlatMenuKey","")
 
 	Func setFlatMenuKey P1
 		raise("DotNet Error: FlatMenuKey is a read-only property")
 
 	Func getWorkAreaKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:WorkAreaKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:WorkAreaKey","")
 
 	Func setWorkAreaKey P1
 		raise("DotNet Error: WorkAreaKey is a read-only property")
 
 	Func getIconHorizontalSpacing
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:IconHorizontalSpacing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:IconHorizontalSpacing","")
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:IconVerticalSpacing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IconVerticalSpacing","")
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIconTitleWrap
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IconTitleWrap","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconTitleWrap","")
 
 	Func setIconTitleWrap P1
 		raise("DotNet Error: IconTitleWrap is a read-only property")
 
 	Func getIconHorizontalSpacingKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:IconHorizontalSpacingKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:IconHorizontalSpacingKey","")
 
 	Func setIconHorizontalSpacingKey P1
 		raise("DotNet Error: IconHorizontalSpacingKey is a read-only property")
 
 	Func getIconVerticalSpacingKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:IconVerticalSpacingKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IconVerticalSpacingKey","")
 
 	Func setIconVerticalSpacingKey P1
 		raise("DotNet Error: IconVerticalSpacingKey is a read-only property")
 
 	Func getIconTitleWrapKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:IconTitleWrapKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:IconTitleWrapKey","")
 
 	Func setIconTitleWrapKey P1
 		raise("DotNet Error: IconTitleWrapKey is a read-only property")
 
 	Func getKeyboardCues
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:KeyboardCues","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:KeyboardCues","")
 
 	Func setKeyboardCues P1
 		raise("DotNet Error: KeyboardCues is a read-only property")
 
 	Func getKeyboardDelay
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:KeyboardDelay","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardDelay","")
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getKeyboardPreference
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:KeyboardPreference","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:KeyboardPreference","")
 
 	Func setKeyboardPreference P1
 		raise("DotNet Error: KeyboardPreference is a read-only property")
 
 	Func getKeyboardSpeed
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:KeyboardSpeed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardSpeed","")
 
 	Func setKeyboardSpeed P1
 		raise("DotNet Error: KeyboardSpeed is a read-only property")
 
 	Func getSnapToDefaultButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:SnapToDefaultButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:SnapToDefaultButton","")
 
 	Func setSnapToDefaultButton P1
 		raise("DotNet Error: SnapToDefaultButton is a read-only property")
 
 	Func getWheelScrollLines
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:WheelScrollLines","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WheelScrollLines","")
 
 	Func setWheelScrollLines P1
 		raise("DotNet Error: WheelScrollLines is a read-only property")
 
 	Func getMouseHoverTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:MouseHoverTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:MouseHoverTime","")
 
 	Func setMouseHoverTime P1
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseHoverHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:MouseHoverHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MouseHoverHeight","")
 
 	Func setMouseHoverHeight P1
 		raise("DotNet Error: MouseHoverHeight is a read-only property")
 
 	Func getMouseHoverWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:MouseHoverWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MouseHoverWidth","")
 
 	Func setMouseHoverWidth P1
 		raise("DotNet Error: MouseHoverWidth is a read-only property")
 
 	Func getKeyboardCuesKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:KeyboardCuesKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:KeyboardCuesKey","")
 
 	Func setKeyboardCuesKey P1
 		raise("DotNet Error: KeyboardCuesKey is a read-only property")
 
 	Func getKeyboardDelayKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:KeyboardDelayKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:KeyboardDelayKey","")
 
 	Func setKeyboardDelayKey P1
 		raise("DotNet Error: KeyboardDelayKey is a read-only property")
 
 	Func getKeyboardPreferenceKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:KeyboardPreferenceKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:KeyboardPreferenceKey","")
 
 	Func setKeyboardPreferenceKey P1
 		raise("DotNet Error: KeyboardPreferenceKey is a read-only property")
 
 	Func getKeyboardSpeedKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:KeyboardSpeedKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:KeyboardSpeedKey","")
 
 	Func setKeyboardSpeedKey P1
 		raise("DotNet Error: KeyboardSpeedKey is a read-only property")
 
 	Func getSnapToDefaultButtonKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:SnapToDefaultButtonKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:SnapToDefaultButtonKey","")
 
 	Func setSnapToDefaultButtonKey P1
 		raise("DotNet Error: SnapToDefaultButtonKey is a read-only property")
 
 	Func getWheelScrollLinesKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:WheelScrollLinesKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:WheelScrollLinesKey","")
 
 	Func setWheelScrollLinesKey P1
 		raise("DotNet Error: WheelScrollLinesKey is a read-only property")
 
 	Func getMouseHoverTimeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:MouseHoverTimeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MouseHoverTimeKey","")
 
 	Func setMouseHoverTimeKey P1
 		raise("DotNet Error: MouseHoverTimeKey is a read-only property")
 
 	Func getMouseHoverHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:MouseHoverHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MouseHoverHeightKey","")
 
 	Func setMouseHoverHeightKey P1
 		raise("DotNet Error: MouseHoverHeightKey is a read-only property")
 
 	Func getMouseHoverWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MouseHoverWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MouseHoverWidthKey","")
 
 	Func setMouseHoverWidthKey P1
 		raise("DotNet Error: MouseHoverWidthKey is a read-only property")
 
 	Func getMenuDropAlignment
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:MenuDropAlignment","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MenuDropAlignment","")
 
 	Func setMenuDropAlignment P1
 		raise("DotNet Error: MenuDropAlignment is a read-only property")
 
 	Func getMenuFade
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s8:MenuFade","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:MenuFade","")
 
 	Func setMenuFade P1
 		raise("DotNet Error: MenuFade is a read-only property")
 
 	Func getMenuShowDelay
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:MenuShowDelay","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuShowDelay","")
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
 
 	Func getMenuDropAlignmentKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:MenuDropAlignmentKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MenuDropAlignmentKey","")
 
 	Func setMenuDropAlignmentKey P1
 		raise("DotNet Error: MenuDropAlignmentKey is a read-only property")
 
 	Func getMenuFadeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:MenuFadeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:MenuFadeKey","")
 
 	Func setMenuFadeKey P1
 		raise("DotNet Error: MenuFadeKey is a read-only property")
 
 	Func getMenuShowDelayKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:MenuShowDelayKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuShowDelayKey","")
 
 	Func setMenuShowDelayKey P1
 		raise("DotNet Error: MenuShowDelayKey is a read-only property")
 
 	Func getComboBoxPopupAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:ComboBoxPopupAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ComboBoxPopupAnimation","")
 
 	Func setComboBoxPopupAnimation P1
 		raise("DotNet Error: ComboBoxPopupAnimation is a read-only property")
 
 	Func getComboBoxAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:ComboBoxAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:ComboBoxAnimation","")
 
 	Func setComboBoxAnimation P1
 		raise("DotNet Error: ComboBoxAnimation is a read-only property")
 
 	Func getClientAreaAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:ClientAreaAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:ClientAreaAnimation","")
 
 	Func setClientAreaAnimation P1
 		raise("DotNet Error: ClientAreaAnimation is a read-only property")
 
 	Func getCursorShadow
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:CursorShadow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorShadow","")
 
 	Func setCursorShadow P1
 		raise("DotNet Error: CursorShadow is a read-only property")
 
 	Func getGradientCaptions
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:GradientCaptions","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:GradientCaptions","")
 
 	Func setGradientCaptions P1
 		raise("DotNet Error: GradientCaptions is a read-only property")
 
 	Func getHotTracking
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:HotTracking","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:HotTracking","")
 
 	Func setHotTracking P1
 		raise("DotNet Error: HotTracking is a read-only property")
 
 	Func getListBoxSmoothScrolling
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:ListBoxSmoothScrolling","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ListBoxSmoothScrolling","")
 
 	Func setListBoxSmoothScrolling P1
 		raise("DotNet Error: ListBoxSmoothScrolling is a read-only property")
 
 	Func getMenuPopupAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MenuPopupAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuPopupAnimation","")
 
 	Func setMenuPopupAnimation P1
 		raise("DotNet Error: MenuPopupAnimation is a read-only property")
 
 	Func getMenuAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:MenuAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuAnimation","")
 
 	Func setMenuAnimation P1
 		raise("DotNet Error: MenuAnimation is a read-only property")
 
 	Func getSelectionFade
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:SelectionFade","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:SelectionFade","")
 
 	Func setSelectionFade P1
 		raise("DotNet Error: SelectionFade is a read-only property")
 
 	Func getStylusHotTracking
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:StylusHotTracking","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:StylusHotTracking","")
 
 	Func setStylusHotTracking P1
 		raise("DotNet Error: StylusHotTracking is a read-only property")
 
 	Func getToolTipPopupAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:ToolTipPopupAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:ToolTipPopupAnimation","")
 
 	Func setToolTipPopupAnimation P1
 		raise("DotNet Error: ToolTipPopupAnimation is a read-only property")
 
 	Func getToolTipAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:ToolTipAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:ToolTipAnimation","")
 
 	Func setToolTipAnimation P1
 		raise("DotNet Error: ToolTipAnimation is a read-only property")
 
 	Func getToolTipFade
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:ToolTipFade","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ToolTipFade","")
 
 	Func setToolTipFade P1
 		raise("DotNet Error: ToolTipFade is a read-only property")
 
 	Func getUIEffects
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s9:UIEffects","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:UIEffects","")
 
 	Func setUIEffects P1
 		raise("DotNet Error: UIEffects is a read-only property")
 
 	Func getComboBoxAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:ComboBoxAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:ComboBoxAnimationKey","")
 
 	Func setComboBoxAnimationKey P1
 		raise("DotNet Error: ComboBoxAnimationKey is a read-only property")
 
 	Func getClientAreaAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:ClientAreaAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ClientAreaAnimationKey","")
 
 	Func setClientAreaAnimationKey P1
 		raise("DotNet Error: ClientAreaAnimationKey is a read-only property")
 
 	Func getCursorShadowKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:CursorShadowKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:CursorShadowKey","")
 
 	Func setCursorShadowKey P1
 		raise("DotNet Error: CursorShadowKey is a read-only property")
 
 	Func getGradientCaptionsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:GradientCaptionsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:GradientCaptionsKey","")
 
 	Func setGradientCaptionsKey P1
 		raise("DotNet Error: GradientCaptionsKey is a read-only property")
 
 	Func getHotTrackingKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:HotTrackingKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:HotTrackingKey","")
 
 	Func setHotTrackingKey P1
 		raise("DotNet Error: HotTrackingKey is a read-only property")
 
 	Func getListBoxSmoothScrollingKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:ListBoxSmoothScrollingKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:ListBoxSmoothScrollingKey","")
 
 	Func setListBoxSmoothScrollingKey P1
 		raise("DotNet Error: ListBoxSmoothScrollingKey is a read-only property")
 
 	Func getMenuAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:MenuAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuAnimationKey","")
 
 	Func setMenuAnimationKey P1
 		raise("DotNet Error: MenuAnimationKey is a read-only property")
 
 	Func getSelectionFadeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:SelectionFadeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:SelectionFadeKey","")
 
 	Func setSelectionFadeKey P1
 		raise("DotNet Error: SelectionFadeKey is a read-only property")
 
 	Func getStylusHotTrackingKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:StylusHotTrackingKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:StylusHotTrackingKey","")
 
 	Func setStylusHotTrackingKey P1
 		raise("DotNet Error: StylusHotTrackingKey is a read-only property")
 
 	Func getToolTipAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:ToolTipAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:ToolTipAnimationKey","")
 
 	Func setToolTipAnimationKey P1
 		raise("DotNet Error: ToolTipAnimationKey is a read-only property")
 
 	Func getToolTipFadeKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:ToolTipFadeKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:ToolTipFadeKey","")
 
 	Func setToolTipFadeKey P1
 		raise("DotNet Error: ToolTipFadeKey is a read-only property")
 
 	Func getUIEffectsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:UIEffectsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:UIEffectsKey","")
 
 	Func setUIEffectsKey P1
 		raise("DotNet Error: UIEffectsKey is a read-only property")
 
 	Func getComboBoxPopupAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:ComboBoxPopupAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:ComboBoxPopupAnimationKey","")
 
 	Func setComboBoxPopupAnimationKey P1
 		raise("DotNet Error: ComboBoxPopupAnimationKey is a read-only property")
 
 	Func getMenuPopupAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:MenuPopupAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MenuPopupAnimationKey","")
 
 	Func setMenuPopupAnimationKey P1
 		raise("DotNet Error: MenuPopupAnimationKey is a read-only property")
 
 	Func getToolTipPopupAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:ToolTipPopupAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:ToolTipPopupAnimationKey","")
 
 	Func setToolTipPopupAnimationKey P1
 		raise("DotNet Error: ToolTipPopupAnimationKey is a read-only property")
 
 	Func getMinimizeAnimation
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:MinimizeAnimation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MinimizeAnimation","")
 
 	Func setMinimizeAnimation P1
 		raise("DotNet Error: MinimizeAnimation is a read-only property")
 
 	Func getBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s6:Border","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s6:Border","")
 
 	Func setBorder P1
 		raise("DotNet Error: Border is a read-only property")
 
 	Func getCaretWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:CaretWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:CaretWidth","")
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getDragFullWindows
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:DragFullWindows","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:DragFullWindows","")
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getForegroundFlashCount
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:ForegroundFlashCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:ForegroundFlashCount","")
 
 	Func setForegroundFlashCount P1
 		raise("DotNet Error: ForegroundFlashCount is a read-only property")
 
 	Func getBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:BorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:BorderWidth","")
 
 	Func setBorderWidth P1
 		raise("DotNet Error: BorderWidth is a read-only property")
 
 	Func getScrollWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:ScrollWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ScrollWidth","")
 
 	Func setScrollWidth P1
 		raise("DotNet Error: ScrollWidth is a read-only property")
 
 	Func getScrollHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:ScrollHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:ScrollHeight","")
 
 	Func setScrollHeight P1
 		raise("DotNet Error: ScrollHeight is a read-only property")
 
 	Func getCaptionWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:CaptionWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CaptionWidth","")
 
 	Func setCaptionWidth P1
 		raise("DotNet Error: CaptionWidth is a read-only property")
 
 	Func getCaptionHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:CaptionHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:CaptionHeight","")
 
 	Func setCaptionHeight P1
 		raise("DotNet Error: CaptionHeight is a read-only property")
 
 	Func getSmallCaptionWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:SmallCaptionWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:SmallCaptionWidth","")
 
 	Func setSmallCaptionWidth P1
 		raise("DotNet Error: SmallCaptionWidth is a read-only property")
 
 	Func getSmallCaptionHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:SmallCaptionHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:SmallCaptionHeight","")
 
 	Func setSmallCaptionHeight P1
 		raise("DotNet Error: SmallCaptionHeight is a read-only property")
 
 	Func getMenuWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s9:MenuWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:MenuWidth","")
 
 	Func setMenuWidth P1
 		raise("DotNet Error: MenuWidth is a read-only property")
 
 	Func getMenuHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:MenuHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:MenuHeight","")
 
 	Func setMenuHeight P1
 		raise("DotNet Error: MenuHeight is a read-only property")
 
 	Func getMinimizeAnimationKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:MinimizeAnimationKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MinimizeAnimationKey","")
 
 	Func setMinimizeAnimationKey P1
 		raise("DotNet Error: MinimizeAnimationKey is a read-only property")
 
 	Func getBorderKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s9:BorderKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:BorderKey","")
 
 	Func setBorderKey P1
 		raise("DotNet Error: BorderKey is a read-only property")
 
 	Func getCaretWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:CaretWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:CaretWidthKey","")
 
 	Func setCaretWidthKey P1
 		raise("DotNet Error: CaretWidthKey is a read-only property")
 
 	Func getForegroundFlashCountKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:ForegroundFlashCountKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:ForegroundFlashCountKey","")
 
 	Func setForegroundFlashCountKey P1
 		raise("DotNet Error: ForegroundFlashCountKey is a read-only property")
 
 	Func getDragFullWindowsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:DragFullWindowsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:DragFullWindowsKey","")
 
 	Func setDragFullWindowsKey P1
 		raise("DotNet Error: DragFullWindowsKey is a read-only property")
 
 	Func getBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:BorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:BorderWidthKey","")
 
 	Func setBorderWidthKey P1
 		raise("DotNet Error: BorderWidthKey is a read-only property")
 
 	Func getScrollWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:ScrollWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:ScrollWidthKey","")
 
 	Func setScrollWidthKey P1
 		raise("DotNet Error: ScrollWidthKey is a read-only property")
 
 	Func getScrollHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:ScrollHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:ScrollHeightKey","")
 
 	Func setScrollHeightKey P1
 		raise("DotNet Error: ScrollHeightKey is a read-only property")
 
 	Func getCaptionWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:CaptionWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:CaptionWidthKey","")
 
 	Func setCaptionWidthKey P1
 		raise("DotNet Error: CaptionWidthKey is a read-only property")
 
 	Func getCaptionHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:CaptionHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:CaptionHeightKey","")
 
 	Func setCaptionHeightKey P1
 		raise("DotNet Error: CaptionHeightKey is a read-only property")
 
 	Func getSmallCaptionWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:SmallCaptionWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:SmallCaptionWidthKey","")
 
 	Func setSmallCaptionWidthKey P1
 		raise("DotNet Error: SmallCaptionWidthKey is a read-only property")
 
 	Func getMenuWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:MenuWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:MenuWidthKey","")
 
 	Func setMenuWidthKey P1
 		raise("DotNet Error: MenuWidthKey is a read-only property")
 
 	Func getMenuHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:MenuHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuHeightKey","")
 
 	Func setMenuHeightKey P1
 		raise("DotNet Error: MenuHeightKey is a read-only property")
 
 	Func getThinHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s26:ThinHorizontalBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:ThinHorizontalBorderHeight","")
 
 	Func setThinHorizontalBorderHeight P1
 		raise("DotNet Error: ThinHorizontalBorderHeight is a read-only property")
 
 	Func getThinVerticalBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:ThinVerticalBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:ThinVerticalBorderWidth","")
 
 	Func setThinVerticalBorderWidth P1
 		raise("DotNet Error: ThinVerticalBorderWidth is a read-only property")
 
 	Func getCursorWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:CursorWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:CursorWidth","")
 
 	Func setCursorWidth P1
 		raise("DotNet Error: CursorWidth is a read-only property")
 
 	Func getCursorHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:CursorHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorHeight","")
 
 	Func setCursorHeight P1
 		raise("DotNet Error: CursorHeight is a read-only property")
 
 	Func getThickHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:ThickHorizontalBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:ThickHorizontalBorderHeight","")
 
 	Func setThickHorizontalBorderHeight P1
 		raise("DotNet Error: ThickHorizontalBorderHeight is a read-only property")
 
 	Func getThickVerticalBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:ThickVerticalBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:ThickVerticalBorderWidth","")
 
 	Func setThickVerticalBorderWidth P1
 		raise("DotNet Error: ThickVerticalBorderWidth is a read-only property")
 
 	Func getMinimumHorizontalDragDistance
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:MinimumHorizontalDragDistance","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:MinimumHorizontalDragDistance","")
 
 	Func setMinimumHorizontalDragDistance P1
 		raise("DotNet Error: MinimumHorizontalDragDistance is a read-only property")
 
 	Func getMinimumVerticalDragDistance
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:MinimumVerticalDragDistance","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MinimumVerticalDragDistance","")
 
 	Func setMinimumVerticalDragDistance P1
 		raise("DotNet Error: MinimumVerticalDragDistance is a read-only property")
 
 	Func getFixedFrameHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s32:FixedFrameHorizontalBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:FixedFrameHorizontalBorderHeight","")
 
 	Func setFixedFrameHorizontalBorderHeight P1
 		raise("DotNet Error: FixedFrameHorizontalBorderHeight is a read-only property")
 
 	Func getFixedFrameVerticalBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:FixedFrameVerticalBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:FixedFrameVerticalBorderWidth","")
 
 	Func setFixedFrameVerticalBorderWidth P1
 		raise("DotNet Error: FixedFrameVerticalBorderWidth is a read-only property")
 
 	Func getFocusHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:FocusHorizontalBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:FocusHorizontalBorderHeight","")
 
 	Func setFocusHorizontalBorderHeight P1
 		raise("DotNet Error: FocusHorizontalBorderHeight is a read-only property")
 
 	Func getFocusVerticalBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:FocusVerticalBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:FocusVerticalBorderWidth","")
 
 	Func setFocusVerticalBorderWidth P1
 		raise("DotNet Error: FocusVerticalBorderWidth is a read-only property")
 
 	Func getFullPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:FullPrimaryScreenWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:FullPrimaryScreenWidth","")
 
 	Func setFullPrimaryScreenWidth P1
 		raise("DotNet Error: FullPrimaryScreenWidth is a read-only property")
 
 	Func getFullPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:FullPrimaryScreenHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:FullPrimaryScreenHeight","")
 
 	Func setFullPrimaryScreenHeight P1
 		raise("DotNet Error: FullPrimaryScreenHeight is a read-only property")
 
 	Func getHorizontalScrollBarButtonWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:HorizontalScrollBarButtonWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:HorizontalScrollBarButtonWidth","")
 
 	Func setHorizontalScrollBarButtonWidth P1
 		raise("DotNet Error: HorizontalScrollBarButtonWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:HorizontalScrollBarHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:HorizontalScrollBarHeight","")
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:HorizontalScrollBarThumbWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:HorizontalScrollBarThumbWidth","")
 
 	Func setHorizontalScrollBarThumbWidth P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidth is a read-only property")
 
 	Func getIconWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s9:IconWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:IconWidth","")
 
 	Func setIconWidth P1
 		raise("DotNet Error: IconWidth is a read-only property")
 
 	Func getIconHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:IconHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IconHeight","")
 
 	Func setIconHeight P1
 		raise("DotNet Error: IconHeight is a read-only property")
 
 	Func getIconGridWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IconGridWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconGridWidth","")
 
 	Func setIconGridWidth P1
 		raise("DotNet Error: IconGridWidth is a read-only property")
 
 	Func getIconGridHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:IconGridHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IconGridHeight","")
 
 	Func setIconGridHeight P1
 		raise("DotNet Error: IconGridHeight is a read-only property")
 
 	Func getMaximizedPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:MaximizedPrimaryScreenWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MaximizedPrimaryScreenWidth","")
 
 	Func setMaximizedPrimaryScreenWidth P1
 		raise("DotNet Error: MaximizedPrimaryScreenWidth is a read-only property")
 
 	Func getMaximizedPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s28:MaximizedPrimaryScreenHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:MaximizedPrimaryScreenHeight","")
 
 	Func setMaximizedPrimaryScreenHeight P1
 		raise("DotNet Error: MaximizedPrimaryScreenHeight is a read-only property")
 
 	Func getMaximumWindowTrackWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:MaximumWindowTrackWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MaximumWindowTrackWidth","")
 
 	Func setMaximumWindowTrackWidth P1
 		raise("DotNet Error: MaximumWindowTrackWidth is a read-only property")
 
 	Func getMaximumWindowTrackHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:MaximumWindowTrackHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MaximumWindowTrackHeight","")
 
 	Func setMaximumWindowTrackHeight P1
 		raise("DotNet Error: MaximumWindowTrackHeight is a read-only property")
 
 	Func getMenuCheckmarkWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MenuCheckmarkWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuCheckmarkWidth","")
 
 	Func setMenuCheckmarkWidth P1
 		raise("DotNet Error: MenuCheckmarkWidth is a read-only property")
 
 	Func getMenuCheckmarkHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:MenuCheckmarkHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MenuCheckmarkHeight","")
 
 	Func setMenuCheckmarkHeight P1
 		raise("DotNet Error: MenuCheckmarkHeight is a read-only property")
 
 	Func getMenuButtonWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:MenuButtonWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MenuButtonWidth","")
 
 	Func setMenuButtonWidth P1
 		raise("DotNet Error: MenuButtonWidth is a read-only property")
 
 	Func getMenuButtonHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:MenuButtonHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuButtonHeight","")
 
 	Func setMenuButtonHeight P1
 		raise("DotNet Error: MenuButtonHeight is a read-only property")
 
 	Func getMinimumWindowWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MinimumWindowWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimumWindowWidth","")
 
 	Func setMinimumWindowWidth P1
 		raise("DotNet Error: MinimumWindowWidth is a read-only property")
 
 	Func getMinimumWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:MinimumWindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimumWindowHeight","")
 
 	Func setMinimumWindowHeight P1
 		raise("DotNet Error: MinimumWindowHeight is a read-only property")
 
 	Func getMinimizedWindowWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:MinimizedWindowWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MinimizedWindowWidth","")
 
 	Func setMinimizedWindowWidth P1
 		raise("DotNet Error: MinimizedWindowWidth is a read-only property")
 
 	Func getMinimizedWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:MinimizedWindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimizedWindowHeight","")
 
 	Func setMinimizedWindowHeight P1
 		raise("DotNet Error: MinimizedWindowHeight is a read-only property")
 
 	Func getMinimizedGridWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MinimizedGridWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimizedGridWidth","")
 
 	Func setMinimizedGridWidth P1
 		raise("DotNet Error: MinimizedGridWidth is a read-only property")
 
 	Func getMinimizedGridHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:MinimizedGridHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimizedGridHeight","")
 
 	Func setMinimizedGridHeight P1
 		raise("DotNet Error: MinimizedGridHeight is a read-only property")
 
 	Func getMinimumWindowTrackWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:MinimumWindowTrackWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MinimumWindowTrackWidth","")
 
 	Func setMinimumWindowTrackWidth P1
 		raise("DotNet Error: MinimumWindowTrackWidth is a read-only property")
 
 	Func getMinimumWindowTrackHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:MinimumWindowTrackHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MinimumWindowTrackHeight","")
 
 	Func setMinimumWindowTrackHeight P1
 		raise("DotNet Error: MinimumWindowTrackHeight is a read-only property")
 
 	Func getPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:PrimaryScreenWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:PrimaryScreenWidth","")
 
 	Func setPrimaryScreenWidth P1
 		raise("DotNet Error: PrimaryScreenWidth is a read-only property")
 
 	Func getPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:PrimaryScreenHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:PrimaryScreenHeight","")
 
 	Func setPrimaryScreenHeight P1
 		raise("DotNet Error: PrimaryScreenHeight is a read-only property")
 
 	Func getWindowCaptionButtonWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:WindowCaptionButtonWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:WindowCaptionButtonWidth","")
 
 	Func setWindowCaptionButtonWidth P1
 		raise("DotNet Error: WindowCaptionButtonWidth is a read-only property")
 
 	Func getWindowCaptionButtonHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:WindowCaptionButtonHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:WindowCaptionButtonHeight","")
 
 	Func setWindowCaptionButtonHeight P1
 		raise("DotNet Error: WindowCaptionButtonHeight is a read-only property")
 
 	Func getResizeFrameHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s33:ResizeFrameHorizontalBorderHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:ResizeFrameHorizontalBorderHeight","")
 
 	Func setResizeFrameHorizontalBorderHeight P1
 		raise("DotNet Error: ResizeFrameHorizontalBorderHeight is a read-only property")
 
 	Func getResizeFrameVerticalBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:ResizeFrameVerticalBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:ResizeFrameVerticalBorderWidth","")
 
 	Func setResizeFrameVerticalBorderWidth P1
 		raise("DotNet Error: ResizeFrameVerticalBorderWidth is a read-only property")
 
 	Func getSmallIconWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:SmallIconWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:SmallIconWidth","")
 
 	Func setSmallIconWidth P1
 		raise("DotNet Error: SmallIconWidth is a read-only property")
 
 	Func getSmallIconHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:SmallIconHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:SmallIconHeight","")
 
 	Func setSmallIconHeight P1
 		raise("DotNet Error: SmallIconHeight is a read-only property")
 
 	Func getSmallWindowCaptionButtonWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:SmallWindowCaptionButtonWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:SmallWindowCaptionButtonWidth","")
 
 	Func setSmallWindowCaptionButtonWidth P1
 		raise("DotNet Error: SmallWindowCaptionButtonWidth is a read-only property")
 
 	Func getSmallWindowCaptionButtonHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:SmallWindowCaptionButtonHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:SmallWindowCaptionButtonHeight","")
 
 	Func setSmallWindowCaptionButtonHeight P1
 		raise("DotNet Error: SmallWindowCaptionButtonHeight is a read-only property")
 
 	Func getVirtualScreenWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:VirtualScreenWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:VirtualScreenWidth","")
 
 	Func setVirtualScreenWidth P1
 		raise("DotNet Error: VirtualScreenWidth is a read-only property")
 
 	Func getVirtualScreenHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:VirtualScreenHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:VirtualScreenHeight","")
 
 	Func setVirtualScreenHeight P1
 		raise("DotNet Error: VirtualScreenHeight is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:VerticalScrollBarWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:VerticalScrollBarWidth","")
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getVerticalScrollBarButtonHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:VerticalScrollBarButtonHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:VerticalScrollBarButtonHeight","")
 
 	Func setVerticalScrollBarButtonHeight P1
 		raise("DotNet Error: VerticalScrollBarButtonHeight is a read-only property")
 
 	Func getWindowCaptionHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:WindowCaptionHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:WindowCaptionHeight","")
 
 	Func setWindowCaptionHeight P1
 		raise("DotNet Error: WindowCaptionHeight is a read-only property")
 
 	Func getKanjiWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:KanjiWindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:KanjiWindowHeight","")
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMenuBarHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:MenuBarHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuBarHeight","")
 
 	Func setMenuBarHeight P1
 		raise("DotNet Error: MenuBarHeight is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s28:VerticalScrollBarThumbHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:VerticalScrollBarThumbHeight","")
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getIsImmEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:IsImmEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsImmEnabled","")
 
 	Func setIsImmEnabled P1
 		raise("DotNet Error: IsImmEnabled is a read-only property")
 
 	Func getIsMediaCenter
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IsMediaCenter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsMediaCenter","")
 
 	Func setIsMediaCenter P1
 		raise("DotNet Error: IsMediaCenter is a read-only property")
 
 	Func getIsMenuDropRightAligned
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:IsMenuDropRightAligned","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMenuDropRightAligned","")
 
 	Func setIsMenuDropRightAligned P1
 		raise("DotNet Error: IsMenuDropRightAligned is a read-only property")
 
 	Func getIsMiddleEastEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:IsMiddleEastEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMiddleEastEnabled","")
 
 	Func setIsMiddleEastEnabled P1
 		raise("DotNet Error: IsMiddleEastEnabled is a read-only property")
 
 	Func getIsMousePresent
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:IsMousePresent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsMousePresent","")
 
 	Func setIsMousePresent P1
 		raise("DotNet Error: IsMousePresent is a read-only property")
 
 	Func getIsMouseWheelPresent
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:IsMouseWheelPresent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMouseWheelPresent","")
 
 	Func setIsMouseWheelPresent P1
 		raise("DotNet Error: IsMouseWheelPresent is a read-only property")
 
 	Func getIsPenWindows
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:IsPenWindows","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsPenWindows","")
 
 	Func setIsPenWindows P1
 		raise("DotNet Error: IsPenWindows is a read-only property")
 
 	Func getIsRemotelyControlled
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:IsRemotelyControlled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:IsRemotelyControlled","")
 
 	Func setIsRemotelyControlled P1
 		raise("DotNet Error: IsRemotelyControlled is a read-only property")
 
 	Func getIsRemoteSession
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:IsRemoteSession","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsRemoteSession","")
 
 	Func setIsRemoteSession P1
 		raise("DotNet Error: IsRemoteSession is a read-only property")
 
 	Func getShowSounds
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:ShowSounds","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:ShowSounds","")
 
 	Func setShowSounds P1
 		raise("DotNet Error: ShowSounds is a read-only property")
 
 	Func getIsSlowMachine
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IsSlowMachine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsSlowMachine","")
 
 	Func setIsSlowMachine P1
 		raise("DotNet Error: IsSlowMachine is a read-only property")
 
 	Func getSwapButtons
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:SwapButtons","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:SwapButtons","")
 
 	Func setSwapButtons P1
 		raise("DotNet Error: SwapButtons is a read-only property")
 
 	Func getIsTabletPC
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s10:IsTabletPC","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IsTabletPC","")
 
 	Func setIsTabletPC P1
 		raise("DotNet Error: IsTabletPC is a read-only property")
 
 	Func getVirtualScreenLeft
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:VirtualScreenLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:VirtualScreenLeft","")
 
 	Func setVirtualScreenLeft P1
 		raise("DotNet Error: VirtualScreenLeft is a read-only property")
 
 	Func getVirtualScreenTop
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:VirtualScreenTop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:VirtualScreenTop","")
 
 	Func setVirtualScreenTop P1
 		raise("DotNet Error: VirtualScreenTop is a read-only property")
 
 	Func getThinHorizontalBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:ThinHorizontalBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:ThinHorizontalBorderHeightKey","")
 
 	Func setThinHorizontalBorderHeightKey P1
 		raise("DotNet Error: ThinHorizontalBorderHeightKey is a read-only property")
 
 	Func getThinVerticalBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s26:ThinVerticalBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:ThinVerticalBorderWidthKey","")
 
 	Func setThinVerticalBorderWidthKey P1
 		raise("DotNet Error: ThinVerticalBorderWidthKey is a read-only property")
 
 	Func getCursorWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:CursorWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:CursorWidthKey","")
 
 	Func setCursorWidthKey P1
 		raise("DotNet Error: CursorWidthKey is a read-only property")
 
 	Func getCursorHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:CursorHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:CursorHeightKey","")
 
 	Func setCursorHeightKey P1
 		raise("DotNet Error: CursorHeightKey is a read-only property")
 
 	Func getThickHorizontalBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:ThickHorizontalBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:ThickHorizontalBorderHeightKey","")
 
 	Func setThickHorizontalBorderHeightKey P1
 		raise("DotNet Error: ThickHorizontalBorderHeightKey is a read-only property")
 
 	Func getThickVerticalBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:ThickVerticalBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:ThickVerticalBorderWidthKey","")
 
 	Func setThickVerticalBorderWidthKey P1
 		raise("DotNet Error: ThickVerticalBorderWidthKey is a read-only property")
 
 	Func getFixedFrameHorizontalBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s35:FixedFrameHorizontalBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s35:FixedFrameHorizontalBorderHeightKey","")
 
 	Func setFixedFrameHorizontalBorderHeightKey P1
 		raise("DotNet Error: FixedFrameHorizontalBorderHeightKey is a read-only property")
 
 	Func getFixedFrameVerticalBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s32:FixedFrameVerticalBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:FixedFrameVerticalBorderWidthKey","")
 
 	Func setFixedFrameVerticalBorderWidthKey P1
 		raise("DotNet Error: FixedFrameVerticalBorderWidthKey is a read-only property")
 
 	Func getFocusHorizontalBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:FocusHorizontalBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:FocusHorizontalBorderHeightKey","")
 
 	Func setFocusHorizontalBorderHeightKey P1
 		raise("DotNet Error: FocusHorizontalBorderHeightKey is a read-only property")
 
 	Func getFocusVerticalBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:FocusVerticalBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:FocusVerticalBorderWidthKey","")
 
 	Func setFocusVerticalBorderWidthKey P1
 		raise("DotNet Error: FocusVerticalBorderWidthKey is a read-only property")
 
 	Func getFullPrimaryScreenWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:FullPrimaryScreenWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:FullPrimaryScreenWidthKey","")
 
 	Func setFullPrimaryScreenWidthKey P1
 		raise("DotNet Error: FullPrimaryScreenWidthKey is a read-only property")
 
 	Func getFullPrimaryScreenHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s26:FullPrimaryScreenHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:FullPrimaryScreenHeightKey","")
 
 	Func setFullPrimaryScreenHeightKey P1
 		raise("DotNet Error: FullPrimaryScreenHeightKey is a read-only property")
 
 	Func getHorizontalScrollBarButtonWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s33:HorizontalScrollBarButtonWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:HorizontalScrollBarButtonWidthKey","")
 
 	Func setHorizontalScrollBarButtonWidthKey P1
 		raise("DotNet Error: HorizontalScrollBarButtonWidthKey is a read-only property")
 
 	Func getHorizontalScrollBarHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s28:HorizontalScrollBarHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:HorizontalScrollBarHeightKey","")
 
 	Func setHorizontalScrollBarHeightKey P1
 		raise("DotNet Error: HorizontalScrollBarHeightKey is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s32:HorizontalScrollBarThumbWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:HorizontalScrollBarThumbWidthKey","")
 
 	Func setHorizontalScrollBarThumbWidthKey P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidthKey is a read-only property")
 
 	Func getIconWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:IconWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IconWidthKey","")
 
 	Func setIconWidthKey P1
 		raise("DotNet Error: IconWidthKey is a read-only property")
 
 	Func getIconHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IconHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconHeightKey","")
 
 	Func setIconHeightKey P1
 		raise("DotNet Error: IconHeightKey is a read-only property")
 
 	Func getIconGridWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:IconGridWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:IconGridWidthKey","")
 
 	Func setIconGridWidthKey P1
 		raise("DotNet Error: IconGridWidthKey is a read-only property")
 
 	Func getIconGridHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:IconGridHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:IconGridHeightKey","")
 
 	Func setIconGridHeightKey P1
 		raise("DotNet Error: IconGridHeightKey is a read-only property")
 
 	Func getMaximizedPrimaryScreenWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s30:MaximizedPrimaryScreenWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:MaximizedPrimaryScreenWidthKey","")
 
 	Func setMaximizedPrimaryScreenWidthKey P1
 		raise("DotNet Error: MaximizedPrimaryScreenWidthKey is a read-only property")
 
 	Func getMaximizedPrimaryScreenHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s31:MaximizedPrimaryScreenHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s31:MaximizedPrimaryScreenHeightKey","")
 
 	Func setMaximizedPrimaryScreenHeightKey P1
 		raise("DotNet Error: MaximizedPrimaryScreenHeightKey is a read-only property")
 
 	Func getMaximumWindowTrackWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s26:MaximumWindowTrackWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:MaximumWindowTrackWidthKey","")
 
 	Func setMaximumWindowTrackWidthKey P1
 		raise("DotNet Error: MaximumWindowTrackWidthKey is a read-only property")
 
 	Func getMaximumWindowTrackHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:MaximumWindowTrackHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MaximumWindowTrackHeightKey","")
 
 	Func setMaximumWindowTrackHeightKey P1
 		raise("DotNet Error: MaximumWindowTrackHeightKey is a read-only property")
 
 	Func getMenuCheckmarkWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:MenuCheckmarkWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MenuCheckmarkWidthKey","")
 
 	Func setMenuCheckmarkWidthKey P1
 		raise("DotNet Error: MenuCheckmarkWidthKey is a read-only property")
 
 	Func getMenuCheckmarkHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:MenuCheckmarkHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:MenuCheckmarkHeightKey","")
 
 	Func setMenuCheckmarkHeightKey P1
 		raise("DotNet Error: MenuCheckmarkHeightKey is a read-only property")
 
 	Func getMenuButtonWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:MenuButtonWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuButtonWidthKey","")
 
 	Func setMenuButtonWidthKey P1
 		raise("DotNet Error: MenuButtonWidthKey is a read-only property")
 
 	Func getMenuButtonHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:MenuButtonHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MenuButtonHeightKey","")
 
 	Func setMenuButtonHeightKey P1
 		raise("DotNet Error: MenuButtonHeightKey is a read-only property")
 
 	Func getMinimumWindowWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:MinimumWindowWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimumWindowWidthKey","")
 
 	Func setMinimumWindowWidthKey P1
 		raise("DotNet Error: MinimumWindowWidthKey is a read-only property")
 
 	Func getMinimumWindowHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:MinimumWindowHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:MinimumWindowHeightKey","")
 
 	Func setMinimumWindowHeightKey P1
 		raise("DotNet Error: MinimumWindowHeightKey is a read-only property")
 
 	Func getMinimizedWindowWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:MinimizedWindowWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MinimizedWindowWidthKey","")
 
 	Func setMinimizedWindowWidthKey P1
 		raise("DotNet Error: MinimizedWindowWidthKey is a read-only property")
 
 	Func getMinimizedWindowHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:MinimizedWindowHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MinimizedWindowHeightKey","")
 
 	Func setMinimizedWindowHeightKey P1
 		raise("DotNet Error: MinimizedWindowHeightKey is a read-only property")
 
 	Func getMinimizedGridWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:MinimizedGridWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimizedGridWidthKey","")
 
 	Func setMinimizedGridWidthKey P1
 		raise("DotNet Error: MinimizedGridWidthKey is a read-only property")
 
 	Func getMinimizedGridHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:MinimizedGridHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:MinimizedGridHeightKey","")
 
 	Func setMinimizedGridHeightKey P1
 		raise("DotNet Error: MinimizedGridHeightKey is a read-only property")
 
 	Func getMinimumWindowTrackWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s26:MinimumWindowTrackWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:MinimumWindowTrackWidthKey","")
 
 	Func setMinimumWindowTrackWidthKey P1
 		raise("DotNet Error: MinimumWindowTrackWidthKey is a read-only property")
 
 	Func getMinimumWindowTrackHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:MinimumWindowTrackHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MinimumWindowTrackHeightKey","")
 
 	Func setMinimumWindowTrackHeightKey P1
 		raise("DotNet Error: MinimumWindowTrackHeightKey is a read-only property")
 
 	Func getPrimaryScreenWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:PrimaryScreenWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:PrimaryScreenWidthKey","")
 
 	Func setPrimaryScreenWidthKey P1
 		raise("DotNet Error: PrimaryScreenWidthKey is a read-only property")
 
 	Func getPrimaryScreenHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:PrimaryScreenHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:PrimaryScreenHeightKey","")
 
 	Func setPrimaryScreenHeightKey P1
 		raise("DotNet Error: PrimaryScreenHeightKey is a read-only property")
 
 	Func getWindowCaptionButtonWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:WindowCaptionButtonWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:WindowCaptionButtonWidthKey","")
 
 	Func setWindowCaptionButtonWidthKey P1
 		raise("DotNet Error: WindowCaptionButtonWidthKey is a read-only property")
 
 	Func getWindowCaptionButtonHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s28:WindowCaptionButtonHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:WindowCaptionButtonHeightKey","")
 
 	Func setWindowCaptionButtonHeightKey P1
 		raise("DotNet Error: WindowCaptionButtonHeightKey is a read-only property")
 
 	Func getResizeFrameHorizontalBorderHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s36:ResizeFrameHorizontalBorderHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s36:ResizeFrameHorizontalBorderHeightKey","")
 
 	Func setResizeFrameHorizontalBorderHeightKey P1
 		raise("DotNet Error: ResizeFrameHorizontalBorderHeightKey is a read-only property")
 
 	Func getResizeFrameVerticalBorderWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s33:ResizeFrameVerticalBorderWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:ResizeFrameVerticalBorderWidthKey","")
 
 	Func setResizeFrameVerticalBorderWidthKey P1
 		raise("DotNet Error: ResizeFrameVerticalBorderWidthKey is a read-only property")
 
 	Func getSmallIconWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:SmallIconWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:SmallIconWidthKey","")
 
 	Func setSmallIconWidthKey P1
 		raise("DotNet Error: SmallIconWidthKey is a read-only property")
 
 	Func getSmallIconHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:SmallIconHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:SmallIconHeightKey","")
 
 	Func setSmallIconHeightKey P1
 		raise("DotNet Error: SmallIconHeightKey is a read-only property")
 
 	Func getSmallWindowCaptionButtonWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s32:SmallWindowCaptionButtonWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:SmallWindowCaptionButtonWidthKey","")
 
 	Func setSmallWindowCaptionButtonWidthKey P1
 		raise("DotNet Error: SmallWindowCaptionButtonWidthKey is a read-only property")
 
 	Func getSmallWindowCaptionButtonHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s33:SmallWindowCaptionButtonHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:SmallWindowCaptionButtonHeightKey","")
 
 	Func setSmallWindowCaptionButtonHeightKey P1
 		raise("DotNet Error: SmallWindowCaptionButtonHeightKey is a read-only property")
 
 	Func getVirtualScreenWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:VirtualScreenWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:VirtualScreenWidthKey","")
 
 	Func setVirtualScreenWidthKey P1
 		raise("DotNet Error: VirtualScreenWidthKey is a read-only property")
 
 	Func getVirtualScreenHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:VirtualScreenHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:VirtualScreenHeightKey","")
 
 	Func setVirtualScreenHeightKey P1
 		raise("DotNet Error: VirtualScreenHeightKey is a read-only property")
 
 	Func getVerticalScrollBarWidthKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:VerticalScrollBarWidthKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:VerticalScrollBarWidthKey","")
 
 	Func setVerticalScrollBarWidthKey P1
 		raise("DotNet Error: VerticalScrollBarWidthKey is a read-only property")
 
 	Func getVerticalScrollBarButtonHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s32:VerticalScrollBarButtonHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:VerticalScrollBarButtonHeightKey","")
 
 	Func setVerticalScrollBarButtonHeightKey P1
 		raise("DotNet Error: VerticalScrollBarButtonHeightKey is a read-only property")
 
 	Func getWindowCaptionHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:WindowCaptionHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:WindowCaptionHeightKey","")
 
 	Func setWindowCaptionHeightKey P1
 		raise("DotNet Error: WindowCaptionHeightKey is a read-only property")
 
 	Func getKanjiWindowHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:KanjiWindowHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:KanjiWindowHeightKey","")
 
 	Func setKanjiWindowHeightKey P1
 		raise("DotNet Error: KanjiWindowHeightKey is a read-only property")
 
 	Func getMenuBarHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:MenuBarHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuBarHeightKey","")
 
 	Func setMenuBarHeightKey P1
 		raise("DotNet Error: MenuBarHeightKey is a read-only property")
 
 	Func getSmallCaptionHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s21:SmallCaptionHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:SmallCaptionHeightKey","")
 
 	Func setSmallCaptionHeightKey P1
 		raise("DotNet Error: SmallCaptionHeightKey is a read-only property")
 
 	Func getVerticalScrollBarThumbHeightKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s31:VerticalScrollBarThumbHeightKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s31:VerticalScrollBarThumbHeightKey","")
 
 	Func setVerticalScrollBarThumbHeightKey P1
 		raise("DotNet Error: VerticalScrollBarThumbHeightKey is a read-only property")
 
 	Func getIsImmEnabledKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:IsImmEnabledKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsImmEnabledKey","")
 
 	Func setIsImmEnabledKey P1
 		raise("DotNet Error: IsImmEnabledKey is a read-only property")
 
 	Func getIsMediaCenterKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:IsMediaCenterKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:IsMediaCenterKey","")
 
 	Func setIsMediaCenterKey P1
 		raise("DotNet Error: IsMediaCenterKey is a read-only property")
 
 	Func getIsMenuDropRightAlignedKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s25:IsMenuDropRightAlignedKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:IsMenuDropRightAlignedKey","")
 
 	Func setIsMenuDropRightAlignedKey P1
 		raise("DotNet Error: IsMenuDropRightAlignedKey is a read-only property")
 
 	Func getIsMiddleEastEnabledKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:IsMiddleEastEnabledKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMiddleEastEnabledKey","")
 
 	Func setIsMiddleEastEnabledKey P1
 		raise("DotNet Error: IsMiddleEastEnabledKey is a read-only property")
 
 	Func getIsMousePresentKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s17:IsMousePresentKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:IsMousePresentKey","")
 
 	Func setIsMousePresentKey P1
 		raise("DotNet Error: IsMousePresentKey is a read-only property")
 
 	Func getIsMouseWheelPresentKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s22:IsMouseWheelPresentKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMouseWheelPresentKey","")
 
 	Func setIsMouseWheelPresentKey P1
 		raise("DotNet Error: IsMouseWheelPresentKey is a read-only property")
 
 	Func getIsPenWindowsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:IsPenWindowsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsPenWindowsKey","")
 
 	Func setIsPenWindowsKey P1
 		raise("DotNet Error: IsPenWindowsKey is a read-only property")
 
 	Func getIsRemotelyControlledKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s23:IsRemotelyControlledKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:IsRemotelyControlledKey","")
 
 	Func setIsRemotelyControlledKey P1
 		raise("DotNet Error: IsRemotelyControlledKey is a read-only property")
 
 	Func getIsRemoteSessionKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:IsRemoteSessionKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:IsRemoteSessionKey","")
 
 	Func setIsRemoteSessionKey P1
 		raise("DotNet Error: IsRemoteSessionKey is a read-only property")
 
 	Func getShowSoundsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:ShowSoundsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:ShowSoundsKey","")
 
 	Func setShowSoundsKey P1
 		raise("DotNet Error: ShowSoundsKey is a read-only property")
 
 	Func getIsSlowMachineKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:IsSlowMachineKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:IsSlowMachineKey","")
 
 	Func setIsSlowMachineKey P1
 		raise("DotNet Error: IsSlowMachineKey is a read-only property")
 
 	Func getSwapButtonsKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:SwapButtonsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:SwapButtonsKey","")
 
 	Func setSwapButtonsKey P1
 		raise("DotNet Error: SwapButtonsKey is a read-only property")
 
 	Func getIsTabletPCKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s13:IsTabletPCKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsTabletPCKey","")
 
 	Func setIsTabletPCKey P1
 		raise("DotNet Error: IsTabletPCKey is a read-only property")
 
 	Func getVirtualScreenLeftKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s20:VirtualScreenLeftKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:VirtualScreenLeftKey","")
 
 	Func setVirtualScreenLeftKey P1
 		raise("DotNet Error: VirtualScreenLeftKey is a read-only property")
 
 	Func getVirtualScreenTopKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:VirtualScreenTopKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:VirtualScreenTopKey","")
 
 	Func setVirtualScreenTopKey P1
 		raise("DotNet Error: VirtualScreenTopKey is a read-only property")
 
 	Func getFocusVisualStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s19:FocusVisualStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:FocusVisualStyleKey","")
 
 	Func setFocusVisualStyleKey P1
 		raise("DotNet Error: FocusVisualStyleKey is a read-only property")
 
 	Func getNavigationChromeStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s24:NavigationChromeStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:NavigationChromeStyleKey","")
 
 	Func setNavigationChromeStyleKey P1
 		raise("DotNet Error: NavigationChromeStyleKey is a read-only property")
 
 	Func getNavigationChromeDownLevelStyleKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s33:NavigationChromeDownLevelStyleKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:NavigationChromeDownLevelStyleKey","")
 
 	Func setNavigationChromeDownLevelStyleKey P1
 		raise("DotNet Error: NavigationChromeDownLevelStyleKey is a read-only property")
 
 	Func getPowerLineStatus
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s15:PowerLineStatus","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:PowerLineStatus","")
 
 	Func setPowerLineStatus P1
 		raise("DotNet Error: PowerLineStatus is a read-only property")
 
 	Func getPowerLineStatusKey
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:PowerLineStatusKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:PowerLineStatusKey","")
 
 	Func setPowerLineStatusKey P1
 		raise("DotNet Error: PowerLineStatusKey is a read-only property")
 
 	Func getIsGlassEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s14:IsGlassEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsGlassEnabled","")
 
 	Func setIsGlassEnabled P1
 		raise("DotNet Error: IsGlassEnabled is a read-only property")
 
 	Func getUxThemeName
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s11:UxThemeName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:UxThemeName","")
 
 	Func setUxThemeName P1
 		raise("DotNet Error: UxThemeName is a read-only property")
 
 	Func getUxThemeColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s12:UxThemeColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:UxThemeColor","")
 
 	Func setUxThemeColor P1
 		raise("DotNet Error: UxThemeColor is a read-only property")
 
 	Func getWindowCornerRadius
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s18:WindowCornerRadius","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:WindowCornerRadius","")
 
 	Func setWindowCornerRadius P1
 		raise("DotNet Error: WindowCornerRadius is a read-only property")
 
 	Func getWindowGlassColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:WindowGlassColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WindowGlassColor","")
 
 	Func setWindowGlassColor P1
 		raise("DotNet Error: WindowGlassColor is a read-only property")
 
 	Func getWindowGlassBrush
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s16:WindowGlassBrush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WindowGlassBrush","")
 
 	Func setWindowGlassBrush P1
 		raise("DotNet Error: WindowGlassBrush is a read-only property")
 
 	Func getWindowResizeBorderThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s27:WindowResizeBorderThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:WindowResizeBorderThickness","")
 
 	Func setWindowResizeBorderThickness P1
 		raise("DotNet Error: WindowResizeBorderThickness is a read-only property")
 
 	Func getWindowNonClientFrameThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.SystemParameters, PresentationFramework').nHandle,"s29:WindowNonClientFrameThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:WindowNonClientFrameThickness","")
 
 	Func setWindowNonClientFrameThickness P1
 		raise("DotNet Error: WindowNonClientFrameThickness is a read-only property")
@@ -10062,31 +10062,31 @@ Class TextDecoration from Animatable
 		return self
 
 	Func getPenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecoration, PresentationCore').nHandle,"s11:PenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecoration, PresentationCore'),"s11:PenProperty","")
 
 	Func setPenProperty P1
 		raise("DotNet Error: PenProperty is a read-only property")
 
 	Func getPenOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecoration, PresentationCore').nHandle,"s17:PenOffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecoration, PresentationCore'),"s17:PenOffsetProperty","")
 
 	Func setPenOffsetProperty P1
 		raise("DotNet Error: PenOffsetProperty is a read-only property")
 
 	Func getPenOffsetUnitProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecoration, PresentationCore').nHandle,"s21:PenOffsetUnitProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecoration, PresentationCore'),"s21:PenOffsetUnitProperty","")
 
 	Func setPenOffsetUnitProperty P1
 		raise("DotNet Error: PenOffsetUnitProperty is a read-only property")
 
 	Func getPenThicknessUnitProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecoration, PresentationCore').nHandle,"s24:PenThicknessUnitProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecoration, PresentationCore'),"s24:PenThicknessUnitProperty","")
 
 	Func setPenThicknessUnitProperty P1
 		raise("DotNet Error: PenThicknessUnitProperty is a read-only property")
 
 	Func getLocationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecoration, PresentationCore').nHandle,"s16:LocationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecoration, PresentationCore'),"s16:LocationProperty","")
 
 	Func setLocationProperty P1
 		raise("DotNet Error: LocationProperty is a read-only property")
@@ -10202,12 +10202,12 @@ Class TextDecorationCollectionConverter from TypeConverter
 	Func ConvertFromString P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.TextDecorationCollectionConverter, PresentationCore').nHandle,"s17:ConvertFromString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.TextDecorationCollectionConverter, PresentationCore'),"s17:ConvertFromString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s17:ConvertFromString",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnSend("s4:call",dnTypeCached('System.Windows.TextDecorationCollectionConverter, PresentationCore').nHandle,"s17:ConvertFromString",dnPackItem(P1))
+			return dnSend("s4:call",dnTypeHandle('System.Windows.TextDecorationCollectionConverter, PresentationCore'),"s17:ConvertFromString",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s17:ConvertFromString",dnPackItem(P1))
 
@@ -10232,25 +10232,25 @@ Class TextDecorations from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getUnderline
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecorations, PresentationCore').nHandle,"s9:Underline","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecorations, PresentationCore'),"s9:Underline","")
 
 	Func setUnderline P1
 		raise("DotNet Error: Underline is a read-only property")
 
 	Func getStrikethrough
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecorations, PresentationCore').nHandle,"s13:Strikethrough","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecorations, PresentationCore'),"s13:Strikethrough","")
 
 	Func setStrikethrough P1
 		raise("DotNet Error: Strikethrough is a read-only property")
 
 	Func getOverLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecorations, PresentationCore').nHandle,"s8:OverLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecorations, PresentationCore'),"s8:OverLine","")
 
 	Func setOverLine P1
 		raise("DotNet Error: OverLine is a read-only property")
 
 	Func getBaseline
-		return dnSend("s3:get",dnTypeCached('System.Windows.TextDecorations, PresentationCore').nHandle,"s8:Baseline","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecorations, PresentationCore'),"s8:Baseline","")
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
@@ -10351,25 +10351,25 @@ Class ThemeMode from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Windows.ThemeMode, PresentationFramework').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ThemeMode, PresentationFramework'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.ThemeMode, PresentationFramework').nHandle,"s5:Light","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ThemeMode, PresentationFramework'),"s5:Light","")
 
 	Func setLight P1
 		raise("DotNet Error: Light is a read-only property")
 
 	Func getDark
-		return dnSend("s3:get",dnTypeCached('System.Windows.ThemeMode, PresentationFramework').nHandle,"s4:Dark","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ThemeMode, PresentationFramework'),"s4:Dark","")
 
 	Func setDark P1
 		raise("DotNet Error: Dark is a read-only property")
 
 	Func getSystem
-		return dnSend("s3:get",dnTypeCached('System.Windows.ThemeMode, PresentationFramework').nHandle,"s6:System","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ThemeMode, PresentationFramework'),"s6:System","")
 
 	Func setSystem P1
 		raise("DotNet Error: System is a read-only property")
@@ -12011,457 +12011,457 @@ Class UIElement from Visual
 		raise("DotNet Error: TouchesDirectlyOver is a read-only property")
 
 	Func getPreviewMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewMouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewMouseDownEvent","")
 
 	Func getMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:MouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:MouseDownEvent","")
 
 	Func getPreviewMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:PreviewMouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:PreviewMouseUpEvent","")
 
 	Func getMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s12:MouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s12:MouseUpEvent","")
 
 	Func getPreviewMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s31:PreviewMouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s31:PreviewMouseLeftButtonDownEvent","")
 
 	Func getMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:MouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:MouseLeftButtonDownEvent","")
 
 	Func getPreviewMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:PreviewMouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:PreviewMouseLeftButtonUpEvent","")
 
 	Func getMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:MouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:MouseLeftButtonUpEvent","")
 
 	Func getPreviewMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s32:PreviewMouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s32:PreviewMouseRightButtonDownEvent","")
 
 	Func getMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:MouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:MouseRightButtonDownEvent","")
 
 	Func getPreviewMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s30:PreviewMouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s30:PreviewMouseRightButtonUpEvent","")
 
 	Func getMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s23:MouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s23:MouseRightButtonUpEvent","")
 
 	Func getPreviewMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewMouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewMouseMoveEvent","")
 
 	Func getMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:MouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:MouseMoveEvent","")
 
 	Func getPreviewMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:PreviewMouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:PreviewMouseWheelEvent","")
 
 	Func getMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:MouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:MouseWheelEvent","")
 
 	Func getMouseEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:MouseEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:MouseEnterEvent","")
 
 	Func getMouseLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:MouseLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:MouseLeaveEvent","")
 
 	Func getGotMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:GotMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:GotMouseCaptureEvent","")
 
 	Func getLostMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:LostMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:LostMouseCaptureEvent","")
 
 	Func getQueryCursorEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s16:QueryCursorEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s16:QueryCursorEvent","")
 
 	Func getPreviewStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:PreviewStylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:PreviewStylusDownEvent","")
 
 	Func getStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:StylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:StylusDownEvent","")
 
 	Func getPreviewStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:PreviewStylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:PreviewStylusUpEvent","")
 
 	Func getStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s13:StylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s13:StylusUpEvent","")
 
 	Func getPreviewStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:PreviewStylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:PreviewStylusMoveEvent","")
 
 	Func getStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:StylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:StylusMoveEvent","")
 
 	Func getPreviewStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s27:PreviewStylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s27:PreviewStylusInAirMoveEvent","")
 
 	Func getStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:StylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:StylusInAirMoveEvent","")
 
 	Func getStylusEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s16:StylusEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s16:StylusEnterEvent","")
 
 	Func getStylusLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s16:StylusLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s16:StylusLeaveEvent","")
 
 	Func getPreviewStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:PreviewStylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:PreviewStylusInRangeEvent","")
 
 	Func getStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s18:StylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s18:StylusInRangeEvent","")
 
 	Func getPreviewStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s28:PreviewStylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s28:PreviewStylusOutOfRangeEvent","")
 
 	Func getStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:StylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:StylusOutOfRangeEvent","")
 
 	Func getPreviewStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s31:PreviewStylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s31:PreviewStylusSystemGestureEvent","")
 
 	Func getStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:StylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:StylusSystemGestureEvent","")
 
 	Func getGotStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:GotStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:GotStylusCaptureEvent","")
 
 	Func getLostStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:LostStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:LostStylusCaptureEvent","")
 
 	Func getStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:StylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:StylusButtonDownEvent","")
 
 	Func getStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:StylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:StylusButtonUpEvent","")
 
 	Func getPreviewStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s28:PreviewStylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s28:PreviewStylusButtonDownEvent","")
 
 	Func getPreviewStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s26:PreviewStylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s26:PreviewStylusButtonUpEvent","")
 
 	Func getPreviewKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:PreviewKeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:PreviewKeyDownEvent","")
 
 	Func getKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s12:KeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s12:KeyDownEvent","")
 
 	Func getPreviewKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:PreviewKeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:PreviewKeyUpEvent","")
 
 	Func getKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s10:KeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s10:KeyUpEvent","")
 
 	Func getPreviewGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s28:PreviewGotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s28:PreviewGotKeyboardFocusEvent","")
 
 	Func getGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:GotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:GotKeyboardFocusEvent","")
 
 	Func getPreviewLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:PreviewLostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:PreviewLostKeyboardFocusEvent","")
 
 	Func getLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:LostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:LostKeyboardFocusEvent","")
 
 	Func getPreviewTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewTextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewTextInputEvent","")
 
 	Func getTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:TextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:TextInputEvent","")
 
 	Func getPreviewQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:PreviewQueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:PreviewQueryContinueDragEvent","")
 
 	Func getQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:QueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:QueryContinueDragEvent","")
 
 	Func getPreviewGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:PreviewGiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:PreviewGiveFeedbackEvent","")
 
 	Func getGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:GiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:GiveFeedbackEvent","")
 
 	Func getPreviewDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewDragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewDragEnterEvent","")
 
 	Func getDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:DragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:DragEnterEvent","")
 
 	Func getPreviewDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:PreviewDragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:PreviewDragOverEvent","")
 
 	Func getDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s13:DragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s13:DragOverEvent","")
 
 	Func getPreviewDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewDragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewDragLeaveEvent","")
 
 	Func getDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:DragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:DragLeaveEvent","")
 
 	Func getPreviewDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s16:PreviewDropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s16:PreviewDropEvent","")
 
 	Func getDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s9:DropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s9:DropEvent","")
 
 	Func getPreviewTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewTouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewTouchDownEvent","")
 
 	Func getTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:TouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:TouchDownEvent","")
 
 	Func getPreviewTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:PreviewTouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:PreviewTouchMoveEvent","")
 
 	Func getTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:TouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:TouchMoveEvent","")
 
 	Func getPreviewTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:PreviewTouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:PreviewTouchUpEvent","")
 
 	Func getTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s12:TouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s12:TouchUpEvent","")
 
 	Func getGotTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:GotTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:GotTouchCaptureEvent","")
 
 	Func getLostTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s21:LostTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s21:LostTouchCaptureEvent","")
 
 	Func getTouchEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:TouchEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:TouchEnterEvent","")
 
 	Func getTouchLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:TouchLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:TouchLeaveEvent","")
 
 	Func getIsMouseDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s27:IsMouseDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s27:IsMouseDirectlyOverProperty","")
 
 	Func setIsMouseDirectlyOverProperty P1
 		raise("DotNet Error: IsMouseDirectlyOverProperty is a read-only property")
 
 	Func getIsMouseOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:IsMouseOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:IsMouseOverProperty","")
 
 	Func setIsMouseOverProperty P1
 		raise("DotNet Error: IsMouseOverProperty is a read-only property")
 
 	Func getIsStylusOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:IsStylusOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:IsStylusOverProperty","")
 
 	Func setIsStylusOverProperty P1
 		raise("DotNet Error: IsStylusOverProperty is a read-only property")
 
 	Func getIsKeyboardFocusWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:IsKeyboardFocusWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:IsKeyboardFocusWithinProperty","")
 
 	Func setIsKeyboardFocusWithinProperty P1
 		raise("DotNet Error: IsKeyboardFocusWithinProperty is a read-only property")
 
 	Func getIsMouseCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s23:IsMouseCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s23:IsMouseCapturedProperty","")
 
 	Func setIsMouseCapturedProperty P1
 		raise("DotNet Error: IsMouseCapturedProperty is a read-only property")
 
 	Func getIsMouseCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s28:IsMouseCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s28:IsMouseCaptureWithinProperty","")
 
 	Func setIsMouseCaptureWithinProperty P1
 		raise("DotNet Error: IsMouseCaptureWithinProperty is a read-only property")
 
 	Func getIsStylusDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s28:IsStylusDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s28:IsStylusDirectlyOverProperty","")
 
 	Func setIsStylusDirectlyOverProperty P1
 		raise("DotNet Error: IsStylusDirectlyOverProperty is a read-only property")
 
 	Func getIsStylusCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:IsStylusCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:IsStylusCapturedProperty","")
 
 	Func setIsStylusCapturedProperty P1
 		raise("DotNet Error: IsStylusCapturedProperty is a read-only property")
 
 	Func getIsStylusCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:IsStylusCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:IsStylusCaptureWithinProperty","")
 
 	Func setIsStylusCaptureWithinProperty P1
 		raise("DotNet Error: IsStylusCaptureWithinProperty is a read-only property")
 
 	Func getIsKeyboardFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:IsKeyboardFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:IsKeyboardFocusedProperty","")
 
 	Func setIsKeyboardFocusedProperty P1
 		raise("DotNet Error: IsKeyboardFocusedProperty is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s33:AreAnyTouchesDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s33:AreAnyTouchesDirectlyOverProperty","")
 
 	Func setAreAnyTouchesDirectlyOverProperty P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOverProperty is a read-only property")
 
 	Func getAreAnyTouchesOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:AreAnyTouchesOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:AreAnyTouchesOverProperty","")
 
 	Func setAreAnyTouchesOverProperty P1
 		raise("DotNet Error: AreAnyTouchesOverProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:AreAnyTouchesCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:AreAnyTouchesCapturedProperty","")
 
 	Func setAreAnyTouchesCapturedProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s35:AreAnyTouchesCapturedWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s35:AreAnyTouchesCapturedWithinProperty","")
 
 	Func setAreAnyTouchesCapturedWithinProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithinProperty is a read-only property")
 
 	Func getAllowDropProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:AllowDropProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:AllowDropProperty","")
 
 	Func setAllowDropProperty P1
 		raise("DotNet Error: AllowDropProperty is a read-only property")
 
 	Func getRenderTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s23:RenderTransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s23:RenderTransformProperty","")
 
 	Func setRenderTransformProperty P1
 		raise("DotNet Error: RenderTransformProperty is a read-only property")
 
 	Func getRenderTransformOriginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:RenderTransformOriginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:RenderTransformOriginProperty","")
 
 	Func setRenderTransformOriginProperty P1
 		raise("DotNet Error: RenderTransformOriginProperty is a read-only property")
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")
 
 	Func getOpacityMaskProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s19:OpacityMaskProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s19:OpacityMaskProperty","")
 
 	Func setOpacityMaskProperty P1
 		raise("DotNet Error: OpacityMaskProperty is a read-only property")
 
 	Func getBitmapEffectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:BitmapEffectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:BitmapEffectProperty","")
 
 	Func setBitmapEffectProperty P1
 		raise("DotNet Error: BitmapEffectProperty is a read-only property")
 
 	Func getEffectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:EffectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:EffectProperty","")
 
 	Func setEffectProperty P1
 		raise("DotNet Error: EffectProperty is a read-only property")
 
 	Func getBitmapEffectInputProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:BitmapEffectInputProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:BitmapEffectInputProperty","")
 
 	Func setBitmapEffectInputProperty P1
 		raise("DotNet Error: BitmapEffectInputProperty is a read-only property")
 
 	Func getCacheModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:CacheModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:CacheModeProperty","")
 
 	Func setCacheModeProperty P1
 		raise("DotNet Error: CacheModeProperty is a read-only property")
 
 	Func getUidProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s11:UidProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s11:UidProperty","")
 
 	Func setUidProperty P1
 		raise("DotNet Error: UidProperty is a read-only property")
 
 	Func getVisibilityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s18:VisibilityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s18:VisibilityProperty","")
 
 	Func setVisibilityProperty P1
 		raise("DotNet Error: VisibilityProperty is a read-only property")
 
 	Func getClipToBoundsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s20:ClipToBoundsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s20:ClipToBoundsProperty","")
 
 	Func setClipToBoundsProperty P1
 		raise("DotNet Error: ClipToBoundsProperty is a read-only property")
 
 	Func getClipProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s12:ClipProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s12:ClipProperty","")
 
 	Func setClipProperty P1
 		raise("DotNet Error: ClipProperty is a read-only property")
 
 	Func getSnapsToDevicePixelsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s27:SnapsToDevicePixelsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s27:SnapsToDevicePixelsProperty","")
 
 	Func setSnapsToDevicePixelsProperty P1
 		raise("DotNet Error: SnapsToDevicePixelsProperty is a read-only property")
 
 	Func getGotFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s13:GotFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s13:GotFocusEvent","")
 
 	Func getLostFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s14:LostFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s14:LostFocusEvent","")
 
 	Func getIsFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:IsFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:IsFocusedProperty","")
 
 	Func setIsFocusedProperty P1
 		raise("DotNet Error: IsFocusedProperty is a read-only property")
 
 	Func getIsEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:IsEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:IsEnabledProperty","")
 
 	Func setIsEnabledProperty P1
 		raise("DotNet Error: IsEnabledProperty is a read-only property")
 
 	Func getIsHitTestVisibleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:IsHitTestVisibleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:IsHitTestVisibleProperty","")
 
 	Func setIsHitTestVisibleProperty P1
 		raise("DotNet Error: IsHitTestVisibleProperty is a read-only property")
 
 	Func getIsVisibleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:IsVisibleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:IsVisibleProperty","")
 
 	Func setIsVisibleProperty P1
 		raise("DotNet Error: IsVisibleProperty is a read-only property")
 
 	Func getFocusableProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s17:FocusableProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s17:FocusableProperty","")
 
 	Func setFocusableProperty P1
 		raise("DotNet Error: FocusableProperty is a read-only property")
 
 	Func getIsManipulationEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s29:IsManipulationEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s29:IsManipulationEnabledProperty","")
 
 	Func setIsManipulationEnabledProperty P1
 		raise("DotNet Error: IsManipulationEnabledProperty is a read-only property")
 
 	Func getManipulationStartingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s25:ManipulationStartingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s25:ManipulationStartingEvent","")
 
 	Func getManipulationStartedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s24:ManipulationStartedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s24:ManipulationStartedEvent","")
 
 	Func getManipulationDeltaEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s22:ManipulationDeltaEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s22:ManipulationDeltaEvent","")
 
 	Func getManipulationInertiaStartingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s32:ManipulationInertiaStartingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s32:ManipulationInertiaStartingEvent","")
 
 	Func getManipulationBoundaryFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s33:ManipulationBoundaryFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s33:ManipulationBoundaryFeedbackEvent","")
 
 	Func getManipulationCompletedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement, PresentationCore').nHandle,"s26:ManipulationCompletedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement, PresentationCore'),"s26:ManipulationCompletedEvent","")
 
 
 Class UIElement3D from Visual3D
@@ -13550,358 +13550,358 @@ Class UIElement3D from Visual3D
 		raise("DotNet Error: TouchesDirectlyOver is a read-only property")
 
 	Func getPreviewMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewMouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewMouseDownEvent","")
 
 	Func getMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:MouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:MouseDownEvent","")
 
 	Func getPreviewMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s19:PreviewMouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s19:PreviewMouseUpEvent","")
 
 	Func getMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s12:MouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s12:MouseUpEvent","")
 
 	Func getPreviewMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s31:PreviewMouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s31:PreviewMouseLeftButtonDownEvent","")
 
 	Func getMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s24:MouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s24:MouseLeftButtonDownEvent","")
 
 	Func getPreviewMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:PreviewMouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:PreviewMouseLeftButtonUpEvent","")
 
 	Func getMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:MouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:MouseLeftButtonUpEvent","")
 
 	Func getPreviewMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s32:PreviewMouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s32:PreviewMouseRightButtonDownEvent","")
 
 	Func getMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s25:MouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s25:MouseRightButtonDownEvent","")
 
 	Func getPreviewMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s30:PreviewMouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s30:PreviewMouseRightButtonUpEvent","")
 
 	Func getMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s23:MouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s23:MouseRightButtonUpEvent","")
 
 	Func getPreviewMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewMouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewMouseMoveEvent","")
 
 	Func getMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:MouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:MouseMoveEvent","")
 
 	Func getPreviewMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:PreviewMouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:PreviewMouseWheelEvent","")
 
 	Func getMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:MouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:MouseWheelEvent","")
 
 	Func getMouseEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:MouseEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:MouseEnterEvent","")
 
 	Func getMouseLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:MouseLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:MouseLeaveEvent","")
 
 	Func getGotMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:GotMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:GotMouseCaptureEvent","")
 
 	Func getLostMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:LostMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:LostMouseCaptureEvent","")
 
 	Func getQueryCursorEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s16:QueryCursorEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s16:QueryCursorEvent","")
 
 	Func getPreviewStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:PreviewStylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:PreviewStylusDownEvent","")
 
 	Func getStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:StylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:StylusDownEvent","")
 
 	Func getPreviewStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:PreviewStylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:PreviewStylusUpEvent","")
 
 	Func getStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s13:StylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s13:StylusUpEvent","")
 
 	Func getPreviewStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:PreviewStylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:PreviewStylusMoveEvent","")
 
 	Func getStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:StylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:StylusMoveEvent","")
 
 	Func getPreviewStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s27:PreviewStylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s27:PreviewStylusInAirMoveEvent","")
 
 	Func getStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:StylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:StylusInAirMoveEvent","")
 
 	Func getStylusEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s16:StylusEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s16:StylusEnterEvent","")
 
 	Func getStylusLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s16:StylusLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s16:StylusLeaveEvent","")
 
 	Func getPreviewStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s25:PreviewStylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s25:PreviewStylusInRangeEvent","")
 
 	Func getStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s18:StylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s18:StylusInRangeEvent","")
 
 	Func getPreviewStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s28:PreviewStylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s28:PreviewStylusOutOfRangeEvent","")
 
 	Func getStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:StylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:StylusOutOfRangeEvent","")
 
 	Func getPreviewStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s31:PreviewStylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s31:PreviewStylusSystemGestureEvent","")
 
 	Func getStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s24:StylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s24:StylusSystemGestureEvent","")
 
 	Func getGotStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:GotStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:GotStylusCaptureEvent","")
 
 	Func getLostStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:LostStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:LostStylusCaptureEvent","")
 
 	Func getStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:StylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:StylusButtonDownEvent","")
 
 	Func getStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s19:StylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s19:StylusButtonUpEvent","")
 
 	Func getPreviewStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s28:PreviewStylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s28:PreviewStylusButtonDownEvent","")
 
 	Func getPreviewStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s26:PreviewStylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s26:PreviewStylusButtonUpEvent","")
 
 	Func getPreviewKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s19:PreviewKeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s19:PreviewKeyDownEvent","")
 
 	Func getKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s12:KeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s12:KeyDownEvent","")
 
 	Func getPreviewKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:PreviewKeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:PreviewKeyUpEvent","")
 
 	Func getKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s10:KeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s10:KeyUpEvent","")
 
 	Func getPreviewGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s28:PreviewGotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s28:PreviewGotKeyboardFocusEvent","")
 
 	Func getGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:GotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:GotKeyboardFocusEvent","")
 
 	Func getPreviewLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:PreviewLostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:PreviewLostKeyboardFocusEvent","")
 
 	Func getLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:LostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:LostKeyboardFocusEvent","")
 
 	Func getPreviewTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewTextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewTextInputEvent","")
 
 	Func getTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:TextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:TextInputEvent","")
 
 	Func getPreviewQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:PreviewQueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:PreviewQueryContinueDragEvent","")
 
 	Func getQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s22:QueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s22:QueryContinueDragEvent","")
 
 	Func getPreviewGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s24:PreviewGiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s24:PreviewGiveFeedbackEvent","")
 
 	Func getGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:GiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:GiveFeedbackEvent","")
 
 	Func getPreviewDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewDragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewDragEnterEvent","")
 
 	Func getDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:DragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:DragEnterEvent","")
 
 	Func getPreviewDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:PreviewDragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:PreviewDragOverEvent","")
 
 	Func getDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s13:DragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s13:DragOverEvent","")
 
 	Func getPreviewDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewDragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewDragLeaveEvent","")
 
 	Func getDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:DragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:DragLeaveEvent","")
 
 	Func getPreviewDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s16:PreviewDropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s16:PreviewDropEvent","")
 
 	Func getDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s9:DropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s9:DropEvent","")
 
 	Func getPreviewTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewTouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewTouchDownEvent","")
 
 	Func getTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:TouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:TouchDownEvent","")
 
 	Func getPreviewTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:PreviewTouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:PreviewTouchMoveEvent","")
 
 	Func getTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:TouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:TouchMoveEvent","")
 
 	Func getPreviewTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s19:PreviewTouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s19:PreviewTouchUpEvent","")
 
 	Func getTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s12:TouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s12:TouchUpEvent","")
 
 	Func getGotTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:GotTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:GotTouchCaptureEvent","")
 
 	Func getLostTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s21:LostTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s21:LostTouchCaptureEvent","")
 
 	Func getTouchEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:TouchEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:TouchEnterEvent","")
 
 	Func getTouchLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s15:TouchLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s15:TouchLeaveEvent","")
 
 	Func getIsMouseDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s27:IsMouseDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s27:IsMouseDirectlyOverProperty","")
 
 	Func setIsMouseDirectlyOverProperty P1
 		raise("DotNet Error: IsMouseDirectlyOverProperty is a read-only property")
 
 	Func getIsMouseOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s19:IsMouseOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s19:IsMouseOverProperty","")
 
 	Func setIsMouseOverProperty P1
 		raise("DotNet Error: IsMouseOverProperty is a read-only property")
 
 	Func getIsStylusOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s20:IsStylusOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s20:IsStylusOverProperty","")
 
 	Func setIsStylusOverProperty P1
 		raise("DotNet Error: IsStylusOverProperty is a read-only property")
 
 	Func getIsKeyboardFocusWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:IsKeyboardFocusWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:IsKeyboardFocusWithinProperty","")
 
 	Func setIsKeyboardFocusWithinProperty P1
 		raise("DotNet Error: IsKeyboardFocusWithinProperty is a read-only property")
 
 	Func getIsMouseCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s23:IsMouseCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s23:IsMouseCapturedProperty","")
 
 	Func setIsMouseCapturedProperty P1
 		raise("DotNet Error: IsMouseCapturedProperty is a read-only property")
 
 	Func getIsMouseCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s28:IsMouseCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s28:IsMouseCaptureWithinProperty","")
 
 	Func setIsMouseCaptureWithinProperty P1
 		raise("DotNet Error: IsMouseCaptureWithinProperty is a read-only property")
 
 	Func getIsStylusDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s28:IsStylusDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s28:IsStylusDirectlyOverProperty","")
 
 	Func setIsStylusDirectlyOverProperty P1
 		raise("DotNet Error: IsStylusDirectlyOverProperty is a read-only property")
 
 	Func getIsStylusCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s24:IsStylusCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s24:IsStylusCapturedProperty","")
 
 	Func setIsStylusCapturedProperty P1
 		raise("DotNet Error: IsStylusCapturedProperty is a read-only property")
 
 	Func getIsStylusCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:IsStylusCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:IsStylusCaptureWithinProperty","")
 
 	Func setIsStylusCaptureWithinProperty P1
 		raise("DotNet Error: IsStylusCaptureWithinProperty is a read-only property")
 
 	Func getIsKeyboardFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s25:IsKeyboardFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s25:IsKeyboardFocusedProperty","")
 
 	Func setIsKeyboardFocusedProperty P1
 		raise("DotNet Error: IsKeyboardFocusedProperty is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s33:AreAnyTouchesDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s33:AreAnyTouchesDirectlyOverProperty","")
 
 	Func setAreAnyTouchesDirectlyOverProperty P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOverProperty is a read-only property")
 
 	Func getAreAnyTouchesOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s25:AreAnyTouchesOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s25:AreAnyTouchesOverProperty","")
 
 	Func setAreAnyTouchesOverProperty P1
 		raise("DotNet Error: AreAnyTouchesOverProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s29:AreAnyTouchesCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s29:AreAnyTouchesCapturedProperty","")
 
 	Func setAreAnyTouchesCapturedProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s35:AreAnyTouchesCapturedWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s35:AreAnyTouchesCapturedWithinProperty","")
 
 	Func setAreAnyTouchesCapturedWithinProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithinProperty is a read-only property")
 
 	Func getAllowDropProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:AllowDropProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:AllowDropProperty","")
 
 	Func setAllowDropProperty P1
 		raise("DotNet Error: AllowDropProperty is a read-only property")
 
 	Func getVisibilityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s18:VisibilityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s18:VisibilityProperty","")
 
 	Func setVisibilityProperty P1
 		raise("DotNet Error: VisibilityProperty is a read-only property")
 
 	Func getGotFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s13:GotFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s13:GotFocusEvent","")
 
 	Func getLostFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s14:LostFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s14:LostFocusEvent","")
 
 	Func getIsFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:IsFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:IsFocusedProperty","")
 
 	Func setIsFocusedProperty P1
 		raise("DotNet Error: IsFocusedProperty is a read-only property")
 
 	Func getIsEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:IsEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:IsEnabledProperty","")
 
 	Func setIsEnabledProperty P1
 		raise("DotNet Error: IsEnabledProperty is a read-only property")
 
 	Func getIsHitTestVisibleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s24:IsHitTestVisibleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s24:IsHitTestVisibleProperty","")
 
 	Func setIsHitTestVisibleProperty P1
 		raise("DotNet Error: IsHitTestVisibleProperty is a read-only property")
 
 	Func getIsVisibleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:IsVisibleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:IsVisibleProperty","")
 
 	Func setIsVisibleProperty P1
 		raise("DotNet Error: IsVisibleProperty is a read-only property")
 
 	Func getFocusableProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.UIElement3D, PresentationCore').nHandle,"s17:FocusableProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.UIElement3D, PresentationCore'),"s17:FocusableProperty","")
 
 	Func setFocusableProperty P1
 		raise("DotNet Error: FocusableProperty is a read-only property")
@@ -13985,7 +13985,7 @@ Class WpfVector from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -14006,28 +14006,28 @@ Class WpfVector from ValueType
 		return self
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func CrossProduct P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AngleBetween P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s12:AngleBetween",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:AngleBetween",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Determinant P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Vector, WindowsBase').nHandle,"s11:Determinant",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s11:Determinant",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
@@ -14209,7 +14209,7 @@ Class Window from ContentControl
 		return dnSend("s4:call",nHandle,"s8:Activate","")
 
 	Func GetWindow P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s9:GetWindow",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s9:GetWindow",dnPackItem(P1))
 
 	Func setSourceInitializedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"SourceInitialized",dnCallback(P1)])
@@ -14421,88 +14421,88 @@ Class Window from ContentControl
 		return self
 
 	Func getTaskbarItemInfoProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s23:TaskbarItemInfoProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s23:TaskbarItemInfoProperty","")
 
 	Func setTaskbarItemInfoProperty P1
 		raise("DotNet Error: TaskbarItemInfoProperty is a read-only property")
 
 	Func getDpiChangedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s15:DpiChangedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s15:DpiChangedEvent","")
 
 	Func getAllowsTransparencyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s26:AllowsTransparencyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s26:AllowsTransparencyProperty","")
 
 	Func setAllowsTransparencyProperty P1
 		raise("DotNet Error: AllowsTransparencyProperty is a read-only property")
 
 	Func getTitleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s13:TitleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s13:TitleProperty","")
 
 	Func setTitleProperty P1
 		raise("DotNet Error: TitleProperty is a read-only property")
 
 	Func getIconProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s12:IconProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s12:IconProperty","")
 
 	Func setIconProperty P1
 		raise("DotNet Error: IconProperty is a read-only property")
 
 	Func getSizeToContentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s21:SizeToContentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s21:SizeToContentProperty","")
 
 	Func setSizeToContentProperty P1
 		raise("DotNet Error: SizeToContentProperty is a read-only property")
 
 	Func getTopProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s11:TopProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s11:TopProperty","")
 
 	Func setTopProperty P1
 		raise("DotNet Error: TopProperty is a read-only property")
 
 	Func getLeftProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s12:LeftProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s12:LeftProperty","")
 
 	Func setLeftProperty P1
 		raise("DotNet Error: LeftProperty is a read-only property")
 
 	Func getShowInTaskbarProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s21:ShowInTaskbarProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s21:ShowInTaskbarProperty","")
 
 	Func setShowInTaskbarProperty P1
 		raise("DotNet Error: ShowInTaskbarProperty is a read-only property")
 
 	Func getIsActiveProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s16:IsActiveProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s16:IsActiveProperty","")
 
 	Func setIsActiveProperty P1
 		raise("DotNet Error: IsActiveProperty is a read-only property")
 
 	Func getWindowStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s19:WindowStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s19:WindowStyleProperty","")
 
 	Func setWindowStyleProperty P1
 		raise("DotNet Error: WindowStyleProperty is a read-only property")
 
 	Func getWindowStateProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s19:WindowStateProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s19:WindowStateProperty","")
 
 	Func setWindowStateProperty P1
 		raise("DotNet Error: WindowStateProperty is a read-only property")
 
 	Func getResizeModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s18:ResizeModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s18:ResizeModeProperty","")
 
 	Func setResizeModeProperty P1
 		raise("DotNet Error: ResizeModeProperty is a read-only property")
 
 	Func getTopmostProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s15:TopmostProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s15:TopmostProperty","")
 
 	Func setTopmostProperty P1
 		raise("DotNet Error: TopmostProperty is a read-only property")
 
 	Func getShowActivatedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Window, PresentationFramework').nHandle,"s21:ShowActivatedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s21:ShowActivatedProperty","")
 
 	Func setShowActivatedProperty P1
 		raise("DotNet Error: ShowActivatedProperty is a read-only property")
@@ -15691,340 +15691,340 @@ Class ContentElement from DependencyObject
 		raise("DotNet Error: TouchesDirectlyOver is a read-only property")
 
 	Func getPreviewMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewMouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewMouseDownEvent","")
 
 	Func getMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:MouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:MouseDownEvent","")
 
 	Func getPreviewMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s19:PreviewMouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s19:PreviewMouseUpEvent","")
 
 	Func getMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s12:MouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s12:MouseUpEvent","")
 
 	Func getPreviewMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s31:PreviewMouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s31:PreviewMouseLeftButtonDownEvent","")
 
 	Func getMouseLeftButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s24:MouseLeftButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s24:MouseLeftButtonDownEvent","")
 
 	Func getPreviewMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:PreviewMouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:PreviewMouseLeftButtonUpEvent","")
 
 	Func getMouseLeftButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:MouseLeftButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:MouseLeftButtonUpEvent","")
 
 	Func getPreviewMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s32:PreviewMouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s32:PreviewMouseRightButtonDownEvent","")
 
 	Func getMouseRightButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s25:MouseRightButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s25:MouseRightButtonDownEvent","")
 
 	Func getPreviewMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s30:PreviewMouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s30:PreviewMouseRightButtonUpEvent","")
 
 	Func getMouseRightButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s23:MouseRightButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s23:MouseRightButtonUpEvent","")
 
 	Func getPreviewMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewMouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewMouseMoveEvent","")
 
 	Func getMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:MouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:MouseMoveEvent","")
 
 	Func getPreviewMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:PreviewMouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:PreviewMouseWheelEvent","")
 
 	Func getMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:MouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:MouseWheelEvent","")
 
 	Func getMouseEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:MouseEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:MouseEnterEvent","")
 
 	Func getMouseLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:MouseLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:MouseLeaveEvent","")
 
 	Func getGotMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:GotMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:GotMouseCaptureEvent","")
 
 	Func getLostMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:LostMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:LostMouseCaptureEvent","")
 
 	Func getQueryCursorEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s16:QueryCursorEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s16:QueryCursorEvent","")
 
 	Func getPreviewStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:PreviewStylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:PreviewStylusDownEvent","")
 
 	Func getStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:StylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:StylusDownEvent","")
 
 	Func getPreviewStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:PreviewStylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:PreviewStylusUpEvent","")
 
 	Func getStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s13:StylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s13:StylusUpEvent","")
 
 	Func getPreviewStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:PreviewStylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:PreviewStylusMoveEvent","")
 
 	Func getStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:StylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:StylusMoveEvent","")
 
 	Func getPreviewStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s27:PreviewStylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s27:PreviewStylusInAirMoveEvent","")
 
 	Func getStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:StylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:StylusInAirMoveEvent","")
 
 	Func getStylusEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s16:StylusEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s16:StylusEnterEvent","")
 
 	Func getStylusLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s16:StylusLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s16:StylusLeaveEvent","")
 
 	Func getPreviewStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s25:PreviewStylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s25:PreviewStylusInRangeEvent","")
 
 	Func getStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s18:StylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s18:StylusInRangeEvent","")
 
 	Func getPreviewStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s28:PreviewStylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s28:PreviewStylusOutOfRangeEvent","")
 
 	Func getStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:StylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:StylusOutOfRangeEvent","")
 
 	Func getPreviewStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s31:PreviewStylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s31:PreviewStylusSystemGestureEvent","")
 
 	Func getStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s24:StylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s24:StylusSystemGestureEvent","")
 
 	Func getGotStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:GotStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:GotStylusCaptureEvent","")
 
 	Func getLostStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:LostStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:LostStylusCaptureEvent","")
 
 	Func getStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:StylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:StylusButtonDownEvent","")
 
 	Func getStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s19:StylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s19:StylusButtonUpEvent","")
 
 	Func getPreviewStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s28:PreviewStylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s28:PreviewStylusButtonDownEvent","")
 
 	Func getPreviewStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s26:PreviewStylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s26:PreviewStylusButtonUpEvent","")
 
 	Func getPreviewKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s19:PreviewKeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s19:PreviewKeyDownEvent","")
 
 	Func getKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s12:KeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s12:KeyDownEvent","")
 
 	Func getPreviewKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:PreviewKeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:PreviewKeyUpEvent","")
 
 	Func getKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s10:KeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s10:KeyUpEvent","")
 
 	Func getPreviewGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s28:PreviewGotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s28:PreviewGotKeyboardFocusEvent","")
 
 	Func getGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:GotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:GotKeyboardFocusEvent","")
 
 	Func getPreviewLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:PreviewLostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:PreviewLostKeyboardFocusEvent","")
 
 	Func getLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:LostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:LostKeyboardFocusEvent","")
 
 	Func getPreviewTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewTextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewTextInputEvent","")
 
 	Func getTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:TextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:TextInputEvent","")
 
 	Func getPreviewQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:PreviewQueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:PreviewQueryContinueDragEvent","")
 
 	Func getQueryContinueDragEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s22:QueryContinueDragEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s22:QueryContinueDragEvent","")
 
 	Func getPreviewGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s24:PreviewGiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s24:PreviewGiveFeedbackEvent","")
 
 	Func getGiveFeedbackEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:GiveFeedbackEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:GiveFeedbackEvent","")
 
 	Func getPreviewDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewDragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewDragEnterEvent","")
 
 	Func getDragEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:DragEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:DragEnterEvent","")
 
 	Func getPreviewDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:PreviewDragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:PreviewDragOverEvent","")
 
 	Func getDragOverEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s13:DragOverEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s13:DragOverEvent","")
 
 	Func getPreviewDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewDragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewDragLeaveEvent","")
 
 	Func getDragLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:DragLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:DragLeaveEvent","")
 
 	Func getPreviewDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s16:PreviewDropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s16:PreviewDropEvent","")
 
 	Func getDropEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s9:DropEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s9:DropEvent","")
 
 	Func getPreviewTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewTouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewTouchDownEvent","")
 
 	Func getTouchDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:TouchDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:TouchDownEvent","")
 
 	Func getPreviewTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:PreviewTouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:PreviewTouchMoveEvent","")
 
 	Func getTouchMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:TouchMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:TouchMoveEvent","")
 
 	Func getPreviewTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s19:PreviewTouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s19:PreviewTouchUpEvent","")
 
 	Func getTouchUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s12:TouchUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s12:TouchUpEvent","")
 
 	Func getGotTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:GotTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:GotTouchCaptureEvent","")
 
 	Func getLostTouchCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s21:LostTouchCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s21:LostTouchCaptureEvent","")
 
 	Func getTouchEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:TouchEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:TouchEnterEvent","")
 
 	Func getTouchLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s15:TouchLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s15:TouchLeaveEvent","")
 
 	Func getIsMouseDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s27:IsMouseDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s27:IsMouseDirectlyOverProperty","")
 
 	Func setIsMouseDirectlyOverProperty P1
 		raise("DotNet Error: IsMouseDirectlyOverProperty is a read-only property")
 
 	Func getIsMouseOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s19:IsMouseOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s19:IsMouseOverProperty","")
 
 	Func setIsMouseOverProperty P1
 		raise("DotNet Error: IsMouseOverProperty is a read-only property")
 
 	Func getIsStylusOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s20:IsStylusOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s20:IsStylusOverProperty","")
 
 	Func setIsStylusOverProperty P1
 		raise("DotNet Error: IsStylusOverProperty is a read-only property")
 
 	Func getIsKeyboardFocusWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:IsKeyboardFocusWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:IsKeyboardFocusWithinProperty","")
 
 	Func setIsKeyboardFocusWithinProperty P1
 		raise("DotNet Error: IsKeyboardFocusWithinProperty is a read-only property")
 
 	Func getIsMouseCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s23:IsMouseCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s23:IsMouseCapturedProperty","")
 
 	Func setIsMouseCapturedProperty P1
 		raise("DotNet Error: IsMouseCapturedProperty is a read-only property")
 
 	Func getIsMouseCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s28:IsMouseCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s28:IsMouseCaptureWithinProperty","")
 
 	Func setIsMouseCaptureWithinProperty P1
 		raise("DotNet Error: IsMouseCaptureWithinProperty is a read-only property")
 
 	Func getIsStylusDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s28:IsStylusDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s28:IsStylusDirectlyOverProperty","")
 
 	Func setIsStylusDirectlyOverProperty P1
 		raise("DotNet Error: IsStylusDirectlyOverProperty is a read-only property")
 
 	Func getIsStylusCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s24:IsStylusCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s24:IsStylusCapturedProperty","")
 
 	Func setIsStylusCapturedProperty P1
 		raise("DotNet Error: IsStylusCapturedProperty is a read-only property")
 
 	Func getIsStylusCaptureWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:IsStylusCaptureWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:IsStylusCaptureWithinProperty","")
 
 	Func setIsStylusCaptureWithinProperty P1
 		raise("DotNet Error: IsStylusCaptureWithinProperty is a read-only property")
 
 	Func getIsKeyboardFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s25:IsKeyboardFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s25:IsKeyboardFocusedProperty","")
 
 	Func setIsKeyboardFocusedProperty P1
 		raise("DotNet Error: IsKeyboardFocusedProperty is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s33:AreAnyTouchesDirectlyOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s33:AreAnyTouchesDirectlyOverProperty","")
 
 	Func setAreAnyTouchesDirectlyOverProperty P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOverProperty is a read-only property")
 
 	Func getAreAnyTouchesOverProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s25:AreAnyTouchesOverProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s25:AreAnyTouchesOverProperty","")
 
 	Func setAreAnyTouchesOverProperty P1
 		raise("DotNet Error: AreAnyTouchesOverProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s29:AreAnyTouchesCapturedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s29:AreAnyTouchesCapturedProperty","")
 
 	Func setAreAnyTouchesCapturedProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedProperty is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s35:AreAnyTouchesCapturedWithinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s35:AreAnyTouchesCapturedWithinProperty","")
 
 	Func setAreAnyTouchesCapturedWithinProperty P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithinProperty is a read-only property")
 
 	Func getGotFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s13:GotFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s13:GotFocusEvent","")
 
 	Func getLostFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s14:LostFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s14:LostFocusEvent","")
 
 	Func getIsFocusedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:IsFocusedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:IsFocusedProperty","")
 
 	Func setIsFocusedProperty P1
 		raise("DotNet Error: IsFocusedProperty is a read-only property")
 
 	Func getIsEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:IsEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:IsEnabledProperty","")
 
 	Func setIsEnabledProperty P1
 		raise("DotNet Error: IsEnabledProperty is a read-only property")
 
 	Func getFocusableProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:FocusableProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:FocusableProperty","")
 
 	Func setFocusableProperty P1
 		raise("DotNet Error: FocusableProperty is a read-only property")
 
 	Func getAllowDropProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.ContentElement, PresentationCore').nHandle,"s17:AllowDropProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.ContentElement, PresentationCore'),"s17:AllowDropProperty","")
 
 	Func setAllowDropProperty P1
 		raise("DotNet Error: AllowDropProperty is a read-only property")
@@ -16440,10 +16440,10 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func GetFlowDirection_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:GetFlowDirection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:GetFlowDirection",dnPackItem(P1))
 
 	Func SetFlowDirection_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:SetFlowDirection",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:SetFlowDirection",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setTargetUpdatedEvent P1
@@ -16767,190 +16767,190 @@ Class FrameworkElement from UIElement
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s13:StyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s13:StyleProperty","")
 
 	Func setStyleProperty P1
 		raise("DotNet Error: StyleProperty is a read-only property")
 
 	Func getOverridesDefaultStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s29:OverridesDefaultStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s29:OverridesDefaultStyleProperty","")
 
 	Func setOverridesDefaultStyleProperty P1
 		raise("DotNet Error: OverridesDefaultStyleProperty is a read-only property")
 
 	Func getUseLayoutRoundingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s25:UseLayoutRoundingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s25:UseLayoutRoundingProperty","")
 
 	Func setUseLayoutRoundingProperty P1
 		raise("DotNet Error: UseLayoutRoundingProperty is a read-only property")
 
 	Func getDataContextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:DataContextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:DataContextProperty","")
 
 	Func setDataContextProperty P1
 		raise("DotNet Error: DataContextProperty is a read-only property")
 
 	Func getBindingGroupProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s20:BindingGroupProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s20:BindingGroupProperty","")
 
 	Func setBindingGroupProperty P1
 		raise("DotNet Error: BindingGroupProperty is a read-only property")
 
 	Func getLanguageProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:LanguageProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:LanguageProperty","")
 
 	Func setLanguageProperty P1
 		raise("DotNet Error: LanguageProperty is a read-only property")
 
 	Func getNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s12:NameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getTagProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s11:TagProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s11:TagProperty","")
 
 	Func setTagProperty P1
 		raise("DotNet Error: TagProperty is a read-only property")
 
 	Func getInputScopeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s18:InputScopeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s18:InputScopeProperty","")
 
 	Func setInputScopeProperty P1
 		raise("DotNet Error: InputScopeProperty is a read-only property")
 
 	Func getRequestBringIntoViewEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s25:RequestBringIntoViewEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s25:RequestBringIntoViewEvent","")
 
 	Func getSizeChangedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:SizeChangedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:SizeChangedEvent","")
 
 	Func getActualWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:ActualWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:ActualWidthProperty","")
 
 	Func setActualWidthProperty P1
 		raise("DotNet Error: ActualWidthProperty is a read-only property")
 
 	Func getActualHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s20:ActualHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s20:ActualHeightProperty","")
 
 	Func setActualHeightProperty P1
 		raise("DotNet Error: ActualHeightProperty is a read-only property")
 
 	Func getLayoutTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s23:LayoutTransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s23:LayoutTransformProperty","")
 
 	Func setLayoutTransformProperty P1
 		raise("DotNet Error: LayoutTransformProperty is a read-only property")
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s13:WidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s13:WidthProperty","")
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
 
 	Func getMinWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:MinWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:MinWidthProperty","")
 
 	Func setMinWidthProperty P1
 		raise("DotNet Error: MinWidthProperty is a read-only property")
 
 	Func getMaxWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s16:MaxWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:MaxWidthProperty","")
 
 	Func setMaxWidthProperty P1
 		raise("DotNet Error: MaxWidthProperty is a read-only property")
 
 	Func getHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s14:HeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s14:HeightProperty","")
 
 	Func setHeightProperty P1
 		raise("DotNet Error: HeightProperty is a read-only property")
 
 	Func getMinHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s17:MinHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s17:MinHeightProperty","")
 
 	Func setMinHeightProperty P1
 		raise("DotNet Error: MinHeightProperty is a read-only property")
 
 	Func getMaxHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s17:MaxHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s17:MaxHeightProperty","")
 
 	Func setMaxHeightProperty P1
 		raise("DotNet Error: MaxHeightProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
 
 	Func getMarginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s14:MarginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s14:MarginProperty","")
 
 	Func setMarginProperty P1
 		raise("DotNet Error: MarginProperty is a read-only property")
 
 	Func getHorizontalAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s27:HorizontalAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s27:HorizontalAlignmentProperty","")
 
 	Func setHorizontalAlignmentProperty P1
 		raise("DotNet Error: HorizontalAlignmentProperty is a read-only property")
 
 	Func getVerticalAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s25:VerticalAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s25:VerticalAlignmentProperty","")
 
 	Func setVerticalAlignmentProperty P1
 		raise("DotNet Error: VerticalAlignmentProperty is a read-only property")
 
 	Func getFocusVisualStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s24:FocusVisualStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s24:FocusVisualStyleProperty","")
 
 	Func setFocusVisualStyleProperty P1
 		raise("DotNet Error: FocusVisualStyleProperty is a read-only property")
 
 	Func getCursorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s14:CursorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s14:CursorProperty","")
 
 	Func setCursorProperty P1
 		raise("DotNet Error: CursorProperty is a read-only property")
 
 	Func getForceCursorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:ForceCursorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:ForceCursorProperty","")
 
 	Func setForceCursorProperty P1
 		raise("DotNet Error: ForceCursorProperty is a read-only property")
 
 	Func getLoadedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s11:LoadedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s11:LoadedEvent","")
 
 	Func getUnloadedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s13:UnloadedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s13:UnloadedEvent","")
 
 	Func getToolTipProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s15:ToolTipProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s15:ToolTipProperty","")
 
 	Func setToolTipProperty P1
 		raise("DotNet Error: ToolTipProperty is a read-only property")
 
 	Func getContextMenuProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:ContextMenuProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:ContextMenuProperty","")
 
 	Func setContextMenuProperty P1
 		raise("DotNet Error: ContextMenuProperty is a read-only property")
 
 	Func getToolTipOpeningEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:ToolTipOpeningEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:ToolTipOpeningEvent","")
 
 	Func getToolTipClosingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s19:ToolTipClosingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s19:ToolTipClosingEvent","")
 
 	Func getContextMenuOpeningEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s23:ContextMenuOpeningEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s23:ContextMenuOpeningEvent","")
 
 	Func getContextMenuClosingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkElement, PresentationFramework').nHandle,"s23:ContextMenuClosingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s23:ContextMenuClosingEvent","")
 
 
 Class Freezable from DependencyObject
@@ -17044,19 +17044,19 @@ Class LostFocusEventManager from WeakEventManager
 		return self
 
 	Func AddListener P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.LostFocusEventManager, PresentationFramework').nHandle,"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveListener P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.LostFocusEventManager, PresentationFramework').nHandle,"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.LostFocusEventManager, PresentationFramework').nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.LostFocusEventManager, PresentationFramework').nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -17190,11 +17190,11 @@ Class Setter from SetterBase
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Setter, PresentationFramework').nHandle,"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Setter, PresentationFramework').nHandle,"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProperty
@@ -17573,29 +17573,29 @@ Class VisualStateManager from DependencyObject
 		return self
 
 	Func GoToState P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s9:GoToState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s9:GoToState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GoToElementState P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s16:GoToElementState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s16:GoToElementState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetCustomVisualStateManager P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s27:GetCustomVisualStateManager",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:GetCustomVisualStateManager",dnPackItem(P1))
 
 	Func SetCustomVisualStateManager P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s27:SetCustomVisualStateManager",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:SetCustomVisualStateManager",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetVisualStateGroups P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s20:GetVisualStateGroups",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s20:GetVisualStateGroups",dnPackItem(P1))
 
 	Func getCustomVisualStateManagerProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s32:CustomVisualStateManagerProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s32:CustomVisualStateManagerProperty","")
 
 	Func setCustomVisualStateManagerProperty P1
 		raise("DotNet Error: CustomVisualStateManagerProperty is a read-only property")
 
 	Func getVisualStateGroupsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.VisualStateManager, PresentationFramework').nHandle,"s25:VisualStateGroupsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s25:VisualStateGroupsProperty","")
 
 	Func setVisualStateGroupsProperty P1
 		raise("DotNet Error: VisualStateGroupsProperty is a read-only property")
@@ -17821,7 +17821,7 @@ Class DataTrigger from TriggerBase
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.DataTrigger, PresentationFramework').nHandle,"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.DataTrigger, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getBinding
@@ -18227,100 +18227,100 @@ Class FrameworkContentElement from ContentElement
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s13:StyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s13:StyleProperty","")
 
 	Func setStyleProperty P1
 		raise("DotNet Error: StyleProperty is a read-only property")
 
 	Func getOverridesDefaultStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s29:OverridesDefaultStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s29:OverridesDefaultStyleProperty","")
 
 	Func setOverridesDefaultStyleProperty P1
 		raise("DotNet Error: OverridesDefaultStyleProperty is a read-only property")
 
 	Func getNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s12:NameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getTagProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s11:TagProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s11:TagProperty","")
 
 	Func setTagProperty P1
 		raise("DotNet Error: TagProperty is a read-only property")
 
 	Func getLanguageProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s16:LanguageProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s16:LanguageProperty","")
 
 	Func setLanguageProperty P1
 		raise("DotNet Error: LanguageProperty is a read-only property")
 
 	Func getFocusVisualStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s24:FocusVisualStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s24:FocusVisualStyleProperty","")
 
 	Func setFocusVisualStyleProperty P1
 		raise("DotNet Error: FocusVisualStyleProperty is a read-only property")
 
 	Func getCursorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s14:CursorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s14:CursorProperty","")
 
 	Func setCursorProperty P1
 		raise("DotNet Error: CursorProperty is a read-only property")
 
 	Func getForceCursorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s19:ForceCursorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s19:ForceCursorProperty","")
 
 	Func setForceCursorProperty P1
 		raise("DotNet Error: ForceCursorProperty is a read-only property")
 
 	Func getInputScopeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s18:InputScopeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s18:InputScopeProperty","")
 
 	Func setInputScopeProperty P1
 		raise("DotNet Error: InputScopeProperty is a read-only property")
 
 	Func getDataContextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s19:DataContextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s19:DataContextProperty","")
 
 	Func setDataContextProperty P1
 		raise("DotNet Error: DataContextProperty is a read-only property")
 
 	Func getBindingGroupProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s20:BindingGroupProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s20:BindingGroupProperty","")
 
 	Func setBindingGroupProperty P1
 		raise("DotNet Error: BindingGroupProperty is a read-only property")
 
 	Func getLoadedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s11:LoadedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s11:LoadedEvent","")
 
 	Func getUnloadedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s13:UnloadedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s13:UnloadedEvent","")
 
 	Func getToolTipProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s15:ToolTipProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s15:ToolTipProperty","")
 
 	Func setToolTipProperty P1
 		raise("DotNet Error: ToolTipProperty is a read-only property")
 
 	Func getContextMenuProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s19:ContextMenuProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s19:ContextMenuProperty","")
 
 	Func setContextMenuProperty P1
 		raise("DotNet Error: ContextMenuProperty is a read-only property")
 
 	Func getToolTipOpeningEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s19:ToolTipOpeningEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s19:ToolTipOpeningEvent","")
 
 	Func getToolTipClosingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s19:ToolTipClosingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s19:ToolTipClosingEvent","")
 
 	Func getContextMenuOpeningEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s23:ContextMenuOpeningEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s23:ContextMenuOpeningEvent","")
 
 	Func getContextMenuClosingEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.FrameworkContentElement, PresentationFramework').nHandle,"s23:ContextMenuClosingEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkContentElement, PresentationFramework'),"s23:ContextMenuClosingEvent","")
 
 
 Class FrameworkPropertyMetadata from UIPropertyMetadata
@@ -18671,7 +18671,7 @@ Class Trigger from TriggerBase
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Trigger, PresentationFramework').nHandle,"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Trigger, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProperty

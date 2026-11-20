@@ -63,9 +63,9 @@ Class Partitioner from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"s6:Create",dnPackItem(P1))
 
 
 Class ConcurrentStringQueue from Object
@@ -752,27 +752,27 @@ Class BlockingObjectCollection from Object
 
 	Func AddToAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s8:AddToAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s8:AddToAny",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddToAny does not take one argument: use named arguments, AddToAny([ :parameter = value, ... ])")
 
 	Func TryAddToAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s11:TryAddToAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s11:TryAddToAny",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryAddToAny does not take one argument: use named arguments, TryAddToAny([ :parameter = value, ... ])")
 
 	Func TakeFromAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s11:TakeFromAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s11:TakeFromAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s11:TakeFromAny",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s11:TakeFromAny",dnPackItem(P1))
 
 	Func TryTakeFromAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s14:TryTakeFromAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s14:TryTakeFromAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent').nHandle,"s14:TryTakeFromAny",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s14:TryTakeFromAny",dnPackItem(P1))
 
 	Func getBoundedCapacity
 		return dnSend("s3:get",nHandle,"s15:BoundedCapacity","")

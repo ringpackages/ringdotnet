@@ -197,325 +197,325 @@ Class ClaimTypes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAuthenticationInstant
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s21:AuthenticationInstant","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s21:AuthenticationInstant","")
 
 	Func setAuthenticationInstant P1
 		raise("DotNet Error: AuthenticationInstant is a read-only property")
 
 	Func getAuthenticationMethod
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s20:AuthenticationMethod","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s20:AuthenticationMethod","")
 
 	Func setAuthenticationMethod P1
 		raise("DotNet Error: AuthenticationMethod is a read-only property")
 
 	Func getCookiePath
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:CookiePath","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:CookiePath","")
 
 	Func setCookiePath P1
 		raise("DotNet Error: CookiePath is a read-only property")
 
 	Func getDenyOnlyPrimarySid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s18:DenyOnlyPrimarySid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s18:DenyOnlyPrimarySid","")
 
 	Func setDenyOnlyPrimarySid P1
 		raise("DotNet Error: DenyOnlyPrimarySid is a read-only property")
 
 	Func getDenyOnlyPrimaryGroupSid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s23:DenyOnlyPrimaryGroupSid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s23:DenyOnlyPrimaryGroupSid","")
 
 	Func setDenyOnlyPrimaryGroupSid P1
 		raise("DotNet Error: DenyOnlyPrimaryGroupSid is a read-only property")
 
 	Func getDenyOnlyWindowsDeviceGroup
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s26:DenyOnlyWindowsDeviceGroup","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s26:DenyOnlyWindowsDeviceGroup","")
 
 	Func setDenyOnlyWindowsDeviceGroup P1
 		raise("DotNet Error: DenyOnlyWindowsDeviceGroup is a read-only property")
 
 	Func getDsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Dsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Dsa","")
 
 	Func setDsa P1
 		raise("DotNet Error: Dsa is a read-only property")
 
 	Func getExpiration
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:Expiration","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:Expiration","")
 
 	Func setExpiration P1
 		raise("DotNet Error: Expiration is a read-only property")
 
 	Func getExpired
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s7:Expired","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s7:Expired","")
 
 	Func setExpired P1
 		raise("DotNet Error: Expired is a read-only property")
 
 	Func getGroupSid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s8:GroupSid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s8:GroupSid","")
 
 	Func setGroupSid P1
 		raise("DotNet Error: GroupSid is a read-only property")
 
 	Func getIsPersistent
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s12:IsPersistent","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s12:IsPersistent","")
 
 	Func setIsPersistent P1
 		raise("DotNet Error: IsPersistent is a read-only property")
 
 	Func getPrimaryGroupSid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s15:PrimaryGroupSid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s15:PrimaryGroupSid","")
 
 	Func setPrimaryGroupSid P1
 		raise("DotNet Error: PrimaryGroupSid is a read-only property")
 
 	Func getPrimarySid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:PrimarySid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:PrimarySid","")
 
 	Func setPrimarySid P1
 		raise("DotNet Error: PrimarySid is a read-only property")
 
 	Func getRole
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s4:Role","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s4:Role","")
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
 
 	Func getSerialNumber
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s12:SerialNumber","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s12:SerialNumber","")
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
 
 	Func getUserData
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s8:UserData","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s8:UserData","")
 
 	Func setUserData P1
 		raise("DotNet Error: UserData is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s7:Version","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getWindowsAccountName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s18:WindowsAccountName","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s18:WindowsAccountName","")
 
 	Func setWindowsAccountName P1
 		raise("DotNet Error: WindowsAccountName is a read-only property")
 
 	Func getWindowsDeviceClaim
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s18:WindowsDeviceClaim","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s18:WindowsDeviceClaim","")
 
 	Func setWindowsDeviceClaim P1
 		raise("DotNet Error: WindowsDeviceClaim is a read-only property")
 
 	Func getWindowsDeviceGroup
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s18:WindowsDeviceGroup","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s18:WindowsDeviceGroup","")
 
 	Func setWindowsDeviceGroup P1
 		raise("DotNet Error: WindowsDeviceGroup is a read-only property")
 
 	Func getWindowsUserClaim
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s16:WindowsUserClaim","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s16:WindowsUserClaim","")
 
 	Func setWindowsUserClaim P1
 		raise("DotNet Error: WindowsUserClaim is a read-only property")
 
 	Func getWindowsFqbnVersion
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s18:WindowsFqbnVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s18:WindowsFqbnVersion","")
 
 	Func setWindowsFqbnVersion P1
 		raise("DotNet Error: WindowsFqbnVersion is a read-only property")
 
 	Func getWindowsSubAuthority
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s19:WindowsSubAuthority","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s19:WindowsSubAuthority","")
 
 	Func setWindowsSubAuthority P1
 		raise("DotNet Error: WindowsSubAuthority is a read-only property")
 
 	Func getAnonymous
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s9:Anonymous","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s9:Anonymous","")
 
 	Func setAnonymous P1
 		raise("DotNet Error: Anonymous is a read-only property")
 
 	Func getAuthentication
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s14:Authentication","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s14:Authentication","")
 
 	Func setAuthentication P1
 		raise("DotNet Error: Authentication is a read-only property")
 
 	Func getAuthorizationDecision
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s21:AuthorizationDecision","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s21:AuthorizationDecision","")
 
 	Func setAuthorizationDecision P1
 		raise("DotNet Error: AuthorizationDecision is a read-only property")
 
 	Func getCountry
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s7:Country","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s7:Country","")
 
 	Func setCountry P1
 		raise("DotNet Error: Country is a read-only property")
 
 	Func getDateOfBirth
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s11:DateOfBirth","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s11:DateOfBirth","")
 
 	Func setDateOfBirth P1
 		raise("DotNet Error: DateOfBirth is a read-only property")
 
 	Func getDns
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Dns","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Dns","")
 
 	Func setDns P1
 		raise("DotNet Error: Dns is a read-only property")
 
 	Func getDenyOnlySid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s11:DenyOnlySid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s11:DenyOnlySid","")
 
 	Func setDenyOnlySid P1
 		raise("DotNet Error: DenyOnlySid is a read-only property")
 
 	Func getEmail
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s5:Email","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s5:Email","")
 
 	Func setEmail P1
 		raise("DotNet Error: Email is a read-only property")
 
 	Func getGender
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s6:Gender","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s6:Gender","")
 
 	Func setGender P1
 		raise("DotNet Error: Gender is a read-only property")
 
 	Func getGivenName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s9:GivenName","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s9:GivenName","")
 
 	Func setGivenName P1
 		raise("DotNet Error: GivenName is a read-only property")
 
 	Func getHash
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s4:Hash","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s4:Hash","")
 
 	Func setHash P1
 		raise("DotNet Error: Hash is a read-only property")
 
 	Func getHomePhone
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s9:HomePhone","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s9:HomePhone","")
 
 	Func setHomePhone P1
 		raise("DotNet Error: HomePhone is a read-only property")
 
 	Func getLocality
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s8:Locality","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s8:Locality","")
 
 	Func setLocality P1
 		raise("DotNet Error: Locality is a read-only property")
 
 	Func getMobilePhone
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s11:MobilePhone","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s11:MobilePhone","")
 
 	Func setMobilePhone P1
 		raise("DotNet Error: MobilePhone is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s4:Name","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNameIdentifier
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s14:NameIdentifier","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s14:NameIdentifier","")
 
 	Func setNameIdentifier P1
 		raise("DotNet Error: NameIdentifier is a read-only property")
 
 	Func getOtherPhone
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:OtherPhone","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:OtherPhone","")
 
 	Func setOtherPhone P1
 		raise("DotNet Error: OtherPhone is a read-only property")
 
 	Func getPostalCode
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:PostalCode","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:PostalCode","")
 
 	Func setPostalCode P1
 		raise("DotNet Error: PostalCode is a read-only property")
 
 	Func getRsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Rsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Rsa","")
 
 	Func setRsa P1
 		raise("DotNet Error: Rsa is a read-only property")
 
 	Func getSid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Sid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Sid","")
 
 	Func setSid P1
 		raise("DotNet Error: Sid is a read-only property")
 
 	Func getSpn
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Spn","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Spn","")
 
 	Func setSpn P1
 		raise("DotNet Error: Spn is a read-only property")
 
 	Func getStateOrProvince
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s15:StateOrProvince","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s15:StateOrProvince","")
 
 	Func setStateOrProvince P1
 		raise("DotNet Error: StateOrProvince is a read-only property")
 
 	Func getStreetAddress
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s13:StreetAddress","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s13:StreetAddress","")
 
 	Func setStreetAddress P1
 		raise("DotNet Error: StreetAddress is a read-only property")
 
 	Func getSurname
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s7:Surname","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s7:Surname","")
 
 	Func setSurname P1
 		raise("DotNet Error: Surname is a read-only property")
 
 	Func getSystem
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s6:System","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s6:System","")
 
 	Func setSystem P1
 		raise("DotNet Error: System is a read-only property")
 
 	Func getThumbprint
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s10:Thumbprint","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s10:Thumbprint","")
 
 	Func setThumbprint P1
 		raise("DotNet Error: Thumbprint is a read-only property")
 
 	Func getUpn
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Upn","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Upn","")
 
 	Func setUpn P1
 		raise("DotNet Error: Upn is a read-only property")
 
 	Func getUri
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s3:Uri","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getWebpage
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s7:Webpage","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s7:Webpage","")
 
 	Func setWebpage P1
 		raise("DotNet Error: Webpage is a read-only property")
 
 	Func getX500DistinguishedName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s21:X500DistinguishedName","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s21:X500DistinguishedName","")
 
 	Func setX500DistinguishedName P1
 		raise("DotNet Error: X500DistinguishedName is a read-only property")
 
 	Func getActor
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims').nHandle,"s5:Actor","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimTypes, System.Security.Claims'),"s5:Actor","")
 
 	Func setActor P1
 		raise("DotNet Error: Actor is a read-only property")
@@ -564,163 +564,163 @@ Class ClaimValueTypes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBase64Binary
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s12:Base64Binary","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s12:Base64Binary","")
 
 	Func setBase64Binary P1
 		raise("DotNet Error: Base64Binary is a read-only property")
 
 	Func getBase64Octet
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s11:Base64Octet","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s11:Base64Octet","")
 
 	Func setBase64Octet P1
 		raise("DotNet Error: Base64Octet is a read-only property")
 
 	Func getBoolean
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s7:Boolean","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s7:Boolean","")
 
 	Func setBoolean P1
 		raise("DotNet Error: Boolean is a read-only property")
 
 	Func getDate
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s4:Date","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s4:Date","")
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDateTime
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s8:DateTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s8:DateTime","")
 
 	Func setDateTime P1
 		raise("DotNet Error: DateTime is a read-only property")
 
 	Func getDouble
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s6:Double","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s6:Double","")
 
 	Func setDouble P1
 		raise("DotNet Error: Double is a read-only property")
 
 	Func getFqbn
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s4:Fqbn","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s4:Fqbn","")
 
 	Func setFqbn P1
 		raise("DotNet Error: Fqbn is a read-only property")
 
 	Func getHexBinary
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s9:HexBinary","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s9:HexBinary","")
 
 	Func setHexBinary P1
 		raise("DotNet Error: HexBinary is a read-only property")
 
 	Func getInteger
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s7:Integer","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s7:Integer","")
 
 	Func setInteger P1
 		raise("DotNet Error: Integer is a read-only property")
 
 	Func getInteger32
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s9:Integer32","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s9:Integer32","")
 
 	Func setInteger32 P1
 		raise("DotNet Error: Integer32 is a read-only property")
 
 	Func getInteger64
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s9:Integer64","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s9:Integer64","")
 
 	Func setInteger64 P1
 		raise("DotNet Error: Integer64 is a read-only property")
 
 	Func getSid
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s3:Sid","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s3:Sid","")
 
 	Func setSid P1
 		raise("DotNet Error: Sid is a read-only property")
 
 	Func getString
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s6:String","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s6:String","")
 
 	Func setString P1
 		raise("DotNet Error: String is a read-only property")
 
 	Func getTime
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s4:Time","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s4:Time","")
 
 	Func setTime P1
 		raise("DotNet Error: Time is a read-only property")
 
 	Func getUInteger32
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s10:UInteger32","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s10:UInteger32","")
 
 	Func setUInteger32 P1
 		raise("DotNet Error: UInteger32 is a read-only property")
 
 	Func getUInteger64
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s10:UInteger64","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s10:UInteger64","")
 
 	Func setUInteger64 P1
 		raise("DotNet Error: UInteger64 is a read-only property")
 
 	Func getDnsName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s7:DnsName","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s7:DnsName","")
 
 	Func setDnsName P1
 		raise("DotNet Error: DnsName is a read-only property")
 
 	Func getEmail
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s5:Email","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s5:Email","")
 
 	Func setEmail P1
 		raise("DotNet Error: Email is a read-only property")
 
 	Func getRsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s3:Rsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s3:Rsa","")
 
 	Func setRsa P1
 		raise("DotNet Error: Rsa is a read-only property")
 
 	Func getUpnName
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s7:UpnName","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s7:UpnName","")
 
 	Func setUpnName P1
 		raise("DotNet Error: UpnName is a read-only property")
 
 	Func getDsaKeyValue
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s11:DsaKeyValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s11:DsaKeyValue","")
 
 	Func setDsaKeyValue P1
 		raise("DotNet Error: DsaKeyValue is a read-only property")
 
 	Func getKeyInfo
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s7:KeyInfo","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s7:KeyInfo","")
 
 	Func setKeyInfo P1
 		raise("DotNet Error: KeyInfo is a read-only property")
 
 	Func getRsaKeyValue
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s11:RsaKeyValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s11:RsaKeyValue","")
 
 	Func setRsaKeyValue P1
 		raise("DotNet Error: RsaKeyValue is a read-only property")
 
 	Func getDaytimeDuration
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s15:DaytimeDuration","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s15:DaytimeDuration","")
 
 	Func setDaytimeDuration P1
 		raise("DotNet Error: DaytimeDuration is a read-only property")
 
 	Func getYearMonthDuration
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s17:YearMonthDuration","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s17:YearMonthDuration","")
 
 	Func setYearMonthDuration P1
 		raise("DotNet Error: YearMonthDuration is a read-only property")
 
 	Func getRfc822Name
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s10:Rfc822Name","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s10:Rfc822Name","")
 
 	Func setRfc822Name P1
 		raise("DotNet Error: Rfc822Name is a read-only property")
 
 	Func getX500Name
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims').nHandle,"s8:X500Name","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"s8:X500Name","")
 
 	Func setX500Name P1
 		raise("DotNet Error: X500Name is a read-only property")
@@ -870,19 +870,19 @@ Class ClaimsIdentity from Object
 		raise("DotNet Error: RoleClaimType is a read-only property")
 
 	Func getDefaultIssuer
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsIdentity, System.Security.Claims').nHandle,"s13:DefaultIssuer","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsIdentity, System.Security.Claims'),"s13:DefaultIssuer","")
 
 	Func setDefaultIssuer P1
 		raise("DotNet Error: DefaultIssuer is a read-only property")
 
 	Func getDefaultNameClaimType
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsIdentity, System.Security.Claims').nHandle,"s20:DefaultNameClaimType","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsIdentity, System.Security.Claims'),"s20:DefaultNameClaimType","")
 
 	Func setDefaultNameClaimType P1
 		raise("DotNet Error: DefaultNameClaimType is a read-only property")
 
 	Func getDefaultRoleClaimType
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsIdentity, System.Security.Claims').nHandle,"s20:DefaultRoleClaimType","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsIdentity, System.Security.Claims'),"s20:DefaultRoleClaimType","")
 
 	Func setDefaultRoleClaimType P1
 		raise("DotNet Error: DefaultRoleClaimType is a read-only property")
@@ -983,21 +983,21 @@ Class ClaimsPrincipal from Object
 		raise("DotNet Error: Identity is a read-only property")
 
 	Func getPrimaryIdentitySelector
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsPrincipal, System.Security.Claims').nHandle,"s23:PrimaryIdentitySelector","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:PrimaryIdentitySelector","")
 
 	Func setPrimaryIdentitySelector P1
-		dnSend("s3:set",dnTypeCached('System.Security.Claims.ClaimsPrincipal, System.Security.Claims').nHandle,"s23:PrimaryIdentitySelector",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:PrimaryIdentitySelector",dnPackItem(P1))
 		return self
 
 	Func getClaimsPrincipalSelector
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsPrincipal, System.Security.Claims').nHandle,"s23:ClaimsPrincipalSelector","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:ClaimsPrincipalSelector","")
 
 	Func setClaimsPrincipalSelector P1
-		dnSend("s3:set",dnTypeCached('System.Security.Claims.ClaimsPrincipal, System.Security.Claims').nHandle,"s23:ClaimsPrincipalSelector",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:ClaimsPrincipalSelector",dnPackItem(P1))
 		return self
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Security.Claims.ClaimsPrincipal, System.Security.Claims').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

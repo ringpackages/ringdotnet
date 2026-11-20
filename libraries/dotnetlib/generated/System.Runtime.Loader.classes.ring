@@ -99,23 +99,23 @@ Class AssemblyLoadContext from Object
 	Func EnterContextualReflection P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s25:EnterContextualReflection",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s25:EnterContextualReflection","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s25:EnterContextualReflection",dnPackItem(P1))
 
 	Func Equals P1
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetLoadContext P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s14:GetLoadContext",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s14:GetLoadContext",dnPackItem(P1))
 
 	Func GetAssemblyName P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s15:GetAssemblyName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s15:GetAssemblyName",dnPackItem(P1))
 
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])
@@ -160,19 +160,19 @@ Class AssemblyLoadContext from Object
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getAll
-		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s3:All","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getCurrentContextualReflectionContext
-		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s34:CurrentContextualReflectionContext","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s34:CurrentContextualReflectionContext","")
 
 	Func setCurrentContextualReflectionContext P1
 		raise("DotNet Error: CurrentContextualReflectionContext is a read-only property")

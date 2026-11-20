@@ -1130,7 +1130,7 @@ Class ControllerBase from Object
 		raise("DotNet Error: User is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.ControllerBase, Microsoft.AspNetCore.Mvc.Core').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ControllerBase, Microsoft.AspNetCore.Mvc.Core'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1184,35 +1184,35 @@ Class DefaultApiConventions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Get_ P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s3:Get",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Get",dnPackItem(P1))
 		return self
 
 	Func Find P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Find",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Find",dnPackItem(P1))
 		return self
 
 	Func Post P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Post",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Post",dnPackItem(P1))
 		return self
 
 	Func Create P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Create",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Create",dnPackItem(P1))
 		return self
 
 	Func Put_ P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s3:Put",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Put",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Edit P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Edit",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Edit",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Update P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Update",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Delete P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Delete",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Delete",dnPackItem(P1))
 		return self
 
 
@@ -1794,33 +1794,33 @@ Class UrlHelperExtensions from Object
 
 	Func Action P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Action",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Action",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",dnPackItem(P1))
 
 	Func RouteUrl P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s8:RouteUrl",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:RouteUrl",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RouteUrl does not take one argument: use named arguments, RouteUrl([ :parameter = value, ... ])")
 
 	Func Page P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Page",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s4:Page",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Page does not take one argument: use named arguments, Page([ :parameter = value, ... ])")
 
 	Func ActionLink P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:ActionLink",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:ActionLink",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",dnPackItem(P1))
 
 	Func PageLink P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s8:PageLink",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s8:PageLink",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",dnPackItem(P1))
 
 
 Class ValidationProblemDetails from HttpValidationProblemDetails

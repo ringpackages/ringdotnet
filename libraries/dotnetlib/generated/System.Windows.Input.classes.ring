@@ -727,29 +727,29 @@ Class AccessKeyManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Register P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s8:Register",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s8:Register",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Unregister P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s10:Unregister",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:Unregister",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IsKeyRegistered P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s15:IsKeyRegistered",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s15:IsKeyRegistered",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ProcessKey P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s10:ProcessKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:ProcessKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AddAccessKeyPressedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s26:AddAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s26:AddAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveAccessKeyPressedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s29:RemoveAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s29:RemoveAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getAccessKeyPressedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.AccessKeyManager, PresentationCore').nHandle,"s21:AccessKeyPressedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s21:AccessKeyPressedEvent","")
 
 	Func setAccessKeyPressedEvent P1
 		raise("DotNet Error: AccessKeyPressedEvent is a read-only property")
@@ -854,136 +854,136 @@ Class ApplicationCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCut
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s3:Cut","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s3:Cut","")
 
 	Func setCut P1
 		raise("DotNet Error: Cut is a read-only property")
 
 	Func getCopy
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Copy","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Copy","")
 
 	Func setCopy P1
 		raise("DotNet Error: Copy is a read-only property")
 
 	Func getPaste
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s5:Paste","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s5:Paste","")
 
 	Func setPaste P1
 		raise("DotNet Error: Paste is a read-only property")
 
 	Func getDelete
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s6:Delete","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s6:Delete","")
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getUndo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Undo","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Undo","")
 
 	Func setUndo P1
 		raise("DotNet Error: Undo is a read-only property")
 
 	Func getRedo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Redo","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Redo","")
 
 	Func setRedo P1
 		raise("DotNet Error: Redo is a read-only property")
 
 	Func getFind
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Find","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Find","")
 
 	Func setFind P1
 		raise("DotNet Error: Find is a read-only property")
 
 	Func getReplace
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s7:Replace","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s7:Replace","")
 
 	Func setReplace P1
 		raise("DotNet Error: Replace is a read-only property")
 
 	Func getSelectAll
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s9:SelectAll","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s9:SelectAll","")
 
 	Func setSelectAll P1
 		raise("DotNet Error: SelectAll is a read-only property")
 
 	Func getHelp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Help","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Help","")
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getNew
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s3:New","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s3:New","")
 
 	Func getOpen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Open","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Open","")
 
 	Func setOpen P1
 		raise("DotNet Error: Open is a read-only property")
 
 	Func getClose
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s5:Close","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s5:Close","")
 
 	Func setClose P1
 		raise("DotNet Error: Close is a read-only property")
 
 	Func getSave
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Save","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Save","")
 
 	Func setSave P1
 		raise("DotNet Error: Save is a read-only property")
 
 	Func getSaveAs
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s6:SaveAs","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s6:SaveAs","")
 
 	Func setSaveAs P1
 		raise("DotNet Error: SaveAs is a read-only property")
 
 	Func getPrint
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s5:Print","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s5:Print","")
 
 	Func setPrint P1
 		raise("DotNet Error: Print is a read-only property")
 
 	Func getCancelPrint
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s11:CancelPrint","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s11:CancelPrint","")
 
 	Func setCancelPrint P1
 		raise("DotNet Error: CancelPrint is a read-only property")
 
 	Func getPrintPreview
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s12:PrintPreview","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s12:PrintPreview","")
 
 	Func setPrintPreview P1
 		raise("DotNet Error: PrintPreview is a read-only property")
 
 	Func getProperties
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s10:Properties","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getContextMenu
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s11:ContextMenu","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s11:ContextMenu","")
 
 	Func setContextMenu P1
 		raise("DotNet Error: ContextMenu is a read-only property")
 
 	Func getStop
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s4:Stop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s4:Stop","")
 
 	Func setStop P1
 		raise("DotNet Error: Stop is a read-only property")
 
 	Func getCorrectionList
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s14:CorrectionList","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s14:CorrectionList","")
 
 	Func setCorrectionList P1
 		raise("DotNet Error: CorrectionList is a read-only property")
 
 	Func getNotACommand
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore').nHandle,"s11:NotACommand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s11:NotACommand","")
 
 	Func setNotACommand P1
 		raise("DotNet Error: NotACommand is a read-only property")
@@ -1001,11 +1001,11 @@ Class CanExecuteChangedEventManager from WeakEventManager
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore').nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore').nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1293,47 +1293,47 @@ Class CommandManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddPreviewExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s25:AddPreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:AddPreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s28:RemovePreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s28:RemovePreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s18:AddExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s18:AddExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s21:RemoveExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s21:RemoveExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s27:AddPreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:AddPreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s30:RemovePreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s30:RemovePreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s20:AddCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s20:AddCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s23:RemoveCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s23:RemoveCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RegisterClassInputBinding P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s25:RegisterClassInputBinding",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:RegisterClassInputBinding",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RegisterClassCommandBinding P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s27:RegisterClassCommandBinding",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:RegisterClassCommandBinding",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func InvalidateRequerySuggested 
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s26:InvalidateRequerySuggested","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s26:InvalidateRequerySuggested","")
 		return self
 
 	Func setRequerySuggestedEvent P1
@@ -1345,25 +1345,25 @@ Class CommandManager from Object
 		return self
 
 	Func getPreviewExecutedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s20:PreviewExecutedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s20:PreviewExecutedEvent","")
 
 	Func setPreviewExecutedEvent P1
 		raise("DotNet Error: PreviewExecutedEvent is a read-only property")
 
 	Func getExecutedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s13:ExecutedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s13:ExecutedEvent","")
 
 	Func setExecutedEvent P1
 		raise("DotNet Error: ExecutedEvent is a read-only property")
 
 	Func getPreviewCanExecuteEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s22:PreviewCanExecuteEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s22:PreviewCanExecuteEvent","")
 
 	Func setPreviewCanExecuteEvent P1
 		raise("DotNet Error: PreviewCanExecuteEvent is a read-only property")
 
 	Func getCanExecuteEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.CommandManager, PresentationCore').nHandle,"s15:CanExecuteEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s15:CanExecuteEvent","")
 
 	Func setCanExecuteEvent P1
 		raise("DotNet Error: CanExecuteEvent is a read-only property")
@@ -1412,163 +1412,163 @@ Class ComponentCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getScrollPageUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s12:ScrollPageUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s12:ScrollPageUp","")
 
 	Func setScrollPageUp P1
 		raise("DotNet Error: ScrollPageUp is a read-only property")
 
 	Func getScrollPageDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s14:ScrollPageDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s14:ScrollPageDown","")
 
 	Func setScrollPageDown P1
 		raise("DotNet Error: ScrollPageDown is a read-only property")
 
 	Func getScrollPageLeft
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s14:ScrollPageLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s14:ScrollPageLeft","")
 
 	Func setScrollPageLeft P1
 		raise("DotNet Error: ScrollPageLeft is a read-only property")
 
 	Func getScrollPageRight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s15:ScrollPageRight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s15:ScrollPageRight","")
 
 	Func setScrollPageRight P1
 		raise("DotNet Error: ScrollPageRight is a read-only property")
 
 	Func getScrollByLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s12:ScrollByLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s12:ScrollByLine","")
 
 	Func setScrollByLine P1
 		raise("DotNet Error: ScrollByLine is a read-only property")
 
 	Func getMoveLeft
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s8:MoveLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s8:MoveLeft","")
 
 	Func setMoveLeft P1
 		raise("DotNet Error: MoveLeft is a read-only property")
 
 	Func getMoveRight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s9:MoveRight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s9:MoveRight","")
 
 	Func setMoveRight P1
 		raise("DotNet Error: MoveRight is a read-only property")
 
 	Func getMoveUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s6:MoveUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s6:MoveUp","")
 
 	Func setMoveUp P1
 		raise("DotNet Error: MoveUp is a read-only property")
 
 	Func getMoveDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s8:MoveDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s8:MoveDown","")
 
 	Func setMoveDown P1
 		raise("DotNet Error: MoveDown is a read-only property")
 
 	Func getMoveToHome
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s10:MoveToHome","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s10:MoveToHome","")
 
 	Func setMoveToHome P1
 		raise("DotNet Error: MoveToHome is a read-only property")
 
 	Func getMoveToEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s9:MoveToEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s9:MoveToEnd","")
 
 	Func setMoveToEnd P1
 		raise("DotNet Error: MoveToEnd is a read-only property")
 
 	Func getMoveToPageUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s12:MoveToPageUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s12:MoveToPageUp","")
 
 	Func setMoveToPageUp P1
 		raise("DotNet Error: MoveToPageUp is a read-only property")
 
 	Func getMoveToPageDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s14:MoveToPageDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s14:MoveToPageDown","")
 
 	Func setMoveToPageDown P1
 		raise("DotNet Error: MoveToPageDown is a read-only property")
 
 	Func getExtendSelectionUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s17:ExtendSelectionUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s17:ExtendSelectionUp","")
 
 	Func setExtendSelectionUp P1
 		raise("DotNet Error: ExtendSelectionUp is a read-only property")
 
 	Func getExtendSelectionDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s19:ExtendSelectionDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s19:ExtendSelectionDown","")
 
 	Func setExtendSelectionDown P1
 		raise("DotNet Error: ExtendSelectionDown is a read-only property")
 
 	Func getExtendSelectionLeft
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s19:ExtendSelectionLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s19:ExtendSelectionLeft","")
 
 	Func setExtendSelectionLeft P1
 		raise("DotNet Error: ExtendSelectionLeft is a read-only property")
 
 	Func getExtendSelectionRight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s20:ExtendSelectionRight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s20:ExtendSelectionRight","")
 
 	Func setExtendSelectionRight P1
 		raise("DotNet Error: ExtendSelectionRight is a read-only property")
 
 	Func getSelectToHome
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s12:SelectToHome","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s12:SelectToHome","")
 
 	Func setSelectToHome P1
 		raise("DotNet Error: SelectToHome is a read-only property")
 
 	Func getSelectToEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s11:SelectToEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s11:SelectToEnd","")
 
 	Func setSelectToEnd P1
 		raise("DotNet Error: SelectToEnd is a read-only property")
 
 	Func getSelectToPageUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s14:SelectToPageUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s14:SelectToPageUp","")
 
 	Func setSelectToPageUp P1
 		raise("DotNet Error: SelectToPageUp is a read-only property")
 
 	Func getSelectToPageDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s16:SelectToPageDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s16:SelectToPageDown","")
 
 	Func setSelectToPageDown P1
 		raise("DotNet Error: SelectToPageDown is a read-only property")
 
 	Func getMoveFocusUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s11:MoveFocusUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s11:MoveFocusUp","")
 
 	Func setMoveFocusUp P1
 		raise("DotNet Error: MoveFocusUp is a read-only property")
 
 	Func getMoveFocusDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s13:MoveFocusDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s13:MoveFocusDown","")
 
 	Func setMoveFocusDown P1
 		raise("DotNet Error: MoveFocusDown is a read-only property")
 
 	Func getMoveFocusForward
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s16:MoveFocusForward","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s16:MoveFocusForward","")
 
 	Func setMoveFocusForward P1
 		raise("DotNet Error: MoveFocusForward is a read-only property")
 
 	Func getMoveFocusBack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s13:MoveFocusBack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s13:MoveFocusBack","")
 
 	Func setMoveFocusBack P1
 		raise("DotNet Error: MoveFocusBack is a read-only property")
 
 	Func getMoveFocusPageUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s15:MoveFocusPageUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s15:MoveFocusPageUp","")
 
 	Func setMoveFocusPageUp P1
 		raise("DotNet Error: MoveFocusPageUp is a read-only property")
 
 	Func getMoveFocusPageDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.ComponentCommands, PresentationCore').nHandle,"s17:MoveFocusPageDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s17:MoveFocusPageDown","")
 
 	Func setMoveFocusPageDown P1
 		raise("DotNet Error: MoveFocusPageDown is a read-only property")
@@ -1675,169 +1675,169 @@ Class WpfCursors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getNo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s2:No","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s2:No","")
 
 	Func setNo P1
 		raise("DotNet Error: No is a read-only property")
 
 	Func getArrow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s5:Arrow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s5:Arrow","")
 
 	Func setArrow P1
 		raise("DotNet Error: Arrow is a read-only property")
 
 	Func getAppStarting
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s11:AppStarting","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s11:AppStarting","")
 
 	Func setAppStarting P1
 		raise("DotNet Error: AppStarting is a read-only property")
 
 	Func getCross
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s5:Cross","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s5:Cross","")
 
 	Func setCross P1
 		raise("DotNet Error: Cross is a read-only property")
 
 	Func getHelp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s4:Help","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s4:Help","")
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getIBeam
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s5:IBeam","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s5:IBeam","")
 
 	Func setIBeam P1
 		raise("DotNet Error: IBeam is a read-only property")
 
 	Func getSizeAll
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:SizeAll","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:SizeAll","")
 
 	Func setSizeAll P1
 		raise("DotNet Error: SizeAll is a read-only property")
 
 	Func getSizeNESW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:SizeNESW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:SizeNESW","")
 
 	Func setSizeNESW P1
 		raise("DotNet Error: SizeNESW is a read-only property")
 
 	Func getSizeNS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s6:SizeNS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s6:SizeNS","")
 
 	Func setSizeNS P1
 		raise("DotNet Error: SizeNS is a read-only property")
 
 	Func getSizeNWSE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:SizeNWSE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:SizeNWSE","")
 
 	Func setSizeNWSE P1
 		raise("DotNet Error: SizeNWSE is a read-only property")
 
 	Func getSizeWE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s6:SizeWE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s6:SizeWE","")
 
 	Func setSizeWE P1
 		raise("DotNet Error: SizeWE is a read-only property")
 
 	Func getUpArrow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:UpArrow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:UpArrow","")
 
 	Func setUpArrow P1
 		raise("DotNet Error: UpArrow is a read-only property")
 
 	Func getWait
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s4:Wait","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s4:Wait","")
 
 	Func setWait P1
 		raise("DotNet Error: Wait is a read-only property")
 
 	Func getHand
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s4:Hand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s4:Hand","")
 
 	Func setHand P1
 		raise("DotNet Error: Hand is a read-only property")
 
 	Func getPen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s3:Pen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s3:Pen","")
 
 	Func setPen P1
 		raise("DotNet Error: Pen is a read-only property")
 
 	Func getScrollNS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollNS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollNS","")
 
 	Func setScrollNS P1
 		raise("DotNet Error: ScrollNS is a read-only property")
 
 	Func getScrollWE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollWE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollWE","")
 
 	Func setScrollWE P1
 		raise("DotNet Error: ScrollWE is a read-only property")
 
 	Func getScrollAll
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s9:ScrollAll","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s9:ScrollAll","")
 
 	Func setScrollAll P1
 		raise("DotNet Error: ScrollAll is a read-only property")
 
 	Func getScrollN
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:ScrollN","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:ScrollN","")
 
 	Func setScrollN P1
 		raise("DotNet Error: ScrollN is a read-only property")
 
 	Func getScrollS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:ScrollS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:ScrollS","")
 
 	Func setScrollS P1
 		raise("DotNet Error: ScrollS is a read-only property")
 
 	Func getScrollW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:ScrollW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:ScrollW","")
 
 	Func setScrollW P1
 		raise("DotNet Error: ScrollW is a read-only property")
 
 	Func getScrollE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:ScrollE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:ScrollE","")
 
 	Func setScrollE P1
 		raise("DotNet Error: ScrollE is a read-only property")
 
 	Func getScrollNW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollNW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollNW","")
 
 	Func setScrollNW P1
 		raise("DotNet Error: ScrollNW is a read-only property")
 
 	Func getScrollNE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollNE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollNE","")
 
 	Func setScrollNE P1
 		raise("DotNet Error: ScrollNE is a read-only property")
 
 	Func getScrollSW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollSW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollSW","")
 
 	Func setScrollSW P1
 		raise("DotNet Error: ScrollSW is a read-only property")
 
 	Func getScrollSE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s8:ScrollSE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s8:ScrollSE","")
 
 	Func setScrollSE P1
 		raise("DotNet Error: ScrollSE is a read-only property")
 
 	Func getArrowCD
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Cursors, PresentationCore').nHandle,"s7:ArrowCD","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s7:ArrowCD","")
 
 	Func setArrowCD P1
 		raise("DotNet Error: ArrowCD is a read-only property")
@@ -1890,58 +1890,58 @@ Class FocusManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddGotFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s18:AddGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s18:AddGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveGotFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s21:RemoveGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s21:RemoveGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddLostFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s19:AddLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s19:AddLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveLostFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s22:RemoveLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s22:RemoveLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFocusedElement P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s17:GetFocusedElement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:GetFocusedElement",dnPackItem(P1))
 
 	Func SetFocusedElement P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s17:SetFocusedElement",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:SetFocusedElement",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetIsFocusScope P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s15:SetIsFocusScope",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:SetIsFocusScope",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsFocusScope P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s15:GetIsFocusScope",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:GetIsFocusScope",dnPackItem(P1))
 
 	Func GetFocusScope P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s13:GetFocusScope",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s13:GetFocusScope",dnPackItem(P1))
 
 	Func getGotFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s13:GotFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s13:GotFocusEvent","")
 
 	Func setGotFocusEvent P1
 		raise("DotNet Error: GotFocusEvent is a read-only property")
 
 	Func getLostFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s14:LostFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s14:LostFocusEvent","")
 
 	Func setLostFocusEvent P1
 		raise("DotNet Error: LostFocusEvent is a read-only property")
 
 	Func getFocusedElementProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s22:FocusedElementProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s22:FocusedElementProperty","")
 
 	Func setFocusedElementProperty P1
 		raise("DotNet Error: FocusedElementProperty is a read-only property")
 
 	Func getIsFocusScopeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.FocusManager, PresentationCore').nHandle,"s20:IsFocusScopeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s20:IsFocusScopeProperty","")
 
 	Func setIsFocusScopeProperty P1
 		raise("DotNet Error: IsFocusScopeProperty is a read-only property")
@@ -2257,19 +2257,19 @@ Class InputBinding from Freezable
 		return self
 
 	Func getCommandProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputBinding, PresentationCore').nHandle,"s15:CommandProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputBinding, PresentationCore'),"s15:CommandProperty","")
 
 	Func setCommandProperty P1
 		raise("DotNet Error: CommandProperty is a read-only property")
 
 	Func getCommandParameterProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputBinding, PresentationCore').nHandle,"s24:CommandParameterProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputBinding, PresentationCore'),"s24:CommandParameterProperty","")
 
 	Func setCommandParameterProperty P1
 		raise("DotNet Error: CommandParameterProperty is a read-only property")
 
 	Func getCommandTargetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputBinding, PresentationCore').nHandle,"s21:CommandTargetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputBinding, PresentationCore'),"s21:CommandTargetProperty","")
 
 	Func setCommandTargetProperty P1
 		raise("DotNet Error: CommandTargetProperty is a read-only property")
@@ -2647,18 +2647,18 @@ Class InputLanguageManager from DispatcherObject
 		return dnSend("s4:call",nHandle,"s27:ReportInputLanguageChanging",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetInputLanguage P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s16:SetInputLanguage",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:SetInputLanguage",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetInputLanguage P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s16:GetInputLanguage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:GetInputLanguage",dnPackItem(P1))
 
 	Func SetRestoreInputLanguage P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s23:SetRestoreInputLanguage",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:SetRestoreInputLanguage",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetRestoreInputLanguage P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s23:GetRestoreInputLanguage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:GetRestoreInputLanguage",dnPackItem(P1))
 
 	Func setInputLanguageChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"InputLanguageChanged",dnCallback(P1)])
@@ -2690,19 +2690,19 @@ Class InputLanguageManager from DispatcherObject
 		raise("DotNet Error: AvailableInputLanguages is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getInputLanguageProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s21:InputLanguageProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s21:InputLanguageProperty","")
 
 	Func setInputLanguageProperty P1
 		raise("DotNet Error: InputLanguageProperty is a read-only property")
 
 	Func getRestoreInputLanguageProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore').nHandle,"s28:RestoreInputLanguageProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s28:RestoreInputLanguageProperty","")
 
 	Func setRestoreInputLanguageProperty P1
 		raise("DotNet Error: RestoreInputLanguageProperty is a read-only property")
@@ -2824,7 +2824,7 @@ Class InputManager from DispatcherObject
 		raise("DotNet Error: IsInMenuMode is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputManager, PresentationCore').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputManager, PresentationCore'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -2882,46 +2882,46 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func SetIsInputMethodEnabled P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s23:SetIsInputMethodEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:SetIsInputMethodEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsInputMethodEnabled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s23:GetIsInputMethodEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:GetIsInputMethodEnabled",dnPackItem(P1))
 
 	Func SetIsInputMethodSuspended P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s25:SetIsInputMethodSuspended",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:SetIsInputMethodSuspended",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsInputMethodSuspended P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s25:GetIsInputMethodSuspended",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:GetIsInputMethodSuspended",dnPackItem(P1))
 
 	Func SetPreferredImeState P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s20:SetPreferredImeState",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:SetPreferredImeState",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetPreferredImeState P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s20:GetPreferredImeState",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:GetPreferredImeState",dnPackItem(P1))
 
 	Func SetPreferredImeConversionMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s29:SetPreferredImeConversionMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:SetPreferredImeConversionMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetPreferredImeConversionMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s29:GetPreferredImeConversionMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:GetPreferredImeConversionMode",dnPackItem(P1))
 
 	Func SetPreferredImeSentenceMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s27:SetPreferredImeSentenceMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:SetPreferredImeSentenceMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetPreferredImeSentenceMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s27:GetPreferredImeSentenceMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:GetPreferredImeSentenceMode",dnPackItem(P1))
 
 	Func SetInputScope P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s13:SetInputScope",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s13:SetInputScope",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetInputScope P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s13:GetInputScope",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s13:GetInputScope",dnPackItem(P1))
 
 	Func setStateChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"StateChanged",dnCallback(P1)])
@@ -2986,43 +2986,43 @@ Class InputMethod from DispatcherObject
 		raise("DotNet Error: CanShowRegisterWordUI is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getIsInputMethodEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s28:IsInputMethodEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s28:IsInputMethodEnabledProperty","")
 
 	Func setIsInputMethodEnabledProperty P1
 		raise("DotNet Error: IsInputMethodEnabledProperty is a read-only property")
 
 	Func getIsInputMethodSuspendedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s30:IsInputMethodSuspendedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s30:IsInputMethodSuspendedProperty","")
 
 	Func setIsInputMethodSuspendedProperty P1
 		raise("DotNet Error: IsInputMethodSuspendedProperty is a read-only property")
 
 	Func getPreferredImeStateProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s25:PreferredImeStateProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:PreferredImeStateProperty","")
 
 	Func setPreferredImeStateProperty P1
 		raise("DotNet Error: PreferredImeStateProperty is a read-only property")
 
 	Func getPreferredImeConversionModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s34:PreferredImeConversionModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s34:PreferredImeConversionModeProperty","")
 
 	Func setPreferredImeConversionModeProperty P1
 		raise("DotNet Error: PreferredImeConversionModeProperty is a read-only property")
 
 	Func getPreferredImeSentenceModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s32:PreferredImeSentenceModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s32:PreferredImeSentenceModeProperty","")
 
 	Func setPreferredImeSentenceModeProperty P1
 		raise("DotNet Error: PreferredImeSentenceModeProperty is a read-only property")
 
 	Func getInputScopeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.InputMethod, PresentationCore').nHandle,"s18:InputScopeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s18:InputScopeProperty","")
 
 	Func setInputScopeProperty P1
 		raise("DotNet Error: InputScopeProperty is a read-only property")
@@ -3372,10 +3372,10 @@ Class KeyInterop from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func KeyFromVirtualKey P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyInterop, WindowsBase').nHandle,"s17:KeyFromVirtualKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:KeyFromVirtualKey",dnPackItem(P1))
 
 	Func VirtualKeyFromKey P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyInterop, WindowsBase').nHandle,"s17:VirtualKeyFromKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:VirtualKeyFromKey",dnPackItem(P1))
 
 
 Class KeyValueSerializer from ValueSerializer
@@ -3429,185 +3429,185 @@ Class Keyboard from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddPreviewKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s24:AddPreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s24:AddPreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s27:RemovePreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:RemovePreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s17:AddKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s17:AddKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s20:RemoveKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s20:RemoveKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s22:AddPreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s22:AddPreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s25:RemovePreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s25:RemovePreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s15:AddKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s15:AddKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s18:RemoveKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s18:RemoveKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s33:AddPreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s33:AddPreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s36:RemovePreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s36:RemovePreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s50:AddPreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s50:AddPreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s53:RemovePreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s53:RemovePreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s43:AddKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s43:AddKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s46:RemoveKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s46:RemoveKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s26:AddGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s26:AddGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s29:RemoveGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s29:RemoveGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s34:AddPreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s34:AddPreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s37:RemovePreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s37:RemovePreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s27:AddLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:AddLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s30:RemoveLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s30:RemoveLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ClearFocus 
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s10:ClearFocus","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s10:ClearFocus","")
 		return self
 
 	Func Focus P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s5:Focus",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s5:Focus",dnPackItem(P1))
 
 	Func IsKeyDown P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s9:IsKeyDown",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s9:IsKeyDown",dnPackItem(P1))
 
 	Func IsKeyUp P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s7:IsKeyUp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s7:IsKeyUp",dnPackItem(P1))
 
 	Func IsKeyToggled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s12:IsKeyToggled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:IsKeyToggled",dnPackItem(P1))
 
 	Func GetKeyStates P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s12:GetKeyStates",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:GetKeyStates",dnPackItem(P1))
 
 	Func getFocusedElement
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s14:FocusedElement","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s14:FocusedElement","")
 
 	Func setFocusedElement P1
 		raise("DotNet Error: FocusedElement is a read-only property")
 
 	Func getDefaultRestoreFocusMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s23:DefaultRestoreFocusMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode","")
 
 	Func setDefaultRestoreFocusMode P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s23:DefaultRestoreFocusMode",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode",dnPackItem(P1))
 		return self
 
 	Func getModifiers
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s9:Modifiers","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s9:Modifiers","")
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
 	Func getPrimaryDevice
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s13:PrimaryDevice","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s13:PrimaryDevice","")
 
 	Func setPrimaryDevice P1
 		raise("DotNet Error: PrimaryDevice is a read-only property")
 
 	Func getPreviewKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s19:PreviewKeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s19:PreviewKeyDownEvent","")
 
 	Func setPreviewKeyDownEvent P1
 		raise("DotNet Error: PreviewKeyDownEvent is a read-only property")
 
 	Func getKeyDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s12:KeyDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:KeyDownEvent","")
 
 	Func setKeyDownEvent P1
 		raise("DotNet Error: KeyDownEvent is a read-only property")
 
 	Func getPreviewKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s17:PreviewKeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s17:PreviewKeyUpEvent","")
 
 	Func setPreviewKeyUpEvent P1
 		raise("DotNet Error: PreviewKeyUpEvent is a read-only property")
 
 	Func getKeyUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s10:KeyUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s10:KeyUpEvent","")
 
 	Func setKeyUpEvent P1
 		raise("DotNet Error: KeyUpEvent is a read-only property")
 
 	Func getPreviewGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s28:PreviewGotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s28:PreviewGotKeyboardFocusEvent","")
 
 	Func setPreviewGotKeyboardFocusEvent P1
 		raise("DotNet Error: PreviewGotKeyboardFocusEvent is a read-only property")
 
 	Func getPreviewKeyboardInputProviderAcquireFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s45:PreviewKeyboardInputProviderAcquireFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s45:PreviewKeyboardInputProviderAcquireFocusEvent","")
 
 	Func setPreviewKeyboardInputProviderAcquireFocusEvent P1
 		raise("DotNet Error: PreviewKeyboardInputProviderAcquireFocusEvent is a read-only property")
 
 	Func getKeyboardInputProviderAcquireFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s38:KeyboardInputProviderAcquireFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s38:KeyboardInputProviderAcquireFocusEvent","")
 
 	Func setKeyboardInputProviderAcquireFocusEvent P1
 		raise("DotNet Error: KeyboardInputProviderAcquireFocusEvent is a read-only property")
 
 	Func getGotKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s21:GotKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s21:GotKeyboardFocusEvent","")
 
 	Func setGotKeyboardFocusEvent P1
 		raise("DotNet Error: GotKeyboardFocusEvent is a read-only property")
 
 	Func getPreviewLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s29:PreviewLostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s29:PreviewLostKeyboardFocusEvent","")
 
 	Func setPreviewLostKeyboardFocusEvent P1
 		raise("DotNet Error: PreviewLostKeyboardFocusEvent is a read-only property")
 
 	Func getLostKeyboardFocusEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Keyboard, PresentationCore').nHandle,"s22:LostKeyboardFocusEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s22:LostKeyboardFocusEvent","")
 
 	Func setLostKeyboardFocusEvent P1
 		raise("DotNet Error: LostKeyboardFocusEvent is a read-only property")
@@ -3635,79 +3635,79 @@ Class KeyboardNavigation from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetTabIndex P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s11:SetTabIndex",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:SetTabIndex",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTabIndex P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s11:GetTabIndex",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:GetTabIndex",dnPackItem(P1))
 
 	Func SetIsTabStop P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s12:SetIsTabStop",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:SetIsTabStop",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsTabStop P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s12:GetIsTabStop",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:GetIsTabStop",dnPackItem(P1))
 
 	Func SetTabNavigation P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s16:SetTabNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetTabNavigation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTabNavigation P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s16:GetTabNavigation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetTabNavigation",dnPackItem(P1))
 
 	Func SetControlTabNavigation P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s23:SetControlTabNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:SetControlTabNavigation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetControlTabNavigation P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s23:GetControlTabNavigation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:GetControlTabNavigation",dnPackItem(P1))
 
 	Func SetDirectionalNavigation P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s24:SetDirectionalNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:SetDirectionalNavigation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetDirectionalNavigation P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s24:GetDirectionalNavigation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:GetDirectionalNavigation",dnPackItem(P1))
 
 	Func SetAcceptsReturn P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s16:SetAcceptsReturn",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetAcceptsReturn",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAcceptsReturn P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s16:GetAcceptsReturn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetAcceptsReturn",dnPackItem(P1))
 
 	Func getTabIndexProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s16:TabIndexProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:TabIndexProperty","")
 
 	Func setTabIndexProperty P1
 		raise("DotNet Error: TabIndexProperty is a read-only property")
 
 	Func getIsTabStopProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s17:IsTabStopProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s17:IsTabStopProperty","")
 
 	Func setIsTabStopProperty P1
 		raise("DotNet Error: IsTabStopProperty is a read-only property")
 
 	Func getTabNavigationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s21:TabNavigationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s21:TabNavigationProperty","")
 
 	Func setTabNavigationProperty P1
 		raise("DotNet Error: TabNavigationProperty is a read-only property")
 
 	Func getControlTabNavigationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s28:ControlTabNavigationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s28:ControlTabNavigationProperty","")
 
 	Func setControlTabNavigationProperty P1
 		raise("DotNet Error: ControlTabNavigationProperty is a read-only property")
 
 	Func getDirectionalNavigationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s29:DirectionalNavigationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s29:DirectionalNavigationProperty","")
 
 	Func setDirectionalNavigationProperty P1
 		raise("DotNet Error: DirectionalNavigationProperty is a read-only property")
 
 	Func getAcceptsReturnProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework').nHandle,"s21:AcceptsReturnProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s21:AcceptsReturnProperty","")
 
 	Func setAcceptsReturnProperty P1
 		raise("DotNet Error: AcceptsReturnProperty is a read-only property")
@@ -3728,47 +3728,47 @@ Class Manipulation from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsManipulationActive P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s20:IsManipulationActive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:IsManipulationActive",dnPackItem(P1))
 
 	Func StartInertia P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s12:StartInertia",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s12:StartInertia",dnPackItem(P1))
 		return self
 
 	Func CompleteManipulation P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s20:CompleteManipulation",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:CompleteManipulation",dnPackItem(P1))
 		return self
 
 	Func SetManipulationMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s19:SetManipulationMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:SetManipulationMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetManipulationMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s19:GetManipulationMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:GetManipulationMode",dnPackItem(P1))
 
 	Func SetManipulationContainer P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s24:SetManipulationContainer",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationContainer",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetManipulationContainer P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s24:GetManipulationContainer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:GetManipulationContainer",dnPackItem(P1))
 
 	Func SetManipulationPivot P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s20:SetManipulationPivot",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:SetManipulationPivot",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetManipulationPivot P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s20:GetManipulationPivot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:GetManipulationPivot",dnPackItem(P1))
 
 	Func AddManipulator P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s14:AddManipulator",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s14:AddManipulator",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveManipulator P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s17:RemoveManipulator",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s17:RemoveManipulator",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetManipulationParameter P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Manipulation, PresentationCore').nHandle,"s24:SetManipulationParameter",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationParameter",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -3954,145 +3954,145 @@ Class MediaCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPlay
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s4:Play","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s4:Play","")
 
 	Func setPlay P1
 		raise("DotNet Error: Play is a read-only property")
 
 	Func getPause
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s5:Pause","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s5:Pause","")
 
 	Func setPause P1
 		raise("DotNet Error: Pause is a read-only property")
 
 	Func getStop
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s4:Stop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s4:Stop","")
 
 	Func setStop P1
 		raise("DotNet Error: Stop is a read-only property")
 
 	Func getRecord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s6:Record","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s6:Record","")
 
 	Func setRecord P1
 		raise("DotNet Error: Record is a read-only property")
 
 	Func getNextTrack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s9:NextTrack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s9:NextTrack","")
 
 	Func setNextTrack P1
 		raise("DotNet Error: NextTrack is a read-only property")
 
 	Func getPreviousTrack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s13:PreviousTrack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s13:PreviousTrack","")
 
 	Func setPreviousTrack P1
 		raise("DotNet Error: PreviousTrack is a read-only property")
 
 	Func getFastForward
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s11:FastForward","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s11:FastForward","")
 
 	Func setFastForward P1
 		raise("DotNet Error: FastForward is a read-only property")
 
 	Func getRewind
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s6:Rewind","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s6:Rewind","")
 
 	Func setRewind P1
 		raise("DotNet Error: Rewind is a read-only property")
 
 	Func getChannelUp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s9:ChannelUp","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s9:ChannelUp","")
 
 	Func setChannelUp P1
 		raise("DotNet Error: ChannelUp is a read-only property")
 
 	Func getChannelDown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s11:ChannelDown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s11:ChannelDown","")
 
 	Func setChannelDown P1
 		raise("DotNet Error: ChannelDown is a read-only property")
 
 	Func getTogglePlayPause
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s15:TogglePlayPause","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s15:TogglePlayPause","")
 
 	Func setTogglePlayPause P1
 		raise("DotNet Error: TogglePlayPause is a read-only property")
 
 	Func getSelect
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s6:Select","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s6:Select","")
 
 	Func setSelect P1
 		raise("DotNet Error: Select is a read-only property")
 
 	Func getIncreaseVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s14:IncreaseVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s14:IncreaseVolume","")
 
 	Func setIncreaseVolume P1
 		raise("DotNet Error: IncreaseVolume is a read-only property")
 
 	Func getDecreaseVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s14:DecreaseVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s14:DecreaseVolume","")
 
 	Func setDecreaseVolume P1
 		raise("DotNet Error: DecreaseVolume is a read-only property")
 
 	Func getMuteVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s10:MuteVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s10:MuteVolume","")
 
 	Func setMuteVolume P1
 		raise("DotNet Error: MuteVolume is a read-only property")
 
 	Func getIncreaseTreble
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s14:IncreaseTreble","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s14:IncreaseTreble","")
 
 	Func setIncreaseTreble P1
 		raise("DotNet Error: IncreaseTreble is a read-only property")
 
 	Func getDecreaseTreble
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s14:DecreaseTreble","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s14:DecreaseTreble","")
 
 	Func setDecreaseTreble P1
 		raise("DotNet Error: DecreaseTreble is a read-only property")
 
 	Func getIncreaseBass
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s12:IncreaseBass","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s12:IncreaseBass","")
 
 	Func setIncreaseBass P1
 		raise("DotNet Error: IncreaseBass is a read-only property")
 
 	Func getDecreaseBass
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s12:DecreaseBass","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s12:DecreaseBass","")
 
 	Func setDecreaseBass P1
 		raise("DotNet Error: DecreaseBass is a read-only property")
 
 	Func getBoostBass
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s9:BoostBass","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s9:BoostBass","")
 
 	Func setBoostBass P1
 		raise("DotNet Error: BoostBass is a read-only property")
 
 	Func getIncreaseMicrophoneVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s24:IncreaseMicrophoneVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s24:IncreaseMicrophoneVolume","")
 
 	Func setIncreaseMicrophoneVolume P1
 		raise("DotNet Error: IncreaseMicrophoneVolume is a read-only property")
 
 	Func getDecreaseMicrophoneVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s24:DecreaseMicrophoneVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s24:DecreaseMicrophoneVolume","")
 
 	Func setDecreaseMicrophoneVolume P1
 		raise("DotNet Error: DecreaseMicrophoneVolume is a read-only property")
 
 	Func getMuteMicrophoneVolume
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s20:MuteMicrophoneVolume","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s20:MuteMicrophoneVolume","")
 
 	Func setMuteMicrophoneVolume P1
 		raise("DotNet Error: MuteMicrophoneVolume is a read-only property")
 
 	Func getToggleMicrophoneOnOff
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore').nHandle,"s21:ToggleMicrophoneOnOff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s21:ToggleMicrophoneOnOff","")
 
 	Func setToggleMicrophoneOnOff P1
 		raise("DotNet Error: ToggleMicrophoneOnOff is a read-only property")
@@ -4119,7 +4119,7 @@ Class ModifierKeysConverter from TypeConverter
 		return self
 
 	Func IsDefinedModifierKeys P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.ModifierKeysConverter, WindowsBase').nHandle,"s21:IsDefinedModifierKeys",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.ModifierKeysConverter, WindowsBase'),"s21:IsDefinedModifierKeys",dnPackItem(P1))
 
 
 Class ModifierKeysValueSerializer from ValueSerializer
@@ -4184,295 +4184,295 @@ Class Mouse from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddPreviewMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s26:AddPreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s29:RemovePreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s19:AddMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s22:RemoveMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewMouseDownOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s48:AddPreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s48:AddPreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseDownOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s51:RemovePreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s51:RemovePreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewMouseUpOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s46:AddPreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s46:AddPreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseUpOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s49:RemovePreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s49:RemovePreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s26:AddPreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s29:RemovePreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s19:AddMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s22:RemoveMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s24:AddPreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:AddPreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s27:RemovePreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:RemovePreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s17:AddMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s17:AddMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s20:RemoveMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:RemoveMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s27:AddPreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:AddPreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s30:RemovePreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s30:RemovePreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s20:AddMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s23:RemoveMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s20:AddMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s23:RemoveMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddMouseLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s20:AddMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveMouseLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s23:RemoveMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddGotMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s25:AddGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:AddGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveGotMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s28:RemoveGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s28:RemoveGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddLostMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s26:AddLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveLostMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s29:RemoveLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemoveLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddQueryCursorHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s21:AddQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:AddQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveQueryCursorHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s24:RemoveQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:RemoveQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Capture P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s7:Capture",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s7:Capture",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",dnPackItem(P1))
 
 	Func GetIntermediatePoints P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s21:GetIntermediatePoints",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:GetIntermediatePoints",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCursor P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s9:SetCursor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s9:SetCursor",dnPackItem(P1))
 
 	Func GetPosition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s11:GetPosition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:GetPosition",dnPackItem(P1))
 
 	Func Synchronize 
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s11:Synchronize","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:Synchronize","")
 		return self
 
 	Func UpdateCursor 
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s12:UpdateCursor","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:UpdateCursor","")
 		return self
 
 	Func getDirectlyOver
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s12:DirectlyOver","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:DirectlyOver","")
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s8:Captured","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s8:Captured","")
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getOverrideCursor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s14:OverrideCursor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor","")
 
 	Func setOverrideCursor P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s14:OverrideCursor",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor",dnPackItem(P1))
 		return self
 
 	Func getLeftButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s10:LeftButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s10:LeftButton","")
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s11:RightButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:RightButton","")
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s12:MiddleButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:MiddleButton","")
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s8:XButton1","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s8:XButton1","")
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s8:XButton2","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s8:XButton2","")
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")
 
 	Func getPrimaryDevice
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s13:PrimaryDevice","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s13:PrimaryDevice","")
 
 	Func setPrimaryDevice P1
 		raise("DotNet Error: PrimaryDevice is a read-only property")
 
 	Func getPreviewMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s21:PreviewMouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:PreviewMouseMoveEvent","")
 
 	Func setPreviewMouseMoveEvent P1
 		raise("DotNet Error: PreviewMouseMoveEvent is a read-only property")
 
 	Func getMouseMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s14:MouseMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:MouseMoveEvent","")
 
 	Func setMouseMoveEvent P1
 		raise("DotNet Error: MouseMoveEvent is a read-only property")
 
 	Func getPreviewMouseDownOutsideCapturedElementEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s43:PreviewMouseDownOutsideCapturedElementEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s43:PreviewMouseDownOutsideCapturedElementEvent","")
 
 	Func setPreviewMouseDownOutsideCapturedElementEvent P1
 		raise("DotNet Error: PreviewMouseDownOutsideCapturedElementEvent is a read-only property")
 
 	Func getPreviewMouseUpOutsideCapturedElementEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s41:PreviewMouseUpOutsideCapturedElementEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s41:PreviewMouseUpOutsideCapturedElementEvent","")
 
 	Func setPreviewMouseUpOutsideCapturedElementEvent P1
 		raise("DotNet Error: PreviewMouseUpOutsideCapturedElementEvent is a read-only property")
 
 	Func getPreviewMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s21:PreviewMouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:PreviewMouseDownEvent","")
 
 	Func setPreviewMouseDownEvent P1
 		raise("DotNet Error: PreviewMouseDownEvent is a read-only property")
 
 	Func getMouseDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s14:MouseDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:MouseDownEvent","")
 
 	Func setMouseDownEvent P1
 		raise("DotNet Error: MouseDownEvent is a read-only property")
 
 	Func getPreviewMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s19:PreviewMouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:PreviewMouseUpEvent","")
 
 	Func setPreviewMouseUpEvent P1
 		raise("DotNet Error: PreviewMouseUpEvent is a read-only property")
 
 	Func getMouseUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s12:MouseUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:MouseUpEvent","")
 
 	Func setMouseUpEvent P1
 		raise("DotNet Error: MouseUpEvent is a read-only property")
 
 	Func getPreviewMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s22:PreviewMouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:PreviewMouseWheelEvent","")
 
 	Func setPreviewMouseWheelEvent P1
 		raise("DotNet Error: PreviewMouseWheelEvent is a read-only property")
 
 	Func getMouseWheelEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s15:MouseWheelEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s15:MouseWheelEvent","")
 
 	Func setMouseWheelEvent P1
 		raise("DotNet Error: MouseWheelEvent is a read-only property")
 
 	Func getMouseEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s15:MouseEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s15:MouseEnterEvent","")
 
 	Func setMouseEnterEvent P1
 		raise("DotNet Error: MouseEnterEvent is a read-only property")
 
 	Func getMouseLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s15:MouseLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s15:MouseLeaveEvent","")
 
 	Func setMouseLeaveEvent P1
 		raise("DotNet Error: MouseLeaveEvent is a read-only property")
 
 	Func getGotMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s20:GotMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:GotMouseCaptureEvent","")
 
 	Func setGotMouseCaptureEvent P1
 		raise("DotNet Error: GotMouseCaptureEvent is a read-only property")
 
 	Func getLostMouseCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s21:LostMouseCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:LostMouseCaptureEvent","")
 
 	Func setLostMouseCaptureEvent P1
 		raise("DotNet Error: LostMouseCaptureEvent is a read-only property")
 
 	Func getQueryCursorEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s16:QueryCursorEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s16:QueryCursorEvent","")
 
 	Func setQueryCursorEvent P1
 		raise("DotNet Error: QueryCursorEvent is a read-only property")
 
 	Func getMouseWheelDeltaForOneLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Mouse, PresentationCore').nHandle,"s25:MouseWheelDeltaForOneLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:MouseWheelDeltaForOneLine","")
 
 	Func setMouseWheelDeltaForOneLine P1
 		raise("DotNet Error: MouseWheelDeltaForOneLine is a read-only property")
@@ -4594,97 +4594,97 @@ Class NavigationCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBrowseBack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s10:BrowseBack","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s10:BrowseBack","")
 
 	Func setBrowseBack P1
 		raise("DotNet Error: BrowseBack is a read-only property")
 
 	Func getBrowseForward
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s13:BrowseForward","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s13:BrowseForward","")
 
 	Func setBrowseForward P1
 		raise("DotNet Error: BrowseForward is a read-only property")
 
 	Func getBrowseHome
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s10:BrowseHome","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s10:BrowseHome","")
 
 	Func setBrowseHome P1
 		raise("DotNet Error: BrowseHome is a read-only property")
 
 	Func getBrowseStop
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s10:BrowseStop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s10:BrowseStop","")
 
 	Func setBrowseStop P1
 		raise("DotNet Error: BrowseStop is a read-only property")
 
 	Func getRefresh
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s7:Refresh","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s7:Refresh","")
 
 	Func setRefresh P1
 		raise("DotNet Error: Refresh is a read-only property")
 
 	Func getFavorites
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s9:Favorites","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s9:Favorites","")
 
 	Func setFavorites P1
 		raise("DotNet Error: Favorites is a read-only property")
 
 	Func getSearch
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s6:Search","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s6:Search","")
 
 	Func setSearch P1
 		raise("DotNet Error: Search is a read-only property")
 
 	Func getIncreaseZoom
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s12:IncreaseZoom","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s12:IncreaseZoom","")
 
 	Func setIncreaseZoom P1
 		raise("DotNet Error: IncreaseZoom is a read-only property")
 
 	Func getDecreaseZoom
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s12:DecreaseZoom","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s12:DecreaseZoom","")
 
 	Func setDecreaseZoom P1
 		raise("DotNet Error: DecreaseZoom is a read-only property")
 
 	Func getZoom
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s4:Zoom","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s4:Zoom","")
 
 	Func setZoom P1
 		raise("DotNet Error: Zoom is a read-only property")
 
 	Func getNextPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s8:NextPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s8:NextPage","")
 
 	Func setNextPage P1
 		raise("DotNet Error: NextPage is a read-only property")
 
 	Func getPreviousPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s12:PreviousPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s12:PreviousPage","")
 
 	Func setPreviousPage P1
 		raise("DotNet Error: PreviousPage is a read-only property")
 
 	Func getFirstPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s9:FirstPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s9:FirstPage","")
 
 	Func setFirstPage P1
 		raise("DotNet Error: FirstPage is a read-only property")
 
 	Func getLastPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s8:LastPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s8:LastPage","")
 
 	Func setLastPage P1
 		raise("DotNet Error: LastPage is a read-only property")
 
 	Func getGoToPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s8:GoToPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s8:GoToPage","")
 
 	Func setGoToPage P1
 		raise("DotNet Error: GoToPage is a read-only property")
 
 	Func getNavigateJournal
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.NavigationCommands, PresentationCore').nHandle,"s15:NavigateJournal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s15:NavigateJournal","")
 
 	Func setNavigateJournal P1
 		raise("DotNet Error: NavigateJournal is a read-only property")
@@ -4869,389 +4869,389 @@ Class Stylus from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddPreviewStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s27:AddPreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s30:RemovePreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s20:AddStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:RemoveStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s25:AddPreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddPreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s28:RemovePreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemovePreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s18:AddStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:AddStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:RemoveStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:RemoveStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s27:AddPreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s30:RemovePreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s20:AddStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:RemoveStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s32:AddPreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:AddPreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s35:RemovePreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s35:RemovePreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s25:AddStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s28:RemoveStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemoveStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:AddStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusEnterHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:RemoveStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:AddStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:RemoveStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s30:AddPreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:AddPreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s33:RemovePreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:RemovePreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:AddStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:AddStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s26:RemoveStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:RemoveStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s33:AddPreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s36:RemovePreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s26:AddStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s29:RemoveStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s36:AddPreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:AddPreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s39:RemovePreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s39:RemovePreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s29:AddStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:AddStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s32:RemoveStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:RemoveStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddGotStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s26:AddGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveGotStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s29:RemoveGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddLostStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s27:AddLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveLostStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s30:RemoveLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemoveLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s26:AddStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s29:RemoveStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:AddStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:AddStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s27:RemoveStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:RemoveStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s33:AddPreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s36:RemovePreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s31:AddPreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s31:AddPreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s34:RemovePreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s34:RemovePreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsPressAndHoldEnabled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:GetIsPressAndHoldEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:GetIsPressAndHoldEnabled",dnPackItem(P1))
 
 	Func SetIsPressAndHoldEnabled P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:SetIsPressAndHoldEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:SetIsPressAndHoldEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsFlicksEnabled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s18:GetIsFlicksEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:GetIsFlicksEnabled",dnPackItem(P1))
 
 	Func SetIsFlicksEnabled P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s18:SetIsFlicksEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:SetIsFlicksEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsTapFeedbackEnabled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:GetIsTapFeedbackEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:GetIsTapFeedbackEnabled",dnPackItem(P1))
 
 	Func SetIsTapFeedbackEnabled P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:SetIsTapFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:SetIsTapFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsTouchFeedbackEnabled P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s25:GetIsTouchFeedbackEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:GetIsTouchFeedbackEnabled",dnPackItem(P1))
 
 	Func SetIsTouchFeedbackEnabled P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s25:SetIsTouchFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:SetIsTouchFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Capture P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s7:Capture",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s7:Capture",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",dnPackItem(P1))
 
 	Func Synchronize 
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s11:Synchronize","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s11:Synchronize","")
 		return self
 
 	Func getDirectlyOver
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s12:DirectlyOver","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s12:DirectlyOver","")
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s8:Captured","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s8:Captured","")
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getCurrentStylusDevice
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s19:CurrentStylusDevice","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s19:CurrentStylusDevice","")
 
 	Func setCurrentStylusDevice P1
 		raise("DotNet Error: CurrentStylusDevice is a read-only property")
 
 	Func getPreviewStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s22:PreviewStylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s22:PreviewStylusDownEvent","")
 
 	Func setPreviewStylusDownEvent P1
 		raise("DotNet Error: PreviewStylusDownEvent is a read-only property")
 
 	Func getStylusDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s15:StylusDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s15:StylusDownEvent","")
 
 	Func setStylusDownEvent P1
 		raise("DotNet Error: StylusDownEvent is a read-only property")
 
 	Func getPreviewStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s20:PreviewStylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:PreviewStylusUpEvent","")
 
 	Func setPreviewStylusUpEvent P1
 		raise("DotNet Error: PreviewStylusUpEvent is a read-only property")
 
 	Func getStylusUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s13:StylusUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s13:StylusUpEvent","")
 
 	Func setStylusUpEvent P1
 		raise("DotNet Error: StylusUpEvent is a read-only property")
 
 	Func getPreviewStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s22:PreviewStylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s22:PreviewStylusMoveEvent","")
 
 	Func setPreviewStylusMoveEvent P1
 		raise("DotNet Error: PreviewStylusMoveEvent is a read-only property")
 
 	Func getStylusMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s15:StylusMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s15:StylusMoveEvent","")
 
 	Func setStylusMoveEvent P1
 		raise("DotNet Error: StylusMoveEvent is a read-only property")
 
 	Func getPreviewStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s27:PreviewStylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:PreviewStylusInAirMoveEvent","")
 
 	Func setPreviewStylusInAirMoveEvent P1
 		raise("DotNet Error: PreviewStylusInAirMoveEvent is a read-only property")
 
 	Func getStylusInAirMoveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s20:StylusInAirMoveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:StylusInAirMoveEvent","")
 
 	Func setStylusInAirMoveEvent P1
 		raise("DotNet Error: StylusInAirMoveEvent is a read-only property")
 
 	Func getStylusEnterEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s16:StylusEnterEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s16:StylusEnterEvent","")
 
 	Func setStylusEnterEvent P1
 		raise("DotNet Error: StylusEnterEvent is a read-only property")
 
 	Func getStylusLeaveEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s16:StylusLeaveEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s16:StylusLeaveEvent","")
 
 	Func setStylusLeaveEvent P1
 		raise("DotNet Error: StylusLeaveEvent is a read-only property")
 
 	Func getPreviewStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s25:PreviewStylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:PreviewStylusInRangeEvent","")
 
 	Func setPreviewStylusInRangeEvent P1
 		raise("DotNet Error: PreviewStylusInRangeEvent is a read-only property")
 
 	Func getStylusInRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s18:StylusInRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:StylusInRangeEvent","")
 
 	Func setStylusInRangeEvent P1
 		raise("DotNet Error: StylusInRangeEvent is a read-only property")
 
 	Func getPreviewStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s28:PreviewStylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:PreviewStylusOutOfRangeEvent","")
 
 	Func setPreviewStylusOutOfRangeEvent P1
 		raise("DotNet Error: PreviewStylusOutOfRangeEvent is a read-only property")
 
 	Func getStylusOutOfRangeEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:StylusOutOfRangeEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:StylusOutOfRangeEvent","")
 
 	Func setStylusOutOfRangeEvent P1
 		raise("DotNet Error: StylusOutOfRangeEvent is a read-only property")
 
 	Func getPreviewStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s31:PreviewStylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s31:PreviewStylusSystemGestureEvent","")
 
 	Func setPreviewStylusSystemGestureEvent P1
 		raise("DotNet Error: PreviewStylusSystemGestureEvent is a read-only property")
 
 	Func getStylusSystemGestureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s24:StylusSystemGestureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:StylusSystemGestureEvent","")
 
 	Func setStylusSystemGestureEvent P1
 		raise("DotNet Error: StylusSystemGestureEvent is a read-only property")
 
 	Func getGotStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:GotStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:GotStylusCaptureEvent","")
 
 	Func setGotStylusCaptureEvent P1
 		raise("DotNet Error: GotStylusCaptureEvent is a read-only property")
 
 	Func getLostStylusCaptureEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s22:LostStylusCaptureEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s22:LostStylusCaptureEvent","")
 
 	Func setLostStylusCaptureEvent P1
 		raise("DotNet Error: LostStylusCaptureEvent is a read-only property")
 
 	Func getStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s21:StylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:StylusButtonDownEvent","")
 
 	Func setStylusButtonDownEvent P1
 		raise("DotNet Error: StylusButtonDownEvent is a read-only property")
 
 	Func getStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s19:StylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s19:StylusButtonUpEvent","")
 
 	Func setStylusButtonUpEvent P1
 		raise("DotNet Error: StylusButtonUpEvent is a read-only property")
 
 	Func getPreviewStylusButtonDownEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s28:PreviewStylusButtonDownEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:PreviewStylusButtonDownEvent","")
 
 	Func setPreviewStylusButtonDownEvent P1
 		raise("DotNet Error: PreviewStylusButtonDownEvent is a read-only property")
 
 	Func getPreviewStylusButtonUpEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s26:PreviewStylusButtonUpEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:PreviewStylusButtonUpEvent","")
 
 	Func setPreviewStylusButtonUpEvent P1
 		raise("DotNet Error: PreviewStylusButtonUpEvent is a read-only property")
 
 	Func getIsPressAndHoldEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s29:IsPressAndHoldEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:IsPressAndHoldEnabledProperty","")
 
 	Func setIsPressAndHoldEnabledProperty P1
 		raise("DotNet Error: IsPressAndHoldEnabledProperty is a read-only property")
 
 	Func getIsFlicksEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s23:IsFlicksEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:IsFlicksEnabledProperty","")
 
 	Func setIsFlicksEnabledProperty P1
 		raise("DotNet Error: IsFlicksEnabledProperty is a read-only property")
 
 	Func getIsTapFeedbackEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s28:IsTapFeedbackEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:IsTapFeedbackEnabledProperty","")
 
 	Func setIsTapFeedbackEnabledProperty P1
 		raise("DotNet Error: IsTapFeedbackEnabledProperty is a read-only property")
 
 	Func getIsTouchFeedbackEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Stylus, PresentationCore').nHandle,"s30:IsTouchFeedbackEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:IsTouchFeedbackEnabledProperty","")
 
 	Func setIsTouchFeedbackEnabledProperty P1
 		raise("DotNet Error: IsTouchFeedbackEnabledProperty is a read-only property")
@@ -5459,7 +5459,7 @@ Class StylusPoint from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -5493,13 +5493,13 @@ Class StylusPoint from ValueType
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getMaxXY
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore').nHandle,"s5:MaxXY","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MaxXY","")
 
 	Func setMaxXY P1
 		raise("DotNet Error: MaxXY is a read-only property")
 
 	Func getMinXY
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore').nHandle,"s5:MinXY","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MinXY","")
 
 	Func setMinXY P1
 		raise("DotNet Error: MinXY is a read-only property")
@@ -5679,10 +5679,10 @@ Class StylusPointDescription from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AreCompatible P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore').nHandle,"s13:AreCompatible",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s13:AreCompatible",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCommonDescription P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore').nHandle,"s20:GetCommonDescription",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s20:GetCommonDescription",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getPropertyCount
 		return dnSend("s3:get",nHandle,"s13:PropertyCount","")
@@ -5729,133 +5729,133 @@ Class StylusPointProperties from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getX
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s1:X","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s1:X","")
 
 	Func setX P1
 		raise("DotNet Error: X is a read-only property")
 
 	Func getY
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s1:Y","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s1:Y","")
 
 	Func setY P1
 		raise("DotNet Error: Y is a read-only property")
 
 	Func getZ
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s1:Z","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s1:Z","")
 
 	Func setZ P1
 		raise("DotNet Error: Z is a read-only property")
 
 	Func getWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s5:Width","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s5:Width","")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s6:Height","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s6:Height","")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getSystemTouch
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s11:SystemTouch","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s11:SystemTouch","")
 
 	Func setSystemTouch P1
 		raise("DotNet Error: SystemTouch is a read-only property")
 
 	Func getPacketStatus
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s12:PacketStatus","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s12:PacketStatus","")
 
 	Func setPacketStatus P1
 		raise("DotNet Error: PacketStatus is a read-only property")
 
 	Func getSerialNumber
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s12:SerialNumber","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s12:SerialNumber","")
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
 
 	Func getNormalPressure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s14:NormalPressure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s14:NormalPressure","")
 
 	Func setNormalPressure P1
 		raise("DotNet Error: NormalPressure is a read-only property")
 
 	Func getTangentPressure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s15:TangentPressure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s15:TangentPressure","")
 
 	Func setTangentPressure P1
 		raise("DotNet Error: TangentPressure is a read-only property")
 
 	Func getButtonPressure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s14:ButtonPressure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s14:ButtonPressure","")
 
 	Func setButtonPressure P1
 		raise("DotNet Error: ButtonPressure is a read-only property")
 
 	Func getXTiltOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s16:XTiltOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s16:XTiltOrientation","")
 
 	Func setXTiltOrientation P1
 		raise("DotNet Error: XTiltOrientation is a read-only property")
 
 	Func getYTiltOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s16:YTiltOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s16:YTiltOrientation","")
 
 	Func setYTiltOrientation P1
 		raise("DotNet Error: YTiltOrientation is a read-only property")
 
 	Func getAzimuthOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s18:AzimuthOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s18:AzimuthOrientation","")
 
 	Func setAzimuthOrientation P1
 		raise("DotNet Error: AzimuthOrientation is a read-only property")
 
 	Func getAltitudeOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s19:AltitudeOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s19:AltitudeOrientation","")
 
 	Func setAltitudeOrientation P1
 		raise("DotNet Error: AltitudeOrientation is a read-only property")
 
 	Func getTwistOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s16:TwistOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s16:TwistOrientation","")
 
 	Func setTwistOrientation P1
 		raise("DotNet Error: TwistOrientation is a read-only property")
 
 	Func getPitchRotation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s13:PitchRotation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s13:PitchRotation","")
 
 	Func setPitchRotation P1
 		raise("DotNet Error: PitchRotation is a read-only property")
 
 	Func getRollRotation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s12:RollRotation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s12:RollRotation","")
 
 	Func setRollRotation P1
 		raise("DotNet Error: RollRotation is a read-only property")
 
 	Func getYawRotation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s11:YawRotation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s11:YawRotation","")
 
 	Func setYawRotation P1
 		raise("DotNet Error: YawRotation is a read-only property")
 
 	Func getTipButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s9:TipButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s9:TipButton","")
 
 	Func setTipButton P1
 		raise("DotNet Error: TipButton is a read-only property")
 
 	Func getBarrelButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s12:BarrelButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s12:BarrelButton","")
 
 	Func setBarrelButton P1
 		raise("DotNet Error: BarrelButton is a read-only property")
 
 	Func getSecondaryTipButton
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.StylusPointProperties, PresentationCore').nHandle,"s18:SecondaryTipButton","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s18:SecondaryTipButton","")
 
 	Func setSecondaryTipButton P1
 		raise("DotNet Error: SecondaryTipButton is a read-only property")
@@ -5911,13 +5911,13 @@ Class Tablet from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrentTabletDevice
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Tablet, PresentationCore').nHandle,"s19:CurrentTabletDevice","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Tablet, PresentationCore'),"s19:CurrentTabletDevice","")
 
 	Func setCurrentTabletDevice P1
 		raise("DotNet Error: CurrentTabletDevice is a read-only property")
 
 	Func getTabletDevices
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.Tablet, PresentationCore').nHandle,"s13:TabletDevices","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Tablet, PresentationCore'),"s13:TabletDevices","")
 
 	Func setTabletDevices P1
 		raise("DotNet Error: TabletDevices is a read-only property")
@@ -6071,94 +6071,94 @@ Class TextCompositionManager from DispatcherObject
 		return self
 
 	Func AddPreviewTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s31:AddPreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s31:AddPreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s34:RemovePreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s34:RemovePreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s24:AddTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s24:AddTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s27:RemoveTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s27:RemoveTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s32:AddPreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s32:AddPreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s35:RemovePreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s35:RemovePreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s25:AddTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s25:AddTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s28:RemoveTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s28:RemoveTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddPreviewTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s26:AddPreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:AddPreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePreviewTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s29:RemovePreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s29:RemovePreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s19:AddTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:AddTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s22:RemoveTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s22:RemoveTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func StartComposition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s16:StartComposition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s16:StartComposition",dnPackItem(P1))
 
 	Func UpdateComposition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s17:UpdateComposition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s17:UpdateComposition",dnPackItem(P1))
 
 	Func CompleteComposition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s19:CompleteComposition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:CompleteComposition",dnPackItem(P1))
 
 	Func getPreviewTextInputStartEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s26:PreviewTextInputStartEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:PreviewTextInputStartEvent","")
 
 	Func setPreviewTextInputStartEvent P1
 		raise("DotNet Error: PreviewTextInputStartEvent is a read-only property")
 
 	Func getTextInputStartEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s19:TextInputStartEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:TextInputStartEvent","")
 
 	Func setTextInputStartEvent P1
 		raise("DotNet Error: TextInputStartEvent is a read-only property")
 
 	Func getPreviewTextInputUpdateEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s27:PreviewTextInputUpdateEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s27:PreviewTextInputUpdateEvent","")
 
 	Func setPreviewTextInputUpdateEvent P1
 		raise("DotNet Error: PreviewTextInputUpdateEvent is a read-only property")
 
 	Func getTextInputUpdateEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s20:TextInputUpdateEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s20:TextInputUpdateEvent","")
 
 	Func setTextInputUpdateEvent P1
 		raise("DotNet Error: TextInputUpdateEvent is a read-only property")
 
 	Func getPreviewTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s21:PreviewTextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s21:PreviewTextInputEvent","")
 
 	Func setPreviewTextInputEvent P1
 		raise("DotNet Error: PreviewTextInputEvent is a read-only property")
 
 	Func getTextInputEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.TextCompositionManager, PresentationCore').nHandle,"s14:TextInputEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s14:TextInputEvent","")
 
 	Func setTextInputEvent P1
 		raise("DotNet Error: TextInputEvent is a read-only property")
@@ -6476,13 +6476,13 @@ Class KeyBinding from InputBinding
 		return self
 
 	Func getModifiersProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyBinding, PresentationCore').nHandle,"s17:ModifiersProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyBinding, PresentationCore'),"s17:ModifiersProperty","")
 
 	Func setModifiersProperty P1
 		raise("DotNet Error: ModifiersProperty is a read-only property")
 
 	Func getKeyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.KeyBinding, PresentationCore').nHandle,"s11:KeyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyBinding, PresentationCore'),"s11:KeyProperty","")
 
 	Func setKeyProperty P1
 		raise("DotNet Error: KeyProperty is a read-only property")
@@ -7007,7 +7007,7 @@ Class MouseBinding from InputBinding
 		return self
 
 	Func getMouseActionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Input.MouseBinding, PresentationCore').nHandle,"s19:MouseActionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MouseBinding, PresentationCore'),"s19:MouseActionProperty","")
 
 	Func setMouseActionProperty P1
 		raise("DotNet Error: MouseActionProperty is a read-only property")

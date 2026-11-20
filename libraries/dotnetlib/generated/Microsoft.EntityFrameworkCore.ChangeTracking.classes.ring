@@ -894,16 +894,16 @@ Class ValueComparer from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func GetGenericSnapshotMethod P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s24:GetGenericSnapshotMethod",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"s24:GetGenericSnapshotMethod",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateDefault P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s13:CreateDefault",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"s13:CreateDefault",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s13:CreateDefault",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"s13:CreateDefault",dnPackItem(P1))
 
 	Func getType
 		return dnSend("s3:get",nHandle,"s4:Type","")
@@ -957,7 +957,7 @@ Class ValueComparerExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsDefault P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s9:IsDefault",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",dnPackItem(P1))
 
 
 Class ComplexPropertyEntry from MemberEntry

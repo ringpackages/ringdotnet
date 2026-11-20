@@ -401,7 +401,7 @@ Class IPGlobalProperties from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetIPGlobalProperties 
-		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation').nHandle,"s21:GetIPGlobalProperties","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"s21:GetIPGlobalProperties","")
 
 	Func getDhcpScopeName
 		return dnSend("s3:get",nHandle,"s13:DhcpScopeName","")
@@ -1530,7 +1530,7 @@ Class NetworkChange from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RegisterNetworkChange P1
-		dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation').nHandle,"s21:RegisterNetworkChange",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"s21:RegisterNetworkChange",dnPackItem(P1))
 		return self
 
 	Func setNetworkAvailabilityChangedEvent P1
@@ -1591,10 +1591,10 @@ Class NetworkInterface from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAllNetworkInterfaces 
-		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s23:GetAllNetworkInterfaces","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s23:GetAllNetworkInterfaces","")
 
 	Func GetIsNetworkAvailable 
-		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s21:GetIsNetworkAvailable","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s21:GetIsNetworkAvailable","")
 
 	Func getId
 		return dnSend("s3:get",nHandle,"s2:Id","")
@@ -1645,13 +1645,13 @@ Class NetworkInterface from Object
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
-		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s26:IPv6LoopbackInterfaceIndex","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s26:IPv6LoopbackInterfaceIndex","")
 
 	Func setIPv6LoopbackInterfaceIndex P1
 		raise("DotNet Error: IPv6LoopbackInterfaceIndex is a read-only property")
 
 	Func getLoopbackInterfaceIndex
-		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s22:LoopbackInterfaceIndex","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s22:LoopbackInterfaceIndex","")
 
 	Func setLoopbackInterfaceIndex P1
 		raise("DotNet Error: LoopbackInterfaceIndex is a read-only property")
@@ -1679,13 +1679,13 @@ Class PhysicalAddress from Object
 		return dnSend("s4:call",nHandle,"s15:GetAddressBytes","")
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")

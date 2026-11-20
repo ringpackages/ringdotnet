@@ -201,33 +201,33 @@ Class Parallel from Object
 
 	Func Invoke P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s6:Invoke",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s6:Invoke",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1))
 		return self
 
 	Func For_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s3:For",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s3:For",dnPackItem(P1))
 		ok
 		raise("DotNet Error: For does not take one argument: use named arguments, For([ :parameter = value, ... ])")
 
 	Func ForEach_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s7:ForEach",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s7:ForEach",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ForEach does not take one argument: use named arguments, ForEach([ :parameter = value, ... ])")
 
 	Func ForAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s8:ForAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s8:ForAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ForAsync does not take one argument: use named arguments, ForAsync([ :parameter = value, ... ])")
 
 	Func ForEachAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel').nHandle,"s12:ForEachAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s12:ForEachAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ForEachAsync does not take one argument: use named arguments, ForEachAsync([ :parameter = value, ... ])")
 
@@ -468,53 +468,53 @@ Class Task from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Yield 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s5:Yield","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Yield","")
 
 	Func WaitAll P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WaitAll",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		ok
-		dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WaitAll",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		return self
 
 	Func WaitAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WaitAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WaitAny",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 
 	Func FromResult P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s10:FromResult",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s10:FromResult",dnPackItem(P1))
 
 	Func FromException P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s13:FromException",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s13:FromException",dnPackItem(P1))
 
 	Func FromCanceled P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s12:FromCanceled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s12:FromCanceled",dnPackItem(P1))
 
 	Func Run P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s3:Run",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s3:Run",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s3:Run",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s3:Run",dnPackItem(P1))
 
 	Func Delay P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s5:Delay",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Delay",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s5:Delay",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Delay",dnPackItem(P1))
 
 	Func WhenAll P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WhenAll",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAll",dnPackItem(P1))
 
 	Func WhenAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WhenAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:WhenAny",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAny",dnPackItem(P1))
 
 	Func WhenEach P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s8:WhenEach",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s8:WhenEach",dnPackItem(P1))
 
 	Func getId
 		return dnSend("s3:get",nHandle,"s2:Id","")
@@ -571,19 +571,19 @@ Class Task from Object
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getCurrentId
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s9:CurrentId","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s9:CurrentId","")
 
 	Func setCurrentId P1
 		raise("DotNet Error: CurrentId is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:Factory","")
 
 	Func setFactory P1
 		raise("DotNet Error: Factory is a read-only property")
 
 	Func getCompletedTask
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib').nHandle,"s13:CompletedTask","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s13:CompletedTask","")
 
 	Func setCompletedTask P1
 		raise("DotNet Error: CompletedTask is a read-only property")
@@ -604,16 +604,16 @@ Class TaskAsyncEnumerableExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConfigureAwait P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib').nHandle,"s14:ConfigureAwait",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s14:ConfigureAwait",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithCancellation P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib').nHandle,"s16:WithCancellation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s16:WithCancellation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToBlockingEnumerable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib').nHandle,"s20:ToBlockingEnumerable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s20:ToBlockingEnumerable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib').nHandle,"s20:ToBlockingEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s20:ToBlockingEnumerable",dnPackItem(P1))
 
 
 Class TaskCompletionSource from Object
@@ -721,7 +721,7 @@ Class TaskExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Unwrap P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib').nHandle,"s6:Unwrap",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib'),"s6:Unwrap",dnPackItem(P1))
 
 
 Class TaskFactory from Object
@@ -837,7 +837,7 @@ Class TaskScheduler from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromCurrentSynchronizationContext 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib').nHandle,"s33:FromCurrentSynchronizationContext","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s33:FromCurrentSynchronizationContext","")
 
 	Func setUnobservedTaskExceptionEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"UnobservedTaskException",dnCallback(P1)])
@@ -860,13 +860,13 @@ Class TaskScheduler from Object
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -887,14 +887,14 @@ Class TaskToAsyncResult from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Begin P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib').nHandle,"s5:Begin",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s5:Begin",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func End_ P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib').nHandle,"s3:End",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s3:End",dnPackItem(P1))
 		return self
 
 	Func Unwrap P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib').nHandle,"s6:Unwrap",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s6:Unwrap",dnPackItem(P1))
 
 
 Class UnobservedTaskExceptionEventArgs from EventArgs
@@ -982,13 +982,13 @@ Class ValueTask from ValueType
 		return dnSend("s4:call",nHandle,"s14:ConfigureAwait",dnPackItem(P1))
 
 	Func FromResult P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib').nHandle,"s10:FromResult",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s10:FromResult",dnPackItem(P1))
 
 	Func FromCanceled P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib').nHandle,"s12:FromCanceled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s12:FromCanceled",dnPackItem(P1))
 
 	Func FromException P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib').nHandle,"s13:FromException",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s13:FromException",dnPackItem(P1))
 
 	Func getIsCompleted
 		return dnSend("s3:get",nHandle,"s11:IsCompleted","")
@@ -1015,7 +1015,7 @@ Class ValueTask from ValueType
 		raise("DotNet Error: IsCanceled is a read-only property")
 
 	Func getCompletedTask
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib').nHandle,"s13:CompletedTask","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s13:CompletedTask","")
 
 	Func setCompletedTask P1
 		raise("DotNet Error: CompletedTask is a read-only property")
@@ -1058,7 +1058,7 @@ Class StringTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class ObjectTask from Task
@@ -1098,7 +1098,7 @@ Class ObjectTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class NumberTask from Task
@@ -1138,7 +1138,7 @@ Class NumberTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class IntTask from Task
@@ -1178,7 +1178,7 @@ Class IntTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class BoolTask from Task
@@ -1218,7 +1218,7 @@ Class BoolTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 
 Class BytesTask from Task
@@ -1258,6 +1258,6 @@ Class BytesTask from Task
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeCached('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s7:Factory","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
 
 

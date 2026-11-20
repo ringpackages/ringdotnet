@@ -435,7 +435,7 @@ Class Camera from Animatable
 		return self
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Camera, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Camera, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -885,7 +885,7 @@ Class Matrix3D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -898,10 +898,10 @@ Class Matrix3D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsIdentity
 		return dnSend("s3:get",nHandle,"s10:IsIdentity","")
@@ -1040,7 +1040,7 @@ Class Matrix3D from ValueType
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s8:Identity","")
 
 
 Class Matrix3DConverter from TypeConverter
@@ -1099,7 +1099,7 @@ Class Model3D from Animatable
 		return self
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Model3D, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Model3D, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -1220,7 +1220,7 @@ Class ModelUIElement3D from UIElement3D
 		return self
 
 	Func getModelProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore').nHandle,"s13:ModelProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore'),"s13:ModelProperty","")
 
 	Func setModelProperty P1
 		raise("DotNet Error: ModelProperty is a read-only property")
@@ -1273,7 +1273,7 @@ Class Point3D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -1286,16 +1286,16 @@ Class Point3D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
@@ -1396,7 +1396,7 @@ Class Point3DCollection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point3DCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3DCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1502,7 +1502,7 @@ Class Point4D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -1515,16 +1515,16 @@ Class Point4D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
@@ -1637,7 +1637,7 @@ Class WpfQuaternion from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -1650,22 +1650,22 @@ Class WpfQuaternion from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Slerp P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s5:Slerp",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s5:Slerp",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Slerp does not take one argument: use named arguments, Slerp([ :parameter = value, ... ])")
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getAxis
 		return dnSend("s3:get",nHandle,"s4:Axis","")
@@ -1720,7 +1720,7 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -1840,7 +1840,7 @@ Class Rect3D from ValueType
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s9:Intersect",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s9:Intersect",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
@@ -1850,7 +1850,7 @@ Class Rect3D from ValueType
 	Func Union P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s5:Union",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Union",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
 		ok
@@ -1860,7 +1860,7 @@ Class Rect3D from ValueType
 	Func Offset P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s6:Offset",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s6:Offset",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
 		ok
@@ -1870,7 +1870,7 @@ Class Rect3D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -1883,7 +1883,7 @@ Class Rect3D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -1948,7 +1948,7 @@ Class Rect3D from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1995,7 +1995,7 @@ Class Rotation3D from Animatable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Rotation3D, PresentationCore').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Rotation3D, PresentationCore'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -2046,7 +2046,7 @@ Class Size3D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -2059,7 +2059,7 @@ Class Size3D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
 		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
@@ -2089,7 +2089,7 @@ Class Size3D from ValueType
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2253,7 +2253,7 @@ Class Vector3D from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -2266,28 +2266,28 @@ Class Vector3D from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func AngleBetween P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s12:AngleBetween",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s12:AngleBetween",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DotProduct P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s10:DotProduct",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s10:DotProduct",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CrossProduct P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getLength
 		return dnSend("s3:get",nHandle,"s6:Length","")
@@ -2400,7 +2400,7 @@ Class Vector3DCollection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -2588,13 +2588,13 @@ Class Viewport3DVisual from Visual
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getCameraProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore').nHandle,"s14:CameraProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore'),"s14:CameraProperty","")
 
 	Func setCameraProperty P1
 		raise("DotNet Error: CameraProperty is a read-only property")
 
 	Func getViewportProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore').nHandle,"s16:ViewportProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore'),"s16:ViewportProperty","")
 
 	Func setViewportProperty P1
 		raise("DotNet Error: ViewportProperty is a read-only property")
@@ -2661,7 +2661,7 @@ Class Visual3D from DependencyObject
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Visual3D, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Visual3D, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -2785,13 +2785,13 @@ Class AxisAngleRotation3D from Rotation3D
 		return self
 
 	Func getAxisProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore').nHandle,"s12:AxisProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore'),"s12:AxisProperty","")
 
 	Func setAxisProperty P1
 		raise("DotNet Error: AxisProperty is a read-only property")
 
 	Func getAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore').nHandle,"s13:AngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore'),"s13:AngleProperty","")
 
 	Func setAngleProperty P1
 		raise("DotNet Error: AngleProperty is a read-only property")
@@ -2862,19 +2862,19 @@ Class DiffuseMaterial from Material
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getAmbientColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore').nHandle,"s20:AmbientColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s20:AmbientColorProperty","")
 
 	Func setAmbientColorProperty P1
 		raise("DotNet Error: AmbientColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore').nHandle,"s13:BrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s13:BrushProperty","")
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
@@ -2936,13 +2936,13 @@ Class EmissiveMaterial from Material
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore').nHandle,"s13:BrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore'),"s13:BrushProperty","")
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
@@ -2979,7 +2979,7 @@ Class GeneralTransform3DGroup from GeneralTransform3D
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3050,19 +3050,19 @@ Class GeometryModel3D from Model3D
 		return self
 
 	Func getGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore').nHandle,"s16:GeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s16:GeometryProperty","")
 
 	Func setGeometryProperty P1
 		raise("DotNet Error: GeometryProperty is a read-only property")
 
 	Func getMaterialProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore').nHandle,"s16:MaterialProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s16:MaterialProperty","")
 
 	Func setMaterialProperty P1
 		raise("DotNet Error: MaterialProperty is a read-only property")
 
 	Func getBackMaterialProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore').nHandle,"s20:BackMaterialProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s20:BackMaterialProperty","")
 
 	Func setBackMaterialProperty P1
 		raise("DotNet Error: BackMaterialProperty is a read-only property")
@@ -3090,7 +3090,7 @@ Class Light from Model3D
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Light, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Light, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
@@ -3127,7 +3127,7 @@ Class MaterialGroup from Material
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MaterialGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MaterialGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3189,13 +3189,13 @@ Class MatrixCamera from Camera
 		return self
 
 	Func getViewMatrixProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MatrixCamera, PresentationCore').nHandle,"s18:ViewMatrixProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixCamera, PresentationCore'),"s18:ViewMatrixProperty","")
 
 	Func setViewMatrixProperty P1
 		raise("DotNet Error: ViewMatrixProperty is a read-only property")
 
 	Func getProjectionMatrixProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MatrixCamera, PresentationCore').nHandle,"s24:ProjectionMatrixProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixCamera, PresentationCore'),"s24:ProjectionMatrixProperty","")
 
 	Func setProjectionMatrixProperty P1
 		raise("DotNet Error: ProjectionMatrixProperty is a read-only property")
@@ -3259,25 +3259,25 @@ Class MeshGeometry3D from Geometry3D
 		return self
 
 	Func getPositionsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore').nHandle,"s17:PositionsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s17:PositionsProperty","")
 
 	Func setPositionsProperty P1
 		raise("DotNet Error: PositionsProperty is a read-only property")
 
 	Func getNormalsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore').nHandle,"s15:NormalsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s15:NormalsProperty","")
 
 	Func setNormalsProperty P1
 		raise("DotNet Error: NormalsProperty is a read-only property")
 
 	Func getTextureCoordinatesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore').nHandle,"s26:TextureCoordinatesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s26:TextureCoordinatesProperty","")
 
 	Func setTextureCoordinatesProperty P1
 		raise("DotNet Error: TextureCoordinatesProperty is a read-only property")
 
 	Func getTriangleIndicesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore').nHandle,"s23:TriangleIndicesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s23:TriangleIndicesProperty","")
 
 	Func setTriangleIndicesProperty P1
 		raise("DotNet Error: TriangleIndicesProperty is a read-only property")
@@ -3314,7 +3314,7 @@ Class Model3DGroup from Model3D
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Model3DGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Model3DGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3358,13 +3358,13 @@ Class ModelVisual3D from Visual3D
 		return self
 
 	Func getContentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore').nHandle,"s15:ContentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore'),"s15:ContentProperty","")
 
 	Func setContentProperty P1
 		raise("DotNet Error: ContentProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore'),"s17:TransformProperty","")
 
 
 Class ProjectionCamera from Camera
@@ -3425,31 +3425,31 @@ Class ProjectionCamera from Camera
 		return self
 
 	Func getNearPlaneDistanceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore').nHandle,"s25:NearPlaneDistanceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s25:NearPlaneDistanceProperty","")
 
 	Func setNearPlaneDistanceProperty P1
 		raise("DotNet Error: NearPlaneDistanceProperty is a read-only property")
 
 	Func getFarPlaneDistanceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore').nHandle,"s24:FarPlaneDistanceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s24:FarPlaneDistanceProperty","")
 
 	Func setFarPlaneDistanceProperty P1
 		raise("DotNet Error: FarPlaneDistanceProperty is a read-only property")
 
 	Func getPositionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore').nHandle,"s16:PositionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s16:PositionProperty","")
 
 	Func setPositionProperty P1
 		raise("DotNet Error: PositionProperty is a read-only property")
 
 	Func getLookDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore').nHandle,"s21:LookDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s21:LookDirectionProperty","")
 
 	Func setLookDirectionProperty P1
 		raise("DotNet Error: LookDirectionProperty is a read-only property")
 
 	Func getUpDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore').nHandle,"s19:UpDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s19:UpDirectionProperty","")
 
 	Func setUpDirectionProperty P1
 		raise("DotNet Error: UpDirectionProperty is a read-only property")
@@ -3502,7 +3502,7 @@ Class QuaternionRotation3D from Rotation3D
 		return self
 
 	Func getQuaternionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore').nHandle,"s18:QuaternionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore'),"s18:QuaternionProperty","")
 
 	Func setQuaternionProperty P1
 		raise("DotNet Error: QuaternionProperty is a read-only property")
@@ -3664,19 +3664,19 @@ Class SpecularMaterial from Material
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore').nHandle,"s13:BrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s13:BrushProperty","")
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
 
 	Func getSpecularPowerProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore').nHandle,"s21:SpecularPowerProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s21:SpecularPowerProperty","")
 
 	Func setSpecularPowerProperty P1
 		raise("DotNet Error: SpecularPowerProperty is a read-only property")
@@ -3710,7 +3710,7 @@ Class Transform3D from GeneralTransform3D
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Transform3D, PresentationCore').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Transform3D, PresentationCore'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -3747,11 +3747,11 @@ Class Viewport2DVisual3D from Visual3D
 		return self
 
 	Func SetIsVisualHostMaterial P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s23:SetIsVisualHostMaterial",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:SetIsVisualHostMaterial",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsVisualHostMaterial P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s23:GetIsVisualHostMaterial",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:GetIsVisualHostMaterial",dnPackItem(P1))
 
 	Func getVisual
 		return dnSend("s3:get",nHandle,"s6:Visual","")
@@ -3782,31 +3782,31 @@ Class Viewport2DVisual3D from Visual3D
 		return self
 
 	Func getVisualProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s14:VisualProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s14:VisualProperty","")
 
 	Func setVisualProperty P1
 		raise("DotNet Error: VisualProperty is a read-only property")
 
 	Func getGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s16:GeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s16:GeometryProperty","")
 
 	Func setGeometryProperty P1
 		raise("DotNet Error: GeometryProperty is a read-only property")
 
 	Func getMaterialProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s16:MaterialProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s16:MaterialProperty","")
 
 	Func setMaterialProperty P1
 		raise("DotNet Error: MaterialProperty is a read-only property")
 
 	Func getIsVisualHostMaterialProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s28:IsVisualHostMaterialProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s28:IsVisualHostMaterialProperty","")
 
 	Func setIsVisualHostMaterialProperty P1
 		raise("DotNet Error: IsVisualHostMaterialProperty is a read-only property")
 
 	Func getCacheModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore').nHandle,"s17:CacheModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s17:CacheModeProperty","")
 
 	Func setCacheModeProperty P1
 		raise("DotNet Error: CacheModeProperty is a read-only property")
@@ -3908,7 +3908,7 @@ Class DirectionalLight from Light
 		return self
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.DirectionalLight, PresentationCore').nHandle,"s17:DirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DirectionalLight, PresentationCore'),"s17:DirectionProperty","")
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
@@ -3961,7 +3961,7 @@ Class MatrixTransform3D from Transform3D
 		return self
 
 	Func getMatrixProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore').nHandle,"s14:MatrixProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore'),"s14:MatrixProperty","")
 
 	Func setMatrixProperty P1
 		raise("DotNet Error: MatrixProperty is a read-only property")
@@ -4014,7 +4014,7 @@ Class OrthographicCamera from ProjectionCamera
 		return self
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore').nHandle,"s13:WidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore'),"s13:WidthProperty","")
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
@@ -4067,7 +4067,7 @@ Class PerspectiveCamera from ProjectionCamera
 		return self
 
 	Func getFieldOfViewProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore').nHandle,"s19:FieldOfViewProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore'),"s19:FieldOfViewProperty","")
 
 	Func setFieldOfViewProperty P1
 		raise("DotNet Error: FieldOfViewProperty is a read-only property")
@@ -4131,31 +4131,31 @@ Class PointLightBase from Light
 		return self
 
 	Func getPositionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PointLightBase, PresentationCore').nHandle,"s16:PositionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s16:PositionProperty","")
 
 	Func setPositionProperty P1
 		raise("DotNet Error: PositionProperty is a read-only property")
 
 	Func getRangeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PointLightBase, PresentationCore').nHandle,"s13:RangeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s13:RangeProperty","")
 
 	Func setRangeProperty P1
 		raise("DotNet Error: RangeProperty is a read-only property")
 
 	Func getConstantAttenuationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PointLightBase, PresentationCore').nHandle,"s27:ConstantAttenuationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s27:ConstantAttenuationProperty","")
 
 	Func setConstantAttenuationProperty P1
 		raise("DotNet Error: ConstantAttenuationProperty is a read-only property")
 
 	Func getLinearAttenuationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PointLightBase, PresentationCore').nHandle,"s25:LinearAttenuationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s25:LinearAttenuationProperty","")
 
 	Func setLinearAttenuationProperty P1
 		raise("DotNet Error: LinearAttenuationProperty is a read-only property")
 
 	Func getQuadraticAttenuationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.PointLightBase, PresentationCore').nHandle,"s28:QuadraticAttenuationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s28:QuadraticAttenuationProperty","")
 
 	Func setQuadraticAttenuationProperty P1
 		raise("DotNet Error: QuadraticAttenuationProperty is a read-only property")
@@ -4192,7 +4192,7 @@ Class Transform3DGroup from Transform3D
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -4309,25 +4309,25 @@ Class RotateTransform3D from AffineTransform3D
 		return self
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore').nHandle,"s15:CenterXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterXProperty","")
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore').nHandle,"s15:CenterYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterYProperty","")
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
 
 	Func getCenterZProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore').nHandle,"s15:CenterZProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterZProperty","")
 
 	Func setCenterZProperty P1
 		raise("DotNet Error: CenterZProperty is a read-only property")
 
 	Func getRotationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore').nHandle,"s16:RotationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s16:RotationProperty","")
 
 	Func setRotationProperty P1
 		raise("DotNet Error: RotationProperty is a read-only property")
@@ -4425,37 +4425,37 @@ Class ScaleTransform3D from AffineTransform3D
 		return self
 
 	Func getScaleXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s14:ScaleXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleXProperty","")
 
 	Func setScaleXProperty P1
 		raise("DotNet Error: ScaleXProperty is a read-only property")
 
 	Func getScaleYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s14:ScaleYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleYProperty","")
 
 	Func setScaleYProperty P1
 		raise("DotNet Error: ScaleYProperty is a read-only property")
 
 	Func getScaleZProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s14:ScaleZProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleZProperty","")
 
 	Func setScaleZProperty P1
 		raise("DotNet Error: ScaleZProperty is a read-only property")
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s15:CenterXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterXProperty","")
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s15:CenterYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterYProperty","")
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
 
 	Func getCenterZProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore').nHandle,"s15:CenterZProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterZProperty","")
 
 	Func setCenterZProperty P1
 		raise("DotNet Error: CenterZProperty is a read-only property")
@@ -4526,19 +4526,19 @@ Class SpotLight from PointLightBase
 		return self
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpotLight, PresentationCore').nHandle,"s17:DirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s17:DirectionProperty","")
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
 
 	Func getOuterConeAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpotLight, PresentationCore').nHandle,"s22:OuterConeAngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s22:OuterConeAngleProperty","")
 
 	Func setOuterConeAngleProperty P1
 		raise("DotNet Error: OuterConeAngleProperty is a read-only property")
 
 	Func getInnerConeAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.SpotLight, PresentationCore').nHandle,"s22:InnerConeAngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s22:InnerConeAngleProperty","")
 
 	Func setInnerConeAngleProperty P1
 		raise("DotNet Error: InnerConeAngleProperty is a read-only property")
@@ -4609,19 +4609,19 @@ Class TranslateTransform3D from AffineTransform3D
 		return self
 
 	Func getOffsetXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore').nHandle,"s15:OffsetXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetXProperty","")
 
 	Func setOffsetXProperty P1
 		raise("DotNet Error: OffsetXProperty is a read-only property")
 
 	Func getOffsetYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore').nHandle,"s15:OffsetYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetYProperty","")
 
 	Func setOffsetYProperty P1
 		raise("DotNet Error: OffsetYProperty is a read-only property")
 
 	Func getOffsetZProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore').nHandle,"s15:OffsetZProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetZProperty","")
 
 	Func setOffsetZProperty P1
 		raise("DotNet Error: OffsetZProperty is a read-only property")

@@ -1263,7 +1263,7 @@ Class EntityTypeBuilder from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HasTrigger P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore').nHandle,"s10:HasTrigger",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore'),"s10:HasTrigger",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMetadata
 		return dnSend("s3:get",nHandle,"s8:Metadata","")

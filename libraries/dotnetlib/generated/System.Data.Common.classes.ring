@@ -339,7 +339,7 @@ Class DataColumnMapping from MarshalByRefObject
 	Func GetDataColumnBySchemaAction P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common').nHandle,"s27:GetDataColumnBySchemaAction",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Data.Common.DataColumnMapping, System.Data.Common'),"s27:GetDataColumnBySchemaAction",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s27:GetDataColumnBySchemaAction",dnPackItem(P1))
 		ok
@@ -428,10 +428,10 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DataColumnMappingCollection, System.Data.Common').nHandle,"s13:GetDataColumn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DataColumnMappingCollection, System.Data.Common'),"s13:GetDataColumn",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func GetColumnMappingBySchemaAction P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DataColumnMappingCollection, System.Data.Common').nHandle,"s30:GetColumnMappingBySchemaAction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DataColumnMappingCollection, System.Data.Common'),"s30:GetColumnMappingBySchemaAction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -585,7 +585,7 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func GetTableMappingBySchemaAction P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DataTableMappingCollection, System.Data.Common').nHandle,"s29:GetTableMappingBySchemaAction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DataTableMappingCollection, System.Data.Common'),"s29:GetTableMappingBySchemaAction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1499,7 +1499,7 @@ Class DbConnectionStringBuilder from Object
 
 	Func AppendKeyValuePair P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common').nHandle,"s18:AppendKeyValuePair",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"s18:AppendKeyValuePair",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AppendKeyValuePair does not take one argument: use named arguments, AppendKeyValuePair([ :parameter = value, ... ])")
@@ -1787,10 +1787,10 @@ Class DbDataReaderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetColumnSchema P1
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbDataReaderExtensions, System.Data.Common').nHandle,"s15:GetColumnSchema",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s15:GetColumnSchema",dnPackItem(P1))
 
 	Func CanGetColumnSchema P1
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbDataReaderExtensions, System.Data.Common').nHandle,"s18:CanGetColumnSchema",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s18:CanGetColumnSchema",dnPackItem(P1))
 
 
 Class DbDataRecord from Object
@@ -2028,31 +2028,31 @@ Class DbMetaDataCollectionNames from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetaDataCollections
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common').nHandle,"s19:MetaDataCollections","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s19:MetaDataCollections","")
 
 	Func setMetaDataCollections P1
 		raise("DotNet Error: MetaDataCollections is a read-only property")
 
 	Func getDataSourceInformation
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common').nHandle,"s21:DataSourceInformation","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s21:DataSourceInformation","")
 
 	Func setDataSourceInformation P1
 		raise("DotNet Error: DataSourceInformation is a read-only property")
 
 	Func getDataTypes
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common').nHandle,"s9:DataTypes","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s9:DataTypes","")
 
 	Func setDataTypes P1
 		raise("DotNet Error: DataTypes is a read-only property")
 
 	Func getRestrictions
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common').nHandle,"s12:Restrictions","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s12:Restrictions","")
 
 	Func setRestrictions P1
 		raise("DotNet Error: Restrictions is a read-only property")
 
 	Func getReservedWords
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common').nHandle,"s13:ReservedWords","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s13:ReservedWords","")
 
 	Func setReservedWords P1
 		raise("DotNet Error: ReservedWords is a read-only property")
@@ -2116,259 +2116,259 @@ Class DbMetaDataColumnNames from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCollectionName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s14:CollectionName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:CollectionName","")
 
 	Func setCollectionName P1
 		raise("DotNet Error: CollectionName is a read-only property")
 
 	Func getColumnSize
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s10:ColumnSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:ColumnSize","")
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getCompositeIdentifierSeparatorPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s35:CompositeIdentifierSeparatorPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s35:CompositeIdentifierSeparatorPattern","")
 
 	Func setCompositeIdentifierSeparatorPattern P1
 		raise("DotNet Error: CompositeIdentifierSeparatorPattern is a read-only property")
 
 	Func getCreateFormat
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s12:CreateFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:CreateFormat","")
 
 	Func setCreateFormat P1
 		raise("DotNet Error: CreateFormat is a read-only property")
 
 	Func getCreateParameters
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s16:CreateParameters","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s16:CreateParameters","")
 
 	Func setCreateParameters P1
 		raise("DotNet Error: CreateParameters is a read-only property")
 
 	Func getDataSourceProductName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s21:DataSourceProductName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:DataSourceProductName","")
 
 	Func setDataSourceProductName P1
 		raise("DotNet Error: DataSourceProductName is a read-only property")
 
 	Func getDataSourceProductVersion
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s24:DataSourceProductVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s24:DataSourceProductVersion","")
 
 	Func setDataSourceProductVersion P1
 		raise("DotNet Error: DataSourceProductVersion is a read-only property")
 
 	Func getDataType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s8:DataType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:DataType","")
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getDataSourceProductVersionNormalized
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s34:DataSourceProductVersionNormalized","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s34:DataSourceProductVersionNormalized","")
 
 	Func setDataSourceProductVersionNormalized P1
 		raise("DotNet Error: DataSourceProductVersionNormalized is a read-only property")
 
 	Func getGroupByBehavior
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s15:GroupByBehavior","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:GroupByBehavior","")
 
 	Func setGroupByBehavior P1
 		raise("DotNet Error: GroupByBehavior is a read-only property")
 
 	Func getIdentifierCase
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s14:IdentifierCase","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:IdentifierCase","")
 
 	Func setIdentifierCase P1
 		raise("DotNet Error: IdentifierCase is a read-only property")
 
 	Func getIdentifierPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s17:IdentifierPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IdentifierPattern","")
 
 	Func setIdentifierPattern P1
 		raise("DotNet Error: IdentifierPattern is a read-only property")
 
 	Func getIsAutoIncrementable
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s19:IsAutoIncrementable","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s19:IsAutoIncrementable","")
 
 	Func setIsAutoIncrementable P1
 		raise("DotNet Error: IsAutoIncrementable is a read-only property")
 
 	Func getIsBestMatch
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s11:IsBestMatch","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s11:IsBestMatch","")
 
 	Func setIsBestMatch P1
 		raise("DotNet Error: IsBestMatch is a read-only property")
 
 	Func getIsCaseSensitive
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s15:IsCaseSensitive","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:IsCaseSensitive","")
 
 	Func setIsCaseSensitive P1
 		raise("DotNet Error: IsCaseSensitive is a read-only property")
 
 	Func getIsConcurrencyType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s17:IsConcurrencyType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IsConcurrencyType","")
 
 	Func setIsConcurrencyType P1
 		raise("DotNet Error: IsConcurrencyType is a read-only property")
 
 	Func getIsFixedLength
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s13:IsFixedLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:IsFixedLength","")
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getIsFixedPrecisionScale
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s21:IsFixedPrecisionScale","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:IsFixedPrecisionScale","")
 
 	Func setIsFixedPrecisionScale P1
 		raise("DotNet Error: IsFixedPrecisionScale is a read-only property")
 
 	Func getIsLiteralSupported
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s18:IsLiteralSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s18:IsLiteralSupported","")
 
 	Func setIsLiteralSupported P1
 		raise("DotNet Error: IsLiteralSupported is a read-only property")
 
 	Func getIsLong
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s6:IsLong","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s6:IsLong","")
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getIsNullable
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s10:IsNullable","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsNullable","")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getIsSearchable
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s12:IsSearchable","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:IsSearchable","")
 
 	Func setIsSearchable P1
 		raise("DotNet Error: IsSearchable is a read-only property")
 
 	Func getIsSearchableWithLike
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s20:IsSearchableWithLike","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:IsSearchableWithLike","")
 
 	Func setIsSearchableWithLike P1
 		raise("DotNet Error: IsSearchableWithLike is a read-only property")
 
 	Func getIsUnsigned
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s10:IsUnsigned","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsUnsigned","")
 
 	Func setIsUnsigned P1
 		raise("DotNet Error: IsUnsigned is a read-only property")
 
 	Func getLiteralPrefix
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s13:LiteralPrefix","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralPrefix","")
 
 	Func setLiteralPrefix P1
 		raise("DotNet Error: LiteralPrefix is a read-only property")
 
 	Func getLiteralSuffix
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s13:LiteralSuffix","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralSuffix","")
 
 	Func setLiteralSuffix P1
 		raise("DotNet Error: LiteralSuffix is a read-only property")
 
 	Func getMaximumScale
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s12:MaximumScale","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MaximumScale","")
 
 	Func setMaximumScale P1
 		raise("DotNet Error: MaximumScale is a read-only property")
 
 	Func getMinimumScale
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s12:MinimumScale","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MinimumScale","")
 
 	Func setMinimumScale P1
 		raise("DotNet Error: MinimumScale is a read-only property")
 
 	Func getNumberOfIdentifierParts
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s23:NumberOfIdentifierParts","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:NumberOfIdentifierParts","")
 
 	Func setNumberOfIdentifierParts P1
 		raise("DotNet Error: NumberOfIdentifierParts is a read-only property")
 
 	Func getNumberOfRestrictions
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s20:NumberOfRestrictions","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:NumberOfRestrictions","")
 
 	Func setNumberOfRestrictions P1
 		raise("DotNet Error: NumberOfRestrictions is a read-only property")
 
 	Func getOrderByColumnsInSelect
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s22:OrderByColumnsInSelect","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:OrderByColumnsInSelect","")
 
 	Func setOrderByColumnsInSelect P1
 		raise("DotNet Error: OrderByColumnsInSelect is a read-only property")
 
 	Func getParameterMarkerFormat
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s21:ParameterMarkerFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:ParameterMarkerFormat","")
 
 	Func setParameterMarkerFormat P1
 		raise("DotNet Error: ParameterMarkerFormat is a read-only property")
 
 	Func getParameterMarkerPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s22:ParameterMarkerPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterMarkerPattern","")
 
 	Func setParameterMarkerPattern P1
 		raise("DotNet Error: ParameterMarkerPattern is a read-only property")
 
 	Func getParameterNameMaxLength
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s22:ParameterNameMaxLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterNameMaxLength","")
 
 	Func setParameterNameMaxLength P1
 		raise("DotNet Error: ParameterNameMaxLength is a read-only property")
 
 	Func getParameterNamePattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s20:ParameterNamePattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:ParameterNamePattern","")
 
 	Func setParameterNamePattern P1
 		raise("DotNet Error: ParameterNamePattern is a read-only property")
 
 	Func getProviderDbType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s14:ProviderDbType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:ProviderDbType","")
 
 	Func setProviderDbType P1
 		raise("DotNet Error: ProviderDbType is a read-only property")
 
 	Func getQuotedIdentifierCase
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s20:QuotedIdentifierCase","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:QuotedIdentifierCase","")
 
 	Func setQuotedIdentifierCase P1
 		raise("DotNet Error: QuotedIdentifierCase is a read-only property")
 
 	Func getQuotedIdentifierPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s23:QuotedIdentifierPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:QuotedIdentifierPattern","")
 
 	Func setQuotedIdentifierPattern P1
 		raise("DotNet Error: QuotedIdentifierPattern is a read-only property")
 
 	Func getReservedWord
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s12:ReservedWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:ReservedWord","")
 
 	Func setReservedWord P1
 		raise("DotNet Error: ReservedWord is a read-only property")
 
 	Func getStatementSeparatorPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s25:StatementSeparatorPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s25:StatementSeparatorPattern","")
 
 	Func setStatementSeparatorPattern P1
 		raise("DotNet Error: StatementSeparatorPattern is a read-only property")
 
 	Func getStringLiteralPattern
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s20:StringLiteralPattern","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:StringLiteralPattern","")
 
 	Func setStringLiteralPattern P1
 		raise("DotNet Error: StringLiteralPattern is a read-only property")
 
 	Func getSupportedJoinOperators
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s22:SupportedJoinOperators","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:SupportedJoinOperators","")
 
 	Func setSupportedJoinOperators P1
 		raise("DotNet Error: SupportedJoinOperators is a read-only property")
 
 	Func getTypeName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common').nHandle,"s8:TypeName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:TypeName","")
 
 
 Class DbParameter from MarshalByRefObject
@@ -2582,23 +2582,23 @@ Class DbProviderFactories from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TryGetFactory P1
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s13:TryGetFactory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s13:TryGetFactory",dnPackItem(P1))
 
 	Func GetFactory P1
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s10:GetFactory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s10:GetFactory",dnPackItem(P1))
 
 	Func GetFactoryClasses 
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s17:GetFactoryClasses","")
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s17:GetFactoryClasses","")
 
 	Func GetProviderInvariantNames 
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s25:GetProviderInvariantNames","")
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s25:GetProviderInvariantNames","")
 
 	Func RegisterFactory P1,P2
-		dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s15:RegisterFactory",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s15:RegisterFactory",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func UnregisterFactory P1
-		return dnSend("s4:call",dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common').nHandle,"s17:UnregisterFactory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s17:UnregisterFactory",dnPackItem(P1))
 
 
 Class DbProviderFactory from Object
@@ -2955,103 +2955,103 @@ Class SchemaTableColumn from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getColumnName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s10:ColumnName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnName","")
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
 
 	Func getColumnOrdinal
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s13:ColumnOrdinal","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:ColumnOrdinal","")
 
 	Func setColumnOrdinal P1
 		raise("DotNet Error: ColumnOrdinal is a read-only property")
 
 	Func getColumnSize
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s10:ColumnSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnSize","")
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getNumericPrecision
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s16:NumericPrecision","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s16:NumericPrecision","")
 
 	Func setNumericPrecision P1
 		raise("DotNet Error: NumericPrecision is a read-only property")
 
 	Func getNumericScale
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s12:NumericScale","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:NumericScale","")
 
 	Func setNumericScale P1
 		raise("DotNet Error: NumericScale is a read-only property")
 
 	Func getDataType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s8:DataType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:DataType","")
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getProviderType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s12:ProviderType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:ProviderType","")
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getNonVersionedProviderType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s24:NonVersionedProviderType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s24:NonVersionedProviderType","")
 
 	Func setNonVersionedProviderType P1
 		raise("DotNet Error: NonVersionedProviderType is a read-only property")
 
 	Func getIsLong
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s6:IsLong","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s6:IsLong","")
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getAllowDBNull
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s11:AllowDBNull","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s11:AllowDBNull","")
 
 	Func setAllowDBNull P1
 		raise("DotNet Error: AllowDBNull is a read-only property")
 
 	Func getIsAliased
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s9:IsAliased","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s9:IsAliased","")
 
 	Func setIsAliased P1
 		raise("DotNet Error: IsAliased is a read-only property")
 
 	Func getIsExpression
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s12:IsExpression","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:IsExpression","")
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsKey
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s5:IsKey","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s5:IsKey","")
 
 	Func setIsKey P1
 		raise("DotNet Error: IsKey is a read-only property")
 
 	Func getIsUnique
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s8:IsUnique","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:IsUnique","")
 
 	Func setIsUnique P1
 		raise("DotNet Error: IsUnique is a read-only property")
 
 	Func getBaseSchemaName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s14:BaseSchemaName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseSchemaName","")
 
 	Func setBaseSchemaName P1
 		raise("DotNet Error: BaseSchemaName is a read-only property")
 
 	Func getBaseTableName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s13:BaseTableName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:BaseTableName","")
 
 	Func setBaseTableName P1
 		raise("DotNet Error: BaseTableName is a read-only property")
 
 	Func getBaseColumnName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common').nHandle,"s14:BaseColumnName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseColumnName","")
 
 	Func setBaseColumnName P1
 		raise("DotNet Error: BaseColumnName is a read-only property")
@@ -3087,85 +3087,85 @@ Class SchemaTableOptionalColumn from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getProviderSpecificDataType
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s24:ProviderSpecificDataType","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s24:ProviderSpecificDataType","")
 
 	Func setProviderSpecificDataType P1
 		raise("DotNet Error: ProviderSpecificDataType is a read-only property")
 
 	Func getIsAutoIncrement
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s15:IsAutoIncrement","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:IsAutoIncrement","")
 
 	Func setIsAutoIncrement P1
 		raise("DotNet Error: IsAutoIncrement is a read-only property")
 
 	Func getIsHidden
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s8:IsHidden","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s8:IsHidden","")
 
 	Func setIsHidden P1
 		raise("DotNet Error: IsHidden is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s10:IsReadOnly","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsRowVersion
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s12:IsRowVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:IsRowVersion","")
 
 	Func setIsRowVersion P1
 		raise("DotNet Error: IsRowVersion is a read-only property")
 
 	Func getBaseServerName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s14:BaseServerName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s14:BaseServerName","")
 
 	Func setBaseServerName P1
 		raise("DotNet Error: BaseServerName is a read-only property")
 
 	Func getBaseCatalogName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s15:BaseCatalogName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:BaseCatalogName","")
 
 	Func setBaseCatalogName P1
 		raise("DotNet Error: BaseCatalogName is a read-only property")
 
 	Func getAutoIncrementSeed
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s17:AutoIncrementSeed","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementSeed","")
 
 	Func setAutoIncrementSeed P1
 		raise("DotNet Error: AutoIncrementSeed is a read-only property")
 
 	Func getAutoIncrementStep
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s17:AutoIncrementStep","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementStep","")
 
 	Func setAutoIncrementStep P1
 		raise("DotNet Error: AutoIncrementStep is a read-only property")
 
 	Func getDefaultValue
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s12:DefaultValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:DefaultValue","")
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getExpression
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s10:Expression","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:Expression","")
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getBaseTableNamespace
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s18:BaseTableNamespace","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s18:BaseTableNamespace","")
 
 	Func setBaseTableNamespace P1
 		raise("DotNet Error: BaseTableNamespace is a read-only property")
 
 	Func getBaseColumnNamespace
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s19:BaseColumnNamespace","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s19:BaseColumnNamespace","")
 
 	Func setBaseColumnNamespace P1
 		raise("DotNet Error: BaseColumnNamespace is a read-only property")
 
 	Func getColumnMapping
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common').nHandle,"s13:ColumnMapping","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s13:ColumnMapping","")
 
 	Func setColumnMapping P1
 		raise("DotNet Error: ColumnMapping is a read-only property")
@@ -3243,7 +3243,7 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func getDefaultSourceTableName
-		return dnSend("s3:get",dnTypeCached('System.Data.Common.DbDataAdapter, System.Data.Common').nHandle,"s22:DefaultSourceTableName","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbDataAdapter, System.Data.Common'),"s22:DefaultSourceTableName","")
 
 	Func setDefaultSourceTableName P1
 		raise("DotNet Error: DefaultSourceTableName is a read-only property")

@@ -129,54 +129,54 @@ Class Extensions from Object
 
 	Func Attributes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s10:Attributes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s10:Attributes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s10:Attributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s10:Attributes",dnPackItem(P1))
 
 	Func Ancestors P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s9:Ancestors",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s9:Ancestors",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s9:Ancestors",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s9:Ancestors",dnPackItem(P1))
 
 	Func AncestorsAndSelf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s16:AncestorsAndSelf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s16:AncestorsAndSelf",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s16:AncestorsAndSelf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s16:AncestorsAndSelf",dnPackItem(P1))
 
 	Func Nodes P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s5:Nodes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s5:Nodes",dnPackItem(P1))
 
 	Func DescendantNodes P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s15:DescendantNodes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s15:DescendantNodes",dnPackItem(P1))
 
 	Func Descendants P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s11:Descendants",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s11:Descendants",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s11:Descendants",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s11:Descendants",dnPackItem(P1))
 
 	Func DescendantNodesAndSelf P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s22:DescendantNodesAndSelf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s22:DescendantNodesAndSelf",dnPackItem(P1))
 
 	Func DescendantsAndSelf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s18:DescendantsAndSelf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s18:DescendantsAndSelf",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s18:DescendantsAndSelf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s18:DescendantsAndSelf",dnPackItem(P1))
 
 	Func Elements P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s8:Elements",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s8:Elements",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s8:Elements",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s8:Elements",dnPackItem(P1))
 
 	Func InDocumentOrder P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s15:InDocumentOrder",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s15:InDocumentOrder",dnPackItem(P1))
 
 	Func Remove P1
-		dnSend("s4:call",dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq').nHandle,"s6:Remove",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s6:Remove",dnPackItem(P1))
 		return self
 
 
@@ -257,9 +257,9 @@ Class XName from Object
 
 	Func Get_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq').nHandle,"s3:Get",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XName, System.Private.Xml.Linq'),"s3:Get",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq').nHandle,"s3:Get",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XName, System.Private.Xml.Linq'),"s3:Get",dnPackItem(P1))
 
 	Func getLocalName
 		return dnSend("s3:get",nHandle,"s9:LocalName","")
@@ -303,7 +303,7 @@ Class XNamespace from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Get_ P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq').nHandle,"s3:Get",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"s3:Get",dnPackItem(P1))
 
 	Func getNamespaceName
 		return dnSend("s3:get",nHandle,"s13:NamespaceName","")
@@ -312,19 +312,19 @@ Class XNamespace from Object
 		raise("DotNet Error: NamespaceName is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getXml
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq').nHandle,"s3:Xml","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"s3:Xml","")
 
 	Func setXml P1
 		raise("DotNet Error: Xml is a read-only property")
 
 	Func getXmlns
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq').nHandle,"s5:Xmlns","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"s5:Xmlns","")
 
 	Func setXmlns P1
 		raise("DotNet Error: Xmlns is a read-only property")
@@ -513,25 +513,25 @@ Class XObjectChangeEventArgs from EventArgs
 		raise("DotNet Error: ObjectChange is a read-only property")
 
 	Func getAdd
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq').nHandle,"s3:Add","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq'),"s3:Add","")
 
 	Func setAdd P1
 		raise("DotNet Error: Add is a read-only property")
 
 	Func getRemove
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq').nHandle,"s6:Remove","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq'),"s6:Remove","")
 
 	Func setRemove P1
 		raise("DotNet Error: Remove is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq').nHandle,"s4:Name","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq'),"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq').nHandle,"s5:Value","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq'),"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -675,7 +675,7 @@ Class XAttribute from XObject
 		return self
 
 	Func getEmptySequence
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XAttribute, System.Private.Xml.Linq').nHandle,"s13:EmptySequence","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XAttribute, System.Private.Xml.Linq'),"s13:EmptySequence","")
 
 	Func setEmptySequence P1
 		raise("DotNet Error: EmptySequence is a read-only property")
@@ -775,16 +775,16 @@ Class XNode from XObject
 		return dnSend("s4:call",nHandle,"s12:WriteToAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompareDocumentOrder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s20:CompareDocumentOrder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s20:CompareDocumentOrder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReadFrom P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s8:ReadFrom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s8:ReadFrom",dnPackItem(P1))
 
 	Func ReadFromAsync P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s13:ReadFromAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s13:ReadFromAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DeepEquals P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getNextNode
 		return dnSend("s3:get",nHandle,"s8:NextNode","")
@@ -799,13 +799,13 @@ Class XNode from XObject
 		raise("DotNet Error: PreviousNode is a read-only property")
 
 	Func getDocumentOrderComparer
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s21:DocumentOrderComparer","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s21:DocumentOrderComparer","")
 
 	Func setDocumentOrderComparer P1
 		raise("DotNet Error: DocumentOrderComparer is a read-only property")
 
 	Func getEqualityComparer
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq').nHandle,"s16:EqualityComparer","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s16:EqualityComparer","")
 
 	Func setEqualityComparer P1
 		raise("DotNet Error: EqualityComparer is a read-only property")
@@ -1108,18 +1108,18 @@ Class XDocument from XContainer
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
 
 	Func LoadAsync P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq').nHandle,"s9:LoadAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s9:LoadAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
 
 	Func getDeclaration
 		return dnSend("s3:get",nHandle,"s11:Declaration","")
@@ -1264,18 +1264,18 @@ Class XElement from XContainer
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
 
 	Func LoadAsync P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s9:LoadAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s9:LoadAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
 
 	Func getFirstAttribute
 		return dnSend("s3:get",nHandle,"s14:FirstAttribute","")
@@ -1322,7 +1322,7 @@ Class XElement from XContainer
 		return self
 
 	Func getEmptySequence
-		return dnSend("s3:get",dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq').nHandle,"s13:EmptySequence","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s13:EmptySequence","")
 
 	Func setEmptySequence P1
 		raise("DotNet Error: EmptySequence is a read-only property")

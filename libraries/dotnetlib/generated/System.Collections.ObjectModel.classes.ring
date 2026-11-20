@@ -173,7 +173,7 @@ Class ReadOnlyStringList from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

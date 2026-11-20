@@ -376,16 +376,16 @@ Class CollectionsMarshal from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsSpan P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib').nHandle,"s6:AsSpan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s6:AsSpan",dnPackItem(P1))
 
 	Func GetValueRefOrNullRef P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib').nHandle,"s20:GetValueRefOrNullRef",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s20:GetValueRefOrNullRef",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValueRefOrAddDefault P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib').nHandle,"s23:GetValueRefOrAddDefault",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s23:GetValueRefOrAddDefault",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCount P1,P2
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib').nHandle,"s8:SetCount",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s8:SetCount",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -418,11 +418,11 @@ Class ComEventsHelper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Combine P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func Remove P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib').nHandle,"s6:Remove",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"s6:Remove",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class ComWrappers from Object
@@ -452,21 +452,21 @@ Class ComWrappers from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TryGetComInstance P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib').nHandle,"s17:TryGetComInstance",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s17:TryGetComInstance",dnPackItem(P1))
 
 	Func TryGetObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib').nHandle,"s12:TryGetObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s12:TryGetObject",dnPackItem(P1))
 
 	Func RegisterForTrackerSupport P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib').nHandle,"s25:RegisterForTrackerSupport",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s25:RegisterForTrackerSupport",dnPackItem(P1))
 		return self
 
 	Func RegisterForMarshalling P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib').nHandle,"s22:RegisterForMarshalling",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s22:RegisterForMarshalling",dnPackItem(P1))
 		return self
 
 	Func GetIUnknownImpl 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib').nHandle,"s15:GetIUnknownImpl","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s15:GetIUnknownImpl","")
 
 
 Class CriticalHandle from DotNetObject
@@ -602,15 +602,15 @@ Class GCHandle from ValueType
 
 	Func Alloc P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib').nHandle,"s5:Alloc",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib').nHandle,"s5:Alloc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 
 	Func FromIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getTarget
 		return dnSend("s3:get",nHandle,"s6:Target","")
@@ -735,7 +735,7 @@ Class HandleRef from ValueType
 		return self
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getWrapper
 		return dnSend("s3:get",nHandle,"s7:Wrapper","")
@@ -861,400 +861,400 @@ Class Marshal from Object
 
 	Func OffsetOf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s8:OffsetOf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:OffsetOf",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s8:OffsetOf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:OffsetOf",dnPackItem(P1))
 
 	Func ReadByte P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s8:ReadByte",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:ReadByte",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s8:ReadByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:ReadByte",dnPackItem(P1))
 
 	Func ReadInt16 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt16",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt16",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt16",dnPackItem(P1))
 
 	Func ReadInt32 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt32",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt32",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt32",dnPackItem(P1))
 
 	Func ReadInt64 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt64",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt64",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:ReadInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt64",dnPackItem(P1))
 
 	Func WriteByte P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s9:WriteByte",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:WriteByte",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteByte does not take one argument: use named arguments, WriteByte([ :parameter = value, ... ])")
 
 	Func WriteInt16 P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:WriteInt16",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt16",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteInt16 does not take one argument: use named arguments, WriteInt16([ :parameter = value, ... ])")
 
 	Func WriteInt32 P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:WriteInt32",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt32",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteInt32 does not take one argument: use named arguments, WriteInt32([ :parameter = value, ... ])")
 
 	Func WriteInt64 P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:WriteInt64",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt64",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteInt64 does not take one argument: use named arguments, WriteInt64([ :parameter = value, ... ])")
 
 	Func GetLastPInvokeError 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:GetLastPInvokeError","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:GetLastPInvokeError","")
 
 	Func SetLastPInvokeError P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:SetLastPInvokeError",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:SetLastPInvokeError",dnPackItem(P1))
 		return self
 
 	Func GetExceptionPointers 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s20:GetExceptionPointers","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetExceptionPointers","")
 
 	Func GetExceptionCode 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:GetExceptionCode","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:GetExceptionCode","")
 
 	Func StructureToPtr P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:StructureToPtr",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:StructureToPtr",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DestroyStructure P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:DestroyStructure",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:DestroyStructure",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:DestroyStructure",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:DestroyStructure",dnPackItem(P1))
 		return self
 
 	Func GetHINSTANCE P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s12:GetHINSTANCE",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:GetHINSTANCE",dnPackItem(P1))
 
 	Func GetHRForException P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s17:GetHRForException",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetHRForException",dnPackItem(P1))
 
 	Func GetTypeInfoName P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:GetTypeInfoName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:GetTypeInfoName",dnPackItem(P1))
 
 	Func GetIUnknownForObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s20:GetIUnknownForObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetIUnknownForObject",dnPackItem(P1))
 
 	Func GetIDispatchForObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:GetIDispatchForObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:GetIDispatchForObject",dnPackItem(P1))
 
 	Func GetComInterfaceForObject P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s24:GetComInterfaceForObject",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:GetComInterfaceForObject",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s24:GetComInterfaceForObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:GetComInterfaceForObject",dnPackItem(P1))
 
 	Func GetObjectForIUnknown P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s20:GetObjectForIUnknown",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetObjectForIUnknown",dnPackItem(P1))
 
 	Func GetUniqueObjectForIUnknown P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s26:GetUniqueObjectForIUnknown",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s26:GetUniqueObjectForIUnknown",dnPackItem(P1))
 
 	Func GetTypedObjectForIUnknown P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s25:GetTypedObjectForIUnknown",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetTypedObjectForIUnknown",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateAggregatedObject P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s22:CreateAggregatedObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s22:CreateAggregatedObject",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CleanupUnusedObjectsInCurrentContext 
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s36:CleanupUnusedObjectsInCurrentContext","")
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s36:CleanupUnusedObjectsInCurrentContext","")
 		return self
 
 	Func AreComObjectsAvailableForCleanup 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s32:AreComObjectsAvailableForCleanup","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s32:AreComObjectsAvailableForCleanup","")
 
 	Func IsComObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s11:IsComObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s11:IsComObject",dnPackItem(P1))
 
 	Func ReleaseComObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:ReleaseComObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:ReleaseComObject",dnPackItem(P1))
 
 	Func FinalReleaseComObject P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:FinalReleaseComObject",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:FinalReleaseComObject",dnPackItem(P1))
 
 	Func GetComObjectData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:GetComObjectData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:GetComObjectData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetComObjectData P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:SetComObjectData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:SetComObjectData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateWrapperOfType P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:CreateWrapperOfType",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:CreateWrapperOfType",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:CreateWrapperOfType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:CreateWrapperOfType",dnPackItem(P1))
 
 	Func IsTypeVisibleFromCom P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s20:IsTypeVisibleFromCom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:IsTypeVisibleFromCom",dnPackItem(P1))
 
 	Func GetNativeVariantForObject P1,P2
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s25:GetNativeVariantForObject",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetNativeVariantForObject",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetObjectForNativeVariant P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s25:GetObjectForNativeVariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetObjectForNativeVariant",dnPackItem(P1))
 
 	Func GetObjectsForNativeVariants P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s27:GetObjectsForNativeVariants",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:GetObjectsForNativeVariants",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetStartComSlot P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:GetStartComSlot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:GetStartComSlot",dnPackItem(P1))
 
 	Func GetEndComSlot P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s13:GetEndComSlot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s13:GetEndComSlot",dnPackItem(P1))
 
 	Func BindToMoniker P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s13:BindToMoniker",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s13:BindToMoniker",dnPackItem(P1))
 
 	Func ChangeWrapperHandleStrength P1,P2
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s27:ChangeWrapperHandleStrength",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:ChangeWrapperHandleStrength",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AllocHGlobal P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s12:AllocHGlobal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:AllocHGlobal",dnPackItem(P1))
 
 	Func PtrToStringAnsi P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringAnsi",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAnsi",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringAnsi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAnsi",dnPackItem(P1))
 
 	Func PtrToStringUni P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:PtrToStringUni",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStringUni",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:PtrToStringUni",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStringUni",dnPackItem(P1))
 
 	Func PtrToStringUTF8 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringUTF8",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringUTF8",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringUTF8",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringUTF8",dnPackItem(P1))
 
 	Func SizeOf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s6:SizeOf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s6:SizeOf",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s6:SizeOf","")
+			return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s6:SizeOf","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s6:SizeOf",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s6:SizeOf",dnPackItem(P1))
 
 	Func QueryInterface P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:QueryInterface",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:QueryInterface",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddRef P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s6:AddRef",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s6:AddRef",dnPackItem(P1))
 
 	Func UnsafeAddrOfPinnedArrayElement P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s30:UnsafeAddrOfPinnedArrayElement",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s30:UnsafeAddrOfPinnedArrayElement",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Copy P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func ReadIntPtr P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:ReadIntPtr",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:ReadIntPtr",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:ReadIntPtr",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:ReadIntPtr",dnPackItem(P1))
 
 	Func WriteIntPtr P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s11:WriteIntPtr",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s11:WriteIntPtr",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteIntPtr does not take one argument: use named arguments, WriteIntPtr([ :parameter = value, ... ])")
 
 	Func Prelink P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s7:Prelink",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s7:Prelink",dnPackItem(P1))
 		return self
 
 	Func PrelinkAll P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:PrelinkAll",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:PrelinkAll",dnPackItem(P1))
 		return self
 
 	Func PtrToStructure P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:PtrToStructure",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStructure",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:PtrToStructure",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStructure",dnPackItem(P1))
 
 	Func GetExceptionForHR P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s17:GetExceptionForHR",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetExceptionForHR",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s17:GetExceptionForHR",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetExceptionForHR",dnPackItem(P1))
 
 	Func ThrowExceptionForHR P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:ThrowExceptionForHR",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:ThrowExceptionForHR",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:ThrowExceptionForHR",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:ThrowExceptionForHR",dnPackItem(P1))
 		return self
 
 	Func SecureStringToBSTR P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s18:SecureStringToBSTR",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:SecureStringToBSTR",dnPackItem(P1))
 
 	Func SecureStringToCoTaskMemAnsi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s27:SecureStringToCoTaskMemAnsi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:SecureStringToCoTaskMemAnsi",dnPackItem(P1))
 
 	Func SecureStringToCoTaskMemUnicode P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s30:SecureStringToCoTaskMemUnicode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s30:SecureStringToCoTaskMemUnicode",dnPackItem(P1))
 
 	Func SecureStringToGlobalAllocAnsi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s29:SecureStringToGlobalAllocAnsi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:SecureStringToGlobalAllocAnsi",dnPackItem(P1))
 
 	Func SecureStringToGlobalAllocUnicode P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s32:SecureStringToGlobalAllocUnicode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s32:SecureStringToGlobalAllocUnicode",dnPackItem(P1))
 
 	Func StringToHGlobalAnsi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:StringToHGlobalAnsi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:StringToHGlobalAnsi",dnPackItem(P1))
 
 	Func StringToHGlobalUni P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s18:StringToHGlobalUni",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:StringToHGlobalUni",dnPackItem(P1))
 
 	Func StringToCoTaskMemUni P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s20:StringToCoTaskMemUni",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:StringToCoTaskMemUni",dnPackItem(P1))
 
 	Func StringToCoTaskMemUTF8 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:StringToCoTaskMemUTF8",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemUTF8",dnPackItem(P1))
 
 	Func StringToCoTaskMemAnsi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:StringToCoTaskMemAnsi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemAnsi",dnPackItem(P1))
 
 	Func GenerateGuidForType P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:GenerateGuidForType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:GenerateGuidForType",dnPackItem(P1))
 
 	Func GenerateProgIdForType P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:GenerateProgIdForType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:GenerateProgIdForType",dnPackItem(P1))
 
 	Func GetDelegateForFunctionPointer P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
 
 	Func GetFunctionPointerForDelegate P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s29:GetFunctionPointerForDelegate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetFunctionPointerForDelegate",dnPackItem(P1))
 
 	Func GetHRForLastWin32Error 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s22:GetHRForLastWin32Error","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s22:GetHRForLastWin32Error","")
 
 	Func ZeroFreeBSTR P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s12:ZeroFreeBSTR",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:ZeroFreeBSTR",dnPackItem(P1))
 		return self
 
 	Func ZeroFreeCoTaskMemAnsi P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:ZeroFreeCoTaskMemAnsi",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:ZeroFreeCoTaskMemAnsi",dnPackItem(P1))
 		return self
 
 	Func ZeroFreeCoTaskMemUnicode P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s24:ZeroFreeCoTaskMemUnicode",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:ZeroFreeCoTaskMemUnicode",dnPackItem(P1))
 		return self
 
 	Func ZeroFreeCoTaskMemUTF8 P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:ZeroFreeCoTaskMemUTF8",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:ZeroFreeCoTaskMemUTF8",dnPackItem(P1))
 		return self
 
 	Func ZeroFreeGlobalAllocAnsi P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s23:ZeroFreeGlobalAllocAnsi",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s23:ZeroFreeGlobalAllocAnsi",dnPackItem(P1))
 		return self
 
 	Func ZeroFreeGlobalAllocUnicode P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s26:ZeroFreeGlobalAllocUnicode",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s26:ZeroFreeGlobalAllocUnicode",dnPackItem(P1))
 		return self
 
 	Func StringToBSTR P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s12:StringToBSTR",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:StringToBSTR",dnPackItem(P1))
 
 	Func PtrToStringBSTR P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringBSTR",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringBSTR",dnPackItem(P1))
 
 	Func GetTypeFromCLSID P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:GetTypeFromCLSID",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:GetTypeFromCLSID",dnPackItem(P1))
 
 	Func InitHandle P1,P2
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s10:InitHandle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:InitHandle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLastWin32Error 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s17:GetLastWin32Error","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetLastWin32Error","")
 
 	Func GetLastPInvokeErrorMessage 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s26:GetLastPInvokeErrorMessage","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s26:GetLastPInvokeErrorMessage","")
 
 	Func PtrToStringAuto P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringAuto",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAuto",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s15:PtrToStringAuto",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAuto",dnPackItem(P1))
 
 	Func StringToHGlobalAuto P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s19:StringToHGlobalAuto",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:StringToHGlobalAuto",dnPackItem(P1))
 
 	Func StringToCoTaskMemAuto P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:StringToCoTaskMemAuto",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemAuto",dnPackItem(P1))
 
 	Func FreeHGlobal P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s11:FreeHGlobal",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s11:FreeHGlobal",dnPackItem(P1))
 		return self
 
 	Func ReAllocHGlobal P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:ReAllocHGlobal",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:ReAllocHGlobal",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AllocCoTaskMem P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s14:AllocCoTaskMem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:AllocCoTaskMem",dnPackItem(P1))
 
 	Func FreeCoTaskMem P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s13:FreeCoTaskMem",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s13:FreeCoTaskMem",dnPackItem(P1))
 		return self
 
 	Func ReAllocCoTaskMem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s16:ReAllocCoTaskMem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:ReAllocCoTaskMem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FreeBSTR P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s8:FreeBSTR",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:FreeBSTR",dnPackItem(P1))
 		return self
 
 	Func GetLastSystemError 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s18:GetLastSystemError","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:GetLastSystemError","")
 
 	Func SetLastSystemError P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s18:SetLastSystemError",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:SetLastSystemError",dnPackItem(P1))
 		return self
 
 	Func GetPInvokeErrorMessage P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s22:GetPInvokeErrorMessage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s22:GetPInvokeErrorMessage",dnPackItem(P1))
 
 	Func getSystemDefaultCharSize
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:SystemDefaultCharSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:SystemDefaultCharSize","")
 
 	Func setSystemDefaultCharSize P1
 		raise("DotNet Error: SystemDefaultCharSize is a read-only property")
 
 	Func getSystemMaxDBCSCharSize
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib').nHandle,"s21:SystemMaxDBCSCharSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:SystemMaxDBCSCharSize","")
 
 	Func setSystemMaxDBCSCharSize P1
 		raise("DotNet Error: SystemMaxDBCSCharSize is a read-only property")
@@ -1275,31 +1275,31 @@ Class MemoryMarshal from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetArrayDataReference P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s21:GetArrayDataReference",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s21:GetArrayDataReference",dnPackItem(P1))
 
 	Func AsMemory P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s8:AsMemory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s8:AsMemory",dnPackItem(P1))
 
 	Func CreateSpan P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s10:CreateSpan",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s10:CreateSpan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateReadOnlySpan P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s18:CreateReadOnlySpan",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s18:CreateReadOnlySpan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetArray P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s11:TryGetArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s11:TryGetArray",dnPackItem(P1))
 
 	Func TryGetMemoryManager P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s19:TryGetMemoryManager",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s19:TryGetMemoryManager",dnPackItem(P1))
 
 	Func ToEnumerable P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s12:ToEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:ToEnumerable",dnPackItem(P1))
 
 	Func TryGetString P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s12:TryGetString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:TryGetString",dnPackItem(P1))
 
 	Func CreateFromPinnedArray P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib').nHandle,"s21:CreateFromPinnedArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s21:CreateFromPinnedArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class NFloat from ValueType
@@ -1361,280 +1361,280 @@ Class NFloat from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func IsFinite P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:LogP1",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:TanPi",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1643,67 +1643,67 @@ Class NFloat from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:MaxValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s8:MinValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getSize
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s4:Size","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
@@ -1725,32 +1725,32 @@ Class NativeLibrary from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
 
 	Func TryLoad P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s7:TryLoad",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s7:TryLoad",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s7:TryLoad",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s7:TryLoad",dnPackItem(P1))
 
 	Func Free P1
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s4:Free",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Free",dnPackItem(P1))
 		return self
 
 	Func GetExport P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s9:GetExport",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s9:GetExport",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetExport P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s12:TryGetExport",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s12:TryGetExport",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetDllImportResolver P1,P2
-		dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s20:SetDllImportResolver",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s20:SetDllImportResolver",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetMainProgramHandle 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib').nHandle,"s20:GetMainProgramHandle","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s20:GetMainProgramHandle","")
 
 
 Class NativeMemory from Object
@@ -1769,18 +1769,18 @@ Class NativeMemory from Object
 
 	Func Alloc P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib').nHandle,"s5:Alloc",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib').nHandle,"s5:Alloc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 
 	Func AllocZeroed P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib').nHandle,"s11:AllocZeroed",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s11:AllocZeroed",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib').nHandle,"s11:AllocZeroed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s11:AllocZeroed",dnPackItem(P1))
 
 	Func AlignedAlloc P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib').nHandle,"s12:AlignedAlloc",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s12:AlignedAlloc",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class OSPlatform from ValueType
@@ -1809,28 +1809,28 @@ Class OSPlatform from ValueType
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func getFreeBSD
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib').nHandle,"s7:FreeBSD","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s7:FreeBSD","")
 
 	Func setFreeBSD P1
 		raise("DotNet Error: FreeBSD is a read-only property")
 
 	Func getLinux
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib').nHandle,"s5:Linux","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s5:Linux","")
 
 	Func setLinux P1
 		raise("DotNet Error: Linux is a read-only property")
 
 	Func getOSX
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib').nHandle,"s3:OSX","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s3:OSX","")
 
 	Func setOSX P1
 		raise("DotNet Error: OSX is a read-only property")
 
 	Func getWindows
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib').nHandle,"s7:Windows","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s7:Windows","")
 
 	Func setWindows P1
 		raise("DotNet Error: Windows is a read-only property")
@@ -1888,7 +1888,7 @@ Class PosixSignalRegistration from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RuntimeEnvironment from Object
@@ -1908,22 +1908,22 @@ Class RuntimeEnvironment from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromGlobalAccessCache P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s21:FromGlobalAccessCache",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s21:FromGlobalAccessCache",dnPackItem(P1))
 
 	Func GetRuntimeDirectory 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s19:GetRuntimeDirectory","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s19:GetRuntimeDirectory","")
 
 	Func GetRuntimeInterfaceAsIntPtr P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s27:GetRuntimeInterfaceAsIntPtr",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s27:GetRuntimeInterfaceAsIntPtr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRuntimeInterfaceAsObject P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s27:GetRuntimeInterfaceAsObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s27:GetRuntimeInterfaceAsObject",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetSystemVersion 
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s16:GetSystemVersion","")
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s16:GetSystemVersion","")
 
 	Func getSystemConfigurationFile
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices').nHandle,"s23:SystemConfigurationFile","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s23:SystemConfigurationFile","")
 
 	Func setSystemConfigurationFile P1
 		raise("DotNet Error: SystemConfigurationFile is a read-only property")
@@ -1950,34 +1950,34 @@ Class RuntimeInformation from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsOSPlatform P1
-		return dnSend("s4:call",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s12:IsOSPlatform",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s12:IsOSPlatform",dnPackItem(P1))
 
 	Func getRuntimeIdentifier
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s17:RuntimeIdentifier","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s17:RuntimeIdentifier","")
 
 	Func setRuntimeIdentifier P1
 		raise("DotNet Error: RuntimeIdentifier is a read-only property")
 
 	Func getProcessArchitecture
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s19:ProcessArchitecture","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s19:ProcessArchitecture","")
 
 	Func setProcessArchitecture P1
 		raise("DotNet Error: ProcessArchitecture is a read-only property")
 
 	Func getOSDescription
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s13:OSDescription","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s13:OSDescription","")
 
 	Func setOSDescription P1
 		raise("DotNet Error: OSDescription is a read-only property")
 
 	Func getOSArchitecture
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s14:OSArchitecture","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s14:OSArchitecture","")
 
 	Func setOSArchitecture P1
 		raise("DotNet Error: OSArchitecture is a read-only property")
 
 	Func getFrameworkDescription
-		return dnSend("s3:get",dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib').nHandle,"s20:FrameworkDescription","")
+		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s20:FrameworkDescription","")
 
 	Func setFrameworkDescription P1
 		raise("DotNet Error: FrameworkDescription is a read-only property")

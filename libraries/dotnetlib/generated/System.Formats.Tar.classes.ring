@@ -191,22 +191,22 @@ Class TarFile from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateFromDirectory P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func CreateFromDirectoryAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s24:CreateFromDirectoryAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s24:CreateFromDirectoryAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExtractToDirectoryAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s23:ExtractToDirectoryAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s23:ExtractToDirectoryAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExtractToDirectoryAsync does not take one argument: use named arguments, ExtractToDirectoryAsync([ :parameter = value, ... ])")
 

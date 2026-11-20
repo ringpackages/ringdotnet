@@ -176,7 +176,7 @@ Class Ascii from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsValid P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Ascii, System.Private.CoreLib').nHandle,"s7:IsValid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:IsValid",dnPackItem(P1))
 
 
 Class CompositeFormat from Object
@@ -197,7 +197,7 @@ Class CompositeFormat from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Text.CompositeFormat, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.CompositeFormat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 
 	Func getFormat
 		return dnSend("s3:get",nHandle,"s6:Format","")
@@ -290,13 +290,13 @@ Class DecoderFallback from Object
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnSend("s3:get",dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib').nHandle,"s19:ReplacementFallback","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.DecoderFallback, System.Private.CoreLib'),"s19:ReplacementFallback","")
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnSend("s3:get",dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib').nHandle,"s17:ExceptionFallback","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.DecoderFallback, System.Private.CoreLib'),"s17:ExceptionFallback","")
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -410,13 +410,13 @@ Class EncoderFallback from Object
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnSend("s3:get",dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib').nHandle,"s19:ReplacementFallback","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.EncoderFallback, System.Private.CoreLib'),"s19:ReplacementFallback","")
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnSend("s3:get",dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib').nHandle,"s17:ExceptionFallback","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.EncoderFallback, System.Private.CoreLib'),"s17:ExceptionFallback","")
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -558,26 +558,26 @@ Class Encoding from Object
 
 	Func Convert P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Convert",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Convert",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func RegisterProvider P1
-		dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s16:RegisterProvider",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:RegisterProvider",dnPackItem(P1))
 		return self
 
 	Func GetEncoding P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s11:GetEncoding",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s11:GetEncoding",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s11:GetEncoding",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s11:GetEncoding",dnPackItem(P1))
 
 	Func GetEncodings 
-		return dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s12:GetEncodings","")
+		return dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s12:GetEncodings","")
 
 	Func CreateTranscodingStream P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s23:CreateTranscodingStream",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s23:CreateTranscodingStream",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateTranscodingStream does not take one argument: use named arguments, CreateTranscodingStream([ :parameter = value, ... ])")
 
@@ -674,49 +674,49 @@ Class Encoding from Object
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getASCII
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s5:ASCII","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s5:ASCII","")
 
 	Func setASCII P1
 		raise("DotNet Error: ASCII is a read-only property")
 
 	Func getLatin1
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s6:Latin1","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s6:Latin1","")
 
 	Func setLatin1 P1
 		raise("DotNet Error: Latin1 is a read-only property")
 
 	Func getUnicode
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Unicode","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Unicode","")
 
 	Func setUnicode P1
 		raise("DotNet Error: Unicode is a read-only property")
 
 	Func getBigEndianUnicode
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s16:BigEndianUnicode","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:BigEndianUnicode","")
 
 	Func setBigEndianUnicode P1
 		raise("DotNet Error: BigEndianUnicode is a read-only property")
 
 	Func getUTF7
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s4:UTF7","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s4:UTF7","")
 
 	Func setUTF7 P1
 		raise("DotNet Error: UTF7 is a read-only property")
 
 	Func getUTF8
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s4:UTF8","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s4:UTF8","")
 
 	Func setUTF8 P1
 		raise("DotNet Error: UTF8 is a read-only property")
 
 	Func getUTF32
-		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s5:UTF32","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s5:UTF32","")
 
 	Func setUTF32 P1
 		raise("DotNet Error: UTF32 is a read-only property")
@@ -836,70 +836,70 @@ Class Rune from ValueType
 		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func GetRuneAt P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:GetRuneAt",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:GetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsValid P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsValid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsValid",dnPackItem(P1))
 
 	Func TryCreate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:TryCreate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:TryCreate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:TryCreate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:TryCreate",dnPackItem(P1))
 
 	Func TryGetRuneAt P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s12:TryGetRuneAt",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s12:TryGetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetNumericValue P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 
 	Func IsControl P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:IsControl",dnPackItem(P1))
 
 	Func IsDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsDigit",dnPackItem(P1))
 
 	Func IsLetter P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsLetter",dnPackItem(P1))
 
 	Func IsLetterOrDigit P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:IsLetterOrDigit",dnPackItem(P1))
 
 	Func IsLower P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsLower",dnPackItem(P1))
 
 	Func IsNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsNumber",dnPackItem(P1))
 
 	Func IsPunctuation P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s13:IsPunctuation",dnPackItem(P1))
 
 	Func IsSeparator P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s11:IsSeparator",dnPackItem(P1))
 
 	Func IsSymbol P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsSymbol",dnPackItem(P1))
 
 	Func IsUpper P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsUpper",dnPackItem(P1))
 
 	Func IsWhiteSpace P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s12:IsWhiteSpace",dnPackItem(P1))
 
 	Func ToLower P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToLowerInvariant P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s16:ToLowerInvariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s16:ToLowerInvariant",dnPackItem(P1))
 
 	Func ToUpper P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUpperInvariant P1
-		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s16:ToUpperInvariant",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s16:ToUpperInvariant",dnPackItem(P1))
 
 	Func getIsAscii
 		return dnSend("s3:get",nHandle,"s7:IsAscii","")
@@ -938,7 +938,7 @@ Class Rune from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getReplacementChar
-		return dnSend("s3:get",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:ReplacementChar","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:ReplacementChar","")
 
 	Func setReplacementChar P1
 		raise("DotNet Error: ReplacementChar is a read-only property")
@@ -1485,7 +1485,7 @@ Class UnicodeEncoding from Encoding
 		return self
 
 	Func getCharSize
-		return dnSend("s3:get",dnTypeCached('System.Text.UnicodeEncoding, System.Private.CoreLib').nHandle,"s8:CharSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.UnicodeEncoding, System.Private.CoreLib'),"s8:CharSize","")
 
 	Func setCharSize P1
 		raise("DotNet Error: CharSize is a read-only property")

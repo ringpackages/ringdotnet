@@ -1298,7 +1298,7 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func Read P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s4:Read",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getAttributeFormDefault
 		return dnSend("s3:get",nHandle,"s20:AttributeFormDefault","")
@@ -1411,13 +1411,13 @@ Class XmlSchema from XmlSchemaObject
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getNamespace
-		return dnSend("s3:get",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s9:Namespace","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s9:Namespace","")
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getInstanceNamespace
-		return dnSend("s3:get",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s17:InstanceNamespace","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s17:InstanceNamespace","")
 
 	Func setInstanceNamespace P1
 		raise("DotNet Error: InstanceNamespace is a read-only property")
@@ -2289,13 +2289,13 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return self
 
 	Func GetBuiltInSimpleType P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s20:GetBuiltInSimpleType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s20:GetBuiltInSimpleType",dnPackItem(P1))
 
 	Func GetBuiltInComplexType P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s21:GetBuiltInComplexType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s21:GetBuiltInComplexType",dnPackItem(P1))
 
 	Func IsDerivedFrom P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s13:IsDerivedFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s13:IsDerivedFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")

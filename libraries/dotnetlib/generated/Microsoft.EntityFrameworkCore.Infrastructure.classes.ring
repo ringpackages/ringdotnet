@@ -435,12 +435,12 @@ Class AccessorExtensions from Object
 
 	Func GetService P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore').nHandle,"s10:GetService",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"s10:GetService",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore').nHandle,"s10:GetService",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"s10:GetService",dnPackItem(P1))
 
 	Func GetInfrastructure P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore').nHandle,"s17:GetInfrastructure",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"s17:GetInfrastructure",dnPackItem(P1))
 
 
 Class AnnotatableBase from Object
@@ -1145,35 +1145,35 @@ Class EntityFrameworkMetricsData from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReportDbContextInitializing 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s27:ReportDbContextInitializing","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportDbContextInitializing","")
 		return self
 
 	Func ReportDbContextDisposing 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s24:ReportDbContextDisposing","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s24:ReportDbContextDisposing","")
 		return self
 
 	Func ReportQueryExecuting 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s20:ReportQueryExecuting","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s20:ReportQueryExecuting","")
 		return self
 
 	Func ReportSavingChanges 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s19:ReportSavingChanges","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s19:ReportSavingChanges","")
 		return self
 
 	Func ReportCompiledQueryCacheHit 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s27:ReportCompiledQueryCacheHit","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportCompiledQueryCacheHit","")
 		return self
 
 	Func ReportCompiledQueryCacheMiss 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s28:ReportCompiledQueryCacheMiss","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s28:ReportCompiledQueryCacheMiss","")
 		return self
 
 	Func ReportExecutionStrategyOperationFailure 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s39:ReportExecutionStrategyOperationFailure","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s39:ReportExecutionStrategyOperationFailure","")
 		return self
 
 	Func ReportOptimisticConcurrencyFailure 
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore').nHandle,"s34:ReportOptimisticConcurrencyFailure","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s34:ReportOptimisticConcurrencyFailure","")
 		return self
 
 
@@ -1211,7 +1211,7 @@ Class EntityFrameworkServicesBuilder from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCoreServices
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore').nHandle,"s12:CoreServices","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore'),"s12:CoreServices","")
 
 	Func setCoreServices P1
 		raise("DotNet Error: CoreServices is a read-only property")
@@ -1235,57 +1235,57 @@ Class ExpressionExtensions from Object
 
 	Func Print P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s5:Print",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s5:Print",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",dnPackItem(P1))
 
 	Func MakeMemberAccess P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s16:MakeMemberAccess",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s16:MakeMemberAccess",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Assign P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s6:Assign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s6:Assign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetEFPropertyArguments P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s25:TryGetEFPropertyArguments",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s25:TryGetEFPropertyArguments",dnPackItem(P1))
 
 	Func TryGetIndexerArguments P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:TryGetIndexerArguments",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s22:TryGetIndexerArguments",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetPropertyAccess P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s17:GetPropertyAccess",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s17:GetPropertyAccess",dnPackItem(P1))
 
 	Func GetMemberAccess P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s15:GetMemberAccess",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s15:GetMemberAccess",dnPackItem(P1))
 
 	Func GetPropertyAccessList P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s21:GetPropertyAccessList",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s21:GetPropertyAccessList",dnPackItem(P1))
 
 	Func GetMemberAccessList P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s19:GetMemberAccessList",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s19:GetMemberAccessList",dnPackItem(P1))
 
 	Func CreateValueBufferReadValueExpression P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s36:CreateValueBufferReadValueExpression",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s36:CreateValueBufferReadValueExpression",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateKeyValuesExpression P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s25:CreateKeyValuesExpression",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s25:CreateKeyValuesExpression",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateKeyValuesExpression does not take one argument: use named arguments, CreateKeyValuesExpression([ :parameter = value, ... ])")
 
 	Func CreateEFPropertyExpression P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s26:CreateEFPropertyExpression",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s26:CreateEFPropertyExpression",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateEFPropertyExpression does not take one argument: use named arguments, CreateEFPropertyExpression([ :parameter = value, ... ])")
 
 	Func CreateEqualsExpression P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s22:CreateEqualsExpression",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s22:CreateEqualsExpression",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateEqualsExpression does not take one argument: use named arguments, CreateEqualsExpression([ :parameter = value, ... ])")
 
 	Func getValueBufferTryReadValueMethod
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore').nHandle,"s29:ValueBufferTryReadValueMethod","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s29:ValueBufferTryReadValueMethod","")
 
 	Func setValueBufferTryReadValueMethod P1
 		raise("DotNet Error: ValueBufferTryReadValueMethod is a read-only property")
@@ -1843,7 +1843,7 @@ Class LazyLoaderExtensions from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"s4:Load",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Load does not take one argument: use named arguments, Load([ :parameter = value, ... ])")
 
@@ -1863,7 +1863,7 @@ Class MethodInfoExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsEFPropertyMethod P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore').nHandle,"s18:IsEFPropertyMethod",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore'),"s18:IsEFPropertyMethod",dnPackItem(P1))
 
 
 Class ModelCacheKey from Object
@@ -2223,7 +2223,7 @@ Class ProductInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetVersion 
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore').nHandle,"s10:GetVersion","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore'),"s10:GetVersion","")
 
 
 Class RelationalModelDependencies from Object
@@ -2292,9 +2292,9 @@ Class EfRelationalModelExtensions from Object
 
 	Func GetRelationalDependencies P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:GetRelationalDependencies",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:GetRelationalDependencies",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s25:GetRelationalDependencies",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:GetRelationalDependencies",dnPackItem(P1))
 
 
 Class RelationalModelRuntimeInitializerDependencies from Object
@@ -2435,10 +2435,10 @@ Class RelationalOptionsExtension from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Extract P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational').nHandle,"s7:Extract",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"s7:Extract",dnPackItem(P1))
 
 	Func WithDefaultWarningConfiguration P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational').nHandle,"s31:WithDefaultWarningConfiguration",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"s31:WithDefaultWarningConfiguration",dnPackItem(P1))
 
 	Func getInfo
 		return dnSend("s3:get",nHandle,"s4:Info","")
@@ -2546,10 +2546,10 @@ Class EfRelationalPropertyExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FormatColumns P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s13:FormatColumns",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s13:FormatColumns",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetColumnNames P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:GetColumnNames",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetColumnNames",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RuntimeAnnotatableBase from Object
@@ -2847,10 +2847,10 @@ Class SpatialiteLoader from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TryLoad P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s7:TryLoad",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s7:TryLoad",dnPackItem(P1))
 
 	Func Load_ P1
-		dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s4:Load",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s4:Load",dnPackItem(P1))
 		return self
 
 
@@ -2934,7 +2934,7 @@ Class TypeExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ShortDisplayName P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore').nHandle,"s16:ShortDisplayName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore'),"s16:ShortDisplayName",dnPackItem(P1))
 
 
 Class Uniquifier from Object
@@ -2953,13 +2953,13 @@ Class Uniquifier from Object
 
 	Func Uniquify P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore').nHandle,"s8:Uniquify",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"s8:Uniquify",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Uniquify does not take one argument: use named arguments, Uniquify([ :parameter = value, ... ])")
 
 	Func Truncate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore').nHandle,"s8:Truncate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"s8:Truncate",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Truncate does not take one argument: use named arguments, Truncate([ :parameter = value, ... ])")
 
@@ -3001,7 +3001,7 @@ Class EntityFrameworkRelationalServicesBuilder from EntityFrameworkServicesBuild
 		return self
 
 	Func getRelationalServices
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkRelationalServicesBuilder, Microsoft.EntityFrameworkCore.Relational').nHandle,"s18:RelationalServices","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkRelationalServicesBuilder, Microsoft.EntityFrameworkCore.Relational'),"s18:RelationalServices","")
 
 	Func setRelationalServices P1
 		raise("DotNet Error: RelationalServices is a read-only property")

@@ -80,31 +80,31 @@ Class CacheEntryExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetPriority P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddExpirationToken P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s18:AddExpirationToken",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s18:AddExpirationToken",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetAbsoluteExpiration P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s21:SetAbsoluteExpiration",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s21:SetAbsoluteExpiration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetSlidingExpiration P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s20:SetSlidingExpiration",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s20:SetSlidingExpiration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RegisterPostEvictionCallback P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s28:RegisterPostEvictionCallback",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s28:RegisterPostEvictionCallback",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RegisterPostEvictionCallback does not take one argument: use named arguments, RegisterPostEvictionCallback([ :parameter = value, ... ])")
 
 	Func SetValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetSize P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s7:SetSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s7:SetSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetOptions P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s10:SetOptions",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s10:SetOptions",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class CacheExtensions from Object
@@ -122,26 +122,26 @@ Class CacheExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Get_ P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s3:Get",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s3:Get",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Set P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s3:Set",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s3:Set",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Set does not take one argument: use named arguments, Set([ :parameter = value, ... ])")
 
 	Func GetOrCreate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s11:GetOrCreate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:GetOrCreate",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetOrCreate does not take one argument: use named arguments, GetOrCreate([ :parameter = value, ... ])")
 
 	Func GetOrCreateAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s16:GetOrCreateAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s16:GetOrCreateAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetOrCreateAsync does not take one argument: use named arguments, GetOrCreateAsync([ :parameter = value, ... ])")
 
@@ -340,23 +340,23 @@ Class MemoryCacheEntryExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetPriority P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetSize P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s7:SetSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s7:SetSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddExpirationToken P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s18:AddExpirationToken",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s18:AddExpirationToken",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetAbsoluteExpiration P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s21:SetAbsoluteExpiration",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s21:SetAbsoluteExpiration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetSlidingExpiration P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s20:SetSlidingExpiration",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s20:SetSlidingExpiration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RegisterPostEvictionCallback P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions').nHandle,"s28:RegisterPostEvictionCallback",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s28:RegisterPostEvictionCallback",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RegisterPostEvictionCallback does not take one argument: use named arguments, RegisterPostEvictionCallback([ :parameter = value, ... ])")
 

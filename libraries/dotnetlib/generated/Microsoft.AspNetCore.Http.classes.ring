@@ -512,7 +512,7 @@ Class BindingAddress from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http'),"s5:Parse",dnPackItem(P1))
 
 	Func getHost
 		return dnSend("s3:get",nHandle,"s4:Host","")
@@ -944,12 +944,12 @@ Class EndpointFilterExtensions from Object
 
 	Func AddEndpointFilter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing').nHandle,"s17:AddEndpointFilter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"s17:AddEndpointFilter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing').nHandle,"s17:AddEndpointFilter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"s17:AddEndpointFilter",dnPackItem(P1))
 
 	Func AddEndpointFilterFactory P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing').nHandle,"s24:AddEndpointFilterFactory",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"s24:AddEndpointFilterFactory",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class EndpointFilterFactoryContext from Object
@@ -1015,9 +1015,9 @@ Class EndpointFilterInvocationContext from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
 
 	Func getHttpContext
 		return dnSend("s3:get",nHandle,"s11:HttpContext","")
@@ -1047,10 +1047,10 @@ Class EndpointHttpContextExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetEndpoint P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s11:GetEndpoint",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s11:GetEndpoint",dnPackItem(P1))
 
 	Func SetEndpoint P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s11:SetEndpoint",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s11:SetEndpoint",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1095,7 +1095,7 @@ Class EndpointMetadataCollection from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.EndpointMetadataCollection, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointMetadataCollection, Microsoft.AspNetCore.Http.Abstractions'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1168,7 +1168,7 @@ Class AspFormCollection from Object
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1494,7 +1494,7 @@ Class FragmentString from ValueType
 		return dnSend("s4:call",nHandle,"s14:ToUriComponent","")
 
 	Func FromUriComponent P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:FromUriComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions'),"s16:FromUriComponent",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1509,7 +1509,7 @@ Class FragmentString from ValueType
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1646,18 +1646,18 @@ Class HeaderDictionaryExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Append P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Append",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s6:Append",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func AppendCommaSeparatedValues P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s26:AppendCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s26:AppendCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetCommaSeparatedValues P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:GetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s23:GetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCommaSeparatedValues P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:SetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s23:SetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -1676,10 +1676,10 @@ Class HeaderDictionaryTypeExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetTypedHeaders P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s15:GetTypedHeaders",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"s15:GetTypedHeaders",dnPackItem(P1))
 
 	Func AppendList P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s10:AppendList",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"s10:AppendList",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -1728,10 +1728,10 @@ Class HostString from ValueType
 		return dnSend("s4:call",nHandle,"s14:ToUriComponent","")
 
 	Func FromUriComponent P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:FromUriComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"s16:FromUriComponent",dnPackItem(P1))
 
 	Func MatchesAny P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s10:MatchesAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"s10:MatchesAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1909,7 +1909,7 @@ Class HttpContextServerVariableExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetServerVariable P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s17:GetServerVariable",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:GetServerVariable",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HttpMethods from Object
@@ -1934,86 +1934,86 @@ Class HttpMethods from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsConnect P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s9:IsConnect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsConnect",dnPackItem(P1))
 
 	Func IsDelete P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s8:IsDelete",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsDelete",dnPackItem(P1))
 
 	Func IsGet P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:IsGet",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsGet",dnPackItem(P1))
 
 	Func IsHead P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:IsHead",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsHead",dnPackItem(P1))
 
 	Func IsOptions P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s9:IsOptions",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsOptions",dnPackItem(P1))
 
 	Func IsPatch P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:IsPatch",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsPatch",dnPackItem(P1))
 
 	Func IsPost P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:IsPost",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsPost",dnPackItem(P1))
 
 	Func IsPut P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:IsPut",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsPut",dnPackItem(P1))
 
 	Func IsTrace P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:IsTrace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsTrace",dnPackItem(P1))
 
 	Func GetCanonicalizedValue P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s21:GetCanonicalizedValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s21:GetCanonicalizedValue",dnPackItem(P1))
 
 	Func getConnect
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:Connect","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Connect","")
 
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
 
 	Func getDelete
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Delete","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:Delete","")
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getGet
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s3:Get","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Get","")
 
 	Func getHead
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s4:Head","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Head","")
 
 	Func setHead P1
 		raise("DotNet Error: Head is a read-only property")
 
 	Func getOptions
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:Options","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getPatch
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Patch","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Patch","")
 
 	Func setPatch P1
 		raise("DotNet Error: Patch is a read-only property")
 
 	Func getPost
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s4:Post","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Post","")
 
 	Func setPost P1
 		raise("DotNet Error: Post is a read-only property")
 
 	Func getPut
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s3:Put","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Put","")
 
 	Func getTrace
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Trace","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Trace","")
 
 	Func setTrace P1
 		raise("DotNet Error: Trace is a read-only property")
@@ -2040,49 +2040,49 @@ Class HttpProtocol from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsHttp09 P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s8:IsHttp09",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp09",dnPackItem(P1))
 
 	Func IsHttp10 P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s8:IsHttp10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp10",dnPackItem(P1))
 
 	Func IsHttp11 P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s8:IsHttp11",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp11",dnPackItem(P1))
 
 	Func IsHttp2 P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:IsHttp2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp2",dnPackItem(P1))
 
 	Func IsHttp3 P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:IsHttp3",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp3",dnPackItem(P1))
 
 	Func GetHttpProtocol P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s15:GetHttpProtocol",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s15:GetHttpProtocol",dnPackItem(P1))
 
 	Func getHttp09
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Http09","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http09","")
 
 	Func setHttp09 P1
 		raise("DotNet Error: Http09 is a read-only property")
 
 	Func getHttp10
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Http10","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http10","")
 
 	Func setHttp10 P1
 		raise("DotNet Error: Http10 is a read-only property")
 
 	Func getHttp11
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Http11","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http11","")
 
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
 
 	Func getHttp2
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Http2","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http2","")
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Http3","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http3","")
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
@@ -2277,12 +2277,12 @@ Class HttpRequestJsonExtensions from Object
 
 	Func ReadFromJsonAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s17:ReadFromJsonAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:ReadFromJsonAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s17:ReadFromJsonAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:ReadFromJsonAsync",dnPackItem(P1))
 
 	Func HasJsonContentType P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s18:HasJsonContentType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s18:HasJsonContentType",dnPackItem(P1))
 
 
 Class HttpRequestRewindExtensions from Object
@@ -2301,10 +2301,10 @@ Class HttpRequestRewindExtensions from Object
 
 	Func EnableBuffering P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http').nHandle,"s15:EnableBuffering",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http').nHandle,"s15:EnableBuffering",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",dnPackItem(P1))
 		return self
 
 
@@ -2451,7 +2451,7 @@ Class HttpResponseJsonExtensions from Object
 
 	Func WriteAsJsonAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s16:WriteAsJsonAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s16:WriteAsJsonAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsJsonAsync does not take one argument: use named arguments, WriteAsJsonAsync([ :parameter = value, ... ])")
 
@@ -2472,7 +2472,7 @@ Class HttpResponseWritingExtensions from Object
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s10:WriteAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s10:WriteAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -3851,40 +3851,40 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ExcludeFromDescription P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s22:ExcludeFromDescription",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s22:ExcludeFromDescription",dnPackItem(P1))
 
 	Func Produces P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:Produces",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:Produces",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
 
 	Func ProducesProblem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:ProducesProblem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:ProducesProblem",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ProducesProblem does not take one argument: use named arguments, ProducesProblem([ :parameter = value, ... ])")
 
 	Func ProducesValidationProblem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s25:ProducesValidationProblem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s25:ProducesValidationProblem",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s25:ProducesValidationProblem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s25:ProducesValidationProblem",dnPackItem(P1))
 
 	Func WithTags P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:WithTags",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:WithTags",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Accepts P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s7:Accepts",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s7:Accepts",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
 
 	Func WithDescription P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:WithDescription",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:WithDescription",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithSummary P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s11:WithSummary",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s11:WithSummary",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class PathString from ValueType
@@ -3946,7 +3946,7 @@ Class PathString from ValueType
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromUriComponent P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:FromUriComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions'),"s16:FromUriComponent",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -3961,7 +3961,7 @@ Class PathString from ValueType
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4182,7 +4182,7 @@ Class QueryCollection from Object
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4238,13 +4238,13 @@ Class QueryString from ValueType
 		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func FromUriComponent P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:FromUriComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"s16:FromUriComponent",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -4259,7 +4259,7 @@ Class QueryString from ValueType
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4281,15 +4281,15 @@ Class RequestDelegateFactory from Object
 
 	Func InferMetadata P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:InferMetadata",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s13:InferMetadata",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:InferMetadata",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s13:InferMetadata",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s6:Create",dnPackItem(P1))
 
 
 Class RequestDelegateFactoryOptions from Object
@@ -4438,7 +4438,7 @@ Class RequestFormReaderExtensions from Object
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http').nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"s13:ReadFormAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReadFormAsync does not take one argument: use named arguments, ReadFormAsync([ :parameter = value, ... ])")
 
@@ -4458,16 +4458,16 @@ Class RequestTrailerExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDeclaredTrailers P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s19:GetDeclaredTrailers",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s19:GetDeclaredTrailers",dnPackItem(P1))
 
 	Func SupportsTrailers P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:SupportsTrailers",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",dnPackItem(P1))
 
 	Func CheckTrailersAvailable P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s22:CheckTrailersAvailable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s22:CheckTrailersAvailable",dnPackItem(P1))
 
 	Func GetTrailer P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s10:GetTrailer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s10:GetTrailer",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ResponseExtensions from Object
@@ -4485,11 +4485,11 @@ Class ResponseExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Clear P1
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s5:Clear",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s5:Clear",dnPackItem(P1))
 		return self
 
 	Func Redirect P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s8:Redirect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:Redirect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 
@@ -4508,14 +4508,14 @@ Class ResponseTrailerExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DeclareTrailer P1,P2
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s14:DeclareTrailer",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s14:DeclareTrailer",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SupportsTrailers P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:SupportsTrailers",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",dnPackItem(P1))
 
 	Func AppendTrailer P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s13:AppendTrailer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s13:AppendTrailer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -4538,216 +4538,216 @@ Class Results from Object
 
 	Func Challenge P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s9:Challenge","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
 
 	Func Forbid P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Forbid","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
 
 	Func SignIn P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:SignIn",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:SignIn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
 
 	Func SignOut P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:SignOut","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
 
 	Func Content P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Content",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Content",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
 
 	Func Text P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Text",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Text",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
 
 	Func Json P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Json",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Json",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
 
 	Func File P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:File",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s4:File",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
 
 	Func Bytes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Bytes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Bytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
 
 	Func Stream P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Stream",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Stream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
 
 	Func Redirect P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Redirect",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Redirect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
 
 	Func LocalRedirect P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s13:LocalRedirect",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s13:LocalRedirect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
 
 	Func RedirectToRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
 
 	Func StatusCode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s10:StatusCode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:StatusCode",dnPackItem(P1))
 
 	Func NotFound P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:NotFound","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
 
 	Func Unauthorized 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s12:Unauthorized","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s12:Unauthorized","")
 
 	Func BadRequest P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
 
 	Func Conflict P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Conflict","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
 
 	Func NoContent 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s9:NoContent","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s9:NoContent","")
 
 	Func Ok P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s2:Ok","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
 
 	Func UnprocessableEntity P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
 
 	Func InternalServerError P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
 
 	Func Problem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Problem","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
 
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s17:ValidationProblem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s17:ValidationProblem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
 
 	Func Created P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Created",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Created",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Created","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Created","")
 		ok
 		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
 	Func CreatedAtRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
 
 	Func Accepted P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Accepted",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Accepted","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Accepted","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Accepted",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
 
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
 	Func getExtensions
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results').nHandle,"s10:Extensions","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:Extensions","")
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")
@@ -4768,7 +4768,7 @@ Class SendFileFallback from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SendFileAsync P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SendFileFallback, Microsoft.AspNetCore.Http').nHandle,"s13:SendFileAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SendFileFallback, Microsoft.AspNetCore.Http'),"s13:SendFileAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 
 Class SendFileResponseExtensions from Object
@@ -4787,7 +4787,7 @@ Class SendFileResponseExtensions from Object
 
 	Func SendFileAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:SendFileAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s13:SendFileAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
@@ -4807,21 +4807,21 @@ Class SessionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetInt32 P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s8:SetInt32",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:SetInt32",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetInt32 P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s8:GetInt32",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:GetInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetString P1,P2,P3
-		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s9:SetString",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:SetString",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetString P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s9:GetString",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:GetString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Get_ P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s3:Get",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s3:Get",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class StatusCodes from Object
@@ -4906,397 +4906,397 @@ Class StatusCodes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStatus100Continue
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status100Continue","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status100Continue","")
 
 	Func setStatus100Continue P1
 		raise("DotNet Error: Status100Continue is a read-only property")
 
 	Func getStatus101SwitchingProtocols
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s27:Status101SwitchingProtocols","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status101SwitchingProtocols","")
 
 	Func setStatus101SwitchingProtocols P1
 		raise("DotNet Error: Status101SwitchingProtocols is a read-only property")
 
 	Func getStatus102Processing
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s19:Status102Processing","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status102Processing","")
 
 	Func setStatus102Processing P1
 		raise("DotNet Error: Status102Processing is a read-only property")
 
 	Func getStatus200OK
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s11:Status200OK","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s11:Status200OK","")
 
 	Func setStatus200OK P1
 		raise("DotNet Error: Status200OK is a read-only property")
 
 	Func getStatus201Created
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s16:Status201Created","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s16:Status201Created","")
 
 	Func setStatus201Created P1
 		raise("DotNet Error: Status201Created is a read-only property")
 
 	Func getStatus202Accepted
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status202Accepted","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status202Accepted","")
 
 	Func setStatus202Accepted P1
 		raise("DotNet Error: Status202Accepted is a read-only property")
 
 	Func getStatus203NonAuthoritative
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s25:Status203NonAuthoritative","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status203NonAuthoritative","")
 
 	Func setStatus203NonAuthoritative P1
 		raise("DotNet Error: Status203NonAuthoritative is a read-only property")
 
 	Func getStatus204NoContent
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s18:Status204NoContent","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status204NoContent","")
 
 	Func setStatus204NoContent P1
 		raise("DotNet Error: Status204NoContent is a read-only property")
 
 	Func getStatus205ResetContent
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s21:Status205ResetContent","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status205ResetContent","")
 
 	Func setStatus205ResetContent P1
 		raise("DotNet Error: Status205ResetContent is a read-only property")
 
 	Func getStatus206PartialContent
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:Status206PartialContent","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status206PartialContent","")
 
 	Func setStatus206PartialContent P1
 		raise("DotNet Error: Status206PartialContent is a read-only property")
 
 	Func getStatus207MultiStatus
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s20:Status207MultiStatus","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status207MultiStatus","")
 
 	Func setStatus207MultiStatus P1
 		raise("DotNet Error: Status207MultiStatus is a read-only property")
 
 	Func getStatus208AlreadyReported
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status208AlreadyReported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status208AlreadyReported","")
 
 	Func setStatus208AlreadyReported P1
 		raise("DotNet Error: Status208AlreadyReported is a read-only property")
 
 	Func getStatus226IMUsed
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s15:Status226IMUsed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status226IMUsed","")
 
 	Func setStatus226IMUsed P1
 		raise("DotNet Error: Status226IMUsed is a read-only property")
 
 	Func getStatus300MultipleChoices
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status300MultipleChoices","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status300MultipleChoices","")
 
 	Func setStatus300MultipleChoices P1
 		raise("DotNet Error: Status300MultipleChoices is a read-only property")
 
 	Func getStatus301MovedPermanently
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s25:Status301MovedPermanently","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status301MovedPermanently","")
 
 	Func setStatus301MovedPermanently P1
 		raise("DotNet Error: Status301MovedPermanently is a read-only property")
 
 	Func getStatus302Found
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s14:Status302Found","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s14:Status302Found","")
 
 	Func setStatus302Found P1
 		raise("DotNet Error: Status302Found is a read-only property")
 
 	Func getStatus303SeeOther
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status303SeeOther","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status303SeeOther","")
 
 	Func setStatus303SeeOther P1
 		raise("DotNet Error: Status303SeeOther is a read-only property")
 
 	Func getStatus304NotModified
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s20:Status304NotModified","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status304NotModified","")
 
 	Func setStatus304NotModified P1
 		raise("DotNet Error: Status304NotModified is a read-only property")
 
 	Func getStatus305UseProxy
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status305UseProxy","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status305UseProxy","")
 
 	Func setStatus305UseProxy P1
 		raise("DotNet Error: Status305UseProxy is a read-only property")
 
 	Func getStatus306SwitchProxy
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s20:Status306SwitchProxy","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status306SwitchProxy","")
 
 	Func setStatus306SwitchProxy P1
 		raise("DotNet Error: Status306SwitchProxy is a read-only property")
 
 	Func getStatus307TemporaryRedirect
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s26:Status307TemporaryRedirect","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status307TemporaryRedirect","")
 
 	Func setStatus307TemporaryRedirect P1
 		raise("DotNet Error: Status307TemporaryRedirect is a read-only property")
 
 	Func getStatus308PermanentRedirect
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s26:Status308PermanentRedirect","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status308PermanentRedirect","")
 
 	Func setStatus308PermanentRedirect P1
 		raise("DotNet Error: Status308PermanentRedirect is a read-only property")
 
 	Func getStatus400BadRequest
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s19:Status400BadRequest","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status400BadRequest","")
 
 	Func setStatus400BadRequest P1
 		raise("DotNet Error: Status400BadRequest is a read-only property")
 
 	Func getStatus401Unauthorized
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s21:Status401Unauthorized","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status401Unauthorized","")
 
 	Func setStatus401Unauthorized P1
 		raise("DotNet Error: Status401Unauthorized is a read-only property")
 
 	Func getStatus402PaymentRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status402PaymentRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status402PaymentRequired","")
 
 	Func setStatus402PaymentRequired P1
 		raise("DotNet Error: Status402PaymentRequired is a read-only property")
 
 	Func getStatus403Forbidden
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s18:Status403Forbidden","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status403Forbidden","")
 
 	Func setStatus403Forbidden P1
 		raise("DotNet Error: Status403Forbidden is a read-only property")
 
 	Func getStatus404NotFound
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status404NotFound","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status404NotFound","")
 
 	Func setStatus404NotFound P1
 		raise("DotNet Error: Status404NotFound is a read-only property")
 
 	Func getStatus405MethodNotAllowed
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s25:Status405MethodNotAllowed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status405MethodNotAllowed","")
 
 	Func setStatus405MethodNotAllowed P1
 		raise("DotNet Error: Status405MethodNotAllowed is a read-only property")
 
 	Func getStatus406NotAcceptable
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s22:Status406NotAcceptable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s22:Status406NotAcceptable","")
 
 	Func setStatus406NotAcceptable P1
 		raise("DotNet Error: Status406NotAcceptable is a read-only property")
 
 	Func getStatus407ProxyAuthenticationRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s36:Status407ProxyAuthenticationRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status407ProxyAuthenticationRequired","")
 
 	Func setStatus407ProxyAuthenticationRequired P1
 		raise("DotNet Error: Status407ProxyAuthenticationRequired is a read-only property")
 
 	Func getStatus408RequestTimeout
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:Status408RequestTimeout","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status408RequestTimeout","")
 
 	Func setStatus408RequestTimeout P1
 		raise("DotNet Error: Status408RequestTimeout is a read-only property")
 
 	Func getStatus409Conflict
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s17:Status409Conflict","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status409Conflict","")
 
 	Func setStatus409Conflict P1
 		raise("DotNet Error: Status409Conflict is a read-only property")
 
 	Func getStatus410Gone
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s13:Status410Gone","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s13:Status410Gone","")
 
 	Func setStatus410Gone P1
 		raise("DotNet Error: Status410Gone is a read-only property")
 
 	Func getStatus411LengthRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:Status411LengthRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status411LengthRequired","")
 
 	Func setStatus411LengthRequired P1
 		raise("DotNet Error: Status411LengthRequired is a read-only property")
 
 	Func getStatus412PreconditionFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s27:Status412PreconditionFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status412PreconditionFailed","")
 
 	Func setStatus412PreconditionFailed P1
 		raise("DotNet Error: Status412PreconditionFailed is a read-only property")
 
 	Func getStatus413RequestEntityTooLarge
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s30:Status413RequestEntityTooLarge","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status413RequestEntityTooLarge","")
 
 	Func setStatus413RequestEntityTooLarge P1
 		raise("DotNet Error: Status413RequestEntityTooLarge is a read-only property")
 
 	Func getStatus413PayloadTooLarge
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status413PayloadTooLarge","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status413PayloadTooLarge","")
 
 	Func setStatus413PayloadTooLarge P1
 		raise("DotNet Error: Status413PayloadTooLarge is a read-only property")
 
 	Func getStatus414RequestUriTooLong
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s26:Status414RequestUriTooLong","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status414RequestUriTooLong","")
 
 	Func setStatus414RequestUriTooLong P1
 		raise("DotNet Error: Status414RequestUriTooLong is a read-only property")
 
 	Func getStatus414UriTooLong
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s19:Status414UriTooLong","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status414UriTooLong","")
 
 	Func setStatus414UriTooLong P1
 		raise("DotNet Error: Status414UriTooLong is a read-only property")
 
 	Func getStatus415UnsupportedMediaType
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s29:Status415UnsupportedMediaType","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status415UnsupportedMediaType","")
 
 	Func setStatus415UnsupportedMediaType P1
 		raise("DotNet Error: Status415UnsupportedMediaType is a read-only property")
 
 	Func getStatus416RequestedRangeNotSatisfiable
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s37:Status416RequestedRangeNotSatisfiable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s37:Status416RequestedRangeNotSatisfiable","")
 
 	Func setStatus416RequestedRangeNotSatisfiable P1
 		raise("DotNet Error: Status416RequestedRangeNotSatisfiable is a read-only property")
 
 	Func getStatus416RangeNotSatisfiable
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s28:Status416RangeNotSatisfiable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status416RangeNotSatisfiable","")
 
 	Func setStatus416RangeNotSatisfiable P1
 		raise("DotNet Error: Status416RangeNotSatisfiable is a read-only property")
 
 	Func getStatus417ExpectationFailed
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s26:Status417ExpectationFailed","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status417ExpectationFailed","")
 
 	Func setStatus417ExpectationFailed P1
 		raise("DotNet Error: Status417ExpectationFailed is a read-only property")
 
 	Func getStatus418ImATeapot
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s18:Status418ImATeapot","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status418ImATeapot","")
 
 	Func setStatus418ImATeapot P1
 		raise("DotNet Error: Status418ImATeapot is a read-only property")
 
 	Func getStatus419AuthenticationTimeout
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s30:Status419AuthenticationTimeout","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status419AuthenticationTimeout","")
 
 	Func setStatus419AuthenticationTimeout P1
 		raise("DotNet Error: Status419AuthenticationTimeout is a read-only property")
 
 	Func getStatus421MisdirectedRequest
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s27:Status421MisdirectedRequest","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status421MisdirectedRequest","")
 
 	Func setStatus421MisdirectedRequest P1
 		raise("DotNet Error: Status421MisdirectedRequest is a read-only property")
 
 	Func getStatus422UnprocessableEntity
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s28:Status422UnprocessableEntity","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status422UnprocessableEntity","")
 
 	Func setStatus422UnprocessableEntity P1
 		raise("DotNet Error: Status422UnprocessableEntity is a read-only property")
 
 	Func getStatus423Locked
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s15:Status423Locked","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status423Locked","")
 
 	Func setStatus423Locked P1
 		raise("DotNet Error: Status423Locked is a read-only property")
 
 	Func getStatus424FailedDependency
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s25:Status424FailedDependency","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status424FailedDependency","")
 
 	Func setStatus424FailedDependency P1
 		raise("DotNet Error: Status424FailedDependency is a read-only property")
 
 	Func getStatus426UpgradeRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status426UpgradeRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status426UpgradeRequired","")
 
 	Func setStatus426UpgradeRequired P1
 		raise("DotNet Error: Status426UpgradeRequired is a read-only property")
 
 	Func getStatus428PreconditionRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s29:Status428PreconditionRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status428PreconditionRequired","")
 
 	Func setStatus428PreconditionRequired P1
 		raise("DotNet Error: Status428PreconditionRequired is a read-only property")
 
 	Func getStatus429TooManyRequests
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s24:Status429TooManyRequests","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status429TooManyRequests","")
 
 	Func setStatus429TooManyRequests P1
 		raise("DotNet Error: Status429TooManyRequests is a read-only property")
 
 	Func getStatus431RequestHeaderFieldsTooLarge
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s36:Status431RequestHeaderFieldsTooLarge","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status431RequestHeaderFieldsTooLarge","")
 
 	Func setStatus431RequestHeaderFieldsTooLarge P1
 		raise("DotNet Error: Status431RequestHeaderFieldsTooLarge is a read-only property")
 
 	Func getStatus451UnavailableForLegalReasons
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s35:Status451UnavailableForLegalReasons","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s35:Status451UnavailableForLegalReasons","")
 
 	Func setStatus451UnavailableForLegalReasons P1
 		raise("DotNet Error: Status451UnavailableForLegalReasons is a read-only property")
 
 	Func getStatus499ClientClosedRequest
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s28:Status499ClientClosedRequest","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status499ClientClosedRequest","")
 
 	Func setStatus499ClientClosedRequest P1
 		raise("DotNet Error: Status499ClientClosedRequest is a read-only property")
 
 	Func getStatus500InternalServerError
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s28:Status500InternalServerError","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status500InternalServerError","")
 
 	Func setStatus500InternalServerError P1
 		raise("DotNet Error: Status500InternalServerError is a read-only property")
 
 	Func getStatus501NotImplemented
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:Status501NotImplemented","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status501NotImplemented","")
 
 	Func setStatus501NotImplemented P1
 		raise("DotNet Error: Status501NotImplemented is a read-only property")
 
 	Func getStatus502BadGateway
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s19:Status502BadGateway","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status502BadGateway","")
 
 	Func setStatus502BadGateway P1
 		raise("DotNet Error: Status502BadGateway is a read-only property")
 
 	Func getStatus503ServiceUnavailable
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s27:Status503ServiceUnavailable","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status503ServiceUnavailable","")
 
 	Func setStatus503ServiceUnavailable P1
 		raise("DotNet Error: Status503ServiceUnavailable is a read-only property")
 
 	Func getStatus504GatewayTimeout
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s23:Status504GatewayTimeout","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status504GatewayTimeout","")
 
 	Func setStatus504GatewayTimeout P1
 		raise("DotNet Error: Status504GatewayTimeout is a read-only property")
 
 	Func getStatus505HttpVersionNotsupported
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s32:Status505HttpVersionNotsupported","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s32:Status505HttpVersionNotsupported","")
 
 	Func setStatus505HttpVersionNotsupported P1
 		raise("DotNet Error: Status505HttpVersionNotsupported is a read-only property")
 
 	Func getStatus506VariantAlsoNegotiates
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s30:Status506VariantAlsoNegotiates","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status506VariantAlsoNegotiates","")
 
 	Func setStatus506VariantAlsoNegotiates P1
 		raise("DotNet Error: Status506VariantAlsoNegotiates is a read-only property")
 
 	Func getStatus507InsufficientStorage
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s28:Status507InsufficientStorage","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status507InsufficientStorage","")
 
 	Func setStatus507InsufficientStorage P1
 		raise("DotNet Error: Status507InsufficientStorage is a read-only property")
 
 	Func getStatus508LoopDetected
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s21:Status508LoopDetected","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status508LoopDetected","")
 
 	Func setStatus508LoopDetected P1
 		raise("DotNet Error: Status508LoopDetected is a read-only property")
 
 	Func getStatus510NotExtended
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s20:Status510NotExtended","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status510NotExtended","")
 
 	Func setStatus510NotExtended P1
 		raise("DotNet Error: Status510NotExtended is a read-only property")
 
 	Func getStatus511NetworkAuthenticationRequired
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s38:Status511NetworkAuthenticationRequired","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s38:Status511NetworkAuthenticationRequired","")
 
 	Func setStatus511NetworkAuthenticationRequired P1
 		raise("DotNet Error: Status511NetworkAuthenticationRequired is a read-only property")
@@ -5398,225 +5398,225 @@ Class TypedResults from Object
 
 	Func Challenge P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s9:Challenge","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s9:Challenge",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
 
 	Func Forbid P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Forbid","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Forbid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
 
 	Func SignIn P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:SignIn",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:SignIn",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
 
 	Func SignOut P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:SignOut","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:SignOut",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
 
 	Func Content P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Content",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Content",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
 
 	Func Text P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Text",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Text",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
 
 	Func Json P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Json",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:Json",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
 
 	Func File P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:File",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s4:File",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
 
 	Func Bytes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Bytes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Bytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
 
 	Func Stream P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Stream",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s6:Stream",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
 
 	Func PhysicalFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s12:PhysicalFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s12:PhysicalFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s12:PhysicalFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s12:PhysicalFile",dnPackItem(P1))
 
 	Func VirtualFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s11:VirtualFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s11:VirtualFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s11:VirtualFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s11:VirtualFile",dnPackItem(P1))
 
 	Func Redirect P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Redirect",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Redirect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
 
 	Func LocalRedirect P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s13:LocalRedirect",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s13:LocalRedirect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
 
 	Func RedirectToRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:RedirectToRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
 
 	Func StatusCode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s10:StatusCode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:StatusCode",dnPackItem(P1))
 
 	Func NotFound P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:NotFound","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:NotFound",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
 
 	Func Unauthorized 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s12:Unauthorized","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s12:Unauthorized","")
 
 	Func BadRequest P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s10:BadRequest",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
 
 	Func Conflict P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Conflict","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Conflict",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
 
 	Func NoContent 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s9:NoContent","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s9:NoContent","")
 
 	Func Ok P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s2:Ok","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s2:Ok",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
 
 	Func UnprocessableEntity P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:UnprocessableEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
 
 	Func InternalServerError P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s19:InternalServerError",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
 
 	Func Problem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Problem","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Problem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
 
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s17:ValidationProblem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s17:ValidationProblem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
 
 	Func Created P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Created",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Created",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Created","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Created","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s7:Created",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Created",dnPackItem(P1))
 
 	Func CreatedAtRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s14:CreatedAtRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
 
 	Func Accepted P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Accepted",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s8:Accepted",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
 
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s15:AcceptedAtRoute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
 	Func getExtensions
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results').nHandle,"s10:Extensions","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:Extensions","")
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")

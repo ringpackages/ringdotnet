@@ -365,7 +365,7 @@ Class BinaryWriter from Object
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.BinaryWriter, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.BinaryWriter, System.Private.CoreLib'),"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -386,134 +386,134 @@ Class Directory from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetParent P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s9:GetParent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s9:GetParent",dnPackItem(P1))
 
 	Func CreateDirectory P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s15:CreateDirectory",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:CreateDirectory",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s15:CreateDirectory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:CreateDirectory",dnPackItem(P1))
 
 	Func CreateTempSubdirectory P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s22:CreateTempSubdirectory",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s22:CreateTempSubdirectory",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s22:CreateTempSubdirectory","")
+			return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s22:CreateTempSubdirectory","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s22:CreateTempSubdirectory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s22:CreateTempSubdirectory",dnPackItem(P1))
 
 	Func Exists P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s6:Exists",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Exists",dnPackItem(P1))
 
 	Func SetCreationTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetCreationTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCreationTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s15:GetCreationTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:GetCreationTime",dnPackItem(P1))
 
 	Func GetCreationTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s18:GetCreationTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:GetCreationTimeUtc",dnPackItem(P1))
 
 	Func SetLastWriteTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetLastWriteTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLastWriteTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s16:GetLastWriteTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:GetLastWriteTime",dnPackItem(P1))
 
 	Func GetLastWriteTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s19:GetLastWriteTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:GetLastWriteTimeUtc",dnPackItem(P1))
 
 	Func SetLastAccessTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetLastAccessTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLastAccessTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s17:GetLastAccessTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s17:GetLastAccessTime",dnPackItem(P1))
 
 	Func GetLastAccessTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:GetLastAccessTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:GetLastAccessTimeUtc",dnPackItem(P1))
 
 	Func GetFiles P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s8:GetFiles",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s8:GetFiles",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s8:GetFiles",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s8:GetFiles",dnPackItem(P1))
 
 	Func GetDirectories P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s14:GetDirectories",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:GetDirectories",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s14:GetDirectories",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:GetDirectories",dnPackItem(P1))
 
 	Func GetFileSystemEntries P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:GetFileSystemEntries",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:GetFileSystemEntries",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:GetFileSystemEntries",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:GetFileSystemEntries",dnPackItem(P1))
 
 	Func EnumerateDirectories P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:EnumerateDirectories",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:EnumerateDirectories",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s20:EnumerateDirectories",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:EnumerateDirectories",dnPackItem(P1))
 
 	Func EnumerateFiles P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s14:EnumerateFiles",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:EnumerateFiles",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s14:EnumerateFiles",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:EnumerateFiles",dnPackItem(P1))
 
 	Func EnumerateFileSystemEntries P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s26:EnumerateFileSystemEntries",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s26:EnumerateFileSystemEntries",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s26:EnumerateFileSystemEntries",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s26:EnumerateFileSystemEntries",dnPackItem(P1))
 
 	Func GetDirectoryRoot P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s16:GetDirectoryRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:GetDirectoryRoot",dnPackItem(P1))
 
 	Func GetCurrentDirectory 
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s19:GetCurrentDirectory","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:GetCurrentDirectory","")
 
 	Func SetCurrentDirectory P1
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s19:SetCurrentDirectory",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetCurrentDirectory",dnPackItem(P1))
 		return self
 
 	Func Move P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s4:Move",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s4:Move",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Delete P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s6:Delete",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s6:Delete",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1))
 		return self
 
 	Func GetLogicalDrives 
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s16:GetLogicalDrives","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:GetLogicalDrives","")
 
 	Func CreateSymbolicLink P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s18:CreateSymbolicLink",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:CreateSymbolicLink",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ResolveLinkTarget P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.Directory, System.Private.CoreLib').nHandle,"s17:ResolveLinkTarget",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s17:ResolveLinkTarget",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class DriveInfo from Object
@@ -543,7 +543,7 @@ Class DriveInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDrives 
-		return dnSend("s4:call",dnTypeCached('System.IO.DriveInfo, System.IO.FileSystem.DriveInfo').nHandle,"s9:GetDrives","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.DriveInfo, System.IO.FileSystem.DriveInfo'),"s9:GetDrives","")
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -722,252 +722,252 @@ Class File from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func OpenText P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s8:OpenText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s8:OpenText",dnPackItem(P1))
 
 	Func CreateText P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s10:CreateText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:CreateText",dnPackItem(P1))
 
 	Func AppendText P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s10:AppendText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:AppendText",dnPackItem(P1))
 
 	Func Copy P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func Delete P1
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s6:Delete",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1))
 		return self
 
 	Func Exists P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s6:Exists",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Exists",dnPackItem(P1))
 
 	Func Open P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s4:Open",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Open",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Open does not take one argument: use named arguments, Open([ :parameter = value, ... ])")
 
 	Func OpenHandle P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s10:OpenHandle",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:OpenHandle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s10:OpenHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:OpenHandle",dnPackItem(P1))
 
 	Func SetCreationTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetCreationTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCreationTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s15:GetCreationTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:GetCreationTime",dnPackItem(P1))
 
 	Func GetCreationTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:GetCreationTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:GetCreationTimeUtc",dnPackItem(P1))
 
 	Func SetLastAccessTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetLastAccessTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLastAccessTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:GetLastAccessTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:GetLastAccessTime",dnPackItem(P1))
 
 	Func GetLastAccessTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s20:GetLastAccessTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s20:GetLastAccessTimeUtc",dnPackItem(P1))
 
 	Func SetLastWriteTime P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetLastWriteTimeUtc P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLastWriteTime P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s16:GetLastWriteTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:GetLastWriteTime",dnPackItem(P1))
 
 	Func GetLastWriteTimeUtc P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s19:GetLastWriteTimeUtc",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:GetLastWriteTimeUtc",dnPackItem(P1))
 
 	Func GetAttributes P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s13:GetAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:GetAttributes",dnPackItem(P1))
 
 	Func SetAttributes P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetUnixFileMode P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s15:GetUnixFileMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:GetUnixFileMode",dnPackItem(P1))
 
 	Func SetUnixFileMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s15:SetUnixFileMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetUnixFileMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OpenRead P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s8:OpenRead",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s8:OpenRead",dnPackItem(P1))
 
 	Func OpenWrite P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s9:OpenWrite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s9:OpenWrite",dnPackItem(P1))
 
 	Func ReadAllText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s11:ReadAllText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s11:ReadAllText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",dnPackItem(P1))
 
 	Func WriteAllText P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s12:WriteAllText",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:WriteAllText",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteAllText does not take one argument: use named arguments, WriteAllText([ :parameter = value, ... ])")
 
 	Func ReadAllBytes P1
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s12:ReadAllBytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:ReadAllBytes",dnPackItem(P1))
 
 	Func WriteAllBytes P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s13:WriteAllBytes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:WriteAllBytes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AppendAllBytes P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s14:AppendAllBytes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:AppendAllBytes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AppendAllBytesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s19:AppendAllBytesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:AppendAllBytesAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AppendAllBytesAsync does not take one argument: use named arguments, AppendAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLines P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s12:ReadAllLines",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:ReadAllLines",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s12:ReadAllLines",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:ReadAllLines",dnPackItem(P1))
 
 	Func ReadLines P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s9:ReadLines",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s9:ReadLines",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s9:ReadLines",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s9:ReadLines",dnPackItem(P1))
 
 	Func ReadLinesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s14:ReadLinesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:ReadLinesAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s14:ReadLinesAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:ReadLinesAsync",dnPackItem(P1))
 
 	Func WriteAllLines P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s13:WriteAllLines",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:WriteAllLines",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteAllLines does not take one argument: use named arguments, WriteAllLines([ :parameter = value, ... ])")
 
 	Func AppendAllText P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s13:AppendAllText",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:AppendAllText",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AppendAllText does not take one argument: use named arguments, AppendAllText([ :parameter = value, ... ])")
 
 	Func AppendAllLines P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s14:AppendAllLines",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:AppendAllLines",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AppendAllLines does not take one argument: use named arguments, AppendAllLines([ :parameter = value, ... ])")
 
 	Func Replace P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s7:Replace",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Replace",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Move P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s4:Move",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Move",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Move does not take one argument: use named arguments, Move([ :parameter = value, ... ])")
 
 	Func Encrypt P1
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s7:Encrypt",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Encrypt",dnPackItem(P1))
 		return self
 
 	Func Decrypt P1
-		dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s7:Decrypt",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Decrypt",dnPackItem(P1))
 		return self
 
 	Func ReadAllTextAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s16:ReadAllTextAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:ReadAllTextAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s16:ReadAllTextAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:ReadAllTextAsync",dnPackItem(P1))
 
 	Func WriteAllTextAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:WriteAllTextAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:WriteAllTextAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAllTextAsync does not take one argument: use named arguments, WriteAllTextAsync([ :parameter = value, ... ])")
 
 	Func ReadAllBytesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:ReadAllBytesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllBytesAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:ReadAllBytesAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllBytesAsync",dnPackItem(P1))
 
 	Func WriteAllBytesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:WriteAllBytesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:WriteAllBytesAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAllBytesAsync does not take one argument: use named arguments, WriteAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLinesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:ReadAllLinesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllLinesAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:ReadAllLinesAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllLinesAsync",dnPackItem(P1))
 
 	Func WriteAllLinesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:WriteAllLinesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:WriteAllLinesAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAllLinesAsync does not take one argument: use named arguments, WriteAllLinesAsync([ :parameter = value, ... ])")
 
 	Func AppendAllTextAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:AppendAllTextAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:AppendAllTextAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AppendAllTextAsync does not take one argument: use named arguments, AppendAllTextAsync([ :parameter = value, ... ])")
 
 	Func AppendAllLinesAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s19:AppendAllLinesAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:AppendAllLinesAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AppendAllLinesAsync does not take one argument: use named arguments, AppendAllLinesAsync([ :parameter = value, ... ])")
 
 	Func CreateSymbolicLink P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s18:CreateSymbolicLink",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:CreateSymbolicLink",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ResolveLinkTarget P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.File, System.Private.CoreLib').nHandle,"s17:ResolveLinkTarget",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ResolveLinkTarget",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FileStreamOptions from Object
@@ -1394,103 +1394,103 @@ Class Path from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ChangeExtension P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s15:ChangeExtension",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:ChangeExtension",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Exists P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s6:Exists",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s6:Exists",dnPackItem(P1))
 
 	Func GetDirectoryName P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s16:GetDirectoryName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s16:GetDirectoryName",dnPackItem(P1))
 
 	Func GetExtension P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s12:GetExtension",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:GetExtension",dnPackItem(P1))
 
 	Func GetFileName P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s11:GetFileName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFileName",dnPackItem(P1))
 
 	Func GetFileNameWithoutExtension P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s27:GetFileNameWithoutExtension",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s27:GetFileNameWithoutExtension",dnPackItem(P1))
 
 	Func GetRandomFileName 
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s17:GetRandomFileName","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s17:GetRandomFileName","")
 
 	Func IsPathFullyQualified P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s20:IsPathFullyQualified",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s20:IsPathFullyQualified",dnPackItem(P1))
 
 	Func HasExtension P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s12:HasExtension",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:HasExtension",dnPackItem(P1))
 
 	Func Combine P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
 
 	Func Join P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s4:Join",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s4:Join",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
 
 	Func GetRelativePath P1,P2
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s15:GetRelativePath",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetRelativePath",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrimEndingDirectorySeparator P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s28:TrimEndingDirectorySeparator",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s28:TrimEndingDirectorySeparator",dnPackItem(P1))
 
 	Func EndsInDirectorySeparator P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s24:EndsInDirectorySeparator",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s24:EndsInDirectorySeparator",dnPackItem(P1))
 
 	Func GetInvalidFileNameChars 
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s23:GetInvalidFileNameChars","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s23:GetInvalidFileNameChars","")
 
 	Func GetInvalidPathChars_ 
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s19:GetInvalidPathChars","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s19:GetInvalidPathChars","")
 
 	Func GetFullPath P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s11:GetFullPath",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s11:GetFullPath",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",dnPackItem(P1))
 
 	Func GetTempPath 
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s11:GetTempPath","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetTempPath","")
 
 	Func GetTempFileName 
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s15:GetTempFileName","")
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetTempFileName","")
 
 	Func IsPathRooted P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s12:IsPathRooted",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:IsPathRooted",dnPackItem(P1))
 
 	Func GetPathRoot P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s11:GetPathRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetPathRoot",dnPackItem(P1))
 
 	Func getDirectorySeparatorChar
-		return dnSend("s3:get",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s22:DirectorySeparatorChar","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s22:DirectorySeparatorChar","")
 
 	Func setDirectorySeparatorChar P1
 		raise("DotNet Error: DirectorySeparatorChar is a read-only property")
 
 	Func getAltDirectorySeparatorChar
-		return dnSend("s3:get",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s25:AltDirectorySeparatorChar","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s25:AltDirectorySeparatorChar","")
 
 	Func setAltDirectorySeparatorChar P1
 		raise("DotNet Error: AltDirectorySeparatorChar is a read-only property")
 
 	Func getVolumeSeparatorChar
-		return dnSend("s3:get",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s19:VolumeSeparatorChar","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s19:VolumeSeparatorChar","")
 
 	Func setVolumeSeparatorChar P1
 		raise("DotNet Error: VolumeSeparatorChar is a read-only property")
 
 	Func getPathSeparator
-		return dnSend("s3:get",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s13:PathSeparator","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s13:PathSeparator","")
 
 	Func setPathSeparator P1
 		raise("DotNet Error: PathSeparator is a read-only property")
 
 	Func getInvalidPathChars
-		return dnSend("s3:get",dnTypeCached('System.IO.Path, System.Private.CoreLib').nHandle,"s16:InvalidPathChars","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s16:InvalidPathChars","")
 
 	Func setInvalidPathChars P1
 		raise("DotNet Error: InvalidPathChars is a read-only property")
@@ -1511,33 +1511,33 @@ Class RandomAccess from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetLength P1
-		return dnSend("s4:call",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s9:GetLength",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:GetLength",dnPackItem(P1))
 
 	Func SetLength P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s9:SetLength",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:SetLength",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Read P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s9:ReadAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:ReadAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func Write P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s10:WriteAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s10:WriteAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func FlushToDisk P1
-		dnSend("s4:call",dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib').nHandle,"s11:FlushToDisk",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s11:FlushToDisk",dnPackItem(P1))
 		return self
 
 
@@ -1663,7 +1663,7 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Stream, System.Private.CoreLib').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Stream, System.Private.CoreLib'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getCanRead
 		return dnSend("s3:get",nHandle,"s7:CanRead","")
@@ -1714,7 +1714,7 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.Stream, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Stream, System.Private.CoreLib'),"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -1793,10 +1793,10 @@ Class TextReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s14:ReadBlockAsync",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.IO.TextReader, System.Private.CoreLib').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.TextReader, System.Private.CoreLib'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.TextReader, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.TextReader, System.Private.CoreLib'),"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -1878,10 +1878,10 @@ Class TextWriter from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s10:FlushAsync",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.IO.TextWriter, System.Private.CoreLib').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.TextWriter, System.Private.CoreLib'),"s12:Synchronized",dnPackItem(P1))
 
 	Func CreateBroadcasting P1
-		return dnSend("s4:call",dnTypeCached('System.IO.TextWriter, System.Private.CoreLib').nHandle,"s18:CreateBroadcasting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.TextWriter, System.Private.CoreLib'),"s18:CreateBroadcasting",dnPackItem(P1))
 
 	Func getFormatProvider
 		return dnSend("s3:get",nHandle,"s14:FormatProvider","")
@@ -1903,7 +1903,7 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.TextWriter, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.TextWriter, System.Private.CoreLib'),"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -2541,7 +2541,7 @@ Class StreamReader from TextReader
 		raise("DotNet Error: EndOfStream is a read-only property")
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.StreamReader, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.StreamReader, System.Private.CoreLib'),"s4:Null","")
 
 
 Class StreamWriter from TextWriter
@@ -2589,7 +2589,7 @@ Class StreamWriter from TextWriter
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getNull
-		return dnSend("s3:get",dnTypeCached('System.IO.StreamWriter, System.Private.CoreLib').nHandle,"s4:Null","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.StreamWriter, System.Private.CoreLib'),"s4:Null","")
 
 
 Class StringReader from TextReader

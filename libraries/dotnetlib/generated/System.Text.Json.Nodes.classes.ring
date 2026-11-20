@@ -96,19 +96,19 @@ Class JsonNode from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DeepEquals P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -237,9 +237,9 @@ Class JsonArray from JsonNode
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"s6:Create",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -333,9 +333,9 @@ Class JsonObject from JsonNode
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"s6:Create",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -360,8 +360,8 @@ Class JsonValue from JsonNode
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"s6:Create",dnPackItem(P1))
 
 

@@ -259,22 +259,22 @@ Class WindowsIdentity from ClaimsIdentity
 
 	Func GetCurrent P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s10:GetCurrent",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s10:GetCurrent","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s10:GetCurrent",dnPackItem(P1))
 
 	Func GetAnonymous 
-		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s12:GetAnonymous","")
+		return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s12:GetAnonymous","")
 
 	Func RunImpersonated P1,P2
-		dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RunImpersonatedAsync P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s20:RunImpersonatedAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s20:RunImpersonatedAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getImpersonationLevel
 		return dnSend("s3:get",nHandle,"s18:ImpersonationLevel","")
@@ -343,7 +343,7 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: DeviceClaims is a read-only property")
 
 	Func getDefaultIssuer
-		return dnSend("s3:get",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s13:DefaultIssuer","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer","")
 
 
 Class WindowsPrincipal from ClaimsPrincipal
@@ -466,13 +466,13 @@ Class SecurityIdentifier from IdentityReference
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		return dnSend("s3:get",dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows').nHandle,"s15:MinBinaryLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength","")
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		return dnSend("s3:get",dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows').nHandle,"s15:MaxBinaryLength","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength","")
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")

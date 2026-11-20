@@ -379,9 +379,9 @@ Class MailAddress from Object
 
 	Func TryCreate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail').nHandle,"s9:TryCreate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail').nHandle,"s9:TryCreate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 
 	Func getDisplayName
 		return dnSend("s3:get",nHandle,"s11:DisplayName","")
@@ -883,9 +883,9 @@ Class AlternateView from AttachmentBase
 
 	Func CreateAlternateViewFromString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail').nHandle,"s29:CreateAlternateViewFromString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.AlternateView, System.Net.Mail'),"s29:CreateAlternateViewFromString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail').nHandle,"s29:CreateAlternateViewFromString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.AlternateView, System.Net.Mail'),"s29:CreateAlternateViewFromString",dnPackItem(P1))
 
 	Func getLinkedResources
 		return dnSend("s3:get",nHandle,"s15:LinkedResources","")
@@ -935,7 +935,7 @@ Class Attachment from AttachmentBase
 
 	Func CreateAttachmentFromString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail').nHandle,"s26:CreateAttachmentFromString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.Attachment, System.Net.Mail'),"s26:CreateAttachmentFromString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
@@ -992,9 +992,9 @@ Class LinkedResource from AttachmentBase
 
 	Func CreateLinkedResourceFromString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail').nHandle,"s30:CreateLinkedResourceFromString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.LinkedResource, System.Net.Mail'),"s30:CreateLinkedResourceFromString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail').nHandle,"s30:CreateLinkedResourceFromString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.LinkedResource, System.Net.Mail'),"s30:CreateLinkedResourceFromString",dnPackItem(P1))
 
 	Func getContentLink
 		return dnSend("s3:get",nHandle,"s11:ContentLink","")

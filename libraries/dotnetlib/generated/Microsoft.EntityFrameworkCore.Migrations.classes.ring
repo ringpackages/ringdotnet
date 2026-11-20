@@ -237,7 +237,7 @@ Class HistoryRepository from Object
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
 
 	Func getDefaultTableName
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:DefaultTableName","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName","")
 
 	Func setDefaultTableName P1
 		raise("DotNet Error: DefaultTableName is a read-only property")
@@ -766,7 +766,7 @@ Class Migration from Object
 		return self
 
 	Func getInitialDatabase
-		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:InitialDatabase","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase","")
 
 	Func setInitialDatabase P1
 		raise("DotNet Error: InitialDatabase is a read-only property")
@@ -1239,7 +1239,7 @@ Class MigrationsAssemblyExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetMigrationId P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:GetMigrationId",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MigrationsSqlGenerator from Object
@@ -1370,7 +1370,7 @@ Class SqliteMigrationBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsSqlite P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s8:IsSqlite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",dnPackItem(P1))
 
 
 Class SqliteMigrationsSqlGenerator from MigrationsSqlGenerator

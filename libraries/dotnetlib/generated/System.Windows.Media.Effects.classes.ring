@@ -251,25 +251,25 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func getContextInputSource
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore').nHandle,"s18:ContextInputSource","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore'),"s18:ContextInputSource","")
 
 	Func setContextInputSource P1
 		raise("DotNet Error: ContextInputSource is a read-only property")
 
 	Func getInputProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore').nHandle,"s13:InputProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore'),"s13:InputProperty","")
 
 	Func setInputProperty P1
 		raise("DotNet Error: InputProperty is a read-only property")
 
 	Func getAreaToApplyEffectUnitsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore').nHandle,"s30:AreaToApplyEffectUnitsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore'),"s30:AreaToApplyEffectUnitsProperty","")
 
 	Func setAreaToApplyEffectUnitsProperty P1
 		raise("DotNet Error: AreaToApplyEffectUnitsProperty is a read-only property")
 
 	Func getAreaToApplyEffectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore').nHandle,"s25:AreaToApplyEffectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore'),"s25:AreaToApplyEffectProperty","")
 
 	Func setAreaToApplyEffectProperty P1
 		raise("DotNet Error: AreaToApplyEffectProperty is a read-only property")
@@ -289,7 +289,7 @@ Class Effect from Animatable
 		return self
 
 	Func getImplicitInput
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.Effect, PresentationCore').nHandle,"s13:ImplicitInput","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.Effect, PresentationCore'),"s13:ImplicitInput","")
 
 	Func setImplicitInput P1
 		raise("DotNet Error: ImplicitInput is a read-only property")
@@ -347,13 +347,13 @@ Class PixelShader from Animatable
 		return self
 
 	Func getUriSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.PixelShader, PresentationCore').nHandle,"s17:UriSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.PixelShader, PresentationCore'),"s17:UriSourceProperty","")
 
 	Func setUriSourceProperty P1
 		raise("DotNet Error: UriSourceProperty is a read-only property")
 
 	Func getShaderRenderModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.PixelShader, PresentationCore').nHandle,"s24:ShaderRenderModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.PixelShader, PresentationCore'),"s24:ShaderRenderModeProperty","")
 
 	Func setShaderRenderModeProperty P1
 		raise("DotNet Error: ShaderRenderModeProperty is a read-only property")
@@ -426,31 +426,31 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getBevelWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore').nHandle,"s18:BevelWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore'),"s18:BevelWidthProperty","")
 
 	Func setBevelWidthProperty P1
 		raise("DotNet Error: BevelWidthProperty is a read-only property")
 
 	Func getReliefProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore').nHandle,"s14:ReliefProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore'),"s14:ReliefProperty","")
 
 	Func setReliefProperty P1
 		raise("DotNet Error: ReliefProperty is a read-only property")
 
 	Func getLightAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore').nHandle,"s18:LightAngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore'),"s18:LightAngleProperty","")
 
 	Func setLightAngleProperty P1
 		raise("DotNet Error: LightAngleProperty is a read-only property")
 
 	Func getSmoothnessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore').nHandle,"s18:SmoothnessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore'),"s18:SmoothnessProperty","")
 
 	Func setSmoothnessProperty P1
 		raise("DotNet Error: SmoothnessProperty is a read-only property")
 
 	Func getEdgeProfileProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore').nHandle,"s19:EdgeProfileProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore'),"s19:EdgeProfileProperty","")
 
 	Func setEdgeProfileProperty P1
 		raise("DotNet Error: EdgeProfileProperty is a read-only property")
@@ -487,7 +487,7 @@ Class BitmapEffectGroup from BitmapEffect
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BitmapEffectGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BitmapEffectGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -533,13 +533,13 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getRadiusProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore').nHandle,"s14:RadiusProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore'),"s14:RadiusProperty","")
 
 	Func setRadiusProperty P1
 		raise("DotNet Error: RadiusProperty is a read-only property")
 
 	Func getKernelTypeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore').nHandle,"s18:KernelTypeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore'),"s18:KernelTypeProperty","")
 
 	Func setKernelTypeProperty P1
 		raise("DotNet Error: KernelTypeProperty is a read-only property")
@@ -594,19 +594,19 @@ Class BlurEffect from Effect
 		return self
 
 	Func getRadiusProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BlurEffect, PresentationCore').nHandle,"s14:RadiusProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BlurEffect, PresentationCore'),"s14:RadiusProperty","")
 
 	Func setRadiusProperty P1
 		raise("DotNet Error: RadiusProperty is a read-only property")
 
 	Func getKernelTypeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BlurEffect, PresentationCore').nHandle,"s18:KernelTypeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BlurEffect, PresentationCore'),"s18:KernelTypeProperty","")
 
 	Func setKernelTypeProperty P1
 		raise("DotNet Error: KernelTypeProperty is a read-only property")
 
 	Func getRenderingBiasProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.BlurEffect, PresentationCore').nHandle,"s21:RenderingBiasProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.BlurEffect, PresentationCore'),"s21:RenderingBiasProperty","")
 
 	Func setRenderingBiasProperty P1
 		raise("DotNet Error: RenderingBiasProperty is a read-only property")
@@ -688,37 +688,37 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getShadowDepthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s19:ShadowDepthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s19:ShadowDepthProperty","")
 
 	Func setShadowDepthProperty P1
 		raise("DotNet Error: ShadowDepthProperty is a read-only property")
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s17:DirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s17:DirectionProperty","")
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
 
 	Func getNoiseProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s13:NoiseProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s13:NoiseProperty","")
 
 	Func setNoiseProperty P1
 		raise("DotNet Error: NoiseProperty is a read-only property")
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")
 
 	Func getSoftnessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore').nHandle,"s16:SoftnessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore'),"s16:SoftnessProperty","")
 
 	Func setSoftnessProperty P1
 		raise("DotNet Error: SoftnessProperty is a read-only property")
@@ -800,37 +800,37 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getShadowDepthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s19:ShadowDepthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s19:ShadowDepthProperty","")
 
 	Func setShadowDepthProperty P1
 		raise("DotNet Error: ShadowDepthProperty is a read-only property")
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s17:DirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s17:DirectionProperty","")
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")
 
 	Func getBlurRadiusProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s18:BlurRadiusProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s18:BlurRadiusProperty","")
 
 	Func setBlurRadiusProperty P1
 		raise("DotNet Error: BlurRadiusProperty is a read-only property")
 
 	Func getRenderingBiasProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.DropShadowEffect, PresentationCore').nHandle,"s21:RenderingBiasProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.DropShadowEffect, PresentationCore'),"s21:RenderingBiasProperty","")
 
 	Func setRenderingBiasProperty P1
 		raise("DotNet Error: RenderingBiasProperty is a read-only property")
@@ -876,13 +876,13 @@ Class EmbossBitmapEffect from BitmapEffect
 		return self
 
 	Func getLightAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore').nHandle,"s18:LightAngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore'),"s18:LightAngleProperty","")
 
 	Func setLightAngleProperty P1
 		raise("DotNet Error: LightAngleProperty is a read-only property")
 
 	Func getReliefProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore').nHandle,"s14:ReliefProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore'),"s14:ReliefProperty","")
 
 	Func setReliefProperty P1
 		raise("DotNet Error: ReliefProperty is a read-only property")
@@ -946,25 +946,25 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		return self
 
 	Func getGlowColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore').nHandle,"s17:GlowColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore'),"s17:GlowColorProperty","")
 
 	Func setGlowColorProperty P1
 		raise("DotNet Error: GlowColorProperty is a read-only property")
 
 	Func getGlowSizeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore').nHandle,"s16:GlowSizeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore'),"s16:GlowSizeProperty","")
 
 	Func setGlowSizeProperty P1
 		raise("DotNet Error: GlowSizeProperty is a read-only property")
 
 	Func getNoiseProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore').nHandle,"s13:NoiseProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore'),"s13:NoiseProperty","")
 
 	Func setNoiseProperty P1
 		raise("DotNet Error: NoiseProperty is a read-only property")
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")

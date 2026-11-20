@@ -208,11 +208,11 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func ClearAllPools 
-		dnSend("s4:call",dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite').nHandle,"s13:ClearAllPools","")
+		dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s13:ClearAllPools","")
 		return self
 
 	Func ClearPool P1
-		dnSend("s4:call",dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite').nHandle,"s9:ClearPool",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s9:ClearPool",dnPackItem(P1))
 		return self
 
 	Func getHandle
@@ -371,7 +371,7 @@ Class SqliteFactory from DbProviderFactory
 		return self
 
 	Func getInstance
-		return dnSend("s3:get",dnTypeCached('Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite').nHandle,"s8:Instance","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite'),"s8:Instance","")
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")

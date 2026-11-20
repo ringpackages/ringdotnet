@@ -224,7 +224,7 @@ Class VisualStyleElement from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateElement P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms').nHandle,"s13:CreateElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms'),"s13:CreateElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getClassName
 		return dnSend("s3:get",nHandle,"s9:ClassName","")
@@ -276,91 +276,91 @@ Class VisualStyleInformation from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsSupportedByOS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s15:IsSupportedByOS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsSupportedByOS","")
 
 	Func setIsSupportedByOS P1
 		raise("DotNet Error: IsSupportedByOS is a read-only property")
 
 	Func getIsEnabledByUser
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s15:IsEnabledByUser","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsEnabledByUser","")
 
 	Func setIsEnabledByUser P1
 		raise("DotNet Error: IsEnabledByUser is a read-only property")
 
 	Func getColorScheme
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:ColorScheme","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:ColorScheme","")
 
 	Func setColorScheme P1
 		raise("DotNet Error: ColorScheme is a read-only property")
 
 	Func getSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s4:Size","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getDisplayName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:DisplayName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getCompany
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s7:Company","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Company","")
 
 	Func setCompany P1
 		raise("DotNet Error: Company is a read-only property")
 
 	Func getAuthor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s6:Author","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s6:Author","")
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getCopyright
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s9:Copyright","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s9:Copyright","")
 
 	Func setCopyright P1
 		raise("DotNet Error: Copyright is a read-only property")
 
 	Func getUrl
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s3:Url","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s3:Url","")
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s7:Version","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDescription
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:Description","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:Description","")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getSupportsFlatMenus
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:SupportsFlatMenus","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:SupportsFlatMenus","")
 
 	Func setSupportsFlatMenus P1
 		raise("DotNet Error: SupportsFlatMenus is a read-only property")
 
 	Func getMinimumColorDepth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:MinimumColorDepth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:MinimumColorDepth","")
 
 	Func setMinimumColorDepth P1
 		raise("DotNet Error: MinimumColorDepth is a read-only property")
 
 	Func getTextControlBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:TextControlBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:TextControlBorder","")
 
 	Func setTextControlBorder P1
 		raise("DotNet Error: TextControlBorder is a read-only property")
 
 	Func getControlHighlightHot
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s19:ControlHighlightHot","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s19:ControlHighlightHot","")
 
 	Func setControlHighlightHot P1
 		raise("DotNet Error: ControlHighlightHot is a read-only property")
@@ -500,7 +500,7 @@ Class VisualStyleRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsElementDefined P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms').nHandle,"s16:IsElementDefined",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s16:IsElementDefined",dnPackItem(P1))
 
 	Func getClass
 		return dnSend("s3:get",nHandle,"s5:Class","")
@@ -530,7 +530,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: LastHResult is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

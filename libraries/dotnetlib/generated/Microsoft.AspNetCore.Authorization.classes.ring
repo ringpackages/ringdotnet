@@ -217,10 +217,10 @@ Class AuthorizationFailure from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ExplicitFail 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization').nHandle,"s12:ExplicitFail","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"s12:ExplicitFail","")
 
 	Func Failed P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization').nHandle,"s6:Failed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
 
 	Func getFailCalled
 		return dnSend("s3:get",nHandle,"s10:FailCalled","")
@@ -467,11 +467,11 @@ Class AuthorizationPolicy from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Combine P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization').nHandle,"s7:Combine",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"s7:Combine",dnPackItem(P1))
 
 	Func CombineAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization').nHandle,"s12:CombineAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"s12:CombineAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CombineAsync does not take one argument: use named arguments, CombineAsync([ :parameter = value, ... ])")
 
@@ -570,16 +570,16 @@ Class AuthorizationResult from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Success 
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization').nHandle,"s7:Success","")
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s7:Success","")
 
 	Func Failed P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization').nHandle,"s6:Failed",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization').nHandle,"s6:Failed","")
+			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed","")
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization').nHandle,"s6:Failed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
 
 	Func getSucceeded
 		return dnSend("s3:get",nHandle,"s9:Succeeded","")
@@ -610,7 +610,7 @@ Class AuthorizationServiceExtensions from Object
 
 	Func AuthorizeAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization').nHandle,"s14:AuthorizeAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"s14:AuthorizeAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AuthorizeAsync does not take one argument: use named arguments, AuthorizeAsync([ :parameter = value, ... ])")
 

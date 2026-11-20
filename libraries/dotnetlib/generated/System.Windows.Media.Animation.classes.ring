@@ -1368,7 +1368,7 @@ Class Animatable from Freezable
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeStoredWeakReference P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore').nHandle,"s34:ShouldSerializeStoredWeakReference",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",dnPackItem(P1))
 
 	Func getHasAnimatedProperties
 		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
@@ -1424,7 +1424,7 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getStoryboardProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework').nHandle,"s18:StoryboardProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework'),"s18:StoryboardProperty","")
 
 	Func setStoryboardProperty P1
 		raise("DotNet Error: StoryboardProperty is a read-only property")
@@ -1471,13 +1471,13 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1580,7 +1580,7 @@ Class BooleanKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1627,13 +1627,13 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1736,7 +1736,7 @@ Class ByteKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1783,13 +1783,13 @@ Class CharKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.CharKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.CharKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1892,7 +1892,7 @@ Class CharKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2063,7 +2063,7 @@ Class ClockCollection from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.ClockCollection, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.ClockCollection, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -2186,13 +2186,13 @@ Class ColorKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2295,7 +2295,7 @@ Class ColorKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2363,13 +2363,13 @@ Class DecimalKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2472,7 +2472,7 @@ Class DecimalKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2519,13 +2519,13 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2628,7 +2628,7 @@ Class DoubleKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2659,7 +2659,7 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func getEasingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingFunctionBase, PresentationCore').nHandle,"s18:EasingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingFunctionBase, PresentationCore'),"s18:EasingModeProperty","")
 
 	Func setEasingModeProperty P1
 		raise("DotNet Error: EasingModeProperty is a read-only property")
@@ -2823,13 +2823,13 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2932,7 +2932,7 @@ Class Int16KeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2979,13 +2979,13 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3088,7 +3088,7 @@ Class Int32KeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3135,13 +3135,13 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3244,7 +3244,7 @@ Class Int64KeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3342,7 +3342,7 @@ Class KeyTime from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -3352,10 +3352,10 @@ Class KeyTime from ValueType
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func FromPercent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s11:FromPercent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s11:FromPercent",dnPackItem(P1))
 
 	Func FromTimeSpan P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s12:FromTimeSpan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s12:FromTimeSpan",dnPackItem(P1))
 
 	Func getTimeSpan
 		return dnSend("s3:get",nHandle,"s8:TimeSpan","")
@@ -3376,13 +3376,13 @@ Class KeyTime from ValueType
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getUniform
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s7:Uniform","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s7:Uniform","")
 
 	Func setUniform P1
 		raise("DotNet Error: Uniform is a read-only property")
 
 	Func getPaced
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s5:Paced","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s5:Paced","")
 
 	Func setPaced P1
 		raise("DotNet Error: Paced is a read-only property")
@@ -3429,13 +3429,13 @@ Class MatrixKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3538,7 +3538,7 @@ Class MatrixKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3585,13 +3585,13 @@ Class ObjectKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3694,7 +3694,7 @@ Class ObjectKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3741,13 +3741,13 @@ Class Point3DKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3850,7 +3850,7 @@ Class Point3DKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3897,13 +3897,13 @@ Class PointKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4006,7 +4006,7 @@ Class PointKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4053,13 +4053,13 @@ Class QuaternionKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4162,7 +4162,7 @@ Class QuaternionKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4209,13 +4209,13 @@ Class RectKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4318,7 +4318,7 @@ Class RectKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4369,7 +4369,7 @@ Class RepeatBehavior from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -4406,7 +4406,7 @@ Class RepeatBehavior from ValueType
 		raise("DotNet Error: Duration is a read-only property")
 
 	Func getForever
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore').nHandle,"s7:Forever","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"s7:Forever","")
 
 	Func setForever P1
 		raise("DotNet Error: Forever is a read-only property")
@@ -4474,13 +4474,13 @@ Class Rotation3DKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4583,7 +4583,7 @@ Class Rotation3DKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4630,13 +4630,13 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4739,7 +4739,7 @@ Class SingleKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4786,13 +4786,13 @@ Class SizeKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4895,7 +4895,7 @@ Class SizeKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4942,13 +4942,13 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.StringKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.StringKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5051,7 +5051,7 @@ Class StringKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5098,13 +5098,13 @@ Class ThicknessKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5207,7 +5207,7 @@ Class ThicknessKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5254,13 +5254,13 @@ Class Vector3DKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5363,7 +5363,7 @@ Class Vector3DKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5410,13 +5410,13 @@ Class VectorKeyFrame from Freezable
 		return self
 
 	Func getKeyTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore'),"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore'),"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5519,7 +5519,7 @@ Class VectorKeyFrameCollection from Freezable
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5571,7 +5571,7 @@ Class BackEase from EasingFunctionBase
 		return self
 
 	Func getAmplitudeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BackEase, PresentationCore').nHandle,"s17:AmplitudeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BackEase, PresentationCore'),"s17:AmplitudeProperty","")
 
 	Func setAmplitudeProperty P1
 		raise("DotNet Error: AmplitudeProperty is a read-only property")
@@ -5617,13 +5617,13 @@ Class BounceEase from EasingFunctionBase
 		return self
 
 	Func getBouncesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore').nHandle,"s15:BouncesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BounceEase, PresentationCore'),"s15:BouncesProperty","")
 
 	Func setBouncesProperty P1
 		raise("DotNet Error: BouncesProperty is a read-only property")
 
 	Func getBouncinessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore').nHandle,"s18:BouncinessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.BounceEase, PresentationCore'),"s18:BouncinessProperty","")
 
 	Func setBouncinessProperty P1
 		raise("DotNet Error: BouncinessProperty is a read-only property")
@@ -6552,7 +6552,7 @@ Class EasingByteKeyFrame from ByteKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6605,7 +6605,7 @@ Class EasingColorKeyFrame from ColorKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6658,7 +6658,7 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6711,7 +6711,7 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6764,7 +6764,7 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6817,7 +6817,7 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6870,7 +6870,7 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6923,7 +6923,7 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6976,7 +6976,7 @@ Class EasingPointKeyFrame from PointKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7038,13 +7038,13 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPathProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore'),"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7097,7 +7097,7 @@ Class EasingRectKeyFrame from RectKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7150,7 +7150,7 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7203,7 +7203,7 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7256,7 +7256,7 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7309,7 +7309,7 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7362,7 +7362,7 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7415,7 +7415,7 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		return self
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7461,13 +7461,13 @@ Class ElasticEase from EasingFunctionBase
 		return self
 
 	Func getOscillationsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore').nHandle,"s20:OscillationsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ElasticEase, PresentationCore'),"s20:OscillationsProperty","")
 
 	Func setOscillationsProperty P1
 		raise("DotNet Error: OscillationsProperty is a read-only property")
 
 	Func getSpringinessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore').nHandle,"s19:SpringinessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ElasticEase, PresentationCore'),"s19:SpringinessProperty","")
 
 	Func setSpringinessProperty P1
 		raise("DotNet Error: SpringinessProperty is a read-only property")
@@ -7504,7 +7504,7 @@ Class ExponentialEase from EasingFunctionBase
 		return self
 
 	Func getExponentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ExponentialEase, PresentationCore').nHandle,"s16:ExponentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ExponentialEase, PresentationCore'),"s16:ExponentProperty","")
 
 	Func setExponentProperty P1
 		raise("DotNet Error: ExponentProperty is a read-only property")
@@ -7890,7 +7890,7 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPathProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore'),"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
@@ -8207,7 +8207,7 @@ Class PowerEase from EasingFunctionBase
 		return self
 
 	Func getPowerProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PowerEase, PresentationCore').nHandle,"s13:PowerProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PowerEase, PresentationCore'),"s13:PowerProperty","")
 
 	Func setPowerProperty P1
 		raise("DotNet Error: PowerProperty is a read-only property")
@@ -8478,7 +8478,7 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8531,7 +8531,7 @@ Class SplineColorKeyFrame from ColorKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8584,7 +8584,7 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8637,7 +8637,7 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8690,7 +8690,7 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8743,7 +8743,7 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8796,7 +8796,7 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8849,7 +8849,7 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8902,7 +8902,7 @@ Class SplinePointKeyFrame from PointKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -8964,13 +8964,13 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPathProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore'),"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9023,7 +9023,7 @@ Class SplineRectKeyFrame from RectKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9076,7 +9076,7 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9129,7 +9129,7 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9182,7 +9182,7 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9235,7 +9235,7 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9288,7 +9288,7 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9341,7 +9341,7 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 		return self
 
 	Func getKeySplineProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore'),"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9409,10 +9409,10 @@ Class Timeline from Animatable
 		return dnSend("s4:call",nHandle,"s11:CreateClock",dnPackItem(P1))
 
 	Func GetDesiredFrameRate P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:GetDesiredFrameRate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:GetDesiredFrameRate",dnPackItem(P1))
 
 	Func SetDesiredFrameRate P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
@@ -9519,61 +9519,61 @@ Class Timeline from Animatable
 		return self
 
 	Func getAccelerationRatioProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s25:AccelerationRatioProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s25:AccelerationRatioProperty","")
 
 	Func setAccelerationRatioProperty P1
 		raise("DotNet Error: AccelerationRatioProperty is a read-only property")
 
 	Func getAutoReverseProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:AutoReverseProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:AutoReverseProperty","")
 
 	Func setAutoReverseProperty P1
 		raise("DotNet Error: AutoReverseProperty is a read-only property")
 
 	Func getBeginTimeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s17:BeginTimeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s17:BeginTimeProperty","")
 
 	Func setBeginTimeProperty P1
 		raise("DotNet Error: BeginTimeProperty is a read-only property")
 
 	Func getDecelerationRatioProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s25:DecelerationRatioProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s25:DecelerationRatioProperty","")
 
 	Func setDecelerationRatioProperty P1
 		raise("DotNet Error: DecelerationRatioProperty is a read-only property")
 
 	Func getDesiredFrameRateProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s24:DesiredFrameRateProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s24:DesiredFrameRateProperty","")
 
 	Func setDesiredFrameRateProperty P1
 		raise("DotNet Error: DesiredFrameRateProperty is a read-only property")
 
 	Func getDurationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s16:DurationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s16:DurationProperty","")
 
 	Func setDurationProperty P1
 		raise("DotNet Error: DurationProperty is a read-only property")
 
 	Func getFillBehaviorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s20:FillBehaviorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s20:FillBehaviorProperty","")
 
 	Func setFillBehaviorProperty P1
 		raise("DotNet Error: FillBehaviorProperty is a read-only property")
 
 	Func getNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s12:NameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getRepeatBehaviorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s22:RepeatBehaviorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s22:RepeatBehaviorProperty","")
 
 	Func setRepeatBehaviorProperty P1
 		raise("DotNet Error: RepeatBehaviorProperty is a read-only property")
 
 	Func getSpeedRatioProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s18:SpeedRatioProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s18:SpeedRatioProperty","")
 
 	Func setSpeedRatioProperty P1
 		raise("DotNet Error: SpeedRatioProperty is a read-only property")
@@ -9695,13 +9695,13 @@ Class AnimationTimeline from Timeline
 		raise("DotNet Error: IsDestinationDefault is a read-only property")
 
 	Func getIsAdditiveProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore').nHandle,"s18:IsAdditiveProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.AnimationTimeline, PresentationCore'),"s18:IsAdditiveProperty","")
 
 	Func setIsAdditiveProperty P1
 		raise("DotNet Error: IsAdditiveProperty is a read-only property")
 
 	Func getIsCumulativeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore').nHandle,"s20:IsCumulativeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.AnimationTimeline, PresentationCore'),"s20:IsCumulativeProperty","")
 
 	Func setIsCumulativeProperty P1
 		raise("DotNet Error: IsCumulativeProperty is a read-only property")
@@ -9729,7 +9729,7 @@ Class TimelineGroup from Timeline
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.TimelineGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.TimelineGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -9914,7 +9914,7 @@ Class ParallelTimeline from TimelineGroup
 		return self
 
 	Func getSlipBehaviorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ParallelTimeline, PresentationCore').nHandle,"s20:SlipBehaviorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ParallelTimeline, PresentationCore'),"s20:SlipBehaviorProperty","")
 
 	Func setSlipBehaviorProperty P1
 		raise("DotNet Error: SlipBehaviorProperty is a read-only property")
@@ -10175,25 +10175,25 @@ Class ByteAnimation from ByteAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -10371,25 +10371,25 @@ Class ColorAnimation from ColorAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -10534,25 +10534,25 @@ Class DecimalAnimation from DecimalAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -10697,25 +10697,25 @@ Class DoubleAnimation from DoubleAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -10826,13 +10826,13 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getPathGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore'),"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -10928,25 +10928,25 @@ Class Int16Animation from Int16AnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11091,25 +11091,25 @@ Class Int32Animation from Int32AnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11254,25 +11254,25 @@ Class Int64Animation from Int64AnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11426,25 +11426,25 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		return self
 
 	Func getDoesRotateWithTangentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s29:DoesRotateWithTangentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"s29:DoesRotateWithTangentProperty","")
 
 	Func setDoesRotateWithTangentProperty P1
 		raise("DotNet Error: DoesRotateWithTangentProperty is a read-only property")
 
 	Func getIsAngleCumulativeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s25:IsAngleCumulativeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"s25:IsAngleCumulativeProperty","")
 
 	Func setIsAngleCumulativeProperty P1
 		raise("DotNet Error: IsAngleCumulativeProperty is a read-only property")
 
 	Func getIsOffsetCumulativeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s26:IsOffsetCumulativeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"s26:IsOffsetCumulativeProperty","")
 
 	Func setIsOffsetCumulativeProperty P1
 		raise("DotNet Error: IsOffsetCumulativeProperty is a read-only property")
 
 	Func getPathGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
@@ -11573,25 +11573,25 @@ Class Point3DAnimation from Point3DAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11736,25 +11736,25 @@ Class PointAnimation from PointAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11856,7 +11856,7 @@ Class PointAnimationUsingPath from PointAnimationBase
 		return self
 
 	Func getPathGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore'),"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
@@ -11961,31 +11961,31 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		return self
 
 	Func getUseShortestPathProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12130,25 +12130,25 @@ Class RectAnimation from RectAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12293,25 +12293,25 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12456,25 +12456,25 @@ Class SingleAnimation from SingleAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12619,25 +12619,25 @@ Class SizeAnimation from SizeAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12867,37 +12867,37 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SetTarget P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTarget P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s9:GetTarget",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:GetTarget",dnPackItem(P1))
 
 	Func SetTargetName P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTargetName P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s13:GetTargetName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",dnPackItem(P1))
 
 	Func SetTargetProperty P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTargetProperty_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s17:GetTargetProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:GetTargetProperty",dnPackItem(P1))
 
 	Func getTargetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s14:TargetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s14:TargetProperty","")
 
 	Func getTargetNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s18:TargetNameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s18:TargetNameProperty","")
 
 	Func setTargetNameProperty P1
 		raise("DotNet Error: TargetNameProperty is a read-only property")
 
 	Func getTargetPropertyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s22:TargetPropertyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s22:TargetPropertyProperty","")
 
 	Func setTargetPropertyProperty P1
 		raise("DotNet Error: TargetPropertyProperty is a read-only property")
@@ -13026,25 +13026,25 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13189,25 +13189,25 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13352,25 +13352,25 @@ Class VectorAnimation from VectorAnimationBase
 		return self
 
 	Func getFromProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s12:FromProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s10:ToProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s10:ByProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")

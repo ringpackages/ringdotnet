@@ -97,15 +97,15 @@ Class JsonDocument from Object
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s5:Parse",dnPackItem(P1))
 
 	Func ParseAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
 
 	Func getRootElement
 		return dnSend("s3:get",nHandle,"s11:RootElement","")
@@ -310,7 +310,7 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func DeepEquals P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonElement, System.Text.Json').nHandle,"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -347,9 +347,9 @@ Class JsonEncodedText from ValueType
 
 	Func Encode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json').nHandle,"s6:Encode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonEncodedText, System.Text.Json'),"s6:Encode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json').nHandle,"s6:Encode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonEncodedText, System.Text.Json'),"s6:Encode",dnPackItem(P1))
 
 	Func getEncodedUtf8Bytes
 		return dnSend("s3:get",nHandle,"s16:EncodedUtf8Bytes","")
@@ -388,31 +388,31 @@ Class JsonNamingPolicy from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCamelCase
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s9:CamelCase","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s9:CamelCase","")
 
 	Func setCamelCase P1
 		raise("DotNet Error: CamelCase is a read-only property")
 
 	Func getSnakeCaseLower
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:SnakeCaseLower","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s14:SnakeCaseLower","")
 
 	Func setSnakeCaseLower P1
 		raise("DotNet Error: SnakeCaseLower is a read-only property")
 
 	Func getSnakeCaseUpper
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:SnakeCaseUpper","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s14:SnakeCaseUpper","")
 
 	Func setSnakeCaseUpper P1
 		raise("DotNet Error: SnakeCaseUpper is a read-only property")
 
 	Func getKebabCaseLower
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:KebabCaseLower","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s14:KebabCaseLower","")
 
 	Func setKebabCaseLower P1
 		raise("DotNet Error: KebabCaseLower is a read-only property")
 
 	Func getKebabCaseUpper
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:KebabCaseUpper","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s14:KebabCaseUpper","")
 
 	Func setKebabCaseUpper P1
 		raise("DotNet Error: KebabCaseUpper is a read-only property")
@@ -578,60 +578,60 @@ Class JsonSerializer from Object
 
 	Func Deserialize P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s11:Deserialize",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s11:Deserialize",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s11:Deserialize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s11:Deserialize",dnPackItem(P1))
 
 	Func SerializeToDocument P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s19:SerializeToDocument",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s19:SerializeToDocument",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s19:SerializeToDocument",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s19:SerializeToDocument",dnPackItem(P1))
 
 	Func SerializeToElement P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s18:SerializeToElement",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s18:SerializeToElement",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s18:SerializeToElement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s18:SerializeToElement",dnPackItem(P1))
 
 	Func SerializeToNode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s15:SerializeToNode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s15:SerializeToNode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s15:SerializeToNode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s15:SerializeToNode",dnPackItem(P1))
 
 	Func DeserializeAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s16:DeserializeAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s16:DeserializeAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s16:DeserializeAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s16:DeserializeAsync",dnPackItem(P1))
 
 	Func DeserializeAsyncEnumerable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
 
 	Func SerializeToUtf8Bytes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s20:SerializeToUtf8Bytes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s20:SerializeToUtf8Bytes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s20:SerializeToUtf8Bytes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s20:SerializeToUtf8Bytes",dnPackItem(P1))
 
 	Func SerializeAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s14:SerializeAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s14:SerializeAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SerializeAsync does not take one argument: use named arguments, SerializeAsync([ :parameter = value, ... ])")
 
 	Func Serialize P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s9:Serialize",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s9:Serialize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
 
 	Func getIsReflectionEnabledByDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s28:IsReflectionEnabledByDefault","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault","")
 
 	Func setIsReflectionEnabledByDefault P1
 		raise("DotNet Error: IsReflectionEnabledByDefault is a read-only property")
@@ -934,13 +934,13 @@ Class JsonSerializerOptions from Object
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonSerializerOptions, System.Text.Json'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getWeb
-		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json').nHandle,"s3:Web","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonSerializerOptions, System.Text.Json'),"s3:Web","")
 
 	Func setWeb P1
 		raise("DotNet Error: Web is a read-only property")

@@ -2697,99 +2697,99 @@ Class Application from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetColorMode P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s12:SetColorMode",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s12:SetColorMode",dnPackItem(P1))
 		return self
 
 	Func RegisterMessageLoop P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s19:RegisterMessageLoop",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RegisterMessageLoop",dnPackItem(P1))
 		return self
 
 	Func UnregisterMessageLoop 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s21:UnregisterMessageLoop","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s21:UnregisterMessageLoop","")
 		return self
 
 	Func AddMessageFilter P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s16:AddMessageFilter",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:AddMessageFilter",dnPackItem(P1))
 		return self
 
 	Func FilterMessage P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s13:FilterMessage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:FilterMessage",dnPackItem(P1))
 
 	Func DoEvents 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s8:DoEvents","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s8:DoEvents","")
 		return self
 
 	Func EnableVisualStyles 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s18:EnableVisualStyles","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s18:EnableVisualStyles","")
 		return self
 
 	Func Exit_ P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s4:Exit",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s4:Exit","")
+			dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit","")
 		return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s4:Exit",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit",dnPackItem(P1))
 		return self
 
 	Func ExitThread 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s10:ExitThread","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s10:ExitThread","")
 		return self
 
 	Func OleRequired 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:OleRequired","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:OleRequired","")
 
 	Func OnThreadException P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s17:OnThreadException",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:OnThreadException",dnPackItem(P1))
 		return self
 
 	Func RaiseIdle P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s9:RaiseIdle",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:RaiseIdle",dnPackItem(P1))
 		return self
 
 	Func RemoveMessageFilter P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s19:RemoveMessageFilter",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RemoveMessageFilter",dnPackItem(P1))
 		return self
 
 	Func Restart 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s7:Restart","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s7:Restart","")
 		return self
 
 	Func Run P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s3:Run",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s3:Run","")
+			dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run","")
 		return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s3:Run",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run",dnPackItem(P1))
 		return self
 
 	Func SetCompatibleTextRenderingDefault P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s33:SetCompatibleTextRenderingDefault",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s33:SetCompatibleTextRenderingDefault",dnPackItem(P1))
 		return self
 
 	Func SetDefaultFont P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:SetDefaultFont",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetDefaultFont",dnPackItem(P1))
 		return self
 
 	Func SetHighDpiMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:SetHighDpiMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetHighDpiMode",dnPackItem(P1))
 
 	Func SetSuspendState P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s15:SetSuspendState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:SetSuspendState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SetUnhandledExceptionMode P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s25:SetUnhandledExceptionMode",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s25:SetUnhandledExceptionMode",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",dnPackItem(P1))
 		return self
 
 	Func setApplicationExitEvent P1
@@ -2841,146 +2841,146 @@ Class Application from Object
 		return self
 
 	Func getAllowQuit
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s9:AllowQuit","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:AllowQuit","")
 
 	Func setAllowQuit P1
 		raise("DotNet Error: AllowQuit is a read-only property")
 
 	Func getCommonAppDataRegistry
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s21:CommonAppDataRegistry","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s21:CommonAppDataRegistry","")
 
 	Func setCommonAppDataRegistry P1
 		raise("DotNet Error: CommonAppDataRegistry is a read-only property")
 
 	Func getCommonAppDataPath
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s17:CommonAppDataPath","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:CommonAppDataPath","")
 
 	Func setCommonAppDataPath P1
 		raise("DotNet Error: CommonAppDataPath is a read-only property")
 
 	Func getCompanyName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:CompanyName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:CompanyName","")
 
 	Func setCompanyName P1
 		raise("DotNet Error: CompanyName is a read-only property")
 
 	Func getCurrentCulture
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:CurrentCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:CurrentCulture",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:CurrentCulture",dnPackItem(P1))
 		return self
 
 	Func getCurrentInputLanguage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s20:CurrentInputLanguage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s20:CurrentInputLanguage",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:CurrentInputLanguage",dnPackItem(P1))
 		return self
 
 	Func getColorMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s9:ColorMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:ColorMode","")
 
 	Func getSystemColorMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s15:SystemColorMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:SystemColorMode","")
 
 	Func setSystemColorMode P1
 		raise("DotNet Error: SystemColorMode is a read-only property")
 
 	Func getIsDarkModeEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s17:IsDarkModeEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:IsDarkModeEnabled","")
 
 	Func setIsDarkModeEnabled P1
 		raise("DotNet Error: IsDarkModeEnabled is a read-only property")
 
 	Func getExecutablePath
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:ExecutablePath","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ExecutablePath","")
 
 	Func setExecutablePath P1
 		raise("DotNet Error: ExecutablePath is a read-only property")
 
 	Func getHighDpiMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:HighDpiMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:HighDpiMode","")
 
 	Func getLocalUserAppDataPath
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s20:LocalUserAppDataPath","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:LocalUserAppDataPath","")
 
 	Func setLocalUserAppDataPath P1
 		raise("DotNet Error: LocalUserAppDataPath is a read-only property")
 
 	Func getMessageLoop
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:MessageLoop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:MessageLoop","")
 
 	Func setMessageLoop P1
 		raise("DotNet Error: MessageLoop is a read-only property")
 
 	Func getOpenForms
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s9:OpenForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:OpenForms","")
 
 	Func setOpenForms P1
 		raise("DotNet Error: OpenForms is a read-only property")
 
 	Func getProductName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:ProductName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:ProductName","")
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s14:ProductVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ProductVersion","")
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
 
 	Func getRenderWithVisualStyles
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s22:RenderWithVisualStyles","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s22:RenderWithVisualStyles","")
 
 	Func setRenderWithVisualStyles P1
 		raise("DotNet Error: RenderWithVisualStyles is a read-only property")
 
 	Func getSafeTopLevelCaptionFormat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s25:SafeTopLevelCaptionFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat","")
 
 	Func setSafeTopLevelCaptionFormat P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s25:SafeTopLevelCaptionFormat",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat",dnPackItem(P1))
 		return self
 
 	Func getStartupPath
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s11:StartupPath","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:StartupPath","")
 
 	Func setStartupPath P1
 		raise("DotNet Error: StartupPath is a read-only property")
 
 	Func getUseWaitCursor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s13:UseWaitCursor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor","")
 
 	Func setUseWaitCursor P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s13:UseWaitCursor",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor",dnPackItem(P1))
 		return self
 
 	Func getUserAppDataPath
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s15:UserAppDataPath","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UserAppDataPath","")
 
 	Func setUserAppDataPath P1
 		raise("DotNet Error: UserAppDataPath is a read-only property")
 
 	Func getUserAppDataRegistry
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s19:UserAppDataRegistry","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:UserAppDataRegistry","")
 
 	Func setUserAppDataRegistry P1
 		raise("DotNet Error: UserAppDataRegistry is a read-only property")
 
 	Func getUseVisualStyles
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s15:UseVisualStyles","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UseVisualStyles","")
 
 	Func setUseVisualStyles P1
 		raise("DotNet Error: UseVisualStyles is a read-only property")
 
 	Func getVisualStyleState
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s16:VisualStyleState","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:VisualStyleState","")
 
 	Func setVisualStyleState P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms').nHandle,"s16:VisualStyleState",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:VisualStyleState",dnPackItem(P1))
 		return self
 
 
@@ -3521,7 +3521,7 @@ Class BindingContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UpdateBinding P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.BindingContext, System.Windows.Forms').nHandle,"s13:UpdateBinding",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.BindingContext, System.Windows.Forms'),"s13:UpdateBinding",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Item P1
@@ -4187,24 +4187,24 @@ Class ButtonRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsBackgroundPartiallyTransparent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms').nHandle,"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
 
 	Func DrawParentBackground P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms').nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms').nHandle,"s10:DrawButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s10:DrawButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState","")
 
 	Func setRenderMatchingApplicationState P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1))
 		return self
 
 
@@ -4254,27 +4254,27 @@ Class CheckBoxRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsBackgroundPartiallyTransparent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
 
 	Func DrawParentBackground P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawCheckBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s12:DrawCheckBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s12:DrawCheckBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
 
 	Func GetGlyphSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getRenderMatchingApplicationState
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState","")
 
 	Func setRenderMatchingApplicationState P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1))
 		return self
 
 
@@ -4294,83 +4294,83 @@ Class Clipboard from Object
 
 	Func SetDataObject P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s13:SetDataObject",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s13:SetDataObject",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",dnPackItem(P1))
 		return self
 
 	Func GetDataObject 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s13:GetDataObject","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:GetDataObject","")
 
 	Func Clear 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s5:Clear","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s5:Clear","")
 		return self
 
 	Func ContainsAudio 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s13:ContainsAudio","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsAudio","")
 
 	Func ContainsData P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s12:ContainsData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsData",dnPackItem(P1))
 
 	Func ContainsFileDropList 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s20:ContainsFileDropList","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s20:ContainsFileDropList","")
 
 	Func ContainsImage 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s13:ContainsImage","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsImage","")
 
 	Func ContainsText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s12:ContainsText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s12:ContainsText","")
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s12:ContainsText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",dnPackItem(P1))
 
 	Func GetAudioStream 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s14:GetAudioStream","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s14:GetAudioStream","")
 
 	Func GetData P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:GetData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetData",dnPackItem(P1))
 
 	Func GetFileDropList 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s15:GetFileDropList","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s15:GetFileDropList","")
 
 	Func GetImage 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s8:GetImage","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:GetImage","")
 
 	Func GetText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:GetText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:GetText","")
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:GetText",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",dnPackItem(P1))
 
 	Func SetAudio P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s8:SetAudio",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetAudio",dnPackItem(P1))
 		return self
 
 	Func SetData P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetFileDropList P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s15:SetFileDropList",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s15:SetFileDropList",dnPackItem(P1))
 		return self
 
 	Func SetImage P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s8:SetImage",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetImage",dnPackItem(P1))
 		return self
 
 	Func SetText P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:SetText",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms').nHandle,"s7:SetText",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",dnPackItem(P1))
 		return self
 
 
@@ -4668,17 +4668,17 @@ Class ComboBoxRenderer from Object
 
 	Func DrawTextBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms').nHandle,"s11:DrawTextBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s11:DrawTextBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func DrawDropDownButton P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms').nHandle,"s18:DrawDropDownButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s18:DrawDropDownButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -5071,16 +5071,16 @@ Class Control from Component
 		return dnSend("s4:call",nHandle,"s11:InvokeAsync",dnPackItem(P1))
 
 	Func FromChildHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s15:FromChildHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s15:FromChildHandle",dnPackItem(P1))
 
 	Func FromHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s10:FromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s10:FromHandle",dnPackItem(P1))
 
 	Func IsKeyLocked P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s11:IsKeyLocked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s11:IsKeyLocked",dnPackItem(P1))
 
 	Func IsMnemonic P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s10:IsMnemonic",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s10:IsMnemonic",dnPackItem(P1) + dnPackItem(P2))
 
 	Func setAutoSizeChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"AutoSizeChanged",dnCallback(P1)])
@@ -6133,44 +6133,44 @@ Class Control from Component
 		return self
 
 	Func getCheckForIllegalCrossThreadCalls
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s31:CheckForIllegalCrossThreadCalls","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls","")
 
 	Func setCheckForIllegalCrossThreadCalls P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s31:CheckForIllegalCrossThreadCalls",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls",dnPackItem(P1))
 		return self
 
 	Func getDefaultBackColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s16:DefaultBackColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s16:DefaultBackColor","")
 
 	Func setDefaultBackColor P1
 		raise("DotNet Error: DefaultBackColor is a read-only property")
 
 	Func getDefaultFont
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s11:DefaultFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s11:DefaultFont","")
 
 	Func setDefaultFont P1
 		raise("DotNet Error: DefaultFont is a read-only property")
 
 	Func getDefaultForeColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s16:DefaultForeColor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s16:DefaultForeColor","")
 
 	Func setDefaultForeColor P1
 		raise("DotNet Error: DefaultForeColor is a read-only property")
 
 	Func getModifierKeys
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s12:ModifierKeys","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s12:ModifierKeys","")
 
 	Func setModifierKeys P1
 		raise("DotNet Error: ModifierKeys is a read-only property")
 
 	Func getMouseButtons
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s12:MouseButtons","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s12:MouseButtons","")
 
 	Func setMouseButtons P1
 		raise("DotNet Error: MouseButtons is a read-only property")
 
 	Func getMousePosition
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms').nHandle,"s13:MousePosition","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s13:MousePosition","")
 
 	Func setMousePosition P1
 		raise("DotNet Error: MousePosition is a read-only property")
@@ -6215,162 +6215,162 @@ Class ControlPaint from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateHBitmap16Bit P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s18:CreateHBitmap16Bit",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:CreateHBitmap16Bit",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateHBitmapTransparencyMask P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s29:CreateHBitmapTransparencyMask",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s29:CreateHBitmapTransparencyMask",dnPackItem(P1))
 
 	Func CreateHBitmapColorMask P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s22:CreateHBitmapColorMask",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s22:CreateHBitmapColorMask",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dark P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s4:Dark",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s4:Dark",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s4:Dark",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s4:Dark",dnPackItem(P1))
 
 	Func DarkDark P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s8:DarkDark",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s8:DarkDark",dnPackItem(P1))
 
 	Func DrawBorder P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s10:DrawBorder",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s10:DrawBorder",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawBorder does not take one argument: use named arguments, DrawBorder([ :parameter = value, ... ])")
 
 	Func DrawBorder3D P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s12:DrawBorder3D",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawBorder3D",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawBorder3D does not take one argument: use named arguments, DrawBorder3D([ :parameter = value, ... ])")
 
 	Func DrawButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s10:DrawButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s10:DrawButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func DrawCaptionButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s17:DrawCaptionButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawCaptionButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawCaptionButton does not take one argument: use named arguments, DrawCaptionButton([ :parameter = value, ... ])")
 
 	Func DrawCheckBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s12:DrawCheckBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawCheckBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
 
 	Func DrawComboButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s15:DrawComboButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawComboButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawComboButton does not take one argument: use named arguments, DrawComboButton([ :parameter = value, ... ])")
 
 	Func DrawContainerGrabHandle P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s23:DrawContainerGrabHandle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:DrawContainerGrabHandle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawFocusRectangle P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s18:DrawFocusRectangle",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawFocusRectangle",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawFocusRectangle does not take one argument: use named arguments, DrawFocusRectangle([ :parameter = value, ... ])")
 
 	Func DrawGrabHandle P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s14:DrawGrabHandle",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s14:DrawGrabHandle",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func DrawGrid P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s8:DrawGrid",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s8:DrawGrid",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func DrawImageDisabled P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s17:DrawImageDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawImageDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func DrawLockedFrame P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s15:DrawLockedFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawLockedFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawMenuGlyph P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s13:DrawMenuGlyph",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s13:DrawMenuGlyph",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawMenuGlyph does not take one argument: use named arguments, DrawMenuGlyph([ :parameter = value, ... ])")
 
 	Func DrawMixedCheckBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s17:DrawMixedCheckBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawMixedCheckBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawMixedCheckBox does not take one argument: use named arguments, DrawMixedCheckBox([ :parameter = value, ... ])")
 
 	Func DrawRadioButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s15:DrawRadioButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawRadioButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
 
 	Func DrawReversibleFrame P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s19:DrawReversibleFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s19:DrawReversibleFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawReversibleLine P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s18:DrawReversibleLine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawReversibleLine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawScrollButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s16:DrawScrollButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s16:DrawScrollButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawScrollButton does not take one argument: use named arguments, DrawScrollButton([ :parameter = value, ... ])")
 
 	Func DrawSelectionFrame P1,P2,P3,P4,P5
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s18:DrawSelectionFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawSelectionFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func DrawSizeGrip P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s12:DrawSizeGrip",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawSizeGrip",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawSizeGrip does not take one argument: use named arguments, DrawSizeGrip([ :parameter = value, ... ])")
 
 	Func DrawStringDisabled P1,P2,P3,P4,P5,P6
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s18:DrawStringDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawStringDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func DrawVisualStyleBorder P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s21:DrawVisualStyleBorder",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s21:DrawVisualStyleBorder",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func FillReversibleRectangle P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s23:FillReversibleRectangle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:FillReversibleRectangle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Light P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s5:Light",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s5:Light",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s5:Light",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s5:Light",dnPackItem(P1))
 
 	Func LightLight P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s10:LightLight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s10:LightLight",dnPackItem(P1))
 
 	Func getContrastControlDark
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms').nHandle,"s19:ContrastControlDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s19:ContrastControlDark","")
 
 	Func setContrastControlDark P1
 		raise("DotNet Error: ContrastControlDark is a read-only property")
@@ -6574,11 +6574,11 @@ Class Cursor from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Hide 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s4:Hide","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Hide","")
 		return self
 
 	Func Show 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s4:Show","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Show","")
 		return self
 
 	Func getHandle
@@ -6607,24 +6607,24 @@ Class Cursor from Object
 		return self
 
 	Func getClip
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s4:Clip","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Clip","")
 
 	Func setClip P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s4:Clip",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Clip",dnPackItem(P1))
 		return self
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s7:Current","")
 
 	Func setCurrent P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s7:Current",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s7:Current",dnPackItem(P1))
 		return self
 
 	Func getPosition
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s8:Position","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s8:Position","")
 
 	Func setPosition P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms').nHandle,"s8:Position",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s8:Position",dnPackItem(P1))
 		return self
 
 
@@ -6693,169 +6693,169 @@ Class Cursors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAppStarting
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s11:AppStarting","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s11:AppStarting","")
 
 	Func setAppStarting P1
 		raise("DotNet Error: AppStarting is a read-only property")
 
 	Func getArrow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:Arrow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:Arrow","")
 
 	Func setArrow P1
 		raise("DotNet Error: Arrow is a read-only property")
 
 	Func getCross
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:Cross","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:Cross","")
 
 	Func setCross P1
 		raise("DotNet Error: Cross is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getIBeam
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:IBeam","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:IBeam","")
 
 	Func setIBeam P1
 		raise("DotNet Error: IBeam is a read-only property")
 
 	Func getNo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s2:No","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s2:No","")
 
 	Func setNo P1
 		raise("DotNet Error: No is a read-only property")
 
 	Func getSizeAll
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s7:SizeAll","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s7:SizeAll","")
 
 	Func setSizeAll P1
 		raise("DotNet Error: SizeAll is a read-only property")
 
 	Func getSizeNESW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s8:SizeNESW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s8:SizeNESW","")
 
 	Func setSizeNESW P1
 		raise("DotNet Error: SizeNESW is a read-only property")
 
 	Func getSizeNS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s6:SizeNS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s6:SizeNS","")
 
 	Func setSizeNS P1
 		raise("DotNet Error: SizeNS is a read-only property")
 
 	Func getSizeNWSE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s8:SizeNWSE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s8:SizeNWSE","")
 
 	Func setSizeNWSE P1
 		raise("DotNet Error: SizeNWSE is a read-only property")
 
 	Func getSizeWE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s6:SizeWE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s6:SizeWE","")
 
 	Func setSizeWE P1
 		raise("DotNet Error: SizeWE is a read-only property")
 
 	Func getUpArrow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s7:UpArrow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s7:UpArrow","")
 
 	Func setUpArrow P1
 		raise("DotNet Error: UpArrow is a read-only property")
 
 	Func getWaitCursor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s10:WaitCursor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s10:WaitCursor","")
 
 	Func setWaitCursor P1
 		raise("DotNet Error: WaitCursor is a read-only property")
 
 	Func getHelp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s4:Help","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s4:Help","")
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getHand
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s4:Hand","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s4:Hand","")
 
 	Func setHand P1
 		raise("DotNet Error: Hand is a read-only property")
 
 	Func getHSplit
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s6:HSplit","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s6:HSplit","")
 
 	Func setHSplit P1
 		raise("DotNet Error: HSplit is a read-only property")
 
 	Func getVSplit
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s6:VSplit","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s6:VSplit","")
 
 	Func setVSplit P1
 		raise("DotNet Error: VSplit is a read-only property")
 
 	Func getNoMove2D
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s8:NoMove2D","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s8:NoMove2D","")
 
 	Func setNoMove2D P1
 		raise("DotNet Error: NoMove2D is a read-only property")
 
 	Func getNoMoveHoriz
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s11:NoMoveHoriz","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s11:NoMoveHoriz","")
 
 	Func setNoMoveHoriz P1
 		raise("DotNet Error: NoMoveHoriz is a read-only property")
 
 	Func getNoMoveVert
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s10:NoMoveVert","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s10:NoMoveVert","")
 
 	Func setNoMoveVert P1
 		raise("DotNet Error: NoMoveVert is a read-only property")
 
 	Func getPanEast
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s7:PanEast","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s7:PanEast","")
 
 	Func setPanEast P1
 		raise("DotNet Error: PanEast is a read-only property")
 
 	Func getPanNE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:PanNE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:PanNE","")
 
 	Func setPanNE P1
 		raise("DotNet Error: PanNE is a read-only property")
 
 	Func getPanNorth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s8:PanNorth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s8:PanNorth","")
 
 	Func setPanNorth P1
 		raise("DotNet Error: PanNorth is a read-only property")
 
 	Func getPanNW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:PanNW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:PanNW","")
 
 	Func setPanNW P1
 		raise("DotNet Error: PanNW is a read-only property")
 
 	Func getPanSE
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:PanSE","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:PanSE","")
 
 	Func setPanSE P1
 		raise("DotNet Error: PanSE is a read-only property")
 
 	Func getPanSouth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s8:PanSouth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s8:PanSouth","")
 
 	Func setPanSouth P1
 		raise("DotNet Error: PanSouth is a read-only property")
 
 	Func getPanSW
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s5:PanSW","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s5:PanSW","")
 
 	Func setPanSW P1
 		raise("DotNet Error: PanSW is a read-only property")
 
 	Func getPanWest
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms').nHandle,"s7:PanWest","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursors, System.Windows.Forms'),"s7:PanWest","")
 
 	Func setPanWest P1
 		raise("DotNet Error: PanWest is a read-only property")
@@ -6898,130 +6898,130 @@ Class DataFormats from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetFormat P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s9:GetFormat",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s9:GetFormat",dnPackItem(P1))
 
 	Func getText
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s4:Text","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Text","")
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s11:UnicodeText","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s11:UnicodeText","")
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s3:Dib","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dib","")
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s6:Bitmap","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Bitmap","")
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s16:EnhancedMetafile","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s16:EnhancedMetafile","")
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePict
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s12:MetafilePict","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:MetafilePict","")
 
 	Func setMetafilePict P1
 		raise("DotNet Error: MetafilePict is a read-only property")
 
 	Func getSymbolicLink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s12:SymbolicLink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:SymbolicLink","")
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s3:Dif","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dif","")
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s4:Tiff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Tiff","")
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s7:OemText","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:OemText","")
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s7:Palette","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:Palette","")
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s7:PenData","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:PenData","")
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s4:Riff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Riff","")
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s9:WaveAudio","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s9:WaveAudio","")
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s8:FileDrop","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s8:FileDrop","")
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s6:Locale","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Locale","")
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s4:Html","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Html","")
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s3:Rtf","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Rtf","")
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s19:CommaSeparatedValue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s19:CommaSeparatedValue","")
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s12:StringFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:StringFormat","")
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms').nHandle,"s12:Serializable","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:Serializable","")
 
 	Func setSerializable P1
 		raise("DotNet Error: Serializable is a read-only property")
@@ -9421,7 +9421,7 @@ Class FeatureSupport from Object
 	Func IsPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms').nHandle,"s9:IsPresent",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"s9:IsPresent",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
 		ok
@@ -9430,7 +9430,7 @@ Class FeatureSupport from Object
 	Func GetVersionPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms').nHandle,"s17:GetVersionPresent",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"s17:GetVersionPresent",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s17:GetVersionPresent",dnPackItem(P1))
 		ok
@@ -9861,10 +9861,10 @@ Class GridItemCollection from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.GridItemCollection, System.Windows.Forms').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.GridItemCollection, System.Windows.Forms'),"s5:Empty","")
 
 	Func setEmpty P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.GridItemCollection, System.Windows.Forms').nHandle,"s5:Empty",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.GridItemCollection, System.Windows.Forms'),"s5:Empty",dnPackItem(P1))
 		return self
 
 
@@ -9885,24 +9885,24 @@ Class GroupBoxRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsBackgroundPartiallyTransparent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms').nHandle,"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
 
 	Func DrawParentBackground P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms').nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawGroupBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms').nHandle,"s12:DrawGroupBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s12:DrawGroupBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawGroupBox does not take one argument: use named arguments, DrawGroupBox([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState","")
 
 	Func setRenderMatchingApplicationState P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1))
 		return self
 
 
@@ -9922,17 +9922,17 @@ Class Help from Object
 
 	Func ShowHelp P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms').nHandle,"s8:ShowHelp",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s8:ShowHelp",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ShowHelp does not take one argument: use named arguments, ShowHelp([ :parameter = value, ... ])")
 
 	Func ShowHelpIndex P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms').nHandle,"s13:ShowHelpIndex",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s13:ShowHelpIndex",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ShowPopup P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms').nHandle,"s9:ShowPopup",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s9:ShowPopup",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -11828,25 +11828,25 @@ Class ImeContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Disable P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s7:Disable",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s7:Disable",dnPackItem(P1))
 		return self
 
 	Func Enable P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s6:Enable",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:Enable",dnPackItem(P1))
 		return self
 
 	Func GetImeMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s10:GetImeMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s10:GetImeMode",dnPackItem(P1))
 
 	Func IsOpen P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s6:IsOpen",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:IsOpen",dnPackItem(P1))
 
 	Func SetImeStatus P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s12:SetImeStatus",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s12:SetImeStatus",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetOpenStatus P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms').nHandle,"s13:SetOpenStatus",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s13:SetOpenStatus",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -11874,13 +11874,13 @@ Class ImeModeConversion from ValueType
 		return self
 
 	Func getImeModeConversionBits
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ImeModeConversion, System.Windows.Forms').nHandle,"s21:ImeModeConversionBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ImeModeConversion, System.Windows.Forms'),"s21:ImeModeConversionBits","")
 
 	Func setImeModeConversionBits P1
 		raise("DotNet Error: ImeModeConversionBits is a read-only property")
 
 	Func getIsCurrentConversionTableSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ImeModeConversion, System.Windows.Forms').nHandle,"s33:IsCurrentConversionTableSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ImeModeConversion, System.Windows.Forms'),"s33:IsCurrentConversionTableSupported","")
 
 	Func setIsCurrentConversionTableSupported P1
 		raise("DotNet Error: IsCurrentConversionTableSupported is a read-only property")
@@ -11908,7 +11908,7 @@ Class InputLanguage from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromCulture P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms').nHandle,"s11:FromCulture",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s11:FromCulture",dnPackItem(P1))
 
 	Func getCulture
 		return dnSend("s3:get",nHandle,"s7:Culture","")
@@ -11929,20 +11929,20 @@ Class InputLanguage from Object
 		raise("DotNet Error: LayoutName is a read-only property")
 
 	Func getCurrentInputLanguage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms').nHandle,"s20:CurrentInputLanguage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms').nHandle,"s20:CurrentInputLanguage",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:CurrentInputLanguage",dnPackItem(P1))
 		return self
 
 	Func getDefaultInputLanguage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms').nHandle,"s20:DefaultInputLanguage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:DefaultInputLanguage","")
 
 	Func setDefaultInputLanguage P1
 		raise("DotNet Error: DefaultInputLanguage is a read-only property")
 
 	Func getInstalledInputLanguages
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms').nHandle,"s23:InstalledInputLanguages","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s23:InstalledInputLanguages","")
 
 	Func setInstalledInputLanguages P1
 		raise("DotNet Error: InstalledInputLanguages is a read-only property")
@@ -12650,24 +12650,24 @@ Class ListBindingHelper from Object
 
 	Func GetList P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s7:GetList",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s7:GetList",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s7:GetList",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s7:GetList",dnPackItem(P1))
 
 	Func GetListName P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s11:GetListName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s11:GetListName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetListItemProperties P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s21:GetListItemProperties",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s21:GetListItemProperties",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s21:GetListItemProperties",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s21:GetListItemProperties",dnPackItem(P1))
 
 	Func GetListItemType P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s15:GetListItemType",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s15:GetListItemType",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms').nHandle,"s15:GetListItemType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s15:GetListItemType",dnPackItem(P1))
 
 
 Class ListViewGroup from Object
@@ -13463,7 +13463,7 @@ Class Message from ValueType
 		return dnSend("s4:call",nHandle,"s9:GetLParam",dnPackItem(P1))
 
 	Func Create P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Message, System.Windows.Forms.Primitives').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Message, System.Windows.Forms.Primitives'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getHWnd
 		return dnSend("s3:get",nHandle,"s4:HWnd","")
@@ -13517,9 +13517,9 @@ Class MessageBox from Object
 
 	Func Show P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms').nHandle,"s4:Show",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.MessageBox, System.Windows.Forms'),"s4:Show",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms').nHandle,"s4:Show",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.MessageBox, System.Windows.Forms'),"s4:Show",dnPackItem(P1))
 
 
 Class MouseEventArgs from EventArgs
@@ -13621,7 +13621,7 @@ Class NativeWindow from MarshalByRefObject
 		return self
 
 	Func FromHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.NativeWindow, System.Windows.Forms').nHandle,"s10:FromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.NativeWindow, System.Windows.Forms'),"s10:FromHandle",dnPackItem(P1))
 
 	Func getHandle
 		return dnSend("s3:get",nHandle,"s6:Handle","")
@@ -14029,7 +14029,7 @@ Class OwnerDrawPropertyBag from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s7:IsEmpty","")
 
 	Func Copy P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.OwnerDrawPropertyBag, System.Windows.Forms').nHandle,"s4:Copy",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.OwnerDrawPropertyBag, System.Windows.Forms'),"s4:Copy",dnPackItem(P1))
 
 	Func getFont
 		return dnSend("s3:get",nHandle,"s4:Font","")
@@ -14100,10 +14100,10 @@ Class Padding from ValueType
 		return self
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Padding, System.Windows.Forms.Primitives').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Padding, System.Windows.Forms.Primitives'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Padding, System.Windows.Forms.Primitives').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Padding, System.Windows.Forms.Primitives'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getAll
 		return dnSend("s3:get",nHandle,"s3:All","")
@@ -14159,7 +14159,7 @@ Class Padding from ValueType
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Padding, System.Windows.Forms.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Padding, System.Windows.Forms.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -14920,343 +14920,343 @@ Class ProfessionalColors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getButtonSelectedHighlight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s23:ButtonSelectedHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s23:ButtonSelectedHighlight","")
 
 	Func setButtonSelectedHighlight P1
 		raise("DotNet Error: ButtonSelectedHighlight is a read-only property")
 
 	Func getButtonSelectedHighlightBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s29:ButtonSelectedHighlightBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s29:ButtonSelectedHighlightBorder","")
 
 	Func setButtonSelectedHighlightBorder P1
 		raise("DotNet Error: ButtonSelectedHighlightBorder is a read-only property")
 
 	Func getButtonPressedHighlight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:ButtonPressedHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:ButtonPressedHighlight","")
 
 	Func setButtonPressedHighlight P1
 		raise("DotNet Error: ButtonPressedHighlight is a read-only property")
 
 	Func getButtonPressedHighlightBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s28:ButtonPressedHighlightBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s28:ButtonPressedHighlightBorder","")
 
 	Func setButtonPressedHighlightBorder P1
 		raise("DotNet Error: ButtonPressedHighlightBorder is a read-only property")
 
 	Func getButtonCheckedHighlight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:ButtonCheckedHighlight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:ButtonCheckedHighlight","")
 
 	Func setButtonCheckedHighlight P1
 		raise("DotNet Error: ButtonCheckedHighlight is a read-only property")
 
 	Func getButtonCheckedHighlightBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s28:ButtonCheckedHighlightBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s28:ButtonCheckedHighlightBorder","")
 
 	Func setButtonCheckedHighlightBorder P1
 		raise("DotNet Error: ButtonCheckedHighlightBorder is a read-only property")
 
 	Func getButtonPressedBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s19:ButtonPressedBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s19:ButtonPressedBorder","")
 
 	Func setButtonPressedBorder P1
 		raise("DotNet Error: ButtonPressedBorder is a read-only property")
 
 	Func getButtonSelectedBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s20:ButtonSelectedBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s20:ButtonSelectedBorder","")
 
 	Func setButtonSelectedBorder P1
 		raise("DotNet Error: ButtonSelectedBorder is a read-only property")
 
 	Func getButtonCheckedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s26:ButtonCheckedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s26:ButtonCheckedGradientBegin","")
 
 	Func setButtonCheckedGradientBegin P1
 		raise("DotNet Error: ButtonCheckedGradientBegin is a read-only property")
 
 	Func getButtonCheckedGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:ButtonCheckedGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:ButtonCheckedGradientMiddle","")
 
 	Func setButtonCheckedGradientMiddle P1
 		raise("DotNet Error: ButtonCheckedGradientMiddle is a read-only property")
 
 	Func getButtonCheckedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s24:ButtonCheckedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s24:ButtonCheckedGradientEnd","")
 
 	Func setButtonCheckedGradientEnd P1
 		raise("DotNet Error: ButtonCheckedGradientEnd is a read-only property")
 
 	Func getButtonSelectedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:ButtonSelectedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:ButtonSelectedGradientBegin","")
 
 	Func setButtonSelectedGradientBegin P1
 		raise("DotNet Error: ButtonSelectedGradientBegin is a read-only property")
 
 	Func getButtonSelectedGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s28:ButtonSelectedGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s28:ButtonSelectedGradientMiddle","")
 
 	Func setButtonSelectedGradientMiddle P1
 		raise("DotNet Error: ButtonSelectedGradientMiddle is a read-only property")
 
 	Func getButtonSelectedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s25:ButtonSelectedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s25:ButtonSelectedGradientEnd","")
 
 	Func setButtonSelectedGradientEnd P1
 		raise("DotNet Error: ButtonSelectedGradientEnd is a read-only property")
 
 	Func getButtonPressedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s26:ButtonPressedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s26:ButtonPressedGradientBegin","")
 
 	Func setButtonPressedGradientBegin P1
 		raise("DotNet Error: ButtonPressedGradientBegin is a read-only property")
 
 	Func getButtonPressedGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:ButtonPressedGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:ButtonPressedGradientMiddle","")
 
 	Func setButtonPressedGradientMiddle P1
 		raise("DotNet Error: ButtonPressedGradientMiddle is a read-only property")
 
 	Func getButtonPressedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s24:ButtonPressedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s24:ButtonPressedGradientEnd","")
 
 	Func setButtonPressedGradientEnd P1
 		raise("DotNet Error: ButtonPressedGradientEnd is a read-only property")
 
 	Func getCheckBackground
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s15:CheckBackground","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s15:CheckBackground","")
 
 	Func setCheckBackground P1
 		raise("DotNet Error: CheckBackground is a read-only property")
 
 	Func getCheckSelectedBackground
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s23:CheckSelectedBackground","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s23:CheckSelectedBackground","")
 
 	Func setCheckSelectedBackground P1
 		raise("DotNet Error: CheckSelectedBackground is a read-only property")
 
 	Func getCheckPressedBackground
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:CheckPressedBackground","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:CheckPressedBackground","")
 
 	Func setCheckPressedBackground P1
 		raise("DotNet Error: CheckPressedBackground is a read-only property")
 
 	Func getGripDark
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s8:GripDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s8:GripDark","")
 
 	Func setGripDark P1
 		raise("DotNet Error: GripDark is a read-only property")
 
 	Func getGripLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s9:GripLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s9:GripLight","")
 
 	Func setGripLight P1
 		raise("DotNet Error: GripLight is a read-only property")
 
 	Func getImageMarginGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s24:ImageMarginGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s24:ImageMarginGradientBegin","")
 
 	Func setImageMarginGradientBegin P1
 		raise("DotNet Error: ImageMarginGradientBegin is a read-only property")
 
 	Func getImageMarginGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s25:ImageMarginGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s25:ImageMarginGradientMiddle","")
 
 	Func setImageMarginGradientMiddle P1
 		raise("DotNet Error: ImageMarginGradientMiddle is a read-only property")
 
 	Func getImageMarginGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:ImageMarginGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:ImageMarginGradientEnd","")
 
 	Func setImageMarginGradientEnd P1
 		raise("DotNet Error: ImageMarginGradientEnd is a read-only property")
 
 	Func getImageMarginRevealedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s32:ImageMarginRevealedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s32:ImageMarginRevealedGradientBegin","")
 
 	Func setImageMarginRevealedGradientBegin P1
 		raise("DotNet Error: ImageMarginRevealedGradientBegin is a read-only property")
 
 	Func getImageMarginRevealedGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s33:ImageMarginRevealedGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s33:ImageMarginRevealedGradientMiddle","")
 
 	Func setImageMarginRevealedGradientMiddle P1
 		raise("DotNet Error: ImageMarginRevealedGradientMiddle is a read-only property")
 
 	Func getImageMarginRevealedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s30:ImageMarginRevealedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s30:ImageMarginRevealedGradientEnd","")
 
 	Func setImageMarginRevealedGradientEnd P1
 		raise("DotNet Error: ImageMarginRevealedGradientEnd is a read-only property")
 
 	Func getMenuStripGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:MenuStripGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:MenuStripGradientBegin","")
 
 	Func setMenuStripGradientBegin P1
 		raise("DotNet Error: MenuStripGradientBegin is a read-only property")
 
 	Func getMenuStripGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s20:MenuStripGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s20:MenuStripGradientEnd","")
 
 	Func setMenuStripGradientEnd P1
 		raise("DotNet Error: MenuStripGradientEnd is a read-only property")
 
 	Func getMenuBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s10:MenuBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s10:MenuBorder","")
 
 	Func setMenuBorder P1
 		raise("DotNet Error: MenuBorder is a read-only property")
 
 	Func getMenuItemSelected
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s16:MenuItemSelected","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s16:MenuItemSelected","")
 
 	Func setMenuItemSelected P1
 		raise("DotNet Error: MenuItemSelected is a read-only property")
 
 	Func getMenuItemBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s14:MenuItemBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s14:MenuItemBorder","")
 
 	Func setMenuItemBorder P1
 		raise("DotNet Error: MenuItemBorder is a read-only property")
 
 	Func getMenuItemSelectedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s29:MenuItemSelectedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s29:MenuItemSelectedGradientBegin","")
 
 	Func setMenuItemSelectedGradientBegin P1
 		raise("DotNet Error: MenuItemSelectedGradientBegin is a read-only property")
 
 	Func getMenuItemSelectedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:MenuItemSelectedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:MenuItemSelectedGradientEnd","")
 
 	Func setMenuItemSelectedGradientEnd P1
 		raise("DotNet Error: MenuItemSelectedGradientEnd is a read-only property")
 
 	Func getMenuItemPressedGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s28:MenuItemPressedGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s28:MenuItemPressedGradientBegin","")
 
 	Func setMenuItemPressedGradientBegin P1
 		raise("DotNet Error: MenuItemPressedGradientBegin is a read-only property")
 
 	Func getMenuItemPressedGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s29:MenuItemPressedGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s29:MenuItemPressedGradientMiddle","")
 
 	Func setMenuItemPressedGradientMiddle P1
 		raise("DotNet Error: MenuItemPressedGradientMiddle is a read-only property")
 
 	Func getMenuItemPressedGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s26:MenuItemPressedGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s26:MenuItemPressedGradientEnd","")
 
 	Func setMenuItemPressedGradientEnd P1
 		raise("DotNet Error: MenuItemPressedGradientEnd is a read-only property")
 
 	Func getRaftingContainerGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s29:RaftingContainerGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s29:RaftingContainerGradientBegin","")
 
 	Func setRaftingContainerGradientBegin P1
 		raise("DotNet Error: RaftingContainerGradientBegin is a read-only property")
 
 	Func getRaftingContainerGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:RaftingContainerGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:RaftingContainerGradientEnd","")
 
 	Func setRaftingContainerGradientEnd P1
 		raise("DotNet Error: RaftingContainerGradientEnd is a read-only property")
 
 	Func getSeparatorDark
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s13:SeparatorDark","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s13:SeparatorDark","")
 
 	Func setSeparatorDark P1
 		raise("DotNet Error: SeparatorDark is a read-only property")
 
 	Func getSeparatorLight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s14:SeparatorLight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s14:SeparatorLight","")
 
 	Func setSeparatorLight P1
 		raise("DotNet Error: SeparatorLight is a read-only property")
 
 	Func getStatusStripBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s17:StatusStripBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s17:StatusStripBorder","")
 
 	Func setStatusStripBorder P1
 		raise("DotNet Error: StatusStripBorder is a read-only property")
 
 	Func getStatusStripGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s24:StatusStripGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s24:StatusStripGradientBegin","")
 
 	Func setStatusStripGradientBegin P1
 		raise("DotNet Error: StatusStripGradientBegin is a read-only property")
 
 	Func getStatusStripGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:StatusStripGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:StatusStripGradientEnd","")
 
 	Func setStatusStripGradientEnd P1
 		raise("DotNet Error: StatusStripGradientEnd is a read-only property")
 
 	Func getToolStripBorder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s15:ToolStripBorder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s15:ToolStripBorder","")
 
 	Func setToolStripBorder P1
 		raise("DotNet Error: ToolStripBorder is a read-only property")
 
 	Func getToolStripDropDownBackground
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:ToolStripDropDownBackground","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:ToolStripDropDownBackground","")
 
 	Func setToolStripDropDownBackground P1
 		raise("DotNet Error: ToolStripDropDownBackground is a read-only property")
 
 	Func getToolStripGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s22:ToolStripGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s22:ToolStripGradientBegin","")
 
 	Func setToolStripGradientBegin P1
 		raise("DotNet Error: ToolStripGradientBegin is a read-only property")
 
 	Func getToolStripGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s23:ToolStripGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s23:ToolStripGradientMiddle","")
 
 	Func setToolStripGradientMiddle P1
 		raise("DotNet Error: ToolStripGradientMiddle is a read-only property")
 
 	Func getToolStripGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s20:ToolStripGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s20:ToolStripGradientEnd","")
 
 	Func setToolStripGradientEnd P1
 		raise("DotNet Error: ToolStripGradientEnd is a read-only property")
 
 	Func getToolStripContentPanelGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s34:ToolStripContentPanelGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s34:ToolStripContentPanelGradientBegin","")
 
 	Func setToolStripContentPanelGradientBegin P1
 		raise("DotNet Error: ToolStripContentPanelGradientBegin is a read-only property")
 
 	Func getToolStripContentPanelGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s32:ToolStripContentPanelGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s32:ToolStripContentPanelGradientEnd","")
 
 	Func setToolStripContentPanelGradientEnd P1
 		raise("DotNet Error: ToolStripContentPanelGradientEnd is a read-only property")
 
 	Func getToolStripPanelGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:ToolStripPanelGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:ToolStripPanelGradientBegin","")
 
 	Func setToolStripPanelGradientBegin P1
 		raise("DotNet Error: ToolStripPanelGradientBegin is a read-only property")
 
 	Func getToolStripPanelGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s25:ToolStripPanelGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s25:ToolStripPanelGradientEnd","")
 
 	Func setToolStripPanelGradientEnd P1
 		raise("DotNet Error: ToolStripPanelGradientEnd is a read-only property")
 
 	Func getOverflowButtonGradientBegin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s27:OverflowButtonGradientBegin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s27:OverflowButtonGradientBegin","")
 
 	Func setOverflowButtonGradientBegin P1
 		raise("DotNet Error: OverflowButtonGradientBegin is a read-only property")
 
 	Func getOverflowButtonGradientMiddle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s28:OverflowButtonGradientMiddle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s28:OverflowButtonGradientMiddle","")
 
 	Func setOverflowButtonGradientMiddle P1
 		raise("DotNet Error: OverflowButtonGradientMiddle is a read-only property")
 
 	Func getOverflowButtonGradientEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms').nHandle,"s25:OverflowButtonGradientEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"s25:OverflowButtonGradientEnd","")
 
 	Func setOverflowButtonGradientEnd P1
 		raise("DotNet Error: OverflowButtonGradientEnd is a read-only property")
@@ -15281,35 +15281,35 @@ Class ProgressBarRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DrawHorizontalBar P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s17:DrawHorizontalBar",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s17:DrawHorizontalBar",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawVerticalBar P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s15:DrawVerticalBar",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s15:DrawVerticalBar",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawHorizontalChunks P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s20:DrawHorizontalChunks",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s20:DrawHorizontalChunks",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawVerticalChunks P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s18:DrawVerticalChunks",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s18:DrawVerticalChunks",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getChunkThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s14:ChunkThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s14:ChunkThickness","")
 
 	Func setChunkThickness P1
 		raise("DotNet Error: ChunkThickness is a read-only property")
 
 	Func getChunkSpaceThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms').nHandle,"s19:ChunkSpaceThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s19:ChunkSpaceThickness","")
 
 	Func setChunkSpaceThickness P1
 		raise("DotNet Error: ChunkSpaceThickness is a read-only property")
@@ -15535,27 +15535,27 @@ Class RadioButtonRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsBackgroundPartiallyTransparent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",dnPackItem(P1))
 
 	Func DrawParentBackground P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawRadioButton P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s15:DrawRadioButton",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s15:DrawRadioButton",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
 
 	Func GetGlyphSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getRenderMatchingApplicationState
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState","")
 
 	Func setRenderMatchingApplicationState P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms').nHandle,"s30:RenderMatchingApplicationState",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1))
 		return self
 
 
@@ -15612,22 +15612,22 @@ Class Screen from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromPoint P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s9:FromPoint",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s9:FromPoint",dnPackItem(P1))
 
 	Func FromRectangle P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s13:FromRectangle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s13:FromRectangle",dnPackItem(P1))
 
 	Func FromControl P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s11:FromControl",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s11:FromControl",dnPackItem(P1))
 
 	Func FromHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s10:FromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s10:FromHandle",dnPackItem(P1))
 
 	Func GetWorkingArea_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s14:GetWorkingArea",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s14:GetWorkingArea",dnPackItem(P1))
 
 	Func GetBounds_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s9:GetBounds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s9:GetBounds",dnPackItem(P1))
 
 	Func getBitsPerPixel
 		return dnSend("s3:get",nHandle,"s12:BitsPerPixel","")
@@ -15660,13 +15660,13 @@ Class Screen from Object
 		raise("DotNet Error: WorkingArea is a read-only property")
 
 	Func getAllScreens
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s10:AllScreens","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s10:AllScreens","")
 
 	Func setAllScreens P1
 		raise("DotNet Error: AllScreens is a read-only property")
 
 	Func getPrimaryScreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms').nHandle,"s13:PrimaryScreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Screen, System.Windows.Forms'),"s13:PrimaryScreen","")
 
 	Func setPrimaryScreen P1
 		raise("DotNet Error: PrimaryScreen is a read-only property")
@@ -15689,53 +15689,53 @@ Class ScrollBarRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DrawArrowButton P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s15:DrawArrowButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s15:DrawArrowButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawHorizontalThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawVerticalThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawHorizontalThumbGrip P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s23:DrawHorizontalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawHorizontalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawVerticalThumbGrip P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s21:DrawVerticalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s21:DrawVerticalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawRightHorizontalTrack P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s24:DrawRightHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s24:DrawRightHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawLeftHorizontalTrack P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s23:DrawLeftHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawLeftHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawUpperVerticalTrack P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s22:DrawUpperVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawUpperVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawLowerVerticalTrack P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s22:DrawLowerVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawLowerVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawSizeBox P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s11:DrawSizeBox",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:DrawSizeBox",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetThumbGripSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s16:GetThumbGripSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s16:GetThumbGripSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetSizeBoxSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s14:GetSizeBoxSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s14:GetSizeBoxSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -16068,15 +16068,15 @@ Class SendKeys from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Send P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.SendKeys, System.Windows.Forms').nHandle,"s4:Send",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s4:Send",dnPackItem(P1))
 		return self
 
 	Func SendWait P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.SendKeys, System.Windows.Forms').nHandle,"s8:SendWait",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s8:SendWait",dnPackItem(P1))
 		return self
 
 	Func Flush 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.SendKeys, System.Windows.Forms').nHandle,"s5:Flush","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s5:Flush","")
 		return self
 
 
@@ -16290,643 +16290,643 @@ Class SystemInformation from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetVerticalScrollBarWidthForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s31:GetVerticalScrollBarWidthForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:GetVerticalScrollBarWidthForDpi",dnPackItem(P1))
 
 	Func GetHorizontalScrollBarHeightForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s34:GetHorizontalScrollBarHeightForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:GetHorizontalScrollBarHeightForDpi",dnPackItem(P1))
 
 	Func GetBorderSizeForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:GetBorderSizeForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:GetBorderSizeForDpi",dnPackItem(P1))
 
 	Func GetMenuFontForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:GetMenuFontForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:GetMenuFontForDpi",dnPackItem(P1))
 
 	Func VerticalScrollBarArrowHeightForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s34:VerticalScrollBarArrowHeightForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:VerticalScrollBarArrowHeightForDpi",dnPackItem(P1))
 
 	Func GetHorizontalScrollBarArrowWidthForDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s38:GetHorizontalScrollBarArrowWidthForDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s38:GetHorizontalScrollBarArrowWidthForDpi",dnPackItem(P1))
 
 	Func getDragFullWindows
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:DragFullWindows","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DragFullWindows","")
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getHighContrast
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:HighContrast","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:HighContrast","")
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
 
 	Func getMouseWheelScrollLines
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s21:MouseWheelScrollLines","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollLines","")
 
 	Func setMouseWheelScrollLines P1
 		raise("DotNet Error: MouseWheelScrollLines is a read-only property")
 
 	Func getPrimaryMonitorSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s18:PrimaryMonitorSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s18:PrimaryMonitorSize","")
 
 	Func setPrimaryMonitorSize P1
 		raise("DotNet Error: PrimaryMonitorSize is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:VerticalScrollBarWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalScrollBarWidth","")
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s25:HorizontalScrollBarHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:HorizontalScrollBarHeight","")
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getCaptionHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:CaptionHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:CaptionHeight","")
 
 	Func setCaptionHeight P1
 		raise("DotNet Error: CaptionHeight is a read-only property")
 
 	Func getBorderSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:BorderSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:BorderSize","")
 
 	Func setBorderSize P1
 		raise("DotNet Error: BorderSize is a read-only property")
 
 	Func getFixedFrameBorderSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s20:FixedFrameBorderSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s20:FixedFrameBorderSize","")
 
 	Func setFixedFrameBorderSize P1
 		raise("DotNet Error: FixedFrameBorderSize is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s28:VerticalScrollBarThumbHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarThumbHeight","")
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s29:HorizontalScrollBarThumbWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarThumbWidth","")
 
 	Func setHorizontalScrollBarThumbWidth P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidth is a read-only property")
 
 	Func getIconSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s8:IconSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:IconSize","")
 
 	Func setIconSize P1
 		raise("DotNet Error: IconSize is a read-only property")
 
 	Func getCursorSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:CursorSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:CursorSize","")
 
 	Func setCursorSize P1
 		raise("DotNet Error: CursorSize is a read-only property")
 
 	Func getMenuFont
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s8:MenuFont","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:MenuFont","")
 
 	Func setMenuFont P1
 		raise("DotNet Error: MenuFont is a read-only property")
 
 	Func getMenuHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:MenuHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MenuHeight","")
 
 	Func setMenuHeight P1
 		raise("DotNet Error: MenuHeight is a read-only property")
 
 	Func getPowerStatus
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s11:PowerStatus","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s11:PowerStatus","")
 
 	Func setPowerStatus P1
 		raise("DotNet Error: PowerStatus is a read-only property")
 
 	Func getWorkingArea
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s11:WorkingArea","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s11:WorkingArea","")
 
 	Func setWorkingArea P1
 		raise("DotNet Error: WorkingArea is a read-only property")
 
 	Func getKanjiWindowHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:KanjiWindowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:KanjiWindowHeight","")
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMousePresent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:MousePresent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MousePresent","")
 
 	Func setMousePresent P1
 		raise("DotNet Error: MousePresent is a read-only property")
 
 	Func getVerticalScrollBarArrowHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s28:VerticalScrollBarArrowHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarArrowHeight","")
 
 	Func setVerticalScrollBarArrowHeight P1
 		raise("DotNet Error: VerticalScrollBarArrowHeight is a read-only property")
 
 	Func getHorizontalScrollBarArrowWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s29:HorizontalScrollBarArrowWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarArrowWidth","")
 
 	Func setHorizontalScrollBarArrowWidth P1
 		raise("DotNet Error: HorizontalScrollBarArrowWidth is a read-only property")
 
 	Func getDebugOS
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s7:DebugOS","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:DebugOS","")
 
 	Func setDebugOS P1
 		raise("DotNet Error: DebugOS is a read-only property")
 
 	Func getMouseButtonsSwapped
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:MouseButtonsSwapped","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:MouseButtonsSwapped","")
 
 	Func setMouseButtonsSwapped P1
 		raise("DotNet Error: MouseButtonsSwapped is a read-only property")
 
 	Func getMinimumWindowSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:MinimumWindowSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:MinimumWindowSize","")
 
 	Func setMinimumWindowSize P1
 		raise("DotNet Error: MinimumWindowSize is a read-only property")
 
 	Func getCaptionButtonSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:CaptionButtonSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:CaptionButtonSize","")
 
 	Func setCaptionButtonSize P1
 		raise("DotNet Error: CaptionButtonSize is a read-only property")
 
 	Func getFrameBorderSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:FrameBorderSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:FrameBorderSize","")
 
 	Func setFrameBorderSize P1
 		raise("DotNet Error: FrameBorderSize is a read-only property")
 
 	Func getMinWindowTrackSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s18:MinWindowTrackSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s18:MinWindowTrackSize","")
 
 	Func setMinWindowTrackSize P1
 		raise("DotNet Error: MinWindowTrackSize is a read-only property")
 
 	Func getDoubleClickSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:DoubleClickSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DoubleClickSize","")
 
 	Func setDoubleClickSize P1
 		raise("DotNet Error: DoubleClickSize is a read-only property")
 
 	Func getDoubleClickTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:DoubleClickTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DoubleClickTime","")
 
 	Func setDoubleClickTime P1
 		raise("DotNet Error: DoubleClickTime is a read-only property")
 
 	Func getIconSpacingSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:IconSpacingSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:IconSpacingSize","")
 
 	Func setIconSpacingSize P1
 		raise("DotNet Error: IconSpacingSize is a read-only property")
 
 	Func getRightAlignedMenus
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:RightAlignedMenus","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:RightAlignedMenus","")
 
 	Func setRightAlignedMenus P1
 		raise("DotNet Error: RightAlignedMenus is a read-only property")
 
 	Func getPenWindows
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:PenWindows","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:PenWindows","")
 
 	Func setPenWindows P1
 		raise("DotNet Error: PenWindows is a read-only property")
 
 	Func getDbcsEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s11:DbcsEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s11:DbcsEnabled","")
 
 	Func setDbcsEnabled P1
 		raise("DotNet Error: DbcsEnabled is a read-only property")
 
 	Func getMouseButtons
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:MouseButtons","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MouseButtons","")
 
 	Func setMouseButtons P1
 		raise("DotNet Error: MouseButtons is a read-only property")
 
 	Func getSecure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s6:Secure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s6:Secure","")
 
 	Func setSecure P1
 		raise("DotNet Error: Secure is a read-only property")
 
 	Func getBorder3DSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:Border3DSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:Border3DSize","")
 
 	Func setBorder3DSize P1
 		raise("DotNet Error: Border3DSize is a read-only property")
 
 	Func getMinimizedWindowSpacingSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s26:MinimizedWindowSpacingSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:MinimizedWindowSpacingSize","")
 
 	Func setMinimizedWindowSpacingSize P1
 		raise("DotNet Error: MinimizedWindowSpacingSize is a read-only property")
 
 	Func getSmallIconSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:SmallIconSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:SmallIconSize","")
 
 	Func setSmallIconSize P1
 		raise("DotNet Error: SmallIconSize is a read-only property")
 
 	Func getToolWindowCaptionHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s23:ToolWindowCaptionHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:ToolWindowCaptionHeight","")
 
 	Func setToolWindowCaptionHeight P1
 		raise("DotNet Error: ToolWindowCaptionHeight is a read-only property")
 
 	Func getToolWindowCaptionButtonSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s27:ToolWindowCaptionButtonSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s27:ToolWindowCaptionButtonSize","")
 
 	Func setToolWindowCaptionButtonSize P1
 		raise("DotNet Error: ToolWindowCaptionButtonSize is a read-only property")
 
 	Func getMenuButtonSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:MenuButtonSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MenuButtonSize","")
 
 	Func setMenuButtonSize P1
 		raise("DotNet Error: MenuButtonSize is a read-only property")
 
 	Func getArrangeStartingPosition
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s23:ArrangeStartingPosition","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:ArrangeStartingPosition","")
 
 	Func setArrangeStartingPosition P1
 		raise("DotNet Error: ArrangeStartingPosition is a read-only property")
 
 	Func getArrangeDirection
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s16:ArrangeDirection","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s16:ArrangeDirection","")
 
 	Func setArrangeDirection P1
 		raise("DotNet Error: ArrangeDirection is a read-only property")
 
 	Func getMinimizedWindowSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:MinimizedWindowSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:MinimizedWindowSize","")
 
 	Func setMinimizedWindowSize P1
 		raise("DotNet Error: MinimizedWindowSize is a read-only property")
 
 	Func getMaxWindowTrackSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s18:MaxWindowTrackSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s18:MaxWindowTrackSize","")
 
 	Func setMaxWindowTrackSize P1
 		raise("DotNet Error: MaxWindowTrackSize is a read-only property")
 
 	Func getPrimaryMonitorMaximizedWindowSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s33:PrimaryMonitorMaximizedWindowSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s33:PrimaryMonitorMaximizedWindowSize","")
 
 	Func setPrimaryMonitorMaximizedWindowSize P1
 		raise("DotNet Error: PrimaryMonitorMaximizedWindowSize is a read-only property")
 
 	Func getNetwork
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s7:Network","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:Network","")
 
 	Func setNetwork P1
 		raise("DotNet Error: Network is a read-only property")
 
 	Func getTerminalServerSession
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s21:TerminalServerSession","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:TerminalServerSession","")
 
 	Func setTerminalServerSession P1
 		raise("DotNet Error: TerminalServerSession is a read-only property")
 
 	Func getBootMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s8:BootMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:BootMode","")
 
 	Func setBootMode P1
 		raise("DotNet Error: BootMode is a read-only property")
 
 	Func getDragSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s8:DragSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:DragSize","")
 
 	Func setDragSize P1
 		raise("DotNet Error: DragSize is a read-only property")
 
 	Func getShowSounds
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:ShowSounds","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:ShowSounds","")
 
 	Func setShowSounds P1
 		raise("DotNet Error: ShowSounds is a read-only property")
 
 	Func getMenuCheckSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:MenuCheckSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:MenuCheckSize","")
 
 	Func setMenuCheckSize P1
 		raise("DotNet Error: MenuCheckSize is a read-only property")
 
 	Func getMidEastEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:MidEastEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MidEastEnabled","")
 
 	Func setMidEastEnabled P1
 		raise("DotNet Error: MidEastEnabled is a read-only property")
 
 	Func getNativeMouseWheelSupport
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s23:NativeMouseWheelSupport","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:NativeMouseWheelSupport","")
 
 	Func setNativeMouseWheelSupport P1
 		raise("DotNet Error: NativeMouseWheelSupport is a read-only property")
 
 	Func getMouseWheelPresent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:MouseWheelPresent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:MouseWheelPresent","")
 
 	Func setMouseWheelPresent P1
 		raise("DotNet Error: MouseWheelPresent is a read-only property")
 
 	Func getVirtualScreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:VirtualScreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:VirtualScreen","")
 
 	Func setVirtualScreen P1
 		raise("DotNet Error: VirtualScreen is a read-only property")
 
 	Func getMonitorCount
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:MonitorCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MonitorCount","")
 
 	Func setMonitorCount P1
 		raise("DotNet Error: MonitorCount is a read-only property")
 
 	Func getMonitorsSameDisplayFormat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s25:MonitorsSameDisplayFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:MonitorsSameDisplayFormat","")
 
 	Func setMonitorsSameDisplayFormat P1
 		raise("DotNet Error: MonitorsSameDisplayFormat is a read-only property")
 
 	Func getComputerName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s12:ComputerName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:ComputerName","")
 
 	Func setComputerName P1
 		raise("DotNet Error: ComputerName is a read-only property")
 
 	Func getUserDomainName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:UserDomainName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:UserDomainName","")
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getUserInteractive
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s15:UserInteractive","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:UserInteractive","")
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getUserName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s8:UserName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:UserName","")
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getIsDropShadowEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:IsDropShadowEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsDropShadowEnabled","")
 
 	Func setIsDropShadowEnabled P1
 		raise("DotNet Error: IsDropShadowEnabled is a read-only property")
 
 	Func getIsFlatMenuEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:IsFlatMenuEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsFlatMenuEnabled","")
 
 	Func setIsFlatMenuEnabled P1
 		raise("DotNet Error: IsFlatMenuEnabled is a read-only property")
 
 	Func getIsFontSmoothingEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:IsFontSmoothingEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsFontSmoothingEnabled","")
 
 	Func setIsFontSmoothingEnabled P1
 		raise("DotNet Error: IsFontSmoothingEnabled is a read-only property")
 
 	Func getFontSmoothingContrast
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s21:FontSmoothingContrast","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:FontSmoothingContrast","")
 
 	Func setFontSmoothingContrast P1
 		raise("DotNet Error: FontSmoothingContrast is a read-only property")
 
 	Func getFontSmoothingType
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:FontSmoothingType","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:FontSmoothingType","")
 
 	Func setFontSmoothingType P1
 		raise("DotNet Error: FontSmoothingType is a read-only property")
 
 	Func getIconHorizontalSpacing
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s21:IconHorizontalSpacing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:IconHorizontalSpacing","")
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:IconVerticalSpacing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IconVerticalSpacing","")
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIsIconTitleWrappingEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s26:IsIconTitleWrappingEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsIconTitleWrappingEnabled","")
 
 	Func setIsIconTitleWrappingEnabled P1
 		raise("DotNet Error: IsIconTitleWrappingEnabled is a read-only property")
 
 	Func getMenuAccessKeysUnderlined
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s24:MenuAccessKeysUnderlined","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:MenuAccessKeysUnderlined","")
 
 	Func setMenuAccessKeysUnderlined P1
 		raise("DotNet Error: MenuAccessKeysUnderlined is a read-only property")
 
 	Func getKeyboardDelay
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:KeyboardDelay","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardDelay","")
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getIsKeyboardPreferred
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s19:IsKeyboardPreferred","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsKeyboardPreferred","")
 
 	Func setIsKeyboardPreferred P1
 		raise("DotNet Error: IsKeyboardPreferred is a read-only property")
 
 	Func getKeyboardSpeed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:KeyboardSpeed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardSpeed","")
 
 	Func setKeyboardSpeed P1
 		raise("DotNet Error: KeyboardSpeed is a read-only property")
 
 	Func getMouseHoverSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:MouseHoverSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MouseHoverSize","")
 
 	Func setMouseHoverSize P1
 		raise("DotNet Error: MouseHoverSize is a read-only property")
 
 	Func getMouseHoverTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:MouseHoverTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MouseHoverTime","")
 
 	Func setMouseHoverTime P1
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseSpeed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:MouseSpeed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MouseSpeed","")
 
 	Func setMouseSpeed P1
 		raise("DotNet Error: MouseSpeed is a read-only property")
 
 	Func getIsSnapToDefaultEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:IsSnapToDefaultEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSnapToDefaultEnabled","")
 
 	Func setIsSnapToDefaultEnabled P1
 		raise("DotNet Error: IsSnapToDefaultEnabled is a read-only property")
 
 	Func getPopupMenuAlignment
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s18:PopupMenuAlignment","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s18:PopupMenuAlignment","")
 
 	Func setPopupMenuAlignment P1
 		raise("DotNet Error: PopupMenuAlignment is a read-only property")
 
 	Func getIsMenuFadeEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:IsMenuFadeEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsMenuFadeEnabled","")
 
 	Func setIsMenuFadeEnabled P1
 		raise("DotNet Error: IsMenuFadeEnabled is a read-only property")
 
 	Func getMenuShowDelay
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s13:MenuShowDelay","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:MenuShowDelay","")
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
 
 	Func getIsComboBoxAnimationEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s26:IsComboBoxAnimationEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsComboBoxAnimationEnabled","")
 
 	Func setIsComboBoxAnimationEnabled P1
 		raise("DotNet Error: IsComboBoxAnimationEnabled is a read-only property")
 
 	Func getIsTitleBarGradientEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s25:IsTitleBarGradientEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsTitleBarGradientEnabled","")
 
 	Func setIsTitleBarGradientEnabled P1
 		raise("DotNet Error: IsTitleBarGradientEnabled is a read-only property")
 
 	Func getIsHotTrackingEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s20:IsHotTrackingEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s20:IsHotTrackingEnabled","")
 
 	Func setIsHotTrackingEnabled P1
 		raise("DotNet Error: IsHotTrackingEnabled is a read-only property")
 
 	Func getIsListBoxSmoothScrollingEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s31:IsListBoxSmoothScrollingEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:IsListBoxSmoothScrollingEnabled","")
 
 	Func setIsListBoxSmoothScrollingEnabled P1
 		raise("DotNet Error: IsListBoxSmoothScrollingEnabled is a read-only property")
 
 	Func getIsMenuAnimationEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:IsMenuAnimationEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsMenuAnimationEnabled","")
 
 	Func setIsMenuAnimationEnabled P1
 		raise("DotNet Error: IsMenuAnimationEnabled is a read-only property")
 
 	Func getIsSelectionFadeEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:IsSelectionFadeEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSelectionFadeEnabled","")
 
 	Func setIsSelectionFadeEnabled P1
 		raise("DotNet Error: IsSelectionFadeEnabled is a read-only property")
 
 	Func getIsToolTipAnimationEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s25:IsToolTipAnimationEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsToolTipAnimationEnabled","")
 
 	Func setIsToolTipAnimationEnabled P1
 		raise("DotNet Error: IsToolTipAnimationEnabled is a read-only property")
 
 	Func getUIEffectsEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s16:UIEffectsEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s16:UIEffectsEnabled","")
 
 	Func setUIEffectsEnabled P1
 		raise("DotNet Error: UIEffectsEnabled is a read-only property")
 
 	Func getIsActiveWindowTrackingEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s29:IsActiveWindowTrackingEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:IsActiveWindowTrackingEnabled","")
 
 	Func setIsActiveWindowTrackingEnabled P1
 		raise("DotNet Error: IsActiveWindowTrackingEnabled is a read-only property")
 
 	Func getActiveWindowTrackingDelay
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s25:ActiveWindowTrackingDelay","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:ActiveWindowTrackingDelay","")
 
 	Func setActiveWindowTrackingDelay P1
 		raise("DotNet Error: ActiveWindowTrackingDelay is a read-only property")
 
 	Func getIsMinimizeRestoreAnimationEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s33:IsMinimizeRestoreAnimationEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s33:IsMinimizeRestoreAnimationEnabled","")
 
 	Func setIsMinimizeRestoreAnimationEnabled P1
 		raise("DotNet Error: IsMinimizeRestoreAnimationEnabled is a read-only property")
 
 	Func getBorderMultiplierFactor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:BorderMultiplierFactor","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:BorderMultiplierFactor","")
 
 	Func setBorderMultiplierFactor P1
 		raise("DotNet Error: BorderMultiplierFactor is a read-only property")
 
 	Func getCaretBlinkTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s14:CaretBlinkTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:CaretBlinkTime","")
 
 	Func setCaretBlinkTime P1
 		raise("DotNet Error: CaretBlinkTime is a read-only property")
 
 	Func getCaretWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s10:CaretWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:CaretWidth","")
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getMouseWheelScrollDelta
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s21:MouseWheelScrollDelta","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollDelta","")
 
 	Func setMouseWheelScrollDelta P1
 		raise("DotNet Error: MouseWheelScrollDelta is a read-only property")
 
 	Func getVerticalFocusThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:VerticalFocusThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalFocusThickness","")
 
 	Func setVerticalFocusThickness P1
 		raise("DotNet Error: VerticalFocusThickness is a read-only property")
 
 	Func getHorizontalFocusThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s24:HorizontalFocusThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:HorizontalFocusThickness","")
 
 	Func setHorizontalFocusThickness P1
 		raise("DotNet Error: HorizontalFocusThickness is a read-only property")
 
 	Func getVerticalResizeBorderThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s29:VerticalResizeBorderThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:VerticalResizeBorderThickness","")
 
 	Func setVerticalResizeBorderThickness P1
 		raise("DotNet Error: VerticalResizeBorderThickness is a read-only property")
 
 	Func getHorizontalResizeBorderThickness
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s31:HorizontalResizeBorderThickness","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:HorizontalResizeBorderThickness","")
 
 	Func setHorizontalResizeBorderThickness P1
 		raise("DotNet Error: HorizontalResizeBorderThickness is a read-only property")
 
 	Func getScreenOrientation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:ScreenOrientation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:ScreenOrientation","")
 
 	Func setScreenOrientation P1
 		raise("DotNet Error: ScreenOrientation is a read-only property")
 
 	Func getSizingBorderWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:SizingBorderWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:SizingBorderWidth","")
 
 	Func setSizingBorderWidth P1
 		raise("DotNet Error: SizingBorderWidth is a read-only property")
 
 	Func getSmallCaptionButtonSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s22:SmallCaptionButtonSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:SmallCaptionButtonSize","")
 
 	Func setSmallCaptionButtonSize P1
 		raise("DotNet Error: SmallCaptionButtonSize is a read-only property")
 
 	Func getMenuBarButtonSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms').nHandle,"s17:MenuBarButtonSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:MenuBarButtonSize","")
 
 	Func setMenuBarButtonSize P1
 		raise("DotNet Error: MenuBarButtonSize is a read-only property")
@@ -17022,17 +17022,17 @@ Class TabRenderer from Object
 
 	Func DrawTabItem P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms').nHandle,"s11:DrawTabItem",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:DrawTabItem",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawTabItem does not take one argument: use named arguments, DrawTabItem([ :parameter = value, ... ])")
 
 	Func DrawTabPage P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms').nHandle,"s11:DrawTabPage",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:DrawTabPage",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -17179,15 +17179,15 @@ Class TaskDialog from Object
 
 	Func ShowDialogAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms').nHandle,"s15:ShowDialogAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s15:ShowDialogAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms').nHandle,"s15:ShowDialogAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s15:ShowDialogAsync",dnPackItem(P1))
 
 	Func ShowDialog P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms').nHandle,"s10:ShowDialog",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s10:ShowDialog",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms').nHandle,"s10:ShowDialog",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s10:ShowDialog",dnPackItem(P1))
 
 	Func getHandle
 		return dnSend("s3:get",nHandle,"s6:Handle","")
@@ -17348,61 +17348,61 @@ Class TaskDialogIcon from Object
 		raise("DotNet Error: IconHandle is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getInformation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s11:Information","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s11:Information","")
 
 	Func setInformation P1
 		raise("DotNet Error: Information is a read-only property")
 
 	Func getWarning
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s7:Warning","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s7:Warning","")
 
 	Func setWarning P1
 		raise("DotNet Error: Warning is a read-only property")
 
 	Func getError
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s5:Error","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s5:Error","")
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getShield
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s6:Shield","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s6:Shield","")
 
 	Func setShield P1
 		raise("DotNet Error: Shield is a read-only property")
 
 	Func getShieldBlueBar
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s13:ShieldBlueBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s13:ShieldBlueBar","")
 
 	Func setShieldBlueBar P1
 		raise("DotNet Error: ShieldBlueBar is a read-only property")
 
 	Func getShieldGrayBar
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s13:ShieldGrayBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s13:ShieldGrayBar","")
 
 	Func setShieldGrayBar P1
 		raise("DotNet Error: ShieldGrayBar is a read-only property")
 
 	Func getShieldWarningYellowBar
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s22:ShieldWarningYellowBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s22:ShieldWarningYellowBar","")
 
 	Func setShieldWarningYellowBar P1
 		raise("DotNet Error: ShieldWarningYellowBar is a read-only property")
 
 	Func getShieldErrorRedBar
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s17:ShieldErrorRedBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s17:ShieldErrorRedBar","")
 
 	Func setShieldErrorRedBar P1
 		raise("DotNet Error: ShieldErrorRedBar is a read-only property")
 
 	Func getShieldSuccessGreenBar
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms').nHandle,"s21:ShieldSuccessGreenBar","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms'),"s21:ShieldSuccessGreenBar","")
 
 	Func setShieldSuccessGreenBar P1
 		raise("DotNet Error: ShieldSuccessGreenBar is a read-only property")
@@ -17723,13 +17723,13 @@ Class TextBoxRenderer from Object
 
 	Func DrawTextBox P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms').nHandle,"s11:DrawTextBox",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"s11:DrawTextBox",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -17751,14 +17751,14 @@ Class TextRenderer from Object
 
 	Func DrawText P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms').nHandle,"s8:DrawText",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"s8:DrawText",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func MeasureText P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms').nHandle,"s11:MeasureText",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"s11:MeasureText",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MeasureText does not take one argument: use named arguments, MeasureText([ :parameter = value, ... ])")
 
@@ -18280,38 +18280,38 @@ Class ToolStripManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FindToolStrip P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s13:FindToolStrip",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s13:FindToolStrip",dnPackItem(P1))
 
 	Func LoadSettings P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s12:LoadSettings",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s12:LoadSettings",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",dnPackItem(P1))
 		return self
 
 	Func SaveSettings P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s12:SaveSettings",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s12:SaveSettings",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",dnPackItem(P1))
 		return self
 
 	Func IsValidShortcut P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s15:IsValidShortcut",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s15:IsValidShortcut",dnPackItem(P1))
 
 	Func IsShortcutDefined P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s17:IsShortcutDefined",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s17:IsShortcutDefined",dnPackItem(P1))
 
 	Func Merge P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s5:Merge",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s5:Merge",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RevertMerge P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s11:RevertMerge",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s11:RevertMerge",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",dnPackItem(P1))
 
 	Func setRendererChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RendererChanged",dnCallback(P1)])
@@ -18322,24 +18322,24 @@ Class ToolStripManager from Object
 		return self
 
 	Func getRenderer
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s8:Renderer","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s8:Renderer","")
 
 	Func setRenderer P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s8:Renderer",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s8:Renderer",dnPackItem(P1))
 		return self
 
 	Func getRenderMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s10:RenderMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s10:RenderMode","")
 
 	Func setRenderMode P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s10:RenderMode",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s10:RenderMode",dnPackItem(P1))
 		return self
 
 	Func getVisualStylesEnabled
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s19:VisualStylesEnabled","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled","")
 
 	Func setVisualStylesEnabled P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms').nHandle,"s19:VisualStylesEnabled",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled",dnPackItem(P1))
 		return self
 
 
@@ -18616,7 +18616,7 @@ Class ToolStripRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateDisabledImage P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.ToolStripRenderer, System.Windows.Forms').nHandle,"s19:CreateDisabledImage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripRenderer, System.Windows.Forms'),"s19:CreateDisabledImage",dnPackItem(P1))
 
 	Func setRenderArrowEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"RenderArrow",dnCallback(P1)])
@@ -19003,59 +19003,59 @@ Class TrackBarRenderer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DrawHorizontalTrack P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s19:DrawHorizontalTrack",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTrack",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawVerticalTrack P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s17:DrawVerticalTrack",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTrack",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DrawHorizontalThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawVerticalThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawLeftPointingThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s21:DrawLeftPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s21:DrawLeftPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawRightPointingThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s22:DrawRightPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s22:DrawRightPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawTopPointingThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s20:DrawTopPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s20:DrawTopPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawBottomPointingThumb P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s23:DrawBottomPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s23:DrawBottomPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawHorizontalTicks P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s19:DrawHorizontalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func DrawVerticalTicks P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s17:DrawVerticalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func GetLeftPointingThumbSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s24:GetLeftPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s24:GetLeftPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRightPointingThumbSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s25:GetRightPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s25:GetRightPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetTopPointingThumbSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s23:GetTopPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s23:GetTopPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBottomPointingThumbSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s26:GetBottomPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s26:GetBottomPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -19178,7 +19178,7 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func FromHandle P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TreeNode, System.Windows.Forms').nHandle,"s10:FromHandle",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TreeNode, System.Windows.Forms'),"s10:FromHandle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getBackColor
 		return dnSend("s3:get",nHandle,"s9:BackColor","")
@@ -19937,14 +19937,14 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		return self
 
 	Func Uninstall 
-		dnSend("s4:call",dnTypeCached('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms').nHandle,"s9:Uninstall","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s9:Uninstall","")
 		return self
 
 	Func getAutoInstall
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms').nHandle,"s11:AutoInstall","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall","")
 
 	Func setAutoInstall P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms').nHandle,"s11:AutoInstall",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall",dnPackItem(P1))
 		return self
 
 
@@ -20540,7 +20540,7 @@ Class DataGridViewHitTestInfo from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getNowhere
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DataGridView+HitTestInfo, System.Windows.Forms').nHandle,"s7:Nowhere","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DataGridView+HitTestInfo, System.Windows.Forms'),"s7:Nowhere","")
 
 	Func setNowhere P1
 		raise("DotNet Error: Nowhere is a read-only property")
@@ -23352,16 +23352,16 @@ Class DataGridViewCell from DataGridViewElement
 		return dnSend("s4:call",nHandle,"s20:PositionEditingPanel",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func MeasureTextHeight P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms').nHandle,"s17:MeasureTextHeight",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s17:MeasureTextHeight",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func MeasureTextPreferredSize P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms').nHandle,"s24:MeasureTextPreferredSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s24:MeasureTextPreferredSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func MeasureTextSize P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms').nHandle,"s15:MeasureTextSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s15:MeasureTextSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func MeasureTextWidth P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms').nHandle,"s16:MeasureTextWidth",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s16:MeasureTextWidth",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func getAccessibilityObject
 		return dnSend("s3:get",nHandle,"s19:AccessibilityObject","")
@@ -24195,25 +24195,25 @@ Class DateTimePicker from Control
 		return self
 
 	Func getMaximumDateTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DateTimePicker, System.Windows.Forms').nHandle,"s15:MaximumDateTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DateTimePicker, System.Windows.Forms'),"s15:MaximumDateTime","")
 
 	Func setMaximumDateTime P1
 		raise("DotNet Error: MaximumDateTime is a read-only property")
 
 	Func getMinimumDateTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DateTimePicker, System.Windows.Forms').nHandle,"s15:MinimumDateTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DateTimePicker, System.Windows.Forms'),"s15:MinimumDateTime","")
 
 	Func setMinimumDateTime P1
 		raise("DotNet Error: MinimumDateTime is a read-only property")
 
 	Func getMinDateTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DateTimePicker, System.Windows.Forms').nHandle,"s11:MinDateTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DateTimePicker, System.Windows.Forms'),"s11:MinDateTime","")
 
 	Func setMinDateTime P1
 		raise("DotNet Error: MinDateTime is a read-only property")
 
 	Func getMaxDateTime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.DateTimePicker, System.Windows.Forms').nHandle,"s11:MaxDateTime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.DateTimePicker, System.Windows.Forms'),"s11:MaxDateTime","")
 
 	Func setMaxDateTime P1
 		raise("DotNet Error: MaxDateTime is a read-only property")
@@ -26098,29 +26098,29 @@ Class OSFeature from FeatureSupport
 	Func IsPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms').nHandle,"s9:IsPresent",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s9:IsPresent",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnSend("s4:call",dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms').nHandle,"s9:IsPresent",dnPackItem(P1))
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s9:IsPresent",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s9:IsPresent",dnPackItem(P1))
 
 	Func getFeature
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms').nHandle,"s7:Feature","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s7:Feature","")
 
 	Func setFeature P1
 		raise("DotNet Error: Feature is a read-only property")
 
 	Func getLayeredWindows
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms').nHandle,"s14:LayeredWindows","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s14:LayeredWindows","")
 
 	Func setLayeredWindows P1
 		raise("DotNet Error: LayeredWindows is a read-only property")
 
 	Func getThemes
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms').nHandle,"s6:Themes","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s6:Themes","")
 
 	Func setThemes P1
 		raise("DotNet Error: Themes is a read-only property")
@@ -27470,67 +27470,67 @@ Class TaskDialogButton from TaskDialogControl
 		return self
 
 	Func getOK
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s2:OK","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s2:OK","")
 
 	Func setOK P1
 		raise("DotNet Error: OK is a read-only property")
 
 	Func getCancel
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s6:Cancel","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s6:Cancel","")
 
 	Func setCancel P1
 		raise("DotNet Error: Cancel is a read-only property")
 
 	Func getAbort
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s5:Abort","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s5:Abort","")
 
 	Func setAbort P1
 		raise("DotNet Error: Abort is a read-only property")
 
 	Func getRetry
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s5:Retry","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s5:Retry","")
 
 	Func setRetry P1
 		raise("DotNet Error: Retry is a read-only property")
 
 	Func getIgnore
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s6:Ignore","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s6:Ignore","")
 
 	Func setIgnore P1
 		raise("DotNet Error: Ignore is a read-only property")
 
 	Func getYes
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s3:Yes","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s3:Yes","")
 
 	Func setYes P1
 		raise("DotNet Error: Yes is a read-only property")
 
 	Func getNo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s2:No","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s2:No","")
 
 	Func setNo P1
 		raise("DotNet Error: No is a read-only property")
 
 	Func getClose
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s5:Close","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s5:Close","")
 
 	Func setClose P1
 		raise("DotNet Error: Close is a read-only property")
 
 	Func getHelp
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s4:Help","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s4:Help","")
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getTryAgain
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s8:TryAgain","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s8:TryAgain","")
 
 	Func setTryAgain P1
 		raise("DotNet Error: TryAgain is a read-only property")
 
 	Func getContinue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms').nHandle,"s8:Continue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"s8:Continue","")
 
 
 Class TaskDialogExpander from TaskDialogControl
@@ -31543,13 +31543,13 @@ Class ListBox from ListControl
 		raise("DotNet Error: CustomTabOffsets is a read-only property")
 
 	Func getNoMatches
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ListBox, System.Windows.Forms').nHandle,"s9:NoMatches","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s9:NoMatches","")
 
 	Func setNoMatches P1
 		raise("DotNet Error: NoMatches is a read-only property")
 
 	Func getDefaultItemHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.ListBox, System.Windows.Forms').nHandle,"s17:DefaultItemHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s17:DefaultItemHeight","")
 
 	Func setDefaultItemHeight P1
 		raise("DotNet Error: DefaultItemHeight is a read-only property")
@@ -34658,7 +34658,7 @@ Class Form from ContainerControl
 		return dnSend("s4:call",nHandle,"s15:ShowDialogAsync",dnPackItem(P1))
 
 	Func GetAutoScaleSize P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms').nHandle,"s16:GetAutoScaleSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Form, System.Windows.Forms'),"s16:GetAutoScaleSize",dnPackItem(P1))
 
 	Func setHelpButtonClickedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"HelpButtonClicked",dnCallback(P1)])
@@ -35148,7 +35148,7 @@ Class Form from ContainerControl
 		return self
 
 	Func getActiveForm
-		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms').nHandle,"s10:ActiveForm","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Form, System.Windows.Forms'),"s10:ActiveForm","")
 
 	Func setActiveForm P1
 		raise("DotNet Error: ActiveForm is a read-only property")
@@ -35801,7 +35801,7 @@ Class TabPage from Panel
 		return self
 
 	Func GetTabPageOfComponent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.TabPage, System.Windows.Forms').nHandle,"s21:GetTabPageOfComponent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TabPage, System.Windows.Forms'),"s21:GetTabPageOfComponent",dnPackItem(P1))
 
 	Func getImageIndex
 		return dnSend("s3:get",nHandle,"s10:ImageIndex","")

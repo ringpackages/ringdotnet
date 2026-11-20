@@ -758,7 +758,7 @@ Class Socket from Object
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:ConnectAsync",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:ConnectAsync",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
@@ -820,11 +820,11 @@ Class Socket from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Select P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func CancelConnectAsync P1
-		dnSend("s4:call",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s18:CancelConnectAsync",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",dnPackItem(P1))
 		return self
 
 	Func getAvailable
@@ -986,31 +986,31 @@ Class Socket from Object
 		return self
 
 	Func getSupportsIPv4
-		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:SupportsIPv4","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4","")
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:SupportsIPv6","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6","")
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s14:OSSupportsIPv4","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4","")
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s14:OSSupportsIPv6","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6","")
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s27:OSSupportsUnixDomainSockets","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets","")
 
 	Func setOSSupportsUnixDomainSockets P1
 		raise("DotNet Error: OSSupportsUnixDomainSockets is a read-only property")
@@ -1360,36 +1360,36 @@ Class SocketTaskExtensions from Object
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:AcceptAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s11:AcceptAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s11:AcceptAsync",dnPackItem(P1))
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s12:ConnectAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s12:ConnectAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s12:ReceiveAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s12:ReceiveAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReceiveAsync does not take one argument: use named arguments, ReceiveAsync([ :parameter = value, ... ])")
 
 	Func ReceiveFromAsync P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s16:ReceiveFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s16:ReceiveFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ReceiveMessageFromAsync P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s23:ReceiveMessageFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s9:SendAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s9:SendAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendToAsync P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:SendToAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s11:SendToAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class TcpClient from Object
@@ -1642,7 +1642,7 @@ Class TcpListener from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.TcpListener, System.Net.Sockets'),"s6:Create",dnPackItem(P1))
 
 	Func getServer
 		return dnSend("s3:get",nHandle,"s6:Server","")

@@ -583,86 +583,86 @@ Class DataReaderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetBoolean P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s10:GetBoolean",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetBoolean",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetByte P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s7:GetByte",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetByte",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func GetChar P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s7:GetChar",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetChar",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetChars P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func GetData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s7:GetData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDataTypeName P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s15:GetDataTypeName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s15:GetDataTypeName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDateTime P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s11:GetDateTime",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s11:GetDateTime",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDecimal P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s10:GetDecimal",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetDecimal",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDouble P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s9:GetDouble",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetDouble",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFieldType P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s12:GetFieldType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s12:GetFieldType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFieldValue P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s13:GetFieldValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s13:GetFieldValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFieldValueAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s18:GetFieldValueAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s18:GetFieldValueAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetFieldValueAsync does not take one argument: use named arguments, GetFieldValueAsync([ :parameter = value, ... ])")
 
 	Func GetFloat P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetFloat",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetFloat",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetGuid P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s7:GetGuid",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetGuid",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetInt16 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetInt16",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt16",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetInt32 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetInt32",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetInt64 P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetInt64",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt64",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetProviderSpecificFieldType P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s28:GetProviderSpecificFieldType",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s28:GetProviderSpecificFieldType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetProviderSpecificValue P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s24:GetProviderSpecificValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s24:GetProviderSpecificValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetStream P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s9:GetStream",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetStream",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetString P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s9:GetString",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetTextReader P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s13:GetTextReader",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s13:GetTextReader",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:GetValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsDBNull P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s8:IsDBNull",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:IsDBNull",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsDBNullAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common').nHandle,"s13:IsDBNullAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s13:IsDBNullAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsDBNullAsync does not take one argument: use named arguments, IsDBNullAsync([ :parameter = value, ... ])")
 
@@ -968,7 +968,7 @@ Class DataRowComparer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Data.DataRowComparer, System.Data.Common').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Data.DataRowComparer, System.Data.Common'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -990,12 +990,12 @@ Class DataRowExtensions from Object
 
 	Func Field P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.DataRowExtensions, System.Data.Common').nHandle,"s5:Field",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataRowExtensions, System.Data.Common'),"s5:Field",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
 	Func SetField P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Data.DataRowExtensions, System.Data.Common').nHandle,"s8:SetField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Data.DataRowExtensions, System.Data.Common'),"s8:SetField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -1251,7 +1251,7 @@ Class DataSet from MarshalByValueComponent
 		return dnSend("s4:call",nHandle,"s16:CreateDataReader",dnPackItem(P1))
 
 	Func GetDataSetSchema P1
-		return dnSend("s4:call",dnTypeCached('System.Data.DataSet, System.Data.Common').nHandle,"s16:GetDataSetSchema",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataSet, System.Data.Common'),"s16:GetDataSetSchema",dnPackItem(P1))
 
 	Func setMergeFailedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"MergeFailed",dnCallback(P1)])
@@ -1537,7 +1537,7 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func GetDataTableSchema P1
-		return dnSend("s4:call",dnTypeCached('System.Data.DataTable, System.Data.Common').nHandle,"s18:GetDataTableSchema",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataTable, System.Data.Common'),"s18:GetDataTableSchema",dnPackItem(P1))
 
 	Func setColumnChangingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ColumnChanging",dnCallback(P1)])
@@ -1794,16 +1794,16 @@ Class DataTableExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsEnumerable P1
-		return dnSend("s4:call",dnTypeCached('System.Data.DataTableExtensions, System.Data.Common').nHandle,"s12:AsEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataTableExtensions, System.Data.Common'),"s12:AsEnumerable",dnPackItem(P1))
 
 	Func CopyToDataTable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.DataTableExtensions, System.Data.Common').nHandle,"s15:CopyToDataTable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataTableExtensions, System.Data.Common'),"s15:CopyToDataTable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Data.DataTableExtensions, System.Data.Common').nHandle,"s15:CopyToDataTable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataTableExtensions, System.Data.Common'),"s15:CopyToDataTable",dnPackItem(P1))
 
 	Func AsDataView P1
-		return dnSend("s4:call",dnTypeCached('System.Data.DataTableExtensions, System.Data.Common').nHandle,"s10:AsDataView",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.DataTableExtensions, System.Data.Common'),"s10:AsDataView",dnPackItem(P1))
 
 
 Class DataTableNewRowEventArgs from EventArgs
@@ -2243,37 +2243,37 @@ Class EnumerableRowCollectionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Where P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s5:Where",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s5:Where",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OrderBy P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s7:OrderBy",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s7:OrderBy",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
 	Func OrderByDescending P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s17:OrderByDescending",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s17:OrderByDescending",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
 	Func ThenBy P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s6:ThenBy",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s6:ThenBy",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ThenBy does not take one argument: use named arguments, ThenBy([ :parameter = value, ... ])")
 
 	Func ThenByDescending P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s16:ThenByDescending",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s16:ThenByDescending",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ThenByDescending does not take one argument: use named arguments, ThenByDescending([ :parameter = value, ... ])")
 
 	Func Select P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s6:Select",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s6:Select",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cast P1
-		return dnSend("s4:call",dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common').nHandle,"s4:Cast",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s4:Cast",dnPackItem(P1))
 
 
 Class FillErrorEventArgs from EventArgs
@@ -3189,28 +3189,28 @@ Class TypedTableBaseExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Where P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s5:Where",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s5:Where",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OrderBy P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s7:OrderBy",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s7:OrderBy",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
 	Func OrderByDescending P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s17:OrderByDescending",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s17:OrderByDescending",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
 	Func Select P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s6:Select",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s6:Select",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AsEnumerable P1
-		return dnSend("s4:call",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s12:AsEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s12:AsEnumerable",dnPackItem(P1))
 
 	Func ElementAtOrDefault P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common').nHandle,"s18:ElementAtOrDefault",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s18:ElementAtOrDefault",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ConstraintCollection from InternalDataCollectionBase

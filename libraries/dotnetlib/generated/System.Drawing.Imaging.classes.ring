@@ -497,7 +497,7 @@ Class ColorPalette from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateOptimalPalette P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common').nHandle,"s20:CreateOptimalPalette",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"s20:CreateOptimalPalette",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getFlags
 		return dnSend("s3:get",nHandle,"s5:Flags","")
@@ -550,79 +550,79 @@ Class ImagingEncoder from Object
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getCompression
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s11:Compression","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s11:Compression","")
 
 	Func setCompression P1
 		raise("DotNet Error: Compression is a read-only property")
 
 	Func getColorDepth
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ColorDepth","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s10:ColorDepth","")
 
 	Func setColorDepth P1
 		raise("DotNet Error: ColorDepth is a read-only property")
 
 	Func getScanMethod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ScanMethod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s10:ScanMethod","")
 
 	Func setScanMethod P1
 		raise("DotNet Error: ScanMethod is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s7:Version","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getRenderMethod
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s12:RenderMethod","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s12:RenderMethod","")
 
 	Func setRenderMethod P1
 		raise("DotNet Error: RenderMethod is a read-only property")
 
 	Func getQuality
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s7:Quality","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s7:Quality","")
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")
 
 	Func getTransformation
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s14:Transformation","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s14:Transformation","")
 
 	Func setTransformation P1
 		raise("DotNet Error: Transformation is a read-only property")
 
 	Func getLuminanceTable
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s14:LuminanceTable","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s14:LuminanceTable","")
 
 	Func setLuminanceTable P1
 		raise("DotNet Error: LuminanceTable is a read-only property")
 
 	Func getChrominanceTable
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s16:ChrominanceTable","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s16:ChrominanceTable","")
 
 	Func setChrominanceTable P1
 		raise("DotNet Error: ChrominanceTable is a read-only property")
 
 	Func getSaveFlag
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s8:SaveFlag","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s8:SaveFlag","")
 
 	Func setSaveFlag P1
 		raise("DotNet Error: SaveFlag is a read-only property")
 
 	Func getColorSpace
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ColorSpace","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s10:ColorSpace","")
 
 	Func setColorSpace P1
 		raise("DotNet Error: ColorSpace is a read-only property")
 
 	Func getImageItems
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ImageItems","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s10:ImageItems","")
 
 	Func setImageItems P1
 		raise("DotNet Error: ImageItems is a read-only property")
 
 	Func getSaveAsCmyk
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:SaveAsCmyk","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"s10:SaveAsCmyk","")
 
 	Func setSaveAsCmyk P1
 		raise("DotNet Error: SaveAsCmyk is a read-only property")
@@ -778,19 +778,19 @@ Class FrameDimension from Object
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getTime
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s4:Time","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"s4:Time","")
 
 	Func setTime P1
 		raise("DotNet Error: Time is a read-only property")
 
 	Func getResolution
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s10:Resolution","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"s10:Resolution","")
 
 	Func setResolution P1
 		raise("DotNet Error: Resolution is a read-only property")
 
 	Func getPage
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s4:Page","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"s4:Page","")
 
 	Func setPage P1
 		raise("DotNet Error: Page is a read-only property")
@@ -1044,10 +1044,10 @@ Class ImageCodecInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetImageDecoders 
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common').nHandle,"s16:GetImageDecoders","")
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"s16:GetImageDecoders","")
 
 	Func GetImageEncoders 
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common').nHandle,"s16:GetImageEncoders","")
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"s16:GetImageEncoders","")
 
 	Func getClsid
 		return dnSend("s3:get",nHandle,"s5:Clsid","")
@@ -1177,73 +1177,73 @@ Class ImageFormat from Object
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getMemoryBmp
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s9:MemoryBmp","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s9:MemoryBmp","")
 
 	Func setMemoryBmp P1
 		raise("DotNet Error: MemoryBmp is a read-only property")
 
 	Func getBmp
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Bmp","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s3:Bmp","")
 
 	Func setBmp P1
 		raise("DotNet Error: Bmp is a read-only property")
 
 	Func getEmf
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Emf","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s3:Emf","")
 
 	Func setEmf P1
 		raise("DotNet Error: Emf is a read-only property")
 
 	Func getWmf
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Wmf","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s3:Wmf","")
 
 	Func setWmf P1
 		raise("DotNet Error: Wmf is a read-only property")
 
 	Func getGif
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Gif","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s3:Gif","")
 
 	Func setGif P1
 		raise("DotNet Error: Gif is a read-only property")
 
 	Func getJpeg
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Jpeg","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Jpeg","")
 
 	Func setJpeg P1
 		raise("DotNet Error: Jpeg is a read-only property")
 
 	Func getPng
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Png","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s3:Png","")
 
 	Func setPng P1
 		raise("DotNet Error: Png is a read-only property")
 
 	Func getTiff
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Tiff","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Tiff","")
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getExif
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Exif","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Exif","")
 
 	Func setExif P1
 		raise("DotNet Error: Exif is a read-only property")
 
 	Func getIcon
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Icon","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Icon","")
 
 	Func setIcon P1
 		raise("DotNet Error: Icon is a read-only property")
 
 	Func getHeif
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Heif","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Heif","")
 
 	Func setHeif P1
 		raise("DotNet Error: Heif is a read-only property")
 
 	Func getWebp
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Webp","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"s4:Webp","")
 
 	Func setWebp P1
 		raise("DotNet Error: Webp is a read-only property")
@@ -1368,14 +1368,14 @@ Class Metafile from Image
 	Func GetMetafileHeader P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common').nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"s17:GetMetafileHeader",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s17:GetMetafileHeader","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common').nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"s17:GetMetafileHeader",dnPackItem(P1))
 
 	Func GetHenhmetafile 
 		return dnSend("s4:call",nHandle,"s15:GetHenhmetafile","")

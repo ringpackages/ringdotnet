@@ -141,31 +141,31 @@ Class Dispatcher from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromThread P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s10:FromThread",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s10:FromThread",dnPackItem(P1))
 
 	Func Run 
-		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s3:Run","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s3:Run","")
 		return self
 
 	Func PushFrame P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s9:PushFrame",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s9:PushFrame",dnPackItem(P1))
 		return self
 
 	Func ExitAllFrames 
-		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s13:ExitAllFrames","")
+		dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s13:ExitAllFrames","")
 		return self
 
 	Func Yield P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield","")
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
 
 	Func ValidatePriority P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s16:ValidatePriority",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s16:ValidatePriority",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setShutdownStartedEvent P1
@@ -225,7 +225,7 @@ Class Dispatcher from Object
 		raise("DotNet Error: Hooks is a read-only property")
 
 	Func getCurrentDispatcher
-		return dnSend("s3:get",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s17:CurrentDispatcher","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s17:CurrentDispatcher","")
 
 	Func setCurrentDispatcher P1
 		raise("DotNet Error: CurrentDispatcher is a read-only property")

@@ -106,26 +106,26 @@ Class BitVector32 from ValueType
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s8:ToString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s8:ToString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s8:ToString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s8:ToString",dnPackItem(P1))
 
 	Func CreateMask P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s10:CreateMask",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s10:CreateMask","")
+			return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s10:CreateMask",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",dnPackItem(P1))
 
 	Func CreateSection P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s13:CreateSection",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s13:CreateSection",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized').nHandle,"s13:CreateSection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s13:CreateSection",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -166,15 +166,15 @@ Class CollectionsUtil from Object
 
 	Func CreateCaseInsensitiveHashtable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric').nHandle,"s30:CreateCaseInsensitiveHashtable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"s30:CreateCaseInsensitiveHashtable",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric').nHandle,"s30:CreateCaseInsensitiveHashtable","")
+			return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"s30:CreateCaseInsensitiveHashtable","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric').nHandle,"s30:CreateCaseInsensitiveHashtable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"s30:CreateCaseInsensitiveHashtable",dnPackItem(P1))
 
 	Func CreateCaseInsensitiveSortedList 
-		return dnSend("s4:call",dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric').nHandle,"s31:CreateCaseInsensitiveSortedList","")
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"s31:CreateCaseInsensitiveSortedList","")
 
 
 Class HybridDictionary from Object

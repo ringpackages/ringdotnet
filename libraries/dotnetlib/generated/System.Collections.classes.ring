@@ -305,19 +305,19 @@ Class ArrayList from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Adapter P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib').nHandle,"s7:Adapter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.ArrayList, System.Private.CoreLib'),"s7:Adapter",dnPackItem(P1))
 
 	Func FixedSize P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib').nHandle,"s9:FixedSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.ArrayList, System.Private.CoreLib'),"s9:FixedSize",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.ArrayList, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func Repeat P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib').nHandle,"s6:Repeat",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.ArrayList, System.Private.CoreLib'),"s6:Repeat",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.ArrayList, System.Private.CoreLib'),"s12:Synchronized",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -531,13 +531,13 @@ Class CaseInsensitiveComparer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getDefaultInvariant
-		return dnSend("s3:get",dnTypeCached('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric').nHandle,"s16:DefaultInvariant","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric'),"s16:DefaultInvariant","")
 
 	Func setDefaultInvariant P1
 		raise("DotNet Error: DefaultInvariant is a read-only property")
@@ -612,13 +612,13 @@ Class Comparer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Collections.Comparer, System.Private.CoreLib').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.Comparer, System.Private.CoreLib'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getDefaultInvariant
-		return dnSend("s3:get",dnTypeCached('System.Collections.Comparer, System.Private.CoreLib').nHandle,"s16:DefaultInvariant","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.Comparer, System.Private.CoreLib'),"s16:DefaultInvariant","")
 
 	Func setDefaultInvariant P1
 		raise("DotNet Error: DefaultInvariant is a read-only property")
@@ -802,7 +802,7 @@ Class Hashtable from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.Hashtable, System.Private.CoreLib').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Hashtable, System.Private.CoreLib'),"s12:Synchronized",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1340,7 +1340,7 @@ Class Queue from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.Queue, System.Collections.NonGeneric').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Queue, System.Collections.NonGeneric'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -1497,7 +1497,7 @@ Class SortedList from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.SortedList, System.Collections.NonGeneric').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.SortedList, System.Collections.NonGeneric'),"s12:Synchronized",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1630,7 +1630,7 @@ Class Stack from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Collections.Stack, System.Collections.NonGeneric').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Stack, System.Collections.NonGeneric'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -1669,13 +1669,13 @@ Class StructuralComparisons from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStructuralComparer
-		return dnSend("s3:get",dnTypeCached('System.Collections.StructuralComparisons, System.Collections').nHandle,"s18:StructuralComparer","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.StructuralComparisons, System.Collections'),"s18:StructuralComparer","")
 
 	Func setStructuralComparer P1
 		raise("DotNet Error: StructuralComparer is a read-only property")
 
 	Func getStructuralEqualityComparer
-		return dnSend("s3:get",dnTypeCached('System.Collections.StructuralComparisons, System.Collections').nHandle,"s26:StructuralEqualityComparer","")
+		return dnSend("s3:get",dnTypeHandle('System.Collections.StructuralComparisons, System.Collections'),"s26:StructuralEqualityComparer","")
 
 	Func setStructuralEqualityComparer P1
 		raise("DotNet Error: StructuralEqualityComparer is a read-only property")

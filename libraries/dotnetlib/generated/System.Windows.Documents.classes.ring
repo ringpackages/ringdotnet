@@ -487,7 +487,7 @@ Class AdornerLayer from FrameworkElement
 		return dnSend("s4:call",nHandle,"s14:AdornerHitTest",dnPackItem(P1))
 
 	Func GetAdornerLayer P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.AdornerLayer, PresentationFramework').nHandle,"s15:GetAdornerLayer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.AdornerLayer, PresentationFramework'),"s15:GetAdornerLayer",dnPackItem(P1))
 
 
 Class BlockCollection from DotNetObject
@@ -593,7 +593,7 @@ Class ContentPosition from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMissing
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ContentPosition, PresentationCore').nHandle,"s7:Missing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ContentPosition, PresentationCore'),"s7:Missing","")
 
 	Func setMissing P1
 		raise("DotNet Error: Missing is a read-only property")
@@ -673,7 +673,7 @@ Class DocumentPage from Object
 		raise("DotNet Error: ContentBox is a read-only property")
 
 	Func getMissing
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.DocumentPage, PresentationCore').nHandle,"s7:Missing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.DocumentPage, PresentationCore'),"s7:Missing","")
 
 	Func setMissing P1
 		raise("DotNet Error: Missing is a read-only property")
@@ -817,7 +817,7 @@ Class DocumentReference from FrameworkElement
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.DocumentReference, PresentationFramework').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.DocumentReference, PresentationFramework'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -938,325 +938,325 @@ Class EditingCommands from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getToggleInsert
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s12:ToggleInsert","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s12:ToggleInsert","")
 
 	Func setToggleInsert P1
 		raise("DotNet Error: ToggleInsert is a read-only property")
 
 	Func getDelete
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s6:Delete","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s6:Delete","")
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getBackspace
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s9:Backspace","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s9:Backspace","")
 
 	Func setBackspace P1
 		raise("DotNet Error: Backspace is a read-only property")
 
 	Func getDeleteNextWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:DeleteNextWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:DeleteNextWord","")
 
 	Func setDeleteNextWord P1
 		raise("DotNet Error: DeleteNextWord is a read-only property")
 
 	Func getDeletePreviousWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s18:DeletePreviousWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s18:DeletePreviousWord","")
 
 	Func setDeletePreviousWord P1
 		raise("DotNet Error: DeletePreviousWord is a read-only property")
 
 	Func getEnterParagraphBreak
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:EnterParagraphBreak","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:EnterParagraphBreak","")
 
 	Func setEnterParagraphBreak P1
 		raise("DotNet Error: EnterParagraphBreak is a read-only property")
 
 	Func getEnterLineBreak
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:EnterLineBreak","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:EnterLineBreak","")
 
 	Func setEnterLineBreak P1
 		raise("DotNet Error: EnterLineBreak is a read-only property")
 
 	Func getTabForward
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s10:TabForward","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s10:TabForward","")
 
 	Func setTabForward P1
 		raise("DotNet Error: TabForward is a read-only property")
 
 	Func getTabBackward
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s11:TabBackward","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s11:TabBackward","")
 
 	Func setTabBackward P1
 		raise("DotNet Error: TabBackward is a read-only property")
 
 	Func getMoveRightByCharacter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s20:MoveRightByCharacter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s20:MoveRightByCharacter","")
 
 	Func setMoveRightByCharacter P1
 		raise("DotNet Error: MoveRightByCharacter is a read-only property")
 
 	Func getMoveLeftByCharacter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:MoveLeftByCharacter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:MoveLeftByCharacter","")
 
 	Func setMoveLeftByCharacter P1
 		raise("DotNet Error: MoveLeftByCharacter is a read-only property")
 
 	Func getMoveRightByWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:MoveRightByWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:MoveRightByWord","")
 
 	Func setMoveRightByWord P1
 		raise("DotNet Error: MoveRightByWord is a read-only property")
 
 	Func getMoveLeftByWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:MoveLeftByWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:MoveLeftByWord","")
 
 	Func setMoveLeftByWord P1
 		raise("DotNet Error: MoveLeftByWord is a read-only property")
 
 	Func getMoveDownByLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:MoveDownByLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:MoveDownByLine","")
 
 	Func setMoveDownByLine P1
 		raise("DotNet Error: MoveDownByLine is a read-only property")
 
 	Func getMoveUpByLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s12:MoveUpByLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s12:MoveUpByLine","")
 
 	Func setMoveUpByLine P1
 		raise("DotNet Error: MoveUpByLine is a read-only property")
 
 	Func getMoveDownByParagraph
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:MoveDownByParagraph","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:MoveDownByParagraph","")
 
 	Func setMoveDownByParagraph P1
 		raise("DotNet Error: MoveDownByParagraph is a read-only property")
 
 	Func getMoveUpByParagraph
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s17:MoveUpByParagraph","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s17:MoveUpByParagraph","")
 
 	Func setMoveUpByParagraph P1
 		raise("DotNet Error: MoveUpByParagraph is a read-only property")
 
 	Func getMoveDownByPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:MoveDownByPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:MoveDownByPage","")
 
 	Func setMoveDownByPage P1
 		raise("DotNet Error: MoveDownByPage is a read-only property")
 
 	Func getMoveUpByPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s12:MoveUpByPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s12:MoveUpByPage","")
 
 	Func setMoveUpByPage P1
 		raise("DotNet Error: MoveUpByPage is a read-only property")
 
 	Func getMoveToLineStart
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:MoveToLineStart","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:MoveToLineStart","")
 
 	Func setMoveToLineStart P1
 		raise("DotNet Error: MoveToLineStart is a read-only property")
 
 	Func getMoveToLineEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s13:MoveToLineEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s13:MoveToLineEnd","")
 
 	Func setMoveToLineEnd P1
 		raise("DotNet Error: MoveToLineEnd is a read-only property")
 
 	Func getMoveToDocumentStart
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:MoveToDocumentStart","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:MoveToDocumentStart","")
 
 	Func setMoveToDocumentStart P1
 		raise("DotNet Error: MoveToDocumentStart is a read-only property")
 
 	Func getMoveToDocumentEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s17:MoveToDocumentEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s17:MoveToDocumentEnd","")
 
 	Func setMoveToDocumentEnd P1
 		raise("DotNet Error: MoveToDocumentEnd is a read-only property")
 
 	Func getSelectRightByCharacter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s22:SelectRightByCharacter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s22:SelectRightByCharacter","")
 
 	Func setSelectRightByCharacter P1
 		raise("DotNet Error: SelectRightByCharacter is a read-only property")
 
 	Func getSelectLeftByCharacter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s21:SelectLeftByCharacter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s21:SelectLeftByCharacter","")
 
 	Func setSelectLeftByCharacter P1
 		raise("DotNet Error: SelectLeftByCharacter is a read-only property")
 
 	Func getSelectRightByWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s17:SelectRightByWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s17:SelectRightByWord","")
 
 	Func setSelectRightByWord P1
 		raise("DotNet Error: SelectRightByWord is a read-only property")
 
 	Func getSelectLeftByWord
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s16:SelectLeftByWord","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s16:SelectLeftByWord","")
 
 	Func setSelectLeftByWord P1
 		raise("DotNet Error: SelectLeftByWord is a read-only property")
 
 	Func getSelectDownByLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s16:SelectDownByLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s16:SelectDownByLine","")
 
 	Func setSelectDownByLine P1
 		raise("DotNet Error: SelectDownByLine is a read-only property")
 
 	Func getSelectUpByLine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:SelectUpByLine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:SelectUpByLine","")
 
 	Func setSelectUpByLine P1
 		raise("DotNet Error: SelectUpByLine is a read-only property")
 
 	Func getSelectDownByParagraph
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s21:SelectDownByParagraph","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s21:SelectDownByParagraph","")
 
 	Func setSelectDownByParagraph P1
 		raise("DotNet Error: SelectDownByParagraph is a read-only property")
 
 	Func getSelectUpByParagraph
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:SelectUpByParagraph","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:SelectUpByParagraph","")
 
 	Func setSelectUpByParagraph P1
 		raise("DotNet Error: SelectUpByParagraph is a read-only property")
 
 	Func getSelectDownByPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s16:SelectDownByPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s16:SelectDownByPage","")
 
 	Func setSelectDownByPage P1
 		raise("DotNet Error: SelectDownByPage is a read-only property")
 
 	Func getSelectUpByPage
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s14:SelectUpByPage","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s14:SelectUpByPage","")
 
 	Func setSelectUpByPage P1
 		raise("DotNet Error: SelectUpByPage is a read-only property")
 
 	Func getSelectToLineStart
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s17:SelectToLineStart","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s17:SelectToLineStart","")
 
 	Func setSelectToLineStart P1
 		raise("DotNet Error: SelectToLineStart is a read-only property")
 
 	Func getSelectToLineEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:SelectToLineEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:SelectToLineEnd","")
 
 	Func setSelectToLineEnd P1
 		raise("DotNet Error: SelectToLineEnd is a read-only property")
 
 	Func getSelectToDocumentStart
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s21:SelectToDocumentStart","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s21:SelectToDocumentStart","")
 
 	Func setSelectToDocumentStart P1
 		raise("DotNet Error: SelectToDocumentStart is a read-only property")
 
 	Func getSelectToDocumentEnd
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:SelectToDocumentEnd","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:SelectToDocumentEnd","")
 
 	Func setSelectToDocumentEnd P1
 		raise("DotNet Error: SelectToDocumentEnd is a read-only property")
 
 	Func getToggleBold
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s10:ToggleBold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s10:ToggleBold","")
 
 	Func setToggleBold P1
 		raise("DotNet Error: ToggleBold is a read-only property")
 
 	Func getToggleItalic
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s12:ToggleItalic","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s12:ToggleItalic","")
 
 	Func setToggleItalic P1
 		raise("DotNet Error: ToggleItalic is a read-only property")
 
 	Func getToggleUnderline
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:ToggleUnderline","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:ToggleUnderline","")
 
 	Func setToggleUnderline P1
 		raise("DotNet Error: ToggleUnderline is a read-only property")
 
 	Func getToggleSubscript
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:ToggleSubscript","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:ToggleSubscript","")
 
 	Func setToggleSubscript P1
 		raise("DotNet Error: ToggleSubscript is a read-only property")
 
 	Func getToggleSuperscript
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s17:ToggleSuperscript","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s17:ToggleSuperscript","")
 
 	Func setToggleSuperscript P1
 		raise("DotNet Error: ToggleSuperscript is a read-only property")
 
 	Func getIncreaseFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s16:IncreaseFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s16:IncreaseFontSize","")
 
 	Func setIncreaseFontSize P1
 		raise("DotNet Error: IncreaseFontSize is a read-only property")
 
 	Func getDecreaseFontSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s16:DecreaseFontSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s16:DecreaseFontSize","")
 
 	Func setDecreaseFontSize P1
 		raise("DotNet Error: DecreaseFontSize is a read-only property")
 
 	Func getAlignLeft
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s9:AlignLeft","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s9:AlignLeft","")
 
 	Func setAlignLeft P1
 		raise("DotNet Error: AlignLeft is a read-only property")
 
 	Func getAlignCenter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s11:AlignCenter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s11:AlignCenter","")
 
 	Func setAlignCenter P1
 		raise("DotNet Error: AlignCenter is a read-only property")
 
 	Func getAlignRight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s10:AlignRight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s10:AlignRight","")
 
 	Func setAlignRight P1
 		raise("DotNet Error: AlignRight is a read-only property")
 
 	Func getAlignJustify
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s12:AlignJustify","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s12:AlignJustify","")
 
 	Func setAlignJustify P1
 		raise("DotNet Error: AlignJustify is a read-only property")
 
 	Func getToggleBullets
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s13:ToggleBullets","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s13:ToggleBullets","")
 
 	Func setToggleBullets P1
 		raise("DotNet Error: ToggleBullets is a read-only property")
 
 	Func getToggleNumbering
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s15:ToggleNumbering","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s15:ToggleNumbering","")
 
 	Func setToggleNumbering P1
 		raise("DotNet Error: ToggleNumbering is a read-only property")
 
 	Func getIncreaseIndentation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:IncreaseIndentation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:IncreaseIndentation","")
 
 	Func setIncreaseIndentation P1
 		raise("DotNet Error: IncreaseIndentation is a read-only property")
 
 	Func getDecreaseIndentation
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:DecreaseIndentation","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:DecreaseIndentation","")
 
 	Func setDecreaseIndentation P1
 		raise("DotNet Error: DecreaseIndentation is a read-only property")
 
 	Func getCorrectSpellingError
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s20:CorrectSpellingError","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s20:CorrectSpellingError","")
 
 	Func setCorrectSpellingError P1
 		raise("DotNet Error: CorrectSpellingError is a read-only property")
 
 	Func getIgnoreSpellingError
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.EditingCommands, PresentationFramework').nHandle,"s19:IgnoreSpellingError","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.EditingCommands, PresentationFramework'),"s19:IgnoreSpellingError","")
 
 	Func setIgnoreSpellingError P1
 		raise("DotNet Error: IgnoreSpellingError is a read-only property")
@@ -1307,7 +1307,7 @@ Class FixedDocument from FrameworkContentElement
 		return self
 
 	Func getPrintTicketProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedDocument, PresentationFramework').nHandle,"s19:PrintTicketProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedDocument, PresentationFramework'),"s19:PrintTicketProperty","")
 
 	Func setPrintTicketProperty P1
 		raise("DotNet Error: PrintTicketProperty is a read-only property")
@@ -1358,7 +1358,7 @@ Class FixedDocumentSequence from FrameworkContentElement
 		return self
 
 	Func getPrintTicketProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedDocumentSequence, PresentationFramework').nHandle,"s19:PrintTicketProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedDocumentSequence, PresentationFramework'),"s19:PrintTicketProperty","")
 
 	Func setPrintTicketProperty P1
 		raise("DotNet Error: PrintTicketProperty is a read-only property")
@@ -1400,38 +1400,38 @@ Class FixedPage from FrameworkElement
 		return self
 
 	Func GetLeft P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s7:GetLeft",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:GetLeft",dnPackItem(P1))
 
 	Func SetLeft P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s7:SetLeft",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:SetLeft",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTop P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s6:GetTop",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:GetTop",dnPackItem(P1))
 
 	Func SetTop P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s6:SetTop",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:SetTop",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetRight P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s8:GetRight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:GetRight",dnPackItem(P1))
 
 	Func SetRight P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s8:SetRight",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:SetRight",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetBottom P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s9:GetBottom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:GetBottom",dnPackItem(P1))
 
 	Func SetBottom P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s9:SetBottom",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:SetBottom",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetNavigateUri P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s14:GetNavigateUri",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:GetNavigateUri",dnPackItem(P1))
 
 	Func SetNavigateUri P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s14:SetNavigateUri",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:SetNavigateUri",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getChildren
@@ -1469,55 +1469,55 @@ Class FixedPage from FrameworkElement
 		return self
 
 	Func getPrintTicketProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s19:PrintTicketProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s19:PrintTicketProperty","")
 
 	Func setPrintTicketProperty P1
 		raise("DotNet Error: PrintTicketProperty is a read-only property")
 
 	Func getBackgroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s18:BackgroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s18:BackgroundProperty","")
 
 	Func setBackgroundProperty P1
 		raise("DotNet Error: BackgroundProperty is a read-only property")
 
 	Func getLeftProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s12:LeftProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s12:LeftProperty","")
 
 	Func setLeftProperty P1
 		raise("DotNet Error: LeftProperty is a read-only property")
 
 	Func getTopProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s11:TopProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s11:TopProperty","")
 
 	Func setTopProperty P1
 		raise("DotNet Error: TopProperty is a read-only property")
 
 	Func getRightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s13:RightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s13:RightProperty","")
 
 	Func setRightProperty P1
 		raise("DotNet Error: RightProperty is a read-only property")
 
 	Func getBottomProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s14:BottomProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:BottomProperty","")
 
 	Func setBottomProperty P1
 		raise("DotNet Error: BottomProperty is a read-only property")
 
 	Func getContentBoxProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s18:ContentBoxProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s18:ContentBoxProperty","")
 
 	Func setContentBoxProperty P1
 		raise("DotNet Error: ContentBoxProperty is a read-only property")
 
 	Func getBleedBoxProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s16:BleedBoxProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s16:BleedBoxProperty","")
 
 	Func setBleedBoxProperty P1
 		raise("DotNet Error: BleedBoxProperty is a read-only property")
 
 	Func getNavigateUriProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FixedPage, PresentationFramework').nHandle,"s19:NavigateUriProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s19:NavigateUriProperty","")
 
 	Func setNavigateUriProperty P1
 		raise("DotNet Error: NavigateUriProperty is a read-only property")
@@ -1827,157 +1827,157 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getFontFamilyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:FontFamilyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:FontFamilyProperty","")
 
 	Func setFontFamilyProperty P1
 		raise("DotNet Error: FontFamilyProperty is a read-only property")
 
 	Func getFontStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s17:FontStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s17:FontStyleProperty","")
 
 	Func setFontStyleProperty P1
 		raise("DotNet Error: FontStyleProperty is a read-only property")
 
 	Func getFontWeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:FontWeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:FontWeightProperty","")
 
 	Func setFontWeightProperty P1
 		raise("DotNet Error: FontWeightProperty is a read-only property")
 
 	Func getFontStretchProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s19:FontStretchProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s19:FontStretchProperty","")
 
 	Func setFontStretchProperty P1
 		raise("DotNet Error: FontStretchProperty is a read-only property")
 
 	Func getFontSizeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s16:FontSizeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s16:FontSizeProperty","")
 
 	Func setFontSizeProperty P1
 		raise("DotNet Error: FontSizeProperty is a read-only property")
 
 	Func getForegroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:ForegroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:ForegroundProperty","")
 
 	Func setForegroundProperty P1
 		raise("DotNet Error: ForegroundProperty is a read-only property")
 
 	Func getBackgroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:BackgroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:BackgroundProperty","")
 
 	Func setBackgroundProperty P1
 		raise("DotNet Error: BackgroundProperty is a read-only property")
 
 	Func getTextEffectsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s19:TextEffectsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s19:TextEffectsProperty","")
 
 	Func setTextEffectsProperty P1
 		raise("DotNet Error: TextEffectsProperty is a read-only property")
 
 	Func getTextAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s21:TextAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s21:TextAlignmentProperty","")
 
 	Func setTextAlignmentProperty P1
 		raise("DotNet Error: TextAlignmentProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
 
 	Func getLineHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:LineHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:LineHeightProperty","")
 
 	Func setLineHeightProperty P1
 		raise("DotNet Error: LineHeightProperty is a read-only property")
 
 	Func getLineStackingStrategyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s28:LineStackingStrategyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s28:LineStackingStrategyProperty","")
 
 	Func setLineStackingStrategyProperty P1
 		raise("DotNet Error: LineStackingStrategyProperty is a read-only property")
 
 	Func getColumnWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s19:ColumnWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s19:ColumnWidthProperty","")
 
 	Func setColumnWidthProperty P1
 		raise("DotNet Error: ColumnWidthProperty is a read-only property")
 
 	Func getColumnGapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s17:ColumnGapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s17:ColumnGapProperty","")
 
 	Func setColumnGapProperty P1
 		raise("DotNet Error: ColumnGapProperty is a read-only property")
 
 	Func getIsColumnWidthFlexibleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s29:IsColumnWidthFlexibleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s29:IsColumnWidthFlexibleProperty","")
 
 	Func setIsColumnWidthFlexibleProperty P1
 		raise("DotNet Error: IsColumnWidthFlexibleProperty is a read-only property")
 
 	Func getColumnRuleWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s23:ColumnRuleWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s23:ColumnRuleWidthProperty","")
 
 	Func setColumnRuleWidthProperty P1
 		raise("DotNet Error: ColumnRuleWidthProperty is a read-only property")
 
 	Func getColumnRuleBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s23:ColumnRuleBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s23:ColumnRuleBrushProperty","")
 
 	Func setColumnRuleBrushProperty P1
 		raise("DotNet Error: ColumnRuleBrushProperty is a read-only property")
 
 	Func getIsOptimalParagraphEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s33:IsOptimalParagraphEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s33:IsOptimalParagraphEnabledProperty","")
 
 	Func setIsOptimalParagraphEnabledProperty P1
 		raise("DotNet Error: IsOptimalParagraphEnabledProperty is a read-only property")
 
 	Func getPageWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s17:PageWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s17:PageWidthProperty","")
 
 	Func setPageWidthProperty P1
 		raise("DotNet Error: PageWidthProperty is a read-only property")
 
 	Func getMinPageWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s20:MinPageWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s20:MinPageWidthProperty","")
 
 	Func setMinPageWidthProperty P1
 		raise("DotNet Error: MinPageWidthProperty is a read-only property")
 
 	Func getMaxPageWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s20:MaxPageWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s20:MaxPageWidthProperty","")
 
 	Func setMaxPageWidthProperty P1
 		raise("DotNet Error: MaxPageWidthProperty is a read-only property")
 
 	Func getPageHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s18:PageHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s18:PageHeightProperty","")
 
 	Func setPageHeightProperty P1
 		raise("DotNet Error: PageHeightProperty is a read-only property")
 
 	Func getMinPageHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s21:MinPageHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s21:MinPageHeightProperty","")
 
 	Func setMinPageHeightProperty P1
 		raise("DotNet Error: MinPageHeightProperty is a read-only property")
 
 	Func getMaxPageHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s21:MaxPageHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s21:MaxPageHeightProperty","")
 
 	Func setMaxPageHeightProperty P1
 		raise("DotNet Error: MaxPageHeightProperty is a read-only property")
 
 	Func getPagePaddingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s19:PagePaddingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s19:PagePaddingProperty","")
 
 	Func setPagePaddingProperty P1
 		raise("DotNet Error: PagePaddingProperty is a read-only property")
 
 	Func getIsHyphenationEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.FlowDocument, PresentationFramework').nHandle,"s28:IsHyphenationEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.FlowDocument, PresentationFramework'),"s28:IsHyphenationEnabledProperty","")
 
 	Func setIsHyphenationEnabledProperty P1
 		raise("DotNet Error: IsHyphenationEnabledProperty is a read-only property")
@@ -2235,73 +2235,73 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getFillProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s12:FillProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s12:FillProperty","")
 
 	Func setFillProperty P1
 		raise("DotNet Error: FillProperty is a read-only property")
 
 	Func getIndicesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s15:IndicesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s15:IndicesProperty","")
 
 	Func setIndicesProperty P1
 		raise("DotNet Error: IndicesProperty is a read-only property")
 
 	Func getUnicodeStringProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s21:UnicodeStringProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s21:UnicodeStringProperty","")
 
 	Func setUnicodeStringProperty P1
 		raise("DotNet Error: UnicodeStringProperty is a read-only property")
 
 	Func getCaretStopsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s18:CaretStopsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s18:CaretStopsProperty","")
 
 	Func setCaretStopsProperty P1
 		raise("DotNet Error: CaretStopsProperty is a read-only property")
 
 	Func getFontRenderingEmSizeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s27:FontRenderingEmSizeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s27:FontRenderingEmSizeProperty","")
 
 	Func setFontRenderingEmSizeProperty P1
 		raise("DotNet Error: FontRenderingEmSizeProperty is a read-only property")
 
 	Func getOriginXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s15:OriginXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s15:OriginXProperty","")
 
 	Func setOriginXProperty P1
 		raise("DotNet Error: OriginXProperty is a read-only property")
 
 	Func getOriginYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s15:OriginYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s15:OriginYProperty","")
 
 	Func setOriginYProperty P1
 		raise("DotNet Error: OriginYProperty is a read-only property")
 
 	Func getFontUriProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s15:FontUriProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s15:FontUriProperty","")
 
 	Func setFontUriProperty P1
 		raise("DotNet Error: FontUriProperty is a read-only property")
 
 	Func getStyleSimulationsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s24:StyleSimulationsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s24:StyleSimulationsProperty","")
 
 	Func setStyleSimulationsProperty P1
 		raise("DotNet Error: StyleSimulationsProperty is a read-only property")
 
 	Func getIsSidewaysProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s18:IsSidewaysProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s18:IsSidewaysProperty","")
 
 	Func setIsSidewaysProperty P1
 		raise("DotNet Error: IsSidewaysProperty is a read-only property")
 
 	Func getBidiLevelProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s17:BidiLevelProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s17:BidiLevelProperty","")
 
 	Func setBidiLevelProperty P1
 		raise("DotNet Error: BidiLevelProperty is a read-only property")
 
 	Func getDeviceFontNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Glyphs, PresentationFramework').nHandle,"s22:DeviceFontNameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Glyphs, PresentationFramework'),"s22:DeviceFontNameProperty","")
 
 	Func setDeviceFontNameProperty P1
 		raise("DotNet Error: DeviceFontNameProperty is a read-only property")
@@ -2649,7 +2649,7 @@ Class PageContent from FrameworkElement
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.PageContent, PresentationFramework').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.PageContent, PresentationFramework'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -2881,13 +2881,13 @@ Class TableColumn from FrameworkContentElement
 		return self
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableColumn, PresentationFramework').nHandle,"s13:WidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableColumn, PresentationFramework'),"s13:WidthProperty","")
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
 
 	Func getBackgroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableColumn, PresentationFramework').nHandle,"s18:BackgroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableColumn, PresentationFramework'),"s18:BackgroundProperty","")
 
 	Func setBackgroundProperty P1
 		raise("DotNet Error: BackgroundProperty is a read-only property")
@@ -3196,7 +3196,7 @@ Class TextEffectResolver from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Resolve P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextEffectResolver, PresentationFramework').nHandle,"s7:Resolve",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextEffectResolver, PresentationFramework'),"s7:Resolve",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class TextEffectTarget from Object
@@ -3278,46 +3278,46 @@ Class TextElement from FrameworkContentElement
 		return self
 
 	Func SetFontFamily_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:SetFontFamily",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontFamily",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFontFamily_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:GetFontFamily",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:GetFontFamily",dnPackItem(P1))
 
 	Func SetFontStyle_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s12:SetFontStyle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s12:SetFontStyle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFontStyle_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s12:GetFontStyle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s12:GetFontStyle",dnPackItem(P1))
 
 	Func SetFontWeight_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:SetFontWeight",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontWeight",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFontWeight_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:GetFontWeight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:GetFontWeight",dnPackItem(P1))
 
 	Func SetFontStretch_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s14:SetFontStretch",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s14:SetFontStretch",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFontStretch_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s14:GetFontStretch",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s14:GetFontStretch",dnPackItem(P1))
 
 	Func SetFontSize_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s11:SetFontSize",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:SetFontSize",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFontSize_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s11:GetFontSize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:GetFontSize",dnPackItem(P1))
 
 	Func SetForeground_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:SetForeground",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetForeground",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetForeground_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s13:GetForeground",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:GetForeground",dnPackItem(P1))
 
 	Func getElementStart
 		return dnSend("s3:get",nHandle,"s12:ElementStart","")
@@ -3406,49 +3406,49 @@ Class TextElement from FrameworkContentElement
 		raise("DotNet Error: Typography is a read-only property")
 
 	Func getFontFamilyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s18:FontFamilyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s18:FontFamilyProperty","")
 
 	Func setFontFamilyProperty P1
 		raise("DotNet Error: FontFamilyProperty is a read-only property")
 
 	Func getFontStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s17:FontStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s17:FontStyleProperty","")
 
 	Func setFontStyleProperty P1
 		raise("DotNet Error: FontStyleProperty is a read-only property")
 
 	Func getFontWeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s18:FontWeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s18:FontWeightProperty","")
 
 	Func setFontWeightProperty P1
 		raise("DotNet Error: FontWeightProperty is a read-only property")
 
 	Func getFontStretchProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s19:FontStretchProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s19:FontStretchProperty","")
 
 	Func setFontStretchProperty P1
 		raise("DotNet Error: FontStretchProperty is a read-only property")
 
 	Func getFontSizeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s16:FontSizeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s16:FontSizeProperty","")
 
 	Func setFontSizeProperty P1
 		raise("DotNet Error: FontSizeProperty is a read-only property")
 
 	Func getForegroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s18:ForegroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s18:ForegroundProperty","")
 
 	Func setForegroundProperty P1
 		raise("DotNet Error: ForegroundProperty is a read-only property")
 
 	Func getBackgroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s18:BackgroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s18:BackgroundProperty","")
 
 	Func setBackgroundProperty P1
 		raise("DotNet Error: BackgroundProperty is a read-only property")
 
 	Func getTextEffectsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework').nHandle,"s19:TextEffectsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s19:TextEffectsProperty","")
 
 	Func setTextEffectsProperty P1
 		raise("DotNet Error: TextEffectsProperty is a read-only property")
@@ -3642,305 +3642,305 @@ Class Typography from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetStandardLigatures_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:SetStandardLigatures",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetStandardLigatures",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStandardLigatures_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:GetStandardLigatures",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetStandardLigatures",dnPackItem(P1))
 
 	Func SetContextualLigatures_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:SetContextualLigatures",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetContextualLigatures",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetContextualLigatures_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:GetContextualLigatures",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetContextualLigatures",dnPackItem(P1))
 
 	Func SetDiscretionaryLigatures_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:SetDiscretionaryLigatures",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:SetDiscretionaryLigatures",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetDiscretionaryLigatures_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:GetDiscretionaryLigatures",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:GetDiscretionaryLigatures",dnPackItem(P1))
 
 	Func SetHistoricalLigatures_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:SetHistoricalLigatures",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetHistoricalLigatures",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetHistoricalLigatures_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:GetHistoricalLigatures",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetHistoricalLigatures",dnPackItem(P1))
 
 	Func SetAnnotationAlternates_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:SetAnnotationAlternates",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetAnnotationAlternates",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAnnotationAlternates_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:GetAnnotationAlternates",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetAnnotationAlternates",dnPackItem(P1))
 
 	Func SetContextualAlternates_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:SetContextualAlternates",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetContextualAlternates",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetContextualAlternates_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:GetContextualAlternates",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetContextualAlternates",dnPackItem(P1))
 
 	Func SetHistoricalForms_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:SetHistoricalForms",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetHistoricalForms",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetHistoricalForms_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:GetHistoricalForms",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetHistoricalForms",dnPackItem(P1))
 
 	Func SetKerning_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s10:SetKerning",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:SetKerning",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetKerning_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s10:GetKerning",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:GetKerning",dnPackItem(P1))
 
 	Func SetCapitalSpacing_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetCapitalSpacing",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetCapitalSpacing",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCapitalSpacing_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetCapitalSpacing",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetCapitalSpacing",dnPackItem(P1))
 
 	Func SetCaseSensitiveForms_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:SetCaseSensitiveForms",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:SetCaseSensitiveForms",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCaseSensitiveForms_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:GetCaseSensitiveForms",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:GetCaseSensitiveForms",dnPackItem(P1))
 
 	Func SetStylisticSet1_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet1",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet1",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet1_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet1",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet1",dnPackItem(P1))
 
 	Func SetStylisticSet2_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet2",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet2",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet2_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet2",dnPackItem(P1))
 
 	Func SetStylisticSet3_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet3",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet3",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet3_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet3",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet3",dnPackItem(P1))
 
 	Func SetStylisticSet4_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet4",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet4",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet4_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet4",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet4",dnPackItem(P1))
 
 	Func SetStylisticSet5_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet5",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet5",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet5_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet5",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet5",dnPackItem(P1))
 
 	Func SetStylisticSet6_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet6",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet6",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet6_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet6",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet6",dnPackItem(P1))
 
 	Func SetStylisticSet7_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet7",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet7",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet7_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet7",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet7",dnPackItem(P1))
 
 	Func SetStylisticSet8_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet8",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet8",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet8_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet8",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet8",dnPackItem(P1))
 
 	Func SetStylisticSet9_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:SetStylisticSet9",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet9",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet9_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:GetStylisticSet9",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet9",dnPackItem(P1))
 
 	Func SetStylisticSet10_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet10",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet10",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet10_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet10",dnPackItem(P1))
 
 	Func SetStylisticSet11_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet11",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet11",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet11_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet11",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet11",dnPackItem(P1))
 
 	Func SetStylisticSet12_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet12",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet12",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet12_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet12",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet12",dnPackItem(P1))
 
 	Func SetStylisticSet13_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet13",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet13",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet13_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet13",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet13",dnPackItem(P1))
 
 	Func SetStylisticSet14_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet14",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet14",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet14_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet14",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet14",dnPackItem(P1))
 
 	Func SetStylisticSet15_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet15",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet15",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet15_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet15",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet15",dnPackItem(P1))
 
 	Func SetStylisticSet16_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet16",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet16",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet16_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet16",dnPackItem(P1))
 
 	Func SetStylisticSet17_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet17",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet17",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet17_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet17",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet17",dnPackItem(P1))
 
 	Func SetStylisticSet18_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet18",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet18",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet18_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet18",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet18",dnPackItem(P1))
 
 	Func SetStylisticSet19_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet19",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet19",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet19_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet19",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet19",dnPackItem(P1))
 
 	Func SetStylisticSet20_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:SetStylisticSet20",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet20",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticSet20_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s17:GetStylisticSet20",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet20",dnPackItem(P1))
 
 	Func SetFraction_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:SetFraction",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetFraction",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFraction_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:GetFraction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetFraction",dnPackItem(P1))
 
 	Func SetSlashedZero_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s14:SetSlashedZero",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:SetSlashedZero",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetSlashedZero_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s14:GetSlashedZero",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:GetSlashedZero",dnPackItem(P1))
 
 	Func SetMathematicalGreek_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:SetMathematicalGreek",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetMathematicalGreek",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetMathematicalGreek_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:GetMathematicalGreek",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetMathematicalGreek",dnPackItem(P1))
 
 	Func SetEastAsianExpertForms_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:SetEastAsianExpertForms",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetEastAsianExpertForms",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEastAsianExpertForms_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:GetEastAsianExpertForms",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetEastAsianExpertForms",dnPackItem(P1))
 
 	Func SetVariants_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:SetVariants",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetVariants",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetVariants_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:GetVariants",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetVariants",dnPackItem(P1))
 
 	Func SetCapitals_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:SetCapitals",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetCapitals",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCapitals_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s11:GetCapitals",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetCapitals",dnPackItem(P1))
 
 	Func SetNumeralStyle_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s15:SetNumeralStyle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:SetNumeralStyle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetNumeralStyle_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s15:GetNumeralStyle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:GetNumeralStyle",dnPackItem(P1))
 
 	Func SetNumeralAlignment_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s19:SetNumeralAlignment",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:SetNumeralAlignment",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetNumeralAlignment_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s19:GetNumeralAlignment",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:GetNumeralAlignment",dnPackItem(P1))
 
 	Func SetEastAsianWidths_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:SetEastAsianWidths",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetEastAsianWidths",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEastAsianWidths_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:GetEastAsianWidths",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetEastAsianWidths",dnPackItem(P1))
 
 	Func SetEastAsianLanguage_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:SetEastAsianLanguage",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetEastAsianLanguage",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEastAsianLanguage_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:GetEastAsianLanguage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetEastAsianLanguage",dnPackItem(P1))
 
 	Func SetStandardSwashes_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:SetStandardSwashes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetStandardSwashes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStandardSwashes_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s18:GetStandardSwashes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetStandardSwashes",dnPackItem(P1))
 
 	Func SetContextualSwashes_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:SetContextualSwashes",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetContextualSwashes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetContextualSwashes_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:GetContextualSwashes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetContextualSwashes",dnPackItem(P1))
 
 	Func SetStylisticAlternates_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:SetStylisticAlternates",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetStylisticAlternates",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStylisticAlternates_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:GetStylisticAlternates",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetStylisticAlternates",dnPackItem(P1))
 
 	Func getStandardLigatures
 		return dnSend("s3:get",nHandle,"s17:StandardLigatures","")
@@ -4244,259 +4244,259 @@ Class Typography from Object
 		return self
 
 	Func getStandardLigaturesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:StandardLigaturesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:StandardLigaturesProperty","")
 
 	Func setStandardLigaturesProperty P1
 		raise("DotNet Error: StandardLigaturesProperty is a read-only property")
 
 	Func getContextualLigaturesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s27:ContextualLigaturesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s27:ContextualLigaturesProperty","")
 
 	Func setContextualLigaturesProperty P1
 		raise("DotNet Error: ContextualLigaturesProperty is a read-only property")
 
 	Func getDiscretionaryLigaturesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s30:DiscretionaryLigaturesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s30:DiscretionaryLigaturesProperty","")
 
 	Func setDiscretionaryLigaturesProperty P1
 		raise("DotNet Error: DiscretionaryLigaturesProperty is a read-only property")
 
 	Func getHistoricalLigaturesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s27:HistoricalLigaturesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s27:HistoricalLigaturesProperty","")
 
 	Func setHistoricalLigaturesProperty P1
 		raise("DotNet Error: HistoricalLigaturesProperty is a read-only property")
 
 	Func getAnnotationAlternatesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s28:AnnotationAlternatesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s28:AnnotationAlternatesProperty","")
 
 	Func setAnnotationAlternatesProperty P1
 		raise("DotNet Error: AnnotationAlternatesProperty is a read-only property")
 
 	Func getContextualAlternatesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s28:ContextualAlternatesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s28:ContextualAlternatesProperty","")
 
 	Func setContextualAlternatesProperty P1
 		raise("DotNet Error: ContextualAlternatesProperty is a read-only property")
 
 	Func getHistoricalFormsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:HistoricalFormsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:HistoricalFormsProperty","")
 
 	Func setHistoricalFormsProperty P1
 		raise("DotNet Error: HistoricalFormsProperty is a read-only property")
 
 	Func getKerningProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s15:KerningProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:KerningProperty","")
 
 	Func setKerningProperty P1
 		raise("DotNet Error: KerningProperty is a read-only property")
 
 	Func getCapitalSpacingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:CapitalSpacingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:CapitalSpacingProperty","")
 
 	Func setCapitalSpacingProperty P1
 		raise("DotNet Error: CapitalSpacingProperty is a read-only property")
 
 	Func getCaseSensitiveFormsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s26:CaseSensitiveFormsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s26:CaseSensitiveFormsProperty","")
 
 	Func setCaseSensitiveFormsProperty P1
 		raise("DotNet Error: CaseSensitiveFormsProperty is a read-only property")
 
 	Func getStylisticSet1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet1Property","")
 
 	Func setStylisticSet1Property P1
 		raise("DotNet Error: StylisticSet1Property is a read-only property")
 
 	Func getStylisticSet2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet2Property","")
 
 	Func setStylisticSet2Property P1
 		raise("DotNet Error: StylisticSet2Property is a read-only property")
 
 	Func getStylisticSet3Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet3Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet3Property","")
 
 	Func setStylisticSet3Property P1
 		raise("DotNet Error: StylisticSet3Property is a read-only property")
 
 	Func getStylisticSet4Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet4Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet4Property","")
 
 	Func setStylisticSet4Property P1
 		raise("DotNet Error: StylisticSet4Property is a read-only property")
 
 	Func getStylisticSet5Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet5Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet5Property","")
 
 	Func setStylisticSet5Property P1
 		raise("DotNet Error: StylisticSet5Property is a read-only property")
 
 	Func getStylisticSet6Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet6Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet6Property","")
 
 	Func setStylisticSet6Property P1
 		raise("DotNet Error: StylisticSet6Property is a read-only property")
 
 	Func getStylisticSet7Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet7Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet7Property","")
 
 	Func setStylisticSet7Property P1
 		raise("DotNet Error: StylisticSet7Property is a read-only property")
 
 	Func getStylisticSet8Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet8Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet8Property","")
 
 	Func setStylisticSet8Property P1
 		raise("DotNet Error: StylisticSet8Property is a read-only property")
 
 	Func getStylisticSet9Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s21:StylisticSet9Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:StylisticSet9Property","")
 
 	Func setStylisticSet9Property P1
 		raise("DotNet Error: StylisticSet9Property is a read-only property")
 
 	Func getStylisticSet10Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet10Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet10Property","")
 
 	Func setStylisticSet10Property P1
 		raise("DotNet Error: StylisticSet10Property is a read-only property")
 
 	Func getStylisticSet11Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet11Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet11Property","")
 
 	Func setStylisticSet11Property P1
 		raise("DotNet Error: StylisticSet11Property is a read-only property")
 
 	Func getStylisticSet12Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet12Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet12Property","")
 
 	Func setStylisticSet12Property P1
 		raise("DotNet Error: StylisticSet12Property is a read-only property")
 
 	Func getStylisticSet13Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet13Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet13Property","")
 
 	Func setStylisticSet13Property P1
 		raise("DotNet Error: StylisticSet13Property is a read-only property")
 
 	Func getStylisticSet14Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet14Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet14Property","")
 
 	Func setStylisticSet14Property P1
 		raise("DotNet Error: StylisticSet14Property is a read-only property")
 
 	Func getStylisticSet15Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet15Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet15Property","")
 
 	Func setStylisticSet15Property P1
 		raise("DotNet Error: StylisticSet15Property is a read-only property")
 
 	Func getStylisticSet16Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet16Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet16Property","")
 
 	Func setStylisticSet16Property P1
 		raise("DotNet Error: StylisticSet16Property is a read-only property")
 
 	Func getStylisticSet17Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet17Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet17Property","")
 
 	Func setStylisticSet17Property P1
 		raise("DotNet Error: StylisticSet17Property is a read-only property")
 
 	Func getStylisticSet18Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet18Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet18Property","")
 
 	Func setStylisticSet18Property P1
 		raise("DotNet Error: StylisticSet18Property is a read-only property")
 
 	Func getStylisticSet19Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet19Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet19Property","")
 
 	Func setStylisticSet19Property P1
 		raise("DotNet Error: StylisticSet19Property is a read-only property")
 
 	Func getStylisticSet20Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s22:StylisticSet20Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:StylisticSet20Property","")
 
 	Func setStylisticSet20Property P1
 		raise("DotNet Error: StylisticSet20Property is a read-only property")
 
 	Func getFractionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:FractionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:FractionProperty","")
 
 	Func setFractionProperty P1
 		raise("DotNet Error: FractionProperty is a read-only property")
 
 	Func getSlashedZeroProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s19:SlashedZeroProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:SlashedZeroProperty","")
 
 	Func setSlashedZeroProperty P1
 		raise("DotNet Error: SlashedZeroProperty is a read-only property")
 
 	Func getMathematicalGreekProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:MathematicalGreekProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:MathematicalGreekProperty","")
 
 	Func setMathematicalGreekProperty P1
 		raise("DotNet Error: MathematicalGreekProperty is a read-only property")
 
 	Func getEastAsianExpertFormsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s28:EastAsianExpertFormsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s28:EastAsianExpertFormsProperty","")
 
 	Func setEastAsianExpertFormsProperty P1
 		raise("DotNet Error: EastAsianExpertFormsProperty is a read-only property")
 
 	Func getVariantsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:VariantsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:VariantsProperty","")
 
 	Func setVariantsProperty P1
 		raise("DotNet Error: VariantsProperty is a read-only property")
 
 	Func getCapitalsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s16:CapitalsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:CapitalsProperty","")
 
 	Func setCapitalsProperty P1
 		raise("DotNet Error: CapitalsProperty is a read-only property")
 
 	Func getNumeralStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s20:NumeralStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:NumeralStyleProperty","")
 
 	Func setNumeralStyleProperty P1
 		raise("DotNet Error: NumeralStyleProperty is a read-only property")
 
 	Func getNumeralAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s24:NumeralAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s24:NumeralAlignmentProperty","")
 
 	Func setNumeralAlignmentProperty P1
 		raise("DotNet Error: NumeralAlignmentProperty is a read-only property")
 
 	Func getEastAsianWidthsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:EastAsianWidthsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:EastAsianWidthsProperty","")
 
 	Func setEastAsianWidthsProperty P1
 		raise("DotNet Error: EastAsianWidthsProperty is a read-only property")
 
 	Func getEastAsianLanguageProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:EastAsianLanguageProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:EastAsianLanguageProperty","")
 
 	Func setEastAsianLanguageProperty P1
 		raise("DotNet Error: EastAsianLanguageProperty is a read-only property")
 
 	Func getStandardSwashesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s23:StandardSwashesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:StandardSwashesProperty","")
 
 	Func setStandardSwashesProperty P1
 		raise("DotNet Error: StandardSwashesProperty is a read-only property")
 
 	Func getContextualSwashesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s25:ContextualSwashesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:ContextualSwashesProperty","")
 
 	Func setContextualSwashesProperty P1
 		raise("DotNet Error: ContextualSwashesProperty is a read-only property")
 
 	Func getStylisticAlternatesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Typography, PresentationFramework').nHandle,"s27:StylisticAlternatesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s27:StylisticAlternatesProperty","")
 
 	Func setStylisticAlternatesProperty P1
 		raise("DotNet Error: StylisticAlternatesProperty is a read-only property")
@@ -4572,32 +4572,32 @@ Class Block from TextElement
 		return self
 
 	Func SetIsHyphenationEnabled_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:SetIsHyphenationEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetIsHyphenationEnabled",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetIsHyphenationEnabled_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:GetIsHyphenationEnabled",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:GetIsHyphenationEnabled",dnPackItem(P1))
 
 	Func SetTextAlignment_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s16:SetTextAlignment",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s16:SetTextAlignment",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTextAlignment_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s16:GetTextAlignment",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s16:GetTextAlignment",dnPackItem(P1))
 
 	Func SetLineHeight_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s13:SetLineHeight",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:SetLineHeight",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLineHeight_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s13:GetLineHeight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:GetLineHeight",dnPackItem(P1))
 
 	Func SetLineStackingStrategy_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:SetLineStackingStrategy",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetLineStackingStrategy",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetLineStackingStrategy_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:GetLineStackingStrategy",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:GetLineStackingStrategy",dnPackItem(P1))
 
 	Func getSiblingBlocks
 		return dnSend("s3:get",nHandle,"s13:SiblingBlocks","")
@@ -4702,73 +4702,73 @@ Class Block from TextElement
 		return self
 
 	Func getIsHyphenationEnabledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s28:IsHyphenationEnabledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s28:IsHyphenationEnabledProperty","")
 
 	Func setIsHyphenationEnabledProperty P1
 		raise("DotNet Error: IsHyphenationEnabledProperty is a read-only property")
 
 	Func getMarginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s14:MarginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s14:MarginProperty","")
 
 	Func setMarginProperty P1
 		raise("DotNet Error: MarginProperty is a read-only property")
 
 	Func getPaddingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s15:PaddingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s15:PaddingProperty","")
 
 	Func setPaddingProperty P1
 		raise("DotNet Error: PaddingProperty is a read-only property")
 
 	Func getBorderThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:BorderThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:BorderThicknessProperty","")
 
 	Func setBorderThicknessProperty P1
 		raise("DotNet Error: BorderThicknessProperty is a read-only property")
 
 	Func getBorderBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s19:BorderBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s19:BorderBrushProperty","")
 
 	Func setBorderBrushProperty P1
 		raise("DotNet Error: BorderBrushProperty is a read-only property")
 
 	Func getTextAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s21:TextAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s21:TextAlignmentProperty","")
 
 	Func setTextAlignmentProperty P1
 		raise("DotNet Error: TextAlignmentProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
 
 	Func getLineHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s18:LineHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s18:LineHeightProperty","")
 
 	Func setLineHeightProperty P1
 		raise("DotNet Error: LineHeightProperty is a read-only property")
 
 	Func getLineStackingStrategyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s28:LineStackingStrategyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s28:LineStackingStrategyProperty","")
 
 	Func setLineStackingStrategyProperty P1
 		raise("DotNet Error: LineStackingStrategyProperty is a read-only property")
 
 	Func getBreakPageBeforeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s23:BreakPageBeforeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:BreakPageBeforeProperty","")
 
 	Func setBreakPageBeforeProperty P1
 		raise("DotNet Error: BreakPageBeforeProperty is a read-only property")
 
 	Func getBreakColumnBeforeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s25:BreakColumnBeforeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s25:BreakColumnBeforeProperty","")
 
 	Func setBreakColumnBeforeProperty P1
 		raise("DotNet Error: BreakColumnBeforeProperty is a read-only property")
 
 	Func getClearFloatersProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Block, PresentationFramework').nHandle,"s21:ClearFloatersProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s21:ClearFloatersProperty","")
 
 	Func setClearFloatersProperty P1
 		raise("DotNet Error: ClearFloatersProperty is a read-only property")
@@ -4938,19 +4938,19 @@ Class Inline from TextElement
 		return self
 
 	Func getBaselineAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Inline, PresentationFramework').nHandle,"s25:BaselineAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Inline, PresentationFramework'),"s25:BaselineAlignmentProperty","")
 
 	Func setBaselineAlignmentProperty P1
 		raise("DotNet Error: BaselineAlignmentProperty is a read-only property")
 
 	Func getTextDecorationsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Inline, PresentationFramework').nHandle,"s23:TextDecorationsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Inline, PresentationFramework'),"s23:TextDecorationsProperty","")
 
 	Func setTextDecorationsProperty P1
 		raise("DotNet Error: TextDecorationsProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Inline, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Inline, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
@@ -5104,49 +5104,49 @@ Class ListItem from TextElement
 		return self
 
 	Func getMarginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s14:MarginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s14:MarginProperty","")
 
 	Func setMarginProperty P1
 		raise("DotNet Error: MarginProperty is a read-only property")
 
 	Func getPaddingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s15:PaddingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s15:PaddingProperty","")
 
 	Func setPaddingProperty P1
 		raise("DotNet Error: PaddingProperty is a read-only property")
 
 	Func getBorderThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s23:BorderThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s23:BorderThicknessProperty","")
 
 	Func setBorderThicknessProperty P1
 		raise("DotNet Error: BorderThicknessProperty is a read-only property")
 
 	Func getBorderBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s19:BorderBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s19:BorderBrushProperty","")
 
 	Func setBorderBrushProperty P1
 		raise("DotNet Error: BorderBrushProperty is a read-only property")
 
 	Func getTextAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s21:TextAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s21:TextAlignmentProperty","")
 
 	Func setTextAlignmentProperty P1
 		raise("DotNet Error: TextAlignmentProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
 
 	Func getLineHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s18:LineHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s18:LineHeightProperty","")
 
 	Func setLineHeightProperty P1
 		raise("DotNet Error: LineHeightProperty is a read-only property")
 
 	Func getLineStackingStrategyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.ListItem, PresentationFramework').nHandle,"s28:LineStackingStrategyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.ListItem, PresentationFramework'),"s28:LineStackingStrategyProperty","")
 
 	Func setLineStackingStrategyProperty P1
 		raise("DotNet Error: LineStackingStrategyProperty is a read-only property")
@@ -5278,55 +5278,55 @@ Class TableCell from TextElement
 		return self
 
 	Func getPaddingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s15:PaddingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s15:PaddingProperty","")
 
 	Func setPaddingProperty P1
 		raise("DotNet Error: PaddingProperty is a read-only property")
 
 	Func getBorderThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s23:BorderThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s23:BorderThicknessProperty","")
 
 	Func setBorderThicknessProperty P1
 		raise("DotNet Error: BorderThicknessProperty is a read-only property")
 
 	Func getBorderBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s19:BorderBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s19:BorderBrushProperty","")
 
 	Func setBorderBrushProperty P1
 		raise("DotNet Error: BorderBrushProperty is a read-only property")
 
 	Func getTextAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s21:TextAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s21:TextAlignmentProperty","")
 
 	Func setTextAlignmentProperty P1
 		raise("DotNet Error: TextAlignmentProperty is a read-only property")
 
 	Func getFlowDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s21:FlowDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s21:FlowDirectionProperty","")
 
 	Func setFlowDirectionProperty P1
 		raise("DotNet Error: FlowDirectionProperty is a read-only property")
 
 	Func getLineHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s18:LineHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s18:LineHeightProperty","")
 
 	Func setLineHeightProperty P1
 		raise("DotNet Error: LineHeightProperty is a read-only property")
 
 	Func getLineStackingStrategyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s28:LineStackingStrategyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s28:LineStackingStrategyProperty","")
 
 	Func setLineStackingStrategyProperty P1
 		raise("DotNet Error: LineStackingStrategyProperty is a read-only property")
 
 	Func getColumnSpanProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s18:ColumnSpanProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s18:ColumnSpanProperty","")
 
 	Func setColumnSpanProperty P1
 		raise("DotNet Error: ColumnSpanProperty is a read-only property")
 
 	Func getRowSpanProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.TableCell, PresentationFramework').nHandle,"s15:RowSpanProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.TableCell, PresentationFramework'),"s15:RowSpanProperty","")
 
 	Func setRowSpanProperty P1
 		raise("DotNet Error: RowSpanProperty is a read-only property")
@@ -5621,43 +5621,43 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getMarginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s14:MarginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s14:MarginProperty","")
 
 	Func setMarginProperty P1
 		raise("DotNet Error: MarginProperty is a read-only property")
 
 	Func getPaddingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s15:PaddingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s15:PaddingProperty","")
 
 	Func setPaddingProperty P1
 		raise("DotNet Error: PaddingProperty is a read-only property")
 
 	Func getBorderThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s23:BorderThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s23:BorderThicknessProperty","")
 
 	Func setBorderThicknessProperty P1
 		raise("DotNet Error: BorderThicknessProperty is a read-only property")
 
 	Func getBorderBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s19:BorderBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s19:BorderBrushProperty","")
 
 	Func setBorderBrushProperty P1
 		raise("DotNet Error: BorderBrushProperty is a read-only property")
 
 	Func getTextAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s21:TextAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s21:TextAlignmentProperty","")
 
 	Func setTextAlignmentProperty P1
 		raise("DotNet Error: TextAlignmentProperty is a read-only property")
 
 	Func getLineHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s18:LineHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s18:LineHeightProperty","")
 
 	Func setLineHeightProperty P1
 		raise("DotNet Error: LineHeightProperty is a read-only property")
 
 	Func getLineStackingStrategyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.AnchoredBlock, PresentationFramework').nHandle,"s28:LineStackingStrategyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.AnchoredBlock, PresentationFramework'),"s28:LineStackingStrategyProperty","")
 
 	Func setLineStackingStrategyProperty P1
 		raise("DotNet Error: LineStackingStrategyProperty is a read-only property")
@@ -5864,19 +5864,19 @@ Class List from Block
 		return self
 
 	Func getMarkerStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.List, PresentationFramework').nHandle,"s19:MarkerStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.List, PresentationFramework'),"s19:MarkerStyleProperty","")
 
 	Func setMarkerStyleProperty P1
 		raise("DotNet Error: MarkerStyleProperty is a read-only property")
 
 	Func getMarkerOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.List, PresentationFramework').nHandle,"s20:MarkerOffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.List, PresentationFramework'),"s20:MarkerOffsetProperty","")
 
 	Func setMarkerOffsetProperty P1
 		raise("DotNet Error: MarkerOffsetProperty is a read-only property")
 
 	Func getStartIndexProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.List, PresentationFramework').nHandle,"s18:StartIndexProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.List, PresentationFramework'),"s18:StartIndexProperty","")
 
 	Func setStartIndexProperty P1
 		raise("DotNet Error: StartIndexProperty is a read-only property")
@@ -5984,37 +5984,37 @@ Class Paragraph from Block
 		return self
 
 	Func getTextDecorationsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s23:TextDecorationsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s23:TextDecorationsProperty","")
 
 	Func setTextDecorationsProperty P1
 		raise("DotNet Error: TextDecorationsProperty is a read-only property")
 
 	Func getTextIndentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s18:TextIndentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s18:TextIndentProperty","")
 
 	Func setTextIndentProperty P1
 		raise("DotNet Error: TextIndentProperty is a read-only property")
 
 	Func getMinOrphanLinesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s22:MinOrphanLinesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s22:MinOrphanLinesProperty","")
 
 	Func setMinOrphanLinesProperty P1
 		raise("DotNet Error: MinOrphanLinesProperty is a read-only property")
 
 	Func getMinWidowLinesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s21:MinWidowLinesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s21:MinWidowLinesProperty","")
 
 	Func setMinWidowLinesProperty P1
 		raise("DotNet Error: MinWidowLinesProperty is a read-only property")
 
 	Func getKeepWithNextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s20:KeepWithNextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s20:KeepWithNextProperty","")
 
 	Func setKeepWithNextProperty P1
 		raise("DotNet Error: KeepWithNextProperty is a read-only property")
 
 	Func getKeepTogetherProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Paragraph, PresentationFramework').nHandle,"s20:KeepTogetherProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Paragraph, PresentationFramework'),"s20:KeepTogetherProperty","")
 
 	Func setKeepTogetherProperty P1
 		raise("DotNet Error: KeepTogetherProperty is a read-only property")
@@ -6070,7 +6070,7 @@ Class Run from Inline
 		return self
 
 	Func getTextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Run, PresentationFramework').nHandle,"s12:TextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Run, PresentationFramework'),"s12:TextProperty","")
 
 	Func setTextProperty P1
 		raise("DotNet Error: TextProperty is a read-only property")
@@ -6228,7 +6228,7 @@ Class Table from Block
 		return self
 
 	Func getCellSpacingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Table, PresentationFramework').nHandle,"s19:CellSpacingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Table, PresentationFramework'),"s19:CellSpacingProperty","")
 
 	Func setCellSpacingProperty P1
 		raise("DotNet Error: CellSpacingProperty is a read-only property")
@@ -6381,49 +6381,49 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getHorizontalAnchorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s24:HorizontalAnchorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s24:HorizontalAnchorProperty","")
 
 	Func setHorizontalAnchorProperty P1
 		raise("DotNet Error: HorizontalAnchorProperty is a read-only property")
 
 	Func getVerticalAnchorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s22:VerticalAnchorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s22:VerticalAnchorProperty","")
 
 	Func setVerticalAnchorProperty P1
 		raise("DotNet Error: VerticalAnchorProperty is a read-only property")
 
 	Func getHorizontalOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s24:HorizontalOffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s24:HorizontalOffsetProperty","")
 
 	Func setHorizontalOffsetProperty P1
 		raise("DotNet Error: HorizontalOffsetProperty is a read-only property")
 
 	Func getVerticalOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s22:VerticalOffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s22:VerticalOffsetProperty","")
 
 	Func setVerticalOffsetProperty P1
 		raise("DotNet Error: VerticalOffsetProperty is a read-only property")
 
 	Func getCanDelayPlacementProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s25:CanDelayPlacementProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s25:CanDelayPlacementProperty","")
 
 	Func setCanDelayPlacementProperty P1
 		raise("DotNet Error: CanDelayPlacementProperty is a read-only property")
 
 	Func getWrapDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s21:WrapDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s21:WrapDirectionProperty","")
 
 	Func setWrapDirectionProperty P1
 		raise("DotNet Error: WrapDirectionProperty is a read-only property")
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s13:WidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s13:WidthProperty","")
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
 
 	Func getHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Figure, PresentationFramework').nHandle,"s14:HeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Figure, PresentationFramework'),"s14:HeightProperty","")
 
 	Func setHeightProperty P1
 		raise("DotNet Error: HeightProperty is a read-only property")
@@ -6485,13 +6485,13 @@ Class Floater from AnchoredBlock
 		return self
 
 	Func getHorizontalAlignmentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Floater, PresentationFramework').nHandle,"s27:HorizontalAlignmentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Floater, PresentationFramework'),"s27:HorizontalAlignmentProperty","")
 
 	Func setHorizontalAlignmentProperty P1
 		raise("DotNet Error: HorizontalAlignmentProperty is a read-only property")
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Floater, PresentationFramework').nHandle,"s13:WidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Floater, PresentationFramework'),"s13:WidthProperty","")
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
@@ -6602,40 +6602,40 @@ Class Hyperlink from Span
 		return self
 
 	Func getCommandProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s15:CommandProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s15:CommandProperty","")
 
 	Func setCommandProperty P1
 		raise("DotNet Error: CommandProperty is a read-only property")
 
 	Func getCommandParameterProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s24:CommandParameterProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s24:CommandParameterProperty","")
 
 	Func setCommandParameterProperty P1
 		raise("DotNet Error: CommandParameterProperty is a read-only property")
 
 	Func getCommandTargetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s21:CommandTargetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s21:CommandTargetProperty","")
 
 	Func setCommandTargetProperty P1
 		raise("DotNet Error: CommandTargetProperty is a read-only property")
 
 	Func getNavigateUriProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s19:NavigateUriProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s19:NavigateUriProperty","")
 
 	Func setNavigateUriProperty P1
 		raise("DotNet Error: NavigateUriProperty is a read-only property")
 
 	Func getTargetNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s18:TargetNameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s18:TargetNameProperty","")
 
 	Func setTargetNameProperty P1
 		raise("DotNet Error: TargetNameProperty is a read-only property")
 
 	Func getRequestNavigateEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s20:RequestNavigateEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s20:RequestNavigateEvent","")
 
 	Func getClickEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Documents.Hyperlink, PresentationFramework').nHandle,"s10:ClickEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Documents.Hyperlink, PresentationFramework'),"s10:ClickEvent","")
 
 
 Class Italic from Span

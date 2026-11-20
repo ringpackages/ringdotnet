@@ -134,10 +134,10 @@ Class AspBase64UrlTextEncoder from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Encode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities').nHandle,"s6:Encode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",dnPackItem(P1))
 
 	Func Decode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities').nHandle,"s6:Decode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Decode",dnPackItem(P1))
 
 
 Class BufferedReadStream from Stream
@@ -595,19 +595,19 @@ Class FormReader from Object
 		return self
 
 	Func getDefaultValueCountLimit
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s22:DefaultValueCountLimit","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit","")
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s21:DefaultKeyLengthLimit","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit","")
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s23:DefaultValueLengthLimit","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit","")
 
 	Func setDefaultValueLengthLimit P1
 		raise("DotNet Error: DefaultValueLengthLimit is a read-only property")
@@ -789,13 +789,13 @@ Class MultipartReader from Object
 		return self
 
 	Func getDefaultHeadersCountLimit
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s24:DefaultHeadersCountLimit","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit","")
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s25:DefaultHeadersLengthLimit","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit","")
 
 	Func setDefaultHeadersLengthLimit P1
 		raise("DotNet Error: DefaultHeadersLengthLimit is a read-only property")
@@ -879,13 +879,13 @@ Class MultipartSectionConverterExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsFileSection P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s13:AsFileSection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"s13:AsFileSection",dnPackItem(P1))
 
 	Func AsFormDataSection P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:AsFormDataSection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"s17:AsFormDataSection",dnPackItem(P1))
 
 	Func GetContentDispositionHeader P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s27:GetContentDispositionHeader",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"s27:GetContentDispositionHeader",dnPackItem(P1))
 
 
 Class MultipartSectionStreamExtensions from Object
@@ -904,9 +904,9 @@ Class MultipartSectionStreamExtensions from Object
 
 	Func ReadAsStringAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:ReadAsStringAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"s17:ReadAsStringAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:ReadAsStringAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"s17:ReadAsStringAsync",dnPackItem(P1))
 
 
 Class QueryHelpers from Object
@@ -925,15 +925,15 @@ Class QueryHelpers from Object
 
 	Func AddQueryString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s14:AddQueryString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"s14:AddQueryString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddQueryString does not take one argument: use named arguments, AddQueryString([ :parameter = value, ... ])")
 
 	Func ParseQuery P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s10:ParseQuery",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"s10:ParseQuery",dnPackItem(P1))
 
 	Func ParseNullableQuery P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s18:ParseNullableQuery",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"s18:ParseNullableQuery",dnPackItem(P1))
 
 
 Class QueryStringEnumerable from ValueType
@@ -991,7 +991,7 @@ Class ReasonPhrases from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetReasonPhrase P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:GetReasonPhrase",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",dnPackItem(P1))
 
 
 Class StreamHelperExtensions from Object
@@ -1010,7 +1010,7 @@ Class StreamHelperExtensions from Object
 
 	Func DrainAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s10:DrainAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"s10:DrainAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DrainAsync does not take one argument: use named arguments, DrainAsync([ :parameter = value, ... ])")
 
@@ -1031,20 +1031,20 @@ Class WebEncoders from Object
 
 	Func Base64UrlDecode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlDecode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlDecode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlDecode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlDecode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToDecode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s28:GetArraySizeRequiredToDecode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",dnPackItem(P1))
 
 	Func Base64UrlEncode P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlEncode",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlEncode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToEncode P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s28:GetArraySizeRequiredToEncode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",dnPackItem(P1))
 
 

@@ -62,10 +62,10 @@ Class Options from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s6:Create",dnPackItem(P1))
 
 	Func getDefaultName
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options').nHandle,"s11:DefaultName","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName","")
 
 	Func setDefaultName P1
 		raise("DotNet Error: DefaultName is a read-only property")
@@ -86,7 +86,7 @@ Class OptionsMonitorExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func OnChange P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options').nHandle,"s8:OnChange",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options'),"s8:OnChange",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ValidateOptionsResult from Object
@@ -121,7 +121,7 @@ Class ValidateOptionsResult from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Fail P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s4:Fail",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"s4:Fail",dnPackItem(P1))
 
 	Func getSucceeded
 		return dnSend("s3:get",nHandle,"s9:Succeeded","")
@@ -154,13 +154,13 @@ Class ValidateOptionsResult from Object
 		raise("DotNet Error: Failures is a read-only property")
 
 	Func getSkip
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s4:Skip","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"s4:Skip","")
 
 	Func setSkip P1
 		raise("DotNet Error: Skip is a read-only property")
 
 	Func getSuccess
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s7:Success","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"s7:Success","")
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")

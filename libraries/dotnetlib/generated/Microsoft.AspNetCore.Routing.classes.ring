@@ -461,13 +461,13 @@ Class ControllerLinkGeneratorExtensions from Object
 
 	Func GetPathByAction P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s15:GetPathByAction",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s15:GetPathByAction",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetPathByAction does not take one argument: use named arguments, GetPathByAction([ :parameter = value, ... ])")
 
 	Func GetUriByAction P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s14:GetUriByAction",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s14:GetUriByAction",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetUriByAction does not take one argument: use named arguments, GetUriByAction([ :parameter = value, ... ])")
 
@@ -1064,7 +1064,7 @@ Class IdentityApiEndpointRouteBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapIdentityApi P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity').nHandle,"s14:MapIdentityApi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity'),"s14:MapIdentityApi",dnPackItem(P1))
 
 
 Class InlineRouteParameterParser from Object
@@ -1082,7 +1082,7 @@ Class InlineRouteParameterParser from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ParseRouteParameter P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.InlineRouteParameterParser, Microsoft.AspNetCore.Routing').nHandle,"s19:ParseRouteParameter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.InlineRouteParameterParser, Microsoft.AspNetCore.Routing'),"s19:ParseRouteParameter",dnPackItem(P1))
 
 
 Class LinkGenerator from Object
@@ -1128,13 +1128,13 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 
 	Func GetPathByName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing').nHandle,"s13:GetPathByName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s13:GetPathByName",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetPathByName does not take one argument: use named arguments, GetPathByName([ :parameter = value, ... ])")
 
 	Func GetUriByName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing').nHandle,"s12:GetUriByName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s12:GetUriByName",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetUriByName does not take one argument: use named arguments, GetUriByName([ :parameter = value, ... ])")
 
@@ -1155,13 +1155,13 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 
 	Func GetPathByRouteValues P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing').nHandle,"s20:GetPathByRouteValues",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"s20:GetPathByRouteValues",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetPathByRouteValues does not take one argument: use named arguments, GetPathByRouteValues([ :parameter = value, ... ])")
 
 	Func GetUriByRouteValues P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing').nHandle,"s19:GetUriByRouteValues",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"s19:GetUriByRouteValues",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetUriByRouteValues does not take one argument: use named arguments, GetUriByRouteValues([ :parameter = value, ... ])")
 
@@ -1248,7 +1248,7 @@ Class LinkParserEndpointNameAddressExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ParsePathByEndpointName P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing').nHandle,"s23:ParsePathByEndpointName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s23:ParsePathByEndpointName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class MatcherPolicy from Object
@@ -1290,13 +1290,13 @@ Class PageLinkGeneratorExtensions from Object
 
 	Func GetPathByPage P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s13:GetPathByPage",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s13:GetPathByPage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetPathByPage does not take one argument: use named arguments, GetPathByPage([ :parameter = value, ... ])")
 
 	Func GetUriByPage P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s12:GetUriByPage",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s12:GetUriByPage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetUriByPage does not take one argument: use named arguments, GetUriByPage([ :parameter = value, ... ])")
 
@@ -1334,40 +1334,40 @@ Class RequestDelegateRouteBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapRoute P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:MapRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:MapRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMiddlewareRoute P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s18:MapMiddlewareRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s18:MapMiddlewareRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapDelete P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s9:MapDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s9:MapDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMiddlewareDelete P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s19:MapMiddlewareDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s19:MapMiddlewareDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapGet P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s6:MapGet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s6:MapGet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMiddlewareGet P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s16:MapMiddlewareGet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s16:MapMiddlewareGet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapPost P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s7:MapPost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s7:MapPost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMiddlewarePost P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s17:MapMiddlewarePost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s17:MapMiddlewarePost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapPut P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s6:MapPut",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s6:MapPut",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMiddlewarePut P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s16:MapMiddlewarePut",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s16:MapMiddlewarePut",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapVerb P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s7:MapVerb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s7:MapVerb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func MapMiddlewareVerb P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s17:MapMiddlewareVerb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s17:MapMiddlewareVerb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class RouteBase from Object
@@ -1580,7 +1580,7 @@ Class RouteConstraintMatcher from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Match P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components').nHandle,"s5:Match",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RouteContext from Object
@@ -1896,7 +1896,7 @@ Class RouteHandlerServices from Object
 
 	Func Map P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing').nHandle,"s3:Map",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"s3:Map",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
@@ -1982,7 +1982,7 @@ Class RouteShortCircuitEndpointRouteBuilderExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapShortCircuit P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:MapShortCircuit",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:MapShortCircuit",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class RouteValueDictionary from Object
@@ -2053,7 +2053,7 @@ Class RouteValueDictionary from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromArray P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s9:FromArray",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions'),"s9:FromArray",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -2125,7 +2125,7 @@ Class RouteValueEqualityComparer from Object
 		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -2228,10 +2228,10 @@ Class RoutingHttpContextExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetRouteData P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions').nHandle,"s12:GetRouteData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions'),"s12:GetRouteData",dnPackItem(P1))
 
 	Func GetRouteValue P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions').nHandle,"s13:GetRouteValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions'),"s13:GetRouteValue",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class SuppressLinkGenerationMetadata from Object

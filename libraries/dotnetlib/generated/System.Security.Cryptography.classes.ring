@@ -710,19 +710,19 @@ Class AesCcm from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNonceByteSizes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesCcm, System.Security.Cryptography').nHandle,"s14:NonceByteSizes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s14:NonceByteSizes","")
 
 	Func setNonceByteSizes P1
 		raise("DotNet Error: NonceByteSizes is a read-only property")
 
 	Func getTagByteSizes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesCcm, System.Security.Cryptography').nHandle,"s12:TagByteSizes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s12:TagByteSizes","")
 
 	Func setTagByteSizes P1
 		raise("DotNet Error: TagByteSizes is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesCcm, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -789,19 +789,19 @@ Class AesGcm from Object
 		raise("DotNet Error: TagSizeInBytes is a read-only property")
 
 	Func getNonceByteSizes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesGcm, System.Security.Cryptography').nHandle,"s14:NonceByteSizes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s14:NonceByteSizes","")
 
 	Func setNonceByteSizes P1
 		raise("DotNet Error: NonceByteSizes is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesGcm, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getTagByteSizes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.AesGcm, System.Security.Cryptography').nHandle,"s12:TagByteSizes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s12:TagByteSizes","")
 
 	Func setTagByteSizes P1
 		raise("DotNet Error: TagByteSizes is a read-only property")
@@ -1020,12 +1020,12 @@ Class AsymmetricAlgorithm from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getKeySize
 		return dnSend("s3:get",nHandle,"s7:KeySize","")
@@ -1206,7 +1206,7 @@ Class ChaCha20Poly1305 from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -1251,85 +1251,85 @@ Class CngAlgorithm from Object
 		raise("DotNet Error: Algorithm is a read-only property")
 
 	Func getRsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s3:Rsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s3:Rsa","")
 
 	Func setRsa P1
 		raise("DotNet Error: Rsa is a read-only property")
 
 	Func getECDiffieHellman
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s15:ECDiffieHellman","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s15:ECDiffieHellman","")
 
 	Func setECDiffieHellman P1
 		raise("DotNet Error: ECDiffieHellman is a read-only property")
 
 	Func getECDiffieHellmanP256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s19:ECDiffieHellmanP256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s19:ECDiffieHellmanP256","")
 
 	Func setECDiffieHellmanP256 P1
 		raise("DotNet Error: ECDiffieHellmanP256 is a read-only property")
 
 	Func getECDiffieHellmanP384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s19:ECDiffieHellmanP384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s19:ECDiffieHellmanP384","")
 
 	Func setECDiffieHellmanP384 P1
 		raise("DotNet Error: ECDiffieHellmanP384 is a read-only property")
 
 	Func getECDiffieHellmanP521
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s19:ECDiffieHellmanP521","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s19:ECDiffieHellmanP521","")
 
 	Func setECDiffieHellmanP521 P1
 		raise("DotNet Error: ECDiffieHellmanP521 is a read-only property")
 
 	Func getECDsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s5:ECDsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s5:ECDsa","")
 
 	Func setECDsa P1
 		raise("DotNet Error: ECDsa is a read-only property")
 
 	Func getECDsaP256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s9:ECDsaP256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s9:ECDsaP256","")
 
 	Func setECDsaP256 P1
 		raise("DotNet Error: ECDsaP256 is a read-only property")
 
 	Func getECDsaP384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s9:ECDsaP384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s9:ECDsaP384","")
 
 	Func setECDsaP384 P1
 		raise("DotNet Error: ECDsaP384 is a read-only property")
 
 	Func getECDsaP521
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s9:ECDsaP521","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s9:ECDsaP521","")
 
 	Func setECDsaP521 P1
 		raise("DotNet Error: ECDsaP521 is a read-only property")
 
 	Func getMD5
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s3:MD5","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s3:MD5","")
 
 	Func setMD5 P1
 		raise("DotNet Error: MD5 is a read-only property")
 
 	Func getSha1
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s4:Sha1","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s4:Sha1","")
 
 	Func setSha1 P1
 		raise("DotNet Error: Sha1 is a read-only property")
 
 	Func getSha256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s6:Sha256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s6:Sha256","")
 
 	Func setSha256 P1
 		raise("DotNet Error: Sha256 is a read-only property")
 
 	Func getSha384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s6:Sha384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s6:Sha384","")
 
 	Func setSha384 P1
 		raise("DotNet Error: Sha384 is a read-only property")
 
 	Func getSha512
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography').nHandle,"s6:Sha512","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithm, System.Security.Cryptography'),"s6:Sha512","")
 
 	Func setSha512 P1
 		raise("DotNet Error: Sha512 is a read-only property")
@@ -1365,31 +1365,31 @@ Class CngAlgorithmGroup from Object
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
 
 	Func getDiffieHellman
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography').nHandle,"s13:DiffieHellman","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography'),"s13:DiffieHellman","")
 
 	Func setDiffieHellman P1
 		raise("DotNet Error: DiffieHellman is a read-only property")
 
 	Func getDsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography').nHandle,"s3:Dsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography'),"s3:Dsa","")
 
 	Func setDsa P1
 		raise("DotNet Error: Dsa is a read-only property")
 
 	Func getECDiffieHellman
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography').nHandle,"s15:ECDiffieHellman","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography'),"s15:ECDiffieHellman","")
 
 	Func setECDiffieHellman P1
 		raise("DotNet Error: ECDiffieHellman is a read-only property")
 
 	Func getECDsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography').nHandle,"s5:ECDsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography'),"s5:ECDsa","")
 
 	Func setECDsa P1
 		raise("DotNet Error: ECDsa is a read-only property")
 
 	Func getRsa
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography').nHandle,"s3:Rsa","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography'),"s3:Rsa","")
 
 	Func setRsa P1
 		raise("DotNet Error: Rsa is a read-only property")
@@ -1447,27 +1447,27 @@ Class CngKey from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func Exists P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s6:Exists",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s6:Exists",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
 
 	Func Import_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s6:Import",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Import",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Import does not take one argument: use named arguments, Import([ :parameter = value, ... ])")
 
 	Func Open P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s4:Open",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s4:Open",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography').nHandle,"s4:Open",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s4:Open",dnPackItem(P1))
 
 	Func getAlgorithm
 		return dnSend("s3:get",nHandle,"s9:Algorithm","")
@@ -1588,49 +1588,49 @@ Class CngKeyBlobFormat from Object
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getEccPrivateBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s14:EccPrivateBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s14:EccPrivateBlob","")
 
 	Func setEccPrivateBlob P1
 		raise("DotNet Error: EccPrivateBlob is a read-only property")
 
 	Func getEccPublicBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s13:EccPublicBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s13:EccPublicBlob","")
 
 	Func setEccPublicBlob P1
 		raise("DotNet Error: EccPublicBlob is a read-only property")
 
 	Func getEccFullPrivateBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s18:EccFullPrivateBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s18:EccFullPrivateBlob","")
 
 	Func setEccFullPrivateBlob P1
 		raise("DotNet Error: EccFullPrivateBlob is a read-only property")
 
 	Func getEccFullPublicBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s17:EccFullPublicBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s17:EccFullPublicBlob","")
 
 	Func setEccFullPublicBlob P1
 		raise("DotNet Error: EccFullPublicBlob is a read-only property")
 
 	Func getGenericPrivateBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s18:GenericPrivateBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s18:GenericPrivateBlob","")
 
 	Func setGenericPrivateBlob P1
 		raise("DotNet Error: GenericPrivateBlob is a read-only property")
 
 	Func getGenericPublicBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s17:GenericPublicBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s17:GenericPublicBlob","")
 
 	Func setGenericPublicBlob P1
 		raise("DotNet Error: GenericPublicBlob is a read-only property")
 
 	Func getOpaqueTransportBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s19:OpaqueTransportBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s19:OpaqueTransportBlob","")
 
 	Func setOpaqueTransportBlob P1
 		raise("DotNet Error: OpaqueTransportBlob is a read-only property")
 
 	Func getPkcs8PrivateBlob
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography').nHandle,"s16:Pkcs8PrivateBlob","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngKeyBlobFormat, System.Security.Cryptography'),"s16:Pkcs8PrivateBlob","")
 
 	Func setPkcs8PrivateBlob P1
 		raise("DotNet Error: Pkcs8PrivateBlob is a read-only property")
@@ -1879,19 +1879,19 @@ Class CngProvider from Object
 		raise("DotNet Error: Provider is a read-only property")
 
 	Func getMicrosoftPlatformCryptoProvider
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngProvider, System.Security.Cryptography').nHandle,"s31:MicrosoftPlatformCryptoProvider","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngProvider, System.Security.Cryptography'),"s31:MicrosoftPlatformCryptoProvider","")
 
 	Func setMicrosoftPlatformCryptoProvider P1
 		raise("DotNet Error: MicrosoftPlatformCryptoProvider is a read-only property")
 
 	Func getMicrosoftSmartCardKeyStorageProvider
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngProvider, System.Security.Cryptography').nHandle,"s36:MicrosoftSmartCardKeyStorageProvider","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngProvider, System.Security.Cryptography'),"s36:MicrosoftSmartCardKeyStorageProvider","")
 
 	Func setMicrosoftSmartCardKeyStorageProvider P1
 		raise("DotNet Error: MicrosoftSmartCardKeyStorageProvider is a read-only property")
 
 	Func getMicrosoftSoftwareKeyStorageProvider
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CngProvider, System.Security.Cryptography').nHandle,"s35:MicrosoftSoftwareKeyStorageProvider","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CngProvider, System.Security.Cryptography'),"s35:MicrosoftSoftwareKeyStorageProvider","")
 
 	Func setMicrosoftSoftwareKeyStorageProvider P1
 		raise("DotNet Error: MicrosoftSoftwareKeyStorageProvider is a read-only property")
@@ -1991,27 +1991,27 @@ Class CryptoConfig from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAlgorithm P1,P2
-		dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s12:AddAlgorithm",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CreateFromName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s14:CreateFromName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s14:CreateFromName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s14:CreateFromName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s14:CreateFromName",dnPackItem(P1))
 
 	Func AddOID P1,P2
-		dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s6:AddOID",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func MapNameToOID P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s12:MapNameToOID",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",dnPackItem(P1))
 
 	Func EncodeOID P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s9:EncodeOID",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s9:EncodeOID",dnPackItem(P1))
 
 	Func getAllowOnlyFipsAlgorithms
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography').nHandle,"s23:AllowOnlyFipsAlgorithms","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms","")
 
 	Func setAllowOnlyFipsAlgorithms P1
 		raise("DotNet Error: AllowOnlyFipsAlgorithms is a read-only property")
@@ -2086,20 +2086,20 @@ Class CryptographicOperations from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func HmacData P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography').nHandle,"s8:HmacData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s8:HmacData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HmacDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography').nHandle,"s13:HmacDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s13:HmacDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HmacDataAsync does not take one argument: use named arguments, HmacDataAsync([ :parameter = value, ... ])")
 
@@ -2456,13 +2456,13 @@ Class ECCurve from ValueType
 		return self
 
 	Func CreateFromOid P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECCurve, System.Security.Cryptography').nHandle,"s13:CreateFromOid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECCurve, System.Security.Cryptography'),"s13:CreateFromOid",dnPackItem(P1))
 
 	Func CreateFromFriendlyName P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECCurve, System.Security.Cryptography').nHandle,"s22:CreateFromFriendlyName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECCurve, System.Security.Cryptography'),"s22:CreateFromFriendlyName",dnPackItem(P1))
 
 	Func CreateFromValue P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECCurve, System.Security.Cryptography').nHandle,"s15:CreateFromValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECCurve, System.Security.Cryptography'),"s15:CreateFromValue",dnPackItem(P1))
 
 	Func getOid
 		return dnSend("s3:get",nHandle,"s3:Oid","")
@@ -2786,19 +2786,19 @@ Class HKDF from Object
 
 	Func Extract P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography').nHandle,"s7:Extract",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s7:Extract",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Extract does not take one argument: use named arguments, Extract([ :parameter = value, ... ])")
 
 	Func Expand P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography').nHandle,"s6:Expand",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s6:Expand",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Expand does not take one argument: use named arguments, Expand([ :parameter = value, ... ])")
 
 	Func DeriveKey P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography').nHandle,"s9:DeriveKey",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s9:DeriveKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DeriveKey does not take one argument: use named arguments, DeriveKey([ :parameter = value, ... ])")
 
@@ -2856,12 +2856,12 @@ Class HashAlgorithm from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getHashSize
 		return dnSend("s3:get",nHandle,"s8:HashSize","")
@@ -2947,10 +2947,10 @@ Class HashAlgorithmName from ValueType
 		return self
 
 	Func TryFromOid P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s10:TryFromOid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s10:TryFromOid",dnPackItem(P1))
 
 	Func FromOid P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s7:FromOid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s7:FromOid",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -2959,49 +2959,49 @@ Class HashAlgorithmName from ValueType
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMD5
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s3:MD5","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s3:MD5","")
 
 	Func setMD5 P1
 		raise("DotNet Error: MD5 is a read-only property")
 
 	Func getSHA1
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s4:SHA1","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s4:SHA1","")
 
 	Func setSHA1 P1
 		raise("DotNet Error: SHA1 is a read-only property")
 
 	Func getSHA256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s6:SHA256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s6:SHA256","")
 
 	Func setSHA256 P1
 		raise("DotNet Error: SHA256 is a read-only property")
 
 	Func getSHA384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s6:SHA384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s6:SHA384","")
 
 	Func setSHA384 P1
 		raise("DotNet Error: SHA384 is a read-only property")
 
 	Func getSHA512
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s6:SHA512","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s6:SHA512","")
 
 	Func setSHA512 P1
 		raise("DotNet Error: SHA512 is a read-only property")
 
 	Func getSHA3_256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s8:SHA3_256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s8:SHA3_256","")
 
 	Func setSHA3_256 P1
 		raise("DotNet Error: SHA3_256 is a read-only property")
 
 	Func getSHA3_384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s8:SHA3_384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s8:SHA3_384","")
 
 	Func setSHA3_384 P1
 		raise("DotNet Error: SHA3_384 is a read-only property")
 
 	Func getSHA3_512
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography').nHandle,"s8:SHA3_512","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s8:SHA3_512","")
 
 	Func setSHA3_512 P1
 		raise("DotNet Error: SHA3_512 is a read-only property")
@@ -3120,10 +3120,10 @@ Class IncrementalHash from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateHash P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography').nHandle,"s10:CreateHash",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"s10:CreateHash",dnPackItem(P1))
 
 	Func CreateHMAC P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography').nHandle,"s10:CreateHMAC",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"s10:CreateHMAC",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getHashLengthInBytes
 		return dnSend("s3:get",nHandle,"s17:HashLengthInBytes","")
@@ -3229,18 +3229,18 @@ Class Kmac128 from Object
 
 	Func HashData P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3298,18 +3298,18 @@ Class Kmac256 from Object
 
 	Func HashData P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3367,18 +3367,18 @@ Class KmacXof128 from Object
 
 	Func HashData P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3436,18 +3436,18 @@ Class KmacXof256 from Object
 
 	Func HashData P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3514,10 +3514,10 @@ Class Oid from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromFriendlyName P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography').nHandle,"s16:FromFriendlyName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Oid, System.Security.Cryptography'),"s16:FromFriendlyName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromOidValue P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography').nHandle,"s12:FromOidValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Oid, System.Security.Cryptography'),"s12:FromOidValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -3677,7 +3677,7 @@ Class PemEncoding from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetEncodedSize P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.PemEncoding, System.Security.Cryptography').nHandle,"s14:GetEncodedSize",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class PemFields from ValueType
@@ -3756,7 +3756,7 @@ Class RSAEncryptionPadding from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateOaep P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s10:CreateOaep",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s10:CreateOaep",dnPackItem(P1))
 
 	Func getMode
 		return dnSend("s3:get",nHandle,"s4:Mode","")
@@ -3771,49 +3771,49 @@ Class RSAEncryptionPadding from Object
 		raise("DotNet Error: OaepHashAlgorithm is a read-only property")
 
 	Func getPkcs1
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s5:Pkcs1","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s5:Pkcs1","")
 
 	Func setPkcs1 P1
 		raise("DotNet Error: Pkcs1 is a read-only property")
 
 	Func getOaepSHA1
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s8:OaepSHA1","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s8:OaepSHA1","")
 
 	Func setOaepSHA1 P1
 		raise("DotNet Error: OaepSHA1 is a read-only property")
 
 	Func getOaepSHA256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s10:OaepSHA256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s10:OaepSHA256","")
 
 	Func setOaepSHA256 P1
 		raise("DotNet Error: OaepSHA256 is a read-only property")
 
 	Func getOaepSHA384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s10:OaepSHA384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s10:OaepSHA384","")
 
 	Func setOaepSHA384 P1
 		raise("DotNet Error: OaepSHA384 is a read-only property")
 
 	Func getOaepSHA512
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s10:OaepSHA512","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s10:OaepSHA512","")
 
 	Func setOaepSHA512 P1
 		raise("DotNet Error: OaepSHA512 is a read-only property")
 
 	Func getOaepSHA3_256
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s12:OaepSHA3_256","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s12:OaepSHA3_256","")
 
 	Func setOaepSHA3_256 P1
 		raise("DotNet Error: OaepSHA3_256 is a read-only property")
 
 	Func getOaepSHA3_384
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s12:OaepSHA3_384","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s12:OaepSHA3_384","")
 
 	Func setOaepSHA3_384 P1
 		raise("DotNet Error: OaepSHA3_384 is a read-only property")
 
 	Func getOaepSHA3_512
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography').nHandle,"s12:OaepSHA3_512","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s12:OaepSHA3_512","")
 
 	Func setOaepSHA3_512 P1
 		raise("DotNet Error: OaepSHA3_512 is a read-only property")
@@ -3930,13 +3930,13 @@ Class RSASignaturePadding from Object
 		raise("DotNet Error: Mode is a read-only property")
 
 	Func getPkcs1
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSASignaturePadding, System.Security.Cryptography').nHandle,"s5:Pkcs1","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSASignaturePadding, System.Security.Cryptography'),"s5:Pkcs1","")
 
 	Func setPkcs1 P1
 		raise("DotNet Error: Pkcs1 is a read-only property")
 
 	Func getPss
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSASignaturePadding, System.Security.Cryptography').nHandle,"s3:Pss","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSASignaturePadding, System.Security.Cryptography'),"s3:Pss","")
 
 	Func setPss P1
 		raise("DotNet Error: Pss is a read-only property")
@@ -3960,12 +3960,12 @@ Class RandomNumberGenerator from Object
 	Func GetBytes P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s8:GetBytes",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetBytes",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:GetBytes",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s8:GetBytes",dnPackItem(P1))
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetBytes",dnPackItem(P1))
 		ok
 		dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1))
 		return self
@@ -3979,24 +3979,24 @@ Class RandomNumberGenerator from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func GetInt32 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s8:GetInt32",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s8:GetInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
 
 	Func GetHexString P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s12:GetHexString",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography').nHandle,"s12:GetHexString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
 
 
 Class SP800108HmacCounterKdf from Object
@@ -4023,7 +4023,7 @@ Class SP800108HmacCounterKdf from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DeriveBytes P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SP800108HmacCounterKdf, System.Security.Cryptography').nHandle,"s11:DeriveBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SP800108HmacCounterKdf, System.Security.Cryptography'),"s11:DeriveBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 
 Class SafeEvpPKeyHandle from SafeHandle
@@ -4068,16 +4068,16 @@ Class SafeEvpPKeyHandle from SafeHandle
 		return dnSend("s4:call",nHandle,"s15:DuplicateHandle","")
 
 	Func OpenPrivateKeyFromEngine P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography').nHandle,"s24:OpenPrivateKeyFromEngine",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s24:OpenPrivateKeyFromEngine",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OpenPublicKeyFromEngine P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography').nHandle,"s23:OpenPublicKeyFromEngine",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s23:OpenPublicKeyFromEngine",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OpenKeyFromProvider P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography').nHandle,"s19:OpenKeyFromProvider",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s19:OpenKeyFromProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOpenSslVersion
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography').nHandle,"s14:OpenSslVersion","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion","")
 
 	Func setOpenSslVersion P1
 		raise("DotNet Error: OpenSslVersion is a read-only property")
@@ -4133,16 +4133,16 @@ Class Shake128 from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -4198,16 +4198,16 @@ Class Shake256 from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -4403,12 +4403,12 @@ Class SymmetricAlgorithm from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getFeedbackSize
 		return dnSend("s3:get",nHandle,"s12:FeedbackSize","")
@@ -4552,12 +4552,12 @@ Class Aes from SymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Aes, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Aes, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Aes, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 
 Class DES from SymmetricAlgorithm
@@ -4573,18 +4573,18 @@ Class DES from SymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography').nHandle,"s9:IsWeakKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",dnPackItem(P1))
 
 	Func IsSemiWeakKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography').nHandle,"s13:IsSemiWeakKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",dnPackItem(P1))
 
 
 Class DSA from AsymmetricAlgorithm
@@ -4634,12 +4634,12 @@ Class DSA from AsymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.DSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DSA, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 
 Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
@@ -4765,10 +4765,10 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		return dnSend("s4:call",nHandle,"s6:Import","")
 
 	Func FromXmlString P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography').nHandle,"s13:FromXmlString",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography'),"s13:FromXmlString",dnPackItem(P1))
 
 	Func FromByteArray P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography').nHandle,"s13:FromByteArray",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography'),"s13:FromByteArray",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getBlobFormat
 		return dnSend("s3:get",nHandle,"s10:BlobFormat","")
@@ -4792,12 +4792,12 @@ Class KeyedHashAlgorithm from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getKey
 		return dnSend("s3:get",nHandle,"s3:Key","")
@@ -4823,30 +4823,30 @@ Class MD5 from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -4954,12 +4954,12 @@ Class RC2 from SymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RC2, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RC2, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RC2, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getEffectiveKeySize
 		return dnSend("s3:get",nHandle,"s16:EffectiveKeySize","")
@@ -5034,12 +5034,12 @@ Class RSA from AsymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RSA, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 
 Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
@@ -5335,7 +5335,7 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		return dnSend("s4:call",nHandle,"s14:CryptDeriveKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Pbkdf2 P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography').nHandle,"s6:Pbkdf2",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography'),"s6:Pbkdf2",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func getHashAlgorithm
 		return dnSend("s3:get",nHandle,"s13:HashAlgorithm","")
@@ -5374,30 +5374,30 @@ Class SHA1 from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5419,30 +5419,30 @@ Class SHA256 from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5464,30 +5464,30 @@ Class SHA384 from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5509,31 +5509,31 @@ Class SHA3_256 from HashAlgorithm
 		return self
 
 	Func Create 
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s6:Create","")
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s6:Create","")
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5555,31 +5555,31 @@ Class SHA3_384 from HashAlgorithm
 		return self
 
 	Func Create 
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s6:Create","")
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s6:Create","")
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5601,31 +5601,31 @@ Class SHA3_512 from HashAlgorithm
 		return self
 
 	Func Create 
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s6:Create","")
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s6:Create","")
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5647,30 +5647,30 @@ Class SHA512 from HashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func HashData P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5689,15 +5689,15 @@ Class TripleDES from SymmetricAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography').nHandle,"s9:IsWeakKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",dnPackItem(P1))
 
 
 Class AesCng from Aes
@@ -5865,10 +5865,10 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography').nHandle,"s18:UseMachineKeyStore","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore","")
 
 	Func setUseMachineKeyStore P1
-		dnSend("s3:set",dnTypeCached('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography').nHandle,"s18:UseMachineKeyStore",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1))
 		return self
 
 
@@ -5948,12 +5948,12 @@ Class ECDiffieHellman from ECAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getPublicKey
 		return dnSend("s3:get",nHandle,"s9:PublicKey","")
@@ -6002,12 +6002,12 @@ Class ECDsa from ECAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 
 Class HMAC from KeyedHashAlgorithm
@@ -6025,12 +6025,12 @@ Class HMAC from KeyedHashAlgorithm
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography').nHandle,"s6:Create","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"s6:Create","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getHashName
 		return dnSend("s3:get",nHandle,"s8:HashName","")
@@ -6168,10 +6168,10 @@ Class RSACryptoServiceProvider from RSA
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography').nHandle,"s18:UseMachineKeyStore","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore","")
 
 	Func setUseMachineKeyStore P1
-		dnSend("s3:set",dnTypeCached('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography').nHandle,"s18:UseMachineKeyStore",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1))
 		return self
 
 
@@ -6558,22 +6558,22 @@ Class HMACMD5 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6619,22 +6619,22 @@ Class HMACSHA1 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6680,22 +6680,22 @@ Class HMACSHA256 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6742,11 +6742,11 @@ Class HMACSHA384 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -6758,13 +6758,13 @@ Class HMACSHA384 from HMAC
 		return self
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6811,28 +6811,28 @@ Class HMACSHA3_256 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6879,28 +6879,28 @@ Class HMACSHA3_384 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6947,28 +6947,28 @@ Class HMACSHA3_512 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography').nHandle,"s11:IsSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -7015,11 +7015,11 @@ Class HMACSHA512 from HMAC
 		return self
 
 	Func HashData P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography').nHandle,"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography').nHandle,"s13:HashDataAsync",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7031,13 +7031,13 @@ Class HMACSHA512 from HMAC
 		return self
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography').nHandle,"s14:HashSizeInBits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits","")
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography').nHandle,"s15:HashSizeInBytes","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")

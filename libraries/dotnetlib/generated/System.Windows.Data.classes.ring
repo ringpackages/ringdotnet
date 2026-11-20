@@ -491,63 +491,63 @@ Class BindingOperations from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetBinding P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetBindingBase P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s14:GetBindingBase",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s14:GetBindingBase",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBinding P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s10:GetBinding",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s10:GetBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetPriorityBinding P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s18:GetPriorityBinding",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s18:GetPriorityBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMultiBinding P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s15:GetMultiBinding",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s15:GetMultiBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBindingExpressionBase P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s24:GetBindingExpressionBase",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s24:GetBindingExpressionBase",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBindingExpression P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s20:GetBindingExpression",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s20:GetBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMultiBindingExpression P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s25:GetMultiBindingExpression",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s25:GetMultiBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetPriorityBindingExpression P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s28:GetPriorityBindingExpression",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s28:GetPriorityBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClearBinding P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s12:ClearBinding",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s12:ClearBinding",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ClearAllBindings P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s16:ClearAllBindings",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:ClearAllBindings",dnPackItem(P1))
 		return self
 
 	Func IsDataBound P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s11:IsDataBound",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s11:IsDataBound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnableCollectionSynchronization P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s31:EnableCollectionSynchronization",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s31:EnableCollectionSynchronization",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: EnableCollectionSynchronization does not take one argument: use named arguments, EnableCollectionSynchronization([ :parameter = value, ... ])")
 
 	Func DisableCollectionSynchronization P1
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s32:DisableCollectionSynchronization",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s32:DisableCollectionSynchronization",dnPackItem(P1))
 		return self
 
 	Func AccessCollection P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s16:AccessCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:AccessCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetSourceUpdatingBindings P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s25:GetSourceUpdatingBindings",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s25:GetSourceUpdatingBindings",dnPackItem(P1))
 
 	Func GetSourceUpdatingBindingGroups P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s30:GetSourceUpdatingBindingGroups",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s30:GetSourceUpdatingBindingGroups",dnPackItem(P1))
 
 	Func setCollectionRegisteringEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"CollectionRegistering",dnCallback(P1)])
@@ -566,7 +566,7 @@ Class BindingOperations from Object
 		return self
 
 	Func getDisconnectedSource
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s18:DisconnectedSource","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s18:DisconnectedSource","")
 
 	Func setDisconnectedSource P1
 		raise("DotNet Error: DisconnectedSource is a read-only property")
@@ -606,7 +606,7 @@ Class CollectionContainer from DependencyObject
 		return self
 
 	Func getCollectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionContainer, PresentationFramework').nHandle,"s18:CollectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionContainer, PresentationFramework'),"s18:CollectionProperty","")
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
@@ -840,7 +840,7 @@ Class CollectionView from DispatcherObject
 		raise("DotNet Error: IsInUse is a read-only property")
 
 	Func getNewItemPlaceholder
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionView, PresentationFramework').nHandle,"s18:NewItemPlaceholder","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionView, PresentationFramework'),"s18:NewItemPlaceholder","")
 
 	Func setNewItemPlaceholder P1
 		raise("DotNet Error: NewItemPlaceholder is a read-only property")
@@ -965,10 +965,10 @@ Class CollectionViewSource from DependencyObject
 		return dnSend("s4:call",nHandle,"s12:DeferRefresh","")
 
 	Func GetDefaultView P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s14:GetDefaultView",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s14:GetDefaultView",dnPackItem(P1))
 
 	Func IsDefaultView P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s13:IsDefaultView",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s13:IsDefaultView",dnPackItem(P1))
 
 	Func setFilterEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Filter",dnCallback(P1)])
@@ -1093,73 +1093,73 @@ Class CollectionViewSource from DependencyObject
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")
 
 	Func getViewProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s12:ViewProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s12:ViewProperty","")
 
 	Func setViewProperty P1
 		raise("DotNet Error: ViewProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getCollectionViewTypeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s26:CollectionViewTypeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s26:CollectionViewTypeProperty","")
 
 	Func setCollectionViewTypeProperty P1
 		raise("DotNet Error: CollectionViewTypeProperty is a read-only property")
 
 	Func getCanChangeLiveSortingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s28:CanChangeLiveSortingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s28:CanChangeLiveSortingProperty","")
 
 	Func setCanChangeLiveSortingProperty P1
 		raise("DotNet Error: CanChangeLiveSortingProperty is a read-only property")
 
 	Func getIsLiveSortingRequestedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s30:IsLiveSortingRequestedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s30:IsLiveSortingRequestedProperty","")
 
 	Func setIsLiveSortingRequestedProperty P1
 		raise("DotNet Error: IsLiveSortingRequestedProperty is a read-only property")
 
 	Func getIsLiveSortingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s21:IsLiveSortingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s21:IsLiveSortingProperty","")
 
 	Func setIsLiveSortingProperty P1
 		raise("DotNet Error: IsLiveSortingProperty is a read-only property")
 
 	Func getCanChangeLiveFilteringProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s30:CanChangeLiveFilteringProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s30:CanChangeLiveFilteringProperty","")
 
 	Func setCanChangeLiveFilteringProperty P1
 		raise("DotNet Error: CanChangeLiveFilteringProperty is a read-only property")
 
 	Func getIsLiveFilteringRequestedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s32:IsLiveFilteringRequestedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s32:IsLiveFilteringRequestedProperty","")
 
 	Func setIsLiveFilteringRequestedProperty P1
 		raise("DotNet Error: IsLiveFilteringRequestedProperty is a read-only property")
 
 	Func getIsLiveFilteringProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s23:IsLiveFilteringProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s23:IsLiveFilteringProperty","")
 
 	Func setIsLiveFilteringProperty P1
 		raise("DotNet Error: IsLiveFilteringProperty is a read-only property")
 
 	Func getCanChangeLiveGroupingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s29:CanChangeLiveGroupingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s29:CanChangeLiveGroupingProperty","")
 
 	Func setCanChangeLiveGroupingProperty P1
 		raise("DotNet Error: CanChangeLiveGroupingProperty is a read-only property")
 
 	Func getIsLiveGroupingRequestedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s31:IsLiveGroupingRequestedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s31:IsLiveGroupingRequestedProperty","")
 
 	Func setIsLiveGroupingRequestedProperty P1
 		raise("DotNet Error: IsLiveGroupingRequestedProperty is a read-only property")
 
 	Func getIsLiveGroupingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s22:IsLiveGroupingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s22:IsLiveGroupingProperty","")
 
 	Func setIsLiveGroupingProperty P1
 		raise("DotNet Error: IsLiveGroupingProperty is a read-only property")
@@ -1261,19 +1261,19 @@ Class DataChangedEventManager from WeakEventManager
 		return self
 
 	Func AddListener P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveListener P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1535,13 +1535,13 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func getCompareNameAscending
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework').nHandle,"s20:CompareNameAscending","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.PropertyGroupDescription, PresentationFramework'),"s20:CompareNameAscending","")
 
 	Func setCompareNameAscending P1
 		raise("DotNet Error: CompareNameAscending is a read-only property")
 
 	Func getCompareNameDescending
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework').nHandle,"s21:CompareNameDescending","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.PropertyGroupDescription, PresentationFramework'),"s21:CompareNameDescending","")
 
 	Func setCompareNameDescending P1
 		raise("DotNet Error: CompareNameDescending is a read-only property")
@@ -1617,19 +1617,19 @@ Class RelativeSource from MarkupExtension
 		return self
 
 	Func getPreviousData
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s12:PreviousData","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.RelativeSource, PresentationFramework'),"s12:PreviousData","")
 
 	Func setPreviousData P1
 		raise("DotNet Error: PreviousData is a read-only property")
 
 	Func getTemplatedParent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s15:TemplatedParent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.RelativeSource, PresentationFramework'),"s15:TemplatedParent","")
 
 	Func setTemplatedParent P1
 		raise("DotNet Error: TemplatedParent is a read-only property")
 
 	Func getSelf
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s4:Self","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.RelativeSource, PresentationFramework'),"s4:Self","")
 
 
 Class XmlNamespaceMapping from Object
@@ -1816,26 +1816,26 @@ Class WpfBinding from BindingBase
 		return dnSend("s4:call",nHandle,"s21:ShouldSerializeSource","")
 
 	Func AddSourceUpdatedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s23:AddSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveSourceUpdatedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s26:RemoveSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddTargetUpdatedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s23:AddTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveTargetUpdatedHandler P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s26:RemoveTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetXmlNamespaceManager P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s22:GetXmlNamespaceManager",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s22:GetXmlNamespaceManager",dnPackItem(P1))
 
 	Func SetXmlNamespaceManager P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s22:SetXmlNamespaceManager",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s22:SetXmlNamespaceManager",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getValidationRules
@@ -1985,31 +1985,31 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getSourceUpdatedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s18:SourceUpdatedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s18:SourceUpdatedEvent","")
 
 	Func setSourceUpdatedEvent P1
 		raise("DotNet Error: SourceUpdatedEvent is a read-only property")
 
 	Func getTargetUpdatedEvent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s18:TargetUpdatedEvent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s18:TargetUpdatedEvent","")
 
 	Func setTargetUpdatedEvent P1
 		raise("DotNet Error: TargetUpdatedEvent is a read-only property")
 
 	Func getXmlNamespaceManagerProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s27:XmlNamespaceManagerProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s27:XmlNamespaceManagerProperty","")
 
 	Func setXmlNamespaceManagerProperty P1
 		raise("DotNet Error: XmlNamespaceManagerProperty is a read-only property")
 
 	Func getDoNothing
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s9:DoNothing","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s9:DoNothing","")
 
 	Func setDoNothing P1
 		raise("DotNet Error: DoNothing is a read-only property")
 
 	Func getIndexerName
-		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s11:IndexerName","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s11:IndexerName","")
 
 	Func setIndexerName P1
 		raise("DotNet Error: IndexerName is a read-only property")

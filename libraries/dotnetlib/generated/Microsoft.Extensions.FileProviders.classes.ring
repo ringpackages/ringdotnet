@@ -324,7 +324,7 @@ Class NotFoundDirectoryContents from Object
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getSingleton
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions').nHandle,"s9:Singleton","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions'),"s9:Singleton","")
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")
@@ -427,7 +427,7 @@ Class NullChangeToken from Object
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getSingleton
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions').nHandle,"s9:Singleton","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions'),"s9:Singleton","")
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")

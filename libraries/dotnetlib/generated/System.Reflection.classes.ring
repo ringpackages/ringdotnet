@@ -365,49 +365,49 @@ Class Assembly from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
 
 	Func LoadWithPartialName P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s19:LoadWithPartialName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s19:LoadWithPartialName",dnPackItem(P1))
 
 	Func GetExecutingAssembly 
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s20:GetExecutingAssembly","")
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s20:GetExecutingAssembly","")
 
 	Func GetCallingAssembly 
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s18:GetCallingAssembly","")
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s18:GetCallingAssembly","")
 
 	Func CreateQualifiedName P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s19:CreateQualifiedName",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s19:CreateQualifiedName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetAssembly P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s11:GetAssembly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s11:GetAssembly",dnPackItem(P1))
 
 	Func SetEntryAssembly P1
-		dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s16:SetEntryAssembly",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s16:SetEntryAssembly",dnPackItem(P1))
 		return self
 
 	Func GetEntryAssembly 
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s16:GetEntryAssembly","")
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s16:GetEntryAssembly","")
 
 	Func LoadFile P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s8:LoadFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s8:LoadFile",dnPackItem(P1))
 
 	Func LoadFrom P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s8:LoadFrom",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s8:LoadFrom",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s8:LoadFrom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s8:LoadFrom",dnPackItem(P1))
 
 	Func UnsafeLoadFrom P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s14:UnsafeLoadFrom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s14:UnsafeLoadFrom",dnPackItem(P1))
 
 	Func ReflectionOnlyLoad P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s18:ReflectionOnlyLoad",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s18:ReflectionOnlyLoad",dnPackItem(P1))
 
 	Func ReflectionOnlyLoadFrom P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib').nHandle,"s22:ReflectionOnlyLoadFrom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s22:ReflectionOnlyLoadFrom",dnPackItem(P1))
 
 	Func setModuleResolveEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ModuleResolve",dnCallback(P1)])
@@ -605,10 +605,10 @@ Class AssemblyName from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAssemblyName P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib').nHandle,"s15:GetAssemblyName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.AssemblyName, System.Private.CoreLib'),"s15:GetAssemblyName",dnPackItem(P1))
 
 	Func ReferenceMatchesDefinition P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib').nHandle,"s26:ReferenceMatchesDefinition",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.AssemblyName, System.Private.CoreLib'),"s26:ReferenceMatchesDefinition",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -781,7 +781,7 @@ Class ConstructorInvoker from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.ConstructorInvoker, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.ConstructorInvoker, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 
 Class CustomAttributeData from Object
@@ -804,7 +804,7 @@ Class CustomAttributeData from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetCustomAttributes P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.CustomAttributeData, System.Private.CoreLib').nHandle,"s19:GetCustomAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.CustomAttributeData, System.Private.CoreLib'),"s19:GetCustomAttributes",dnPackItem(P1))
 
 	Func getAttributeType
 		return dnSend("s3:get",nHandle,"s13:AttributeType","")
@@ -847,19 +847,19 @@ Class CustomAttributeExtensions from Object
 
 	Func GetCustomAttribute P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib').nHandle,"s18:GetCustomAttribute",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"s18:GetCustomAttribute",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib').nHandle,"s18:GetCustomAttribute",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"s18:GetCustomAttribute",dnPackItem(P1))
 
 	Func GetCustomAttributes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib').nHandle,"s19:GetCustomAttributes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"s19:GetCustomAttributes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib').nHandle,"s19:GetCustomAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"s19:GetCustomAttributes",dnPackItem(P1))
 
 	Func IsDefined P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib').nHandle,"s9:IsDefined",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"s9:IsDefined",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsDefined does not take one argument: use named arguments, IsDefined([ :parameter = value, ... ])")
 
@@ -1205,7 +1205,7 @@ Class IntrospectionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetTypeInfo P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.IntrospectionExtensions, System.Private.CoreLib').nHandle,"s11:GetTypeInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.IntrospectionExtensions, System.Private.CoreLib'),"s11:GetTypeInfo",dnPackItem(P1))
 
 
 Class LocalVariableInfo from Object
@@ -1446,7 +1446,7 @@ Class MethodInvoker from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.MethodInvoker, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.MethodInvoker, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 
 Class Missing from Object
@@ -1466,7 +1466,7 @@ Class Missing from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValue
-		return dnSend("s3:get",dnTypeCached('System.Reflection.Missing, System.Private.CoreLib').nHandle,"s5:Value","")
+		return dnSend("s3:get",dnTypeHandle('System.Reflection.Missing, System.Private.CoreLib'),"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1650,13 +1650,13 @@ Class Module from Object
 		raise("DotNet Error: MetadataToken is a read-only property")
 
 	Func getFilterTypeName
-		return dnSend("s3:get",dnTypeCached('System.Reflection.Module, System.Private.CoreLib').nHandle,"s14:FilterTypeName","")
+		return dnSend("s3:get",dnTypeHandle('System.Reflection.Module, System.Private.CoreLib'),"s14:FilterTypeName","")
 
 	Func setFilterTypeName P1
 		raise("DotNet Error: FilterTypeName is a read-only property")
 
 	Func getFilterTypeNameIgnoreCase
-		return dnSend("s3:get",dnTypeCached('System.Reflection.Module, System.Private.CoreLib').nHandle,"s24:FilterTypeNameIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('System.Reflection.Module, System.Private.CoreLib'),"s24:FilterTypeNameIgnoreCase","")
 
 	Func setFilterTypeNameIgnoreCase P1
 		raise("DotNet Error: FilterTypeNameIgnoreCase is a read-only property")
@@ -1947,7 +1947,7 @@ Class Pointer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Unbox P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.Pointer, System.Private.CoreLib').nHandle,"s5:Unbox",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.Pointer, System.Private.CoreLib'),"s5:Unbox",dnPackItem(P1))
 
 
 Class ReflectionContext from Object
@@ -1989,37 +1989,37 @@ Class RuntimeReflectionExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetRuntimeFields P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s16:GetRuntimeFields",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s16:GetRuntimeFields",dnPackItem(P1))
 
 	Func GetRuntimeMethods P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s17:GetRuntimeMethods",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s17:GetRuntimeMethods",dnPackItem(P1))
 
 	Func GetRuntimeProperties P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s20:GetRuntimeProperties",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s20:GetRuntimeProperties",dnPackItem(P1))
 
 	Func GetRuntimeEvents P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s16:GetRuntimeEvents",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s16:GetRuntimeEvents",dnPackItem(P1))
 
 	Func GetRuntimeField P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s15:GetRuntimeField",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s15:GetRuntimeField",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRuntimeMethod P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s16:GetRuntimeMethod",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s16:GetRuntimeMethod",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetRuntimeProperty P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s18:GetRuntimeProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s18:GetRuntimeProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRuntimeEvent P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s15:GetRuntimeEvent",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s15:GetRuntimeEvent",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRuntimeBaseDefinition P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s24:GetRuntimeBaseDefinition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s24:GetRuntimeBaseDefinition",dnPackItem(P1))
 
 	Func GetRuntimeInterfaceMap P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s22:GetRuntimeInterfaceMap",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s22:GetRuntimeInterfaceMap",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMethodInfo P1
-		return dnSend("s4:call",dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib').nHandle,"s13:GetMethodInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"s13:GetMethodInfo",dnPackItem(P1))
 
 
 Class TypeInfo from Type
@@ -2282,9 +2282,9 @@ Class FieldInfo from MemberInfo
 
 	Func GetFieldFromHandle P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib').nHandle,"s18:GetFieldFromHandle",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.FieldInfo, System.Private.CoreLib'),"s18:GetFieldFromHandle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib').nHandle,"s18:GetFieldFromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.FieldInfo, System.Private.CoreLib'),"s18:GetFieldFromHandle",dnPackItem(P1))
 
 	Func getAttributes
 		return dnSend("s3:get",nHandle,"s10:Attributes","")
@@ -2451,12 +2451,12 @@ Class MethodBase from MemberInfo
 
 	Func GetMethodFromHandle P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib').nHandle,"s19:GetMethodFromHandle",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Reflection.MethodBase, System.Private.CoreLib'),"s19:GetMethodFromHandle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib').nHandle,"s19:GetMethodFromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.MethodBase, System.Private.CoreLib'),"s19:GetMethodFromHandle",dnPackItem(P1))
 
 	Func GetCurrentMethod 
-		return dnSend("s4:call",dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib').nHandle,"s16:GetCurrentMethod","")
+		return dnSend("s4:call",dnTypeHandle('System.Reflection.MethodBase, System.Private.CoreLib'),"s16:GetCurrentMethod","")
 
 	Func getAttributes
 		return dnSend("s3:get",nHandle,"s10:Attributes","")
@@ -2758,13 +2758,13 @@ Class ConstructorInfo from MethodBase
 		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func getConstructorName
-		return dnSend("s3:get",dnTypeCached('System.Reflection.ConstructorInfo, System.Private.CoreLib').nHandle,"s15:ConstructorName","")
+		return dnSend("s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s15:ConstructorName","")
 
 	Func setConstructorName P1
 		raise("DotNet Error: ConstructorName is a read-only property")
 
 	Func getTypeConstructorName
-		return dnSend("s3:get",dnTypeCached('System.Reflection.ConstructorInfo, System.Private.CoreLib').nHandle,"s19:TypeConstructorName","")
+		return dnSend("s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s19:TypeConstructorName","")
 
 	Func setTypeConstructorName P1
 		raise("DotNet Error: TypeConstructorName is a read-only property")

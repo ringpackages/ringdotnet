@@ -130,43 +130,43 @@ Class DrawingAttributeIds from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getColor
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s5:Color","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s5:Color","")
 
 	Func setColor P1
 		raise("DotNet Error: Color is a read-only property")
 
 	Func getStylusTip
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s9:StylusTip","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s9:StylusTip","")
 
 	Func setStylusTip P1
 		raise("DotNet Error: StylusTip is a read-only property")
 
 	Func getStylusTipTransform
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s18:StylusTipTransform","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s18:StylusTipTransform","")
 
 	Func setStylusTipTransform P1
 		raise("DotNet Error: StylusTipTransform is a read-only property")
 
 	Func getStylusHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s12:StylusHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s12:StylusHeight","")
 
 	Func setStylusHeight P1
 		raise("DotNet Error: StylusHeight is a read-only property")
 
 	Func getStylusWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s11:StylusWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s11:StylusWidth","")
 
 	Func setStylusWidth P1
 		raise("DotNet Error: StylusWidth is a read-only property")
 
 	Func getDrawingFlags
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s12:DrawingFlags","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s12:DrawingFlags","")
 
 	Func setDrawingFlags P1
 		raise("DotNet Error: DrawingFlags is a read-only property")
 
 	Func getIsHighlighter
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s13:IsHighlighter","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s13:IsHighlighter","")
 
 	Func setIsHighlighter P1
 		raise("DotNet Error: IsHighlighter is a read-only property")
@@ -301,25 +301,25 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getMinHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s9:MinHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight","")
 
 	Func setMinHeight P1
 		raise("DotNet Error: MinHeight is a read-only property")
 
 	Func getMinWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s8:MinWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth","")
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
 
 	Func getMaxHeight
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s9:MaxHeight","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight","")
 
 	Func setMaxHeight P1
 		raise("DotNet Error: MaxHeight is a read-only property")
 
 	Func getMaxWidth
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s8:MaxWidth","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth","")
 
 	Func setMaxWidth P1
 		raise("DotNet Error: MaxWidth is a read-only property")
@@ -881,7 +881,7 @@ Class StrokeCollection from DotNetObject
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInkSerializedFormat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.StrokeCollection, PresentationCore').nHandle,"s19:InkSerializedFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat","")
 
 	Func setInkSerializedFormat P1
 		raise("DotNet Error: InkSerializedFormat is a read-only property")

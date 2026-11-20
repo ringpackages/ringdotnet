@@ -259,7 +259,7 @@ func sendCall cRequest
 	cTail = left(cTail,len(cTail) - 1)
 	cHandle = "nHandle"
 	if left(cTarget,13) = "dnTypeCached("
-		cHandle = cTarget + ".nHandle"
+		cHandle = "dnTypeHandle(" + right(cTarget,len(cTarget) - 13)          # dnTypeCached('X')  -->  dnTypeHandle('X')
 	ok
 	cArgs = '""'
 	if len(cTail) > 0

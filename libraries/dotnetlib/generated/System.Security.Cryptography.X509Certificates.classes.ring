@@ -275,13 +275,13 @@ Class CertificateRequest from Object
 
 	Func LoadSigningRequestPem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography').nHandle,"s21:LoadSigningRequestPem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"s21:LoadSigningRequestPem",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadSigningRequestPem does not take one argument: use named arguments, LoadSigningRequestPem([ :parameter = value, ... ])")
 
 	Func LoadSigningRequest P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography').nHandle,"s18:LoadSigningRequest",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"s18:LoadSigningRequest",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadSigningRequest does not take one argument: use named arguments, LoadSigningRequest([ :parameter = value, ... ])")
 
@@ -358,15 +358,15 @@ Class CertificateRevocationListBuilder from Object
 
 	Func BuildCrlDistributionPointExtension P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
 
 	Func Load_ P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"s4:Load",dnPackItem(P1))
 
 	Func LoadPem P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s7:LoadPem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"s7:LoadPem",dnPackItem(P1))
 
 
 Class DSACertificateExtensions from Object
@@ -384,13 +384,13 @@ Class DSACertificateExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDSAPublicKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s15:GetDSAPublicKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"s15:GetDSAPublicKey",dnPackItem(P1))
 
 	Func GetDSAPrivateKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s16:GetDSAPrivateKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"s16:GetDSAPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ECDsaCertificateExtensions from Object
@@ -408,13 +408,13 @@ Class ECDsaCertificateExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetECDsaPublicKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s17:GetECDsaPublicKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"s17:GetECDsaPublicKey",dnPackItem(P1))
 
 	Func GetECDsaPrivateKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s18:GetECDsaPrivateKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"s18:GetECDsaPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class Pkcs12LoaderLimits from Object
@@ -559,13 +559,13 @@ Class Pkcs12LoaderLimits from Object
 		return self
 
 	Func getDefaults
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography').nHandle,"s8:Defaults","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography'),"s8:Defaults","")
 
 	Func setDefaults P1
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getDangerousNoLimits
-		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography').nHandle,"s17:DangerousNoLimits","")
+		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography'),"s17:DangerousNoLimits","")
 
 	Func setDangerousNoLimits P1
 		raise("DotNet Error: DangerousNoLimits is a read-only property")
@@ -662,13 +662,13 @@ Class RSACertificateExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetRSAPublicKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s15:GetRSAPublicKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"s15:GetRSAPublicKey",dnPackItem(P1))
 
 	Func GetRSAPrivateKey P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s16:GetRSAPrivateKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"s16:GetRSAPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class SubjectAlternativeNameBuilder from Object
@@ -1008,10 +1008,10 @@ Class X509Certificate from Object
 		return self
 
 	Func CreateFromCertFile P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography').nHandle,"s18:CreateFromCertFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"s18:CreateFromCertFile",dnPackItem(P1))
 
 	Func CreateFromSignedFile P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography').nHandle,"s20:CreateFromSignedFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"s20:CreateFromSignedFile",dnPackItem(P1))
 
 	Func getHandle
 		return dnSend("s3:get",nHandle,"s6:Handle","")
@@ -1152,32 +1152,32 @@ Class X509CertificateLoader from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func LoadCertificate P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s15:LoadCertificate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s15:LoadCertificate",dnPackItem(P1))
 
 	Func LoadCertificateFromFile P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s23:LoadCertificateFromFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s23:LoadCertificateFromFile",dnPackItem(P1))
 
 	Func LoadPkcs12 P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s10:LoadPkcs12",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s10:LoadPkcs12",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12 does not take one argument: use named arguments, LoadPkcs12([ :parameter = value, ... ])")
 
 	Func LoadPkcs12FromFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s18:LoadPkcs12FromFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s18:LoadPkcs12FromFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12FromFile does not take one argument: use named arguments, LoadPkcs12FromFile([ :parameter = value, ... ])")
 
 	Func LoadPkcs12Collection P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s20:LoadPkcs12Collection",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s20:LoadPkcs12Collection",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12Collection does not take one argument: use named arguments, LoadPkcs12Collection([ :parameter = value, ... ])")
 
 	Func LoadPkcs12CollectionFromFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s28:LoadPkcs12CollectionFromFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s28:LoadPkcs12CollectionFromFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12CollectionFromFile does not take one argument: use named arguments, LoadPkcs12CollectionFromFile([ :parameter = value, ... ])")
 
@@ -1239,7 +1239,7 @@ Class X509Chain from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create 
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography').nHandle,"s6:Create","")
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography'),"s6:Create","")
 
 	Func getChainElements
 		return dnSend("s3:get",nHandle,"s13:ChainElements","")
@@ -1699,10 +1699,10 @@ Class X509SignatureGenerator from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateForECDsa P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography').nHandle,"s14:CreateForECDsa",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"s14:CreateForECDsa",dnPackItem(P1))
 
 	Func CreateForRSA P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography').nHandle,"s12:CreateForRSA",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"s12:CreateForRSA",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getPublicKey
 		return dnSend("s3:get",nHandle,"s9:PublicKey","")
@@ -1903,16 +1903,16 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 		return self
 
 	Func CreateFromSubjectKeyIdentifier P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s30:CreateFromSubjectKeyIdentifier",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"s30:CreateFromSubjectKeyIdentifier",dnPackItem(P1))
 
 	Func CreateFromIssuerNameAndSerialNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s35:CreateFromIssuerNameAndSerialNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"s35:CreateFromIssuerNameAndSerialNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Create P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateFromCertificate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s21:CreateFromCertificate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"s21:CreateFromCertificate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getKeyIdentifier
 		return dnSend("s3:get",nHandle,"s13:KeyIdentifier","")
@@ -1981,21 +1981,21 @@ Class X509BasicConstraintsExtension from X509Extension
 
 	Func CreateForCertificateAuthority P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s29:CreateForCertificateAuthority",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s29:CreateForCertificateAuthority","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s29:CreateForCertificateAuthority",dnPackItem(P1))
 
 	Func CreateForEndEntity P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s18:CreateForEndEntity",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity","")
+			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s18:CreateForEndEntity","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s18:CreateForEndEntity",dnPackItem(P1))
 
 	Func getCertificateAuthority
 		return dnSend("s3:get",nHandle,"s20:CertificateAuthority","")
@@ -2103,13 +2103,13 @@ Class X509Certificate2 from X509Certificate
 		return dnSend("s4:call",nHandle,"s13:GetIssuerName","")
 
 	Func GetCertContentType P1
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s18:GetCertContentType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"s18:GetCertContentType",dnPackItem(P1))
 
 	Func CreateFromPemFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s17:CreateFromPemFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"s17:CreateFromPemFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s17:CreateFromPemFile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"s17:CreateFromPemFile",dnPackItem(P1))
 
 	Func getArchived
 		return dnSend("s3:get",nHandle,"s8:Archived","")

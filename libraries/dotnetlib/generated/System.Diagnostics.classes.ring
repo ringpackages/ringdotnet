@@ -595,31 +595,31 @@ Class Activity from Object
 		return dnSend("s3:get",nHandle,"s8:IdFormat","")
 
 	Func getForceDefaultIdFormat
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s20:ForceDefaultIdFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat","")
 
 	Func setForceDefaultIdFormat P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s20:ForceDefaultIdFormat",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat",dnPackItem(P1))
 		return self
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s7:Current","")
 
 	Func setCurrent P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s7:Current",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s7:Current",dnPackItem(P1))
 		return self
 
 	Func getTraceIdGenerator
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s16:TraceIdGenerator","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s16:TraceIdGenerator","")
 
 	Func setTraceIdGenerator P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s16:TraceIdGenerator",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s16:TraceIdGenerator",dnPackItem(P1))
 		return self
 
 	Func getDefaultIdFormat
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s15:DefaultIdFormat","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s15:DefaultIdFormat","")
 
 	Func setDefaultIdFormat P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource').nHandle,"s15:DefaultIdFormat",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s15:DefaultIdFormat",dnPackItem(P1))
 		return self
 
 
@@ -705,12 +705,12 @@ Class ActivityContext from ValueType
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"s8:TryParse",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
 	Func Parse P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource').nHandle,"s5:Parse",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"s5:Parse",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getTraceId
 		return dnSend("s3:get",nHandle,"s7:TraceId","")
@@ -995,7 +995,7 @@ Class ActivitySource from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddActivityListener P1
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource').nHandle,"s19:AddActivityListener",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource'),"s19:AddActivityListener",dnPackItem(P1))
 		return self
 
 	Func getName
@@ -1041,7 +1041,7 @@ Class ActivitySpanId from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToHexString","")
 
 	Func CreateRandom 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource').nHandle,"s12:CreateRandom","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource'),"s12:CreateRandom","")
 
 
 Class ActivityTagsCollection from Object
@@ -1175,7 +1175,7 @@ Class ActivityTraceId from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToHexString","")
 
 	Func CreateRandom 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource').nHandle,"s12:CreateRandom","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource'),"s12:CreateRandom","")
 
 
 Class CorrelationManager from Object
@@ -1264,94 +1264,94 @@ Class Debug from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetProvider P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s11:SetProvider",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:SetProvider",dnPackItem(P1))
 
 	Func Close 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Close","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Close","")
 		return self
 
 	Func Flush 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Flush","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Flush","")
 		return self
 
 	Func Indent 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s6:Indent","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Indent","")
 		return self
 
 	Func Unindent 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s8:Unindent","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s8:Unindent","")
 		return self
 
 	Func Print P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Print",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Print",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",dnPackItem(P1))
 		return self
 
 	Func Assert P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s6:Assert",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",dnPackItem(P1))
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s6:Assert",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",dnPackItem(P1))
 		return self
 
 	Func Fail P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s4:Fail",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s4:Fail",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",dnPackItem(P1))
 		return self
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s9:WriteLine",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s9:WriteLine",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",dnPackItem(P1))
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Write",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s5:Write",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",dnPackItem(P1))
 		return self
 
 	Func WriteIf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s7:WriteIf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s7:WriteIf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
 	Func WriteLineIf P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s11:WriteLineIf",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:WriteLineIf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func getAutoFlush
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s9:AutoFlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush","")
 
 	Func setAutoFlush P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s9:AutoFlush",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush",dnPackItem(P1))
 		return self
 
 	Func getIndentLevel
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s11:IndentLevel","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel","")
 
 	Func setIndentLevel P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s11:IndentLevel",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel",dnPackItem(P1))
 		return self
 
 	Func getIndentSize
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s10:IndentSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize","")
 
 	Func setIndentSize P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib').nHandle,"s10:IndentSize",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize",dnPackItem(P1))
 		return self
 
 
@@ -1399,11 +1399,11 @@ Class DebugProvider from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FailCore P1,P2,P3,P4
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.DebugProvider, System.Private.CoreLib').nHandle,"s8:FailCore",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s8:FailCore",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func WriteCore P1
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.DebugProvider, System.Private.CoreLib').nHandle,"s9:WriteCore",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s9:WriteCore",dnPackItem(P1))
 		return self
 
 
@@ -1425,35 +1425,35 @@ Class Debugger from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Break_ 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s5:Break","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s5:Break","")
 		return self
 
 	Func Launch 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s6:Launch","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s6:Launch","")
 
 	Func NotifyOfCrossThreadDependency 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s29:NotifyOfCrossThreadDependency","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s29:NotifyOfCrossThreadDependency","")
 		return self
 
 	Func Log P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s3:Log",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func IsLogging 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s9:IsLogging","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s9:IsLogging","")
 
 	Func BreakForUserUnhandledException P1
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s30:BreakForUserUnhandledException",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s30:BreakForUserUnhandledException",dnPackItem(P1))
 		return self
 
 	Func getIsAttached
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s10:IsAttached","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s10:IsAttached","")
 
 	Func setIsAttached P1
 		raise("DotNet Error: IsAttached is a read-only property")
 
 	Func getDefaultCategory
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Debugger, System.Private.CoreLib').nHandle,"s15:DefaultCategory","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s15:DefaultCategory","")
 
 	Func setDefaultCategory P1
 		raise("DotNet Error: DefaultCategory is a read-only property")
@@ -1478,7 +1478,7 @@ Class DiagnosticMethodInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -1567,13 +1567,13 @@ Class DistributedContextPropagator from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateDefaultPropagator 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource').nHandle,"s23:CreateDefaultPropagator","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s23:CreateDefaultPropagator","")
 
 	Func CreatePassThroughPropagator 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource').nHandle,"s27:CreatePassThroughPropagator","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s27:CreatePassThroughPropagator","")
 
 	Func CreateNoOutputPropagator 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource').nHandle,"s24:CreateNoOutputPropagator","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s24:CreateNoOutputPropagator","")
 
 	Func getFields
 		return dnSend("s3:get",nHandle,"s6:Fields","")
@@ -1582,10 +1582,10 @@ Class DistributedContextPropagator from Object
 		raise("DotNet Error: Fields is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s7:Current","")
 
 	Func setCurrent P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource').nHandle,"s7:Current",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s7:Current",dnPackItem(P1))
 		return self
 
 
@@ -1632,7 +1632,7 @@ Class FileVersionInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetVersionInfo P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.FileVersionInfo, System.Diagnostics.FileVersionInfo').nHandle,"s14:GetVersionInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.FileVersionInfo, System.Diagnostics.FileVersionInfo'),"s14:GetVersionInfo",dnPackItem(P1))
 
 	Func getComments
 		return dnSend("s3:get",nHandle,"s8:Comments","")
@@ -1938,14 +1938,14 @@ Class Process from Component
 	Func Start P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s5:Start",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s5:Start",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s5:Start","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s5:Start",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s5:Start",dnPackItem(P1))
 
 	Func WaitForExit P1
 		if dnIsNamed(P1)
@@ -1996,34 +1996,34 @@ Class Process from Component
 
 	Func GetProcessById P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s14:GetProcessById",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:GetProcessById",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s14:GetProcessById",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:GetProcessById",dnPackItem(P1))
 
 	Func GetProcessesByName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s18:GetProcessesByName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s18:GetProcessesByName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s18:GetProcessesByName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s18:GetProcessesByName",dnPackItem(P1))
 
 	Func GetProcesses P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s12:GetProcesses",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s12:GetProcesses",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s12:GetProcesses","")
+			return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s12:GetProcesses","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s12:GetProcesses",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s12:GetProcesses",dnPackItem(P1))
 
 	Func GetCurrentProcess 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s17:GetCurrentProcess","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s17:GetCurrentProcess","")
 
 	Func EnterDebugMode 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s14:EnterDebugMode","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:EnterDebugMode","")
 		return self
 
 	Func LeaveDebugMode 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process').nHandle,"s14:LeaveDebugMode","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:LeaveDebugMode","")
 		return self
 
 	Func setOutputDataReceivedEvent P1
@@ -2889,7 +2889,7 @@ Class StackFrame from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOFFSET_UNKNOWN
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.StackFrame, System.Private.CoreLib').nHandle,"s14:OFFSET_UNKNOWN","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.StackFrame, System.Private.CoreLib'),"s14:OFFSET_UNKNOWN","")
 
 	Func setOFFSET_UNKNOWN P1
 		raise("DotNet Error: OFFSET_UNKNOWN is a read-only property")
@@ -2910,22 +2910,22 @@ Class StackFrameExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HasNativeImage P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s14:HasNativeImage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s14:HasNativeImage",dnPackItem(P1))
 
 	Func HasMethod P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s9:HasMethod",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasMethod",dnPackItem(P1))
 
 	Func HasILOffset P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s11:HasILOffset",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s11:HasILOffset",dnPackItem(P1))
 
 	Func HasSource P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s9:HasSource",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasSource",dnPackItem(P1))
 
 	Func GetNativeIP P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s11:GetNativeIP",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s11:GetNativeIP",dnPackItem(P1))
 
 	Func GetNativeImageBase P1
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib').nHandle,"s18:GetNativeImageBase",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s18:GetNativeImageBase",dnPackItem(P1))
 
 
 Class StackTrace from Object
@@ -2983,7 +2983,7 @@ Class StackTrace from Object
 		raise("DotNet Error: FrameCount is a read-only property")
 
 	Func getMETHODS_TO_SKIP
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.StackTrace, System.Private.CoreLib').nHandle,"s15:METHODS_TO_SKIP","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.StackTrace, System.Private.CoreLib'),"s15:METHODS_TO_SKIP","")
 
 	Func setMETHODS_TO_SKIP P1
 		raise("DotNet Error: METHODS_TO_SKIP is a read-only property")
@@ -3036,16 +3036,16 @@ Class Stopwatch from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func StartNew 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s8:StartNew","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s8:StartNew","")
 
 	Func GetTimestamp 
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s12:GetTimestamp","")
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s12:GetTimestamp","")
 
 	Func GetElapsedTime P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s14:GetElapsedTime",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s14:GetElapsedTime",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s14:GetElapsedTime",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s14:GetElapsedTime",dnPackItem(P1))
 
 	Func getIsRunning
 		return dnSend("s3:get",nHandle,"s9:IsRunning","")
@@ -3072,13 +3072,13 @@ Class Stopwatch from Object
 		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s9:Frequency","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s9:Frequency","")
 
 	Func setFrequency P1
 		raise("DotNet Error: Frequency is a read-only property")
 
 	Func getIsHighResolution
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib').nHandle,"s16:IsHighResolution","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s16:IsHighResolution","")
 
 	Func setIsHighResolution P1
 		raise("DotNet Error: IsHighResolution is a read-only property")
@@ -3249,93 +3249,93 @@ Class Trace from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Flush 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s5:Flush","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Flush","")
 		return self
 
 	Func Close 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s5:Close","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Close","")
 		return self
 
 	Func Assert P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s6:Assert",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s6:Assert",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",dnPackItem(P1))
 		return self
 
 	Func Fail P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s4:Fail",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s4:Fail",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",dnPackItem(P1))
 		return self
 
 	Func Refresh 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s7:Refresh","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s7:Refresh","")
 		return self
 
 	Func TraceInformation P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s16:TraceInformation",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s16:TraceInformation",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",dnPackItem(P1))
 		return self
 
 	Func TraceWarning P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s12:TraceWarning",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s12:TraceWarning",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",dnPackItem(P1))
 		return self
 
 	Func TraceError P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s10:TraceError",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s10:TraceError",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",dnPackItem(P1))
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s5:Write",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s5:Write",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",dnPackItem(P1))
 		return self
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s9:WriteLine",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s9:WriteLine",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",dnPackItem(P1))
 		return self
 
 	Func WriteIf P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s7:WriteIf",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s7:WriteIf",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
 	Func WriteLineIf P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s11:WriteLineIf",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:WriteLineIf",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func Indent 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s6:Indent","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Indent","")
 		return self
 
 	Func Unindent 
-		dnSend("s4:call",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s8:Unindent","")
+		dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s8:Unindent","")
 		return self
 
 	Func setRefreshingEvent P1
@@ -3347,43 +3347,43 @@ Class Trace from Object
 		return self
 
 	Func getCorrelationManager
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s18:CorrelationManager","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s18:CorrelationManager","")
 
 	Func setCorrelationManager P1
 		raise("DotNet Error: CorrelationManager is a read-only property")
 
 	Func getListeners
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s9:Listeners","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:Listeners","")
 
 	Func setListeners P1
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getAutoFlush
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s9:AutoFlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush","")
 
 	Func setAutoFlush P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s9:AutoFlush",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush",dnPackItem(P1))
 		return self
 
 	Func getUseGlobalLock
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s13:UseGlobalLock","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock","")
 
 	Func setUseGlobalLock P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s13:UseGlobalLock",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock",dnPackItem(P1))
 		return self
 
 	Func getIndentLevel
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s11:IndentLevel","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel","")
 
 	Func setIndentLevel P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s11:IndentLevel",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel",dnPackItem(P1))
 		return self
 
 	Func getIndentSize
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s10:IndentSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize","")
 
 	Func setIndentSize P1
-		dnSend("s3:set",dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource').nHandle,"s10:IndentSize",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize",dnPackItem(P1))
 		return self
 
 
@@ -3881,7 +3881,7 @@ Class DiagnosticListener from DiagnosticSource
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAllListeners
-		return dnSend("s3:get",dnTypeCached('System.Diagnostics.DiagnosticListener, System.Diagnostics.DiagnosticSource').nHandle,"s12:AllListeners","")
+		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.DiagnosticListener, System.Diagnostics.DiagnosticSource'),"s12:AllListeners","")
 
 	Func setAllListeners P1
 		raise("DotNet Error: AllListeners is a read-only property")

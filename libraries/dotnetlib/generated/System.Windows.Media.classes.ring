@@ -831,19 +831,19 @@ Class WpfBrush from Animatable
 		return self
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brush, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brush, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brush, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brush, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
 
 	Func getRelativeTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brush, PresentationCore').nHandle,"s25:RelativeTransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brush, PresentationCore'),"s25:RelativeTransformProperty","")
 
 	Func setRelativeTransformProperty P1
 		raise("DotNet Error: RelativeTransformProperty is a read-only property")
@@ -1027,847 +1027,847 @@ Class WpfBrushes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAliceBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:AliceBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:AliceBlue","")
 
 	Func setAliceBlue P1
 		raise("DotNet Error: AliceBlue is a read-only property")
 
 	Func getAntiqueWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:AntiqueWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:AntiqueWhite","")
 
 	Func setAntiqueWhite P1
 		raise("DotNet Error: AntiqueWhite is a read-only property")
 
 	Func getAqua
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Aqua","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Aqua","")
 
 	Func setAqua P1
 		raise("DotNet Error: Aqua is a read-only property")
 
 	Func getAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:Aquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:Aquamarine","")
 
 	Func setAquamarine P1
 		raise("DotNet Error: Aquamarine is a read-only property")
 
 	Func getAzure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Azure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Azure","")
 
 	Func setAzure P1
 		raise("DotNet Error: Azure is a read-only property")
 
 	Func getBeige
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Beige","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Beige","")
 
 	Func setBeige P1
 		raise("DotNet Error: Beige is a read-only property")
 
 	Func getBisque
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Bisque","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Bisque","")
 
 	Func setBisque P1
 		raise("DotNet Error: Bisque is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getBlanchedAlmond
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:BlanchedAlmond","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:BlanchedAlmond","")
 
 	Func setBlanchedAlmond P1
 		raise("DotNet Error: BlanchedAlmond is a read-only property")
 
 	Func getBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Blue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Blue","")
 
 	Func setBlue P1
 		raise("DotNet Error: Blue is a read-only property")
 
 	Func getBlueViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:BlueViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:BlueViolet","")
 
 	Func setBlueViolet P1
 		raise("DotNet Error: BlueViolet is a read-only property")
 
 	Func getBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Brown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Brown","")
 
 	Func setBrown P1
 		raise("DotNet Error: Brown is a read-only property")
 
 	Func getBurlyWood
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:BurlyWood","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:BurlyWood","")
 
 	Func setBurlyWood P1
 		raise("DotNet Error: BurlyWood is a read-only property")
 
 	Func getCadetBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:CadetBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:CadetBlue","")
 
 	Func setCadetBlue P1
 		raise("DotNet Error: CadetBlue is a read-only property")
 
 	Func getChartreuse
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:Chartreuse","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:Chartreuse","")
 
 	Func setChartreuse P1
 		raise("DotNet Error: Chartreuse is a read-only property")
 
 	Func getChocolate
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:Chocolate","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:Chocolate","")
 
 	Func setChocolate P1
 		raise("DotNet Error: Chocolate is a read-only property")
 
 	Func getCoral
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Coral","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Coral","")
 
 	Func setCoral P1
 		raise("DotNet Error: Coral is a read-only property")
 
 	Func getCornflowerBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:CornflowerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:CornflowerBlue","")
 
 	Func setCornflowerBlue P1
 		raise("DotNet Error: CornflowerBlue is a read-only property")
 
 	Func getCornsilk
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:Cornsilk","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:Cornsilk","")
 
 	Func setCornsilk P1
 		raise("DotNet Error: Cornsilk is a read-only property")
 
 	Func getCrimson
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:Crimson","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:Crimson","")
 
 	Func setCrimson P1
 		raise("DotNet Error: Crimson is a read-only property")
 
 	Func getCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Cyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Cyan","")
 
 	Func setCyan P1
 		raise("DotNet Error: Cyan is a read-only property")
 
 	Func getDarkBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:DarkBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:DarkBlue","")
 
 	Func setDarkBlue P1
 		raise("DotNet Error: DarkBlue is a read-only property")
 
 	Func getDarkCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:DarkCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:DarkCyan","")
 
 	Func setDarkCyan P1
 		raise("DotNet Error: DarkCyan is a read-only property")
 
 	Func getDarkGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:DarkGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:DarkGoldenrod","")
 
 	Func setDarkGoldenrod P1
 		raise("DotNet Error: DarkGoldenrod is a read-only property")
 
 	Func getDarkGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:DarkGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:DarkGray","")
 
 	Func setDarkGray P1
 		raise("DotNet Error: DarkGray is a read-only property")
 
 	Func getDarkGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:DarkGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:DarkGreen","")
 
 	Func setDarkGreen P1
 		raise("DotNet Error: DarkGreen is a read-only property")
 
 	Func getDarkKhaki
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:DarkKhaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:DarkKhaki","")
 
 	Func setDarkKhaki P1
 		raise("DotNet Error: DarkKhaki is a read-only property")
 
 	Func getDarkMagenta
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:DarkMagenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:DarkMagenta","")
 
 	Func setDarkMagenta P1
 		raise("DotNet Error: DarkMagenta is a read-only property")
 
 	Func getDarkOliveGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:DarkOliveGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:DarkOliveGreen","")
 
 	Func setDarkOliveGreen P1
 		raise("DotNet Error: DarkOliveGreen is a read-only property")
 
 	Func getDarkOrange
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:DarkOrange","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:DarkOrange","")
 
 	Func setDarkOrange P1
 		raise("DotNet Error: DarkOrange is a read-only property")
 
 	Func getDarkOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:DarkOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:DarkOrchid","")
 
 	Func setDarkOrchid P1
 		raise("DotNet Error: DarkOrchid is a read-only property")
 
 	Func getDarkRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:DarkRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:DarkRed","")
 
 	Func setDarkRed P1
 		raise("DotNet Error: DarkRed is a read-only property")
 
 	Func getDarkSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:DarkSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:DarkSalmon","")
 
 	Func setDarkSalmon P1
 		raise("DotNet Error: DarkSalmon is a read-only property")
 
 	Func getDarkSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:DarkSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:DarkSeaGreen","")
 
 	Func setDarkSeaGreen P1
 		raise("DotNet Error: DarkSeaGreen is a read-only property")
 
 	Func getDarkSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:DarkSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:DarkSlateBlue","")
 
 	Func setDarkSlateBlue P1
 		raise("DotNet Error: DarkSlateBlue is a read-only property")
 
 	Func getDarkSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:DarkSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:DarkSlateGray","")
 
 	Func setDarkSlateGray P1
 		raise("DotNet Error: DarkSlateGray is a read-only property")
 
 	Func getDarkTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:DarkTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:DarkTurquoise","")
 
 	Func setDarkTurquoise P1
 		raise("DotNet Error: DarkTurquoise is a read-only property")
 
 	Func getDarkViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:DarkViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:DarkViolet","")
 
 	Func setDarkViolet P1
 		raise("DotNet Error: DarkViolet is a read-only property")
 
 	Func getDeepPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:DeepPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:DeepPink","")
 
 	Func setDeepPink P1
 		raise("DotNet Error: DeepPink is a read-only property")
 
 	Func getDeepSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:DeepSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:DeepSkyBlue","")
 
 	Func setDeepSkyBlue P1
 		raise("DotNet Error: DeepSkyBlue is a read-only property")
 
 	Func getDimGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:DimGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:DimGray","")
 
 	Func setDimGray P1
 		raise("DotNet Error: DimGray is a read-only property")
 
 	Func getDodgerBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:DodgerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:DodgerBlue","")
 
 	Func setDodgerBlue P1
 		raise("DotNet Error: DodgerBlue is a read-only property")
 
 	Func getFirebrick
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:Firebrick","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:Firebrick","")
 
 	Func setFirebrick P1
 		raise("DotNet Error: Firebrick is a read-only property")
 
 	Func getFloralWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:FloralWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:FloralWhite","")
 
 	Func setFloralWhite P1
 		raise("DotNet Error: FloralWhite is a read-only property")
 
 	Func getForestGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:ForestGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:ForestGreen","")
 
 	Func setForestGreen P1
 		raise("DotNet Error: ForestGreen is a read-only property")
 
 	Func getFuchsia
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:Fuchsia","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:Fuchsia","")
 
 	Func setFuchsia P1
 		raise("DotNet Error: Fuchsia is a read-only property")
 
 	Func getGainsboro
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:Gainsboro","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:Gainsboro","")
 
 	Func setGainsboro P1
 		raise("DotNet Error: Gainsboro is a read-only property")
 
 	Func getGhostWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:GhostWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:GhostWhite","")
 
 	Func setGhostWhite P1
 		raise("DotNet Error: GhostWhite is a read-only property")
 
 	Func getGold
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Gold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Gold","")
 
 	Func setGold P1
 		raise("DotNet Error: Gold is a read-only property")
 
 	Func getGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:Goldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:Goldenrod","")
 
 	Func setGoldenrod P1
 		raise("DotNet Error: Goldenrod is a read-only property")
 
 	Func getGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Gray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Gray","")
 
 	Func setGray P1
 		raise("DotNet Error: Gray is a read-only property")
 
 	Func getGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Green","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Green","")
 
 	Func setGreen P1
 		raise("DotNet Error: Green is a read-only property")
 
 	Func getGreenYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:GreenYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:GreenYellow","")
 
 	Func setGreenYellow P1
 		raise("DotNet Error: GreenYellow is a read-only property")
 
 	Func getHoneydew
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:Honeydew","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:Honeydew","")
 
 	Func setHoneydew P1
 		raise("DotNet Error: Honeydew is a read-only property")
 
 	Func getHotPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:HotPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:HotPink","")
 
 	Func setHotPink P1
 		raise("DotNet Error: HotPink is a read-only property")
 
 	Func getIndianRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:IndianRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:IndianRed","")
 
 	Func setIndianRed P1
 		raise("DotNet Error: IndianRed is a read-only property")
 
 	Func getIndigo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Indigo","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Indigo","")
 
 	Func setIndigo P1
 		raise("DotNet Error: Indigo is a read-only property")
 
 	Func getIvory
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Ivory","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Ivory","")
 
 	Func setIvory P1
 		raise("DotNet Error: Ivory is a read-only property")
 
 	Func getKhaki
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Khaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Khaki","")
 
 	Func setKhaki P1
 		raise("DotNet Error: Khaki is a read-only property")
 
 	Func getLavender
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:Lavender","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:Lavender","")
 
 	Func setLavender P1
 		raise("DotNet Error: Lavender is a read-only property")
 
 	Func getLavenderBlush
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:LavenderBlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:LavenderBlush","")
 
 	Func setLavenderBlush P1
 		raise("DotNet Error: LavenderBlush is a read-only property")
 
 	Func getLawnGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LawnGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LawnGreen","")
 
 	Func setLawnGreen P1
 		raise("DotNet Error: LawnGreen is a read-only property")
 
 	Func getLemonChiffon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:LemonChiffon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:LemonChiffon","")
 
 	Func setLemonChiffon P1
 		raise("DotNet Error: LemonChiffon is a read-only property")
 
 	Func getLightBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LightBlue","")
 
 	Func setLightBlue P1
 		raise("DotNet Error: LightBlue is a read-only property")
 
 	Func getLightCoral
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:LightCoral","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:LightCoral","")
 
 	Func setLightCoral P1
 		raise("DotNet Error: LightCoral is a read-only property")
 
 	Func getLightCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LightCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LightCyan","")
 
 	Func setLightCyan P1
 		raise("DotNet Error: LightCyan is a read-only property")
 
 	Func getLightGoldenrodYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s20:LightGoldenrodYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s20:LightGoldenrodYellow","")
 
 	Func setLightGoldenrodYellow P1
 		raise("DotNet Error: LightGoldenrodYellow is a read-only property")
 
 	Func getLightGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LightGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LightGray","")
 
 	Func setLightGray P1
 		raise("DotNet Error: LightGray is a read-only property")
 
 	Func getLightGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:LightGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:LightGreen","")
 
 	Func setLightGreen P1
 		raise("DotNet Error: LightGreen is a read-only property")
 
 	Func getLightPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LightPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LightPink","")
 
 	Func setLightPink P1
 		raise("DotNet Error: LightPink is a read-only property")
 
 	Func getLightSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:LightSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:LightSalmon","")
 
 	Func setLightSalmon P1
 		raise("DotNet Error: LightSalmon is a read-only property")
 
 	Func getLightSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:LightSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:LightSeaGreen","")
 
 	Func setLightSeaGreen P1
 		raise("DotNet Error: LightSeaGreen is a read-only property")
 
 	Func getLightSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:LightSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:LightSkyBlue","")
 
 	Func setLightSkyBlue P1
 		raise("DotNet Error: LightSkyBlue is a read-only property")
 
 	Func getLightSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:LightSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:LightSlateGray","")
 
 	Func setLightSlateGray P1
 		raise("DotNet Error: LightSlateGray is a read-only property")
 
 	Func getLightSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:LightSteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:LightSteelBlue","")
 
 	Func setLightSteelBlue P1
 		raise("DotNet Error: LightSteelBlue is a read-only property")
 
 	Func getLightYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:LightYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:LightYellow","")
 
 	Func setLightYellow P1
 		raise("DotNet Error: LightYellow is a read-only property")
 
 	Func getLime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Lime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Lime","")
 
 	Func setLime P1
 		raise("DotNet Error: Lime is a read-only property")
 
 	Func getLimeGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:LimeGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:LimeGreen","")
 
 	Func setLimeGreen P1
 		raise("DotNet Error: LimeGreen is a read-only property")
 
 	Func getLinen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Linen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Linen","")
 
 	Func setLinen P1
 		raise("DotNet Error: Linen is a read-only property")
 
 	Func getMagenta
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:Magenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:Magenta","")
 
 	Func setMagenta P1
 		raise("DotNet Error: Magenta is a read-only property")
 
 	Func getMaroon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Maroon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Maroon","")
 
 	Func setMaroon P1
 		raise("DotNet Error: Maroon is a read-only property")
 
 	Func getMediumAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s16:MediumAquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s16:MediumAquamarine","")
 
 	Func setMediumAquamarine P1
 		raise("DotNet Error: MediumAquamarine is a read-only property")
 
 	Func getMediumBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:MediumBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:MediumBlue","")
 
 	Func setMediumBlue P1
 		raise("DotNet Error: MediumBlue is a read-only property")
 
 	Func getMediumOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:MediumOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:MediumOrchid","")
 
 	Func setMediumOrchid P1
 		raise("DotNet Error: MediumOrchid is a read-only property")
 
 	Func getMediumPurple
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:MediumPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:MediumPurple","")
 
 	Func setMediumPurple P1
 		raise("DotNet Error: MediumPurple is a read-only property")
 
 	Func getMediumSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s14:MediumSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s14:MediumSeaGreen","")
 
 	Func setMediumSeaGreen P1
 		raise("DotNet Error: MediumSeaGreen is a read-only property")
 
 	Func getMediumSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s15:MediumSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s15:MediumSlateBlue","")
 
 	Func setMediumSlateBlue P1
 		raise("DotNet Error: MediumSlateBlue is a read-only property")
 
 	Func getMediumSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s17:MediumSpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s17:MediumSpringGreen","")
 
 	Func setMediumSpringGreen P1
 		raise("DotNet Error: MediumSpringGreen is a read-only property")
 
 	Func getMediumTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s15:MediumTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s15:MediumTurquoise","")
 
 	Func setMediumTurquoise P1
 		raise("DotNet Error: MediumTurquoise is a read-only property")
 
 	Func getMediumVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s15:MediumVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s15:MediumVioletRed","")
 
 	Func setMediumVioletRed P1
 		raise("DotNet Error: MediumVioletRed is a read-only property")
 
 	Func getMidnightBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s12:MidnightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s12:MidnightBlue","")
 
 	Func setMidnightBlue P1
 		raise("DotNet Error: MidnightBlue is a read-only property")
 
 	Func getMintCream
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:MintCream","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:MintCream","")
 
 	Func setMintCream P1
 		raise("DotNet Error: MintCream is a read-only property")
 
 	Func getMistyRose
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:MistyRose","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:MistyRose","")
 
 	Func setMistyRose P1
 		raise("DotNet Error: MistyRose is a read-only property")
 
 	Func getMoccasin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:Moccasin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:Moccasin","")
 
 	Func setMoccasin P1
 		raise("DotNet Error: Moccasin is a read-only property")
 
 	Func getNavajoWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:NavajoWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:NavajoWhite","")
 
 	Func setNavajoWhite P1
 		raise("DotNet Error: NavajoWhite is a read-only property")
 
 	Func getNavy
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Navy","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Navy","")
 
 	Func setNavy P1
 		raise("DotNet Error: Navy is a read-only property")
 
 	Func getOldLace
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:OldLace","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:OldLace","")
 
 	Func setOldLace P1
 		raise("DotNet Error: OldLace is a read-only property")
 
 	Func getOlive
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Olive","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Olive","")
 
 	Func setOlive P1
 		raise("DotNet Error: Olive is a read-only property")
 
 	Func getOliveDrab
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:OliveDrab","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:OliveDrab","")
 
 	Func setOliveDrab P1
 		raise("DotNet Error: OliveDrab is a read-only property")
 
 	Func getOrange
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Orange","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Orange","")
 
 	Func setOrange P1
 		raise("DotNet Error: Orange is a read-only property")
 
 	Func getOrangeRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:OrangeRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:OrangeRed","")
 
 	Func setOrangeRed P1
 		raise("DotNet Error: OrangeRed is a read-only property")
 
 	Func getOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Orchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Orchid","")
 
 	Func setOrchid P1
 		raise("DotNet Error: Orchid is a read-only property")
 
 	Func getPaleGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:PaleGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:PaleGoldenrod","")
 
 	Func setPaleGoldenrod P1
 		raise("DotNet Error: PaleGoldenrod is a read-only property")
 
 	Func getPaleGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:PaleGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:PaleGreen","")
 
 	Func setPaleGreen P1
 		raise("DotNet Error: PaleGreen is a read-only property")
 
 	Func getPaleTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:PaleTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:PaleTurquoise","")
 
 	Func setPaleTurquoise P1
 		raise("DotNet Error: PaleTurquoise is a read-only property")
 
 	Func getPaleVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s13:PaleVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s13:PaleVioletRed","")
 
 	Func setPaleVioletRed P1
 		raise("DotNet Error: PaleVioletRed is a read-only property")
 
 	Func getPapayaWhip
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:PapayaWhip","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:PapayaWhip","")
 
 	Func setPapayaWhip P1
 		raise("DotNet Error: PapayaWhip is a read-only property")
 
 	Func getPeachPuff
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:PeachPuff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:PeachPuff","")
 
 	Func setPeachPuff P1
 		raise("DotNet Error: PeachPuff is a read-only property")
 
 	Func getPeru
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Peru","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Peru","")
 
 	Func setPeru P1
 		raise("DotNet Error: Peru is a read-only property")
 
 	Func getPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Pink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Pink","")
 
 	Func setPink P1
 		raise("DotNet Error: Pink is a read-only property")
 
 	Func getPlum
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Plum","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Plum","")
 
 	Func setPlum P1
 		raise("DotNet Error: Plum is a read-only property")
 
 	Func getPowderBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:PowderBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:PowderBlue","")
 
 	Func setPowderBlue P1
 		raise("DotNet Error: PowderBlue is a read-only property")
 
 	Func getPurple
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Purple","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Purple","")
 
 	Func setPurple P1
 		raise("DotNet Error: Purple is a read-only property")
 
 	Func getRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s3:Red","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s3:Red","")
 
 	Func setRed P1
 		raise("DotNet Error: Red is a read-only property")
 
 	Func getRosyBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:RosyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:RosyBrown","")
 
 	Func setRosyBrown P1
 		raise("DotNet Error: RosyBrown is a read-only property")
 
 	Func getRoyalBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:RoyalBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:RoyalBlue","")
 
 	Func setRoyalBlue P1
 		raise("DotNet Error: RoyalBlue is a read-only property")
 
 	Func getSaddleBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:SaddleBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:SaddleBrown","")
 
 	Func setSaddleBrown P1
 		raise("DotNet Error: SaddleBrown is a read-only property")
 
 	Func getSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Salmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Salmon","")
 
 	Func setSalmon P1
 		raise("DotNet Error: Salmon is a read-only property")
 
 	Func getSandyBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:SandyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:SandyBrown","")
 
 	Func setSandyBrown P1
 		raise("DotNet Error: SandyBrown is a read-only property")
 
 	Func getSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:SeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:SeaGreen","")
 
 	Func setSeaGreen P1
 		raise("DotNet Error: SeaGreen is a read-only property")
 
 	Func getSeaShell
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s8:SeaShell","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s8:SeaShell","")
 
 	Func setSeaShell P1
 		raise("DotNet Error: SeaShell is a read-only property")
 
 	Func getSienna
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Sienna","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Sienna","")
 
 	Func setSienna P1
 		raise("DotNet Error: Sienna is a read-only property")
 
 	Func getSilver
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Silver","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Silver","")
 
 	Func setSilver P1
 		raise("DotNet Error: Silver is a read-only property")
 
 	Func getSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:SkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:SkyBlue","")
 
 	Func setSkyBlue P1
 		raise("DotNet Error: SkyBlue is a read-only property")
 
 	Func getSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:SlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:SlateBlue","")
 
 	Func setSlateBlue P1
 		raise("DotNet Error: SlateBlue is a read-only property")
 
 	Func getSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:SlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:SlateGray","")
 
 	Func setSlateGray P1
 		raise("DotNet Error: SlateGray is a read-only property")
 
 	Func getSnow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Snow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Snow","")
 
 	Func setSnow P1
 		raise("DotNet Error: Snow is a read-only property")
 
 	Func getSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:SpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:SpringGreen","")
 
 	Func setSpringGreen P1
 		raise("DotNet Error: SpringGreen is a read-only property")
 
 	Func getSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:SteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:SteelBlue","")
 
 	Func setSteelBlue P1
 		raise("DotNet Error: SteelBlue is a read-only property")
 
 	Func getTan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s3:Tan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s3:Tan","")
 
 	Func setTan P1
 		raise("DotNet Error: Tan is a read-only property")
 
 	Func getTeal
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s4:Teal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s4:Teal","")
 
 	Func setTeal P1
 		raise("DotNet Error: Teal is a read-only property")
 
 	Func getThistle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s7:Thistle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s7:Thistle","")
 
 	Func setThistle P1
 		raise("DotNet Error: Thistle is a read-only property")
 
 	Func getTomato
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Tomato","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Tomato","")
 
 	Func setTomato P1
 		raise("DotNet Error: Tomato is a read-only property")
 
 	Func getTransparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:Transparent","")
 
 	Func setTransparent P1
 		raise("DotNet Error: Transparent is a read-only property")
 
 	Func getTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s9:Turquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s9:Turquoise","")
 
 	Func setTurquoise P1
 		raise("DotNet Error: Turquoise is a read-only property")
 
 	Func getViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Violet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Violet","")
 
 	Func setViolet P1
 		raise("DotNet Error: Violet is a read-only property")
 
 	Func getWheat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:Wheat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:Wheat","")
 
 	Func setWheat P1
 		raise("DotNet Error: Wheat is a read-only property")
 
 	Func getWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s5:White","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s5:White","")
 
 	Func setWhite P1
 		raise("DotNet Error: White is a read-only property")
 
 	Func getWhiteSmoke
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s10:WhiteSmoke","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s10:WhiteSmoke","")
 
 	Func setWhiteSmoke P1
 		raise("DotNet Error: WhiteSmoke is a read-only property")
 
 	Func getYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s6:Yellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s6:Yellow","")
 
 	Func setYellow P1
 		raise("DotNet Error: Yellow is a read-only property")
 
 	Func getYellowGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Brushes, PresentationCore').nHandle,"s11:YellowGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Brushes, PresentationCore'),"s11:YellowGreen","")
 
 	Func setYellowGreen P1
 		raise("DotNet Error: YellowGreen is a read-only property")
@@ -2132,38 +2132,38 @@ Class WpfColor from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromAValues P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s11:FromAValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s11:FromAValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FromValues P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s10:FromValues",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s10:FromValues",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromScRgb P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s9:FromScRgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s9:FromScRgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func FromArgb P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s8:FromArgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:FromArgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func FromRgb P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s7:FromRgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s7:FromRgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AreClose P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s8:AreClose",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:AreClose",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Color, PresentationCore').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getColorContext
 		return dnSend("s3:get",nHandle,"s12:ColorContext","")
@@ -2279,12 +2279,12 @@ Class ColorConverter from TypeConverter
 	Func ConvertFromString P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.ColorConverter, PresentationCore').nHandle,"s17:ConvertFromString",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.ColorConverter, PresentationCore'),"s17:ConvertFromString",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s17:ConvertFromString",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnSend("s4:call",dnTypeCached('System.Windows.Media.ColorConverter, PresentationCore').nHandle,"s17:ConvertFromString",dnPackItem(P1))
+			return dnSend("s4:call",dnTypeHandle('System.Windows.Media.ColorConverter, PresentationCore'),"s17:ConvertFromString",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s17:ConvertFromString",dnPackItem(P1))
 
@@ -2446,847 +2446,847 @@ Class Colors from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAliceBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:AliceBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:AliceBlue","")
 
 	Func setAliceBlue P1
 		raise("DotNet Error: AliceBlue is a read-only property")
 
 	Func getAntiqueWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:AntiqueWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:AntiqueWhite","")
 
 	Func setAntiqueWhite P1
 		raise("DotNet Error: AntiqueWhite is a read-only property")
 
 	Func getAqua
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Aqua","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Aqua","")
 
 	Func setAqua P1
 		raise("DotNet Error: Aqua is a read-only property")
 
 	Func getAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:Aquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:Aquamarine","")
 
 	Func setAquamarine P1
 		raise("DotNet Error: Aquamarine is a read-only property")
 
 	Func getAzure
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Azure","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Azure","")
 
 	Func setAzure P1
 		raise("DotNet Error: Azure is a read-only property")
 
 	Func getBeige
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Beige","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Beige","")
 
 	Func setBeige P1
 		raise("DotNet Error: Beige is a read-only property")
 
 	Func getBisque
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Bisque","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Bisque","")
 
 	Func setBisque P1
 		raise("DotNet Error: Bisque is a read-only property")
 
 	Func getBlack
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Black","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Black","")
 
 	Func setBlack P1
 		raise("DotNet Error: Black is a read-only property")
 
 	Func getBlanchedAlmond
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:BlanchedAlmond","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:BlanchedAlmond","")
 
 	Func setBlanchedAlmond P1
 		raise("DotNet Error: BlanchedAlmond is a read-only property")
 
 	Func getBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Blue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Blue","")
 
 	Func setBlue P1
 		raise("DotNet Error: Blue is a read-only property")
 
 	Func getBlueViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:BlueViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:BlueViolet","")
 
 	Func setBlueViolet P1
 		raise("DotNet Error: BlueViolet is a read-only property")
 
 	Func getBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Brown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Brown","")
 
 	Func setBrown P1
 		raise("DotNet Error: Brown is a read-only property")
 
 	Func getBurlyWood
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:BurlyWood","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:BurlyWood","")
 
 	Func setBurlyWood P1
 		raise("DotNet Error: BurlyWood is a read-only property")
 
 	Func getCadetBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:CadetBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:CadetBlue","")
 
 	Func setCadetBlue P1
 		raise("DotNet Error: CadetBlue is a read-only property")
 
 	Func getChartreuse
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:Chartreuse","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:Chartreuse","")
 
 	Func setChartreuse P1
 		raise("DotNet Error: Chartreuse is a read-only property")
 
 	Func getChocolate
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:Chocolate","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:Chocolate","")
 
 	Func setChocolate P1
 		raise("DotNet Error: Chocolate is a read-only property")
 
 	Func getCoral
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Coral","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Coral","")
 
 	Func setCoral P1
 		raise("DotNet Error: Coral is a read-only property")
 
 	Func getCornflowerBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:CornflowerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:CornflowerBlue","")
 
 	Func setCornflowerBlue P1
 		raise("DotNet Error: CornflowerBlue is a read-only property")
 
 	Func getCornsilk
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:Cornsilk","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:Cornsilk","")
 
 	Func setCornsilk P1
 		raise("DotNet Error: Cornsilk is a read-only property")
 
 	Func getCrimson
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:Crimson","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:Crimson","")
 
 	Func setCrimson P1
 		raise("DotNet Error: Crimson is a read-only property")
 
 	Func getCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Cyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Cyan","")
 
 	Func setCyan P1
 		raise("DotNet Error: Cyan is a read-only property")
 
 	Func getDarkBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:DarkBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:DarkBlue","")
 
 	Func setDarkBlue P1
 		raise("DotNet Error: DarkBlue is a read-only property")
 
 	Func getDarkCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:DarkCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:DarkCyan","")
 
 	Func setDarkCyan P1
 		raise("DotNet Error: DarkCyan is a read-only property")
 
 	Func getDarkGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:DarkGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:DarkGoldenrod","")
 
 	Func setDarkGoldenrod P1
 		raise("DotNet Error: DarkGoldenrod is a read-only property")
 
 	Func getDarkGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:DarkGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:DarkGray","")
 
 	Func setDarkGray P1
 		raise("DotNet Error: DarkGray is a read-only property")
 
 	Func getDarkGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:DarkGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:DarkGreen","")
 
 	Func setDarkGreen P1
 		raise("DotNet Error: DarkGreen is a read-only property")
 
 	Func getDarkKhaki
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:DarkKhaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:DarkKhaki","")
 
 	Func setDarkKhaki P1
 		raise("DotNet Error: DarkKhaki is a read-only property")
 
 	Func getDarkMagenta
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:DarkMagenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:DarkMagenta","")
 
 	Func setDarkMagenta P1
 		raise("DotNet Error: DarkMagenta is a read-only property")
 
 	Func getDarkOliveGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:DarkOliveGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:DarkOliveGreen","")
 
 	Func setDarkOliveGreen P1
 		raise("DotNet Error: DarkOliveGreen is a read-only property")
 
 	Func getDarkOrange
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:DarkOrange","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:DarkOrange","")
 
 	Func setDarkOrange P1
 		raise("DotNet Error: DarkOrange is a read-only property")
 
 	Func getDarkOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:DarkOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:DarkOrchid","")
 
 	Func setDarkOrchid P1
 		raise("DotNet Error: DarkOrchid is a read-only property")
 
 	Func getDarkRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:DarkRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:DarkRed","")
 
 	Func setDarkRed P1
 		raise("DotNet Error: DarkRed is a read-only property")
 
 	Func getDarkSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:DarkSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:DarkSalmon","")
 
 	Func setDarkSalmon P1
 		raise("DotNet Error: DarkSalmon is a read-only property")
 
 	Func getDarkSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:DarkSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:DarkSeaGreen","")
 
 	Func setDarkSeaGreen P1
 		raise("DotNet Error: DarkSeaGreen is a read-only property")
 
 	Func getDarkSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:DarkSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:DarkSlateBlue","")
 
 	Func setDarkSlateBlue P1
 		raise("DotNet Error: DarkSlateBlue is a read-only property")
 
 	Func getDarkSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:DarkSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:DarkSlateGray","")
 
 	Func setDarkSlateGray P1
 		raise("DotNet Error: DarkSlateGray is a read-only property")
 
 	Func getDarkTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:DarkTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:DarkTurquoise","")
 
 	Func setDarkTurquoise P1
 		raise("DotNet Error: DarkTurquoise is a read-only property")
 
 	Func getDarkViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:DarkViolet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:DarkViolet","")
 
 	Func setDarkViolet P1
 		raise("DotNet Error: DarkViolet is a read-only property")
 
 	Func getDeepPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:DeepPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:DeepPink","")
 
 	Func setDeepPink P1
 		raise("DotNet Error: DeepPink is a read-only property")
 
 	Func getDeepSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:DeepSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:DeepSkyBlue","")
 
 	Func setDeepSkyBlue P1
 		raise("DotNet Error: DeepSkyBlue is a read-only property")
 
 	Func getDimGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:DimGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:DimGray","")
 
 	Func setDimGray P1
 		raise("DotNet Error: DimGray is a read-only property")
 
 	Func getDodgerBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:DodgerBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:DodgerBlue","")
 
 	Func setDodgerBlue P1
 		raise("DotNet Error: DodgerBlue is a read-only property")
 
 	Func getFirebrick
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:Firebrick","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:Firebrick","")
 
 	Func setFirebrick P1
 		raise("DotNet Error: Firebrick is a read-only property")
 
 	Func getFloralWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:FloralWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:FloralWhite","")
 
 	Func setFloralWhite P1
 		raise("DotNet Error: FloralWhite is a read-only property")
 
 	Func getForestGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:ForestGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:ForestGreen","")
 
 	Func setForestGreen P1
 		raise("DotNet Error: ForestGreen is a read-only property")
 
 	Func getFuchsia
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:Fuchsia","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:Fuchsia","")
 
 	Func setFuchsia P1
 		raise("DotNet Error: Fuchsia is a read-only property")
 
 	Func getGainsboro
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:Gainsboro","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:Gainsboro","")
 
 	Func setGainsboro P1
 		raise("DotNet Error: Gainsboro is a read-only property")
 
 	Func getGhostWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:GhostWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:GhostWhite","")
 
 	Func setGhostWhite P1
 		raise("DotNet Error: GhostWhite is a read-only property")
 
 	Func getGold
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Gold","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Gold","")
 
 	Func setGold P1
 		raise("DotNet Error: Gold is a read-only property")
 
 	Func getGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:Goldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:Goldenrod","")
 
 	Func setGoldenrod P1
 		raise("DotNet Error: Goldenrod is a read-only property")
 
 	Func getGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Gray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Gray","")
 
 	Func setGray P1
 		raise("DotNet Error: Gray is a read-only property")
 
 	Func getGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Green","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Green","")
 
 	Func setGreen P1
 		raise("DotNet Error: Green is a read-only property")
 
 	Func getGreenYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:GreenYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:GreenYellow","")
 
 	Func setGreenYellow P1
 		raise("DotNet Error: GreenYellow is a read-only property")
 
 	Func getHoneydew
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:Honeydew","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:Honeydew","")
 
 	Func setHoneydew P1
 		raise("DotNet Error: Honeydew is a read-only property")
 
 	Func getHotPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:HotPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:HotPink","")
 
 	Func setHotPink P1
 		raise("DotNet Error: HotPink is a read-only property")
 
 	Func getIndianRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:IndianRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:IndianRed","")
 
 	Func setIndianRed P1
 		raise("DotNet Error: IndianRed is a read-only property")
 
 	Func getIndigo
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Indigo","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Indigo","")
 
 	Func setIndigo P1
 		raise("DotNet Error: Indigo is a read-only property")
 
 	Func getIvory
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Ivory","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Ivory","")
 
 	Func setIvory P1
 		raise("DotNet Error: Ivory is a read-only property")
 
 	Func getKhaki
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Khaki","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Khaki","")
 
 	Func setKhaki P1
 		raise("DotNet Error: Khaki is a read-only property")
 
 	Func getLavender
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:Lavender","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:Lavender","")
 
 	Func setLavender P1
 		raise("DotNet Error: Lavender is a read-only property")
 
 	Func getLavenderBlush
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:LavenderBlush","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:LavenderBlush","")
 
 	Func setLavenderBlush P1
 		raise("DotNet Error: LavenderBlush is a read-only property")
 
 	Func getLawnGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LawnGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LawnGreen","")
 
 	Func setLawnGreen P1
 		raise("DotNet Error: LawnGreen is a read-only property")
 
 	Func getLemonChiffon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:LemonChiffon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:LemonChiffon","")
 
 	Func setLemonChiffon P1
 		raise("DotNet Error: LemonChiffon is a read-only property")
 
 	Func getLightBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LightBlue","")
 
 	Func setLightBlue P1
 		raise("DotNet Error: LightBlue is a read-only property")
 
 	Func getLightCoral
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:LightCoral","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:LightCoral","")
 
 	Func setLightCoral P1
 		raise("DotNet Error: LightCoral is a read-only property")
 
 	Func getLightCyan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LightCyan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LightCyan","")
 
 	Func setLightCyan P1
 		raise("DotNet Error: LightCyan is a read-only property")
 
 	Func getLightGoldenrodYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s20:LightGoldenrodYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s20:LightGoldenrodYellow","")
 
 	Func setLightGoldenrodYellow P1
 		raise("DotNet Error: LightGoldenrodYellow is a read-only property")
 
 	Func getLightGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LightGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LightGray","")
 
 	Func setLightGray P1
 		raise("DotNet Error: LightGray is a read-only property")
 
 	Func getLightGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:LightGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:LightGreen","")
 
 	Func setLightGreen P1
 		raise("DotNet Error: LightGreen is a read-only property")
 
 	Func getLightPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LightPink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LightPink","")
 
 	Func setLightPink P1
 		raise("DotNet Error: LightPink is a read-only property")
 
 	Func getLightSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:LightSalmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:LightSalmon","")
 
 	Func setLightSalmon P1
 		raise("DotNet Error: LightSalmon is a read-only property")
 
 	Func getLightSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:LightSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:LightSeaGreen","")
 
 	Func setLightSeaGreen P1
 		raise("DotNet Error: LightSeaGreen is a read-only property")
 
 	Func getLightSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:LightSkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:LightSkyBlue","")
 
 	Func setLightSkyBlue P1
 		raise("DotNet Error: LightSkyBlue is a read-only property")
 
 	Func getLightSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:LightSlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:LightSlateGray","")
 
 	Func setLightSlateGray P1
 		raise("DotNet Error: LightSlateGray is a read-only property")
 
 	Func getLightSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:LightSteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:LightSteelBlue","")
 
 	Func setLightSteelBlue P1
 		raise("DotNet Error: LightSteelBlue is a read-only property")
 
 	Func getLightYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:LightYellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:LightYellow","")
 
 	Func setLightYellow P1
 		raise("DotNet Error: LightYellow is a read-only property")
 
 	Func getLime
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Lime","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Lime","")
 
 	Func setLime P1
 		raise("DotNet Error: Lime is a read-only property")
 
 	Func getLimeGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:LimeGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:LimeGreen","")
 
 	Func setLimeGreen P1
 		raise("DotNet Error: LimeGreen is a read-only property")
 
 	Func getLinen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Linen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Linen","")
 
 	Func setLinen P1
 		raise("DotNet Error: Linen is a read-only property")
 
 	Func getMagenta
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:Magenta","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:Magenta","")
 
 	Func setMagenta P1
 		raise("DotNet Error: Magenta is a read-only property")
 
 	Func getMaroon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Maroon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Maroon","")
 
 	Func setMaroon P1
 		raise("DotNet Error: Maroon is a read-only property")
 
 	Func getMediumAquamarine
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s16:MediumAquamarine","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s16:MediumAquamarine","")
 
 	Func setMediumAquamarine P1
 		raise("DotNet Error: MediumAquamarine is a read-only property")
 
 	Func getMediumBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:MediumBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:MediumBlue","")
 
 	Func setMediumBlue P1
 		raise("DotNet Error: MediumBlue is a read-only property")
 
 	Func getMediumOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:MediumOrchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:MediumOrchid","")
 
 	Func setMediumOrchid P1
 		raise("DotNet Error: MediumOrchid is a read-only property")
 
 	Func getMediumPurple
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:MediumPurple","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:MediumPurple","")
 
 	Func setMediumPurple P1
 		raise("DotNet Error: MediumPurple is a read-only property")
 
 	Func getMediumSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s14:MediumSeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s14:MediumSeaGreen","")
 
 	Func setMediumSeaGreen P1
 		raise("DotNet Error: MediumSeaGreen is a read-only property")
 
 	Func getMediumSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s15:MediumSlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s15:MediumSlateBlue","")
 
 	Func setMediumSlateBlue P1
 		raise("DotNet Error: MediumSlateBlue is a read-only property")
 
 	Func getMediumSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s17:MediumSpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s17:MediumSpringGreen","")
 
 	Func setMediumSpringGreen P1
 		raise("DotNet Error: MediumSpringGreen is a read-only property")
 
 	Func getMediumTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s15:MediumTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s15:MediumTurquoise","")
 
 	Func setMediumTurquoise P1
 		raise("DotNet Error: MediumTurquoise is a read-only property")
 
 	Func getMediumVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s15:MediumVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s15:MediumVioletRed","")
 
 	Func setMediumVioletRed P1
 		raise("DotNet Error: MediumVioletRed is a read-only property")
 
 	Func getMidnightBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s12:MidnightBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s12:MidnightBlue","")
 
 	Func setMidnightBlue P1
 		raise("DotNet Error: MidnightBlue is a read-only property")
 
 	Func getMintCream
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:MintCream","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:MintCream","")
 
 	Func setMintCream P1
 		raise("DotNet Error: MintCream is a read-only property")
 
 	Func getMistyRose
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:MistyRose","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:MistyRose","")
 
 	Func setMistyRose P1
 		raise("DotNet Error: MistyRose is a read-only property")
 
 	Func getMoccasin
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:Moccasin","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:Moccasin","")
 
 	Func setMoccasin P1
 		raise("DotNet Error: Moccasin is a read-only property")
 
 	Func getNavajoWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:NavajoWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:NavajoWhite","")
 
 	Func setNavajoWhite P1
 		raise("DotNet Error: NavajoWhite is a read-only property")
 
 	Func getNavy
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Navy","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Navy","")
 
 	Func setNavy P1
 		raise("DotNet Error: Navy is a read-only property")
 
 	Func getOldLace
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:OldLace","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:OldLace","")
 
 	Func setOldLace P1
 		raise("DotNet Error: OldLace is a read-only property")
 
 	Func getOlive
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Olive","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Olive","")
 
 	Func setOlive P1
 		raise("DotNet Error: Olive is a read-only property")
 
 	Func getOliveDrab
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:OliveDrab","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:OliveDrab","")
 
 	Func setOliveDrab P1
 		raise("DotNet Error: OliveDrab is a read-only property")
 
 	Func getOrange
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Orange","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Orange","")
 
 	Func setOrange P1
 		raise("DotNet Error: Orange is a read-only property")
 
 	Func getOrangeRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:OrangeRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:OrangeRed","")
 
 	Func setOrangeRed P1
 		raise("DotNet Error: OrangeRed is a read-only property")
 
 	Func getOrchid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Orchid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Orchid","")
 
 	Func setOrchid P1
 		raise("DotNet Error: Orchid is a read-only property")
 
 	Func getPaleGoldenrod
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:PaleGoldenrod","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:PaleGoldenrod","")
 
 	Func setPaleGoldenrod P1
 		raise("DotNet Error: PaleGoldenrod is a read-only property")
 
 	Func getPaleGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:PaleGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:PaleGreen","")
 
 	Func setPaleGreen P1
 		raise("DotNet Error: PaleGreen is a read-only property")
 
 	Func getPaleTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:PaleTurquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:PaleTurquoise","")
 
 	Func setPaleTurquoise P1
 		raise("DotNet Error: PaleTurquoise is a read-only property")
 
 	Func getPaleVioletRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s13:PaleVioletRed","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s13:PaleVioletRed","")
 
 	Func setPaleVioletRed P1
 		raise("DotNet Error: PaleVioletRed is a read-only property")
 
 	Func getPapayaWhip
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:PapayaWhip","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:PapayaWhip","")
 
 	Func setPapayaWhip P1
 		raise("DotNet Error: PapayaWhip is a read-only property")
 
 	Func getPeachPuff
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:PeachPuff","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:PeachPuff","")
 
 	Func setPeachPuff P1
 		raise("DotNet Error: PeachPuff is a read-only property")
 
 	Func getPeru
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Peru","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Peru","")
 
 	Func setPeru P1
 		raise("DotNet Error: Peru is a read-only property")
 
 	Func getPink
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Pink","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Pink","")
 
 	Func setPink P1
 		raise("DotNet Error: Pink is a read-only property")
 
 	Func getPlum
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Plum","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Plum","")
 
 	Func setPlum P1
 		raise("DotNet Error: Plum is a read-only property")
 
 	Func getPowderBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:PowderBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:PowderBlue","")
 
 	Func setPowderBlue P1
 		raise("DotNet Error: PowderBlue is a read-only property")
 
 	Func getPurple
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Purple","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Purple","")
 
 	Func setPurple P1
 		raise("DotNet Error: Purple is a read-only property")
 
 	Func getRed
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s3:Red","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s3:Red","")
 
 	Func setRed P1
 		raise("DotNet Error: Red is a read-only property")
 
 	Func getRosyBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:RosyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:RosyBrown","")
 
 	Func setRosyBrown P1
 		raise("DotNet Error: RosyBrown is a read-only property")
 
 	Func getRoyalBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:RoyalBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:RoyalBlue","")
 
 	Func setRoyalBlue P1
 		raise("DotNet Error: RoyalBlue is a read-only property")
 
 	Func getSaddleBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:SaddleBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:SaddleBrown","")
 
 	Func setSaddleBrown P1
 		raise("DotNet Error: SaddleBrown is a read-only property")
 
 	Func getSalmon
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Salmon","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Salmon","")
 
 	Func setSalmon P1
 		raise("DotNet Error: Salmon is a read-only property")
 
 	Func getSandyBrown
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:SandyBrown","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:SandyBrown","")
 
 	Func setSandyBrown P1
 		raise("DotNet Error: SandyBrown is a read-only property")
 
 	Func getSeaGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:SeaGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:SeaGreen","")
 
 	Func setSeaGreen P1
 		raise("DotNet Error: SeaGreen is a read-only property")
 
 	Func getSeaShell
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s8:SeaShell","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s8:SeaShell","")
 
 	Func setSeaShell P1
 		raise("DotNet Error: SeaShell is a read-only property")
 
 	Func getSienna
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Sienna","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Sienna","")
 
 	Func setSienna P1
 		raise("DotNet Error: Sienna is a read-only property")
 
 	Func getSilver
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Silver","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Silver","")
 
 	Func setSilver P1
 		raise("DotNet Error: Silver is a read-only property")
 
 	Func getSkyBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:SkyBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:SkyBlue","")
 
 	Func setSkyBlue P1
 		raise("DotNet Error: SkyBlue is a read-only property")
 
 	Func getSlateBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:SlateBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:SlateBlue","")
 
 	Func setSlateBlue P1
 		raise("DotNet Error: SlateBlue is a read-only property")
 
 	Func getSlateGray
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:SlateGray","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:SlateGray","")
 
 	Func setSlateGray P1
 		raise("DotNet Error: SlateGray is a read-only property")
 
 	Func getSnow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Snow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Snow","")
 
 	Func setSnow P1
 		raise("DotNet Error: Snow is a read-only property")
 
 	Func getSpringGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:SpringGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:SpringGreen","")
 
 	Func setSpringGreen P1
 		raise("DotNet Error: SpringGreen is a read-only property")
 
 	Func getSteelBlue
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:SteelBlue","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:SteelBlue","")
 
 	Func setSteelBlue P1
 		raise("DotNet Error: SteelBlue is a read-only property")
 
 	Func getTan
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s3:Tan","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s3:Tan","")
 
 	Func setTan P1
 		raise("DotNet Error: Tan is a read-only property")
 
 	Func getTeal
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s4:Teal","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s4:Teal","")
 
 	Func setTeal P1
 		raise("DotNet Error: Teal is a read-only property")
 
 	Func getThistle
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s7:Thistle","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s7:Thistle","")
 
 	Func setThistle P1
 		raise("DotNet Error: Thistle is a read-only property")
 
 	Func getTomato
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Tomato","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Tomato","")
 
 	Func setTomato P1
 		raise("DotNet Error: Tomato is a read-only property")
 
 	Func getTransparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:Transparent","")
 
 	Func setTransparent P1
 		raise("DotNet Error: Transparent is a read-only property")
 
 	Func getTurquoise
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s9:Turquoise","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s9:Turquoise","")
 
 	Func setTurquoise P1
 		raise("DotNet Error: Turquoise is a read-only property")
 
 	Func getViolet
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Violet","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Violet","")
 
 	Func setViolet P1
 		raise("DotNet Error: Violet is a read-only property")
 
 	Func getWheat
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:Wheat","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:Wheat","")
 
 	Func setWheat P1
 		raise("DotNet Error: Wheat is a read-only property")
 
 	Func getWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s5:White","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s5:White","")
 
 	Func setWhite P1
 		raise("DotNet Error: White is a read-only property")
 
 	Func getWhiteSmoke
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s10:WhiteSmoke","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s10:WhiteSmoke","")
 
 	Func setWhiteSmoke P1
 		raise("DotNet Error: WhiteSmoke is a read-only property")
 
 	Func getYellow
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s6:Yellow","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s6:Yellow","")
 
 	Func setYellow P1
 		raise("DotNet Error: Yellow is a read-only property")
 
 	Func getYellowGreen
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Colors, PresentationCore').nHandle,"s11:YellowGreen","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Colors, PresentationCore'),"s11:YellowGreen","")
 
 	Func setYellowGreen P1
 		raise("DotNet Error: YellowGreen is a read-only property")
@@ -3395,13 +3395,13 @@ Class DashStyle from Animatable
 		return self
 
 	Func getOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyle, PresentationCore').nHandle,"s14:OffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyle, PresentationCore'),"s14:OffsetProperty","")
 
 	Func setOffsetProperty P1
 		raise("DotNet Error: OffsetProperty is a read-only property")
 
 	Func getDashesProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyle, PresentationCore').nHandle,"s14:DashesProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyle, PresentationCore'),"s14:DashesProperty","")
 
 	Func setDashesProperty P1
 		raise("DotNet Error: DashesProperty is a read-only property")
@@ -3428,31 +3428,31 @@ Class DashStyles from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSolid
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyles, PresentationCore').nHandle,"s5:Solid","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyles, PresentationCore'),"s5:Solid","")
 
 	Func setSolid P1
 		raise("DotNet Error: Solid is a read-only property")
 
 	Func getDash
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyles, PresentationCore').nHandle,"s4:Dash","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyles, PresentationCore'),"s4:Dash","")
 
 	Func setDash P1
 		raise("DotNet Error: Dash is a read-only property")
 
 	Func getDot
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyles, PresentationCore').nHandle,"s3:Dot","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyles, PresentationCore'),"s3:Dot","")
 
 	Func setDot P1
 		raise("DotNet Error: Dot is a read-only property")
 
 	Func getDashDot
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyles, PresentationCore').nHandle,"s7:DashDot","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyles, PresentationCore'),"s7:DashDot","")
 
 	Func setDashDot P1
 		raise("DotNet Error: DashDot is a read-only property")
 
 	Func getDashDotDot
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DashStyles, PresentationCore').nHandle,"s10:DashDotDot","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DashStyles, PresentationCore'),"s10:DashDotDot","")
 
 	Func setDashDotDot P1
 		raise("DotNet Error: DashDotDot is a read-only property")
@@ -3535,7 +3535,7 @@ Class DoubleCollection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.DoubleCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.DoubleCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -4311,24 +4311,24 @@ Class Fonts from Object
 
 	Func GetFontFamilies P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s15:GetFontFamilies",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s15:GetFontFamilies",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s15:GetFontFamilies",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s15:GetFontFamilies",dnPackItem(P1))
 
 	Func GetTypefaces P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s12:GetTypefaces",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s12:GetTypefaces",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s12:GetTypefaces",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s12:GetTypefaces",dnPackItem(P1))
 
 	Func getSystemFontFamilies
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s18:SystemFontFamilies","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s18:SystemFontFamilies","")
 
 	Func setSystemFontFamilies P1
 		raise("DotNet Error: SystemFontFamilies is a read-only property")
 
 	Func getSystemTypefaces
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Fonts, PresentationCore').nHandle,"s15:SystemTypefaces","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Fonts, PresentationCore'),"s15:SystemTypefaces","")
 
 	Func setSystemTypefaces P1
 		raise("DotNet Error: SystemTypefaces is a read-only property")
@@ -4813,12 +4813,12 @@ Class Geometry from Animatable
 
 	Func Combine P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Geometry, PresentationCore').nHandle,"s7:Combine",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s7:Combine",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Combine does not take one argument: use named arguments, Combine([ :parameter = value, ... ])")
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Geometry, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getBounds
 		return dnSend("s3:get",nHandle,"s6:Bounds","")
@@ -4834,19 +4834,19 @@ Class Geometry from Animatable
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Geometry, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
 	Func getStandardFlatteningTolerance
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Geometry, PresentationCore').nHandle,"s27:StandardFlatteningTolerance","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s27:StandardFlatteningTolerance","")
 
 	Func setStandardFlatteningTolerance P1
 		raise("DotNet Error: StandardFlatteningTolerance is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Geometry, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -5525,13 +5525,13 @@ Class GradientStop from Animatable
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientStop, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientStop, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getOffsetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientStop, PresentationCore').nHandle,"s14:OffsetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientStop, PresentationCore'),"s14:OffsetProperty","")
 
 	Func setOffsetProperty P1
 		raise("DotNet Error: OffsetProperty is a read-only property")
@@ -5614,7 +5614,7 @@ Class GradientStopCollection from Animatable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.GradientStopCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.GradientStopCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -5686,13 +5686,13 @@ Class GuidelineSet from Animatable
 		return self
 
 	Func getGuidelinesXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GuidelineSet, PresentationCore').nHandle,"s19:GuidelinesXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GuidelineSet, PresentationCore'),"s19:GuidelinesXProperty","")
 
 	Func setGuidelinesXProperty P1
 		raise("DotNet Error: GuidelinesXProperty is a read-only property")
 
 	Func getGuidelinesYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GuidelineSet, PresentationCore').nHandle,"s19:GuidelinesYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GuidelineSet, PresentationCore'),"s19:GuidelinesYProperty","")
 
 	Func setGuidelinesYProperty P1
 		raise("DotNet Error: GuidelinesYProperty is a read-only property")
@@ -5907,7 +5907,7 @@ Class Int32Collection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Int32Collection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Int32Collection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -6143,7 +6143,7 @@ Class WpfMatrix from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Matrix, WindowsBase').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Matrix, WindowsBase'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -6156,10 +6156,10 @@ Class WpfMatrix from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Matrix, WindowsBase').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Matrix, WindowsBase'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Matrix, WindowsBase').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Matrix, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsIdentity
 		return dnSend("s3:get",nHandle,"s10:IsIdentity","")
@@ -6222,7 +6222,7 @@ Class WpfMatrix from ValueType
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Matrix, WindowsBase').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Matrix, WindowsBase'),"s8:Identity","")
 
 
 Class MatrixConverter from TypeConverter
@@ -6548,7 +6548,7 @@ Class MediaTimeline from Timeline
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.MediaTimeline, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.MediaTimeline, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -6601,25 +6601,25 @@ Class NumberSubstitution from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetCultureSource_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s16:SetCultureSource",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s16:SetCultureSource",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCultureSource_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s16:GetCultureSource",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s16:GetCultureSource",dnPackItem(P1))
 
 	Func SetCultureOverride_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s18:SetCultureOverride",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s18:SetCultureOverride",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCultureOverride_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s18:GetCultureOverride",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s18:GetCultureOverride",dnPackItem(P1))
 
 	Func SetSubstitution_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s15:SetSubstitution",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s15:SetSubstitution",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetSubstitution_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s15:GetSubstitution",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s15:GetSubstitution",dnPackItem(P1))
 
 	Func getCultureSource
 		return dnSend("s3:get",nHandle,"s13:CultureSource","")
@@ -6643,19 +6643,19 @@ Class NumberSubstitution from Object
 		return self
 
 	Func getCultureSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s21:CultureSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s21:CultureSourceProperty","")
 
 	Func setCultureSourceProperty P1
 		raise("DotNet Error: CultureSourceProperty is a read-only property")
 
 	Func getCultureOverrideProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s23:CultureOverrideProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s23:CultureOverrideProperty","")
 
 	Func setCultureOverrideProperty P1
 		raise("DotNet Error: CultureOverrideProperty is a read-only property")
 
 	Func getSubstitutionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore').nHandle,"s20:SubstitutionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s20:SubstitutionProperty","")
 
 	Func setSubstitutionProperty P1
 		raise("DotNet Error: SubstitutionProperty is a read-only property")
@@ -6753,25 +6753,25 @@ Class PathFigure from Animatable
 		return self
 
 	Func getStartPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathFigure, PresentationCore').nHandle,"s18:StartPointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathFigure, PresentationCore'),"s18:StartPointProperty","")
 
 	Func setStartPointProperty P1
 		raise("DotNet Error: StartPointProperty is a read-only property")
 
 	Func getIsFilledProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathFigure, PresentationCore').nHandle,"s16:IsFilledProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathFigure, PresentationCore'),"s16:IsFilledProperty","")
 
 	Func setIsFilledProperty P1
 		raise("DotNet Error: IsFilledProperty is a read-only property")
 
 	Func getSegmentsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathFigure, PresentationCore').nHandle,"s16:SegmentsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathFigure, PresentationCore'),"s16:SegmentsProperty","")
 
 	Func setSegmentsProperty P1
 		raise("DotNet Error: SegmentsProperty is a read-only property")
 
 	Func getIsClosedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathFigure, PresentationCore').nHandle,"s16:IsClosedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathFigure, PresentationCore'),"s16:IsClosedProperty","")
 
 	Func setIsClosedProperty P1
 		raise("DotNet Error: IsClosedProperty is a read-only property")
@@ -6854,7 +6854,7 @@ Class PathFigureCollection from Animatable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.PathFigureCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.PathFigureCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -6922,13 +6922,13 @@ Class PathSegment from Animatable
 		return self
 
 	Func getIsStrokedProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathSegment, PresentationCore').nHandle,"s17:IsStrokedProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathSegment, PresentationCore'),"s17:IsStrokedProperty","")
 
 	Func setIsStrokedProperty P1
 		raise("DotNet Error: IsStrokedProperty is a read-only property")
 
 	Func getIsSmoothJoinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathSegment, PresentationCore').nHandle,"s20:IsSmoothJoinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathSegment, PresentationCore'),"s20:IsSmoothJoinProperty","")
 
 	Func setIsSmoothJoinProperty P1
 		raise("DotNet Error: IsSmoothJoinProperty is a read-only property")
@@ -7128,49 +7128,49 @@ Class WpfPen from Animatable
 		return self
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s13:BrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s13:BrushProperty","")
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
 
 	Func getThicknessProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s17:ThicknessProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s17:ThicknessProperty","")
 
 	Func setThicknessProperty P1
 		raise("DotNet Error: ThicknessProperty is a read-only property")
 
 	Func getStartLineCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s20:StartLineCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s20:StartLineCapProperty","")
 
 	Func setStartLineCapProperty P1
 		raise("DotNet Error: StartLineCapProperty is a read-only property")
 
 	Func getEndLineCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s18:EndLineCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s18:EndLineCapProperty","")
 
 	Func setEndLineCapProperty P1
 		raise("DotNet Error: EndLineCapProperty is a read-only property")
 
 	Func getDashCapProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s15:DashCapProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s15:DashCapProperty","")
 
 	Func setDashCapProperty P1
 		raise("DotNet Error: DashCapProperty is a read-only property")
 
 	Func getLineJoinProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s16:LineJoinProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s16:LineJoinProperty","")
 
 	Func setLineJoinProperty P1
 		raise("DotNet Error: LineJoinProperty is a read-only property")
 
 	Func getMiterLimitProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s18:MiterLimitProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s18:MiterLimitProperty","")
 
 	Func setMiterLimitProperty P1
 		raise("DotNet Error: MiterLimitProperty is a read-only property")
 
 	Func getDashStyleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Pen, PresentationCore').nHandle,"s17:DashStyleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Pen, PresentationCore'),"s17:DashStyleProperty","")
 
 	Func setDashStyleProperty P1
 		raise("DotNet Error: DashStyleProperty is a read-only property")
@@ -7202,7 +7202,7 @@ Class PixelFormat from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.PixelFormat, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -7246,7 +7246,7 @@ Class PixelFormatChannelMask from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.PixelFormatChannelMask, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.PixelFormatChannelMask, PresentationCore'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -7322,157 +7322,157 @@ Class PixelFormats from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getIndexed1
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s8:Indexed1","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s8:Indexed1","")
 
 	Func setIndexed1 P1
 		raise("DotNet Error: Indexed1 is a read-only property")
 
 	Func getIndexed2
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s8:Indexed2","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s8:Indexed2","")
 
 	Func setIndexed2 P1
 		raise("DotNet Error: Indexed2 is a read-only property")
 
 	Func getIndexed4
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s8:Indexed4","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s8:Indexed4","")
 
 	Func setIndexed4 P1
 		raise("DotNet Error: Indexed4 is a read-only property")
 
 	Func getIndexed8
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s8:Indexed8","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s8:Indexed8","")
 
 	Func setIndexed8 P1
 		raise("DotNet Error: Indexed8 is a read-only property")
 
 	Func getBlackWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s10:BlackWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s10:BlackWhite","")
 
 	Func setBlackWhite P1
 		raise("DotNet Error: BlackWhite is a read-only property")
 
 	Func getGray2
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Gray2","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Gray2","")
 
 	Func setGray2 P1
 		raise("DotNet Error: Gray2 is a read-only property")
 
 	Func getGray4
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Gray4","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Gray4","")
 
 	Func setGray4 P1
 		raise("DotNet Error: Gray4 is a read-only property")
 
 	Func getGray8
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Gray8","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Gray8","")
 
 	Func setGray8 P1
 		raise("DotNet Error: Gray8 is a read-only property")
 
 	Func getBgr555
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Bgr555","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Bgr555","")
 
 	Func setBgr555 P1
 		raise("DotNet Error: Bgr555 is a read-only property")
 
 	Func getBgr565
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Bgr565","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Bgr565","")
 
 	Func setBgr565 P1
 		raise("DotNet Error: Bgr565 is a read-only property")
 
 	Func getRgb128Float
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s11:Rgb128Float","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s11:Rgb128Float","")
 
 	Func setRgb128Float P1
 		raise("DotNet Error: Rgb128Float is a read-only property")
 
 	Func getBgr24
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Bgr24","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Bgr24","")
 
 	Func setBgr24 P1
 		raise("DotNet Error: Bgr24 is a read-only property")
 
 	Func getRgb24
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Rgb24","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Rgb24","")
 
 	Func setRgb24 P1
 		raise("DotNet Error: Rgb24 is a read-only property")
 
 	Func getBgr101010
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s9:Bgr101010","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s9:Bgr101010","")
 
 	Func setBgr101010 P1
 		raise("DotNet Error: Bgr101010 is a read-only property")
 
 	Func getBgr32
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Bgr32","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Bgr32","")
 
 	Func setBgr32 P1
 		raise("DotNet Error: Bgr32 is a read-only property")
 
 	Func getBgra32
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Bgra32","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Bgra32","")
 
 	Func setBgra32 P1
 		raise("DotNet Error: Bgra32 is a read-only property")
 
 	Func getPbgra32
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s7:Pbgra32","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s7:Pbgra32","")
 
 	Func setPbgra32 P1
 		raise("DotNet Error: Pbgra32 is a read-only property")
 
 	Func getRgb48
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s5:Rgb48","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s5:Rgb48","")
 
 	Func setRgb48 P1
 		raise("DotNet Error: Rgb48 is a read-only property")
 
 	Func getRgba64
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Rgba64","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Rgba64","")
 
 	Func setRgba64 P1
 		raise("DotNet Error: Rgba64 is a read-only property")
 
 	Func getPrgba64
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s7:Prgba64","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s7:Prgba64","")
 
 	Func setPrgba64 P1
 		raise("DotNet Error: Prgba64 is a read-only property")
 
 	Func getGray16
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Gray16","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Gray16","")
 
 	Func setGray16 P1
 		raise("DotNet Error: Gray16 is a read-only property")
 
 	Func getGray32Float
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s11:Gray32Float","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s11:Gray32Float","")
 
 	Func setGray32Float P1
 		raise("DotNet Error: Gray32Float is a read-only property")
 
 	Func getRgba128Float
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s12:Rgba128Float","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s12:Rgba128Float","")
 
 	Func setRgba128Float P1
 		raise("DotNet Error: Rgba128Float is a read-only property")
 
 	Func getPrgba128Float
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s13:Prgba128Float","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s13:Prgba128Float","")
 
 	Func setPrgba128Float P1
 		raise("DotNet Error: Prgba128Float is a read-only property")
 
 	Func getCmyk32
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PixelFormats, PresentationCore').nHandle,"s6:Cmyk32","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PixelFormats, PresentationCore'),"s6:Cmyk32","")
 
 	Func setCmyk32 P1
 		raise("DotNet Error: Cmyk32 is a read-only property")
@@ -7555,7 +7555,7 @@ Class PointCollection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.PointCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.PointCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -7611,13 +7611,13 @@ Class RenderCapability from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsPixelShaderVersionSupported P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s29:IsPixelShaderVersionSupported",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s29:IsPixelShaderVersionSupported",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsPixelShaderVersionSupportedInSoftware P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s39:IsPixelShaderVersionSupportedInSoftware",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s39:IsPixelShaderVersionSupportedInSoftware",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxPixelShaderInstructionSlots P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s30:MaxPixelShaderInstructionSlots",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s30:MaxPixelShaderInstructionSlots",dnPackItem(P1) + dnPackItem(P2))
 
 	Func setTierChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore'),"TierChanged",dnCallback(P1)])
@@ -7628,19 +7628,19 @@ Class RenderCapability from Object
 		return self
 
 	Func getTier
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s4:Tier","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s4:Tier","")
 
 	Func setTier P1
 		raise("DotNet Error: Tier is a read-only property")
 
 	Func getIsShaderEffectSoftwareRenderingSupported
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s40:IsShaderEffectSoftwareRenderingSupported","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s40:IsShaderEffectSoftwareRenderingSupported","")
 
 	Func setIsShaderEffectSoftwareRenderingSupported P1
 		raise("DotNet Error: IsShaderEffectSoftwareRenderingSupported is a read-only property")
 
 	Func getMaxHardwareTextureSize
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore').nHandle,"s22:MaxHardwareTextureSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s22:MaxHardwareTextureSize","")
 
 	Func setMaxHardwareTextureSize P1
 		raise("DotNet Error: MaxHardwareTextureSize is a read-only property")
@@ -7669,86 +7669,86 @@ Class RenderOptions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetEdgeMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s11:GetEdgeMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s11:GetEdgeMode",dnPackItem(P1))
 
 	Func SetEdgeMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s11:SetEdgeMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s11:SetEdgeMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetBitmapScalingMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s20:GetBitmapScalingMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s20:GetBitmapScalingMode",dnPackItem(P1))
 
 	Func SetBitmapScalingMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s20:SetBitmapScalingMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s20:SetBitmapScalingMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetClearTypeHint P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s16:GetClearTypeHint",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:GetClearTypeHint",dnPackItem(P1))
 
 	Func SetClearTypeHint P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s16:SetClearTypeHint",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:SetClearTypeHint",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCachingHint P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s14:GetCachingHint",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s14:GetCachingHint",dnPackItem(P1))
 
 	Func SetCachingHint P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s14:SetCachingHint",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s14:SetCachingHint",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCacheInvalidationThresholdMinimum P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s36:GetCacheInvalidationThresholdMinimum",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMinimum",dnPackItem(P1))
 
 	Func SetCacheInvalidationThresholdMinimum P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s36:SetCacheInvalidationThresholdMinimum",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMinimum",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCacheInvalidationThresholdMaximum P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s36:GetCacheInvalidationThresholdMaximum",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMaximum",dnPackItem(P1))
 
 	Func SetCacheInvalidationThresholdMaximum P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s36:SetCacheInvalidationThresholdMaximum",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMaximum",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProcessRenderMode
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s17:ProcessRenderMode","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s17:ProcessRenderMode","")
 
 	Func setProcessRenderMode P1
-		dnSend("s3:set",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s17:ProcessRenderMode",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s17:ProcessRenderMode",dnPackItem(P1))
 		return self
 
 	Func getEdgeModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s16:EdgeModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:EdgeModeProperty","")
 
 	Func setEdgeModeProperty P1
 		raise("DotNet Error: EdgeModeProperty is a read-only property")
 
 	Func getBitmapScalingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s25:BitmapScalingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s25:BitmapScalingModeProperty","")
 
 	Func setBitmapScalingModeProperty P1
 		raise("DotNet Error: BitmapScalingModeProperty is a read-only property")
 
 	Func getClearTypeHintProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s21:ClearTypeHintProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s21:ClearTypeHintProperty","")
 
 	Func setClearTypeHintProperty P1
 		raise("DotNet Error: ClearTypeHintProperty is a read-only property")
 
 	Func getCachingHintProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s19:CachingHintProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s19:CachingHintProperty","")
 
 	Func setCachingHintProperty P1
 		raise("DotNet Error: CachingHintProperty is a read-only property")
 
 	Func getCacheInvalidationThresholdMinimumProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s41:CacheInvalidationThresholdMinimumProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s41:CacheInvalidationThresholdMinimumProperty","")
 
 	Func setCacheInvalidationThresholdMinimumProperty P1
 		raise("DotNet Error: CacheInvalidationThresholdMinimumProperty is a read-only property")
 
 	Func getCacheInvalidationThresholdMaximumProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RenderOptions, PresentationCore').nHandle,"s41:CacheInvalidationThresholdMaximumProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s41:CacheInvalidationThresholdMaximumProperty","")
 
 	Func setCacheInvalidationThresholdMaximumProperty P1
 		raise("DotNet Error: CacheInvalidationThresholdMaximumProperty is a read-only property")
@@ -7926,31 +7926,31 @@ Class TextEffect from Animatable
 		return self
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextEffect, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextEffect, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
 
 	Func getClipProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextEffect, PresentationCore').nHandle,"s12:ClipProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextEffect, PresentationCore'),"s12:ClipProperty","")
 
 	Func setClipProperty P1
 		raise("DotNet Error: ClipProperty is a read-only property")
 
 	Func getForegroundProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextEffect, PresentationCore').nHandle,"s18:ForegroundProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextEffect, PresentationCore'),"s18:ForegroundProperty","")
 
 	Func setForegroundProperty P1
 		raise("DotNet Error: ForegroundProperty is a read-only property")
 
 	Func getPositionStartProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextEffect, PresentationCore').nHandle,"s21:PositionStartProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextEffect, PresentationCore'),"s21:PositionStartProperty","")
 
 	Func setPositionStartProperty P1
 		raise("DotNet Error: PositionStartProperty is a read-only property")
 
 	Func getPositionCountProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextEffect, PresentationCore').nHandle,"s21:PositionCountProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextEffect, PresentationCore'),"s21:PositionCountProperty","")
 
 	Func setPositionCountProperty P1
 		raise("DotNet Error: PositionCountProperty is a read-only property")
@@ -8059,40 +8059,40 @@ Class TextOptions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetTextFormattingMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s21:SetTextFormattingMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s21:SetTextFormattingMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTextFormattingMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s21:GetTextFormattingMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s21:GetTextFormattingMode",dnPackItem(P1))
 
 	Func SetTextRenderingMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s20:SetTextRenderingMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s20:SetTextRenderingMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTextRenderingMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s20:GetTextRenderingMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s20:GetTextRenderingMode",dnPackItem(P1))
 
 	Func SetTextHintingMode P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s18:SetTextHintingMode",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s18:SetTextHintingMode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTextHintingMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s18:GetTextHintingMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s18:GetTextHintingMode",dnPackItem(P1))
 
 	Func getTextFormattingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s26:TextFormattingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s26:TextFormattingModeProperty","")
 
 	Func setTextFormattingModeProperty P1
 		raise("DotNet Error: TextFormattingModeProperty is a read-only property")
 
 	Func getTextRenderingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s25:TextRenderingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s25:TextRenderingModeProperty","")
 
 	Func setTextRenderingModeProperty P1
 		raise("DotNet Error: TextRenderingModeProperty is a read-only property")
 
 	Func getTextHintingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework').nHandle,"s23:TextHintingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s23:TextHintingModeProperty","")
 
 	Func setTextHintingModeProperty P1
 		raise("DotNet Error: TextHintingModeProperty is a read-only property")
@@ -8407,7 +8407,7 @@ Class VectorCollection from Freezable
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VectorCollection, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VectorCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -8592,69 +8592,69 @@ Class VisualTreeHelper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetChildrenCount P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s16:GetChildrenCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s16:GetChildrenCount",dnPackItem(P1))
 
 	Func GetChild P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s8:GetChild",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s8:GetChild",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDpi P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s6:GetDpi",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s6:GetDpi",dnPackItem(P1))
 
 	Func SetRootDpi P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s10:SetRootDpi",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:SetRootDpi",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetParent P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s9:GetParent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s9:GetParent",dnPackItem(P1))
 
 	Func GetClip P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s7:GetClip",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s7:GetClip",dnPackItem(P1))
 
 	Func GetOpacity P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s10:GetOpacity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:GetOpacity",dnPackItem(P1))
 
 	Func GetOpacityMask P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s14:GetOpacityMask",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s14:GetOpacityMask",dnPackItem(P1))
 
 	Func GetOffset P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s9:GetOffset",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s9:GetOffset",dnPackItem(P1))
 
 	Func GetTransform P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s12:GetTransform",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s12:GetTransform",dnPackItem(P1))
 
 	Func GetXSnappingGuidelines P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s22:GetXSnappingGuidelines",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s22:GetXSnappingGuidelines",dnPackItem(P1))
 
 	Func GetYSnappingGuidelines P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s22:GetYSnappingGuidelines",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s22:GetYSnappingGuidelines",dnPackItem(P1))
 
 	Func GetDrawing P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s10:GetDrawing",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:GetDrawing",dnPackItem(P1))
 
 	Func GetContentBounds P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s16:GetContentBounds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s16:GetContentBounds",dnPackItem(P1))
 
 	Func GetDescendantBounds P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s19:GetDescendantBounds",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s19:GetDescendantBounds",dnPackItem(P1))
 
 	Func GetBitmapEffect P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s15:GetBitmapEffect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s15:GetBitmapEffect",dnPackItem(P1))
 
 	Func GetBitmapEffectInput P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s20:GetBitmapEffectInput",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s20:GetBitmapEffectInput",dnPackItem(P1))
 
 	Func GetEffect P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s9:GetEffect",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s9:GetEffect",dnPackItem(P1))
 
 	Func GetCacheMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s12:GetCacheMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s12:GetCacheMode",dnPackItem(P1))
 
 	Func GetEdgeMode P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s11:GetEdgeMode",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s11:GetEdgeMode",dnPackItem(P1))
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore').nHandle,"s7:HitTest",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s7:HitTest",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HitTest does not take one argument: use named arguments, HitTest([ :parameter = value, ... ])")
 
@@ -8742,31 +8742,31 @@ Class ArcSegment from PathSegment
 		return self
 
 	Func getPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ArcSegment, PresentationCore').nHandle,"s13:PointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ArcSegment, PresentationCore'),"s13:PointProperty","")
 
 	Func setPointProperty P1
 		raise("DotNet Error: PointProperty is a read-only property")
 
 	Func getSizeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ArcSegment, PresentationCore').nHandle,"s12:SizeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ArcSegment, PresentationCore'),"s12:SizeProperty","")
 
 	Func setSizeProperty P1
 		raise("DotNet Error: SizeProperty is a read-only property")
 
 	Func getRotationAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ArcSegment, PresentationCore').nHandle,"s21:RotationAngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ArcSegment, PresentationCore'),"s21:RotationAngleProperty","")
 
 	Func setRotationAngleProperty P1
 		raise("DotNet Error: RotationAngleProperty is a read-only property")
 
 	Func getIsLargeArcProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ArcSegment, PresentationCore').nHandle,"s18:IsLargeArcProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ArcSegment, PresentationCore'),"s18:IsLargeArcProperty","")
 
 	Func setIsLargeArcProperty P1
 		raise("DotNet Error: IsLargeArcProperty is a read-only property")
 
 	Func getSweepDirectionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ArcSegment, PresentationCore').nHandle,"s22:SweepDirectionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ArcSegment, PresentationCore'),"s22:SweepDirectionProperty","")
 
 	Func setSweepDirectionProperty P1
 		raise("DotNet Error: SweepDirectionProperty is a read-only property")
@@ -8837,19 +8837,19 @@ Class BezierSegment from PathSegment
 		return self
 
 	Func getPoint1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BezierSegment, PresentationCore').nHandle,"s14:Point1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BezierSegment, PresentationCore'),"s14:Point1Property","")
 
 	Func setPoint1Property P1
 		raise("DotNet Error: Point1Property is a read-only property")
 
 	Func getPoint2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BezierSegment, PresentationCore').nHandle,"s14:Point2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BezierSegment, PresentationCore'),"s14:Point2Property","")
 
 	Func setPoint2Property P1
 		raise("DotNet Error: Point2Property is a read-only property")
 
 	Func getPoint3Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BezierSegment, PresentationCore').nHandle,"s14:Point3Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BezierSegment, PresentationCore'),"s14:Point3Property","")
 
 	Func setPoint3Property P1
 		raise("DotNet Error: Point3Property is a read-only property")
@@ -8920,19 +8920,19 @@ Class BitmapCache from CacheMode
 		return self
 
 	Func getRenderAtScaleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCache, PresentationCore').nHandle,"s21:RenderAtScaleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCache, PresentationCore'),"s21:RenderAtScaleProperty","")
 
 	Func setRenderAtScaleProperty P1
 		raise("DotNet Error: RenderAtScaleProperty is a read-only property")
 
 	Func getSnapsToDevicePixelsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCache, PresentationCore').nHandle,"s27:SnapsToDevicePixelsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCache, PresentationCore'),"s27:SnapsToDevicePixelsProperty","")
 
 	Func setSnapsToDevicePixelsProperty P1
 		raise("DotNet Error: SnapsToDevicePixelsProperty is a read-only property")
 
 	Func getEnableClearTypeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCache, PresentationCore').nHandle,"s23:EnableClearTypeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCache, PresentationCore'),"s23:EnableClearTypeProperty","")
 
 	Func setEnableClearTypeProperty P1
 		raise("DotNet Error: EnableClearTypeProperty is a read-only property")
@@ -9003,19 +9003,19 @@ Class BitmapCacheBrush from WpfBrush
 		return self
 
 	Func getTargetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCacheBrush, PresentationCore').nHandle,"s14:TargetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCacheBrush, PresentationCore'),"s14:TargetProperty","")
 
 	Func setTargetProperty P1
 		raise("DotNet Error: TargetProperty is a read-only property")
 
 	Func getBitmapCacheProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCacheBrush, PresentationCore').nHandle,"s19:BitmapCacheProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCacheBrush, PresentationCore'),"s19:BitmapCacheProperty","")
 
 	Func setBitmapCacheProperty P1
 		raise("DotNet Error: BitmapCacheProperty is a read-only property")
 
 	Func getAutoLayoutContentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.BitmapCacheBrush, PresentationCore').nHandle,"s25:AutoLayoutContentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.BitmapCacheBrush, PresentationCore'),"s25:AutoLayoutContentProperty","")
 
 	Func setAutoLayoutContentProperty P1
 		raise("DotNet Error: AutoLayoutContentProperty is a read-only property")
@@ -9086,19 +9086,19 @@ Class CombinedGeometry from Geometry
 		return self
 
 	Func getGeometryCombineModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.CombinedGeometry, PresentationCore').nHandle,"s27:GeometryCombineModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.CombinedGeometry, PresentationCore'),"s27:GeometryCombineModeProperty","")
 
 	Func setGeometryCombineModeProperty P1
 		raise("DotNet Error: GeometryCombineModeProperty is a read-only property")
 
 	Func getGeometry1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.CombinedGeometry, PresentationCore').nHandle,"s17:Geometry1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.CombinedGeometry, PresentationCore'),"s17:Geometry1Property","")
 
 	Func setGeometry1Property P1
 		raise("DotNet Error: Geometry1Property is a read-only property")
 
 	Func getGeometry2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.CombinedGeometry, PresentationCore').nHandle,"s17:Geometry2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.CombinedGeometry, PresentationCore'),"s17:Geometry2Property","")
 
 	Func setGeometry2Property P1
 		raise("DotNet Error: Geometry2Property is a read-only property")
@@ -9348,49 +9348,49 @@ Class DrawingGroup from Drawing
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
 
 	Func getClipGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s20:ClipGeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s20:ClipGeometryProperty","")
 
 	Func setClipGeometryProperty P1
 		raise("DotNet Error: ClipGeometryProperty is a read-only property")
 
 	Func getOpacityProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s15:OpacityProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s15:OpacityProperty","")
 
 	Func setOpacityProperty P1
 		raise("DotNet Error: OpacityProperty is a read-only property")
 
 	Func getOpacityMaskProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s19:OpacityMaskProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s19:OpacityMaskProperty","")
 
 	Func setOpacityMaskProperty P1
 		raise("DotNet Error: OpacityMaskProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
 
 	Func getGuidelineSetProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s20:GuidelineSetProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s20:GuidelineSetProperty","")
 
 	Func setGuidelineSetProperty P1
 		raise("DotNet Error: GuidelineSetProperty is a read-only property")
 
 	Func getBitmapEffectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s20:BitmapEffectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s20:BitmapEffectProperty","")
 
 	Func setBitmapEffectProperty P1
 		raise("DotNet Error: BitmapEffectProperty is a read-only property")
 
 	Func getBitmapEffectInputProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingGroup, PresentationCore').nHandle,"s25:BitmapEffectInputProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingGroup, PresentationCore'),"s25:BitmapEffectInputProperty","")
 
 	Func setBitmapEffectInputProperty P1
 		raise("DotNet Error: BitmapEffectInputProperty is a read-only property")
@@ -9443,7 +9443,7 @@ Class DrawingImage from ImageSource
 		return self
 
 	Func getDrawingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingImage, PresentationCore').nHandle,"s15:DrawingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingImage, PresentationCore'),"s15:DrawingProperty","")
 
 	Func setDrawingProperty P1
 		raise("DotNet Error: DrawingProperty is a read-only property")
@@ -9514,19 +9514,19 @@ Class EllipseGeometry from Geometry
 		return self
 
 	Func getRadiusXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.EllipseGeometry, PresentationCore').nHandle,"s15:RadiusXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.EllipseGeometry, PresentationCore'),"s15:RadiusXProperty","")
 
 	Func setRadiusXProperty P1
 		raise("DotNet Error: RadiusXProperty is a read-only property")
 
 	Func getRadiusYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.EllipseGeometry, PresentationCore').nHandle,"s15:RadiusYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.EllipseGeometry, PresentationCore'),"s15:RadiusYProperty","")
 
 	Func setRadiusYProperty P1
 		raise("DotNet Error: RadiusYProperty is a read-only property")
 
 	Func getCenterProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.EllipseGeometry, PresentationCore').nHandle,"s14:CenterProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.EllipseGeometry, PresentationCore'),"s14:CenterProperty","")
 
 	Func setCenterProperty P1
 		raise("DotNet Error: CenterProperty is a read-only property")
@@ -9563,7 +9563,7 @@ Class GeneralTransformGroup from GeneralTransform
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeneralTransformGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeneralTransformGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -9634,19 +9634,19 @@ Class GeometryDrawing from Drawing
 		return self
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeometryDrawing, PresentationCore').nHandle,"s13:BrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeometryDrawing, PresentationCore'),"s13:BrushProperty","")
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
 
 	Func getPenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeometryDrawing, PresentationCore').nHandle,"s11:PenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeometryDrawing, PresentationCore'),"s11:PenProperty","")
 
 	Func setPenProperty P1
 		raise("DotNet Error: PenProperty is a read-only property")
 
 	Func getGeometryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeometryDrawing, PresentationCore').nHandle,"s16:GeometryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeometryDrawing, PresentationCore'),"s16:GeometryProperty","")
 
 	Func setGeometryProperty P1
 		raise("DotNet Error: GeometryProperty is a read-only property")
@@ -9692,13 +9692,13 @@ Class GeometryGroup from Geometry
 		return self
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeometryGroup, PresentationCore').nHandle,"s16:FillRuleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeometryGroup, PresentationCore'),"s16:FillRuleProperty","")
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GeometryGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GeometryGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -9804,13 +9804,13 @@ Class GlyphRunDrawing from Drawing
 		return self
 
 	Func getGlyphRunProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GlyphRunDrawing, PresentationCore').nHandle,"s16:GlyphRunProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GlyphRunDrawing, PresentationCore'),"s16:GlyphRunProperty","")
 
 	Func setGlyphRunProperty P1
 		raise("DotNet Error: GlyphRunProperty is a read-only property")
 
 	Func getForegroundBrushProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GlyphRunDrawing, PresentationCore').nHandle,"s23:ForegroundBrushProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GlyphRunDrawing, PresentationCore'),"s23:ForegroundBrushProperty","")
 
 	Func setForegroundBrushProperty P1
 		raise("DotNet Error: ForegroundBrushProperty is a read-only property")
@@ -9865,25 +9865,25 @@ Class GradientBrush from WpfBrush
 		return self
 
 	Func getColorInterpolationModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientBrush, PresentationCore').nHandle,"s30:ColorInterpolationModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientBrush, PresentationCore'),"s30:ColorInterpolationModeProperty","")
 
 	Func setColorInterpolationModeProperty P1
 		raise("DotNet Error: ColorInterpolationModeProperty is a read-only property")
 
 	Func getMappingModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientBrush, PresentationCore').nHandle,"s19:MappingModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientBrush, PresentationCore'),"s19:MappingModeProperty","")
 
 	Func setMappingModeProperty P1
 		raise("DotNet Error: MappingModeProperty is a read-only property")
 
 	Func getSpreadMethodProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientBrush, PresentationCore').nHandle,"s20:SpreadMethodProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientBrush, PresentationCore'),"s20:SpreadMethodProperty","")
 
 	Func setSpreadMethodProperty P1
 		raise("DotNet Error: SpreadMethodProperty is a read-only property")
 
 	Func getGradientStopsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.GradientBrush, PresentationCore').nHandle,"s21:GradientStopsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.GradientBrush, PresentationCore'),"s21:GradientStopsProperty","")
 
 	Func setGradientStopsProperty P1
 		raise("DotNet Error: GradientStopsProperty is a read-only property")
@@ -9945,13 +9945,13 @@ Class ImageDrawing from Drawing
 		return self
 
 	Func getImageSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ImageDrawing, PresentationCore').nHandle,"s19:ImageSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ImageDrawing, PresentationCore'),"s19:ImageSourceProperty","")
 
 	Func setImageSourceProperty P1
 		raise("DotNet Error: ImageSourceProperty is a read-only property")
 
 	Func getRectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ImageDrawing, PresentationCore').nHandle,"s12:RectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ImageDrawing, PresentationCore'),"s12:RectProperty","")
 
 	Func setRectProperty P1
 		raise("DotNet Error: RectProperty is a read-only property")
@@ -10013,13 +10013,13 @@ Class LineGeometry from Geometry
 		return self
 
 	Func getStartPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.LineGeometry, PresentationCore').nHandle,"s18:StartPointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.LineGeometry, PresentationCore'),"s18:StartPointProperty","")
 
 	Func setStartPointProperty P1
 		raise("DotNet Error: StartPointProperty is a read-only property")
 
 	Func getEndPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.LineGeometry, PresentationCore').nHandle,"s16:EndPointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.LineGeometry, PresentationCore'),"s16:EndPointProperty","")
 
 	Func setEndPointProperty P1
 		raise("DotNet Error: EndPointProperty is a read-only property")
@@ -10072,7 +10072,7 @@ Class LineSegment from PathSegment
 		return self
 
 	Func getPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.LineSegment, PresentationCore').nHandle,"s13:PointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.LineSegment, PresentationCore'),"s13:PointProperty","")
 
 	Func setPointProperty P1
 		raise("DotNet Error: PointProperty is a read-only property")
@@ -10131,7 +10131,7 @@ Class PathGeometry from Geometry
 		return self
 
 	Func CreateFromGeometry P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.PathGeometry, PresentationCore').nHandle,"s18:CreateFromGeometry",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.PathGeometry, PresentationCore'),"s18:CreateFromGeometry",dnPackItem(P1))
 
 	Func getFillRule
 		return dnSend("s3:get",nHandle,"s8:FillRule","")
@@ -10148,13 +10148,13 @@ Class PathGeometry from Geometry
 		return self
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathGeometry, PresentationCore').nHandle,"s16:FillRuleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathGeometry, PresentationCore'),"s16:FillRuleProperty","")
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
 
 	Func getFiguresProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PathGeometry, PresentationCore').nHandle,"s15:FiguresProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PathGeometry, PresentationCore'),"s15:FiguresProperty","")
 
 	Func setFiguresProperty P1
 		raise("DotNet Error: FiguresProperty is a read-only property")
@@ -10251,7 +10251,7 @@ Class PolyBezierSegment from PathSegment
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PolyBezierSegment, PresentationCore').nHandle,"s14:PointsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PolyBezierSegment, PresentationCore'),"s14:PointsProperty","")
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
@@ -10304,7 +10304,7 @@ Class PolyLineSegment from PathSegment
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PolyLineSegment, PresentationCore').nHandle,"s14:PointsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PolyLineSegment, PresentationCore'),"s14:PointsProperty","")
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
@@ -10357,7 +10357,7 @@ Class PolyQuadraticBezierSegment from PathSegment
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore').nHandle,"s14:PointsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore'),"s14:PointsProperty","")
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
@@ -10419,13 +10419,13 @@ Class QuadraticBezierSegment from PathSegment
 		return self
 
 	Func getPoint1Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.QuadraticBezierSegment, PresentationCore').nHandle,"s14:Point1Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.QuadraticBezierSegment, PresentationCore'),"s14:Point1Property","")
 
 	Func setPoint1Property P1
 		raise("DotNet Error: Point1Property is a read-only property")
 
 	Func getPoint2Property
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.QuadraticBezierSegment, PresentationCore').nHandle,"s14:Point2Property","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.QuadraticBezierSegment, PresentationCore'),"s14:Point2Property","")
 
 	Func setPoint2Property P1
 		raise("DotNet Error: Point2Property is a read-only property")
@@ -10496,19 +10496,19 @@ Class RectangleGeometry from Geometry
 		return self
 
 	Func getRadiusXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RectangleGeometry, PresentationCore').nHandle,"s15:RadiusXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RectangleGeometry, PresentationCore'),"s15:RadiusXProperty","")
 
 	Func setRadiusXProperty P1
 		raise("DotNet Error: RadiusXProperty is a read-only property")
 
 	Func getRadiusYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RectangleGeometry, PresentationCore').nHandle,"s15:RadiusYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RectangleGeometry, PresentationCore'),"s15:RadiusYProperty","")
 
 	Func setRadiusYProperty P1
 		raise("DotNet Error: RadiusYProperty is a read-only property")
 
 	Func getRectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RectangleGeometry, PresentationCore').nHandle,"s12:RectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RectangleGeometry, PresentationCore'),"s12:RectProperty","")
 
 	Func setRectProperty P1
 		raise("DotNet Error: RectProperty is a read-only property")
@@ -10554,7 +10554,7 @@ Class SolidColorBrush from WpfBrush
 		return self
 
 	Func DeserializeFrom P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.SolidColorBrush, PresentationCore').nHandle,"s15:DeserializeFrom",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.SolidColorBrush, PresentationCore'),"s15:DeserializeFrom",dnPackItem(P1))
 
 	Func getColor
 		return dnSend("s3:get",nHandle,"s5:Color","")
@@ -10564,7 +10564,7 @@ Class SolidColorBrush from WpfBrush
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.SolidColorBrush, PresentationCore').nHandle,"s13:ColorProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.SolidColorBrush, PresentationCore'),"s13:ColorProperty","")
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
@@ -10608,7 +10608,7 @@ Class StreamGeometry from Geometry
 		return self
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.StreamGeometry, PresentationCore').nHandle,"s16:FillRuleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.StreamGeometry, PresentationCore'),"s16:FillRuleProperty","")
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
@@ -10699,49 +10699,49 @@ Class TileBrush from WpfBrush
 		return self
 
 	Func getViewportUnitsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s21:ViewportUnitsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s21:ViewportUnitsProperty","")
 
 	Func setViewportUnitsProperty P1
 		raise("DotNet Error: ViewportUnitsProperty is a read-only property")
 
 	Func getViewboxUnitsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s20:ViewboxUnitsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s20:ViewboxUnitsProperty","")
 
 	Func setViewboxUnitsProperty P1
 		raise("DotNet Error: ViewboxUnitsProperty is a read-only property")
 
 	Func getViewportProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s16:ViewportProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s16:ViewportProperty","")
 
 	Func setViewportProperty P1
 		raise("DotNet Error: ViewportProperty is a read-only property")
 
 	Func getViewboxProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s15:ViewboxProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s15:ViewboxProperty","")
 
 	Func setViewboxProperty P1
 		raise("DotNet Error: ViewboxProperty is a read-only property")
 
 	Func getStretchProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s15:StretchProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s15:StretchProperty","")
 
 	Func setStretchProperty P1
 		raise("DotNet Error: StretchProperty is a read-only property")
 
 	Func getTileModeProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s16:TileModeProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s16:TileModeProperty","")
 
 	Func setTileModeProperty P1
 		raise("DotNet Error: TileModeProperty is a read-only property")
 
 	Func getAlignmentXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s18:AlignmentXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s18:AlignmentXProperty","")
 
 	Func setAlignmentXProperty P1
 		raise("DotNet Error: AlignmentXProperty is a read-only property")
 
 	Func getAlignmentYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TileBrush, PresentationCore').nHandle,"s18:AlignmentYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TileBrush, PresentationCore'),"s18:AlignmentYProperty","")
 
 	Func setAlignmentYProperty P1
 		raise("DotNet Error: AlignmentYProperty is a read-only property")
@@ -10765,13 +10765,13 @@ Class Transform from GeneralTransform
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Transform, PresentationCore').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Transform, PresentationCore'),"s5:Parse",dnPackItem(P1))
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Transform, PresentationCore').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Transform, PresentationCore'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -10817,13 +10817,13 @@ Class VideoDrawing from Drawing
 		return self
 
 	Func getPlayerProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.VideoDrawing, PresentationCore').nHandle,"s14:PlayerProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.VideoDrawing, PresentationCore'),"s14:PlayerProperty","")
 
 	Func setPlayerProperty P1
 		raise("DotNet Error: PlayerProperty is a read-only property")
 
 	Func getRectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.VideoDrawing, PresentationCore').nHandle,"s12:RectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.VideoDrawing, PresentationCore'),"s12:RectProperty","")
 
 	Func setRectProperty P1
 		raise("DotNet Error: RectProperty is a read-only property")
@@ -10910,7 +10910,7 @@ Class DrawingBrush from TileBrush
 		return self
 
 	Func getDrawingProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.DrawingBrush, PresentationCore').nHandle,"s15:DrawingProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.DrawingBrush, PresentationCore'),"s15:DrawingProperty","")
 
 	Func setDrawingProperty P1
 		raise("DotNet Error: DrawingProperty is a read-only property")
@@ -11016,7 +11016,7 @@ Class ImageBrush from TileBrush
 		return self
 
 	Func getImageSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ImageBrush, PresentationCore').nHandle,"s19:ImageSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ImageBrush, PresentationCore'),"s19:ImageSourceProperty","")
 
 	Func setImageSourceProperty P1
 		raise("DotNet Error: ImageSourceProperty is a read-only property")
@@ -11078,13 +11078,13 @@ Class WpfLinearGradientBrush from GradientBrush
 		return self
 
 	Func getStartPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.LinearGradientBrush, PresentationCore').nHandle,"s18:StartPointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.LinearGradientBrush, PresentationCore'),"s18:StartPointProperty","")
 
 	Func setStartPointProperty P1
 		raise("DotNet Error: StartPointProperty is a read-only property")
 
 	Func getEndPointProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.LinearGradientBrush, PresentationCore').nHandle,"s16:EndPointProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.LinearGradientBrush, PresentationCore'),"s16:EndPointProperty","")
 
 	Func setEndPointProperty P1
 		raise("DotNet Error: EndPointProperty is a read-only property")
@@ -11137,7 +11137,7 @@ Class MatrixTransform from Transform
 		return self
 
 	Func getMatrixProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.MatrixTransform, PresentationCore').nHandle,"s14:MatrixProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.MatrixTransform, PresentationCore'),"s14:MatrixProperty","")
 
 	Func setMatrixProperty P1
 		raise("DotNet Error: MatrixProperty is a read-only property")
@@ -11217,25 +11217,25 @@ Class RadialGradientBrush from GradientBrush
 		return self
 
 	Func getCenterProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RadialGradientBrush, PresentationCore').nHandle,"s14:CenterProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RadialGradientBrush, PresentationCore'),"s14:CenterProperty","")
 
 	Func setCenterProperty P1
 		raise("DotNet Error: CenterProperty is a read-only property")
 
 	Func getRadiusXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RadialGradientBrush, PresentationCore').nHandle,"s15:RadiusXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RadialGradientBrush, PresentationCore'),"s15:RadiusXProperty","")
 
 	Func setRadiusXProperty P1
 		raise("DotNet Error: RadiusXProperty is a read-only property")
 
 	Func getRadiusYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RadialGradientBrush, PresentationCore').nHandle,"s15:RadiusYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RadialGradientBrush, PresentationCore'),"s15:RadiusYProperty","")
 
 	Func setRadiusYProperty P1
 		raise("DotNet Error: RadiusYProperty is a read-only property")
 
 	Func getGradientOriginProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RadialGradientBrush, PresentationCore').nHandle,"s22:GradientOriginProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RadialGradientBrush, PresentationCore'),"s22:GradientOriginProperty","")
 
 	Func setGradientOriginProperty P1
 		raise("DotNet Error: GradientOriginProperty is a read-only property")
@@ -11306,19 +11306,19 @@ Class RotateTransform from Transform
 		return self
 
 	Func getAngleProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RotateTransform, PresentationCore').nHandle,"s13:AngleProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RotateTransform, PresentationCore'),"s13:AngleProperty","")
 
 	Func setAngleProperty P1
 		raise("DotNet Error: AngleProperty is a read-only property")
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RotateTransform, PresentationCore').nHandle,"s15:CenterXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RotateTransform, PresentationCore'),"s15:CenterXProperty","")
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.RotateTransform, PresentationCore').nHandle,"s15:CenterYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RotateTransform, PresentationCore'),"s15:CenterYProperty","")
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
@@ -11398,25 +11398,25 @@ Class ScaleTransform from Transform
 		return self
 
 	Func getScaleXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ScaleTransform, PresentationCore').nHandle,"s14:ScaleXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ScaleTransform, PresentationCore'),"s14:ScaleXProperty","")
 
 	Func setScaleXProperty P1
 		raise("DotNet Error: ScaleXProperty is a read-only property")
 
 	Func getScaleYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ScaleTransform, PresentationCore').nHandle,"s14:ScaleYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ScaleTransform, PresentationCore'),"s14:ScaleYProperty","")
 
 	Func setScaleYProperty P1
 		raise("DotNet Error: ScaleYProperty is a read-only property")
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ScaleTransform, PresentationCore').nHandle,"s15:CenterXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ScaleTransform, PresentationCore'),"s15:CenterXProperty","")
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.ScaleTransform, PresentationCore').nHandle,"s15:CenterYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.ScaleTransform, PresentationCore'),"s15:CenterYProperty","")
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
@@ -11496,25 +11496,25 @@ Class SkewTransform from Transform
 		return self
 
 	Func getAngleXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.SkewTransform, PresentationCore').nHandle,"s14:AngleXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.SkewTransform, PresentationCore'),"s14:AngleXProperty","")
 
 	Func setAngleXProperty P1
 		raise("DotNet Error: AngleXProperty is a read-only property")
 
 	Func getAngleYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.SkewTransform, PresentationCore').nHandle,"s14:AngleYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.SkewTransform, PresentationCore'),"s14:AngleYProperty","")
 
 	Func setAngleYProperty P1
 		raise("DotNet Error: AngleYProperty is a read-only property")
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.SkewTransform, PresentationCore').nHandle,"s15:CenterXProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.SkewTransform, PresentationCore'),"s15:CenterXProperty","")
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.SkewTransform, PresentationCore').nHandle,"s15:CenterYProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.SkewTransform, PresentationCore'),"s15:CenterYProperty","")
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
@@ -11551,7 +11551,7 @@ Class TransformGroup from Transform
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TransformGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TransformGroup, PresentationCore'),"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -11613,13 +11613,13 @@ Class TranslateTransform from Transform
 		return self
 
 	Func getXProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TranslateTransform, PresentationCore').nHandle,"s9:XProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TranslateTransform, PresentationCore'),"s9:XProperty","")
 
 	Func setXProperty P1
 		raise("DotNet Error: XProperty is a read-only property")
 
 	Func getYProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.TranslateTransform, PresentationCore').nHandle,"s9:YProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.TranslateTransform, PresentationCore'),"s9:YProperty","")
 
 	Func setYProperty P1
 		raise("DotNet Error: YProperty is a read-only property")
@@ -11681,13 +11681,13 @@ Class VisualBrush from TileBrush
 		return self
 
 	Func getVisualProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.VisualBrush, PresentationCore').nHandle,"s14:VisualProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.VisualBrush, PresentationCore'),"s14:VisualProperty","")
 
 	Func setVisualProperty P1
 		raise("DotNet Error: VisualProperty is a read-only property")
 
 	Func getAutoLayoutContentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.VisualBrush, PresentationCore').nHandle,"s25:AutoLayoutContentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.VisualBrush, PresentationCore'),"s25:AutoLayoutContentProperty","")
 
 	Func setAutoLayoutContentProperty P1
 		raise("DotNet Error: AutoLayoutContentProperty is a read-only property")

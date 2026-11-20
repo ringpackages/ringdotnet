@@ -80,7 +80,7 @@ Class AnonymousPipeServerStreamAcl from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class NamedPipeServerStreamAcl from Object
@@ -99,7 +99,7 @@ Class NamedPipeServerStreamAcl from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -522,10 +522,10 @@ Class PipesAclExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAccessControl P1
-		return dnSend("s4:call",dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes').nHandle,"s16:GetAccessControl",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:GetAccessControl",dnPackItem(P1))
 
 	Func SetAccessControl P1,P2
-		dnSend("s4:call",dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes').nHandle,"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -730,7 +730,7 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func getMaxAllowedServerInstances
-		return dnSend("s3:get",dnTypeCached('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes').nHandle,"s25:MaxAllowedServerInstances","")
+		return dnSend("s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances","")
 
 	Func setMaxAllowedServerInstances P1
 		raise("DotNet Error: MaxAllowedServerInstances is a read-only property")

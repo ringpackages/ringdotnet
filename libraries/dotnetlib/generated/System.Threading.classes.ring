@@ -442,7 +442,7 @@ Class CancellationToken from ValueType
 		raise("DotNet Error: WaitHandle is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Threading.CancellationToken, System.Private.CoreLib').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.CancellationToken, System.Private.CoreLib'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -557,9 +557,9 @@ Class CancellationTokenSource from Object
 
 	Func CreateLinkedTokenSource P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib').nHandle,"s23:CreateLinkedTokenSource",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"s23:CreateLinkedTokenSource",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib').nHandle,"s23:CreateLinkedTokenSource",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"s23:CreateLinkedTokenSource",dnPackItem(P1))
 
 	Func getIsCancellationRequested
 		return dnSend("s3:get",nHandle,"s23:IsCancellationRequested","")
@@ -596,13 +596,13 @@ Class CompressedStack from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Capture 
-		return dnSend("s4:call",dnTypeCached('System.Threading.CompressedStack, System.Private.CoreLib').nHandle,"s7:Capture","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s7:Capture","")
 
 	Func GetCompressedStack 
-		return dnSend("s4:call",dnTypeCached('System.Threading.CompressedStack, System.Private.CoreLib').nHandle,"s18:GetCompressedStack","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s18:GetCompressedStack","")
 
 	Func Run P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Threading.CompressedStack, System.Private.CoreLib').nHandle,"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -735,24 +735,24 @@ Class ExecutionContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Capture 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s7:Capture","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s7:Capture","")
 
 	Func SuppressFlow 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s12:SuppressFlow","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s12:SuppressFlow","")
 
 	Func RestoreFlow 
-		dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s11:RestoreFlow","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s11:RestoreFlow","")
 		return self
 
 	Func IsFlowSuppressed 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s16:IsFlowSuppressed","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s16:IsFlowSuppressed","")
 
 	Func Run P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func Restore P1
-		dnSend("s4:call",dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib').nHandle,"s7:Restore",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s7:Restore",dnPackItem(P1))
 		return self
 
 
@@ -891,35 +891,35 @@ Class Interlocked from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Increment P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s9:Increment",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s9:Increment",dnPackItem(P1))
 
 	Func Decrement P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s9:Decrement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s9:Decrement",dnPackItem(P1))
 
 	Func Exchange P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s8:Exchange",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s8:Exchange",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompareExchange P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s15:CompareExchange",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s15:CompareExchange",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Read P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s4:Read",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s4:Read",dnPackItem(P1))
 
 	Func MemoryBarrierProcessWide 
-		dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s24:MemoryBarrierProcessWide","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s24:MemoryBarrierProcessWide","")
 		return self
 
 	Func And_ P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s3:And",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s3:And",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Or_ P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s2:Or",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s2:Or",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MemoryBarrier 
-		dnSend("s4:call",dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib').nHandle,"s13:MemoryBarrier","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s13:MemoryBarrier","")
 		return self
 
 
@@ -939,9 +939,9 @@ Class LazyInitializer from Object
 
 	Func EnsureInitialized P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib').nHandle,"s17:EnsureInitialized",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.LazyInitializer, System.Private.CoreLib'),"s17:EnsureInitialized",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib').nHandle,"s17:EnsureInitialized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.LazyInitializer, System.Private.CoreLib'),"s17:EnsureInitialized",dnPackItem(P1))
 
 
 Class Lock from Object
@@ -1120,40 +1120,40 @@ Class Monitor from Object
 
 	Func Enter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s5:Enter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",dnPackItem(P1))
 		ok
-		dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s5:Enter",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",dnPackItem(P1))
 		return self
 
 	Func Exit_ P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s4:Exit",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Exit",dnPackItem(P1))
 		return self
 
 	Func TryEnter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s8:TryEnter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s8:TryEnter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",dnPackItem(P1))
 
 	Func IsEntered P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s9:IsEntered",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s9:IsEntered",dnPackItem(P1))
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s4:Wait",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s4:Wait",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",dnPackItem(P1))
 
 	Func Pulse P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s5:Pulse",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Pulse",dnPackItem(P1))
 		return self
 
 	Func PulseAll P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s8:PulseAll",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:PulseAll",dnPackItem(P1))
 		return self
 
 	Func getLockContentionCount
-		return dnSend("s3:get",dnTypeCached('System.Threading.Monitor, System.Private.CoreLib').nHandle,"s19:LockContentionCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s19:LockContentionCount","")
 
 	Func setLockContentionCount P1
 		raise("DotNet Error: LockContentionCount is a read-only property")
@@ -1389,7 +1389,7 @@ Class PreAllocatedOverlapped from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UnsafeCreate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Threading.PreAllocatedOverlapped, System.Private.CoreLib').nHandle,"s12:UnsafeCreate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.PreAllocatedOverlapped, System.Private.CoreLib'),"s12:UnsafeCreate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class ReaderWriterLock from DotNetObject
@@ -1840,9 +1840,9 @@ Class SpinWait from ValueType
 
 	Func SpinUntil P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib').nHandle,"s9:SpinUntil",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",dnPackItem(P1))
 		ok
-		dnSend("s4:call",dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib').nHandle,"s9:SpinUntil",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",dnPackItem(P1))
 		return self
 
 	Func getCount
@@ -1909,11 +1909,11 @@ Class SynchronizationContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetSynchronizationContext P1
-		dnSend("s4:call",dnTypeCached('System.Threading.SynchronizationContext, System.Private.CoreLib').nHandle,"s25:SetSynchronizationContext",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.SynchronizationContext, System.Private.CoreLib'),"s25:SetSynchronizationContext",dnPackItem(P1))
 		return self
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Threading.SynchronizationContext, System.Private.CoreLib').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.SynchronizationContext, System.Private.CoreLib'),"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -2051,74 +2051,74 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SpinWait P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s8:SpinWait",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s8:SpinWait",dnPackItem(P1))
 		return self
 
 	Func Yield 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s5:Yield","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Yield","")
 
 	Func Sleep P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s5:Sleep",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Sleep",dnPackItem(P1))
 		return self
 
 	Func ResetAbort 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s10:ResetAbort","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s10:ResetAbort","")
 		return self
 
 	Func BeginCriticalRegion 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s19:BeginCriticalRegion","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginCriticalRegion","")
 		return self
 
 	Func EndCriticalRegion 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s17:EndCriticalRegion","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndCriticalRegion","")
 		return self
 
 	Func BeginThreadAffinity 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s19:BeginThreadAffinity","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginThreadAffinity","")
 		return self
 
 	Func EndThreadAffinity 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s17:EndThreadAffinity","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndThreadAffinity","")
 		return self
 
 	Func AllocateDataSlot 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s16:AllocateDataSlot","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:AllocateDataSlot","")
 
 	Func AllocateNamedDataSlot P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s21:AllocateNamedDataSlot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s21:AllocateNamedDataSlot",dnPackItem(P1))
 
 	Func GetNamedDataSlot P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s16:GetNamedDataSlot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:GetNamedDataSlot",dnPackItem(P1))
 
 	Func FreeNamedDataSlot P1
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s17:FreeNamedDataSlot",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:FreeNamedDataSlot",dnPackItem(P1))
 		return self
 
 	Func GetData P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s7:GetData",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetDomain 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s9:GetDomain","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s9:GetDomain","")
 
 	Func GetDomainID 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s11:GetDomainID","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s11:GetDomainID","")
 
 	Func MemoryBarrier 
-		dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s13:MemoryBarrier","")
+		dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:MemoryBarrier","")
 		return self
 
 	Func VolatileRead P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s12:VolatileRead",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s12:VolatileRead",dnPackItem(P1))
 
 	Func VolatileWrite P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s13:VolatileWrite",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:VolatileWrite",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCurrentProcessorId 
-		return dnSend("s4:call",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s21:GetCurrentProcessorId","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s21:GetCurrentProcessorId","")
 
 	Func getManagedThreadId
 		return dnSend("s3:get",nHandle,"s15:ManagedThreadId","")
@@ -2193,14 +2193,14 @@ Class Thread from DotNetObject
 		return self
 
 	Func getCurrentPrincipal
-		return dnSend("s3:get",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s16:CurrentPrincipal","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:CurrentPrincipal","")
 
 	Func setCurrentPrincipal P1
-		dnSend("s3:set",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s16:CurrentPrincipal",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:CurrentPrincipal",dnPackItem(P1))
 		return self
 
 	Func getCurrentThread
-		return dnSend("s3:get",dnTypeCached('System.Threading.Thread, System.Private.CoreLib').nHandle,"s13:CurrentThread","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:CurrentThread","")
 
 	Func setCurrentThread P1
 		raise("DotNet Error: CurrentThread is a read-only property")
@@ -2247,55 +2247,55 @@ Class ThreadPool from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RegisterWaitForSingleObject P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s27:RegisterWaitForSingleObject",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s27:RegisterWaitForSingleObject",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func UnsafeRegisterWaitForSingleObject P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s33:UnsafeRegisterWaitForSingleObject",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s33:UnsafeRegisterWaitForSingleObject",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func QueueUserWorkItem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s17:QueueUserWorkItem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s17:QueueUserWorkItem",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",dnPackItem(P1))
 
 	Func UnsafeQueueUserWorkItem P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s23:UnsafeQueueUserWorkItem",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s23:UnsafeQueueUserWorkItem",dnPackItem(P1))
 		ok
 		raise("DotNet Error: UnsafeQueueUserWorkItem does not take one argument: use named arguments, UnsafeQueueUserWorkItem([ :parameter = value, ... ])")
 
 	Func BindHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s10:BindHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s10:BindHandle",dnPackItem(P1))
 
 	Func SetMaxThreads P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s13:SetMaxThreads",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMaxThreads",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMaxThreads 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s13:GetMaxThreads","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:GetMaxThreads","")
 
 	Func SetMinThreads P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s13:SetMinThreads",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMinThreads",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMinThreads 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s13:GetMinThreads","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:GetMinThreads","")
 
 	Func GetAvailableThreads 
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s19:GetAvailableThreads","")
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s19:GetAvailableThreads","")
 
 	Func getPendingWorkItemCount
-		return dnSend("s3:get",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s20:PendingWorkItemCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s20:PendingWorkItemCount","")
 
 	Func setPendingWorkItemCount P1
 		raise("DotNet Error: PendingWorkItemCount is a read-only property")
 
 	Func getThreadCount
-		return dnSend("s3:get",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s11:ThreadCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s11:ThreadCount","")
 
 	Func setThreadCount P1
 		raise("DotNet Error: ThreadCount is a read-only property")
 
 	Func getCompletedWorkItemCount
-		return dnSend("s3:get",dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib').nHandle,"s22:CompletedWorkItemCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s22:CompletedWorkItemCount","")
 
 	Func setCompletedWorkItemCount P1
 		raise("DotNet Error: CompletedWorkItemCount is a read-only property")
@@ -2331,7 +2331,7 @@ Class ThreadPoolBoundHandle from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BindHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib').nHandle,"s10:BindHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib'),"s10:BindHandle",dnPackItem(P1))
 
 	Func getHandle
 		return dnSend("s3:get",nHandle,"s6:Handle","")
@@ -2358,13 +2358,13 @@ Class Timeout from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInfiniteTimeSpan
-		return dnSend("s3:get",dnTypeCached('System.Threading.Timeout, System.Private.CoreLib').nHandle,"s16:InfiniteTimeSpan","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Timeout, System.Private.CoreLib'),"s16:InfiniteTimeSpan","")
 
 	Func setInfiniteTimeSpan P1
 		raise("DotNet Error: InfiniteTimeSpan is a read-only property")
 
 	Func getInfinite
-		return dnSend("s3:get",dnTypeCached('System.Threading.Timeout, System.Private.CoreLib').nHandle,"s8:Infinite","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Timeout, System.Private.CoreLib'),"s8:Infinite","")
 
 	Func setInfinite P1
 		raise("DotNet Error: Infinite is a read-only property")
@@ -2417,7 +2417,7 @@ Class Timer from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func getActiveCount
-		return dnSend("s3:get",dnTypeCached('System.Threading.Timer, System.Private.CoreLib').nHandle,"s11:ActiveCount","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.Timer, System.Private.CoreLib'),"s11:ActiveCount","")
 
 	Func setActiveCount P1
 		raise("DotNet Error: ActiveCount is a read-only property")
@@ -2438,10 +2438,10 @@ Class Volatile from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Read P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Volatile, System.Private.CoreLib').nHandle,"s4:Read",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Volatile, System.Private.CoreLib'),"s4:Read",dnPackItem(P1))
 
 	Func Write P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Threading.Volatile, System.Private.CoreLib').nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Volatile, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class WaitHandle from MarshalByRefObject
@@ -2478,19 +2478,19 @@ Class WaitHandle from MarshalByRefObject
 
 	Func WaitAll P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s7:WaitAll",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s7:WaitAll",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 
 	Func WaitAny P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s7:WaitAny",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s7:WaitAny",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 
 	Func SignalAndWait P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s13:SignalAndWait",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s13:SignalAndWait",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SignalAndWait does not take one argument: use named arguments, SignalAndWait([ :parameter = value, ... ])")
 
@@ -2509,7 +2509,7 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func getWaitTimeout
-		return dnSend("s3:get",dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib').nHandle,"s11:WaitTimeout","")
+		return dnSend("s3:get",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s11:WaitTimeout","")
 
 	Func setWaitTimeout P1
 		raise("DotNet Error: WaitTimeout is a read-only property")
@@ -2530,10 +2530,10 @@ Class WaitHandleExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetSafeWaitHandle P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.WaitHandleExtensions, System.Private.CoreLib').nHandle,"s17:GetSafeWaitHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandleExtensions, System.Private.CoreLib'),"s17:GetSafeWaitHandle",dnPackItem(P1))
 
 	Func SetSafeWaitHandle P1,P2
-		dnSend("s4:call",dnTypeCached('System.Threading.WaitHandleExtensions, System.Private.CoreLib').nHandle,"s17:SetSafeWaitHandle",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandleExtensions, System.Private.CoreLib'),"s17:SetSafeWaitHandle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -2572,10 +2572,10 @@ Class EventWaitHandle from WaitHandle
 		return dnSend("s4:call",nHandle,"s3:Set","")
 
 	Func OpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.EventWaitHandle, System.Private.CoreLib').nHandle,"s12:OpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.EventWaitHandle, System.Private.CoreLib'),"s12:OpenExisting",dnPackItem(P1))
 
 	Func TryOpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.EventWaitHandle, System.Private.CoreLib').nHandle,"s15:TryOpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.EventWaitHandle, System.Private.CoreLib'),"s15:TryOpenExisting",dnPackItem(P1))
 
 
 Class Mutex from WaitHandle
@@ -2619,10 +2619,10 @@ Class Mutex from WaitHandle
 		return self
 
 	Func OpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Mutex, System.Private.CoreLib').nHandle,"s12:OpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Mutex, System.Private.CoreLib'),"s12:OpenExisting",dnPackItem(P1))
 
 	Func TryOpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Mutex, System.Private.CoreLib').nHandle,"s15:TryOpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Mutex, System.Private.CoreLib'),"s15:TryOpenExisting",dnPackItem(P1))
 
 
 Class Semaphore from WaitHandle
@@ -2654,10 +2654,10 @@ Class Semaphore from WaitHandle
 		return self
 
 	Func OpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Semaphore, System.Private.CoreLib').nHandle,"s12:OpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Semaphore, System.Private.CoreLib'),"s12:OpenExisting",dnPackItem(P1))
 
 	Func TryOpenExisting P1
-		return dnSend("s4:call",dnTypeCached('System.Threading.Semaphore, System.Private.CoreLib').nHandle,"s15:TryOpenExisting",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Threading.Semaphore, System.Private.CoreLib'),"s15:TryOpenExisting",dnPackItem(P1))
 
 
 Class AutoResetEvent from EventWaitHandle

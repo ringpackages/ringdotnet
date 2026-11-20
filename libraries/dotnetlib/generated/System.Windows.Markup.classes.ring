@@ -705,7 +705,7 @@ Class ParserContext from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ToXmlParserContext P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.ParserContext, PresentationFramework').nHandle,"s18:ToXmlParserContext",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.ParserContext, PresentationFramework'),"s18:ToXmlParserContext",dnPackItem(P1))
 
 	Func getXmlnsDictionary
 		return dnSend("s3:get",nHandle,"s15:XmlnsDictionary","")
@@ -888,9 +888,9 @@ Class ValueSerializer from Object
 
 	Func GetSerializerFor P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml').nHandle,"s16:GetSerializerFor",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.ValueSerializer, System.Xaml'),"s16:GetSerializerFor",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml').nHandle,"s16:GetSerializerFor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.ValueSerializer, System.Xaml'),"s16:GetSerializerFor",dnPackItem(P1))
 
 
 Class XData from Object
@@ -987,18 +987,18 @@ Class XamlReader from Object
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s5:Parse",dnPackItem(P1))
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework').nHandle,"s4:Load",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework').nHandle,"s4:Load",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s4:Load",dnPackItem(P1))
 
 	Func GetWpfSchemaContext 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework').nHandle,"s19:GetWpfSchemaContext","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s19:GetWpfSchemaContext","")
 
 	Func setLoadCompletedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"LoadCompleted",dnCallback(P1)])
@@ -1101,7 +1101,7 @@ Class XamlTypeMapper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefaultMapper
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XamlTypeMapper, PresentationFramework').nHandle,"s13:DefaultMapper","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XamlTypeMapper, PresentationFramework'),"s13:DefaultMapper","")
 
 	Func setDefaultMapper P1
 		raise("DotNet Error: DefaultMapper is a read-only property")
@@ -1123,9 +1123,9 @@ Class XamlWriter from Object
 
 	Func Save P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework').nHandle,"s4:Save",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework').nHandle,"s4:Save",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",dnPackItem(P1))
 
 
 Class XmlAttributeProperties from Object
@@ -1148,53 +1148,53 @@ Class XmlAttributeProperties from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetXmlSpace P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s11:GetXmlSpace",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:GetXmlSpace",dnPackItem(P1))
 
 	Func SetXmlSpace P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s11:SetXmlSpace",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:SetXmlSpace",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetXmlnsDictionary P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s18:GetXmlnsDictionary",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDictionary",dnPackItem(P1))
 
 	Func SetXmlnsDictionary P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s18:SetXmlnsDictionary",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDictionary",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetXmlnsDefinition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s18:GetXmlnsDefinition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDefinition",dnPackItem(P1))
 
 	Func SetXmlnsDefinition P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s18:SetXmlnsDefinition",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDefinition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetXmlNamespaceMaps P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s19:GetXmlNamespaceMaps",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:GetXmlNamespaceMaps",dnPackItem(P1))
 
 	Func SetXmlNamespaceMaps P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s19:SetXmlNamespaceMaps",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:SetXmlNamespaceMaps",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getXmlSpaceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s16:XmlSpaceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s16:XmlSpaceProperty","")
 
 	Func setXmlSpaceProperty P1
 		raise("DotNet Error: XmlSpaceProperty is a read-only property")
 
 	Func getXmlnsDictionaryProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s23:XmlnsDictionaryProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s23:XmlnsDictionaryProperty","")
 
 	Func setXmlnsDictionaryProperty P1
 		raise("DotNet Error: XmlnsDictionaryProperty is a read-only property")
 
 	Func getXmlnsDefinitionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s23:XmlnsDefinitionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s23:XmlnsDefinitionProperty","")
 
 	Func setXmlnsDefinitionProperty P1
 		raise("DotNet Error: XmlnsDefinitionProperty is a read-only property")
 
 	Func getXmlNamespaceMapsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework').nHandle,"s24:XmlNamespaceMapsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s24:XmlNamespaceMapsProperty","")
 
 	Func setXmlNamespaceMapsProperty P1
 		raise("DotNet Error: XmlNamespaceMapsProperty is a read-only property")
@@ -1224,7 +1224,7 @@ Class XmlLanguage from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetLanguage P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore').nHandle,"s11:GetLanguage",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlLanguage, PresentationCore'),"s11:GetLanguage",dnPackItem(P1))
 
 	Func getIetfLanguageTag
 		return dnSend("s3:get",nHandle,"s15:IetfLanguageTag","")
@@ -1233,7 +1233,7 @@ Class XmlLanguage from Object
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlLanguage, PresentationCore'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

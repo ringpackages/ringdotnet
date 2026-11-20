@@ -245,13 +245,13 @@ Class CodeIdentifier from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MakePascal P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml').nHandle,"s10:MakePascal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s10:MakePascal",dnPackItem(P1))
 
 	Func MakeCamel P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml').nHandle,"s9:MakeCamel",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeCamel",dnPackItem(P1))
 
 	Func MakeValid P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml').nHandle,"s9:MakeValid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeValid",dnPackItem(P1))
 
 
 Class CodeIdentifiers from Object
@@ -1620,7 +1620,7 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func IsDataSet P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.XmlSchemas, System.Private.Xml').nHandle,"s9:IsDataSet",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"s9:IsDataSet",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1700,18 +1700,18 @@ Class XmlSerializer from Object
 
 	Func FromMappings P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml').nHandle,"s12:FromMappings",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s12:FromMappings",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml').nHandle,"s12:FromMappings",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s12:FromMappings",dnPackItem(P1))
 
 	Func FromTypes P1
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml').nHandle,"s9:FromTypes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s9:FromTypes",dnPackItem(P1))
 
 	Func GetXmlSerializerAssemblyName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml').nHandle,"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml').nHandle,"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
 
 	Func setUnknownNodeEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnknownNode",dnCallback(P1)])

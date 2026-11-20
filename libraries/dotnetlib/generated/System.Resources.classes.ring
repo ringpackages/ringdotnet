@@ -105,7 +105,7 @@ Class ResourceManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateFileBasedResourceManager P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s30:CreateFileBasedResourceManager",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s30:CreateFileBasedResourceManager",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getBaseName
 		return dnSend("s3:get",nHandle,"s8:BaseName","")
@@ -127,13 +127,13 @@ Class ResourceManager from Object
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		return dnSend("s3:get",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s11:MagicNumber","")
+		return dnSend("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber","")
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		return dnSend("s3:get",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s19:HeaderVersionNumber","")
+		return dnSend("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber","")
 
 	Func setHeaderVersionNumber P1
 		raise("DotNet Error: HeaderVersionNumber is a read-only property")

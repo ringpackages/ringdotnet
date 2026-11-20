@@ -770,13 +770,13 @@ Class AsyncOperationManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateOperation P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync').nHandle,"s15:CreateOperation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s15:CreateOperation",dnPackItem(P1))
 
 	Func getSynchronizationContext
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync').nHandle,"s22:SynchronizationContext","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s22:SynchronizationContext","")
 
 	Func setSynchronizationContext P1
-		dnSend("s3:set",dnTypeCached('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync').nHandle,"s22:SynchronizationContext",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s22:SynchronizationContext",dnPackItem(P1))
 		return self
 
 
@@ -813,7 +813,7 @@ Class AttributeCollection from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromExisting P1,P2
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter').nHandle,"s12:FromExisting",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter'),"s12:FromExisting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -825,7 +825,7 @@ Class AttributeCollection from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1291,7 +1291,7 @@ Class EventDescriptorCollection from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2269,43 +2269,43 @@ Class LicenseManager from Object
 
 	Func CreateWithContext P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s17:CreateWithContext",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s17:CreateWithContext",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateWithContext does not take one argument: use named arguments, CreateWithContext([ :parameter = value, ... ])")
 
 	Func IsLicensed P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s10:IsLicensed",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s10:IsLicensed",dnPackItem(P1))
 
 	Func IsValid P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s7:IsValid",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s7:IsValid",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",dnPackItem(P1))
 
 	Func LockContext P1
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s11:LockContext",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s11:LockContext",dnPackItem(P1))
 		return self
 
 	Func UnlockContext P1
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s13:UnlockContext",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s13:UnlockContext",dnPackItem(P1))
 		return self
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s8:Validate",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",dnPackItem(P1))
 		ok
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s8:Validate",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",dnPackItem(P1))
 		return self
 
 	Func getCurrentContext
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s14:CurrentContext","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s14:CurrentContext",dnPackItem(P1))
 		return self
 
 	Func getUsageMode
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter').nHandle,"s9:UsageMode","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s9:UsageMode","")
 
 	Func setUsageMode P1
 		raise("DotNet Error: UsageMode is a read-only property")
@@ -2682,16 +2682,16 @@ Class MaskedTextProvider from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetOperationResultFromHint P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s26:GetOperationResultFromHint",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s26:GetOperationResultFromHint",dnPackItem(P1))
 
 	Func IsValidInputChar P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s16:IsValidInputChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s16:IsValidInputChar",dnPackItem(P1))
 
 	Func IsValidMaskChar P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s15:IsValidMaskChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s15:IsValidMaskChar",dnPackItem(P1))
 
 	Func IsValidPasswordChar P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s19:IsValidPasswordChar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s19:IsValidPasswordChar",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -2825,13 +2825,13 @@ Class MaskedTextProvider from Object
 		return self
 
 	Func getDefaultPasswordChar
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s19:DefaultPasswordChar","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s19:DefaultPasswordChar","")
 
 	Func setDefaultPasswordChar P1
 		raise("DotNet Error: DefaultPasswordChar is a read-only property")
 
 	Func getInvalidIndex
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter').nHandle,"s12:InvalidIndex","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s12:InvalidIndex","")
 
 	Func setInvalidIndex P1
 		raise("DotNet Error: InvalidIndex is a read-only property")
@@ -3063,7 +3063,7 @@ Class PropertyDescriptorCollection from Object
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3113,13 +3113,13 @@ Class SyntaxCheck from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CheckMachineName P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter').nHandle,"s16:CheckMachineName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s16:CheckMachineName",dnPackItem(P1))
 
 	Func CheckPath P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter').nHandle,"s9:CheckPath",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s9:CheckPath",dnPackItem(P1))
 
 	Func CheckRootedPath P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter').nHandle,"s15:CheckRootedPath",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s15:CheckRootedPath",dnPackItem(P1))
 
 
 Class TypeConverter from Object
@@ -3345,143 +3345,143 @@ Class TypeDescriptor from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RegisterType 
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s12:RegisterType","")
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:RegisterType","")
 		return self
 
 	Func AddAttributes P1,P2
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:AddAttributes",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:AddAttributes",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddEditorTable P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:AddEditorTable",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:AddEditorTable",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddProvider P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s11:AddProvider",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:AddProvider",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddProviderTransparent P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s22:AddProviderTransparent",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s22:AddProviderTransparent",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CreateAssociation P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s17:CreateAssociation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:CreateAssociation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CreateEvent P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s11:CreateEvent",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:CreateEvent",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateEvent does not take one argument: use named arguments, CreateEvent([ :parameter = value, ... ])")
 
 	Func CreateInstance P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:CreateInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:CreateInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateProperty P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:CreateProperty",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:CreateProperty",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateProperty does not take one argument: use named arguments, CreateProperty([ :parameter = value, ... ])")
 
 	Func GetAssociation P1,P2
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:GetAssociation",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:GetAssociation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetAttributes P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:GetAttributes",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetAttributes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:GetAttributes",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetAttributes",dnPackItem(P1))
 
 	Func GetClassName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s12:GetClassName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s12:GetClassName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",dnPackItem(P1))
 
 	Func GetComponentName P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s16:GetComponentName",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s16:GetComponentName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",dnPackItem(P1))
 
 	Func GetConverter P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s12:GetConverter",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetConverter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s12:GetConverter",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetConverter",dnPackItem(P1))
 
 	Func GetConverterFromRegisteredType P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s30:GetConverterFromRegisteredType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s30:GetConverterFromRegisteredType",dnPackItem(P1))
 
 	Func GetDefaultEvent P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s15:GetDefaultEvent",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s15:GetDefaultEvent",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s15:GetDefaultEvent",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s15:GetDefaultEvent",dnPackItem(P1))
 
 	Func GetDefaultProperty P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s18:GetDefaultProperty",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:GetDefaultProperty",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s18:GetDefaultProperty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:GetDefaultProperty",dnPackItem(P1))
 
 	Func GetEditor P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s9:GetEditor",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s9:GetEditor",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetEditor does not take one argument: use named arguments, GetEditor([ :parameter = value, ... ])")
 
 	Func GetEvents P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s9:GetEvents",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s9:GetEvents",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s9:GetEvents",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s9:GetEvents",dnPackItem(P1))
 
 	Func GetEventsFromRegisteredType P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s27:GetEventsFromRegisteredType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s27:GetEventsFromRegisteredType",dnPackItem(P1))
 
 	Func GetFullComponentName P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s20:GetFullComponentName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s20:GetFullComponentName",dnPackItem(P1))
 
 	Func GetProperties P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:GetProperties",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetProperties",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:GetProperties",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetProperties",dnPackItem(P1))
 
 	Func GetPropertiesFromRegisteredType P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s31:GetPropertiesFromRegisteredType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s31:GetPropertiesFromRegisteredType",dnPackItem(P1))
 
 	Func GetProvider P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s11:GetProvider",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:GetProvider",dnPackItem(P1))
 
 	Func GetReflectionType P1
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s17:GetReflectionType",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:GetReflectionType",dnPackItem(P1))
 
 	Func Refresh P1
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s7:Refresh",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s7:Refresh",dnPackItem(P1))
 		return self
 
 	Func CreateDesigner P1,P2
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:CreateDesigner",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:CreateDesigner",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RemoveAssociation P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s17:RemoveAssociation",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:RemoveAssociation",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveAssociations P1
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s18:RemoveAssociations",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:RemoveAssociations",dnPackItem(P1))
 		return self
 
 	Func RemoveProvider P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s14:RemoveProvider",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:RemoveProvider",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveProviderTransparent P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s25:RemoveProviderTransparent",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s25:RemoveProviderTransparent",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SortDescriptorArray P1
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s19:SortDescriptorArray",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s19:SortDescriptorArray",dnPackItem(P1))
 		return self
 
 	Func setRefreshedEvent P1
@@ -3493,22 +3493,22 @@ Class TypeDescriptor from Object
 		return self
 
 	Func getInterfaceType
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:InterfaceType","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:InterfaceType","")
 
 	Func setInterfaceType P1
 		raise("DotNet Error: InterfaceType is a read-only property")
 
 	Func getComObjectType
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s13:ComObjectType","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:ComObjectType","")
 
 	Func setComObjectType P1
 		raise("DotNet Error: ComObjectType is a read-only property")
 
 	Func getComNativeDescriptorHandler
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s26:ComNativeDescriptorHandler","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s26:ComNativeDescriptorHandler","")
 
 	Func setComNativeDescriptorHandler P1
-		dnSend("s3:set",dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter').nHandle,"s26:ComNativeDescriptorHandler",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s26:ComNativeDescriptorHandler",dnPackItem(P1))
 		return self
 
 

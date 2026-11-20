@@ -33,47 +33,47 @@ Class Registry from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetValue P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s8:GetValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s8:GetValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SetValue P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s8:SetValue",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s8:SetValue",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func getCurrentUser
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s11:CurrentUser","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s11:CurrentUser","")
 
 	Func setCurrentUser P1
 		raise("DotNet Error: CurrentUser is a read-only property")
 
 	Func getLocalMachine
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s12:LocalMachine","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s12:LocalMachine","")
 
 	Func setLocalMachine P1
 		raise("DotNet Error: LocalMachine is a read-only property")
 
 	Func getClassesRoot
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s11:ClassesRoot","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s11:ClassesRoot","")
 
 	Func setClassesRoot P1
 		raise("DotNet Error: ClassesRoot is a read-only property")
 
 	Func getUsers
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s5:Users","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s5:Users","")
 
 	Func setUsers P1
 		raise("DotNet Error: Users is a read-only property")
 
 	Func getPerformanceData
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s15:PerformanceData","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s15:PerformanceData","")
 
 	Func setPerformanceData P1
 		raise("DotNet Error: PerformanceData is a read-only property")
 
 	Func getCurrentConfig
-		return dnSend("s3:get",dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry').nHandle,"s13:CurrentConfig","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s13:CurrentConfig","")
 
 	Func setCurrentConfig P1
 		raise("DotNet Error: CurrentConfig is a read-only property")
@@ -180,19 +180,19 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func OpenBaseKey P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry').nHandle,"s11:OpenBaseKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s11:OpenBaseKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OpenRemoteBaseKey P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry').nHandle,"s17:OpenRemoteBaseKey",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s17:OpenRemoteBaseKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OpenRemoteBaseKey does not take one argument: use named arguments, OpenRemoteBaseKey([ :parameter = value, ... ])")
 
 	Func FromHandle P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry').nHandle,"s10:FromHandle",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry').nHandle,"s10:FromHandle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
 
 	Func getSubKeyCount
 		return dnSend("s3:get",nHandle,"s11:SubKeyCount","")

@@ -1995,7 +1995,7 @@ Class StringSet from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer 
-		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s17:CreateSetComparer","")
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s17:CreateSetComparer","")
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -2153,7 +2153,7 @@ Class NumberSet from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer 
-		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s17:CreateSetComparer","")
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s17:CreateSetComparer","")
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -2290,12 +2290,12 @@ Class SortedStringSet from Object
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer","")
+			return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")
@@ -2438,12 +2438,12 @@ Class SortedNumberSet from Object
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer","")
+			return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer","")
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"s17:CreateSetComparer",dnPackItem(P1))
 
 	Func getCount
 		return dnSend("s3:get",nHandle,"s5:Count","")

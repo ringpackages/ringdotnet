@@ -345,10 +345,10 @@ Class Transaction from Object
 		raise("DotNet Error: PromoterType is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeCached('System.Transactions.Transaction, System.Transactions.Local').nHandle,"s7:Current","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current","")
 
 	Func setCurrent P1
-		dnSend("s3:set",dnTypeCached('System.Transactions.Transaction, System.Transactions.Local').nHandle,"s7:Current",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current",dnPackItem(P1))
 		return self
 
 
@@ -442,28 +442,28 @@ Class TransactionInterop from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetExportCookie P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s15:GetExportCookie",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s15:GetExportCookie",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetTransactionFromExportCookie P1
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s30:GetTransactionFromExportCookie",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s30:GetTransactionFromExportCookie",dnPackItem(P1))
 
 	Func GetTransmitterPropagationToken P1
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s30:GetTransmitterPropagationToken",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s30:GetTransmitterPropagationToken",dnPackItem(P1))
 
 	Func GetTransactionFromTransmitterPropagationToken P1
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s45:GetTransactionFromTransmitterPropagationToken",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s45:GetTransactionFromTransmitterPropagationToken",dnPackItem(P1))
 
 	Func GetDtcTransaction P1
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s17:GetDtcTransaction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s17:GetDtcTransaction",dnPackItem(P1))
 
 	Func GetTransactionFromDtcTransaction P1
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s32:GetTransactionFromDtcTransaction",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s32:GetTransactionFromDtcTransaction",dnPackItem(P1))
 
 	Func GetWhereabouts 
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s14:GetWhereabouts","")
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s14:GetWhereabouts","")
 
 	Func getPromoterTypeDtc
-		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s15:PromoterTypeDtc","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s15:PromoterTypeDtc","")
 
 	Func setPromoterTypeDtc P1
 		raise("DotNet Error: PromoterTypeDtc is a read-only property")
@@ -489,10 +489,10 @@ Class TransactionManager from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Reenlist P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s8:Reenlist",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s8:Reenlist",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func RecoveryComplete P1
-		dnSend("s4:call",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s16:RecoveryComplete",dnPackItem(P1))
+		dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s16:RecoveryComplete",dnPackItem(P1))
 		return self
 
 	Func setDistributedTransactionStartedEvent P1
@@ -504,31 +504,31 @@ Class TransactionManager from Object
 		return self
 
 	Func getHostCurrentCallback
-		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s19:HostCurrentCallback","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback","")
 
 	Func setHostCurrentCallback P1
-		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s19:HostCurrentCallback",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback",dnPackItem(P1))
 		return self
 
 	Func getDefaultTimeout
-		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:DefaultTimeout","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout","")
 
 	Func setDefaultTimeout P1
-		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:DefaultTimeout",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout",dnPackItem(P1))
 		return self
 
 	Func getMaximumTimeout
-		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:MaximumTimeout","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout","")
 
 	Func setMaximumTimeout P1
-		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:MaximumTimeout",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout",dnPackItem(P1))
 		return self
 
 	Func getImplicitDistributedTransactions
-		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s31:ImplicitDistributedTransactions","")
+		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions","")
 
 	Func setImplicitDistributedTransactions P1
-		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s31:ImplicitDistributedTransactions",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions",dnPackItem(P1))
 		return self
 
 

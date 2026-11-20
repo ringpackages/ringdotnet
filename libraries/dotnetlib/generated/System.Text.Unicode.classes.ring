@@ -37,7 +37,7 @@ Class UnicodeRange from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getFirstCodePoint
 		return dnSend("s3:get",nHandle,"s14:FirstCodePoint","")
@@ -230,973 +230,973 @@ Class UnicodeRanges from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNone
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s4:None","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
 	Func getAll
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s3:All","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getBasicLatin
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:BasicLatin","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:BasicLatin","")
 
 	Func setBasicLatin P1
 		raise("DotNet Error: BasicLatin is a read-only property")
 
 	Func getLatin1Supplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:Latin1Supplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:Latin1Supplement","")
 
 	Func setLatin1Supplement P1
 		raise("DotNet Error: Latin1Supplement is a read-only property")
 
 	Func getLatinExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:LatinExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:LatinExtendedA","")
 
 	Func setLatinExtendedA P1
 		raise("DotNet Error: LatinExtendedA is a read-only property")
 
 	Func getLatinExtendedB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:LatinExtendedB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:LatinExtendedB","")
 
 	Func setLatinExtendedB P1
 		raise("DotNet Error: LatinExtendedB is a read-only property")
 
 	Func getIpaExtensions
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s13:IpaExtensions","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s13:IpaExtensions","")
 
 	Func setIpaExtensions P1
 		raise("DotNet Error: IpaExtensions is a read-only property")
 
 	Func getSpacingModifierLetters
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s22:SpacingModifierLetters","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s22:SpacingModifierLetters","")
 
 	Func setSpacingModifierLetters P1
 		raise("DotNet Error: SpacingModifierLetters is a read-only property")
 
 	Func getCombiningDiacriticalMarks
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s25:CombiningDiacriticalMarks","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s25:CombiningDiacriticalMarks","")
 
 	Func setCombiningDiacriticalMarks P1
 		raise("DotNet Error: CombiningDiacriticalMarks is a read-only property")
 
 	Func getGreekandCoptic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:GreekandCoptic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:GreekandCoptic","")
 
 	Func setGreekandCoptic P1
 		raise("DotNet Error: GreekandCoptic is a read-only property")
 
 	Func getCyrillic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Cyrillic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Cyrillic","")
 
 	Func setCyrillic P1
 		raise("DotNet Error: Cyrillic is a read-only property")
 
 	Func getCyrillicSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:CyrillicSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:CyrillicSupplement","")
 
 	Func setCyrillicSupplement P1
 		raise("DotNet Error: CyrillicSupplement is a read-only property")
 
 	Func getArmenian
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Armenian","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Armenian","")
 
 	Func setArmenian P1
 		raise("DotNet Error: Armenian is a read-only property")
 
 	Func getHebrew
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Hebrew","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Hebrew","")
 
 	Func setHebrew P1
 		raise("DotNet Error: Hebrew is a read-only property")
 
 	Func getArabic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Arabic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Arabic","")
 
 	Func setArabic P1
 		raise("DotNet Error: Arabic is a read-only property")
 
 	Func getSyriac
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Syriac","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Syriac","")
 
 	Func setSyriac P1
 		raise("DotNet Error: Syriac is a read-only property")
 
 	Func getArabicSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:ArabicSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:ArabicSupplement","")
 
 	Func setArabicSupplement P1
 		raise("DotNet Error: ArabicSupplement is a read-only property")
 
 	Func getThaana
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Thaana","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Thaana","")
 
 	Func setThaana P1
 		raise("DotNet Error: Thaana is a read-only property")
 
 	Func getNKo
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s3:NKo","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s3:NKo","")
 
 	Func setNKo P1
 		raise("DotNet Error: NKo is a read-only property")
 
 	Func getSamaritan
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s9:Samaritan","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s9:Samaritan","")
 
 	Func setSamaritan P1
 		raise("DotNet Error: Samaritan is a read-only property")
 
 	Func getMandaic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Mandaic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Mandaic","")
 
 	Func setMandaic P1
 		raise("DotNet Error: Mandaic is a read-only property")
 
 	Func getSyriacSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:SyriacSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:SyriacSupplement","")
 
 	Func setSyriacSupplement P1
 		raise("DotNet Error: SyriacSupplement is a read-only property")
 
 	Func getArabicExtendedB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:ArabicExtendedB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:ArabicExtendedB","")
 
 	Func setArabicExtendedB P1
 		raise("DotNet Error: ArabicExtendedB is a read-only property")
 
 	Func getArabicExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:ArabicExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:ArabicExtendedA","")
 
 	Func setArabicExtendedA P1
 		raise("DotNet Error: ArabicExtendedA is a read-only property")
 
 	Func getDevanagari
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:Devanagari","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:Devanagari","")
 
 	Func setDevanagari P1
 		raise("DotNet Error: Devanagari is a read-only property")
 
 	Func getBengali
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Bengali","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Bengali","")
 
 	Func setBengali P1
 		raise("DotNet Error: Bengali is a read-only property")
 
 	Func getGurmukhi
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Gurmukhi","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Gurmukhi","")
 
 	Func setGurmukhi P1
 		raise("DotNet Error: Gurmukhi is a read-only property")
 
 	Func getGujarati
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Gujarati","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Gujarati","")
 
 	Func setGujarati P1
 		raise("DotNet Error: Gujarati is a read-only property")
 
 	Func getOriya
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Oriya","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Oriya","")
 
 	Func setOriya P1
 		raise("DotNet Error: Oriya is a read-only property")
 
 	Func getTamil
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Tamil","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Tamil","")
 
 	Func setTamil P1
 		raise("DotNet Error: Tamil is a read-only property")
 
 	Func getTelugu
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Telugu","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Telugu","")
 
 	Func setTelugu P1
 		raise("DotNet Error: Telugu is a read-only property")
 
 	Func getKannada
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Kannada","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Kannada","")
 
 	Func setKannada P1
 		raise("DotNet Error: Kannada is a read-only property")
 
 	Func getMalayalam
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s9:Malayalam","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s9:Malayalam","")
 
 	Func setMalayalam P1
 		raise("DotNet Error: Malayalam is a read-only property")
 
 	Func getSinhala
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Sinhala","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Sinhala","")
 
 	Func setSinhala P1
 		raise("DotNet Error: Sinhala is a read-only property")
 
 	Func getThai
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s4:Thai","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s4:Thai","")
 
 	Func setThai P1
 		raise("DotNet Error: Thai is a read-only property")
 
 	Func getLao
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s3:Lao","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s3:Lao","")
 
 	Func setLao P1
 		raise("DotNet Error: Lao is a read-only property")
 
 	Func getTibetan
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Tibetan","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Tibetan","")
 
 	Func setTibetan P1
 		raise("DotNet Error: Tibetan is a read-only property")
 
 	Func getMyanmar
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Myanmar","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Myanmar","")
 
 	Func setMyanmar P1
 		raise("DotNet Error: Myanmar is a read-only property")
 
 	Func getGeorgian
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Georgian","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Georgian","")
 
 	Func setGeorgian P1
 		raise("DotNet Error: Georgian is a read-only property")
 
 	Func getHangulJamo
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:HangulJamo","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:HangulJamo","")
 
 	Func setHangulJamo P1
 		raise("DotNet Error: HangulJamo is a read-only property")
 
 	Func getEthiopic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Ethiopic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Ethiopic","")
 
 	Func setEthiopic P1
 		raise("DotNet Error: Ethiopic is a read-only property")
 
 	Func getEthiopicSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:EthiopicSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:EthiopicSupplement","")
 
 	Func setEthiopicSupplement P1
 		raise("DotNet Error: EthiopicSupplement is a read-only property")
 
 	Func getCherokee
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Cherokee","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Cherokee","")
 
 	Func setCherokee P1
 		raise("DotNet Error: Cherokee is a read-only property")
 
 	Func getUnifiedCanadianAboriginalSyllabics
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s34:UnifiedCanadianAboriginalSyllabics","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s34:UnifiedCanadianAboriginalSyllabics","")
 
 	Func setUnifiedCanadianAboriginalSyllabics P1
 		raise("DotNet Error: UnifiedCanadianAboriginalSyllabics is a read-only property")
 
 	Func getOgham
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Ogham","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Ogham","")
 
 	Func setOgham P1
 		raise("DotNet Error: Ogham is a read-only property")
 
 	Func getRunic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Runic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Runic","")
 
 	Func setRunic P1
 		raise("DotNet Error: Runic is a read-only property")
 
 	Func getTagalog
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Tagalog","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Tagalog","")
 
 	Func setTagalog P1
 		raise("DotNet Error: Tagalog is a read-only property")
 
 	Func getHanunoo
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Hanunoo","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Hanunoo","")
 
 	Func setHanunoo P1
 		raise("DotNet Error: Hanunoo is a read-only property")
 
 	Func getBuhid
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Buhid","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Buhid","")
 
 	Func setBuhid P1
 		raise("DotNet Error: Buhid is a read-only property")
 
 	Func getTagbanwa
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Tagbanwa","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Tagbanwa","")
 
 	Func setTagbanwa P1
 		raise("DotNet Error: Tagbanwa is a read-only property")
 
 	Func getKhmer
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Khmer","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Khmer","")
 
 	Func setKhmer P1
 		raise("DotNet Error: Khmer is a read-only property")
 
 	Func getMongolian
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s9:Mongolian","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s9:Mongolian","")
 
 	Func setMongolian P1
 		raise("DotNet Error: Mongolian is a read-only property")
 
 	Func getUnifiedCanadianAboriginalSyllabicsExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s42:UnifiedCanadianAboriginalSyllabicsExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s42:UnifiedCanadianAboriginalSyllabicsExtended","")
 
 	Func setUnifiedCanadianAboriginalSyllabicsExtended P1
 		raise("DotNet Error: UnifiedCanadianAboriginalSyllabicsExtended is a read-only property")
 
 	Func getLimbu
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Limbu","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Limbu","")
 
 	Func setLimbu P1
 		raise("DotNet Error: Limbu is a read-only property")
 
 	Func getTaiLe
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:TaiLe","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:TaiLe","")
 
 	Func setTaiLe P1
 		raise("DotNet Error: TaiLe is a read-only property")
 
 	Func getNewTaiLue
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s9:NewTaiLue","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s9:NewTaiLue","")
 
 	Func setNewTaiLue P1
 		raise("DotNet Error: NewTaiLue is a read-only property")
 
 	Func getKhmerSymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s12:KhmerSymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s12:KhmerSymbols","")
 
 	Func setKhmerSymbols P1
 		raise("DotNet Error: KhmerSymbols is a read-only property")
 
 	Func getBuginese
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Buginese","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Buginese","")
 
 	Func setBuginese P1
 		raise("DotNet Error: Buginese is a read-only property")
 
 	Func getTaiTham
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:TaiTham","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:TaiTham","")
 
 	Func setTaiTham P1
 		raise("DotNet Error: TaiTham is a read-only property")
 
 	Func getCombiningDiacriticalMarksExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s33:CombiningDiacriticalMarksExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s33:CombiningDiacriticalMarksExtended","")
 
 	Func setCombiningDiacriticalMarksExtended P1
 		raise("DotNet Error: CombiningDiacriticalMarksExtended is a read-only property")
 
 	Func getBalinese
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Balinese","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Balinese","")
 
 	Func setBalinese P1
 		raise("DotNet Error: Balinese is a read-only property")
 
 	Func getSundanese
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s9:Sundanese","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s9:Sundanese","")
 
 	Func setSundanese P1
 		raise("DotNet Error: Sundanese is a read-only property")
 
 	Func getBatak
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Batak","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Batak","")
 
 	Func setBatak P1
 		raise("DotNet Error: Batak is a read-only property")
 
 	Func getLepcha
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Lepcha","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Lepcha","")
 
 	Func setLepcha P1
 		raise("DotNet Error: Lepcha is a read-only property")
 
 	Func getOlChiki
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:OlChiki","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:OlChiki","")
 
 	Func setOlChiki P1
 		raise("DotNet Error: OlChiki is a read-only property")
 
 	Func getCyrillicExtendedC
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:CyrillicExtendedC","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:CyrillicExtendedC","")
 
 	Func setCyrillicExtendedC P1
 		raise("DotNet Error: CyrillicExtendedC is a read-only property")
 
 	Func getGeorgianExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:GeorgianExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:GeorgianExtended","")
 
 	Func setGeorgianExtended P1
 		raise("DotNet Error: GeorgianExtended is a read-only property")
 
 	Func getSundaneseSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:SundaneseSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:SundaneseSupplement","")
 
 	Func setSundaneseSupplement P1
 		raise("DotNet Error: SundaneseSupplement is a read-only property")
 
 	Func getVedicExtensions
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:VedicExtensions","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:VedicExtensions","")
 
 	Func setVedicExtensions P1
 		raise("DotNet Error: VedicExtensions is a read-only property")
 
 	Func getPhoneticExtensions
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:PhoneticExtensions","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:PhoneticExtensions","")
 
 	Func setPhoneticExtensions P1
 		raise("DotNet Error: PhoneticExtensions is a read-only property")
 
 	Func getPhoneticExtensionsSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s28:PhoneticExtensionsSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s28:PhoneticExtensionsSupplement","")
 
 	Func setPhoneticExtensionsSupplement P1
 		raise("DotNet Error: PhoneticExtensionsSupplement is a read-only property")
 
 	Func getCombiningDiacriticalMarksSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s35:CombiningDiacriticalMarksSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s35:CombiningDiacriticalMarksSupplement","")
 
 	Func setCombiningDiacriticalMarksSupplement P1
 		raise("DotNet Error: CombiningDiacriticalMarksSupplement is a read-only property")
 
 	Func getLatinExtendedAdditional
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s23:LatinExtendedAdditional","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s23:LatinExtendedAdditional","")
 
 	Func setLatinExtendedAdditional P1
 		raise("DotNet Error: LatinExtendedAdditional is a read-only property")
 
 	Func getGreekExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s13:GreekExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s13:GreekExtended","")
 
 	Func setGreekExtended P1
 		raise("DotNet Error: GreekExtended is a read-only property")
 
 	Func getGeneralPunctuation
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:GeneralPunctuation","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:GeneralPunctuation","")
 
 	Func setGeneralPunctuation P1
 		raise("DotNet Error: GeneralPunctuation is a read-only property")
 
 	Func getSuperscriptsandSubscripts
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s25:SuperscriptsandSubscripts","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s25:SuperscriptsandSubscripts","")
 
 	Func setSuperscriptsandSubscripts P1
 		raise("DotNet Error: SuperscriptsandSubscripts is a read-only property")
 
 	Func getCurrencySymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:CurrencySymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:CurrencySymbols","")
 
 	Func setCurrencySymbols P1
 		raise("DotNet Error: CurrencySymbols is a read-only property")
 
 	Func getCombiningDiacriticalMarksforSymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s35:CombiningDiacriticalMarksforSymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s35:CombiningDiacriticalMarksforSymbols","")
 
 	Func setCombiningDiacriticalMarksforSymbols P1
 		raise("DotNet Error: CombiningDiacriticalMarksforSymbols is a read-only property")
 
 	Func getLetterlikeSymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:LetterlikeSymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:LetterlikeSymbols","")
 
 	Func setLetterlikeSymbols P1
 		raise("DotNet Error: LetterlikeSymbols is a read-only property")
 
 	Func getNumberForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s11:NumberForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s11:NumberForms","")
 
 	Func setNumberForms P1
 		raise("DotNet Error: NumberForms is a read-only property")
 
 	Func getArrows
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Arrows","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Arrows","")
 
 	Func setArrows P1
 		raise("DotNet Error: Arrows is a read-only property")
 
 	Func getMathematicalOperators
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:MathematicalOperators","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:MathematicalOperators","")
 
 	Func setMathematicalOperators P1
 		raise("DotNet Error: MathematicalOperators is a read-only property")
 
 	Func getMiscellaneousTechnical
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s22:MiscellaneousTechnical","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s22:MiscellaneousTechnical","")
 
 	Func setMiscellaneousTechnical P1
 		raise("DotNet Error: MiscellaneousTechnical is a read-only property")
 
 	Func getControlPictures
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:ControlPictures","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:ControlPictures","")
 
 	Func setControlPictures P1
 		raise("DotNet Error: ControlPictures is a read-only property")
 
 	Func getOpticalCharacterRecognition
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s27:OpticalCharacterRecognition","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s27:OpticalCharacterRecognition","")
 
 	Func setOpticalCharacterRecognition P1
 		raise("DotNet Error: OpticalCharacterRecognition is a read-only property")
 
 	Func getEnclosedAlphanumerics
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:EnclosedAlphanumerics","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:EnclosedAlphanumerics","")
 
 	Func setEnclosedAlphanumerics P1
 		raise("DotNet Error: EnclosedAlphanumerics is a read-only property")
 
 	Func getBoxDrawing
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:BoxDrawing","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:BoxDrawing","")
 
 	Func setBoxDrawing P1
 		raise("DotNet Error: BoxDrawing is a read-only property")
 
 	Func getBlockElements
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s13:BlockElements","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s13:BlockElements","")
 
 	Func setBlockElements P1
 		raise("DotNet Error: BlockElements is a read-only property")
 
 	Func getGeometricShapes
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:GeometricShapes","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:GeometricShapes","")
 
 	Func setGeometricShapes P1
 		raise("DotNet Error: GeometricShapes is a read-only property")
 
 	Func getMiscellaneousSymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s20:MiscellaneousSymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s20:MiscellaneousSymbols","")
 
 	Func setMiscellaneousSymbols P1
 		raise("DotNet Error: MiscellaneousSymbols is a read-only property")
 
 	Func getDingbats
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Dingbats","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Dingbats","")
 
 	Func setDingbats P1
 		raise("DotNet Error: Dingbats is a read-only property")
 
 	Func getMiscellaneousMathematicalSymbolsA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s33:MiscellaneousMathematicalSymbolsA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s33:MiscellaneousMathematicalSymbolsA","")
 
 	Func setMiscellaneousMathematicalSymbolsA P1
 		raise("DotNet Error: MiscellaneousMathematicalSymbolsA is a read-only property")
 
 	Func getSupplementalArrowsA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:SupplementalArrowsA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:SupplementalArrowsA","")
 
 	Func setSupplementalArrowsA P1
 		raise("DotNet Error: SupplementalArrowsA is a read-only property")
 
 	Func getBraillePatterns
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:BraillePatterns","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:BraillePatterns","")
 
 	Func setBraillePatterns P1
 		raise("DotNet Error: BraillePatterns is a read-only property")
 
 	Func getSupplementalArrowsB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:SupplementalArrowsB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:SupplementalArrowsB","")
 
 	Func setSupplementalArrowsB P1
 		raise("DotNet Error: SupplementalArrowsB is a read-only property")
 
 	Func getMiscellaneousMathematicalSymbolsB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s33:MiscellaneousMathematicalSymbolsB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s33:MiscellaneousMathematicalSymbolsB","")
 
 	Func setMiscellaneousMathematicalSymbolsB P1
 		raise("DotNet Error: MiscellaneousMathematicalSymbolsB is a read-only property")
 
 	Func getSupplementalMathematicalOperators
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s33:SupplementalMathematicalOperators","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s33:SupplementalMathematicalOperators","")
 
 	Func setSupplementalMathematicalOperators P1
 		raise("DotNet Error: SupplementalMathematicalOperators is a read-only property")
 
 	Func getMiscellaneousSymbolsandArrows
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s29:MiscellaneousSymbolsandArrows","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s29:MiscellaneousSymbolsandArrows","")
 
 	Func setMiscellaneousSymbolsandArrows P1
 		raise("DotNet Error: MiscellaneousSymbolsandArrows is a read-only property")
 
 	Func getGlagolitic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:Glagolitic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:Glagolitic","")
 
 	Func setGlagolitic P1
 		raise("DotNet Error: Glagolitic is a read-only property")
 
 	Func getLatinExtendedC
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:LatinExtendedC","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:LatinExtendedC","")
 
 	Func setLatinExtendedC P1
 		raise("DotNet Error: LatinExtendedC is a read-only property")
 
 	Func getCoptic
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Coptic","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Coptic","")
 
 	Func setCoptic P1
 		raise("DotNet Error: Coptic is a read-only property")
 
 	Func getGeorgianSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:GeorgianSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:GeorgianSupplement","")
 
 	Func setGeorgianSupplement P1
 		raise("DotNet Error: GeorgianSupplement is a read-only property")
 
 	Func getTifinagh
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Tifinagh","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Tifinagh","")
 
 	Func setTifinagh P1
 		raise("DotNet Error: Tifinagh is a read-only property")
 
 	Func getEthiopicExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:EthiopicExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:EthiopicExtended","")
 
 	Func setEthiopicExtended P1
 		raise("DotNet Error: EthiopicExtended is a read-only property")
 
 	Func getCyrillicExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:CyrillicExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:CyrillicExtendedA","")
 
 	Func setCyrillicExtendedA P1
 		raise("DotNet Error: CyrillicExtendedA is a read-only property")
 
 	Func getSupplementalPunctuation
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s23:SupplementalPunctuation","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s23:SupplementalPunctuation","")
 
 	Func setSupplementalPunctuation P1
 		raise("DotNet Error: SupplementalPunctuation is a read-only property")
 
 	Func getCjkRadicalsSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:CjkRadicalsSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:CjkRadicalsSupplement","")
 
 	Func setCjkRadicalsSupplement P1
 		raise("DotNet Error: CjkRadicalsSupplement is a read-only property")
 
 	Func getKangxiRadicals
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:KangxiRadicals","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:KangxiRadicals","")
 
 	Func setKangxiRadicals P1
 		raise("DotNet Error: KangxiRadicals is a read-only property")
 
 	Func getIdeographicDescriptionCharacters
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s32:IdeographicDescriptionCharacters","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s32:IdeographicDescriptionCharacters","")
 
 	Func setIdeographicDescriptionCharacters P1
 		raise("DotNet Error: IdeographicDescriptionCharacters is a read-only property")
 
 	Func getCjkSymbolsandPunctuation
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s24:CjkSymbolsandPunctuation","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s24:CjkSymbolsandPunctuation","")
 
 	Func setCjkSymbolsandPunctuation P1
 		raise("DotNet Error: CjkSymbolsandPunctuation is a read-only property")
 
 	Func getHiragana
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Hiragana","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Hiragana","")
 
 	Func setHiragana P1
 		raise("DotNet Error: Hiragana is a read-only property")
 
 	Func getKatakana
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Katakana","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Katakana","")
 
 	Func setKatakana P1
 		raise("DotNet Error: Katakana is a read-only property")
 
 	Func getBopomofo
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Bopomofo","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Bopomofo","")
 
 	Func setBopomofo P1
 		raise("DotNet Error: Bopomofo is a read-only property")
 
 	Func getHangulCompatibilityJamo
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s23:HangulCompatibilityJamo","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s23:HangulCompatibilityJamo","")
 
 	Func setHangulCompatibilityJamo P1
 		raise("DotNet Error: HangulCompatibilityJamo is a read-only property")
 
 	Func getKanbun
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Kanbun","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Kanbun","")
 
 	Func setKanbun P1
 		raise("DotNet Error: Kanbun is a read-only property")
 
 	Func getBopomofoExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:BopomofoExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:BopomofoExtended","")
 
 	Func setBopomofoExtended P1
 		raise("DotNet Error: BopomofoExtended is a read-only property")
 
 	Func getCjkStrokes
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:CjkStrokes","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:CjkStrokes","")
 
 	Func setCjkStrokes P1
 		raise("DotNet Error: CjkStrokes is a read-only property")
 
 	Func getKatakanaPhoneticExtensions
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s26:KatakanaPhoneticExtensions","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s26:KatakanaPhoneticExtensions","")
 
 	Func setKatakanaPhoneticExtensions P1
 		raise("DotNet Error: KatakanaPhoneticExtensions is a read-only property")
 
 	Func getEnclosedCjkLettersandMonths
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s27:EnclosedCjkLettersandMonths","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s27:EnclosedCjkLettersandMonths","")
 
 	Func setEnclosedCjkLettersandMonths P1
 		raise("DotNet Error: EnclosedCjkLettersandMonths is a read-only property")
 
 	Func getCjkCompatibility
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:CjkCompatibility","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:CjkCompatibility","")
 
 	Func setCjkCompatibility P1
 		raise("DotNet Error: CjkCompatibility is a read-only property")
 
 	Func getCjkUnifiedIdeographsExtensionA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s30:CjkUnifiedIdeographsExtensionA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s30:CjkUnifiedIdeographsExtensionA","")
 
 	Func setCjkUnifiedIdeographsExtensionA P1
 		raise("DotNet Error: CjkUnifiedIdeographsExtensionA is a read-only property")
 
 	Func getYijingHexagramSymbols
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:YijingHexagramSymbols","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:YijingHexagramSymbols","")
 
 	Func setYijingHexagramSymbols P1
 		raise("DotNet Error: YijingHexagramSymbols is a read-only property")
 
 	Func getCjkUnifiedIdeographs
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s20:CjkUnifiedIdeographs","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s20:CjkUnifiedIdeographs","")
 
 	Func setCjkUnifiedIdeographs P1
 		raise("DotNet Error: CjkUnifiedIdeographs is a read-only property")
 
 	Func getYiSyllables
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s11:YiSyllables","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s11:YiSyllables","")
 
 	Func setYiSyllables P1
 		raise("DotNet Error: YiSyllables is a read-only property")
 
 	Func getYiRadicals
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:YiRadicals","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:YiRadicals","")
 
 	Func setYiRadicals P1
 		raise("DotNet Error: YiRadicals is a read-only property")
 
 	Func getLisu
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s4:Lisu","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s4:Lisu","")
 
 	Func setLisu P1
 		raise("DotNet Error: Lisu is a read-only property")
 
 	Func getVai
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s3:Vai","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s3:Vai","")
 
 	Func setVai P1
 		raise("DotNet Error: Vai is a read-only property")
 
 	Func getCyrillicExtendedB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:CyrillicExtendedB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:CyrillicExtendedB","")
 
 	Func setCyrillicExtendedB P1
 		raise("DotNet Error: CyrillicExtendedB is a read-only property")
 
 	Func getBamum
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s5:Bamum","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s5:Bamum","")
 
 	Func setBamum P1
 		raise("DotNet Error: Bamum is a read-only property")
 
 	Func getModifierToneLetters
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:ModifierToneLetters","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:ModifierToneLetters","")
 
 	Func setModifierToneLetters P1
 		raise("DotNet Error: ModifierToneLetters is a read-only property")
 
 	Func getLatinExtendedD
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:LatinExtendedD","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:LatinExtendedD","")
 
 	Func setLatinExtendedD P1
 		raise("DotNet Error: LatinExtendedD is a read-only property")
 
 	Func getSylotiNagri
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s11:SylotiNagri","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s11:SylotiNagri","")
 
 	Func setSylotiNagri P1
 		raise("DotNet Error: SylotiNagri is a read-only property")
 
 	Func getCommonIndicNumberForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s22:CommonIndicNumberForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s22:CommonIndicNumberForms","")
 
 	Func setCommonIndicNumberForms P1
 		raise("DotNet Error: CommonIndicNumberForms is a read-only property")
 
 	Func getPhagspa
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:Phagspa","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:Phagspa","")
 
 	Func setPhagspa P1
 		raise("DotNet Error: Phagspa is a read-only property")
 
 	Func getSaurashtra
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s10:Saurashtra","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s10:Saurashtra","")
 
 	Func setSaurashtra P1
 		raise("DotNet Error: Saurashtra is a read-only property")
 
 	Func getDevanagariExtended
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:DevanagariExtended","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:DevanagariExtended","")
 
 	Func setDevanagariExtended P1
 		raise("DotNet Error: DevanagariExtended is a read-only property")
 
 	Func getKayahLi
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:KayahLi","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:KayahLi","")
 
 	Func setKayahLi P1
 		raise("DotNet Error: KayahLi is a read-only property")
 
 	Func getRejang
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s6:Rejang","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s6:Rejang","")
 
 	Func setRejang P1
 		raise("DotNet Error: Rejang is a read-only property")
 
 	Func getHangulJamoExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:HangulJamoExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:HangulJamoExtendedA","")
 
 	Func setHangulJamoExtendedA P1
 		raise("DotNet Error: HangulJamoExtendedA is a read-only property")
 
 	Func getJavanese
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Javanese","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Javanese","")
 
 	Func setJavanese P1
 		raise("DotNet Error: Javanese is a read-only property")
 
 	Func getMyanmarExtendedB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:MyanmarExtendedB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:MyanmarExtendedB","")
 
 	Func setMyanmarExtendedB P1
 		raise("DotNet Error: MyanmarExtendedB is a read-only property")
 
 	Func getCham
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s4:Cham","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s4:Cham","")
 
 	Func setCham P1
 		raise("DotNet Error: Cham is a read-only property")
 
 	Func getMyanmarExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s16:MyanmarExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s16:MyanmarExtendedA","")
 
 	Func setMyanmarExtendedA P1
 		raise("DotNet Error: MyanmarExtendedA is a read-only property")
 
 	Func getTaiViet
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s7:TaiViet","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s7:TaiViet","")
 
 	Func setTaiViet P1
 		raise("DotNet Error: TaiViet is a read-only property")
 
 	Func getMeeteiMayekExtensions
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:MeeteiMayekExtensions","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:MeeteiMayekExtensions","")
 
 	Func setMeeteiMayekExtensions P1
 		raise("DotNet Error: MeeteiMayekExtensions is a read-only property")
 
 	Func getEthiopicExtendedA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:EthiopicExtendedA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:EthiopicExtendedA","")
 
 	Func setEthiopicExtendedA P1
 		raise("DotNet Error: EthiopicExtendedA is a read-only property")
 
 	Func getLatinExtendedE
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s14:LatinExtendedE","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s14:LatinExtendedE","")
 
 	Func setLatinExtendedE P1
 		raise("DotNet Error: LatinExtendedE is a read-only property")
 
 	Func getCherokeeSupplement
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:CherokeeSupplement","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:CherokeeSupplement","")
 
 	Func setCherokeeSupplement P1
 		raise("DotNet Error: CherokeeSupplement is a read-only property")
 
 	Func getMeeteiMayek
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s11:MeeteiMayek","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s11:MeeteiMayek","")
 
 	Func setMeeteiMayek P1
 		raise("DotNet Error: MeeteiMayek is a read-only property")
 
 	Func getHangulSyllables
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s15:HangulSyllables","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s15:HangulSyllables","")
 
 	Func setHangulSyllables P1
 		raise("DotNet Error: HangulSyllables is a read-only property")
 
 	Func getHangulJamoExtendedB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s19:HangulJamoExtendedB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s19:HangulJamoExtendedB","")
 
 	Func setHangulJamoExtendedB P1
 		raise("DotNet Error: HangulJamoExtendedB is a read-only property")
 
 	Func getCjkCompatibilityIdeographs
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s26:CjkCompatibilityIdeographs","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s26:CjkCompatibilityIdeographs","")
 
 	Func setCjkCompatibilityIdeographs P1
 		raise("DotNet Error: CjkCompatibilityIdeographs is a read-only property")
 
 	Func getAlphabeticPresentationForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s27:AlphabeticPresentationForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s27:AlphabeticPresentationForms","")
 
 	Func setAlphabeticPresentationForms P1
 		raise("DotNet Error: AlphabeticPresentationForms is a read-only property")
 
 	Func getArabicPresentationFormsA
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s24:ArabicPresentationFormsA","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s24:ArabicPresentationFormsA","")
 
 	Func setArabicPresentationFormsA P1
 		raise("DotNet Error: ArabicPresentationFormsA is a read-only property")
 
 	Func getVariationSelectors
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:VariationSelectors","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:VariationSelectors","")
 
 	Func setVariationSelectors P1
 		raise("DotNet Error: VariationSelectors is a read-only property")
 
 	Func getVerticalForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s13:VerticalForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s13:VerticalForms","")
 
 	Func setVerticalForms P1
 		raise("DotNet Error: VerticalForms is a read-only property")
 
 	Func getCombiningHalfMarks
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s18:CombiningHalfMarks","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s18:CombiningHalfMarks","")
 
 	Func setCombiningHalfMarks P1
 		raise("DotNet Error: CombiningHalfMarks is a read-only property")
 
 	Func getCjkCompatibilityForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s21:CjkCompatibilityForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s21:CjkCompatibilityForms","")
 
 	Func setCjkCompatibilityForms P1
 		raise("DotNet Error: CjkCompatibilityForms is a read-only property")
 
 	Func getSmallFormVariants
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s17:SmallFormVariants","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s17:SmallFormVariants","")
 
 	Func setSmallFormVariants P1
 		raise("DotNet Error: SmallFormVariants is a read-only property")
 
 	Func getArabicPresentationFormsB
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s24:ArabicPresentationFormsB","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s24:ArabicPresentationFormsB","")
 
 	Func setArabicPresentationFormsB P1
 		raise("DotNet Error: ArabicPresentationFormsB is a read-only property")
 
 	Func getHalfwidthandFullwidthForms
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s26:HalfwidthandFullwidthForms","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s26:HalfwidthandFullwidthForms","")
 
 	Func setHalfwidthandFullwidthForms P1
 		raise("DotNet Error: HalfwidthandFullwidthForms is a read-only property")
 
 	Func getSpecials
-		return dnSend("s3:get",dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web').nHandle,"s8:Specials","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s8:Specials","")
 
 	Func setSpecials P1
 		raise("DotNet Error: Specials is a read-only property")

@@ -199,7 +199,7 @@ Class DataAnnotationsValidationResult from Object
 		return self
 
 	Func getSuccess
-		return dnSend("s3:get",dnTypeCached('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations').nHandle,"s7:Success","")
+		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations'),"s7:Success","")
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")
@@ -220,30 +220,30 @@ Class Validator from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TryValidateProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s19:TryValidateProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func TryValidateObject P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s17:TryValidateObject",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s17:TryValidateObject",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryValidateObject does not take one argument: use named arguments, TryValidateObject([ :parameter = value, ... ])")
 
 	Func TryValidateValue P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s16:TryValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ValidateProperty P1,P2
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s16:ValidateProperty",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ValidateObject P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s14:ValidateObject",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s14:ValidateObject",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ValidateObject does not take one argument: use named arguments, ValidateObject([ :parameter = value, ... ])")
 
 	Func ValidateValue P1,P2,P3
-		dnSend("s4:call",dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations').nHandle,"s13:ValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 

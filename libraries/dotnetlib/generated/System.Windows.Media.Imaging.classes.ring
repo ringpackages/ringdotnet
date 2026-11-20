@@ -328,7 +328,7 @@ Class BitmapDecoder from DispatcherObject
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -429,7 +429,7 @@ Class BitmapEncoder from DispatcherObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore'),"s6:Create",dnPackItem(P1))
 
 	Func getColorContexts
 		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
@@ -722,145 +722,145 @@ Class BitmapPalettes from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBlackAndWhite
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s13:BlackAndWhite","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s13:BlackAndWhite","")
 
 	Func setBlackAndWhite P1
 		raise("DotNet Error: BlackAndWhite is a read-only property")
 
 	Func getBlackAndWhiteTransparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s24:BlackAndWhiteTransparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s24:BlackAndWhiteTransparent","")
 
 	Func setBlackAndWhiteTransparent P1
 		raise("DotNet Error: BlackAndWhiteTransparent is a read-only property")
 
 	Func getHalftone8
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s9:Halftone8","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s9:Halftone8","")
 
 	Func setHalftone8 P1
 		raise("DotNet Error: Halftone8 is a read-only property")
 
 	Func getHalftone8Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s20:Halftone8Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s20:Halftone8Transparent","")
 
 	Func setHalftone8Transparent P1
 		raise("DotNet Error: Halftone8Transparent is a read-only property")
 
 	Func getHalftone27
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:Halftone27","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:Halftone27","")
 
 	Func setHalftone27 P1
 		raise("DotNet Error: Halftone27 is a read-only property")
 
 	Func getHalftone27Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:Halftone27Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:Halftone27Transparent","")
 
 	Func setHalftone27Transparent P1
 		raise("DotNet Error: Halftone27Transparent is a read-only property")
 
 	Func getHalftone64
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:Halftone64","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:Halftone64","")
 
 	Func setHalftone64 P1
 		raise("DotNet Error: Halftone64 is a read-only property")
 
 	Func getHalftone64Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:Halftone64Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:Halftone64Transparent","")
 
 	Func setHalftone64Transparent P1
 		raise("DotNet Error: Halftone64Transparent is a read-only property")
 
 	Func getHalftone125
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone125","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone125","")
 
 	Func setHalftone125 P1
 		raise("DotNet Error: Halftone125 is a read-only property")
 
 	Func getHalftone125Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone125Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone125Transparent","")
 
 	Func setHalftone125Transparent P1
 		raise("DotNet Error: Halftone125Transparent is a read-only property")
 
 	Func getHalftone216
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone216","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone216","")
 
 	Func setHalftone216 P1
 		raise("DotNet Error: Halftone216 is a read-only property")
 
 	Func getHalftone216Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone216Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone216Transparent","")
 
 	Func setHalftone216Transparent P1
 		raise("DotNet Error: Halftone216Transparent is a read-only property")
 
 	Func getHalftone252
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone252","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone252","")
 
 	Func setHalftone252 P1
 		raise("DotNet Error: Halftone252 is a read-only property")
 
 	Func getHalftone252Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone252Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone252Transparent","")
 
 	Func setHalftone252Transparent P1
 		raise("DotNet Error: Halftone252Transparent is a read-only property")
 
 	Func getHalftone256
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone256","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone256","")
 
 	Func setHalftone256 P1
 		raise("DotNet Error: Halftone256 is a read-only property")
 
 	Func getHalftone256Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone256Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone256Transparent","")
 
 	Func setHalftone256Transparent P1
 		raise("DotNet Error: Halftone256Transparent is a read-only property")
 
 	Func getGray4
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s5:Gray4","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s5:Gray4","")
 
 	Func setGray4 P1
 		raise("DotNet Error: Gray4 is a read-only property")
 
 	Func getGray4Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s16:Gray4Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s16:Gray4Transparent","")
 
 	Func setGray4Transparent P1
 		raise("DotNet Error: Gray4Transparent is a read-only property")
 
 	Func getGray16
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s6:Gray16","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s6:Gray16","")
 
 	Func setGray16 P1
 		raise("DotNet Error: Gray16 is a read-only property")
 
 	Func getGray16Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s17:Gray16Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s17:Gray16Transparent","")
 
 	Func setGray16Transparent P1
 		raise("DotNet Error: Gray16Transparent is a read-only property")
 
 	Func getGray256
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s7:Gray256","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s7:Gray256","")
 
 	Func setGray256 P1
 		raise("DotNet Error: Gray256 is a read-only property")
 
 	Func getGray256Transparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s18:Gray256Transparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s18:Gray256Transparent","")
 
 	Func setGray256Transparent P1
 		raise("DotNet Error: Gray256Transparent is a read-only property")
 
 	Func getWebPalette
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:WebPalette","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:WebPalette","")
 
 	Func setWebPalette P1
 		raise("DotNet Error: WebPalette is a read-only property")
 
 	Func getWebPaletteTransparent
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:WebPaletteTransparent","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:WebPaletteTransparent","")
 
 	Func setWebPaletteTransparent P1
 		raise("DotNet Error: WebPaletteTransparent is a read-only property")
@@ -886,19 +886,19 @@ Class BitmapSizeOptions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromEmptyOptions 
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s16:FromEmptyOptions","")
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s16:FromEmptyOptions","")
 
 	Func FromHeight P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s10:FromHeight",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s10:FromHeight",dnPackItem(P1))
 
 	Func FromWidth P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s9:FromWidth",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s9:FromWidth",dnPackItem(P1))
 
 	Func FromWidthAndHeight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s18:FromWidthAndHeight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s18:FromWidthAndHeight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromRotation P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s12:FromRotation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s12:FromRotation",dnPackItem(P1))
 
 	Func getPreservesAspectRatio
 		return dnSend("s3:get",nHandle,"s20:PreservesAspectRatio","")
@@ -953,7 +953,7 @@ Class BitmapSource from ImageSource
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -1073,9 +1073,9 @@ Class BitmapFrame from BitmapSource
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"s6:Create",dnPackItem(P1))
 
 	Func getBaseUri
 		return dnSend("s3:get",nHandle,"s7:BaseUri","")
@@ -1238,55 +1238,55 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getUriCachePolicyProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s22:UriCachePolicyProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s22:UriCachePolicyProperty","")
 
 	Func setUriCachePolicyProperty P1
 		raise("DotNet Error: UriCachePolicyProperty is a read-only property")
 
 	Func getUriSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s17:UriSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s17:UriSourceProperty","")
 
 	Func setUriSourceProperty P1
 		raise("DotNet Error: UriSourceProperty is a read-only property")
 
 	Func getStreamSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s20:StreamSourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s20:StreamSourceProperty","")
 
 	Func setStreamSourceProperty P1
 		raise("DotNet Error: StreamSourceProperty is a read-only property")
 
 	Func getDecodePixelWidthProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s24:DecodePixelWidthProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s24:DecodePixelWidthProperty","")
 
 	Func setDecodePixelWidthProperty P1
 		raise("DotNet Error: DecodePixelWidthProperty is a read-only property")
 
 	Func getDecodePixelHeightProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s25:DecodePixelHeightProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s25:DecodePixelHeightProperty","")
 
 	Func setDecodePixelHeightProperty P1
 		raise("DotNet Error: DecodePixelHeightProperty is a read-only property")
 
 	Func getRotationProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s16:RotationProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s16:RotationProperty","")
 
 	Func setRotationProperty P1
 		raise("DotNet Error: RotationProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s18:SourceRectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s18:SourceRectProperty","")
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
 
 	Func getCreateOptionsProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s21:CreateOptionsProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s21:CreateOptionsProperty","")
 
 	Func setCreateOptionsProperty P1
 		raise("DotNet Error: CreateOptionsProperty is a read-only property")
 
 	Func getCacheOptionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s19:CacheOptionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s19:CacheOptionProperty","")
 
 	Func setCacheOptionProperty P1
 		raise("DotNet Error: CacheOptionProperty is a read-only property")
@@ -1423,25 +1423,25 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceColorContextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s26:SourceColorContextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s26:SourceColorContextProperty","")
 
 	Func setSourceColorContextProperty P1
 		raise("DotNet Error: SourceColorContextProperty is a read-only property")
 
 	Func getDestinationColorContextProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s31:DestinationColorContextProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s31:DestinationColorContextProperty","")
 
 	Func setDestinationColorContextProperty P1
 		raise("DotNet Error: DestinationColorContextProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s25:DestinationFormatProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s25:DestinationFormatProperty","")
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
@@ -1511,13 +1511,13 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore').nHandle,"s18:SourceRectProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"s18:SourceRectProperty","")
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
@@ -1605,25 +1605,25 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s25:DestinationFormatProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s25:DestinationFormatProperty","")
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
 
 	Func getDestinationPaletteProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s26:DestinationPaletteProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s26:DestinationPaletteProperty","")
 
 	Func setDestinationPaletteProperty P1
 		raise("DotNet Error: DestinationPaletteProperty is a read-only property")
 
 	Func getAlphaThresholdProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s22:AlphaThresholdProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s22:AlphaThresholdProperty","")
 
 	Func setAlphaThresholdProperty P1
 		raise("DotNet Error: AlphaThresholdProperty is a read-only property")
@@ -1955,13 +1955,13 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore').nHandle,"s17:TransformProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")

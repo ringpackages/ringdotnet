@@ -104,7 +104,7 @@ Class ChangeToken from Object
 
 	Func OnChange P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives').nHandle,"s8:OnChange",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"s8:OnChange",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OnChange does not take one argument: use named arguments, OnChange([ :parameter = value, ... ])")
 
@@ -166,7 +166,7 @@ Class AspExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Append P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Primitives.Extensions, Microsoft.Extensions.Primitives').nHandle,"s6:Append",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.Extensions, Microsoft.Extensions.Primitives'),"s6:Append",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IChangeToken from DotNetObject
@@ -257,7 +257,7 @@ Class StringSegment from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
@@ -309,10 +309,10 @@ Class StringSegment from ValueType
 		return dnSend("s4:call",nHandle,"s5:Split",dnPackItem(P1))
 
 	Func Compare P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IsNullOrEmpty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives').nHandle,"s13:IsNullOrEmpty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -348,7 +348,7 @@ Class StringSegment from ValueType
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -387,13 +387,13 @@ Class StringSegmentComparer from Object
 		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func getOrdinal
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives').nHandle,"s7:Ordinal","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"s7:Ordinal","")
 
 	Func setOrdinal P1
 		raise("DotNet Error: Ordinal is a read-only property")
 
 	Func getOrdinalIgnoreCase
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives').nHandle,"s17:OrdinalIgnoreCase","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"s17:OrdinalIgnoreCase","")
 
 	Func setOrdinalIgnoreCase P1
 		raise("DotNet Error: OrdinalIgnoreCase is a read-only property")
@@ -487,17 +487,17 @@ Class StringValues from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsNullOrEmpty P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives').nHandle,"s13:IsNullOrEmpty",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",dnPackItem(P1))
 
 	Func Concat P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives').nHandle,"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -509,7 +509,7 @@ Class StringValues from ValueType
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

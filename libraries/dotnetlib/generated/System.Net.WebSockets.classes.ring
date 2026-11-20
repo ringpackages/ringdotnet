@@ -277,26 +277,26 @@ Class WebSocket from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateClientBuffer P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s18:CreateClientBuffer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s18:CreateClientBuffer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateServerBuffer P1
-		return dnSend("s4:call",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s18:CreateServerBuffer",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s18:CreateServerBuffer",dnPackItem(P1))
 
 	Func CreateFromStream P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s16:CreateFromStream",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s16:CreateFromStream",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateFromStream does not take one argument: use named arguments, CreateFromStream([ :parameter = value, ... ])")
 
 	Func IsApplicationTargeting45 
-		return dnSend("s4:call",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s24:IsApplicationTargeting45","")
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s24:IsApplicationTargeting45","")
 
 	Func RegisterPrefixes 
-		dnSend("s4:call",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s16:RegisterPrefixes","")
+		dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s16:RegisterPrefixes","")
 		return self
 
 	Func CreateClientWebSocket P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s21:CreateClientWebSocket",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s21:CreateClientWebSocket",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func getCloseStatus
 		return dnSend("s3:get",nHandle,"s11:CloseStatus","")
@@ -323,7 +323,7 @@ Class WebSocket from Object
 		raise("DotNet Error: State is a read-only property")
 
 	Func getDefaultKeepAliveInterval
-		return dnSend("s3:get",dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets').nHandle,"s24:DefaultKeepAliveInterval","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s24:DefaultKeepAliveInterval","")
 
 	Func setDefaultKeepAliveInterval P1
 		raise("DotNet Error: DefaultKeepAliveInterval is a read-only property")

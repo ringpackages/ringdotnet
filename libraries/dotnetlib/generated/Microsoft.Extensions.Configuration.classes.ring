@@ -278,7 +278,7 @@ Class ChainedBuilderExtensions from Object
 
 	Func AddConfiguration P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s16:AddConfiguration",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"s16:AddConfiguration",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddConfiguration does not take one argument: use named arguments, AddConfiguration([ :parameter = value, ... ])")
 
@@ -389,7 +389,7 @@ Class CommandLineConfigurationExtensions from Object
 
 	Func AddCommandLine P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine').nHandle,"s14:AddCommandLine",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"s14:AddCommandLine",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCommandLine does not take one argument: use named arguments, AddCommandLine([ :parameter = value, ... ])")
 
@@ -410,20 +410,20 @@ Class ConfigurationBinder from Object
 
 	Func Get_ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s3:Get",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s3:Get",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s3:Get",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s3:Get",dnPackItem(P1))
 
 	Func Bind P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s4:Bind",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s4:Bind",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Bind does not take one argument: use named arguments, Bind([ :parameter = value, ... ])")
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s8:GetValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s8:GetValue",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
@@ -554,22 +554,22 @@ Class ConfigurationExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetConnectionString P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s19:GetConnectionString",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AsEnumerable P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:AsEnumerable",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:AsEnumerable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:AsEnumerable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:AsEnumerable",dnPackItem(P1))
 
 	Func Exists P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s6:Exists",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",dnPackItem(P1))
 
 	Func GetRequiredSection P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s18:GetRequiredSection",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s18:GetRequiredSection",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ConfigurationKeyComparer from Object
@@ -601,7 +601,7 @@ Class ConfigurationKeyComparer from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInstance
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration').nHandle,"s8:Instance","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration'),"s8:Instance","")
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -673,16 +673,16 @@ Class ConfigurationPath from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Combine P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s7:Combine",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",dnPackItem(P1))
 
 	Func GetSectionKey P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s13:GetSectionKey",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",dnPackItem(P1))
 
 	Func GetParentPath P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s13:GetParentPath",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",dnPackItem(P1))
 
 	Func getKeyDelimiter
-		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:KeyDelimiter","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter","")
 
 	Func setKeyDelimiter P1
 		raise("DotNet Error: KeyDelimiter is a read-only property")
@@ -831,9 +831,9 @@ Class ConfigurationRootExtensions from Object
 
 	Func GetDebugView P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:GetDebugView",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:GetDebugView",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
 
 
 Class ConfigurationSection from Object
@@ -908,9 +908,9 @@ Class EnvironmentVariablesExtensions from Object
 
 	Func AddEnvironmentVariables P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables').nHandle,"s23:AddEnvironmentVariables",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"s23:AddEnvironmentVariables",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables').nHandle,"s23:AddEnvironmentVariables",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"s23:AddEnvironmentVariables",dnPackItem(P1))
 
 
 Class FileConfigurationExtensions from Object
@@ -928,19 +928,19 @@ Class FileConfigurationExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetFileProvider P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s15:SetFileProvider",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s15:SetFileProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFileProvider P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s15:GetFileProvider",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s15:GetFileProvider",dnPackItem(P1))
 
 	Func SetBasePath P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s11:SetBasePath",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s11:SetBasePath",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetFileLoadExceptionHandler P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s27:SetFileLoadExceptionHandler",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s27:SetFileLoadExceptionHandler",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFileLoadExceptionHandler P1
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s27:GetFileLoadExceptionHandler",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s27:GetFileLoadExceptionHandler",dnPackItem(P1))
 
 
 Class FileConfigurationSource from Object
@@ -1259,12 +1259,12 @@ Class IniConfigurationExtensions from Object
 
 	Func AddIniFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini').nHandle,"s10:AddIniFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"s10:AddIniFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddIniFile does not take one argument: use named arguments, AddIniFile([ :parameter = value, ... ])")
 
 	Func AddIniStream P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini').nHandle,"s12:AddIniStream",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"s12:AddIniStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class JsonConfigurationExtensions from Object
@@ -1283,12 +1283,12 @@ Class JsonConfigurationExtensions from Object
 
 	Func AddJsonFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json').nHandle,"s11:AddJsonFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"s11:AddJsonFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddJsonFile does not take one argument: use named arguments, AddJsonFile([ :parameter = value, ... ])")
 
 	Func AddJsonStream P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json').nHandle,"s13:AddJsonStream",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"s13:AddJsonStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class KeyPerFileConfigurationBuilderExtensions from Object
@@ -1307,7 +1307,7 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 
 	Func AddKeyPerFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile').nHandle,"s13:AddKeyPerFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"s13:AddKeyPerFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddKeyPerFile does not take one argument: use named arguments, AddKeyPerFile([ :parameter = value, ... ])")
 
@@ -1328,9 +1328,9 @@ Class MemoryConfigurationBuilderExtensions from Object
 
 	Func AddInMemoryCollection P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s21:AddInMemoryCollection",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"s21:AddInMemoryCollection",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s21:AddInMemoryCollection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"s21:AddInMemoryCollection",dnPackItem(P1))
 
 
 Class StreamConfigurationSource from Object
@@ -1376,9 +1376,9 @@ Class UserSecretsConfigurationExtensions from Object
 
 	Func AddUserSecrets P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets').nHandle,"s14:AddUserSecrets",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"s14:AddUserSecrets",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets').nHandle,"s14:AddUserSecrets",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"s14:AddUserSecrets",dnPackItem(P1))
 
 
 Class XmlConfigurationExtensions from Object
@@ -1397,12 +1397,12 @@ Class XmlConfigurationExtensions from Object
 
 	Func AddXmlFile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml').nHandle,"s10:AddXmlFile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"s10:AddXmlFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddXmlFile does not take one argument: use named arguments, AddXmlFile([ :parameter = value, ... ])")
 
 	Func AddXmlStream P1,P2
-		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml').nHandle,"s12:AddXmlStream",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"s12:AddXmlStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FileConfigurationProvider from ConfigurationProvider

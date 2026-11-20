@@ -118,9 +118,9 @@ Class XPathExpression from Object
 
 	Func Compile P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml').nHandle,"s7:Compile",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XPath.XPathExpression, System.Private.Xml'),"s7:Compile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml').nHandle,"s7:Compile",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Xml.XPath.XPathExpression, System.Private.Xml'),"s7:Compile",dnPackItem(P1))
 
 	Func getExpression
 		return dnSend("s3:get",nHandle,"s10:Expression","")
@@ -642,7 +642,7 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func getNavigatorComparer
-		return dnSend("s3:get",dnTypeCached('System.Xml.XPath.XPathNavigator, System.Private.Xml').nHandle,"s17:NavigatorComparer","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.XPath.XPathNavigator, System.Private.Xml'),"s17:NavigatorComparer","")
 
 	Func setNavigatorComparer P1
 		raise("DotNet Error: NavigatorComparer is a read-only property")

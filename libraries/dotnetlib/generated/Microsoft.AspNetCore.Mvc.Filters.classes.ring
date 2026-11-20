@@ -486,31 +486,31 @@ Class FilterScope from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFirst
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s5:First","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First","")
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Global","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global","")
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:Controller","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Action","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action","")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Last","")
+		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last","")
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

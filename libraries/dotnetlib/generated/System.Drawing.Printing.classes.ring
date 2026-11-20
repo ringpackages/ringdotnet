@@ -987,7 +987,7 @@ Class PrinterSettings from Object
 		return self
 
 	Func getInstalledPrinters
-		return dnSend("s3:get",dnTypeCached('System.Drawing.Printing.PrinterSettings, System.Drawing.Common').nHandle,"s17:InstalledPrinters","")
+		return dnSend("s3:get",dnTypeHandle('System.Drawing.Printing.PrinterSettings, System.Drawing.Common'),"s17:InstalledPrinters","")
 
 	Func setInstalledPrinters P1
 		raise("DotNet Error: InstalledPrinters is a read-only property")
@@ -1008,7 +1008,7 @@ Class PrinterUnitConvert from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Convert P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common').nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class PreviewPrintController from PrintController

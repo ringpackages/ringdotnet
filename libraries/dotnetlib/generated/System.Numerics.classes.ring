@@ -142,120 +142,120 @@ Class BigInteger from ValueType
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s5:Parse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:TryParse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Abs",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Remainder P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DivRem P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:Negate",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Log10",dnPackItem(P1))
 
 	Func GreatestCommonDivisor P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s21:GreatestCommonDivisor",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s21:GreatestCommonDivisor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ModPow P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s6:ModPow",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:ModPow",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsPowerOfTwo
 		return dnSend("s3:get",nHandle,"s12:IsPowerOfTwo","")
@@ -288,19 +288,19 @@ Class BigInteger from ValueType
 		raise("DotNet Error: Sign is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics').nHandle,"s8:MinusOne","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:MinusOne","")
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
@@ -321,31 +321,31 @@ Class BitOperations from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s6:IsPow2",dnPackItem(P1))
 
 	Func RoundUpToPowerOf2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s17:RoundUpToPowerOf2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s17:RoundUpToPowerOf2",dnPackItem(P1))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s8:PopCount",dnPackItem(P1))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Crc32C P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib').nHandle,"s6:Crc32C",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.BitOperations, System.Private.CoreLib'),"s6:Crc32C",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class Complex from ValueType
@@ -401,146 +401,146 @@ Class Complex from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func FromPolarCoordinates P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s20:FromPolarCoordinates",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s20:FromPolarCoordinates",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s6:Negate",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Abs",dnPackItem(P1))
 
 	Func Conjugate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s9:Conjugate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s9:Conjugate",dnPackItem(P1))
 
 	Func Reciprocal P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s10:Reciprocal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s10:Reciprocal",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Sin",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Sinh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Sinh",dnPackItem(P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Asin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Asin",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Cos",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Cosh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Cosh",dnPackItem(P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Acos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Acos",dnPackItem(P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Tan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Tan",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Tanh",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Tanh",dnPackItem(P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Atan",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Atan",dnPackItem(P1))
 
 	Func IsFinite P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:IsFinite",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s10:IsInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s5:IsNaN",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Log",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s5:Log10",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s5:Log10",dnPackItem(P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Exp",dnPackItem(P1))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Sqrt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Sqrt",dnPackItem(P1))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s13:CreateChecked",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s16:CreateSaturating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s16:CreateTruncating",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsComplexNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s15:IsComplexNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s15:IsComplexNumber",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsImaginaryNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s17:IsImaginaryNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s17:IsImaginaryNumber",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s9:IsInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s9:IsInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:IsNormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:IsNormal",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s12:IsOddInteger",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s12:IsRealNumber",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:IsRealNumber",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s11:IsSubnormal",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s11:IsSubnormal",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s5:Parse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Parse does not take one argument: use named arguments, Parse([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:TryParse",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
@@ -569,31 +569,31 @@ Class Complex from ValueType
 		raise("DotNet Error: Phase is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getImaginaryOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s12:ImaginaryOne","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:ImaginaryOne","")
 
 	Func setImaginaryOne P1
 		raise("DotNet Error: ImaginaryOne is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics').nHandle,"s8:Infinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Infinity","")
 
 	Func setInfinity P1
 		raise("DotNet Error: Infinity is a read-only property")
@@ -649,46 +649,46 @@ Class Matrix3x2 from ValueType
 		return dnSend("s4:call",nHandle,"s14:GetDeterminant","")
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateRotation P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s14:CreateRotation",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s14:CreateRotation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s14:CreateRotation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s14:CreateRotation",dnPackItem(P1))
 
 	Func CreateScale P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s11:CreateScale",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s11:CreateScale",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 
 	Func CreateSkew P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s10:CreateSkew",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s10:CreateSkew",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateSkew does not take one argument: use named arguments, CreateSkew([ :parameter = value, ... ])")
 
 	Func CreateTranslation P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s17:CreateTranslation",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s17:CreateTranslation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 
 	Func Invert P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s6:Invert",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s6:Invert",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsIdentity
 		return dnSend("s3:get",nHandle,"s10:IsIdentity","")
@@ -746,7 +746,7 @@ Class Matrix3x2 from ValueType
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -812,133 +812,133 @@ Class Matrix4x4 from ValueType
 		return dnSend("s4:call",nHandle,"s14:GetDeterminant","")
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateBillboard P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateConstrainedBillboard P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s26:CreateConstrainedBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s26:CreateConstrainedBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func CreateFromAxisAngle P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateFromQuaternion P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s20:CreateFromQuaternion",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s20:CreateFromQuaternion",dnPackItem(P1))
 
 	Func CreateFromYawPitchRoll P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateLookAt P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s12:CreateLookAt",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateLookAt",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateLookAtLeftHanded P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s22:CreateLookAtLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateLookAtLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateLookTo P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s12:CreateLookTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateLookTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateLookToLeftHanded P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s22:CreateLookToLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateLookToLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateOrthographic P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s18:CreateOrthographic",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s18:CreateOrthographic",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateOrthographicLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s28:CreateOrthographicLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s28:CreateOrthographicLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateOrthographicOffCenter P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s27:CreateOrthographicOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s27:CreateOrthographicOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreateOrthographicOffCenterLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s37:CreateOrthographicOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s37:CreateOrthographicOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreatePerspective P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s17:CreatePerspective",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreatePerspective",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreatePerspectiveLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s27:CreatePerspectiveLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s27:CreatePerspectiveLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreatePerspectiveFieldOfView P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s28:CreatePerspectiveFieldOfView",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s28:CreatePerspectiveFieldOfView",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreatePerspectiveFieldOfViewLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s38:CreatePerspectiveFieldOfViewLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s38:CreatePerspectiveFieldOfViewLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreatePerspectiveOffCenter P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s26:CreatePerspectiveOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s26:CreatePerspectiveOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreatePerspectiveOffCenterLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s36:CreatePerspectiveOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s36:CreatePerspectiveOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreateReflection P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s16:CreateReflection",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s16:CreateReflection",dnPackItem(P1))
 
 	Func CreateRotationX P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationX",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationX",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationX",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationX",dnPackItem(P1))
 
 	Func CreateRotationY P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationY",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationY",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationY",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationY",dnPackItem(P1))
 
 	Func CreateRotationZ P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationZ",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationZ",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s15:CreateRotationZ",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationZ",dnPackItem(P1))
 
 	Func CreateScale P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s11:CreateScale",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s11:CreateScale",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 
 	Func CreateShadow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s12:CreateShadow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateShadow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateTranslation P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s17:CreateTranslation",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s17:CreateTranslation",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 
 	Func CreateViewport P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s14:CreateViewport",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s14:CreateViewport",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreateViewportLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s24:CreateViewportLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s24:CreateViewportLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func CreateWorld P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s11:CreateWorld",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateWorld",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Decompose P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s9:Decompose",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Decompose",dnPackItem(P1))
 
 	Func Invert P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s6:Invert",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s6:Invert",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Transpose P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s9:Transpose",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Transpose",dnPackItem(P1))
 
 	Func getIsIdentity
 		return dnSend("s3:get",nHandle,"s10:IsIdentity","")
@@ -1066,7 +1066,7 @@ Class Matrix4x4 from ValueType
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -1112,22 +1112,22 @@ Class Plane from ValueType
 		return self
 
 	Func CreateFromVertices P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s18:CreateFromVertices",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s18:CreateFromVertices",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DotCoordinate P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s13:DotCoordinate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s13:DotCoordinate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DotNormal P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s9:DotNormal",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s9:DotNormal",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Plane, System.Private.CoreLib').nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getNormal
 		return dnSend("s3:get",nHandle,"s6:Normal","")
@@ -1195,49 +1195,49 @@ Class Quaternion from ValueType
 		return dnSend("s4:call",nHandle,"s13:LengthSquared","")
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Concatenate P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s11:Concatenate",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s11:Concatenate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Conjugate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s9:Conjugate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s9:Conjugate",dnPackItem(P1))
 
 	Func CreateFromAxisAngle P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateFromRotationMatrix P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s24:CreateFromRotationMatrix",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s24:CreateFromRotationMatrix",dnPackItem(P1))
 
 	Func CreateFromYawPitchRoll P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Inverse P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s7:Inverse",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s7:Inverse",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 	Func Slerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s5:Slerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s5:Slerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1281,13 +1281,13 @@ Class Quaternion from ValueType
 		return self
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib').nHandle,"s8:Identity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -1309,341 +1309,341 @@ Class Vector from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsVector4 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:AsVector4",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector4",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AndNot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:AndNot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:AndNot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func As P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s2:As",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s2:As",dnPackItem(P1))
 
 	Func AsVectorByte P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s12:AsVectorByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsVectorByte",dnPackItem(P1))
 
 	Func AsVectorDouble P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:AsVectorDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorDouble",dnPackItem(P1))
 
 	Func AsVectorInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s13:AsVectorInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt16",dnPackItem(P1))
 
 	Func AsVectorInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s13:AsVectorInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt32",dnPackItem(P1))
 
 	Func AsVectorInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s13:AsVectorInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt64",dnPackItem(P1))
 
 	Func AsVectorNInt P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s12:AsVectorNInt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsVectorNInt",dnPackItem(P1))
 
 	Func AsVectorNUInt P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s13:AsVectorNUInt",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorNUInt",dnPackItem(P1))
 
 	Func AsVectorSByte P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s13:AsVectorSByte",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorSByte",dnPackItem(P1))
 
 	Func AsVectorSingle P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:AsVectorSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorSingle",dnPackItem(P1))
 
 	Func AsVectorUInt16 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:AsVectorUInt16",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt16",dnPackItem(P1))
 
 	Func AsVectorUInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:AsVectorUInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt32",dnPackItem(P1))
 
 	Func AsVectorUInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:AsVectorUInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt64",dnPackItem(P1))
 
 	Func BitwiseAnd P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseOr P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConditionalSelect P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s17:ConditionalSelect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s17:ConditionalSelect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConvertToDouble P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:ConvertToDouble",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToDouble",dnPackItem(P1))
 
 	Func ConvertToInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:ConvertToInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:ConvertToInt32",dnPackItem(P1))
 
 	Func ConvertToInt32Native P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s20:ConvertToInt32Native",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ConvertToInt32Native",dnPackItem(P1))
 
 	Func ConvertToInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:ConvertToInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:ConvertToInt64",dnPackItem(P1))
 
 	Func ConvertToInt64Native P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s20:ConvertToInt64Native",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ConvertToInt64Native",dnPackItem(P1))
 
 	Func ConvertToSingle P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:ConvertToSingle",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToSingle",dnPackItem(P1))
 
 	Func ConvertToUInt32 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:ConvertToUInt32",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToUInt32",dnPackItem(P1))
 
 	Func ConvertToUInt32Native P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s21:ConvertToUInt32Native",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:ConvertToUInt32Native",dnPackItem(P1))
 
 	Func ConvertToUInt64 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:ConvertToUInt64",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToUInt64",dnPackItem(P1))
 
 	Func ConvertToUInt64Native P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s21:ConvertToUInt64Native",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:ConvertToUInt64Native",dnPackItem(P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func CreateSequence P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:CreateSequence",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:CreateSequence",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EqualsAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:EqualsAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:EqualsAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EqualsAny P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:EqualsAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:EqualsAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetElement P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:GetElement",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:GetElement",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:GreaterThanAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:GreaterThanAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanAny P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:GreaterThanAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:GreaterThanAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqualAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s21:GreaterThanOrEqualAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:GreaterThanOrEqualAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqualAny P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s21:GreaterThanOrEqualAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:GreaterThanOrEqualAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsZero P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:IsZero",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:IsZero",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func LessThan P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:LessThanAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:LessThanAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanAny P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:LessThanAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:LessThanAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqualAll P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:LessThanOrEqualAll",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:LessThanOrEqualAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqualAny P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:LessThanOrEqualAny",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:LessThanOrEqualAny",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LoadUnsafe P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:LoadUnsafe",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:LoadUnsafe",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Narrow P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:Narrow",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Narrow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s14:OnesComplement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:OnesComplement",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func ShiftLeft P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:ShiftLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:ShiftLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ShiftRightArithmetic P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s20:ShiftRightArithmetic",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ShiftRightArithmetic",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ShiftRightLogical P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s17:ShiftRightLogical",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s17:ShiftRightLogical",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:SquareRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
 
 	Func StoreUnsafe P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:StoreUnsafe",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:StoreUnsafe",dnPackItem(P1))
 		ok
 		raise("DotNet Error: StoreUnsafe does not take one argument: use named arguments, StoreUnsafe([ :parameter = value, ... ])")
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sum P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Sum",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Sum",dnPackItem(P1))
 
 	Func ToScalar P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:ToScalar",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:ToScalar",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Widen P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s5:Widen",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Widen",dnPackItem(P1))
 
 	Func WidenLower P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:WidenLower",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:WidenLower",dnPackItem(P1))
 
 	Func WidenUpper P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s10:WidenUpper",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:WidenUpper",dnPackItem(P1))
 
 	Func WithElement P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s11:WithElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:WithElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Xor P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AsVector4Unsafe P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s15:AsVector4Unsafe",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:AsVector4Unsafe",dnPackItem(P1))
 
 	Func AsPlane P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s7:AsPlane",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s7:AsPlane",dnPackItem(P1))
 
 	Func AsQuaternion P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s12:AsQuaternion",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsQuaternion",dnPackItem(P1))
 
 	Func AsVector2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:AsVector2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector2",dnPackItem(P1))
 
 	Func AsVector3 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s9:AsVector3",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector3",dnPackItem(P1))
 
 	Func getIsHardwareAccelerated
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector, System.Private.CoreLib').nHandle,"s21:IsHardwareAccelerated","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:IsHardwareAccelerated","")
 
 	Func setIsHardwareAccelerated P1
 		raise("DotNet Error: IsHardwareAccelerated is a read-only property")
@@ -1721,136 +1721,136 @@ Class Vector2 from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func Distance P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DistanceSquared P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Reflect P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s10:SquareRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TransformNormal P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -1874,73 +1874,73 @@ Class Vector2 from ValueType
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:UnitX","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:UnitX","")
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s5:UnitY","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:UnitY","")
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -2020,139 +2020,139 @@ Class Vector3 from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func Cross P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:Cross",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Cross",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func Distance P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DistanceSquared P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Reflect P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s10:SquareRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TransformNormal P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -2183,79 +2183,79 @@ Class Vector3 from ValueType
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:UnitX","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitX","")
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:UnitY","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitY","")
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getUnitZ
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s5:UnitZ","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitZ","")
 
 	Func setUnitZ P1
 		raise("DotNet Error: UnitZ is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -2337,130 +2337,130 @@ Class Vector4 from ValueType
 		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func Distance P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Distance",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DistanceSquared P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s15:DistanceSquared",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s10:SquareRoot",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -2498,85 +2498,85 @@ Class Vector4 from ValueType
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s1:E","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s7:Epsilon","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:NaN","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:One","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s2:Pi","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s3:Tau","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:UnitX","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitX","")
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:UnitY","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitY","")
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getUnitZ
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:UnitZ","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitZ","")
 
 	Func setUnitZ P1
 		raise("DotNet Error: UnitZ is a read-only property")
 
 	Func getUnitW
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s5:UnitW","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitW","")
 
 	Func setUnitW P1
 		raise("DotNet Error: UnitW is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib').nHandle,"s4:Zero","")
+		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")

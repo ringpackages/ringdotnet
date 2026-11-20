@@ -225,13 +225,13 @@ Class DispositionTypeNames from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInline
-		return dnSend("s3:get",dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail').nHandle,"s6:Inline","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s6:Inline","")
 
 	Func setInline P1
 		raise("DotNet Error: Inline is a read-only property")
 
 	Func getAttachment
-		return dnSend("s3:get",dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail').nHandle,"s10:Attachment","")
+		return dnSend("s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s10:Attachment","")
 
 	Func setAttachment P1
 		raise("DotNet Error: Attachment is a read-only property")

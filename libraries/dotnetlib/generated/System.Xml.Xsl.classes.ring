@@ -402,13 +402,13 @@ Class XsltSettings from Object
 		return self
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml').nHandle,"s7:Default","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Xsl.XsltSettings, System.Private.Xml'),"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getTrustedXslt
-		return dnSend("s3:get",dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml').nHandle,"s11:TrustedXslt","")
+		return dnSend("s3:get",dnTypeHandle('System.Xml.Xsl.XsltSettings, System.Private.Xml'),"s11:TrustedXslt","")
 
 	Func setTrustedXslt P1
 		raise("DotNet Error: TrustedXslt is a read-only property")

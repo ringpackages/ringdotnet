@@ -206,6 +206,17 @@ func dnTypeCached  cTypeName
 func dnCreate  cTypeName, aParameters
 	return dnNewHandle("s9:newhandle",cTypeName,dnPack(aParameters))
 
+# The handle of the type object of a type name, made once (the generated static methods pass it as a number: returning the cached
+# type object itself would copy it at every call)
+func dnTypeHandle  cTypeName
+	dn_nTypeHandle = aDotNetTypeHandles[cTypeName]
+	if isnumber(dn_nTypeHandle)
+		return dn_nTypeHandle
+	ok
+	dn_nTypeHandle = dnTypeCached(cTypeName).nHandle
+	aDotNetTypeHandles[cTypeName] = dn_nTypeHandle
+	return dn_nTypeHandle
+
 # The wire item of a type (its handle), made once for each type name
 func dnTypeItem  cTypeName
 	dn_cItem = aDotNetTypeItems[cTypeName]

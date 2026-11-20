@@ -328,7 +328,7 @@ Class Regex from Object
 	Func Count P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s5:Count",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Count",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Count",dnPackItem(P1))
 		ok
@@ -337,7 +337,7 @@ Class Regex from Object
 	Func IsMatch P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s7:IsMatch",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:IsMatch",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:IsMatch",dnPackItem(P1))
 		ok
@@ -346,7 +346,7 @@ Class Regex from Object
 	Func Match P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s5:Match",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Match",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Match",dnPackItem(P1))
 		ok
@@ -355,7 +355,7 @@ Class Regex from Object
 	Func Matches P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s7:Matches",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:Matches",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Matches",dnPackItem(P1))
 		ok
@@ -364,7 +364,7 @@ Class Regex from Object
 	Func Replace P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s7:Replace",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:Replace",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
 		ok
@@ -373,7 +373,7 @@ Class Regex from Object
 	Func Split P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s5:Split",dnPackItem(P1))
+				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Split",dnPackItem(P1))
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Split",dnPackItem(P1))
 		ok
@@ -384,16 +384,16 @@ Class Regex from Object
 
 	Func CompileToAssembly P1
 		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s17:CompileToAssembly",dnPackItem(P1))
+			dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s17:CompileToAssembly",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
-		return dnSend("s4:call",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s6:Escape",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",dnPackItem(P1))
 
 	Func Unescape P1
-		return dnSend("s4:call",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s8:Unescape",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",dnPackItem(P1))
 
 	Func getOptions
 		return dnSend("s3:get",nHandle,"s7:Options","")
@@ -414,14 +414,14 @@ Class Regex from Object
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getCacheSize
-		return dnSend("s3:get",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s9:CacheSize","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize","")
 
 	Func setCacheSize P1
-		dnSend("s3:set",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s9:CacheSize",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",dnPackItem(P1))
 		return self
 
 	Func getInfiniteMatchTimeout
-		return dnSend("s3:get",dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions').nHandle,"s20:InfiniteMatchTimeout","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s20:InfiniteMatchTimeout","")
 
 	Func setInfiniteMatchTimeout P1
 		raise("DotNet Error: InfiniteMatchTimeout is a read-only property")
@@ -442,7 +442,7 @@ Class RegexRunner from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CharInClass P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions').nHandle,"s11:CharInClass",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RegexRunnerFactory from Object
@@ -476,7 +476,7 @@ Class Group from Capture
 		return self
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Text.RegularExpressions.Group, System.Text.RegularExpressions').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Group, System.Text.RegularExpressions'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getSuccess
 		return dnSend("s3:get",nHandle,"s7:Success","")
@@ -518,7 +518,7 @@ Class Match from Group
 		return dnSend("s4:call",nHandle,"s6:Result",dnPackItem(P1))
 
 	Func Synchronized P1
-		return dnSend("s4:call",dnTypeCached('System.Text.RegularExpressions.Match, System.Text.RegularExpressions').nHandle,"s12:Synchronized",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getGroups
 		return dnSend("s3:get",nHandle,"s6:Groups","")
@@ -527,7 +527,7 @@ Class Match from Group
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeCached('System.Text.RegularExpressions.Match, System.Text.RegularExpressions').nHandle,"s5:Empty","")
+		return dnSend("s3:get",dnTypeHandle('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

@@ -106,10 +106,10 @@ Class BaseUriHelper from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetBaseUri P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore').nHandle,"s10:GetBaseUri",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.BaseUriHelper, PresentationCore'),"s10:GetBaseUri",dnPackItem(P1))
 
 	Func getBaseUriProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore').nHandle,"s15:BaseUriProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.BaseUriHelper, PresentationCore'),"s15:BaseUriProperty","")
 
 	Func setBaseUriProperty P1
 		raise("DotNet Error: BaseUriProperty is a read-only property")
@@ -214,17 +214,17 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func GetName_ P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s7:GetName",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:GetName",dnPackItem(P1))
 
 	Func SetName_ P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s7:SetName",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:SetName",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetKeepAlive P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:GetKeepAlive",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:GetKeepAlive",dnPackItem(P1))
 
 	Func SetKeepAlive P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:SetKeepAlive",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:SetKeepAlive",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getSource
@@ -248,13 +248,13 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func getNameProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:NameProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getKeepAliveProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s17:KeepAliveProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s17:KeepAliveProperty","")
 
 	Func setKeepAliveProperty P1
 		raise("DotNet Error: KeepAliveProperty is a read-only property")
@@ -322,14 +322,14 @@ Class JournalEntryUnifiedViewConverter from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetJournalEntryPosition P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s23:GetJournalEntryPosition",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s23:GetJournalEntryPosition",dnPackItem(P1))
 
 	Func SetJournalEntryPosition P1,P2
-		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s23:SetJournalEntryPosition",dnPackItem(P1) + dnPackItem(P2))
+		dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s23:SetJournalEntryPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getJournalEntryPositionProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s28:JournalEntryPositionProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s28:JournalEntryPositionProperty","")
 
 	Func setJournalEntryPositionProperty P1
 		raise("DotNet Error: JournalEntryPositionProperty is a read-only property")
@@ -621,7 +621,7 @@ Class NavigationService from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetNavigationService P1
-		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework').nHandle,"s20:GetNavigationService",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.NavigationService, PresentationFramework'),"s20:GetNavigationService",dnPackItem(P1))
 
 	Func setNavigationFailedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"NavigationFailed",dnCallback(P1)])
@@ -892,43 +892,43 @@ Class NavigationWindow from Window
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getSandboxExternalContentProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s30:SandboxExternalContentProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s30:SandboxExternalContentProperty","")
 
 	Func setSandboxExternalContentProperty P1
 		raise("DotNet Error: SandboxExternalContentProperty is a read-only property")
 
 	Func getShowsNavigationUIProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s25:ShowsNavigationUIProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s25:ShowsNavigationUIProperty","")
 
 	Func setShowsNavigationUIProperty P1
 		raise("DotNet Error: ShowsNavigationUIProperty is a read-only property")
 
 	Func getBackStackProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s17:BackStackProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s17:BackStackProperty","")
 
 	Func setBackStackProperty P1
 		raise("DotNet Error: BackStackProperty is a read-only property")
 
 	Func getForwardStackProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s20:ForwardStackProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s20:ForwardStackProperty","")
 
 	Func setForwardStackProperty P1
 		raise("DotNet Error: ForwardStackProperty is a read-only property")
 
 	Func getCanGoBackProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s17:CanGoBackProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s17:CanGoBackProperty","")
 
 	Func setCanGoBackProperty P1
 		raise("DotNet Error: CanGoBackProperty is a read-only property")
 
 	Func getCanGoForwardProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s20:CanGoForwardProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s20:CanGoForwardProperty","")
 
 	Func setCanGoForwardProperty P1
 		raise("DotNet Error: CanGoForwardProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s14:SourceProperty","")
+		return dnSend("s3:get",dnTypeHandle('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")

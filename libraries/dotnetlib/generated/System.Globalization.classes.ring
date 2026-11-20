@@ -319,7 +319,7 @@ Class Calendar from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.Calendar, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func getMinSupportedDateTime
 		return dnSend("s3:get",nHandle,"s20:MinSupportedDateTime","")
@@ -359,7 +359,7 @@ Class Calendar from Object
 		return self
 
 	Func getCurrentEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib').nHandle,"s10:CurrentEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.Calendar, System.Private.CoreLib'),"s10:CurrentEra","")
 
 	Func setCurrentEra P1
 		raise("DotNet Error: CurrentEra is a read-only property")
@@ -381,27 +381,27 @@ Class CharUnicodeInfo from Object
 
 	Func GetDecimalDigitValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s20:GetDecimalDigitValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s20:GetDecimalDigitValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",dnPackItem(P1))
 
 	Func GetDigitValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s13:GetDigitValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s13:GetDigitValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",dnPackItem(P1))
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 
 
 Class CompareInfo from Object
@@ -469,12 +469,12 @@ Class CompareInfo from Object
 
 	Func GetCompareInfo P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s14:GetCompareInfo",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s14:GetCompareInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
 
 	Func IsSortable P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s10:IsSortable",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s10:IsSortable",dnPackItem(P1))
 
 	Func getName
 		return dnSend("s3:get",nHandle,"s4:Name","")
@@ -568,22 +568,22 @@ Class CultureInfo from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CreateSpecificCulture P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s21:CreateSpecificCulture",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s21:CreateSpecificCulture",dnPackItem(P1))
 
 	Func GetCultures P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s11:GetCultures",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s11:GetCultures",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func GetCultureInfo P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:GetCultureInfo",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:GetCultureInfo",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:GetCultureInfo",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:GetCultureInfo",dnPackItem(P1))
 
 	Func GetCultureInfoByIetfLanguageTag P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s31:GetCultureInfoByIetfLanguageTag",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s31:GetCultureInfoByIetfLanguageTag",dnPackItem(P1))
 
 	Func getParent
 		return dnSend("s3:get",nHandle,"s6:Parent","")
@@ -714,41 +714,41 @@ Class CultureInfo from Object
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrentCulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:CurrentCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
-		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:CurrentCulture",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture",dnPackItem(P1))
 		return self
 
 	Func getCurrentUICulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:CurrentUICulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture","")
 
 	Func setCurrentUICulture P1
-		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:CurrentUICulture",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture",dnPackItem(P1))
 		return self
 
 	Func getInstalledUICulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s18:InstalledUICulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s18:InstalledUICulture","")
 
 	Func setInstalledUICulture P1
 		raise("DotNet Error: InstalledUICulture is a read-only property")
 
 	Func getDefaultThreadCurrentCulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s27:DefaultThreadCurrentCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture","")
 
 	Func setDefaultThreadCurrentCulture P1
-		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s27:DefaultThreadCurrentCulture",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture",dnPackItem(P1))
 		return self
 
 	Func getDefaultThreadCurrentUICulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s29:DefaultThreadCurrentUICulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture","")
 
 	Func setDefaultThreadCurrentUICulture P1
-		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s29:DefaultThreadCurrentUICulture",dnPackItem(P1))
+		dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture",dnPackItem(P1))
 		return self
 
 	Func getInvariantCulture
-		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:InvariantCulture","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:InvariantCulture","")
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
@@ -850,10 +850,10 @@ Class DateTimeFormatInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetInstance P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s11:GetInstance",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s11:GetInstance",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func getAMDesignator
 		return dnSend("s3:get",nHandle,"s12:AMDesignator","")
@@ -1033,13 +1033,13 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func getInvariantInfo
-		return dnSend("s3:get",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s13:InvariantInfo","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s13:InvariantInfo","")
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnSend("s3:get",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s11:CurrentInfo","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s11:CurrentInfo","")
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1095,7 +1095,7 @@ Class GlobalizationExtensions from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetStringComparer P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Globalization.GlobalizationExtensions, System.Private.CoreLib').nHandle,"s17:GetStringComparer",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.GlobalizationExtensions, System.Private.CoreLib'),"s17:GetStringComparer",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ISOWeek from Object
@@ -1113,22 +1113,22 @@ Class ISOWeek from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetWeekOfYear P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s13:GetWeekOfYear",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s13:GetWeekOfYear",dnPackItem(P1))
 
 	Func GetYear P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s7:GetYear",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s7:GetYear",dnPackItem(P1))
 
 	Func GetYearStart P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s12:GetYearStart",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s12:GetYearStart",dnPackItem(P1))
 
 	Func GetYearEnd P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s10:GetYearEnd",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s10:GetYearEnd",dnPackItem(P1))
 
 	Func GetWeeksInYear P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s14:GetWeeksInYear",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s14:GetWeeksInYear",dnPackItem(P1))
 
 	Func ToDateTime P1,P2,P3
-		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s10:ToDateTime",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class IdnMapping from Object
@@ -1245,10 +1245,10 @@ Class NumberFormatInfo from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetInstance P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s11:GetInstance",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s11:GetInstance",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func getCurrencyDecimalDigits
 		return dnSend("s3:get",nHandle,"s21:CurrencyDecimalDigits","")
@@ -1446,13 +1446,13 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getInvariantInfo
-		return dnSend("s3:get",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s13:InvariantInfo","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s13:InvariantInfo","")
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnSend("s3:get",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s11:CurrentInfo","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s11:CurrentInfo","")
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1568,7 +1568,7 @@ Class RegionInfo from Object
 		raise("DotNet Error: ISOCurrencySymbol is a read-only property")
 
 	Func getCurrentRegion
-		return dnSend("s3:get",dnTypeCached('System.Globalization.RegionInfo, System.Private.CoreLib').nHandle,"s13:CurrentRegion","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.RegionInfo, System.Private.CoreLib'),"s13:CurrentRegion","")
 
 	Func setCurrentRegion P1
 		raise("DotNet Error: CurrentRegion is a read-only property")
@@ -1592,7 +1592,7 @@ Class SortKey from Object
 		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.SortKey, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOriginalString
 		return dnSend("s3:get",nHandle,"s14:OriginalString","")
@@ -1689,24 +1689,24 @@ Class StringInfo from Object
 
 	Func GetNextTextElement P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s18:GetNextTextElement",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s18:GetNextTextElement",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",dnPackItem(P1))
 
 	Func GetNextTextElementLength P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetNextTextElementLength",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetNextTextElementLength",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",dnPackItem(P1))
 
 	Func GetTextElementEnumerator P1
 		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetTextElementEnumerator",dnPackItem(P1))
+			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetTextElementEnumerator",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetTextElementEnumerator",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetTextElementEnumerator",dnPackItem(P1))
 
 	Func ParseCombiningCharacters P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:ParseCombiningCharacters",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:ParseCombiningCharacters",dnPackItem(P1))
 
 	Func getString
 		return dnSend("s3:get",nHandle,"s6:String","")
@@ -1799,7 +1799,7 @@ Class TextInfo from Object
 		return dnSend("s4:call",nHandle,"s11:ToTitleCase",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
+		return dnSend("s4:call",dnTypeHandle('System.Globalization.TextInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
 
 	Func getANSICodePage
 		return dnSend("s3:get",nHandle,"s12:ANSICodePage","")
@@ -1925,7 +1925,7 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getADEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.GregorianCalendar, System.Private.CoreLib').nHandle,"s5:ADEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.GregorianCalendar, System.Private.CoreLib'),"s5:ADEra","")
 
 	Func setADEra P1
 		raise("DotNet Error: ADEra is a read-only property")
@@ -1954,7 +1954,7 @@ Class HebrewCalendar from Calendar
 		return self
 
 	Func getHebrewEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.HebrewCalendar, System.Private.CoreLib').nHandle,"s9:HebrewEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.HebrewCalendar, System.Private.CoreLib'),"s9:HebrewEra","")
 
 	Func setHebrewEra P1
 		raise("DotNet Error: HebrewEra is a read-only property")
@@ -1991,7 +1991,7 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.HijriCalendar, System.Private.CoreLib').nHandle,"s8:HijriEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.HijriCalendar, System.Private.CoreLib'),"s8:HijriEra","")
 
 	Func setHijriEra P1
 		raise("DotNet Error: HijriEra is a read-only property")
@@ -2041,7 +2041,7 @@ Class JulianCalendar from Calendar
 		return self
 
 	Func getJulianEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.JulianCalendar, System.Private.CoreLib').nHandle,"s9:JulianEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.JulianCalendar, System.Private.CoreLib'),"s9:JulianEra","")
 
 	Func setJulianEra P1
 		raise("DotNet Error: JulianEra is a read-only property")
@@ -2070,7 +2070,7 @@ Class KoreanCalendar from Calendar
 		return self
 
 	Func getKoreanEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.KoreanCalendar, System.Private.CoreLib').nHandle,"s9:KoreanEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.KoreanCalendar, System.Private.CoreLib'),"s9:KoreanEra","")
 
 	Func setKoreanEra P1
 		raise("DotNet Error: KoreanEra is a read-only property")
@@ -2099,7 +2099,7 @@ Class PersianCalendar from Calendar
 		return self
 
 	Func getPersianEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.PersianCalendar, System.Private.CoreLib').nHandle,"s10:PersianEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.PersianCalendar, System.Private.CoreLib'),"s10:PersianEra","")
 
 	Func setPersianEra P1
 		raise("DotNet Error: PersianEra is a read-only property")
@@ -2149,7 +2149,7 @@ Class ThaiBuddhistCalendar from Calendar
 		return self
 
 	Func getThaiBuddhistEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib').nHandle,"s15:ThaiBuddhistEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib'),"s15:ThaiBuddhistEra","")
 
 	Func setThaiBuddhistEra P1
 		raise("DotNet Error: ThaiBuddhistEra is a read-only property")
@@ -2178,7 +2178,7 @@ Class UmAlQuraCalendar from Calendar
 		return self
 
 	Func getUmAlQuraEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib').nHandle,"s11:UmAlQuraEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib'),"s11:UmAlQuraEra","")
 
 	Func setUmAlQuraEra P1
 		raise("DotNet Error: UmAlQuraEra is a read-only property")
@@ -2207,7 +2207,7 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getChineseEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib').nHandle,"s10:ChineseEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib'),"s10:ChineseEra","")
 
 	Func setChineseEra P1
 		raise("DotNet Error: ChineseEra is a read-only property")
@@ -2236,7 +2236,7 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getJapaneseEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib').nHandle,"s11:JapaneseEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib'),"s11:JapaneseEra","")
 
 	Func setJapaneseEra P1
 		raise("DotNet Error: JapaneseEra is a read-only property")
@@ -2265,7 +2265,7 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getGregorianEra
-		return dnSend("s3:get",dnTypeCached('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib').nHandle,"s12:GregorianEra","")
+		return dnSend("s3:get",dnTypeHandle('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib'),"s12:GregorianEra","")
 
 	Func setGregorianEra P1
 		raise("DotNet Error: GregorianEra is a read-only property")
