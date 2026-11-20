@@ -33,4 +33,29 @@ namespace MyCompany.Tools
 		public int Count { get; set; }
 		public void Increment() { Count++; }
 	}
+	// An interface that inherits another one, and a class that is not public: Shapes.NewBox returns the interface IBox.
+	// The wrapper must be IBox (the interface named after the class), with the members that IBox inherits from IShape.
+	public interface IShape
+	{
+		string Name { get; set; }
+		double Area();
+	}
+
+	public interface IBox : IShape
+	{
+		double Side { get; }
+	}
+
+	internal class Box : IShape, IBox
+	{
+		public string Name { get; set; } = "box";
+		public double Side { get; private set; }
+		public Box(double side) { Side = side; }
+		public double Area() { return Side * Side; }
+	}
+
+	public static class Shapes
+	{
+		public static IBox NewBox(double side) { return new Box(side); }
+	}
 }

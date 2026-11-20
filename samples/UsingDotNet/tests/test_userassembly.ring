@@ -36,6 +36,15 @@ oCalc.setChangedEvent("nEvents++")
 oCalc.Add(1)
 dnAssert("user event",nEvents,1)
 
+# a class that is not public comes back as the interface named after it (IBox), and an interface has the members of the interfaces it inherits
+oBox = new Shapes().NewBox(3)
+dnAssert("a non-public class is wrapped as the interface named after it",classname(oBox),"ibox")
+dnAssert("a member of the interface itself",oBox.Side,3)
+dnAssert("a method inherited from another interface",oBox.Area(),9)
+dnAssert("a property inherited from another interface",oBox.Name,"box")
+oBox.Name = "big"
+dnAssert("an inherited property can be set",oBox.Name,"big")
+
 oCounter = new Counter()
 oCounter.Increment()
 oCounter.Increment()

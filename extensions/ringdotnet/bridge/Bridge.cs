@@ -191,8 +191,13 @@ namespace RingDotNet
 			{
 				sb.Append('|').Append(t.FullName ?? t.Name);
 			}
-			/* then the interfaces (a class that is not generated can still be wrapped as ICryptoTransform, IDisposable...) */
-			foreach (Type i in type.GetInterfaces())
+			/* then the interfaces (a class that is not generated can still be wrapped as ICryptoTransform, IDisposable...).
+			   The most specific interface comes first: the one named after the class by the usual rule (XLWorksheet --> IXLWorksheet),
+			   then the ones that inherit the most interfaces. GetInterfaces gives no useful order, and a class that is not public
+			   (it is returned as the interface) would be wrapped as the first interface that has a wrapper, often a general one. */
+			string conventional = "I" + type.Name;
+			Type[] interfaces = type.GetInterfaces().OrderBy(i => i.Name == conventional ? 0 : 1).ThenByDescending(i => i.GetInterfaces().Length).ToArray();
+			foreach (Type i in interfaces)
 			{
 				if (i.IsVisible && count++ < 40)
 				{
@@ -914,7 +919,7 @@ namespace RingDotNet
 			r["props"] = props;
 			r["fields"] = fields;
 			List<object> indexers = new List<object>();
-			foreach (PropertyInfo p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+			foreach (PropertyInfo p in InterfaceAware(t).SelectMany(x => x.GetProperties(BindingFlags.Public | BindingFlags.Instance)))
 			{
 				ParameterInfo[] ips = p.GetIndexParameters();
 				if (ips.Length == 1 && p.GetMethod != null && p.GetMethod.IsPublic)
@@ -981,6 +986,14 @@ namespace RingDotNet
 		/* Public API of a type, used by the Ring class generator:
 		   [fullName, isStaticClass, [ctor:[paramTypes]], [method:[name,isStatic,returnType,[paramTypes]]],
 		    [member:[name,canRead,canWrite,isStatic,type]]] */
+		/* The types whose members describe t: an interface does not list what it inherits from other interfaces (IXLFont has no Bold: it is
+		   a member of IXLFontBase), so the members of the inherited interfaces count as its own. A class lists its inherited members itself. */
+		private static IEnumerable<Type> InterfaceAware(Type t)
+		{
+			if (!t.IsInterface) return new[] { t };
+			return new[] { t }.Concat(t.GetInterfaces());
+		}
+
 		private static List<object> Describe(Type t)
 		{
 			List<object> ctors = new List<object>();
@@ -1001,18 +1014,22 @@ namespace RingDotNet
 			List<object> methods = new List<object>();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
-				foreach (MethodInfo m in t.GetMethods(f))
+				HashSet<string> seenMethods = new HashSet<string>();
+				foreach (MethodInfo m in InterfaceAware(t).SelectMany(x => x.GetMethods(f)))
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
+					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
 					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m) });
 				}
 			}
 			List<object> members = new List<object>();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
-				foreach (PropertyInfo p in t.GetProperties(f))
+				HashSet<string> seenProperties = new HashSet<string>();
+				foreach (PropertyInfo p in InterfaceAware(t).SelectMany(x => x.GetProperties(f)))
 				{
 					if (p.GetIndexParameters().Length > 0) continue;
+					if (t.IsInterface && !seenProperties.Add(p.Name)) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
 					members.Add(new List<object> { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
@@ -1037,8 +1054,10 @@ namespace RingDotNet
 			List<object> events = new List<object>();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
-				foreach (EventInfo ev in t.GetEvents(f))
+				HashSet<string> seenEvents = new HashSet<string>();
+				foreach (EventInfo ev in InterfaceAware(t).SelectMany(x => x.GetEvents(f)))
 				{
+					if (t.IsInterface && !seenEvents.Add(ev.Name)) continue;
 					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
