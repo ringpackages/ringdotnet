@@ -17,6 +17,12 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - LINQ helpers (`dnQuery`), ready classes for the common closed generic types (`StringList`, `NumberDictionary`, `StringSet`, `ResponseTask`...), other generic types with `dnNewGeneric`.
 - Object code first: `new`, the dot and braces cover almost every call. The generic functions (`dnNew` with names, `dnStatic`, `dnType`, `callMethod`, `getProp`) are for the few cases that have no class.
 
+**Speed** (Windows, Ring 1.28, .NET 9; `samples/UsingDotNet/tests/bench_calls.ring` measures it on your computer)
+- A call that returns a text, a number, a yes/no or nothing, and a property read or write, is packed and read in C (`dotnet_call`, `dotnet_callv`): about 2 to 3 microseconds for a call, which is 350,000 to 450,000 calls per second. A call with an object as an argument, or one that returns an object, takes the Ring path.
+- The bridge remembers the overload that it chose for a kind of arguments, so a method with many overloads (`Math.Max`) costs about the same as one with a single overload.
+- `new Class(args)` takes about 25 microseconds (the bridge answers a handle number, and the unneeded default object of a class is released in a group).
+- `dnHandleCount()` gives the number of .NET objects that Ring holds, for tests of the release of handles.
+
 **Desktop**
 - Windows Forms and WPF classes, helper functions (`uiForm`, `wpfXaml`...), keys typed into your own form for tests.
 - Self-testing programs: the checks of a window program are in `selftest/<program>.ring` next to it, and `uiRun` / `wpfRun` run them when the program starts with `--selftest`. The programs themselves stay free of test code.
