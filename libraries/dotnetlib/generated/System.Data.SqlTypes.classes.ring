@@ -980,24 +980,24 @@ Class SqlDateTime from ValueType
 		raise("DotNet Error: TimeTicks is a read-only property")
 
 	Func getSQLTicksPerSecond
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerSecond")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerSecond",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerSecond")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerSecond",[]) ok
 		return dn_x
 
 	Func setSQLTicksPerSecond P1
 		raise("DotNet Error: SQLTicksPerSecond is a read-only property")
 
 	Func getSQLTicksPerMinute
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerMinute")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerMinute",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerMinute")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerMinute",[]) ok
 		return dn_x
 
 	Func setSQLTicksPerMinute P1
 		raise("DotNet Error: SQLTicksPerMinute is a read-only property")
 
 	Func getSQLTicksPerHour
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s15:SQLTicksPerHour")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s15:SQLTicksPerHour",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s15:SQLTicksPerHour")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s15:SQLTicksPerHour",[]) ok
 		return dn_x
 
 	Func setSQLTicksPerHour P1
@@ -1228,16 +1228,16 @@ Class SqlDecimal from ValueType
 		raise("DotNet Error: BinData is a read-only property")
 
 	Func getMaxPrecision
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s12:MaxPrecision")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s12:MaxPrecision",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s12:MaxPrecision")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s12:MaxPrecision",[]) ok
 		return dn_x
 
 	Func setMaxPrecision P1
 		raise("DotNet Error: MaxPrecision is a read-only property")
 
 	Func getMaxScale
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s8:MaxScale")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s8:MaxScale",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s8:MaxScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s8:MaxScale",[]) ok
 		return dn_x
 
 	Func setMaxScale P1
@@ -2563,48 +2563,48 @@ Class SqlString from ValueType
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getIgnoreCase
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:IgnoreCase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:IgnoreCase",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:IgnoreCase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:IgnoreCase",[]) ok
 		return dn_x
 
 	Func setIgnoreCase P1
 		raise("DotNet Error: IgnoreCase is a read-only property")
 
 	Func getIgnoreWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:IgnoreWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:IgnoreWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:IgnoreWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:IgnoreWidth",[]) ok
 		return dn_x
 
 	Func setIgnoreWidth P1
 		raise("DotNet Error: IgnoreWidth is a read-only property")
 
 	Func getIgnoreNonSpace
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreNonSpace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreNonSpace",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreNonSpace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreNonSpace",[]) ok
 		return dn_x
 
 	Func setIgnoreNonSpace P1
 		raise("DotNet Error: IgnoreNonSpace is a read-only property")
 
 	Func getIgnoreKanaType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreKanaType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreKanaType",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreKanaType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreKanaType",[]) ok
 		return dn_x
 
 	Func setIgnoreKanaType P1
 		raise("DotNet Error: IgnoreKanaType is a read-only property")
 
 	Func getBinarySort
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:BinarySort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:BinarySort",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:BinarySort")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:BinarySort",[]) ok
 		return dn_x
 
 	Func setBinarySort P1
 		raise("DotNet Error: BinarySort is a read-only property")
 
 	Func getBinarySort2
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:BinarySort2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:BinarySort2",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:BinarySort2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:BinarySort2",[]) ok
 		return dn_x
 
 	Func setBinarySort2 P1

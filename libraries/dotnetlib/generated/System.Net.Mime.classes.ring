@@ -258,16 +258,16 @@ Class DispositionTypeNames from Object
 		return dn_x
 
 	Func getInline
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s6:Inline")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s6:Inline",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s6:Inline")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s6:Inline",[]) ok
 		return dn_x
 
 	Func setInline P1
 		raise("DotNet Error: Inline is a read-only property")
 
 	Func getAttachment
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s10:Attachment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"s10:Attachment",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s10:Attachment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s10:Attachment",[]) ok
 		return dn_x
 
 	Func setAttachment P1

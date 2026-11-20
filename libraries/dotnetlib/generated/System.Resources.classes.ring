@@ -140,16 +140,16 @@ Class ResourceManager from Object
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber",[]) ok
 		return dn_x
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber",[]) ok
 		return dn_x
 
 	Func setHeaderVersionNumber P1

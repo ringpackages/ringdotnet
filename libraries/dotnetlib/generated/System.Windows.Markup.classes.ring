@@ -1209,8 +1209,8 @@ Class XamlWriter from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",[P1]) ok
 		return dn_x
 
 
@@ -1236,12 +1236,12 @@ Class XmlAttributeProperties from Object
 		return dn_x
 
 	Func GetXmlSpace P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:GetXmlSpace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:GetXmlSpace",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:GetXmlSpace",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:GetXmlSpace",[P1]) ok
 		return dn_x
 
 	Func SetXmlSpace P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:SetXmlSpace",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:SetXmlSpace",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:SetXmlSpace",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1250,18 +1250,18 @@ Class XmlAttributeProperties from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDictionary",dnPackItem(P1))
 
 	Func SetXmlnsDictionary P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDictionary",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDictionary",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDictionary",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetXmlnsDefinition P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDefinition",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDefinition",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:GetXmlnsDefinition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:GetXmlnsDefinition",[P1]) ok
 		return dn_x
 
 	Func SetXmlnsDefinition P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDefinition",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDefinition",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDefinition",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1270,7 +1270,7 @@ Class XmlAttributeProperties from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:GetXmlNamespaceMaps",dnPackItem(P1))
 
 	Func SetXmlNamespaceMaps P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:SetXmlNamespaceMaps",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s19:SetXmlNamespaceMaps",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:SetXmlNamespaceMaps",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

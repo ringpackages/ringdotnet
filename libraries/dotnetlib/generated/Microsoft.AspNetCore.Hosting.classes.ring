@@ -839,136 +839,136 @@ Class WebHostDefaults from Object
 		return dn_x
 
 	Func getApplicationKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:ApplicationKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:ApplicationKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ApplicationKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ApplicationKey",[]) ok
 		return dn_x
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getStartupAssemblyKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:StartupAssemblyKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:StartupAssemblyKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StartupAssemblyKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StartupAssemblyKey",[]) ok
 		return dn_x
 
 	Func setStartupAssemblyKey P1
 		raise("DotNet Error: StartupAssemblyKey is a read-only property")
 
 	Func getHostingStartupAssembliesKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s27:HostingStartupAssembliesKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s27:HostingStartupAssembliesKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s27:HostingStartupAssembliesKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s27:HostingStartupAssembliesKey",[]) ok
 		return dn_x
 
 	Func setHostingStartupAssembliesKey P1
 		raise("DotNet Error: HostingStartupAssembliesKey is a read-only property")
 
 	Func getHostingStartupExcludeAssembliesKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s34:HostingStartupExcludeAssembliesKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s34:HostingStartupExcludeAssembliesKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s34:HostingStartupExcludeAssembliesKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s34:HostingStartupExcludeAssembliesKey",[]) ok
 		return dn_x
 
 	Func setHostingStartupExcludeAssembliesKey P1
 		raise("DotNet Error: HostingStartupExcludeAssembliesKey is a read-only property")
 
 	Func getDetailedErrorsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s17:DetailedErrorsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s17:DetailedErrorsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s17:DetailedErrorsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s17:DetailedErrorsKey",[]) ok
 		return dn_x
 
 	Func setDetailedErrorsKey P1
 		raise("DotNet Error: DetailedErrorsKey is a read-only property")
 
 	Func getEnvironmentKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:EnvironmentKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:EnvironmentKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:EnvironmentKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:EnvironmentKey",[]) ok
 		return dn_x
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getWebRootKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s10:WebRootKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s10:WebRootKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s10:WebRootKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s10:WebRootKey",[]) ok
 		return dn_x
 
 	Func setWebRootKey P1
 		raise("DotNet Error: WebRootKey is a read-only property")
 
 	Func getCaptureStartupErrorsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s23:CaptureStartupErrorsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s23:CaptureStartupErrorsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s23:CaptureStartupErrorsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s23:CaptureStartupErrorsKey",[]) ok
 		return dn_x
 
 	Func setCaptureStartupErrorsKey P1
 		raise("DotNet Error: CaptureStartupErrorsKey is a read-only property")
 
 	Func getServerUrlsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s13:ServerUrlsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s13:ServerUrlsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:ServerUrlsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:ServerUrlsKey",[]) ok
 		return dn_x
 
 	Func setServerUrlsKey P1
 		raise("DotNet Error: ServerUrlsKey is a read-only property")
 
 	Func getHttpPortsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s12:HttpPortsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s12:HttpPortsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s12:HttpPortsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s12:HttpPortsKey",[]) ok
 		return dn_x
 
 	Func setHttpPortsKey P1
 		raise("DotNet Error: HttpPortsKey is a read-only property")
 
 	Func getHttpsPortsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s13:HttpsPortsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s13:HttpsPortsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:HttpsPortsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:HttpsPortsKey",[]) ok
 		return dn_x
 
 	Func setHttpsPortsKey P1
 		raise("DotNet Error: HttpsPortsKey is a read-only property")
 
 	Func getContentRootKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:ContentRootKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s14:ContentRootKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ContentRootKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ContentRootKey",[]) ok
 		return dn_x
 
 	Func setContentRootKey P1
 		raise("DotNet Error: ContentRootKey is a read-only property")
 
 	Func getPreferHostingUrlsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s20:PreferHostingUrlsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s20:PreferHostingUrlsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s20:PreferHostingUrlsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s20:PreferHostingUrlsKey",[]) ok
 		return dn_x
 
 	Func setPreferHostingUrlsKey P1
 		raise("DotNet Error: PreferHostingUrlsKey is a read-only property")
 
 	Func getPreventHostingStartupKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s24:PreventHostingStartupKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s24:PreventHostingStartupKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s24:PreventHostingStartupKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s24:PreventHostingStartupKey",[]) ok
 		return dn_x
 
 	Func setPreventHostingStartupKey P1
 		raise("DotNet Error: PreventHostingStartupKey is a read-only property")
 
 	Func getSuppressStatusMessagesKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s25:SuppressStatusMessagesKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s25:SuppressStatusMessagesKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s25:SuppressStatusMessagesKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s25:SuppressStatusMessagesKey",[]) ok
 		return dn_x
 
 	Func setSuppressStatusMessagesKey P1
 		raise("DotNet Error: SuppressStatusMessagesKey is a read-only property")
 
 	Func getShutdownTimeoutKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:ShutdownTimeoutKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:ShutdownTimeoutKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:ShutdownTimeoutKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:ShutdownTimeoutKey",[]) ok
 		return dn_x
 
 	Func setShutdownTimeoutKey P1
 		raise("DotNet Error: ShutdownTimeoutKey is a read-only property")
 
 	Func getStaticWebAssetsKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:StaticWebAssetsKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"s18:StaticWebAssetsKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StaticWebAssetsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StaticWebAssetsKey",[]) ok
 		return dn_x
 
 	Func setStaticWebAssetsKey P1
@@ -995,7 +995,7 @@ Class WebHostExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WaitForShutdown P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s15:WaitForShutdown",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting',"s15:WaitForShutdown",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s15:WaitForShutdown",dnPackItem(P1)) ok
 
 		return self
@@ -1007,7 +1007,7 @@ Class WebHostExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s20:WaitForShutdownAsync",dnPackItem(P1))
 
 	Func Run P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s3:Run",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting',"s3:Run",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"s3:Run",dnPackItem(P1)) ok
 
 		return self

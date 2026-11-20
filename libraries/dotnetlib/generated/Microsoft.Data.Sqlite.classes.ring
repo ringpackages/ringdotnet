@@ -216,13 +216,13 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func ClearAllPools 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s13:ClearAllPools")
+		dn_x = dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s13:ClearAllPools")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s13:ClearAllPools","") ok
 
 		return self
 
 	Func ClearPool P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s9:ClearPool",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s9:ClearPool",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s9:ClearPool",dnPackItem(P1)) ok
 
 		return self

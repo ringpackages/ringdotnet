@@ -112,8 +112,8 @@ Class JsonNode from Object
 		return dn_x
 
 	Func DeepEquals P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s10:DeepEquals",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s10:DeepEquals",[P1,P2]) ok
 		return dn_x
 
 	Func Parse P1

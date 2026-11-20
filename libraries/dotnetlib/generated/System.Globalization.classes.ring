@@ -396,8 +396,8 @@ Class Calendar from Object
 		return self
 
 	Func getCurrentEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.Calendar, System.Private.CoreLib'),"s10:CurrentEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.Calendar, System.Private.CoreLib'),"s10:CurrentEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra",[]) ok
 		return dn_x
 
 	Func setCurrentEra P1
@@ -424,24 +424,24 @@ Class CharUnicodeInfo from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",[P1]) ok
 		return dn_x
 
 	Func GetDigitValue P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",[P1]) ok
 		return dn_x
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",[P1]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
@@ -525,8 +525,8 @@ Class CompareInfo from Object
 		return dnSend("s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
 
 	Func IsSortable P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s10:IsSortable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s10:IsSortable",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s10:IsSortable",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s10:IsSortable",[P1]) ok
 		return dn_x
 
 	Func getName
@@ -806,7 +806,7 @@ Class CultureInfo from Object
 		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture",P1)
+		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:CurrentCulture",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture",dnPackItem(P1)) ok
 		return self
 
@@ -814,7 +814,7 @@ Class CultureInfo from Object
 		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture","")
 
 	Func setCurrentUICulture P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture",P1)
+		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s16:CurrentUICulture",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture",dnPackItem(P1)) ok
 		return self
 
@@ -828,7 +828,7 @@ Class CultureInfo from Object
 		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture","")
 
 	Func setDefaultThreadCurrentCulture P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture",P1)
+		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s27:DefaultThreadCurrentCulture",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture",dnPackItem(P1)) ok
 		return self
 
@@ -836,7 +836,7 @@ Class CultureInfo from Object
 		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture","")
 
 	Func setDefaultThreadCurrentUICulture P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture",P1)
+		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s29:DefaultThreadCurrentUICulture",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture",dnPackItem(P1)) ok
 		return self
 
@@ -1285,13 +1285,13 @@ Class ISOWeek from Object
 		return dn_x
 
 	Func GetWeekOfYear P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s13:GetWeekOfYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s13:GetWeekOfYear",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s13:GetWeekOfYear",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s13:GetWeekOfYear",[P1]) ok
 		return dn_x
 
 	Func GetYear P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s7:GetYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s7:GetYear",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s7:GetYear",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s7:GetYear",[P1]) ok
 		return dn_x
 
 	Func GetYearStart P1
@@ -1301,8 +1301,8 @@ Class ISOWeek from Object
 		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s10:GetYearEnd",dnPackItem(P1))
 
 	Func GetWeeksInYear P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s14:GetWeeksInYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s14:GetWeeksInYear",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s14:GetWeeksInYear",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s14:GetWeeksInYear",[P1]) ok
 		return dn_x
 
 	Func ToDateTime P1,P2,P3
@@ -1887,8 +1887,8 @@ Class SortKey from Object
 		return dn_x
 
 	Func Compare P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.SortKey, System.Private.CoreLib'),"s7:Compare",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.SortKey, System.Private.CoreLib'),"s7:Compare",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.SortKey, System.Private.CoreLib',"s7:Compare",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.SortKey, System.Private.CoreLib',"s7:Compare",[P1,P2]) ok
 		return dn_x
 
 	Func getOriginalString
@@ -1998,16 +1998,16 @@ Class StringInfo from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",[P1]) ok
 		return dn_x
 
 	Func GetNextTextElementLength P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",[P1]) ok
 		return dn_x
 
 	Func GetTextElementEnumerator P1
@@ -2281,8 +2281,8 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getADEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.GregorianCalendar, System.Private.CoreLib'),"s5:ADEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.GregorianCalendar, System.Private.CoreLib'),"s5:ADEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra",[]) ok
 		return dn_x
 
 	Func setADEra P1
@@ -2312,8 +2312,8 @@ Class HebrewCalendar from Calendar
 		return self
 
 	Func getHebrewEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.HebrewCalendar, System.Private.CoreLib'),"s9:HebrewEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.HebrewCalendar, System.Private.CoreLib'),"s9:HebrewEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra",[]) ok
 		return dn_x
 
 	Func setHebrewEra P1
@@ -2354,8 +2354,8 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.HijriCalendar, System.Private.CoreLib'),"s8:HijriEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.HijriCalendar, System.Private.CoreLib'),"s8:HijriEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra",[]) ok
 		return dn_x
 
 	Func setHijriEra P1
@@ -2406,8 +2406,8 @@ Class JulianCalendar from Calendar
 		return self
 
 	Func getJulianEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.JulianCalendar, System.Private.CoreLib'),"s9:JulianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.JulianCalendar, System.Private.CoreLib'),"s9:JulianEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra",[]) ok
 		return dn_x
 
 	Func setJulianEra P1
@@ -2437,8 +2437,8 @@ Class KoreanCalendar from Calendar
 		return self
 
 	Func getKoreanEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.KoreanCalendar, System.Private.CoreLib'),"s9:KoreanEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.KoreanCalendar, System.Private.CoreLib'),"s9:KoreanEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra",[]) ok
 		return dn_x
 
 	Func setKoreanEra P1
@@ -2468,8 +2468,8 @@ Class PersianCalendar from Calendar
 		return self
 
 	Func getPersianEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.PersianCalendar, System.Private.CoreLib'),"s10:PersianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.PersianCalendar, System.Private.CoreLib'),"s10:PersianEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra",[]) ok
 		return dn_x
 
 	Func setPersianEra P1
@@ -2520,8 +2520,8 @@ Class ThaiBuddhistCalendar from Calendar
 		return self
 
 	Func getThaiBuddhistEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib'),"s15:ThaiBuddhistEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib'),"s15:ThaiBuddhistEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra",[]) ok
 		return dn_x
 
 	Func setThaiBuddhistEra P1
@@ -2551,8 +2551,8 @@ Class UmAlQuraCalendar from Calendar
 		return self
 
 	Func getUmAlQuraEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib'),"s11:UmAlQuraEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib'),"s11:UmAlQuraEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra",[]) ok
 		return dn_x
 
 	Func setUmAlQuraEra P1
@@ -2582,8 +2582,8 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getChineseEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib'),"s10:ChineseEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib'),"s10:ChineseEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra",[]) ok
 		return dn_x
 
 	Func setChineseEra P1
@@ -2613,8 +2613,8 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getJapaneseEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib'),"s11:JapaneseEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib'),"s11:JapaneseEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra",[]) ok
 		return dn_x
 
 	Func setJapaneseEra P1
@@ -2644,8 +2644,8 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getGregorianEra
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib'),"s12:GregorianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib'),"s12:GregorianEra",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra",[]) ok
 		return dn_x
 
 	Func setGregorianEra P1

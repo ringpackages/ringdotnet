@@ -1156,8 +1156,8 @@ Class PrinterUnitConvert from Object
 		return dn_x
 
 	Func Convert P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"s7:Convert",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"s7:Convert",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common',"s7:Convert",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common',"s7:Convert",[P1,P2,P3]) ok
 		return dn_x
 
 

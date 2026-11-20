@@ -307,96 +307,96 @@ Class AspCacheControlHeaderValue from Object
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getPublicString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s12:PublicString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s12:PublicString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s12:PublicString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s12:PublicString",[]) ok
 		return dn_x
 
 	Func setPublicString P1
 		raise("DotNet Error: PublicString is a read-only property")
 
 	Func getPrivateString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:PrivateString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:PrivateString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:PrivateString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:PrivateString",[]) ok
 		return dn_x
 
 	Func setPrivateString P1
 		raise("DotNet Error: PrivateString is a read-only property")
 
 	Func getMaxAgeString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s12:MaxAgeString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s12:MaxAgeString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s12:MaxAgeString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s12:MaxAgeString",[]) ok
 		return dn_x
 
 	Func setMaxAgeString P1
 		raise("DotNet Error: MaxAgeString is a read-only property")
 
 	Func getSharedMaxAgeString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s18:SharedMaxAgeString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s18:SharedMaxAgeString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s18:SharedMaxAgeString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s18:SharedMaxAgeString",[]) ok
 		return dn_x
 
 	Func setSharedMaxAgeString P1
 		raise("DotNet Error: SharedMaxAgeString is a read-only property")
 
 	Func getNoCacheString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:NoCacheString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:NoCacheString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:NoCacheString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:NoCacheString",[]) ok
 		return dn_x
 
 	Func setNoCacheString P1
 		raise("DotNet Error: NoCacheString is a read-only property")
 
 	Func getNoStoreString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:NoStoreString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s13:NoStoreString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:NoStoreString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s13:NoStoreString",[]) ok
 		return dn_x
 
 	Func setNoStoreString P1
 		raise("DotNet Error: NoStoreString is a read-only property")
 
 	Func getMaxStaleString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s14:MaxStaleString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s14:MaxStaleString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s14:MaxStaleString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s14:MaxStaleString",[]) ok
 		return dn_x
 
 	Func setMaxStaleString P1
 		raise("DotNet Error: MaxStaleString is a read-only property")
 
 	Func getMinFreshString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s14:MinFreshString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s14:MinFreshString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s14:MinFreshString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s14:MinFreshString",[]) ok
 		return dn_x
 
 	Func setMinFreshString P1
 		raise("DotNet Error: MinFreshString is a read-only property")
 
 	Func getNoTransformString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s17:NoTransformString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s17:NoTransformString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s17:NoTransformString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s17:NoTransformString",[]) ok
 		return dn_x
 
 	Func setNoTransformString P1
 		raise("DotNet Error: NoTransformString is a read-only property")
 
 	Func getOnlyIfCachedString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s18:OnlyIfCachedString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s18:OnlyIfCachedString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s18:OnlyIfCachedString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s18:OnlyIfCachedString",[]) ok
 		return dn_x
 
 	Func setOnlyIfCachedString P1
 		raise("DotNet Error: OnlyIfCachedString is a read-only property")
 
 	Func getMustRevalidateString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s20:MustRevalidateString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s20:MustRevalidateString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s20:MustRevalidateString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s20:MustRevalidateString",[]) ok
 		return dn_x
 
 	Func setMustRevalidateString P1
 		raise("DotNet Error: MustRevalidateString is a read-only property")
 
 	Func getProxyRevalidateString
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s21:ProxyRevalidateString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s21:ProxyRevalidateString",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s21:ProxyRevalidateString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',"s21:ProxyRevalidateString",[]) ok
 		return dn_x
 
 	Func setProxyRevalidateString P1
@@ -537,13 +537,13 @@ Class ContentDispositionHeaderValueIdentityExtensions from Object
 		return dn_x
 
 	Func IsFileDisposition P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"s17:IsFileDisposition",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"s17:IsFileDisposition",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers',"s17:IsFileDisposition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers',"s17:IsFileDisposition",[P1]) ok
 		return dn_x
 
 	Func IsFormDisposition P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"s17:IsFormDisposition",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"s17:IsFormDisposition",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers',"s17:IsFormDisposition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers',"s17:IsFormDisposition",[P1]) ok
 		return dn_x
 
 
@@ -902,768 +902,768 @@ Class HeaderNames from Object
 		return dn_x
 
 	Func getAccept
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Accept")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Accept",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Accept")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Accept",[]) ok
 		return dn_x
 
 	Func setAccept P1
 		raise("DotNet Error: Accept is a read-only property")
 
 	Func getAcceptCharset
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:AcceptCharset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:AcceptCharset",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:AcceptCharset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:AcceptCharset",[]) ok
 		return dn_x
 
 	Func setAcceptCharset P1
 		raise("DotNet Error: AcceptCharset is a read-only property")
 
 	Func getAcceptEncoding
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:AcceptEncoding")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:AcceptEncoding",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:AcceptEncoding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:AcceptEncoding",[]) ok
 		return dn_x
 
 	Func setAcceptEncoding P1
 		raise("DotNet Error: AcceptEncoding is a read-only property")
 
 	Func getAcceptLanguage
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:AcceptLanguage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:AcceptLanguage",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:AcceptLanguage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:AcceptLanguage",[]) ok
 		return dn_x
 
 	Func setAcceptLanguage P1
 		raise("DotNet Error: AcceptLanguage is a read-only property")
 
 	Func getAcceptRanges
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:AcceptRanges")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:AcceptRanges",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:AcceptRanges")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:AcceptRanges",[]) ok
 		return dn_x
 
 	Func setAcceptRanges P1
 		raise("DotNet Error: AcceptRanges is a read-only property")
 
 	Func getAccessControlAllowCredentials
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s29:AccessControlAllowCredentials")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s29:AccessControlAllowCredentials",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s29:AccessControlAllowCredentials")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s29:AccessControlAllowCredentials",[]) ok
 		return dn_x
 
 	Func setAccessControlAllowCredentials P1
 		raise("DotNet Error: AccessControlAllowCredentials is a read-only property")
 
 	Func getAccessControlAllowHeaders
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s25:AccessControlAllowHeaders")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s25:AccessControlAllowHeaders",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s25:AccessControlAllowHeaders")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s25:AccessControlAllowHeaders",[]) ok
 		return dn_x
 
 	Func setAccessControlAllowHeaders P1
 		raise("DotNet Error: AccessControlAllowHeaders is a read-only property")
 
 	Func getAccessControlAllowMethods
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s25:AccessControlAllowMethods")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s25:AccessControlAllowMethods",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s25:AccessControlAllowMethods")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s25:AccessControlAllowMethods",[]) ok
 		return dn_x
 
 	Func setAccessControlAllowMethods P1
 		raise("DotNet Error: AccessControlAllowMethods is a read-only property")
 
 	Func getAccessControlAllowOrigin
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s24:AccessControlAllowOrigin")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s24:AccessControlAllowOrigin",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s24:AccessControlAllowOrigin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s24:AccessControlAllowOrigin",[]) ok
 		return dn_x
 
 	Func setAccessControlAllowOrigin P1
 		raise("DotNet Error: AccessControlAllowOrigin is a read-only property")
 
 	Func getAccessControlExposeHeaders
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s26:AccessControlExposeHeaders")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s26:AccessControlExposeHeaders",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s26:AccessControlExposeHeaders")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s26:AccessControlExposeHeaders",[]) ok
 		return dn_x
 
 	Func setAccessControlExposeHeaders P1
 		raise("DotNet Error: AccessControlExposeHeaders is a read-only property")
 
 	Func getAccessControlMaxAge
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:AccessControlMaxAge")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:AccessControlMaxAge",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:AccessControlMaxAge")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:AccessControlMaxAge",[]) ok
 		return dn_x
 
 	Func setAccessControlMaxAge P1
 		raise("DotNet Error: AccessControlMaxAge is a read-only property")
 
 	Func getAccessControlRequestHeaders
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s27:AccessControlRequestHeaders")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s27:AccessControlRequestHeaders",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s27:AccessControlRequestHeaders")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s27:AccessControlRequestHeaders",[]) ok
 		return dn_x
 
 	Func setAccessControlRequestHeaders P1
 		raise("DotNet Error: AccessControlRequestHeaders is a read-only property")
 
 	Func getAccessControlRequestMethod
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s26:AccessControlRequestMethod")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s26:AccessControlRequestMethod",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s26:AccessControlRequestMethod")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s26:AccessControlRequestMethod",[]) ok
 		return dn_x
 
 	Func setAccessControlRequestMethod P1
 		raise("DotNet Error: AccessControlRequestMethod is a read-only property")
 
 	Func getAge
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:Age")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:Age",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:Age")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:Age",[]) ok
 		return dn_x
 
 	Func setAge P1
 		raise("DotNet Error: Age is a read-only property")
 
 	Func getAllow
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s5:Allow")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s5:Allow",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s5:Allow")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s5:Allow",[]) ok
 		return dn_x
 
 	Func setAllow P1
 		raise("DotNet Error: Allow is a read-only property")
 
 	Func getAltSvc
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:AltSvc")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:AltSvc",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:AltSvc")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:AltSvc",[]) ok
 		return dn_x
 
 	Func setAltSvc P1
 		raise("DotNet Error: AltSvc is a read-only property")
 
 	Func getAuthority
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:Authority")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:Authority",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:Authority")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:Authority",[]) ok
 		return dn_x
 
 	Func setAuthority P1
 		raise("DotNet Error: Authority is a read-only property")
 
 	Func getAuthorization
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:Authorization")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:Authorization",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:Authorization")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:Authorization",[]) ok
 		return dn_x
 
 	Func setAuthorization P1
 		raise("DotNet Error: Authorization is a read-only property")
 
 	Func getBaggage
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Baggage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Baggage",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Baggage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Baggage",[]) ok
 		return dn_x
 
 	Func setBaggage P1
 		raise("DotNet Error: Baggage is a read-only property")
 
 	Func getCacheControl
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:CacheControl")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:CacheControl",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:CacheControl")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:CacheControl",[]) ok
 		return dn_x
 
 	Func setCacheControl P1
 		raise("DotNet Error: CacheControl is a read-only property")
 
 	Func getConnection
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:Connection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:Connection",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:Connection")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:Connection",[]) ok
 		return dn_x
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getContentDisposition
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:ContentDisposition")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:ContentDisposition",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:ContentDisposition")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:ContentDisposition",[]) ok
 		return dn_x
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
 
 	Func getContentEncoding
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentEncoding")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentEncoding",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentEncoding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentEncoding",[]) ok
 		return dn_x
 
 	Func setContentEncoding P1
 		raise("DotNet Error: ContentEncoding is a read-only property")
 
 	Func getContentLanguage
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentLanguage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentLanguage",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentLanguage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentLanguage",[]) ok
 		return dn_x
 
 	Func setContentLanguage P1
 		raise("DotNet Error: ContentLanguage is a read-only property")
 
 	Func getContentLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:ContentLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:ContentLength",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:ContentLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:ContentLength",[]) ok
 		return dn_x
 
 	Func setContentLength P1
 		raise("DotNet Error: ContentLength is a read-only property")
 
 	Func getContentLocation
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentLocation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ContentLocation",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentLocation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ContentLocation",[]) ok
 		return dn_x
 
 	Func setContentLocation P1
 		raise("DotNet Error: ContentLocation is a read-only property")
 
 	Func getContentMD5
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:ContentMD5")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:ContentMD5",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:ContentMD5")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:ContentMD5",[]) ok
 		return dn_x
 
 	Func setContentMD5 P1
 		raise("DotNet Error: ContentMD5 is a read-only property")
 
 	Func getContentRange
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:ContentRange")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:ContentRange",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:ContentRange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:ContentRange",[]) ok
 		return dn_x
 
 	Func setContentRange P1
 		raise("DotNet Error: ContentRange is a read-only property")
 
 	Func getContentSecurityPolicy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s21:ContentSecurityPolicy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s21:ContentSecurityPolicy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s21:ContentSecurityPolicy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s21:ContentSecurityPolicy",[]) ok
 		return dn_x
 
 	Func setContentSecurityPolicy P1
 		raise("DotNet Error: ContentSecurityPolicy is a read-only property")
 
 	Func getContentSecurityPolicyReportOnly
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s31:ContentSecurityPolicyReportOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s31:ContentSecurityPolicyReportOnly",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s31:ContentSecurityPolicyReportOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s31:ContentSecurityPolicyReportOnly",[]) ok
 		return dn_x
 
 	Func setContentSecurityPolicyReportOnly P1
 		raise("DotNet Error: ContentSecurityPolicyReportOnly is a read-only property")
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:ContentType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:ContentType",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:ContentType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:ContentType",[]) ok
 		return dn_x
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getCorrelationContext
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:CorrelationContext")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:CorrelationContext",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:CorrelationContext")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:CorrelationContext",[]) ok
 		return dn_x
 
 	Func setCorrelationContext P1
 		raise("DotNet Error: CorrelationContext is a read-only property")
 
 	Func getCookie
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Cookie")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Cookie",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Cookie")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Cookie",[]) ok
 		return dn_x
 
 	Func setCookie P1
 		raise("DotNet Error: Cookie is a read-only property")
 
 	Func getDate
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Date")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Date",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Date")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Date",[]) ok
 		return dn_x
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDNT
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:DNT")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:DNT",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:DNT")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:DNT",[]) ok
 		return dn_x
 
 	Func setDNT P1
 		raise("DotNet Error: DNT is a read-only property")
 
 	Func getETag
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:ETag")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:ETag",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:ETag")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:ETag",[]) ok
 		return dn_x
 
 	Func setETag P1
 		raise("DotNet Error: ETag is a read-only property")
 
 	Func getExpires
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Expires")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Expires",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Expires")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Expires",[]) ok
 		return dn_x
 
 	Func setExpires P1
 		raise("DotNet Error: Expires is a read-only property")
 
 	Func getExpect
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Expect")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Expect",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Expect")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Expect",[]) ok
 		return dn_x
 
 	Func setExpect P1
 		raise("DotNet Error: Expect is a read-only property")
 
 	Func getFrom
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:From")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:From",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:From")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:From",[]) ok
 		return dn_x
 
 	Func setFrom P1
 		raise("DotNet Error: From is a read-only property")
 
 	Func getGrpcAcceptEncoding
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:GrpcAcceptEncoding")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:GrpcAcceptEncoding",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:GrpcAcceptEncoding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:GrpcAcceptEncoding",[]) ok
 		return dn_x
 
 	Func setGrpcAcceptEncoding P1
 		raise("DotNet Error: GrpcAcceptEncoding is a read-only property")
 
 	Func getGrpcEncoding
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:GrpcEncoding")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:GrpcEncoding",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:GrpcEncoding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:GrpcEncoding",[]) ok
 		return dn_x
 
 	Func setGrpcEncoding P1
 		raise("DotNet Error: GrpcEncoding is a read-only property")
 
 	Func getGrpcMessage
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:GrpcMessage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:GrpcMessage",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:GrpcMessage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:GrpcMessage",[]) ok
 		return dn_x
 
 	Func setGrpcMessage P1
 		raise("DotNet Error: GrpcMessage is a read-only property")
 
 	Func getGrpcStatus
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:GrpcStatus")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:GrpcStatus",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:GrpcStatus")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:GrpcStatus",[]) ok
 		return dn_x
 
 	Func setGrpcStatus P1
 		raise("DotNet Error: GrpcStatus is a read-only property")
 
 	Func getGrpcTimeout
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:GrpcTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:GrpcTimeout",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:GrpcTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:GrpcTimeout",[]) ok
 		return dn_x
 
 	Func setGrpcTimeout P1
 		raise("DotNet Error: GrpcTimeout is a read-only property")
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Host")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Host",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Host")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Host",[]) ok
 		return dn_x
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getKeepAlive
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:KeepAlive")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:KeepAlive",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:KeepAlive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:KeepAlive",[]) ok
 		return dn_x
 
 	Func setKeepAlive P1
 		raise("DotNet Error: KeepAlive is a read-only property")
 
 	Func getIfMatch
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:IfMatch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:IfMatch",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:IfMatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:IfMatch",[]) ok
 		return dn_x
 
 	Func setIfMatch P1
 		raise("DotNet Error: IfMatch is a read-only property")
 
 	Func getIfModifiedSince
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:IfModifiedSince")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:IfModifiedSince",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:IfModifiedSince")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:IfModifiedSince",[]) ok
 		return dn_x
 
 	Func setIfModifiedSince P1
 		raise("DotNet Error: IfModifiedSince is a read-only property")
 
 	Func getIfNoneMatch
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:IfNoneMatch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:IfNoneMatch",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:IfNoneMatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:IfNoneMatch",[]) ok
 		return dn_x
 
 	Func setIfNoneMatch P1
 		raise("DotNet Error: IfNoneMatch is a read-only property")
 
 	Func getIfRange
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:IfRange")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:IfRange",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:IfRange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:IfRange",[]) ok
 		return dn_x
 
 	Func setIfRange P1
 		raise("DotNet Error: IfRange is a read-only property")
 
 	Func getIfUnmodifiedSince
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s17:IfUnmodifiedSince")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s17:IfUnmodifiedSince",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s17:IfUnmodifiedSince")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s17:IfUnmodifiedSince",[]) ok
 		return dn_x
 
 	Func setIfUnmodifiedSince P1
 		raise("DotNet Error: IfUnmodifiedSince is a read-only property")
 
 	Func getLastModified
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:LastModified")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s12:LastModified",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:LastModified")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s12:LastModified",[]) ok
 		return dn_x
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLink
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Link")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Link",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Link")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Link",[]) ok
 		return dn_x
 
 	Func setLink P1
 		raise("DotNet Error: Link is a read-only property")
 
 	Func getLocation
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s8:Location")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s8:Location",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s8:Location")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s8:Location",[]) ok
 		return dn_x
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getMaxForwards
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:MaxForwards")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:MaxForwards",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:MaxForwards")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:MaxForwards",[]) ok
 		return dn_x
 
 	Func setMaxForwards P1
 		raise("DotNet Error: MaxForwards is a read-only property")
 
 	Func getMethod
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Method")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Method",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Method")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Method",[]) ok
 		return dn_x
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getOrigin
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Origin")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Origin",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Origin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Origin",[]) ok
 		return dn_x
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Path")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Path",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Path",[]) ok
 		return dn_x
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getPragma
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Pragma")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Pragma",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Pragma")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Pragma",[]) ok
 		return dn_x
 
 	Func setPragma P1
 		raise("DotNet Error: Pragma is a read-only property")
 
 	Func getProxyAuthenticate
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s17:ProxyAuthenticate")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s17:ProxyAuthenticate",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s17:ProxyAuthenticate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s17:ProxyAuthenticate",[]) ok
 		return dn_x
 
 	Func setProxyAuthenticate P1
 		raise("DotNet Error: ProxyAuthenticate is a read-only property")
 
 	Func getProxyAuthorization
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:ProxyAuthorization")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:ProxyAuthorization",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:ProxyAuthorization")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:ProxyAuthorization",[]) ok
 		return dn_x
 
 	Func setProxyAuthorization P1
 		raise("DotNet Error: ProxyAuthorization is a read-only property")
 
 	Func getProxyConnection
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ProxyConnection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:ProxyConnection",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ProxyConnection")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:ProxyConnection",[]) ok
 		return dn_x
 
 	Func setProxyConnection P1
 		raise("DotNet Error: ProxyConnection is a read-only property")
 
 	Func getRange
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s5:Range")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s5:Range",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s5:Range")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s5:Range",[]) ok
 		return dn_x
 
 	Func setRange P1
 		raise("DotNet Error: Range is a read-only property")
 
 	Func getReferer
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Referer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Referer",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Referer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Referer",[]) ok
 		return dn_x
 
 	Func setReferer P1
 		raise("DotNet Error: Referer is a read-only property")
 
 	Func getRetryAfter
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:RetryAfter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:RetryAfter",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:RetryAfter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:RetryAfter",[]) ok
 		return dn_x
 
 	Func setRetryAfter P1
 		raise("DotNet Error: RetryAfter is a read-only property")
 
 	Func getRequestId
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:RequestId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:RequestId",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:RequestId")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:RequestId",[]) ok
 		return dn_x
 
 	Func setRequestId P1
 		raise("DotNet Error: RequestId is a read-only property")
 
 	Func getScheme
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Scheme")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Scheme",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Scheme")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Scheme",[]) ok
 		return dn_x
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getSecWebSocketAccept
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:SecWebSocketAccept")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s18:SecWebSocketAccept",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:SecWebSocketAccept")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s18:SecWebSocketAccept",[]) ok
 		return dn_x
 
 	Func setSecWebSocketAccept P1
 		raise("DotNet Error: SecWebSocketAccept is a read-only property")
 
 	Func getSecWebSocketKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:SecWebSocketKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:SecWebSocketKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:SecWebSocketKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:SecWebSocketKey",[]) ok
 		return dn_x
 
 	Func setSecWebSocketKey P1
 		raise("DotNet Error: SecWebSocketKey is a read-only property")
 
 	Func getSecWebSocketProtocol
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s20:SecWebSocketProtocol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s20:SecWebSocketProtocol",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s20:SecWebSocketProtocol")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s20:SecWebSocketProtocol",[]) ok
 		return dn_x
 
 	Func setSecWebSocketProtocol P1
 		raise("DotNet Error: SecWebSocketProtocol is a read-only property")
 
 	Func getSecWebSocketVersion
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:SecWebSocketVersion")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:SecWebSocketVersion",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:SecWebSocketVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:SecWebSocketVersion",[]) ok
 		return dn_x
 
 	Func setSecWebSocketVersion P1
 		raise("DotNet Error: SecWebSocketVersion is a read-only property")
 
 	Func getSecWebSocketExtensions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s22:SecWebSocketExtensions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s22:SecWebSocketExtensions",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s22:SecWebSocketExtensions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s22:SecWebSocketExtensions",[]) ok
 		return dn_x
 
 	Func setSecWebSocketExtensions P1
 		raise("DotNet Error: SecWebSocketExtensions is a read-only property")
 
 	Func getServer
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Server")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Server",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Server")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Server",[]) ok
 		return dn_x
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
 
 	Func getSetCookie
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:SetCookie")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:SetCookie",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:SetCookie")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:SetCookie",[]) ok
 		return dn_x
 
 	Func setSetCookie P1
 		raise("DotNet Error: SetCookie is a read-only property")
 
 	Func getStatus
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Status")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s6:Status",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Status")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s6:Status",[]) ok
 		return dn_x
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getStrictTransportSecurity
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s23:StrictTransportSecurity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s23:StrictTransportSecurity",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s23:StrictTransportSecurity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s23:StrictTransportSecurity",[]) ok
 		return dn_x
 
 	Func setStrictTransportSecurity P1
 		raise("DotNet Error: StrictTransportSecurity is a read-only property")
 
 	Func getTE
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s2:TE")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s2:TE",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s2:TE")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s2:TE",[]) ok
 		return dn_x
 
 	Func setTE P1
 		raise("DotNet Error: TE is a read-only property")
 
 	Func getTrailer
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Trailer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Trailer",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Trailer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Trailer",[]) ok
 		return dn_x
 
 	Func setTrailer P1
 		raise("DotNet Error: Trailer is a read-only property")
 
 	Func getTransferEncoding
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s16:TransferEncoding")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s16:TransferEncoding",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s16:TransferEncoding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s16:TransferEncoding",[]) ok
 		return dn_x
 
 	Func setTransferEncoding P1
 		raise("DotNet Error: TransferEncoding is a read-only property")
 
 	Func getTranslate
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:Translate")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:Translate",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:Translate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:Translate",[]) ok
 		return dn_x
 
 	Func setTranslate P1
 		raise("DotNet Error: Translate is a read-only property")
 
 	Func getTraceParent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:TraceParent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s11:TraceParent",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:TraceParent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s11:TraceParent",[]) ok
 		return dn_x
 
 	Func setTraceParent P1
 		raise("DotNet Error: TraceParent is a read-only property")
 
 	Func getTraceState
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:TraceState")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:TraceState",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:TraceState")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:TraceState",[]) ok
 		return dn_x
 
 	Func setTraceState P1
 		raise("DotNet Error: TraceState is a read-only property")
 
 	Func getUpgrade
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Upgrade")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Upgrade",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Upgrade")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Upgrade",[]) ok
 		return dn_x
 
 	Func setUpgrade P1
 		raise("DotNet Error: Upgrade is a read-only property")
 
 	Func getUpgradeInsecureRequests
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s23:UpgradeInsecureRequests")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s23:UpgradeInsecureRequests",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s23:UpgradeInsecureRequests")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s23:UpgradeInsecureRequests",[]) ok
 		return dn_x
 
 	Func setUpgradeInsecureRequests P1
 		raise("DotNet Error: UpgradeInsecureRequests is a read-only property")
 
 	Func getUserAgent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:UserAgent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s9:UserAgent",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:UserAgent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s9:UserAgent",[]) ok
 		return dn_x
 
 	Func setUserAgent P1
 		raise("DotNet Error: UserAgent is a read-only property")
 
 	Func getVary
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Vary")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s4:Vary",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Vary")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s4:Vary",[]) ok
 		return dn_x
 
 	Func setVary P1
 		raise("DotNet Error: Vary is a read-only property")
 
 	Func getVia
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:Via")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s3:Via",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:Via")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s3:Via",[]) ok
 		return dn_x
 
 	Func setVia P1
 		raise("DotNet Error: Via is a read-only property")
 
 	Func getWarning
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Warning")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s7:Warning",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Warning")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s7:Warning",[]) ok
 		return dn_x
 
 	Func setWarning P1
 		raise("DotNet Error: Warning is a read-only property")
 
 	Func getWebSocketSubProtocols
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s21:WebSocketSubProtocols")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s21:WebSocketSubProtocols",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s21:WebSocketSubProtocols")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s21:WebSocketSubProtocols",[]) ok
 		return dn_x
 
 	Func setWebSocketSubProtocols P1
 		raise("DotNet Error: WebSocketSubProtocols is a read-only property")
 
 	Func getWWWAuthenticate
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:WWWAuthenticate")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s15:WWWAuthenticate",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:WWWAuthenticate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s15:WWWAuthenticate",[]) ok
 		return dn_x
 
 	Func setWWWAuthenticate P1
 		raise("DotNet Error: WWWAuthenticate is a read-only property")
 
 	Func getXContentTypeOptions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:XContentTypeOptions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s19:XContentTypeOptions",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:XContentTypeOptions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s19:XContentTypeOptions",[]) ok
 		return dn_x
 
 	Func setXContentTypeOptions P1
 		raise("DotNet Error: XContentTypeOptions is a read-only property")
 
 	Func getXFrameOptions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:XFrameOptions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:XFrameOptions",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:XFrameOptions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:XFrameOptions",[]) ok
 		return dn_x
 
 	Func setXFrameOptions P1
 		raise("DotNet Error: XFrameOptions is a read-only property")
 
 	Func getXPoweredBy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:XPoweredBy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s10:XPoweredBy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:XPoweredBy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s10:XPoweredBy",[]) ok
 		return dn_x
 
 	Func setXPoweredBy P1
 		raise("DotNet Error: XPoweredBy is a read-only property")
 
 	Func getXRequestedWith
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:XRequestedWith")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:XRequestedWith",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:XRequestedWith")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:XRequestedWith",[]) ok
 		return dn_x
 
 	Func setXRequestedWith P1
 		raise("DotNet Error: XRequestedWith is a read-only property")
 
 	Func getXUACompatible
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:XUACompatible")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s13:XUACompatible",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:XUACompatible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s13:XUACompatible",[]) ok
 		return dn_x
 
 	Func setXUACompatible P1
 		raise("DotNet Error: XUACompatible is a read-only property")
 
 	Func getXXSSProtection
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:XXSSProtection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"s14:XXSSProtection",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:XXSSProtection")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers',"s14:XXSSProtection",[]) ok
 		return dn_x
 
 	Func setXXSSProtection P1
@@ -1690,16 +1690,16 @@ Class HeaderQuality from Object
 		return dn_x
 
 	Func getMatch
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"s5:Match")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"s5:Match",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s5:Match")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s5:Match",[]) ok
 		return dn_x
 
 	Func setMatch P1
 		raise("DotNet Error: Match is a read-only property")
 
 	Func getNoMatch
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"s7:NoMatch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"s7:NoMatch",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s7:NoMatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s7:NoMatch",[]) ok
 		return dn_x
 
 	Func setNoMatch P1
@@ -1726,8 +1726,8 @@ Class HeaderUtilities from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s15:TryParseSeconds",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ContainsCacheDirective P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s22:ContainsCacheDirective",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s22:ContainsCacheDirective",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s22:ContainsCacheDirective",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s22:ContainsCacheDirective",[P1,P2]) ok
 		return dn_x
 
 	Func TryParseNonNegativeInt32 P1
@@ -1737,8 +1737,8 @@ Class HeaderUtilities from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s24:TryParseNonNegativeInt64",dnPackItem(P1))
 
 	Func FormatNonNegativeInt64 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s22:FormatNonNegativeInt64",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s22:FormatNonNegativeInt64",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s22:FormatNonNegativeInt64",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s22:FormatNonNegativeInt64",[P1]) ok
 		return dn_x
 
 	Func TryParseDate P1
@@ -1748,16 +1748,16 @@ Class HeaderUtilities from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s10:FormatDate",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s10:FormatDate",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s10:FormatDate",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s10:FormatDate",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s10:FormatDate",[P1]) ok
 		return dn_x
 
 	Func RemoveQuotes P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s12:RemoveQuotes",dnPackItem(P1))
 
 	Func IsQuoted P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s8:IsQuoted",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s8:IsQuoted",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s8:IsQuoted",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s8:IsQuoted",[P1]) ok
 		return dn_x
 
 	Func UnescapeAsQuotedString P1

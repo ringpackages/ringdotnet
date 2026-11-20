@@ -816,24 +816,24 @@ Class CookieContainer from Object
 		return self
 
 	Func getDefaultCookieLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s18:DefaultCookieLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s18:DefaultCookieLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s18:DefaultCookieLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s18:DefaultCookieLimit",[]) ok
 		return dn_x
 
 	Func setDefaultCookieLimit P1
 		raise("DotNet Error: DefaultCookieLimit is a read-only property")
 
 	Func getDefaultPerDomainCookieLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s27:DefaultPerDomainCookieLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s27:DefaultPerDomainCookieLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s27:DefaultPerDomainCookieLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s27:DefaultPerDomainCookieLimit",[]) ok
 		return dn_x
 
 	Func setDefaultPerDomainCookieLimit P1
 		raise("DotNet Error: DefaultPerDomainCookieLimit is a read-only property")
 
 	Func getDefaultCookieLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s24:DefaultCookieLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.CookieContainer, System.Net.Primitives'),"s24:DefaultCookieLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s24:DefaultCookieLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s24:DefaultCookieLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultCookieLengthLimit P1
@@ -921,8 +921,8 @@ Class Dns from Object
 		return dn_x
 
 	Func GetHostName 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s11:GetHostName")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s11:GetHostName",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.Dns, System.Net.NameResolution',"s11:GetHostName")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.Dns, System.Net.NameResolution',"s11:GetHostName",[]) ok
 		return dn_x
 
 	Func GetHostEntry P1
@@ -1250,8 +1250,8 @@ Class HttpListener from Object
 		raise("DotNet Error: TimeoutManager is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.HttpListener, System.Net.HttpListener'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.HttpListener, System.Net.HttpListener'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.HttpListener, System.Net.HttpListener',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.HttpListener, System.Net.HttpListener',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -2279,18 +2279,18 @@ Class IPAddress from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s5:Parse",dnPackItem(P1))
 
 	Func HostToNetworkOrder P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:HostToNetworkOrder",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:HostToNetworkOrder",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:HostToNetworkOrder",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:HostToNetworkOrder",[P1]) ok
 		return dn_x
 
 	Func NetworkToHostOrder P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:NetworkToHostOrder",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s18:NetworkToHostOrder",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:NetworkToHostOrder",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:NetworkToHostOrder",[P1]) ok
 		return dn_x
 
 	Func IsLoopback P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s10:IsLoopback",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s10:IsLoopback",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s10:IsLoopback",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.IPAddress, System.Net.Primitives',"s10:IsLoopback",[P1]) ok
 		return dn_x
 
 	Func getAddressFamily
@@ -2965,8 +2965,8 @@ Class SocketAddress from Object
 		return dn_x
 
 	Func GetMaximumAddressSize P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.SocketAddress, System.Net.Primitives'),"s21:GetMaximumAddressSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.SocketAddress, System.Net.Primitives'),"s21:GetMaximumAddressSize",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.SocketAddress, System.Net.Primitives',"s21:GetMaximumAddressSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.SocketAddress, System.Net.Primitives',"s21:GetMaximumAddressSize",[P1]) ok
 		return dn_x
 
 	Func Item P1
@@ -3582,8 +3582,8 @@ Class WebHeaderCollection from NameValueCollection
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',"s12:IsRestricted",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',"s12:IsRestricted",[P1]) ok
 		return dn_x
 
 
@@ -3765,8 +3765,8 @@ Class WebRequest from MarshalByRefObject
 		return dnSend("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s10:CreateHttp",dnPackItem(P1))
 
 	Func RegisterPrefix P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s14:RegisterPrefix",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s14:RegisterPrefix",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebRequest, System.Net.Requests',"s14:RegisterPrefix",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebRequest, System.Net.Requests',"s14:RegisterPrefix",[P1,P2]) ok
 		return dn_x
 
 	Func GetSystemWebProxy 
@@ -3900,7 +3900,7 @@ Class WebRequest from MarshalByRefObject
 		return dnSend("s3:get",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.WebRequest, System.Net.Requests',"s18:DefaultCachePolicy",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1)) ok
 		return self
 
@@ -3908,7 +3908,7 @@ Class WebRequest from MarshalByRefObject
 		return dnSend("s3:get",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s15:DefaultWebProxy","")
 
 	Func setDefaultWebProxy P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s15:DefaultWebProxy",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.WebRequest, System.Net.Requests',"s15:DefaultWebProxy",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.WebRequest, System.Net.Requests'),"s15:DefaultWebProxy",dnPackItem(P1)) ok
 		return self
 
@@ -4041,29 +4041,29 @@ Class WebUtility from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlEncode",[P1]) ok
 		return dn_x
 
 	Func HtmlDecode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlDecode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlDecode",[P1]) ok
 		return dn_x
 
 	Func UrlEncode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlEncode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlEncode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlEncode",[P1]) ok
 		return dn_x
 
 	Func UrlEncodeToBytes P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s16:UrlEncodeToBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func UrlDecode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlDecode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s9:UrlDecode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlDecode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlDecode",[P1]) ok
 		return dn_x
 
 	Func UrlDecodeToBytes P1,P2,P3
@@ -4289,7 +4289,7 @@ Class FtpWebRequest from WebRequest
 		return dnSend("s3:get",dnTypeHandle('System.Net.FtpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.FtpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.FtpWebRequest, System.Net.Requests',"s18:DefaultCachePolicy",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.FtpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1)) ok
 		return self
 
@@ -4698,22 +4698,22 @@ Class HttpWebRequest from WebRequest
 		raise("DotNet Error: SupportsCookieContainer is a read-only property")
 
 	Func getDefaultMaximumResponseHeadersLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength",[]) ok
 		return dn_x
 
 	Func setDefaultMaximumResponseHeadersLength P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s35:DefaultMaximumResponseHeadersLength",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultMaximumErrorResponseLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength",[]) ok
 		return dn_x
 
 	Func setDefaultMaximumErrorResponseLength P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s33:DefaultMaximumErrorResponseLength",dnPackItem(P1)) ok
 		return self
 
@@ -4721,7 +4721,7 @@ Class HttpWebRequest from WebRequest
 		return dnSend("s3:get",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy","")
 
 	Func setDefaultCachePolicy P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s18:DefaultCachePolicy",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.HttpWebRequest, System.Net.Requests'),"s18:DefaultCachePolicy",dnPackItem(P1)) ok
 		return self
 
@@ -4877,16 +4877,16 @@ Class IPEndPoint from EndPoint
 		return self
 
 	Func getMinPort
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MinPort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MinPort",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MinPort")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MinPort",[]) ok
 		return dn_x
 
 	Func setMinPort P1
 		raise("DotNet Error: MinPort is a read-only property")
 
 	Func getMaxPort
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MaxPort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s7:MaxPort",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MaxPort")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MaxPort",[]) ok
 		return dn_x
 
 	Func setMaxPort P1

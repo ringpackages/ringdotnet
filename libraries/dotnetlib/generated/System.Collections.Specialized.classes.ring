@@ -110,8 +110,8 @@ Class BitVector32 from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s8:ToString",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s8:ToString",[P1]) ok
 		return dn_x
 
 	Func CreateMask P1
@@ -119,12 +119,12 @@ Class BitVector32 from ValueType
 			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",[]) ok
+			dn_x = dotnet_call("s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s10:CreateMask")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s10:CreateMask",[]) ok
 		return dn_x
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"s10:CreateMask",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s10:CreateMask",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s10:CreateMask",[P1]) ok
 		return dn_x
 
 	Func CreateSection P1

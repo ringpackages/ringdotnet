@@ -254,7 +254,7 @@ func isPrimitiveType cType
 #   "call",[new DotNetObject(nHandle),"Contains",P1]  -->  dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1) ... 
 func nativeCall cRequest, lVoid
 	aParts = requestParts(cRequest)
-	cPieces = aParts[1] + "," + aParts[2] + "," + aParts[3]
+	cPieces = aParts[1] + "," + aParts[5] + "," + aParts[3]
 	cNative = cPieces
 	cList = ""
 	for cArg in aParts[4]
@@ -295,7 +295,7 @@ func sendCall cRequest
 	ok
 	return "dnSend(" + aParts[1] + "," + aParts[2] + "," + aParts[3] + "," + cArgs + ")"
 
-# The pieces of a request text:  [operation item, handle expression, name item, [argument names]]
+# The pieces of a request text:  [operation item, handle expression, name item, [argument names], handle expression for the native call]
 func requestParts cRequest
 	nOpEnd = substr(cRequest,'",[')
 	cOperation = substr(cRequest,2,nOpEnd - 2)
@@ -308,14 +308,17 @@ func requestParts cRequest
 	cTail = right(cRest,len(cRest) - nNameEnd)
 	cTail = left(cTail,len(cTail) - 1)
 	cHandle = "nHandle"
+	cNativeHandle = "nHandle"
 	if left(cTarget,13) = "dnTypeCached("
 		cHandle = "dnTypeHandle(" + right(cTarget,len(cTarget) - 13)          # dnTypeCached('X')  -->  dnTypeHandle('X')
+		cNativeHandle = right(cTarget,len(cTarget) - 13)                       # the extension finds the handle of the type by its name
+		cNativeHandle = left(cNativeHandle,len(cNativeHandle) - 1)
 	ok
 	aArgs = []
 	if len(cTail) > 0
 		aArgs = str2list(substr(right(cTail,len(cTail) - 1),",",nl))
 	ok
-	return ['"s' + len(cOperation) + ":" + cOperation + '"',cHandle,'"s' + len(cName) + ":" + cName + '"',aArgs]
+	return ['"s' + len(cOperation) + ":" + cOperation + '"',cHandle,'"s' + len(cName) + ":" + cName + '"',aArgs,cNativeHandle]
 
 # The plan of a type: everything the generated class needs, as text blocks keyed by Ring method name.
 # [aInfo, qualified type name, init parameters, can init create, constructors text, [attribute lower, attribute], blocks, base type, attribute names]

@@ -1224,13 +1224,13 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
 
 	Func Print P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s5:Print",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s5:Print",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s5:Print",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s5:Print",[P1]) ok
 		return dn_x
 
 	Func PrintDebug P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s10:PrintDebug",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"s10:PrintDebug",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s10:PrintDebug",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s10:PrintDebug",[P1]) ok
 		return dn_x
 
 
@@ -2206,8 +2206,8 @@ Class LiftableConstantExpressionHelpers from Object
 		return dn_x
 
 	Func IsLiteral P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s9:IsLiteral",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s9:IsLiteral",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s9:IsLiteral",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s9:IsLiteral",[P1]) ok
 		return dn_x
 
 	Func BuildMemberAccessForEntityOrComplexType P1,P2
@@ -2787,8 +2787,8 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: NotTranslatedExpression is a read-only property")
 
 	Func getQueryParameterPrefix
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s20:QueryParameterPrefix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s20:QueryParameterPrefix",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s20:QueryParameterPrefix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s20:QueryParameterPrefix",[]) ok
 		return dn_x
 
 	Func setQueryParameterPrefix P1
@@ -3463,23 +3463,23 @@ Class QueryableMethods from Object
 		return dn_x
 
 	Func IsAverageWithoutSelector P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s24:IsAverageWithoutSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s24:IsAverageWithoutSelector",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s24:IsAverageWithoutSelector",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s24:IsAverageWithoutSelector",[P1]) ok
 		return dn_x
 
 	Func IsAverageWithSelector P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:IsAverageWithSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:IsAverageWithSelector",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:IsAverageWithSelector",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:IsAverageWithSelector",[P1]) ok
 		return dn_x
 
 	Func IsSumWithoutSelector P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s20:IsSumWithoutSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s20:IsSumWithoutSelector",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s20:IsSumWithoutSelector",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s20:IsSumWithoutSelector",[P1]) ok
 		return dn_x
 
 	Func IsSumWithSelector P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:IsSumWithSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:IsSumWithSelector",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:IsSumWithSelector",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:IsSumWithSelector",[P1]) ok
 		return dn_x
 
 	Func GetAverageWithoutSelector P1
@@ -5940,16 +5940,16 @@ Class RelationalQueryableMethodTranslatingExpressionVisitor from QueryableMethod
 		return self
 
 	Func getValuesOrderingColumnName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s24:ValuesOrderingColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s24:ValuesOrderingColumnName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s24:ValuesOrderingColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s24:ValuesOrderingColumnName",[]) ok
 		return dn_x
 
 	Func setValuesOrderingColumnName P1
 		raise("DotNet Error: ValuesOrderingColumnName is a read-only property")
 
 	Func getValuesValueColumnName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s21:ValuesValueColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s21:ValuesValueColumnName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s21:ValuesValueColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s21:ValuesValueColumnName",[]) ok
 		return dn_x
 
 	Func setValuesValueColumnName P1
@@ -5970,8 +5970,8 @@ Class RelationalShapedQueryCompilingExpressionVisitor from ShapedQueryCompilingE
 		return self
 
 	Func NonQueryResult P1,P2,P3,P4,P5
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s14:NonQueryResult",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s14:NonQueryResult",[P1,P2,P3,P4,P5]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s14:NonQueryResult",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s14:NonQueryResult",[P1,P2,P3,P4,P5]) ok
 		return dn_x
 
 	Func NonQueryResultAsync P1,P2,P3,P4,P5

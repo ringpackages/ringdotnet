@@ -1020,8 +1020,8 @@ Class ValueComparerExtensions from Object
 		return dn_x
 
 	Func IsDefault P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore',"s9:IsDefault",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore',"s9:IsDefault",[P1]) ok
 		return dn_x
 
 

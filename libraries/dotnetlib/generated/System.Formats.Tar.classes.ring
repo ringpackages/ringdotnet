@@ -218,7 +218,7 @@ Class TarFile from Object
 		return dn_x
 
 	Func CreateFromDirectory P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Formats.Tar.TarFile, System.Formats.Tar',"s19:CreateFromDirectory",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -230,7 +230,7 @@ Class TarFile from Object
 		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Formats.Tar.TarFile, System.Formats.Tar',"s18:ExtractToDirectory",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self

@@ -359,8 +359,8 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func DeepEquals P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Json.JsonElement, System.Text.Json',"s10:DeepEquals",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Json.JsonElement, System.Text.Json',"s10:DeepEquals",[P1,P2]) ok
 		return dn_x
 
 	Func Item P1
@@ -703,13 +703,13 @@ Class JsonSerializer from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s9:Serialize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s9:Serialize",[P1]) ok
 		return dn_x
 
 	Func getIsReflectionEnabledByDefault
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Text.Json.JsonSerializer, System.Text.Json',"s28:IsReflectionEnabledByDefault")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Text.Json.JsonSerializer, System.Text.Json',"s28:IsReflectionEnabledByDefault",[]) ok
 		return dn_x
 
 	Func setIsReflectionEnabledByDefault P1

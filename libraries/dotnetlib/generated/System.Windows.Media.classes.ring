@@ -2207,8 +2207,8 @@ Class WpfColor from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s7:FromRgb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AreClose P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:AreClose",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Color, PresentationCore'),"s8:AreClose",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Color, PresentationCore',"s8:AreClose",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Color, PresentationCore',"s8:AreClose",[P1,P2]) ok
 		return dn_x
 
 	Func Add P1,P2
@@ -5194,8 +5194,8 @@ Class Geometry from Animatable
 		raise("DotNet Error: Empty is a read-only property")
 
 	Func getStandardFlatteningTolerance
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s27:StandardFlatteningTolerance")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Media.Geometry, PresentationCore'),"s27:StandardFlatteningTolerance",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Media.Geometry, PresentationCore',"s27:StandardFlatteningTolerance")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Media.Geometry, PresentationCore',"s27:StandardFlatteningTolerance",[]) ok
 		return dn_x
 
 	Func setStandardFlatteningTolerance P1
@@ -7225,7 +7225,7 @@ Class NumberSubstitution from Object
 		return dn_x
 
 	Func SetCultureSource_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s16:SetCultureSource",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.NumberSubstitution, PresentationCore',"s16:SetCultureSource",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s16:SetCultureSource",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -7234,7 +7234,7 @@ Class NumberSubstitution from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s16:GetCultureSource",dnPackItem(P1))
 
 	Func SetCultureOverride_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s18:SetCultureOverride",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.NumberSubstitution, PresentationCore',"s18:SetCultureOverride",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s18:SetCultureOverride",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -7243,7 +7243,7 @@ Class NumberSubstitution from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s18:GetCultureOverride",dnPackItem(P1))
 
 	Func SetSubstitution_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s15:SetSubstitution",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.NumberSubstitution, PresentationCore',"s15:SetSubstitution",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.NumberSubstitution, PresentationCore'),"s15:SetSubstitution",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8345,18 +8345,18 @@ Class RenderCapability from Object
 		return dn_x
 
 	Func IsPixelShaderVersionSupported P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s29:IsPixelShaderVersionSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s29:IsPixelShaderVersionSupported",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s29:IsPixelShaderVersionSupported",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s29:IsPixelShaderVersionSupported",[P1,P2]) ok
 		return dn_x
 
 	Func IsPixelShaderVersionSupportedInSoftware P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s39:IsPixelShaderVersionSupportedInSoftware",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s39:IsPixelShaderVersionSupportedInSoftware",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s39:IsPixelShaderVersionSupportedInSoftware",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s39:IsPixelShaderVersionSupportedInSoftware",[P1,P2]) ok
 		return dn_x
 
 	Func MaxPixelShaderInstructionSlots P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s30:MaxPixelShaderInstructionSlots",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s30:MaxPixelShaderInstructionSlots",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s30:MaxPixelShaderInstructionSlots",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s30:MaxPixelShaderInstructionSlots",[P1,P2]) ok
 		return dn_x
 
 	Func setTierChangedEvent P1
@@ -8368,16 +8368,16 @@ Class RenderCapability from Object
 		return self
 
 	Func getTier
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s4:Tier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s4:Tier",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s4:Tier")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s4:Tier",[]) ok
 		return dn_x
 
 	Func setTier P1
 		raise("DotNet Error: Tier is a read-only property")
 
 	Func getIsShaderEffectSoftwareRenderingSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s40:IsShaderEffectSoftwareRenderingSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Media.RenderCapability, PresentationCore'),"s40:IsShaderEffectSoftwareRenderingSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s40:IsShaderEffectSoftwareRenderingSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s40:IsShaderEffectSoftwareRenderingSupported",[]) ok
 		return dn_x
 
 	Func setIsShaderEffectSoftwareRenderingSupported P1
@@ -8418,7 +8418,7 @@ Class RenderOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s11:GetEdgeMode",dnPackItem(P1))
 
 	Func SetEdgeMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s11:SetEdgeMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s11:SetEdgeMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s11:SetEdgeMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8427,7 +8427,7 @@ Class RenderOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s20:GetBitmapScalingMode",dnPackItem(P1))
 
 	Func SetBitmapScalingMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s20:SetBitmapScalingMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s20:SetBitmapScalingMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s20:SetBitmapScalingMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8436,7 +8436,7 @@ Class RenderOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:GetClearTypeHint",dnPackItem(P1))
 
 	Func SetClearTypeHint P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:SetClearTypeHint",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s16:SetClearTypeHint",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s16:SetClearTypeHint",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8445,29 +8445,29 @@ Class RenderOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s14:GetCachingHint",dnPackItem(P1))
 
 	Func SetCachingHint P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s14:SetCachingHint",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s14:SetCachingHint",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s14:SetCachingHint",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetCacheInvalidationThresholdMinimum P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMinimum",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMinimum",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:GetCacheInvalidationThresholdMinimum",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:GetCacheInvalidationThresholdMinimum",[P1]) ok
 		return dn_x
 
 	Func SetCacheInvalidationThresholdMinimum P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMinimum",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:SetCacheInvalidationThresholdMinimum",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMinimum",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetCacheInvalidationThresholdMaximum P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMaximum",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:GetCacheInvalidationThresholdMaximum",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:GetCacheInvalidationThresholdMaximum",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:GetCacheInvalidationThresholdMaximum",[P1]) ok
 		return dn_x
 
 	Func SetCacheInvalidationThresholdMaximum P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMaximum",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.RenderOptions, PresentationCore',"s36:SetCacheInvalidationThresholdMaximum",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s36:SetCacheInvalidationThresholdMaximum",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8476,7 +8476,7 @@ Class RenderOptions from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s17:ProcessRenderMode","")
 
 	Func setProcessRenderMode P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s17:ProcessRenderMode",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Media.RenderOptions, PresentationCore',"s17:ProcessRenderMode",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Media.RenderOptions, PresentationCore'),"s17:ProcessRenderMode",dnPackItem(P1)) ok
 		return self
 
@@ -8870,7 +8870,7 @@ Class TextOptions from Object
 		return dn_x
 
 	Func SetTextFormattingMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s21:SetTextFormattingMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.TextOptions, PresentationFramework',"s21:SetTextFormattingMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s21:SetTextFormattingMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8879,7 +8879,7 @@ Class TextOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s21:GetTextFormattingMode",dnPackItem(P1))
 
 	Func SetTextRenderingMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s20:SetTextRenderingMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.TextOptions, PresentationFramework',"s20:SetTextRenderingMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s20:SetTextRenderingMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -8888,7 +8888,7 @@ Class TextOptions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s20:GetTextRenderingMode",dnPackItem(P1))
 
 	Func SetTextHintingMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s18:SetTextHintingMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.TextOptions, PresentationFramework',"s18:SetTextHintingMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.TextOptions, PresentationFramework'),"s18:SetTextHintingMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -9503,8 +9503,8 @@ Class VisualTreeHelper from Object
 		return dn_x
 
 	Func GetChildrenCount P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s16:GetChildrenCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s16:GetChildrenCount",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.VisualTreeHelper, PresentationCore',"s16:GetChildrenCount",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.VisualTreeHelper, PresentationCore',"s16:GetChildrenCount",[P1]) ok
 		return dn_x
 
 	Func GetChild P1,P2
@@ -9514,7 +9514,7 @@ Class VisualTreeHelper from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s6:GetDpi",dnPackItem(P1))
 
 	Func SetRootDpi P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:SetRootDpi",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.VisualTreeHelper, PresentationCore',"s10:SetRootDpi",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:SetRootDpi",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -9526,8 +9526,8 @@ Class VisualTreeHelper from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s7:GetClip",dnPackItem(P1))
 
 	Func GetOpacity P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:GetOpacity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.VisualTreeHelper, PresentationCore'),"s10:GetOpacity",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.VisualTreeHelper, PresentationCore',"s10:GetOpacity",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.VisualTreeHelper, PresentationCore',"s10:GetOpacity",[P1]) ok
 		return dn_x
 
 	Func GetOpacityMask P1

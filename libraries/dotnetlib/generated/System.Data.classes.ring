@@ -635,47 +635,47 @@ Class DataReaderExtensions from Object
 		return dn_x
 
 	Func GetBoolean P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetBoolean",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetBoolean",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s10:GetBoolean",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s10:GetBoolean",[P1,P2]) ok
 		return dn_x
 
 	Func GetByte P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetByte",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetByte",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s7:GetByte",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s7:GetByte",[P1,P2]) ok
 		return dn_x
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetBytes",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetBytes",[P1,P2,P3,P4,P5,P6]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetBytes",P1,P2,P3,P4,P5,P6)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetBytes",[P1,P2,P3,P4,P5,P6]) ok
 		return dn_x
 
 	Func GetChar P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetChar",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetChars P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetChars",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetChars",[P1,P2,P3,P4,P5,P6]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetChars",P1,P2,P3,P4,P5,P6)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetChars",[P1,P2,P3,P4,P5,P6]) ok
 		return dn_x
 
 	Func GetData P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDataTypeName P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s15:GetDataTypeName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s15:GetDataTypeName",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s15:GetDataTypeName",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s15:GetDataTypeName",[P1,P2]) ok
 		return dn_x
 
 	Func GetDateTime P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s11:GetDateTime",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDecimal P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetDecimal",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s10:GetDecimal",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s10:GetDecimal",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s10:GetDecimal",[P1,P2]) ok
 		return dn_x
 
 	Func GetDouble P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetDouble",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetDouble",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s9:GetDouble",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s9:GetDouble",[P1,P2]) ok
 		return dn_x
 
 	Func GetFieldType P1,P2
@@ -691,26 +691,26 @@ Class DataReaderExtensions from Object
 		raise("DotNet Error: GetFieldValueAsync does not take one argument: use named arguments, GetFieldValueAsync([ :parameter = value, ... ])")
 
 	Func GetFloat P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetFloat",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetFloat",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetFloat",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetFloat",[P1,P2]) ok
 		return dn_x
 
 	Func GetGuid P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s7:GetGuid",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetInt16 P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt16",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt16",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt16",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt16",[P1,P2]) ok
 		return dn_x
 
 	Func GetInt32 P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt32",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt32",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt32",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt32",[P1,P2]) ok
 		return dn_x
 
 	Func GetInt64 P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt64",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetInt64",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt64",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetInt64",[P1,P2]) ok
 		return dn_x
 
 	Func GetProviderSpecificFieldType P1,P2
@@ -723,8 +723,8 @@ Class DataReaderExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetStream",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetString P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s9:GetString",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s9:GetString",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s9:GetString",[P1,P2]) ok
 		return dn_x
 
 	Func GetTextReader P1,P2
@@ -734,8 +734,8 @@ Class DataReaderExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:GetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsDBNull P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:IsDBNull",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s8:IsDBNull",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:IsDBNull",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:IsDBNull",[P1,P2]) ok
 		return dn_x
 
 	Func IsDBNullAsync P1
@@ -1122,7 +1122,7 @@ Class DataRowExtensions from Object
 		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
 	Func SetField P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Data.DataRowExtensions, System.Data.Common'),"s8:SetField",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Data.DataRowExtensions, System.Data.Common',"s8:SetField",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Data.DataRowExtensions, System.Data.Common'),"s8:SetField",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self

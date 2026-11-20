@@ -975,12 +975,12 @@ Class DocumentViewerBase from WpfControl
 		return dn_x
 
 	Func GetIsMasterPage P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework'),"s15:GetIsMasterPage",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework'),"s15:GetIsMasterPage",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework',"s15:GetIsMasterPage",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework',"s15:GetIsMasterPage",[P1]) ok
 		return dn_x
 
 	Func SetIsMasterPage P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework'),"s15:SetIsMasterPage",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework',"s15:SetIsMasterPage",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework'),"s15:SetIsMasterPage",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1800,7 +1800,7 @@ Class Popup from FrameworkElement
 		return self
 
 	Func CreateRootPopup P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Popup, PresentationFramework'),"s15:CreateRootPopup",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Popup, PresentationFramework',"s15:CreateRootPopup",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Popup, PresentationFramework'),"s15:CreateRootPopup",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2202,7 +2202,7 @@ Class SelectiveScrollingGrid from Grid
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework'),"s32:GetSelectiveScrollingOrientation",dnPackItem(P1))
 
 	Func SetSelectiveScrollingOrientation P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework'),"s32:SetSelectiveScrollingOrientation",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework',"s32:SetSelectiveScrollingOrientation",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework'),"s32:SetSelectiveScrollingOrientation",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2245,41 +2245,41 @@ Class Selector from ItemsControl
 		return dnSend("s4:call",nHandle,"s20:ContainerFromElement",dnPackItem(P1))
 
 	Func AddSelectedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s18:AddSelectedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s18:AddSelectedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s18:AddSelectedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveSelectedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s21:RemoveSelectedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s21:RemoveSelectedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s21:RemoveSelectedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddUnselectedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s20:AddUnselectedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s20:AddUnselectedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s20:AddUnselectedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveUnselectedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s23:RemoveUnselectedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s23:RemoveUnselectedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s23:RemoveUnselectedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsSelectionActive P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s20:GetIsSelectionActive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s20:GetIsSelectionActive",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s20:GetIsSelectionActive",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s20:GetIsSelectionActive",[P1]) ok
 		return dn_x
 
 	Func GetIsSelected P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s13:GetIsSelected",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s13:GetIsSelected",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s13:GetIsSelected",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s13:GetIsSelected",[P1]) ok
 		return dn_x
 
 	Func SetIsSelected P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s13:SetIsSelected",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Primitives.Selector, PresentationFramework',"s13:SetIsSelected",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"s13:SetIsSelected",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

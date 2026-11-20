@@ -1548,16 +1548,16 @@ Class XmlSchema from XmlSchemaObject
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getNamespace
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s9:Namespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s9:Namespace",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s9:Namespace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s9:Namespace",[]) ok
 		return dn_x
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getInstanceNamespace
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s17:InstanceNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s17:InstanceNamespace",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s17:InstanceNamespace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s17:InstanceNamespace",[]) ok
 		return dn_x
 
 	Func setInstanceNamespace P1
@@ -2528,8 +2528,8 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s21:GetBuiltInComplexType",dnPackItem(P1))
 
 	Func IsDerivedFrom P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s13:IsDerivedFrom",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s13:IsDerivedFrom",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s13:IsDerivedFrom",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s13:IsDerivedFrom",[P1,P2,P3]) ok
 		return dn_x
 
 	Func getName

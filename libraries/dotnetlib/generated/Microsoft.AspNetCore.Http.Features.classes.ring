@@ -675,32 +675,32 @@ Class FormOptions from Object
 		return self
 
 	Func getDefaultMemoryBufferThreshold
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s28:DefaultMemoryBufferThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s28:DefaultMemoryBufferThreshold",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold",[]) ok
 		return dn_x
 
 	Func setDefaultMemoryBufferThreshold P1
 		raise("DotNet Error: DefaultMemoryBufferThreshold is a read-only property")
 
 	Func getDefaultBufferBodyLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s28:DefaultBufferBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s28:DefaultBufferBodyLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultBufferBodyLengthLimit P1
 		raise("DotNet Error: DefaultBufferBodyLengthLimit is a read-only property")
 
 	Func getDefaultMultipartBoundaryLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s35:DefaultMultipartBoundaryLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s35:DefaultMultipartBoundaryLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultMultipartBoundaryLengthLimit P1
 		raise("DotNet Error: DefaultMultipartBoundaryLengthLimit is a read-only property")
 
 	Func getDefaultMultipartBodyLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s31:DefaultMultipartBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http'),"s31:DefaultMultipartBodyLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultMultipartBodyLengthLimit P1

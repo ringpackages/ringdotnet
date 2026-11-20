@@ -1285,13 +1285,13 @@ Class ConfigurationSourceExtensions from Object
 		return dn_x
 
 	Func Overrides P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"s9:Overrides",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"s9:Overrides",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore',"s9:Overrides",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore',"s9:Overrides",[P1,P2]) ok
 		return dn_x
 
 	Func OverridesStrictly P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"s17:OverridesStrictly",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"s17:OverridesStrictly",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore',"s17:OverridesStrictly",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore',"s17:OverridesStrictly",[P1,P2]) ok
 		return dn_x
 
 	Func Max P1,P2
@@ -10963,528 +10963,528 @@ Class RelationalAnnotationNames from Object
 		raise("DotNet Error: AllNames is a read-only property")
 
 	Func getPrefix
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Prefix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Prefix",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Prefix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Prefix",[]) ok
 		return dn_x
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getColumnName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ColumnName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ColumnName",[]) ok
 		return dn_x
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
 
 	Func getColumnOrder
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s11:ColumnOrder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s11:ColumnOrder",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s11:ColumnOrder")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s11:ColumnOrder",[]) ok
 		return dn_x
 
 	Func setColumnOrder P1
 		raise("DotNet Error: ColumnOrder is a read-only property")
 
 	Func getColumnType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ColumnType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ColumnType",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ColumnType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ColumnType",[]) ok
 		return dn_x
 
 	Func setColumnType P1
 		raise("DotNet Error: ColumnType is a read-only property")
 
 	Func getDefaultValueSql
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:DefaultValueSql")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:DefaultValueSql",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:DefaultValueSql")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:DefaultValueSql",[]) ok
 		return dn_x
 
 	Func setDefaultValueSql P1
 		raise("DotNet Error: DefaultValueSql is a read-only property")
 
 	Func getComputedColumnSql
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ComputedColumnSql")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ComputedColumnSql",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ComputedColumnSql")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ComputedColumnSql",[]) ok
 		return dn_x
 
 	Func setComputedColumnSql P1
 		raise("DotNet Error: ComputedColumnSql is a read-only property")
 
 	Func getIsStored
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:IsStored")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:IsStored",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:IsStored")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:IsStored",[]) ok
 		return dn_x
 
 	Func setIsStored P1
 		raise("DotNet Error: IsStored is a read-only property")
 
 	Func getDefaultValue
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:DefaultValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:DefaultValue",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:DefaultValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:DefaultValue",[]) ok
 		return dn_x
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getTableName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:TableName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:TableName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:TableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:TableName",[]) ok
 		return dn_x
 
 	Func setTableName P1
 		raise("DotNet Error: TableName is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Schema")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Schema",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Schema")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Schema",[]) ok
 		return dn_x
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getViewName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:ViewName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:ViewName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:ViewName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:ViewName",[]) ok
 		return dn_x
 
 	Func setViewName P1
 		raise("DotNet Error: ViewName is a read-only property")
 
 	Func getViewSchema
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ViewSchema")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s10:ViewSchema",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ViewSchema")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s10:ViewSchema",[]) ok
 		return dn_x
 
 	Func setViewSchema P1
 		raise("DotNet Error: ViewSchema is a read-only property")
 
 	Func getFunctionName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:FunctionName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:FunctionName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:FunctionName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:FunctionName",[]) ok
 		return dn_x
 
 	Func setFunctionName P1
 		raise("DotNet Error: FunctionName is a read-only property")
 
 	Func getDeleteStoredProcedure
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:DeleteStoredProcedure")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:DeleteStoredProcedure",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:DeleteStoredProcedure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:DeleteStoredProcedure",[]) ok
 		return dn_x
 
 	Func setDeleteStoredProcedure P1
 		raise("DotNet Error: DeleteStoredProcedure is a read-only property")
 
 	Func getInsertStoredProcedure
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:InsertStoredProcedure")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:InsertStoredProcedure",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:InsertStoredProcedure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:InsertStoredProcedure",[]) ok
 		return dn_x
 
 	Func setInsertStoredProcedure P1
 		raise("DotNet Error: InsertStoredProcedure is a read-only property")
 
 	Func getUpdateStoredProcedure
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:UpdateStoredProcedure")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:UpdateStoredProcedure",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure",[]) ok
 		return dn_x
 
 	Func setUpdateStoredProcedure P1
 		raise("DotNet Error: UpdateStoredProcedure is a read-only property")
 
 	Func getSqlQuery
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:SqlQuery")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s8:SqlQuery",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:SqlQuery")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s8:SqlQuery",[]) ok
 		return dn_x
 
 	Func setSqlQuery P1
 		raise("DotNet Error: SqlQuery is a read-only property")
 
 	Func getComment
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s7:Comment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s7:Comment",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s7:Comment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s7:Comment",[]) ok
 		return dn_x
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
 
 	Func getCollation
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:Collation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:Collation",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:Collation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:Collation",[]) ok
 		return dn_x
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")
 
 	Func getDefaultSchema
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:DefaultSchema")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:DefaultSchema",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:DefaultSchema")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:DefaultSchema",[]) ok
 		return dn_x
 
 	Func setDefaultSchema P1
 		raise("DotNet Error: DefaultSchema is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s4:Name",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s4:Name",[]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSequencePrefix
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s14:SequencePrefix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s14:SequencePrefix",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s14:SequencePrefix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s14:SequencePrefix",[]) ok
 		return dn_x
 
 	Func setSequencePrefix P1
 		raise("DotNet Error: SequencePrefix is a read-only property")
 
 	Func getSequences
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:Sequences")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:Sequences",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:Sequences")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:Sequences",[]) ok
 		return dn_x
 
 	Func setSequences P1
 		raise("DotNet Error: Sequences is a read-only property")
 
 	Func getCheckConstraints
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:CheckConstraints")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:CheckConstraints",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:CheckConstraints")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:CheckConstraints",[]) ok
 		return dn_x
 
 	Func setCheckConstraints P1
 		raise("DotNet Error: CheckConstraints is a read-only property")
 
 	Func getFilter
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Filter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s6:Filter",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Filter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s6:Filter",[]) ok
 		return dn_x
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getDbFunctions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s11:DbFunctions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s11:DbFunctions",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s11:DbFunctions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s11:DbFunctions",[]) ok
 		return dn_x
 
 	Func setDbFunctions P1
 		raise("DotNet Error: DbFunctions is a read-only property")
 
 	Func getMaxIdentifierLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:MaxIdentifierLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:MaxIdentifierLength",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:MaxIdentifierLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:MaxIdentifierLength",[]) ok
 		return dn_x
 
 	Func setMaxIdentifierLength P1
 		raise("DotNet Error: MaxIdentifierLength is a read-only property")
 
 	Func getIsFixedLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:IsFixedLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:IsFixedLength",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:IsFixedLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:IsFixedLength",[]) ok
 		return dn_x
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getViewDefinitionSql
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ViewDefinitionSql")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ViewDefinitionSql",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ViewDefinitionSql")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ViewDefinitionSql",[]) ok
 		return dn_x
 
 	Func setViewDefinitionSql P1
 		raise("DotNet Error: ViewDefinitionSql is a read-only property")
 
 	Func getIsTableExcludedFromMigrations
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:IsTableExcludedFromMigrations")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:IsTableExcludedFromMigrations",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:IsTableExcludedFromMigrations",[]) ok
 		return dn_x
 
 	Func setIsTableExcludedFromMigrations P1
 		raise("DotNet Error: IsTableExcludedFromMigrations is a read-only property")
 
 	Func getMappingStrategy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:MappingStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:MappingStrategy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:MappingStrategy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:MappingStrategy",[]) ok
 		return dn_x
 
 	Func setMappingStrategy P1
 		raise("DotNet Error: MappingStrategy is a read-only property")
 
 	Func getTpcMappingStrategy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TpcMappingStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TpcMappingStrategy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TpcMappingStrategy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TpcMappingStrategy",[]) ok
 		return dn_x
 
 	Func setTpcMappingStrategy P1
 		raise("DotNet Error: TpcMappingStrategy is a read-only property")
 
 	Func getTphMappingStrategy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TphMappingStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TphMappingStrategy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TphMappingStrategy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TphMappingStrategy",[]) ok
 		return dn_x
 
 	Func setTphMappingStrategy P1
 		raise("DotNet Error: TphMappingStrategy is a read-only property")
 
 	Func getTptMappingStrategy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TptMappingStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TptMappingStrategy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TptMappingStrategy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TptMappingStrategy",[]) ok
 		return dn_x
 
 	Func setTptMappingStrategy P1
 		raise("DotNet Error: TptMappingStrategy is a read-only property")
 
 	Func getRelationalModel
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:RelationalModel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:RelationalModel",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:RelationalModel")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:RelationalModel",[]) ok
 		return dn_x
 
 	Func setRelationalModel P1
 		raise("DotNet Error: RelationalModel is a read-only property")
 
 	Func getRelationalModelFactory
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:RelationalModelFactory")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:RelationalModelFactory",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:RelationalModelFactory")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:RelationalModelFactory",[]) ok
 		return dn_x
 
 	Func setRelationalModelFactory P1
 		raise("DotNet Error: RelationalModelFactory is a read-only property")
 
 	Func getDefaultMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:DefaultMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s15:DefaultMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:DefaultMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s15:DefaultMappings",[]) ok
 		return dn_x
 
 	Func setDefaultMappings P1
 		raise("DotNet Error: DefaultMappings is a read-only property")
 
 	Func getDefaultColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:DefaultColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s21:DefaultColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:DefaultColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s21:DefaultColumnMappings",[]) ok
 		return dn_x
 
 	Func setDefaultColumnMappings P1
 		raise("DotNet Error: DefaultColumnMappings is a read-only property")
 
 	Func getTableMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:TableMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s13:TableMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:TableMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s13:TableMappings",[]) ok
 		return dn_x
 
 	Func setTableMappings P1
 		raise("DotNet Error: TableMappings is a read-only property")
 
 	Func getTableColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:TableColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:TableColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:TableColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:TableColumnMappings",[]) ok
 		return dn_x
 
 	Func setTableColumnMappings P1
 		raise("DotNet Error: TableColumnMappings is a read-only property")
 
 	Func getViewMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:ViewMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s12:ViewMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:ViewMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s12:ViewMappings",[]) ok
 		return dn_x
 
 	Func setViewMappings P1
 		raise("DotNet Error: ViewMappings is a read-only property")
 
 	Func getViewColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:ViewColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:ViewColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:ViewColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:ViewColumnMappings",[]) ok
 		return dn_x
 
 	Func setViewColumnMappings P1
 		raise("DotNet Error: ViewColumnMappings is a read-only property")
 
 	Func getFunctionMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:FunctionMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:FunctionMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:FunctionMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:FunctionMappings",[]) ok
 		return dn_x
 
 	Func setFunctionMappings P1
 		raise("DotNet Error: FunctionMappings is a read-only property")
 
 	Func getFunctionColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:FunctionColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:FunctionColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:FunctionColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:FunctionColumnMappings",[]) ok
 		return dn_x
 
 	Func setFunctionColumnMappings P1
 		raise("DotNet Error: FunctionColumnMappings is a read-only property")
 
 	Func getInsertStoredProcedureMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:InsertStoredProcedureMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:InsertStoredProcedureMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:InsertStoredProcedureMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:InsertStoredProcedureMappings",[]) ok
 		return dn_x
 
 	Func setInsertStoredProcedureMappings P1
 		raise("DotNet Error: InsertStoredProcedureMappings is a read-only property")
 
 	Func getInsertStoredProcedureResultColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s41:InsertStoredProcedureResultColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s41:InsertStoredProcedureResultColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s41:InsertStoredProcedureResultColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s41:InsertStoredProcedureResultColumnMappings",[]) ok
 		return dn_x
 
 	Func setInsertStoredProcedureResultColumnMappings P1
 		raise("DotNet Error: InsertStoredProcedureResultColumnMappings is a read-only property")
 
 	Func getInsertStoredProcedureParameterMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:InsertStoredProcedureParameterMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:InsertStoredProcedureParameterMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:InsertStoredProcedureParameterMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:InsertStoredProcedureParameterMappings",[]) ok
 		return dn_x
 
 	Func setInsertStoredProcedureParameterMappings P1
 		raise("DotNet Error: InsertStoredProcedureParameterMappings is a read-only property")
 
 	Func getDeleteStoredProcedureMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:DeleteStoredProcedureMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:DeleteStoredProcedureMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:DeleteStoredProcedureMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:DeleteStoredProcedureMappings",[]) ok
 		return dn_x
 
 	Func setDeleteStoredProcedureMappings P1
 		raise("DotNet Error: DeleteStoredProcedureMappings is a read-only property")
 
 	Func getDeleteStoredProcedureParameterMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:DeleteStoredProcedureParameterMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:DeleteStoredProcedureParameterMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:DeleteStoredProcedureParameterMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:DeleteStoredProcedureParameterMappings",[]) ok
 		return dn_x
 
 	Func setDeleteStoredProcedureParameterMappings P1
 		raise("DotNet Error: DeleteStoredProcedureParameterMappings is a read-only property")
 
 	Func getUpdateStoredProcedureMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:UpdateStoredProcedureMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s29:UpdateStoredProcedureMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:UpdateStoredProcedureMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s29:UpdateStoredProcedureMappings",[]) ok
 		return dn_x
 
 	Func setUpdateStoredProcedureMappings P1
 		raise("DotNet Error: UpdateStoredProcedureMappings is a read-only property")
 
 	Func getUpdateStoredProcedureResultColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s41:UpdateStoredProcedureResultColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s41:UpdateStoredProcedureResultColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s41:UpdateStoredProcedureResultColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s41:UpdateStoredProcedureResultColumnMappings",[]) ok
 		return dn_x
 
 	Func setUpdateStoredProcedureResultColumnMappings P1
 		raise("DotNet Error: UpdateStoredProcedureResultColumnMappings is a read-only property")
 
 	Func getUpdateStoredProcedureParameterMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:UpdateStoredProcedureParameterMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s38:UpdateStoredProcedureParameterMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:UpdateStoredProcedureParameterMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s38:UpdateStoredProcedureParameterMappings",[]) ok
 		return dn_x
 
 	Func setUpdateStoredProcedureParameterMappings P1
 		raise("DotNet Error: UpdateStoredProcedureParameterMappings is a read-only property")
 
 	Func getSqlQueryMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:SqlQueryMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:SqlQueryMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:SqlQueryMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:SqlQueryMappings",[]) ok
 		return dn_x
 
 	Func setSqlQueryMappings P1
 		raise("DotNet Error: SqlQueryMappings is a read-only property")
 
 	Func getSqlQueryColumnMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:SqlQueryColumnMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s22:SqlQueryColumnMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:SqlQueryColumnMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s22:SqlQueryColumnMappings",[]) ok
 		return dn_x
 
 	Func setSqlQueryColumnMappings P1
 		raise("DotNet Error: SqlQueryColumnMappings is a read-only property")
 
 	Func getForeignKeyMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:ForeignKeyMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:ForeignKeyMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:ForeignKeyMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:ForeignKeyMappings",[]) ok
 		return dn_x
 
 	Func setForeignKeyMappings P1
 		raise("DotNet Error: ForeignKeyMappings is a read-only property")
 
 	Func getTableIndexMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TableIndexMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s18:TableIndexMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TableIndexMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s18:TableIndexMappings",[]) ok
 		return dn_x
 
 	Func setTableIndexMappings P1
 		raise("DotNet Error: TableIndexMappings is a read-only property")
 
 	Func getUniqueConstraintMappings
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s24:UniqueConstraintMappings")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s24:UniqueConstraintMappings",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s24:UniqueConstraintMappings")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s24:UniqueConstraintMappings",[]) ok
 		return dn_x
 
 	Func setUniqueConstraintMappings P1
 		raise("DotNet Error: UniqueConstraintMappings is a read-only property")
 
 	Func getMappingFragments
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:MappingFragments")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:MappingFragments",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:MappingFragments")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:MappingFragments",[]) ok
 		return dn_x
 
 	Func setMappingFragments P1
 		raise("DotNet Error: MappingFragments is a read-only property")
 
 	Func getRelationalOverrides
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:RelationalOverrides")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:RelationalOverrides",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:RelationalOverrides")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:RelationalOverrides",[]) ok
 		return dn_x
 
 	Func setRelationalOverrides P1
 		raise("DotNet Error: RelationalOverrides is a read-only property")
 
 	Func getModelDependencies
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ModelDependencies")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s17:ModelDependencies",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ModelDependencies")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s17:ModelDependencies",[]) ok
 		return dn_x
 
 	Func setModelDependencies P1
 		raise("DotNet Error: ModelDependencies is a read-only property")
 
 	Func getFieldValueGetter
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:FieldValueGetter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:FieldValueGetter",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:FieldValueGetter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:FieldValueGetter",[]) ok
 		return dn_x
 
 	Func setFieldValueGetter P1
 		raise("DotNet Error: FieldValueGetter is a read-only property")
 
 	Func getContainerColumnName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:ContainerColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:ContainerColumnName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:ContainerColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:ContainerColumnName",[]) ok
 		return dn_x
 
 	Func setContainerColumnName P1
 		raise("DotNet Error: ContainerColumnName is a read-only property")
 
 	Func getContainerColumnType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:ContainerColumnType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s19:ContainerColumnType",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:ContainerColumnType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s19:ContainerColumnType",[]) ok
 		return dn_x
 
 	Func setContainerColumnType P1
 		raise("DotNet Error: ContainerColumnType is a read-only property")
 
 	Func getContainerColumnTypeMapping
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s26:ContainerColumnTypeMapping")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s26:ContainerColumnTypeMapping",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s26:ContainerColumnTypeMapping")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s26:ContainerColumnTypeMapping",[]) ok
 		return dn_x
 
 	Func setContainerColumnTypeMapping P1
 		raise("DotNet Error: ContainerColumnTypeMapping is a read-only property")
 
 	Func getJsonPropertyName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:JsonPropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s16:JsonPropertyName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:JsonPropertyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s16:JsonPropertyName",[]) ok
 		return dn_x
 
 	Func setJsonPropertyName P1
 		raise("DotNet Error: JsonPropertyName is a read-only property")
 
 	Func getStoreType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:StoreType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational'),"s9:StoreType",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:StoreType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationNames, Microsoft.EntityFrameworkCore.Relational',"s9:StoreType",[]) ok
 		return dn_x
 
 	Func setStoreType P1

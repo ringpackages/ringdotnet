@@ -156,19 +156,19 @@ Class Dispatcher from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s10:FromThread",dnPackItem(P1))
 
 	Func Run 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s3:Run")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s3:Run")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s3:Run","") ok
 
 		return self
 
 	Func PushFrame P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s9:PushFrame",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s9:PushFrame",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s9:PushFrame",dnPackItem(P1)) ok
 
 		return self
 
 	Func ExitAllFrames 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s13:ExitAllFrames")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s13:ExitAllFrames")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s13:ExitAllFrames","") ok
 
 		return self
@@ -183,7 +183,7 @@ Class Dispatcher from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
 
 	Func ValidatePriority P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s16:ValidatePriority",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s16:ValidatePriority",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s16:ValidatePriority",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

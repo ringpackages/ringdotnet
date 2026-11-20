@@ -178,8 +178,8 @@ Class Ascii from Object
 		return dn_x
 
 	Func IsValid P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:IsValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:IsValid",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:IsValid",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:IsValid",[P1]) ok
 		return dn_x
 
 
@@ -629,7 +629,7 @@ Class Encoding from Object
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func RegisterProvider P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:RegisterProvider",P1)
+		dn_x = dotnet_callv("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s16:RegisterProvider",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:RegisterProvider",dnPackItem(P1)) ok
 
 		return self
@@ -945,8 +945,8 @@ Class Rune from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:GetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsValid P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsValid",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsValid",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsValid",[P1]) ok
 		return dn_x
 
 	Func TryCreate P1
@@ -959,66 +959,66 @@ Class Rune from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s12:TryGetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetNumericValue P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:GetNumericValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:GetNumericValue",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:GetNumericValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:GetNumericValue",[P1]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
 		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 
 	Func IsControl P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:IsControl",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:IsControl",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:IsControl",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:IsControl",[P1]) ok
 		return dn_x
 
 	Func IsDigit P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsDigit",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsDigit",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsDigit",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsDigit",[P1]) ok
 		return dn_x
 
 	Func IsLetter P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsLetter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsLetter",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsLetter",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsLetter",[P1]) ok
 		return dn_x
 
 	Func IsLetterOrDigit P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:IsLetterOrDigit",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:IsLetterOrDigit",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:IsLetterOrDigit",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:IsLetterOrDigit",[P1]) ok
 		return dn_x
 
 	Func IsLower P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsLower",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsLower",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsLower",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsLower",[P1]) ok
 		return dn_x
 
 	Func IsNumber P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsNumber",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsNumber",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsNumber",[P1]) ok
 		return dn_x
 
 	Func IsPunctuation P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s13:IsPunctuation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s13:IsPunctuation",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s13:IsPunctuation",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s13:IsPunctuation",[P1]) ok
 		return dn_x
 
 	Func IsSeparator P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s11:IsSeparator",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s11:IsSeparator",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s11:IsSeparator",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s11:IsSeparator",[P1]) ok
 		return dn_x
 
 	Func IsSymbol P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsSymbol",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s8:IsSymbol",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsSymbol",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsSymbol",[P1]) ok
 		return dn_x
 
 	Func IsUpper P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsUpper",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:IsUpper",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsUpper",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsUpper",[P1]) ok
 		return dn_x
 
 	Func IsWhiteSpace P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s12:IsWhiteSpace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s12:IsWhiteSpace",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s12:IsWhiteSpace",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s12:IsWhiteSpace",[P1]) ok
 		return dn_x
 
 	Func ToLower P1,P2
@@ -1650,8 +1650,8 @@ Class UnicodeEncoding from Encoding
 		return self
 
 	Func getCharSize
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Text.UnicodeEncoding, System.Private.CoreLib'),"s8:CharSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Text.UnicodeEncoding, System.Private.CoreLib'),"s8:CharSize",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Text.UnicodeEncoding, System.Private.CoreLib',"s8:CharSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Text.UnicodeEncoding, System.Private.CoreLib',"s8:CharSize",[]) ok
 		return dn_x
 
 	Func setCharSize P1

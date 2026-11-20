@@ -2588,8 +2588,8 @@ Class Vector3D from ValueType
 		return dn_x
 
 	Func AngleBetween P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s12:AngleBetween",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s12:AngleBetween",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:AngleBetween",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:AngleBetween",[P1,P2]) ok
 		return dn_x
 
 	Func Add P1,P2
@@ -2605,8 +2605,8 @@ Class Vector3D from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DotProduct P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s10:DotProduct",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s10:DotProduct",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s10:DotProduct",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s10:DotProduct",[P1,P2]) ok
 		return dn_x
 
 	Func CrossProduct P1,P2
@@ -4198,14 +4198,14 @@ Class Viewport2DVisual3D from Visual3D
 		return self
 
 	Func SetIsVisualHostMaterial P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:SetIsVisualHostMaterial",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:SetIsVisualHostMaterial",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:SetIsVisualHostMaterial",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsVisualHostMaterial P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:GetIsVisualHostMaterial",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:GetIsVisualHostMaterial",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:GetIsVisualHostMaterial",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:GetIsVisualHostMaterial",[P1]) ok
 		return dn_x
 
 	Func getVisual

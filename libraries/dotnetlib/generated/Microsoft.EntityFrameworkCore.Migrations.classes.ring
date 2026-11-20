@@ -257,8 +257,8 @@ Class HistoryRepository from Object
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
 
 	Func getDefaultTableName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational',"s16:DefaultTableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational',"s16:DefaultTableName",[]) ok
 		return dn_x
 
 	Func setDefaultTableName P1
@@ -856,8 +856,8 @@ Class Migration from Object
 		return self
 
 	Func getInitialDatabase
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational',"s15:InitialDatabase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational',"s15:InitialDatabase",[]) ok
 		return dn_x
 
 	Func setInitialDatabase P1
@@ -1364,8 +1364,8 @@ Class MigrationsAssemblyExtensions from Object
 		return dn_x
 
 	Func GetMigrationId P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational',"s14:GetMigrationId",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational',"s14:GetMigrationId",[P1,P2]) ok
 		return dn_x
 
 
@@ -1512,8 +1512,8 @@ Class SqliteMigrationBuilderExtensions from Object
 		return dn_x
 
 	Func IsSqlite P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite',"s8:IsSqlite",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite',"s8:IsSqlite",[P1]) ok
 		return dn_x
 
 

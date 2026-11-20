@@ -136,8 +136,8 @@ Class AspBase64UrlTextEncoder from Object
 		return dn_x
 
 	Func Encode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities',"s6:Encode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities',"s6:Encode",[P1]) ok
 		return dn_x
 
 	Func Decode P1
@@ -647,24 +647,24 @@ Class FormReader from Object
 		return self
 
 	Func getDefaultValueCountLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s22:DefaultValueCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s22:DefaultValueCountLimit",[]) ok
 		return dn_x
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s21:DefaultKeyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s21:DefaultKeyLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s23:DefaultValueLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s23:DefaultValueLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultValueLengthLimit P1
@@ -864,16 +864,16 @@ Class MultipartReader from Object
 		return self
 
 	Func getDefaultHeadersCountLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s24:DefaultHeadersCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s24:DefaultHeadersCountLimit",[]) ok
 		return dn_x
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s25:DefaultHeadersLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s25:DefaultHeadersLengthLimit",[]) ok
 		return dn_x
 
 	Func setDefaultHeadersLengthLimit P1
@@ -1087,8 +1087,8 @@ Class ReasonPhrases from Object
 		return dn_x
 
 	Func GetReasonPhrase P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities',"s15:GetReasonPhrase",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities',"s15:GetReasonPhrase",[P1]) ok
 		return dn_x
 
 
@@ -1138,21 +1138,21 @@ Class WebEncoders from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlDecode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToDecode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToDecode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToDecode",[P1]) ok
 		return dn_x
 
 	Func Base64UrlEncode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlEncode",[P1]) ok
 		return dn_x
 
 	Func GetArraySizeRequiredToEncode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToEncode",[P1]) ok
 		return dn_x
 
 

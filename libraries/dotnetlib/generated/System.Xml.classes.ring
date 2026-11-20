@@ -348,8 +348,8 @@ Class XmlConvert from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToString",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToString",[P1]) ok
 		return dn_x
 
 	Func Equals P1
@@ -358,151 +358,151 @@ Class XmlConvert from Object
 		return dn_x
 
 	Func EncodeName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:EncodeName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:EncodeName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:EncodeName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:EncodeName",[P1]) ok
 		return dn_x
 
 	Func EncodeNmToken P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:EncodeNmToken",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:EncodeNmToken",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:EncodeNmToken",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:EncodeNmToken",[P1]) ok
 		return dn_x
 
 	Func EncodeLocalName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s15:EncodeLocalName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s15:EncodeLocalName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s15:EncodeLocalName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s15:EncodeLocalName",[P1]) ok
 		return dn_x
 
 	Func DecodeName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:DecodeName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:DecodeName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:DecodeName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:DecodeName",[P1]) ok
 		return dn_x
 
 	Func VerifyName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:VerifyName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:VerifyName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:VerifyName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:VerifyName",[P1]) ok
 		return dn_x
 
 	Func VerifyNCName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:VerifyNCName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:VerifyNCName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s12:VerifyNCName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s12:VerifyNCName",[P1]) ok
 		return dn_x
 
 	Func VerifyTOKEN P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s11:VerifyTOKEN",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s11:VerifyTOKEN",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s11:VerifyTOKEN",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s11:VerifyTOKEN",[P1]) ok
 		return dn_x
 
 	Func VerifyNMTOKEN P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:VerifyNMTOKEN",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s13:VerifyNMTOKEN",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:VerifyNMTOKEN",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:VerifyNMTOKEN",[P1]) ok
 		return dn_x
 
 	Func VerifyXmlChars P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyXmlChars",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyXmlChars",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyXmlChars",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyXmlChars",[P1]) ok
 		return dn_x
 
 	Func VerifyPublicId P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyPublicId",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:VerifyPublicId",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyPublicId",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyPublicId",[P1]) ok
 		return dn_x
 
 	Func VerifyWhitespace P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:VerifyWhitespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:VerifyWhitespace",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:VerifyWhitespace",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:VerifyWhitespace",[P1]) ok
 		return dn_x
 
 	Func IsStartNCNameChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s17:IsStartNCNameChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s17:IsStartNCNameChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s17:IsStartNCNameChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s17:IsStartNCNameChar",[P1]) ok
 		return dn_x
 
 	Func IsNCNameChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:IsNCNameChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s12:IsNCNameChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s12:IsNCNameChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s12:IsNCNameChar",[P1]) ok
 		return dn_x
 
 	Func IsXmlChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:IsXmlChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:IsXmlChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:IsXmlChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:IsXmlChar",[P1]) ok
 		return dn_x
 
 	Func IsXmlSurrogatePair P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s18:IsXmlSurrogatePair",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s18:IsXmlSurrogatePair",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s18:IsXmlSurrogatePair",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s18:IsXmlSurrogatePair",[P1,P2]) ok
 		return dn_x
 
 	Func IsPublicIdChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:IsPublicIdChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s14:IsPublicIdChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:IsPublicIdChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:IsPublicIdChar",[P1]) ok
 		return dn_x
 
 	Func IsWhitespaceChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:IsWhitespaceChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:IsWhitespaceChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:IsWhitespaceChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:IsWhitespaceChar",[P1]) ok
 		return dn_x
 
 	Func ToBoolean P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToBoolean",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToBoolean",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToBoolean",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToBoolean",[P1]) ok
 		return dn_x
 
 	Func ToChar P1
 		return dnSend("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToChar",dnPackItem(P1))
 
 	Func ToDecimal P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToDecimal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s9:ToDecimal",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToDecimal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToDecimal",[P1]) ok
 		return dn_x
 
 	Func ToSByte P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToSByte",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToSByte",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToSByte",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToSByte",[P1]) ok
 		return dn_x
 
 	Func ToInt16 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt16",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt16",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt16",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt16",[P1]) ok
 		return dn_x
 
 	Func ToInt32 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt32",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt32",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt32",[P1]) ok
 		return dn_x
 
 	Func ToInt64 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt64",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s7:ToInt64",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt64",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt64",[P1]) ok
 		return dn_x
 
 	Func ToByte P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToByte",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s6:ToByte",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s6:ToByte",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s6:ToByte",[P1]) ok
 		return dn_x
 
 	Func ToUInt16 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt16",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt16",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt16",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt16",[P1]) ok
 		return dn_x
 
 	Func ToUInt32 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt32",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt32",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt32",[P1]) ok
 		return dn_x
 
 	Func ToUInt64 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt64",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToUInt64",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt64",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt64",[P1]) ok
 		return dn_x
 
 	Func ToSingle P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToSingle",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToSingle",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToSingle",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToSingle",[P1]) ok
 		return dn_x
 
 	Func ToDouble P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToDouble",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToDouble",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToDouble",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToDouble",[P1]) ok
 		return dn_x
 
 	Func ToTimeSpan P1
@@ -1768,13 +1768,13 @@ Class XmlReader from Object
 		return dn_x
 
 	Func IsName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:IsName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:IsName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s6:IsName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlReader, System.Private.Xml',"s6:IsName",[P1]) ok
 		return dn_x
 
 	Func IsNameToken P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s11:IsNameToken",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s11:IsNameToken",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s11:IsNameToken",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.XmlReader, System.Private.Xml',"s11:IsNameToken",[P1]) ok
 		return dn_x
 
 	Func Create P1

@@ -321,12 +321,12 @@ Class WebSocket from Object
 		raise("DotNet Error: CreateFromStream does not take one argument: use named arguments, CreateFromStream([ :parameter = value, ... ])")
 
 	Func IsApplicationTargeting45 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s24:IsApplicationTargeting45")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s24:IsApplicationTargeting45",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.WebSockets.WebSocket, System.Net.WebSockets',"s24:IsApplicationTargeting45")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.WebSockets.WebSocket, System.Net.WebSockets',"s24:IsApplicationTargeting45",[]) ok
 		return dn_x
 
 	Func RegisterPrefixes 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s16:RegisterPrefixes")
+		dn_x = dotnet_callv("s4:call",'System.Net.WebSockets.WebSocket, System.Net.WebSockets',"s16:RegisterPrefixes")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s16:RegisterPrefixes","") ok
 
 		return self

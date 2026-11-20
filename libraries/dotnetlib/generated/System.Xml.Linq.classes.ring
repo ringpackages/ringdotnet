@@ -178,7 +178,7 @@ Class Extensions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s15:InDocumentOrder",dnPackItem(P1))
 
 	Func Remove P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s6:Remove",P1)
+		dn_x = dotnet_callv("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s6:Remove",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s6:Remove",dnPackItem(P1)) ok
 
 		return self
@@ -856,8 +856,8 @@ Class XNode from XObject
 		return dnSend("s4:call",nHandle,"s12:WriteToAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompareDocumentOrder P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s20:CompareDocumentOrder",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s20:CompareDocumentOrder",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Linq.XNode, System.Private.Xml.Linq',"s20:CompareDocumentOrder",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Linq.XNode, System.Private.Xml.Linq',"s20:CompareDocumentOrder",[P1,P2]) ok
 		return dn_x
 
 	Func ReadFrom P1
@@ -867,8 +867,8 @@ Class XNode from XObject
 		return dnSend("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s13:ReadFromAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DeepEquals P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s10:DeepEquals",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"s10:DeepEquals",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Linq.XNode, System.Private.Xml.Linq',"s10:DeepEquals",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Linq.XNode, System.Private.Xml.Linq',"s10:DeepEquals",[P1,P2]) ok
 		return dn_x
 
 	Func getNextNode

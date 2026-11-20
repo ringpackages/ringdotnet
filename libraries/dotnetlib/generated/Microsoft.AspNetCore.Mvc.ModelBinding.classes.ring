@@ -1518,7 +1518,7 @@ Class ModelBinderProviderExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
 
 		return self
@@ -2378,8 +2378,8 @@ Class ModelMetadata from Object
 		raise("DotNet Error: BoundConstructorInvoker is a read-only property")
 
 	Func getDefaultOrder
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions'),"s12:DefaultOrder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions'),"s12:DefaultOrder",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions',"s12:DefaultOrder")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions',"s12:DefaultOrder",[]) ok
 		return dn_x
 
 	Func setDefaultOrder P1
@@ -2458,13 +2458,13 @@ Class ModelNames from Object
 		return dn_x
 
 	Func CreateIndexModelName P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"s20:CreateIndexModelName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"s20:CreateIndexModelName",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s20:CreateIndexModelName",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s20:CreateIndexModelName",[P1,P2]) ok
 		return dn_x
 
 	Func CreatePropertyModelName P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"s23:CreatePropertyModelName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"s23:CreatePropertyModelName",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s23:CreatePropertyModelName",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s23:CreatePropertyModelName",[P1,P2]) ok
 		return dn_x
 
 
@@ -2665,8 +2665,8 @@ Class ModelStateDictionary from Object
 		return dn_x
 
 	Func StartsWithPrefix P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"s16:StartsWithPrefix",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"s16:StartsWithPrefix",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",[P1,P2]) ok
 		return dn_x
 
 	Func Item P1
@@ -2739,8 +2739,8 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: ValidationState is a read-only property")
 
 	Func getDefaultMaxAllowedErrors
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"s23:DefaultMaxAllowedErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"s23:DefaultMaxAllowedErrors",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s23:DefaultMaxAllowedErrors")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s23:DefaultMaxAllowedErrors",[]) ok
 		return dn_x
 
 	Func setDefaultMaxAllowedErrors P1
@@ -2771,18 +2771,18 @@ Class ModelStateDictionaryExtensions from Object
 		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
 
 	Func TryAddModelException P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s20:TryAddModelException",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s20:TryAddModelException",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s20:TryAddModelException",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func Remove P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s6:Remove",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s6:Remove",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s6:Remove",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s6:Remove",[P1,P2]) ok
 		return dn_x
 
 	Func RemoveAll P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s9:RemoveAll",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s9:RemoveAll",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s9:RemoveAll",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3148,7 +3148,7 @@ Class ValueProviderFactoryExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
 
 		return self
@@ -3231,7 +3231,7 @@ Class ValueProviderResult from ValueType
 		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:None","")
 
 	Func setNone P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:None",P1)
+		dn_x = dotnet_callv("s3:set",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',"s4:None",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:None",dnPackItem(P1)) ok
 		return self
 

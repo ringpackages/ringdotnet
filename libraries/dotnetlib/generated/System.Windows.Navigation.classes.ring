@@ -229,23 +229,23 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func GetName_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:GetName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:GetName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s7:GetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s7:GetName",[P1]) ok
 		return dn_x
 
 	Func SetName_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:SetName",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s7:SetName",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s7:SetName",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetKeepAlive P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:GetKeepAlive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:GetKeepAlive",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s12:GetKeepAlive",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s12:GetKeepAlive",[P1]) ok
 		return dn_x
 
 	Func SetKeepAlive P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:SetKeepAlive",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s12:SetKeepAlive",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntry, PresentationFramework'),"s12:SetKeepAlive",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -356,7 +356,7 @@ Class JournalEntryUnifiedViewConverter from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s23:GetJournalEntryPosition",dnPackItem(P1))
 
 	Func SetJournalEntryPosition P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s23:SetJournalEntryPosition",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework',"s23:SetJournalEntryPosition",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"s23:SetJournalEntryPosition",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

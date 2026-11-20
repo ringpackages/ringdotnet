@@ -1735,16 +1735,16 @@ Class LambdaExpression from ExpressionsExpression
 		raise("DotNet Error: TailCall is a read-only property")
 
 	Func getCanCompileToIL
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s14:CanCompileToIL")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s14:CanCompileToIL",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s14:CanCompileToIL")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s14:CanCompileToIL",[]) ok
 		return dn_x
 
 	Func setCanCompileToIL P1
 		raise("DotNet Error: CanCompileToIL is a read-only property")
 
 	Func getCanInterpret
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s12:CanInterpret")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s12:CanInterpret",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s12:CanInterpret")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s12:CanInterpret",[]) ok
 		return dn_x
 
 	Func setCanInterpret P1

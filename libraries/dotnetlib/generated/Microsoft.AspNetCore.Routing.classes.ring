@@ -1680,8 +1680,8 @@ Class RouteConstraintMatcher from Object
 		return dn_x
 
 	Func Match P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components',"s5:Match",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components',"s5:Match",[P1,P2]) ok
 		return dn_x
 
 

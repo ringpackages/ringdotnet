@@ -1143,7 +1143,7 @@ Class EndpointHttpContextExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s11:GetEndpoint",dnPackItem(P1))
 
 	Func SetEndpoint P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s11:SetEndpoint",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions',"s11:SetEndpoint",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s11:SetEndpoint",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1856,13 +1856,13 @@ Class HeaderDictionaryExtensions from Object
 		return dn_x
 
 	Func Append P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s6:Append",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions',"s6:Append",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s6:Append",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func AppendCommaSeparatedValues P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s26:AppendCommaSeparatedValues",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions',"s26:AppendCommaSeparatedValues",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s26:AppendCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -1871,7 +1871,7 @@ Class HeaderDictionaryExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s23:GetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCommaSeparatedValues P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s23:SetCommaSeparatedValues",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions',"s23:SetCommaSeparatedValues",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s23:SetCommaSeparatedValues",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -1897,7 +1897,7 @@ Class HeaderDictionaryTypeExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"s15:GetTypedHeaders",dnPackItem(P1))
 
 	Func AppendList P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"s10:AppendList",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions',"s10:AppendList",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"s10:AppendList",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -1953,8 +1953,8 @@ Class HostString from ValueType
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"s16:FromUriComponent",dnPackItem(P1))
 
 	Func MatchesAny P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"s10:MatchesAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"s10:MatchesAny",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',"s10:MatchesAny",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',"s10:MatchesAny",[P1,P2]) ok
 		return dn_x
 
 	Func getValue
@@ -2156,8 +2156,8 @@ Class HttpContextServerVariableExtensions from Object
 		return dn_x
 
 	Func GetServerVariable P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:GetServerVariable",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:GetServerVariable",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions',"s17:GetServerVariable",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions',"s17:GetServerVariable",[P1,P2]) ok
 		return dn_x
 
 
@@ -2192,116 +2192,116 @@ Class HttpMethods from Object
 		return dn_x
 
 	Func IsConnect P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsConnect",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsConnect",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsConnect",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsConnect",[P1]) ok
 		return dn_x
 
 	Func IsDelete P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsDelete",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsDelete",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s8:IsDelete",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s8:IsDelete",[P1]) ok
 		return dn_x
 
 	Func IsGet P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsGet",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsGet",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsGet",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsGet",[P1]) ok
 		return dn_x
 
 	Func IsHead P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsHead",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsHead",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsHead",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsHead",[P1]) ok
 		return dn_x
 
 	Func IsOptions P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsOptions",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s9:IsOptions",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsOptions",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsOptions",[P1]) ok
 		return dn_x
 
 	Func IsPatch P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsPatch",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsPatch",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsPatch",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsPatch",[P1]) ok
 		return dn_x
 
 	Func IsPost P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsPost",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:IsPost",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsPost",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsPost",[P1]) ok
 		return dn_x
 
 	Func IsPut P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsPut",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:IsPut",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsPut",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsPut",[P1]) ok
 		return dn_x
 
 	Func IsTrace P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsTrace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsTrace",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsTrace",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsTrace",[P1]) ok
 		return dn_x
 
 	Func GetCanonicalizedValue P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s21:GetCanonicalizedValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s21:GetCanonicalizedValue",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s21:GetCanonicalizedValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s21:GetCanonicalizedValue",[P1]) ok
 		return dn_x
 
 	Func getConnect
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Connect")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Connect",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Connect")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Connect",[]) ok
 		return dn_x
 
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
 
 	Func getDelete
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:Delete")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:Delete",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:Delete")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:Delete",[]) ok
 		return dn_x
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getGet
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Get")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Get",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Get")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Get",[]) ok
 		return dn_x
 
 	Func getHead
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Head")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Head",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Head")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Head",[]) ok
 		return dn_x
 
 	Func setHead P1
 		raise("DotNet Error: Head is a read-only property")
 
 	Func getOptions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Options")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s7:Options",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Options")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Options",[]) ok
 		return dn_x
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getPatch
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Patch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Patch",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Patch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Patch",[]) ok
 		return dn_x
 
 	Func setPatch P1
 		raise("DotNet Error: Patch is a read-only property")
 
 	Func getPost
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Post")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s4:Post",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Post")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Post",[]) ok
 		return dn_x
 
 	Func setPost P1
 		raise("DotNet Error: Post is a read-only property")
 
 	Func getPut
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Put")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s3:Put",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Put")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Put",[]) ok
 		return dn_x
 
 	Func getTrace
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Trace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s5:Trace",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Trace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Trace",[]) ok
 		return dn_x
 
 	Func setTrace P1
@@ -2331,70 +2331,70 @@ Class HttpProtocol from Object
 		return dn_x
 
 	Func IsHttp09 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp09",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp09",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp09",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp09",[P1]) ok
 		return dn_x
 
 	Func IsHttp10 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp10",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp10",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp10",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp10",[P1]) ok
 		return dn_x
 
 	Func IsHttp11 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp11",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s8:IsHttp11",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp11",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp11",[P1]) ok
 		return dn_x
 
 	Func IsHttp2 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp2",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp2",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp2",[P1]) ok
 		return dn_x
 
 	Func IsHttp3 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp3",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s7:IsHttp3",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp3",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp3",[P1]) ok
 		return dn_x
 
 	Func GetHttpProtocol P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s15:GetHttpProtocol",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s15:GetHttpProtocol",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s15:GetHttpProtocol",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s15:GetHttpProtocol",[P1]) ok
 		return dn_x
 
 	Func getHttp09
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http09")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http09",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http09")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http09",[]) ok
 		return dn_x
 
 	Func setHttp09 P1
 		raise("DotNet Error: Http09 is a read-only property")
 
 	Func getHttp10
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http10")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http10",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http10")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http10",[]) ok
 		return dn_x
 
 	Func setHttp10 P1
 		raise("DotNet Error: Http10 is a read-only property")
 
 	Func getHttp11
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http11")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s6:Http11",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http11")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http11",[]) ok
 		return dn_x
 
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
 
 	Func getHttp2
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http2",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http2",[]) ok
 		return dn_x
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http3")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"s5:Http3",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http3")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http3",[]) ok
 		return dn_x
 
 	Func setHttp3 P1
@@ -2626,8 +2626,8 @@ Class HttpRequestJsonExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:ReadFromJsonAsync",dnPackItem(P1))
 
 	Func HasJsonContentType P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s18:HasJsonContentType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s18:HasJsonContentType",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions',"s18:HasJsonContentType",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions',"s18:HasJsonContentType",[P1]) ok
 		return dn_x
 
 
@@ -2652,7 +2652,7 @@ Class HttpRequestRewindExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http',"s15:EnableBuffering",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",dnPackItem(P1)) ok
 
 		return self
@@ -5039,13 +5039,13 @@ Class RequestTrailerExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s19:GetDeclaredTrailers",dnPackItem(P1))
 
 	Func SupportsTrailers P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s16:SupportsTrailers",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s16:SupportsTrailers",[P1]) ok
 		return dn_x
 
 	Func CheckTrailersAvailable P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s22:CheckTrailersAvailable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s22:CheckTrailersAvailable",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s22:CheckTrailersAvailable",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s22:CheckTrailersAvailable",[P1]) ok
 		return dn_x
 
 	Func GetTrailer P1,P2
@@ -5069,13 +5069,13 @@ Class ResponseExtensions from Object
 		return dn_x
 
 	Func Clear P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s5:Clear",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions',"s5:Clear",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s5:Clear",dnPackItem(P1)) ok
 
 		return self
 
 	Func Redirect P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:Redirect",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions',"s8:Redirect",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:Redirect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
@@ -5098,18 +5098,18 @@ Class ResponseTrailerExtensions from Object
 		return dn_x
 
 	Func DeclareTrailer P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s14:DeclareTrailer",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s14:DeclareTrailer",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s14:DeclareTrailer",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SupportsTrailers P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s16:SupportsTrailers",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s16:SupportsTrailers",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s16:SupportsTrailers",[P1]) ok
 		return dn_x
 
 	Func AppendTrailer P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s13:AppendTrailer",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions',"s13:AppendTrailer",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s13:AppendTrailer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -5411,7 +5411,7 @@ Class SessionExtensions from Object
 		return dn_x
 
 	Func SetInt32 P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:SetInt32",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions',"s8:SetInt32",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:SetInt32",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -5420,14 +5420,14 @@ Class SessionExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s8:GetInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetString P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:SetString",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions',"s9:SetString",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:SetString",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func GetString P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:GetString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions'),"s9:GetString",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions',"s9:GetString",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions',"s9:GetString",[P1,P2]) ok
 		return dn_x
 
 	Func Get_ P1,P2
@@ -5518,528 +5518,528 @@ Class StatusCodes from Object
 		return dn_x
 
 	Func getStatus100Continue
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status100Continue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status100Continue",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status100Continue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status100Continue",[]) ok
 		return dn_x
 
 	Func setStatus100Continue P1
 		raise("DotNet Error: Status100Continue is a read-only property")
 
 	Func getStatus101SwitchingProtocols
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status101SwitchingProtocols")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status101SwitchingProtocols",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status101SwitchingProtocols")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status101SwitchingProtocols",[]) ok
 		return dn_x
 
 	Func setStatus101SwitchingProtocols P1
 		raise("DotNet Error: Status101SwitchingProtocols is a read-only property")
 
 	Func getStatus102Processing
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status102Processing")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status102Processing",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status102Processing")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status102Processing",[]) ok
 		return dn_x
 
 	Func setStatus102Processing P1
 		raise("DotNet Error: Status102Processing is a read-only property")
 
 	Func getStatus200OK
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s11:Status200OK")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s11:Status200OK",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s11:Status200OK")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s11:Status200OK",[]) ok
 		return dn_x
 
 	Func setStatus200OK P1
 		raise("DotNet Error: Status200OK is a read-only property")
 
 	Func getStatus201Created
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s16:Status201Created")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s16:Status201Created",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s16:Status201Created")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s16:Status201Created",[]) ok
 		return dn_x
 
 	Func setStatus201Created P1
 		raise("DotNet Error: Status201Created is a read-only property")
 
 	Func getStatus202Accepted
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status202Accepted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status202Accepted",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status202Accepted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status202Accepted",[]) ok
 		return dn_x
 
 	Func setStatus202Accepted P1
 		raise("DotNet Error: Status202Accepted is a read-only property")
 
 	Func getStatus203NonAuthoritative
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status203NonAuthoritative")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status203NonAuthoritative",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status203NonAuthoritative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status203NonAuthoritative",[]) ok
 		return dn_x
 
 	Func setStatus203NonAuthoritative P1
 		raise("DotNet Error: Status203NonAuthoritative is a read-only property")
 
 	Func getStatus204NoContent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status204NoContent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status204NoContent",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status204NoContent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status204NoContent",[]) ok
 		return dn_x
 
 	Func setStatus204NoContent P1
 		raise("DotNet Error: Status204NoContent is a read-only property")
 
 	Func getStatus205ResetContent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status205ResetContent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status205ResetContent",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status205ResetContent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status205ResetContent",[]) ok
 		return dn_x
 
 	Func setStatus205ResetContent P1
 		raise("DotNet Error: Status205ResetContent is a read-only property")
 
 	Func getStatus206PartialContent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status206PartialContent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status206PartialContent",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status206PartialContent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status206PartialContent",[]) ok
 		return dn_x
 
 	Func setStatus206PartialContent P1
 		raise("DotNet Error: Status206PartialContent is a read-only property")
 
 	Func getStatus207MultiStatus
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status207MultiStatus")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status207MultiStatus",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status207MultiStatus")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status207MultiStatus",[]) ok
 		return dn_x
 
 	Func setStatus207MultiStatus P1
 		raise("DotNet Error: Status207MultiStatus is a read-only property")
 
 	Func getStatus208AlreadyReported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status208AlreadyReported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status208AlreadyReported",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status208AlreadyReported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status208AlreadyReported",[]) ok
 		return dn_x
 
 	Func setStatus208AlreadyReported P1
 		raise("DotNet Error: Status208AlreadyReported is a read-only property")
 
 	Func getStatus226IMUsed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status226IMUsed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status226IMUsed",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status226IMUsed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status226IMUsed",[]) ok
 		return dn_x
 
 	Func setStatus226IMUsed P1
 		raise("DotNet Error: Status226IMUsed is a read-only property")
 
 	Func getStatus300MultipleChoices
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status300MultipleChoices")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status300MultipleChoices",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status300MultipleChoices")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status300MultipleChoices",[]) ok
 		return dn_x
 
 	Func setStatus300MultipleChoices P1
 		raise("DotNet Error: Status300MultipleChoices is a read-only property")
 
 	Func getStatus301MovedPermanently
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status301MovedPermanently")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status301MovedPermanently",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status301MovedPermanently")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status301MovedPermanently",[]) ok
 		return dn_x
 
 	Func setStatus301MovedPermanently P1
 		raise("DotNet Error: Status301MovedPermanently is a read-only property")
 
 	Func getStatus302Found
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s14:Status302Found")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s14:Status302Found",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s14:Status302Found")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s14:Status302Found",[]) ok
 		return dn_x
 
 	Func setStatus302Found P1
 		raise("DotNet Error: Status302Found is a read-only property")
 
 	Func getStatus303SeeOther
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status303SeeOther")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status303SeeOther",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status303SeeOther")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status303SeeOther",[]) ok
 		return dn_x
 
 	Func setStatus303SeeOther P1
 		raise("DotNet Error: Status303SeeOther is a read-only property")
 
 	Func getStatus304NotModified
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status304NotModified")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status304NotModified",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status304NotModified")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status304NotModified",[]) ok
 		return dn_x
 
 	Func setStatus304NotModified P1
 		raise("DotNet Error: Status304NotModified is a read-only property")
 
 	Func getStatus305UseProxy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status305UseProxy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status305UseProxy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status305UseProxy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status305UseProxy",[]) ok
 		return dn_x
 
 	Func setStatus305UseProxy P1
 		raise("DotNet Error: Status305UseProxy is a read-only property")
 
 	Func getStatus306SwitchProxy
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status306SwitchProxy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status306SwitchProxy",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status306SwitchProxy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status306SwitchProxy",[]) ok
 		return dn_x
 
 	Func setStatus306SwitchProxy P1
 		raise("DotNet Error: Status306SwitchProxy is a read-only property")
 
 	Func getStatus307TemporaryRedirect
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status307TemporaryRedirect")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status307TemporaryRedirect",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status307TemporaryRedirect")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status307TemporaryRedirect",[]) ok
 		return dn_x
 
 	Func setStatus307TemporaryRedirect P1
 		raise("DotNet Error: Status307TemporaryRedirect is a read-only property")
 
 	Func getStatus308PermanentRedirect
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status308PermanentRedirect")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status308PermanentRedirect",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status308PermanentRedirect")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status308PermanentRedirect",[]) ok
 		return dn_x
 
 	Func setStatus308PermanentRedirect P1
 		raise("DotNet Error: Status308PermanentRedirect is a read-only property")
 
 	Func getStatus400BadRequest
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status400BadRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status400BadRequest",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status400BadRequest")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status400BadRequest",[]) ok
 		return dn_x
 
 	Func setStatus400BadRequest P1
 		raise("DotNet Error: Status400BadRequest is a read-only property")
 
 	Func getStatus401Unauthorized
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status401Unauthorized")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status401Unauthorized",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status401Unauthorized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status401Unauthorized",[]) ok
 		return dn_x
 
 	Func setStatus401Unauthorized P1
 		raise("DotNet Error: Status401Unauthorized is a read-only property")
 
 	Func getStatus402PaymentRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status402PaymentRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status402PaymentRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status402PaymentRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status402PaymentRequired",[]) ok
 		return dn_x
 
 	Func setStatus402PaymentRequired P1
 		raise("DotNet Error: Status402PaymentRequired is a read-only property")
 
 	Func getStatus403Forbidden
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status403Forbidden")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status403Forbidden",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status403Forbidden")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status403Forbidden",[]) ok
 		return dn_x
 
 	Func setStatus403Forbidden P1
 		raise("DotNet Error: Status403Forbidden is a read-only property")
 
 	Func getStatus404NotFound
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status404NotFound")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status404NotFound",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status404NotFound")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status404NotFound",[]) ok
 		return dn_x
 
 	Func setStatus404NotFound P1
 		raise("DotNet Error: Status404NotFound is a read-only property")
 
 	Func getStatus405MethodNotAllowed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status405MethodNotAllowed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status405MethodNotAllowed",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status405MethodNotAllowed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status405MethodNotAllowed",[]) ok
 		return dn_x
 
 	Func setStatus405MethodNotAllowed P1
 		raise("DotNet Error: Status405MethodNotAllowed is a read-only property")
 
 	Func getStatus406NotAcceptable
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s22:Status406NotAcceptable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s22:Status406NotAcceptable",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s22:Status406NotAcceptable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s22:Status406NotAcceptable",[]) ok
 		return dn_x
 
 	Func setStatus406NotAcceptable P1
 		raise("DotNet Error: Status406NotAcceptable is a read-only property")
 
 	Func getStatus407ProxyAuthenticationRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status407ProxyAuthenticationRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status407ProxyAuthenticationRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status407ProxyAuthenticationRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status407ProxyAuthenticationRequired",[]) ok
 		return dn_x
 
 	Func setStatus407ProxyAuthenticationRequired P1
 		raise("DotNet Error: Status407ProxyAuthenticationRequired is a read-only property")
 
 	Func getStatus408RequestTimeout
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status408RequestTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status408RequestTimeout",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status408RequestTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status408RequestTimeout",[]) ok
 		return dn_x
 
 	Func setStatus408RequestTimeout P1
 		raise("DotNet Error: Status408RequestTimeout is a read-only property")
 
 	Func getStatus409Conflict
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status409Conflict")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s17:Status409Conflict",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status409Conflict")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status409Conflict",[]) ok
 		return dn_x
 
 	Func setStatus409Conflict P1
 		raise("DotNet Error: Status409Conflict is a read-only property")
 
 	Func getStatus410Gone
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s13:Status410Gone")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s13:Status410Gone",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s13:Status410Gone")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s13:Status410Gone",[]) ok
 		return dn_x
 
 	Func setStatus410Gone P1
 		raise("DotNet Error: Status410Gone is a read-only property")
 
 	Func getStatus411LengthRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status411LengthRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status411LengthRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status411LengthRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status411LengthRequired",[]) ok
 		return dn_x
 
 	Func setStatus411LengthRequired P1
 		raise("DotNet Error: Status411LengthRequired is a read-only property")
 
 	Func getStatus412PreconditionFailed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status412PreconditionFailed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status412PreconditionFailed",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status412PreconditionFailed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status412PreconditionFailed",[]) ok
 		return dn_x
 
 	Func setStatus412PreconditionFailed P1
 		raise("DotNet Error: Status412PreconditionFailed is a read-only property")
 
 	Func getStatus413RequestEntityTooLarge
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status413RequestEntityTooLarge")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status413RequestEntityTooLarge",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status413RequestEntityTooLarge")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status413RequestEntityTooLarge",[]) ok
 		return dn_x
 
 	Func setStatus413RequestEntityTooLarge P1
 		raise("DotNet Error: Status413RequestEntityTooLarge is a read-only property")
 
 	Func getStatus413PayloadTooLarge
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status413PayloadTooLarge")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status413PayloadTooLarge",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status413PayloadTooLarge")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status413PayloadTooLarge",[]) ok
 		return dn_x
 
 	Func setStatus413PayloadTooLarge P1
 		raise("DotNet Error: Status413PayloadTooLarge is a read-only property")
 
 	Func getStatus414RequestUriTooLong
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status414RequestUriTooLong")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status414RequestUriTooLong",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status414RequestUriTooLong")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status414RequestUriTooLong",[]) ok
 		return dn_x
 
 	Func setStatus414RequestUriTooLong P1
 		raise("DotNet Error: Status414RequestUriTooLong is a read-only property")
 
 	Func getStatus414UriTooLong
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status414UriTooLong")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status414UriTooLong",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status414UriTooLong")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status414UriTooLong",[]) ok
 		return dn_x
 
 	Func setStatus414UriTooLong P1
 		raise("DotNet Error: Status414UriTooLong is a read-only property")
 
 	Func getStatus415UnsupportedMediaType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status415UnsupportedMediaType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status415UnsupportedMediaType",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status415UnsupportedMediaType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status415UnsupportedMediaType",[]) ok
 		return dn_x
 
 	Func setStatus415UnsupportedMediaType P1
 		raise("DotNet Error: Status415UnsupportedMediaType is a read-only property")
 
 	Func getStatus416RequestedRangeNotSatisfiable
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s37:Status416RequestedRangeNotSatisfiable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s37:Status416RequestedRangeNotSatisfiable",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s37:Status416RequestedRangeNotSatisfiable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s37:Status416RequestedRangeNotSatisfiable",[]) ok
 		return dn_x
 
 	Func setStatus416RequestedRangeNotSatisfiable P1
 		raise("DotNet Error: Status416RequestedRangeNotSatisfiable is a read-only property")
 
 	Func getStatus416RangeNotSatisfiable
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status416RangeNotSatisfiable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status416RangeNotSatisfiable",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status416RangeNotSatisfiable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status416RangeNotSatisfiable",[]) ok
 		return dn_x
 
 	Func setStatus416RangeNotSatisfiable P1
 		raise("DotNet Error: Status416RangeNotSatisfiable is a read-only property")
 
 	Func getStatus417ExpectationFailed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status417ExpectationFailed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s26:Status417ExpectationFailed",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status417ExpectationFailed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status417ExpectationFailed",[]) ok
 		return dn_x
 
 	Func setStatus417ExpectationFailed P1
 		raise("DotNet Error: Status417ExpectationFailed is a read-only property")
 
 	Func getStatus418ImATeapot
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status418ImATeapot")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s18:Status418ImATeapot",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status418ImATeapot")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status418ImATeapot",[]) ok
 		return dn_x
 
 	Func setStatus418ImATeapot P1
 		raise("DotNet Error: Status418ImATeapot is a read-only property")
 
 	Func getStatus419AuthenticationTimeout
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status419AuthenticationTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status419AuthenticationTimeout",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status419AuthenticationTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status419AuthenticationTimeout",[]) ok
 		return dn_x
 
 	Func setStatus419AuthenticationTimeout P1
 		raise("DotNet Error: Status419AuthenticationTimeout is a read-only property")
 
 	Func getStatus421MisdirectedRequest
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status421MisdirectedRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status421MisdirectedRequest",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status421MisdirectedRequest")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status421MisdirectedRequest",[]) ok
 		return dn_x
 
 	Func setStatus421MisdirectedRequest P1
 		raise("DotNet Error: Status421MisdirectedRequest is a read-only property")
 
 	Func getStatus422UnprocessableEntity
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status422UnprocessableEntity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status422UnprocessableEntity",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status422UnprocessableEntity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status422UnprocessableEntity",[]) ok
 		return dn_x
 
 	Func setStatus422UnprocessableEntity P1
 		raise("DotNet Error: Status422UnprocessableEntity is a read-only property")
 
 	Func getStatus423Locked
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status423Locked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s15:Status423Locked",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status423Locked")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status423Locked",[]) ok
 		return dn_x
 
 	Func setStatus423Locked P1
 		raise("DotNet Error: Status423Locked is a read-only property")
 
 	Func getStatus424FailedDependency
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status424FailedDependency")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s25:Status424FailedDependency",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status424FailedDependency")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status424FailedDependency",[]) ok
 		return dn_x
 
 	Func setStatus424FailedDependency P1
 		raise("DotNet Error: Status424FailedDependency is a read-only property")
 
 	Func getStatus426UpgradeRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status426UpgradeRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status426UpgradeRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status426UpgradeRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status426UpgradeRequired",[]) ok
 		return dn_x
 
 	Func setStatus426UpgradeRequired P1
 		raise("DotNet Error: Status426UpgradeRequired is a read-only property")
 
 	Func getStatus428PreconditionRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status428PreconditionRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s29:Status428PreconditionRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status428PreconditionRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status428PreconditionRequired",[]) ok
 		return dn_x
 
 	Func setStatus428PreconditionRequired P1
 		raise("DotNet Error: Status428PreconditionRequired is a read-only property")
 
 	Func getStatus429TooManyRequests
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status429TooManyRequests")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s24:Status429TooManyRequests",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status429TooManyRequests")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status429TooManyRequests",[]) ok
 		return dn_x
 
 	Func setStatus429TooManyRequests P1
 		raise("DotNet Error: Status429TooManyRequests is a read-only property")
 
 	Func getStatus431RequestHeaderFieldsTooLarge
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status431RequestHeaderFieldsTooLarge")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s36:Status431RequestHeaderFieldsTooLarge",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status431RequestHeaderFieldsTooLarge")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status431RequestHeaderFieldsTooLarge",[]) ok
 		return dn_x
 
 	Func setStatus431RequestHeaderFieldsTooLarge P1
 		raise("DotNet Error: Status431RequestHeaderFieldsTooLarge is a read-only property")
 
 	Func getStatus451UnavailableForLegalReasons
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s35:Status451UnavailableForLegalReasons")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s35:Status451UnavailableForLegalReasons",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s35:Status451UnavailableForLegalReasons")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s35:Status451UnavailableForLegalReasons",[]) ok
 		return dn_x
 
 	Func setStatus451UnavailableForLegalReasons P1
 		raise("DotNet Error: Status451UnavailableForLegalReasons is a read-only property")
 
 	Func getStatus499ClientClosedRequest
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status499ClientClosedRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status499ClientClosedRequest",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status499ClientClosedRequest")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status499ClientClosedRequest",[]) ok
 		return dn_x
 
 	Func setStatus499ClientClosedRequest P1
 		raise("DotNet Error: Status499ClientClosedRequest is a read-only property")
 
 	Func getStatus500InternalServerError
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status500InternalServerError")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status500InternalServerError",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status500InternalServerError")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status500InternalServerError",[]) ok
 		return dn_x
 
 	Func setStatus500InternalServerError P1
 		raise("DotNet Error: Status500InternalServerError is a read-only property")
 
 	Func getStatus501NotImplemented
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status501NotImplemented")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status501NotImplemented",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status501NotImplemented")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status501NotImplemented",[]) ok
 		return dn_x
 
 	Func setStatus501NotImplemented P1
 		raise("DotNet Error: Status501NotImplemented is a read-only property")
 
 	Func getStatus502BadGateway
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status502BadGateway")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s19:Status502BadGateway",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status502BadGateway")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status502BadGateway",[]) ok
 		return dn_x
 
 	Func setStatus502BadGateway P1
 		raise("DotNet Error: Status502BadGateway is a read-only property")
 
 	Func getStatus503ServiceUnavailable
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status503ServiceUnavailable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s27:Status503ServiceUnavailable",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status503ServiceUnavailable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status503ServiceUnavailable",[]) ok
 		return dn_x
 
 	Func setStatus503ServiceUnavailable P1
 		raise("DotNet Error: Status503ServiceUnavailable is a read-only property")
 
 	Func getStatus504GatewayTimeout
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status504GatewayTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s23:Status504GatewayTimeout",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status504GatewayTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status504GatewayTimeout",[]) ok
 		return dn_x
 
 	Func setStatus504GatewayTimeout P1
 		raise("DotNet Error: Status504GatewayTimeout is a read-only property")
 
 	Func getStatus505HttpVersionNotsupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s32:Status505HttpVersionNotsupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s32:Status505HttpVersionNotsupported",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s32:Status505HttpVersionNotsupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s32:Status505HttpVersionNotsupported",[]) ok
 		return dn_x
 
 	Func setStatus505HttpVersionNotsupported P1
 		raise("DotNet Error: Status505HttpVersionNotsupported is a read-only property")
 
 	Func getStatus506VariantAlsoNegotiates
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status506VariantAlsoNegotiates")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s30:Status506VariantAlsoNegotiates",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status506VariantAlsoNegotiates")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status506VariantAlsoNegotiates",[]) ok
 		return dn_x
 
 	Func setStatus506VariantAlsoNegotiates P1
 		raise("DotNet Error: Status506VariantAlsoNegotiates is a read-only property")
 
 	Func getStatus507InsufficientStorage
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status507InsufficientStorage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s28:Status507InsufficientStorage",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status507InsufficientStorage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status507InsufficientStorage",[]) ok
 		return dn_x
 
 	Func setStatus507InsufficientStorage P1
 		raise("DotNet Error: Status507InsufficientStorage is a read-only property")
 
 	Func getStatus508LoopDetected
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status508LoopDetected")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s21:Status508LoopDetected",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status508LoopDetected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status508LoopDetected",[]) ok
 		return dn_x
 
 	Func setStatus508LoopDetected P1
 		raise("DotNet Error: Status508LoopDetected is a read-only property")
 
 	Func getStatus510NotExtended
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status510NotExtended")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s20:Status510NotExtended",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status510NotExtended")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status510NotExtended",[]) ok
 		return dn_x
 
 	Func setStatus510NotExtended P1
 		raise("DotNet Error: Status510NotExtended is a read-only property")
 
 	Func getStatus511NetworkAuthenticationRequired
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s38:Status511NetworkAuthenticationRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions'),"s38:Status511NetworkAuthenticationRequired",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s38:Status511NetworkAuthenticationRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s38:Status511NetworkAuthenticationRequired",[]) ok
 		return dn_x
 
 	Func setStatus511NetworkAuthenticationRequired P1

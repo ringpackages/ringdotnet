@@ -726,8 +726,8 @@ Class AesCcm from Object
 		raise("DotNet Error: TagByteSizes is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.AesCcm, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.AesCcm, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -805,8 +805,8 @@ Class AesGcm from Object
 		raise("DotNet Error: NonceByteSizes is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.AesGcm, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.AesGcm, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -1296,8 +1296,8 @@ Class ChaCha20Poly1305 from Object
 		return dn_x
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -1565,8 +1565,8 @@ Class CngKey from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Exists",[P1]) ok
 		return dn_x
 
 	Func Import_ P1
@@ -2169,7 +2169,7 @@ Class CryptoConfig from Object
 		return dn_x
 
 	Func AddAlgorithm P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s12:AddAlgorithm",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2181,22 +2181,22 @@ Class CryptoConfig from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s14:CreateFromName",dnPackItem(P1))
 
 	Func AddOID P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s6:AddOID",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func MapNameToOID P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s12:MapNameToOID",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s12:MapNameToOID",[P1]) ok
 		return dn_x
 
 	Func EncodeOID P1
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s9:EncodeOID",dnPackItem(P1))
 
 	Func getAllowOnlyFipsAlgorithms
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s23:AllowOnlyFipsAlgorithms")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s23:AllowOnlyFipsAlgorithms",[]) ok
 		return dn_x
 
 	Func setAllowOnlyFipsAlgorithms P1
@@ -3598,8 +3598,8 @@ Class Kmac128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.Kmac128, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.Kmac128, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -3675,8 +3675,8 @@ Class Kmac256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.Kmac256, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.Kmac256, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -3752,8 +3752,8 @@ Class KmacXof128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.KmacXof128, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.KmacXof128, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -3829,8 +3829,8 @@ Class KmacXof256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.KmacXof256, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.KmacXof256, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -4093,8 +4093,8 @@ Class PemEncoding from Object
 		return dn_x
 
 	Func GetEncodedSize P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s14:GetEncodedSize",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s14:GetEncodedSize",[P1,P2]) ok
 		return dn_x
 
 
@@ -4430,16 +4430,16 @@ Class RandomNumberGenerator from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",[P1]) ok
 		return dn_x
 
 	Func GetHexString P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s12:GetHexString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s12:GetHexString",[P1]) ok
 		return dn_x
 
 
@@ -4525,8 +4525,8 @@ Class SafeEvpPKeyHandle from SafeHandle
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s19:OpenKeyFromProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOpenSslVersion
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',"s14:OpenSslVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',"s14:OpenSslVersion",[]) ok
 		return dn_x
 
 	Func setOpenSslVersion P1
@@ -4600,8 +4600,8 @@ Class Shake128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.Shake128, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.Shake128, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -4675,8 +4675,8 @@ Class Shake256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.Shake256, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.Shake256, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -5112,13 +5112,13 @@ Class DES from SymmetricAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.DES, System.Security.Cryptography',"s9:IsWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.DES, System.Security.Cryptography',"s9:IsWeakKey",[P1]) ok
 		return dn_x
 
 	Func IsSemiWeakKey P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.DES, System.Security.Cryptography',"s13:IsSemiWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.DES, System.Security.Cryptography',"s13:IsSemiWeakKey",[P1]) ok
 		return dn_x
 
 
@@ -5386,16 +5386,16 @@ Class MD5 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -5972,16 +5972,16 @@ Class SHA1 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6021,16 +6021,16 @@ Class SHA256 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6070,16 +6070,16 @@ Class SHA384 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6114,24 +6114,24 @@ Class SHA3_256 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6166,24 +6166,24 @@ Class SHA3_384 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6218,24 +6218,24 @@ Class SHA3_512 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6275,16 +6275,16 @@ Class SHA512 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -6312,8 +6312,8 @@ Class TripleDES from SymmetricAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.TripleDES, System.Security.Cryptography',"s9:IsWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Security.Cryptography.TripleDES, System.Security.Cryptography',"s9:IsWeakKey",[P1]) ok
 		return dn_x
 
 
@@ -6491,12 +6491,12 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore",[]) ok
 		return dn_x
 
 	Func setUseMachineKeyStore P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",P1)
+		dn_x = dotnet_callv("s3:set",'System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1)) ok
 		return self
 
@@ -6809,12 +6809,12 @@ Class RSACryptoServiceProvider from RSA
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore",[]) ok
 		return dn_x
 
 	Func setUseMachineKeyStore P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",P1)
+		dn_x = dotnet_callv("s3:set",'System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1)) ok
 		return self
 
@@ -7225,16 +7225,16 @@ Class HMACMD5 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7290,16 +7290,16 @@ Class HMACSHA1 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7355,16 +7355,16 @@ Class HMACSHA256 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7431,16 +7431,16 @@ Class HMACSHA384 from HMAC
 		return self
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7497,24 +7497,24 @@ Class HMACSHA3_256 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7571,24 +7571,24 @@ Class HMACSHA3_384 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7645,24 +7645,24 @@ Class HMACSHA3_512 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1
@@ -7729,16 +7729,16 @@ Class HMACSHA512 from HMAC
 		return self
 
 	Func getHashSizeInBits
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s14:HashSizeInBits",[]) ok
 		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s15:HashSizeInBytes",[]) ok
 		return dn_x
 
 	Func setHashSizeInBytes P1

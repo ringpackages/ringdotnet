@@ -968,7 +968,7 @@ Class HttpClient from HttpMessageInvoker
 		return dnSend("s3:get",dnTypeHandle('System.Net.Http.HttpClient, System.Net.Http'),"s12:DefaultProxy","")
 
 	Func setDefaultProxy P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Net.Http.HttpClient, System.Net.Http'),"s12:DefaultProxy",P1)
+		dn_x = dotnet_callv("s3:set",'System.Net.Http.HttpClient, System.Net.Http',"s12:DefaultProxy",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Net.Http.HttpClient, System.Net.Http'),"s12:DefaultProxy",dnPackItem(P1)) ok
 		return self
 
@@ -1635,8 +1635,8 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Http.SocketsHttpHandler, System.Net.Http'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Http.SocketsHttpHandler, System.Net.Http'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Http.SocketsHttpHandler, System.Net.Http',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Http.SocketsHttpHandler, System.Net.Http',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1

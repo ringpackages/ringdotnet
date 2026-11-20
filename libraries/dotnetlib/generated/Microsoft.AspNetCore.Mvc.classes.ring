@@ -1248,49 +1248,49 @@ Class DefaultApiConventions from Object
 		return dn_x
 
 	Func Get_ P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Get",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s3:Get",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Get",dnPackItem(P1)) ok
 
 		return self
 
 	Func Find P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Find",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s4:Find",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Find",dnPackItem(P1)) ok
 
 		return self
 
 	Func Post P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Post",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s4:Post",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Post",dnPackItem(P1)) ok
 
 		return self
 
 	Func Create P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Create",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s6:Create",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Create",dnPackItem(P1)) ok
 
 		return self
 
 	Func Put_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Put",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s3:Put",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s3:Put",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func Edit P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Edit",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s4:Edit",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s4:Edit",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func Update P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Update",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s6:Update",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Update",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func Delete P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Delete",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s6:Delete",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"s6:Delete",dnPackItem(P1)) ok
 
 		return self
@@ -1965,8 +1965,8 @@ Class UrlHelperExtensions from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:Action",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:Action",[P1]) ok
 		return dn_x
 
 	Func RouteUrl P1
@@ -1985,16 +1985,16 @@ Class UrlHelperExtensions from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:ActionLink",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:ActionLink",[P1]) ok
 		return dn_x
 
 	Func PageLink P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s8:PageLink",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s8:PageLink",[P1]) ok
 		return dn_x
 
 

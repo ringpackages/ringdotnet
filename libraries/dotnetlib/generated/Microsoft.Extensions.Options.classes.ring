@@ -69,8 +69,8 @@ Class Options from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s6:Create",dnPackItem(P1))
 
 	Func getDefaultName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options',"s11:DefaultName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options',"s11:DefaultName",[]) ok
 		return dn_x
 
 	Func setDefaultName P1

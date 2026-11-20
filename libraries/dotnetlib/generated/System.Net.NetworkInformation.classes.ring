@@ -1850,7 +1850,7 @@ Class NetworkChange from Object
 		return dn_x
 
 	Func RegisterNetworkChange P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"s21:RegisterNetworkChange",P1)
+		dn_x = dotnet_callv("s4:call",'System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',"s21:RegisterNetworkChange",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"s21:RegisterNetworkChange",dnPackItem(P1)) ok
 
 		return self
@@ -1920,8 +1920,8 @@ Class NetworkInterface from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s23:GetAllNetworkInterfaces","")
 
 	Func GetIsNetworkAvailable 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s21:GetIsNetworkAvailable")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s21:GetIsNetworkAvailable",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s21:GetIsNetworkAvailable")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s21:GetIsNetworkAvailable",[]) ok
 		return dn_x
 
 	Func getId
@@ -1985,16 +1985,16 @@ Class NetworkInterface from Object
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s26:IPv6LoopbackInterfaceIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s26:IPv6LoopbackInterfaceIndex",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex",[]) ok
 		return dn_x
 
 	Func setIPv6LoopbackInterfaceIndex P1
 		raise("DotNet Error: IPv6LoopbackInterfaceIndex is a read-only property")
 
 	Func getLoopbackInterfaceIndex
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s22:LoopbackInterfaceIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s22:LoopbackInterfaceIndex",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex",[]) ok
 		return dn_x
 
 	Func setLoopbackInterfaceIndex P1

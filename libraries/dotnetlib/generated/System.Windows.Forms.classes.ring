@@ -2729,25 +2729,25 @@ Class Application from Object
 		return dn_x
 
 	Func SetColorMode P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s12:SetColorMode",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s12:SetColorMode",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s12:SetColorMode",dnPackItem(P1)) ok
 
 		return self
 
 	Func RegisterMessageLoop P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RegisterMessageLoop",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s19:RegisterMessageLoop",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RegisterMessageLoop",dnPackItem(P1)) ok
 
 		return self
 
 	Func UnregisterMessageLoop 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s21:UnregisterMessageLoop")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s21:UnregisterMessageLoop")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s21:UnregisterMessageLoop","") ok
 
 		return self
 
 	Func AddMessageFilter P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:AddMessageFilter",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s16:AddMessageFilter",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:AddMessageFilter",dnPackItem(P1)) ok
 
 		return self
@@ -2756,13 +2756,13 @@ Class Application from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:FilterMessage",dnPackItem(P1))
 
 	Func DoEvents 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s8:DoEvents")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s8:DoEvents")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s8:DoEvents","") ok
 
 		return self
 
 	Func EnableVisualStyles 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s18:EnableVisualStyles")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s18:EnableVisualStyles")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s18:EnableVisualStyles","") ok
 
 		return self
@@ -2773,18 +2773,18 @@ Class Application from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit")
+			dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s4:Exit")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit","") ok
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s4:Exit",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit",dnPackItem(P1)) ok
 
 		return self
 
 	Func ExitThread 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s10:ExitThread")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s10:ExitThread")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s10:ExitThread","") ok
 
 		return self
@@ -2793,25 +2793,25 @@ Class Application from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:OleRequired","")
 
 	Func OnThreadException P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:OnThreadException",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s17:OnThreadException",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:OnThreadException",dnPackItem(P1)) ok
 
 		return self
 
 	Func RaiseIdle P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:RaiseIdle",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s9:RaiseIdle",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:RaiseIdle",dnPackItem(P1)) ok
 
 		return self
 
 	Func RemoveMessageFilter P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RemoveMessageFilter",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s19:RemoveMessageFilter",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s19:RemoveMessageFilter",dnPackItem(P1)) ok
 
 		return self
 
 	Func Restart 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s7:Restart")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s7:Restart")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s7:Restart","") ok
 
 		return self
@@ -2822,36 +2822,36 @@ Class Application from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run")
+			dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s3:Run")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run","") ok
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s3:Run",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run",dnPackItem(P1)) ok
 
 		return self
 
 	Func SetCompatibleTextRenderingDefault P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s33:SetCompatibleTextRenderingDefault",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s33:SetCompatibleTextRenderingDefault",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s33:SetCompatibleTextRenderingDefault",dnPackItem(P1)) ok
 
 		return self
 
 	Func SetDefaultFont P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetDefaultFont",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s14:SetDefaultFont",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetDefaultFont",dnPackItem(P1)) ok
 
 		return self
 
 	Func SetHighDpiMode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetHighDpiMode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:SetHighDpiMode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s14:SetHighDpiMode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s14:SetHighDpiMode",[P1]) ok
 		return dn_x
 
 	Func SetSuspendState P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:SetSuspendState",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:SetSuspendState",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s15:SetSuspendState",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s15:SetSuspendState",[P1,P2,P3]) ok
 		return dn_x
 
 	Func SetUnhandledExceptionMode P1
@@ -2859,7 +2859,7 @@ Class Application from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SetUnhandledExceptionMode",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",dnPackItem(P1)) ok
 
 		return self
@@ -2913,8 +2913,8 @@ Class Application from Object
 		return self
 
 	Func getAllowQuit
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:AllowQuit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s9:AllowQuit",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s9:AllowQuit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s9:AllowQuit",[]) ok
 		return dn_x
 
 	Func setAllowQuit P1
@@ -2927,16 +2927,16 @@ Class Application from Object
 		raise("DotNet Error: CommonAppDataRegistry is a read-only property")
 
 	Func getCommonAppDataPath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:CommonAppDataPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:CommonAppDataPath",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:CommonAppDataPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:CommonAppDataPath",[]) ok
 		return dn_x
 
 	Func setCommonAppDataPath P1
 		raise("DotNet Error: CommonAppDataPath is a read-only property")
 
 	Func getCompanyName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:CompanyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:CompanyName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:CompanyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:CompanyName",[]) ok
 		return dn_x
 
 	Func setCompanyName P1
@@ -2946,7 +2946,7 @@ Class Application from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:CurrentCulture",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s14:CurrentCulture",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:CurrentCulture",dnPackItem(P1)) ok
 		return self
 
@@ -2954,7 +2954,7 @@ Class Application from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:CurrentInputLanguage",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s20:CurrentInputLanguage",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:CurrentInputLanguage",dnPackItem(P1)) ok
 		return self
 
@@ -2968,16 +2968,16 @@ Class Application from Object
 		raise("DotNet Error: SystemColorMode is a read-only property")
 
 	Func getIsDarkModeEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:IsDarkModeEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s17:IsDarkModeEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:IsDarkModeEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:IsDarkModeEnabled",[]) ok
 		return dn_x
 
 	Func setIsDarkModeEnabled P1
 		raise("DotNet Error: IsDarkModeEnabled is a read-only property")
 
 	Func getExecutablePath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ExecutablePath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ExecutablePath",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ExecutablePath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ExecutablePath",[]) ok
 		return dn_x
 
 	Func setExecutablePath P1
@@ -2987,16 +2987,16 @@ Class Application from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:HighDpiMode","")
 
 	Func getLocalUserAppDataPath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:LocalUserAppDataPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s20:LocalUserAppDataPath",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s20:LocalUserAppDataPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s20:LocalUserAppDataPath",[]) ok
 		return dn_x
 
 	Func setLocalUserAppDataPath P1
 		raise("DotNet Error: LocalUserAppDataPath is a read-only property")
 
 	Func getMessageLoop
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:MessageLoop")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:MessageLoop",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:MessageLoop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:MessageLoop",[]) ok
 		return dn_x
 
 	Func setMessageLoop P1
@@ -3009,60 +3009,60 @@ Class Application from Object
 		raise("DotNet Error: OpenForms is a read-only property")
 
 	Func getProductName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:ProductName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:ProductName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:ProductName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:ProductName",[]) ok
 		return dn_x
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ProductVersion")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s14:ProductVersion",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ProductVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ProductVersion",[]) ok
 		return dn_x
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
 
 	Func getRenderWithVisualStyles
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s22:RenderWithVisualStyles")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s22:RenderWithVisualStyles",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s22:RenderWithVisualStyles")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s22:RenderWithVisualStyles",[]) ok
 		return dn_x
 
 	Func setRenderWithVisualStyles P1
 		raise("DotNet Error: RenderWithVisualStyles is a read-only property")
 
 	Func getSafeTopLevelCaptionFormat
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SafeTopLevelCaptionFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SafeTopLevelCaptionFormat",[]) ok
 		return dn_x
 
 	Func setSafeTopLevelCaptionFormat P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SafeTopLevelCaptionFormat",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SafeTopLevelCaptionFormat",dnPackItem(P1)) ok
 		return self
 
 	Func getStartupPath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:StartupPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s11:StartupPath",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:StartupPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:StartupPath",[]) ok
 		return dn_x
 
 	Func setStartupPath P1
 		raise("DotNet Error: StartupPath is a read-only property")
 
 	Func getUseWaitCursor
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s13:UseWaitCursor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s13:UseWaitCursor",[]) ok
 		return dn_x
 
 	Func setUseWaitCursor P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s13:UseWaitCursor",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:UseWaitCursor",dnPackItem(P1)) ok
 		return self
 
 	Func getUserAppDataPath
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UserAppDataPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UserAppDataPath",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UserAppDataPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UserAppDataPath",[]) ok
 		return dn_x
 
 	Func setUserAppDataPath P1
@@ -3075,8 +3075,8 @@ Class Application from Object
 		raise("DotNet Error: UserAppDataRegistry is a read-only property")
 
 	Func getUseVisualStyles
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UseVisualStyles")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s15:UseVisualStyles",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UseVisualStyles")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UseVisualStyles",[]) ok
 		return dn_x
 
 	Func setUseVisualStyles P1
@@ -3086,7 +3086,7 @@ Class Application from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:VisualStyleState","")
 
 	Func setVisualStyleState P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:VisualStyleState",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s16:VisualStyleState",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s16:VisualStyleState",dnPackItem(P1)) ok
 		return self
 
@@ -3701,7 +3701,7 @@ Class BindingContext from Object
 		return dn_x
 
 	Func UpdateBinding P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.BindingContext, System.Windows.Forms'),"s13:UpdateBinding",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.BindingContext, System.Windows.Forms',"s13:UpdateBinding",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.BindingContext, System.Windows.Forms'),"s13:UpdateBinding",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4498,12 +4498,12 @@ Class ButtonRenderer from Object
 		return dn_x
 
 	Func IsBackgroundPartiallyTransparent P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",[P1]) ok
 		return dn_x
 
 	Func DrawParentBackground P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s20:DrawParentBackground",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -4516,12 +4516,12 @@ Class ButtonRenderer from Object
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",[]) ok
 		return dn_x
 
 	Func setRenderMatchingApplicationState P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1)) ok
 		return self
 
@@ -4578,12 +4578,12 @@ Class CheckBoxRenderer from Object
 		return dn_x
 
 	Func IsBackgroundPartiallyTransparent P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",[P1]) ok
 		return dn_x
 
 	Func DrawParentBackground P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s20:DrawParentBackground",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -4599,12 +4599,12 @@ Class CheckBoxRenderer from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getRenderMatchingApplicationState
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",[]) ok
 		return dn_x
 
 	Func setRenderMatchingApplicationState P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1)) ok
 		return self
 
@@ -4630,7 +4630,7 @@ Class Clipboard from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:SetDataObject",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",dnPackItem(P1)) ok
 
 		return self
@@ -4639,29 +4639,29 @@ Class Clipboard from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:GetDataObject","")
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s5:Clear")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s5:Clear")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s5:Clear","") ok
 
 		return self
 
 	Func ContainsAudio 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsAudio")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsAudio",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsAudio")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsAudio",[]) ok
 		return dn_x
 
 	Func ContainsData P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsData",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsData",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsData",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsData",[P1]) ok
 		return dn_x
 
 	Func ContainsFileDropList 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s20:ContainsFileDropList")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s20:ContainsFileDropList",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s20:ContainsFileDropList")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s20:ContainsFileDropList",[]) ok
 		return dn_x
 
 	Func ContainsImage 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsImage")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:ContainsImage",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsImage")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsImage",[]) ok
 		return dn_x
 
 	Func ContainsText P1
@@ -4669,12 +4669,12 @@ Class Clipboard from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",[]) ok
+			dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText",[]) ok
 		return dn_x
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText",[P1]) ok
 		return dn_x
 
 	Func GetAudioStream 
@@ -4694,34 +4694,34 @@ Class Clipboard from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",[]) ok
+			dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText",[]) ok
 		return dn_x
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText",[P1]) ok
 		return dn_x
 
 	Func SetAudio P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetAudio",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s8:SetAudio",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetAudio",dnPackItem(P1)) ok
 
 		return self
 
 	Func SetData P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetData",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:SetData",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetFileDropList P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s15:SetFileDropList",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s15:SetFileDropList",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s15:SetFileDropList",dnPackItem(P1)) ok
 
 		return self
 
 	Func SetImage P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetImage",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s8:SetImage",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s8:SetImage",dnPackItem(P1)) ok
 
 		return self
@@ -4731,7 +4731,7 @@ Class Clipboard from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:SetText",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",dnPackItem(P1)) ok
 
 		return self
@@ -5076,14 +5076,14 @@ Class ComboBoxRenderer from Object
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func DrawDropDownButton P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s18:DrawDropDownButton",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms',"s18:DrawDropDownButton",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s18:DrawDropDownButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -5544,13 +5544,13 @@ Class Control from Component
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s10:FromHandle",dnPackItem(P1))
 
 	Func IsKeyLocked P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s11:IsKeyLocked",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s11:IsKeyLocked",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Control, System.Windows.Forms',"s11:IsKeyLocked",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Control, System.Windows.Forms',"s11:IsKeyLocked",[P1]) ok
 		return dn_x
 
 	Func IsMnemonic P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s10:IsMnemonic",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s10:IsMnemonic",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Control, System.Windows.Forms',"s10:IsMnemonic",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.Control, System.Windows.Forms',"s10:IsMnemonic",[P1,P2]) ok
 		return dn_x
 
 	Func setAutoSizeChangedEvent P1
@@ -6726,12 +6726,12 @@ Class Control from Component
 		return self
 
 	Func getCheckForIllegalCrossThreadCalls
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Control, System.Windows.Forms',"s31:CheckForIllegalCrossThreadCalls")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.Control, System.Windows.Forms',"s31:CheckForIllegalCrossThreadCalls",[]) ok
 		return dn_x
 
 	Func setCheckForIllegalCrossThreadCalls P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Control, System.Windows.Forms',"s31:CheckForIllegalCrossThreadCalls",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Control, System.Windows.Forms'),"s31:CheckForIllegalCrossThreadCalls",dnPackItem(P1)) ok
 		return self
 
@@ -6873,7 +6873,7 @@ Class ControlPaint from Object
 		raise("DotNet Error: DrawComboButton does not take one argument: use named arguments, DrawComboButton([ :parameter = value, ... ])")
 
 	Func DrawContainerGrabHandle P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:DrawContainerGrabHandle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s23:DrawContainerGrabHandle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:DrawContainerGrabHandle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -6886,25 +6886,25 @@ Class ControlPaint from Object
 		raise("DotNet Error: DrawFocusRectangle does not take one argument: use named arguments, DrawFocusRectangle([ :parameter = value, ... ])")
 
 	Func DrawGrabHandle P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s14:DrawGrabHandle",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s14:DrawGrabHandle",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s14:DrawGrabHandle",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
 
 	Func DrawGrid P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s8:DrawGrid",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s8:DrawGrid",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s8:DrawGrid",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
 
 	Func DrawImageDisabled P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawImageDisabled",P1,P2,P3,P4,P5)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s17:DrawImageDisabled",P1,P2,P3,P4,P5)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawImageDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
 
 		return self
 
 	Func DrawLockedFrame P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawLockedFrame",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s15:DrawLockedFrame",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawLockedFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -6931,13 +6931,13 @@ Class ControlPaint from Object
 		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
 
 	Func DrawReversibleFrame P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s19:DrawReversibleFrame",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s19:DrawReversibleFrame",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s19:DrawReversibleFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawReversibleLine P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawReversibleLine",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s18:DrawReversibleLine",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawReversibleLine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -6950,7 +6950,7 @@ Class ControlPaint from Object
 		raise("DotNet Error: DrawScrollButton does not take one argument: use named arguments, DrawScrollButton([ :parameter = value, ... ])")
 
 	Func DrawSelectionFrame P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawSelectionFrame",P1,P2,P3,P4,P5)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s18:DrawSelectionFrame",P1,P2,P3,P4,P5)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawSelectionFrame",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
 
 		return self
@@ -6963,19 +6963,19 @@ Class ControlPaint from Object
 		raise("DotNet Error: DrawSizeGrip does not take one argument: use named arguments, DrawSizeGrip([ :parameter = value, ... ])")
 
 	Func DrawStringDisabled P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawStringDisabled",P1,P2,P3,P4,P5,P6)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s18:DrawStringDisabled",P1,P2,P3,P4,P5,P6)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawStringDisabled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
 
 		return self
 
 	Func DrawVisualStyleBorder P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s21:DrawVisualStyleBorder",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s21:DrawVisualStyleBorder",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s21:DrawVisualStyleBorder",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func FillReversibleRectangle P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:FillReversibleRectangle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s23:FillReversibleRectangle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s23:FillReversibleRectangle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -7234,13 +7234,13 @@ Class Cursor from Object
 		return dn_x
 
 	Func Hide 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Hide")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Cursor, System.Windows.Forms',"s4:Hide")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Hide","") ok
 
 		return self
 
 	Func Show 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Show")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Cursor, System.Windows.Forms',"s4:Show")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Show","") ok
 
 		return self
@@ -7275,7 +7275,7 @@ Class Cursor from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Clip","")
 
 	Func setClip P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Clip",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Cursor, System.Windows.Forms',"s4:Clip",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s4:Clip",dnPackItem(P1)) ok
 		return self
 
@@ -7283,7 +7283,7 @@ Class Cursor from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s7:Current","")
 
 	Func setCurrent P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s7:Current",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Cursor, System.Windows.Forms',"s7:Current",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s7:Current",dnPackItem(P1)) ok
 		return self
 
@@ -7291,7 +7291,7 @@ Class Cursor from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s8:Position","")
 
 	Func setPosition P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s8:Position",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.Cursor, System.Windows.Forms',"s8:Position",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.Cursor, System.Windows.Forms'),"s8:Position",dnPackItem(P1)) ok
 		return self
 
@@ -7573,168 +7573,168 @@ Class DataFormats from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s9:GetFormat",dnPackItem(P1))
 
 	Func getText
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Text")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Text",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Text",[]) ok
 		return dn_x
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s11:UnicodeText")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s11:UnicodeText",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s11:UnicodeText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s11:UnicodeText",[]) ok
 		return dn_x
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dib")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dib",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dib")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dib",[]) ok
 		return dn_x
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Bitmap")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Bitmap",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Bitmap")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Bitmap",[]) ok
 		return dn_x
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s16:EnhancedMetafile")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s16:EnhancedMetafile",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s16:EnhancedMetafile")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s16:EnhancedMetafile",[]) ok
 		return dn_x
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePict
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:MetafilePict")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:MetafilePict",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:MetafilePict")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:MetafilePict",[]) ok
 		return dn_x
 
 	Func setMetafilePict P1
 		raise("DotNet Error: MetafilePict is a read-only property")
 
 	Func getSymbolicLink
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:SymbolicLink")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:SymbolicLink",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:SymbolicLink")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:SymbolicLink",[]) ok
 		return dn_x
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dif")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Dif",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dif")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dif",[]) ok
 		return dn_x
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Tiff")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Tiff",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Tiff")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Tiff",[]) ok
 		return dn_x
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:OemText")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:OemText",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:OemText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:OemText",[]) ok
 		return dn_x
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:Palette")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:Palette",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:Palette")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:Palette",[]) ok
 		return dn_x
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:PenData")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s7:PenData",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:PenData")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:PenData",[]) ok
 		return dn_x
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Riff")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Riff",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Riff")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Riff",[]) ok
 		return dn_x
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s9:WaveAudio")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s9:WaveAudio",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s9:WaveAudio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s9:WaveAudio",[]) ok
 		return dn_x
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s8:FileDrop")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s8:FileDrop",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s8:FileDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s8:FileDrop",[]) ok
 		return dn_x
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Locale")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s6:Locale",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Locale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Locale",[]) ok
 		return dn_x
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Html")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s4:Html",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Html")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Html",[]) ok
 		return dn_x
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Rtf")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s3:Rtf",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Rtf")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Rtf",[]) ok
 		return dn_x
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s19:CommaSeparatedValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s19:CommaSeparatedValue",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s19:CommaSeparatedValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s19:CommaSeparatedValue",[]) ok
 		return dn_x
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:StringFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:StringFormat",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:StringFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:StringFormat",[]) ok
 		return dn_x
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:Serializable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.DataFormats, System.Windows.Forms'),"s12:Serializable",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:Serializable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:Serializable",[]) ok
 		return dn_x
 
 	Func setSerializable P1
@@ -10974,7 +10974,7 @@ Class GridItemCollection from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.GridItemCollection, System.Windows.Forms'),"s5:Empty","")
 
 	Func setEmpty P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.GridItemCollection, System.Windows.Forms'),"s5:Empty",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.GridItemCollection, System.Windows.Forms',"s5:Empty",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.GridItemCollection, System.Windows.Forms'),"s5:Empty",dnPackItem(P1)) ok
 		return self
 
@@ -10998,12 +10998,12 @@ Class GroupBoxRenderer from Object
 		return dn_x
 
 	Func IsBackgroundPartiallyTransparent P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",[P1]) ok
 		return dn_x
 
 	Func DrawParentBackground P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s20:DrawParentBackground",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -11016,12 +11016,12 @@ Class GroupBoxRenderer from Object
 		raise("DotNet Error: DrawGroupBox does not take one argument: use named arguments, DrawGroupBox([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",[]) ok
 		return dn_x
 
 	Func setRenderMatchingApplicationState P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1)) ok
 		return self
 
@@ -11050,13 +11050,13 @@ Class Help from Object
 		raise("DotNet Error: ShowHelp does not take one argument: use named arguments, ShowHelp([ :parameter = value, ... ])")
 
 	Func ShowHelpIndex P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s13:ShowHelpIndex",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Help, System.Windows.Forms',"s13:ShowHelpIndex",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s13:ShowHelpIndex",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func ShowPopup P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s9:ShowPopup",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.Help, System.Windows.Forms',"s9:ShowPopup",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s9:ShowPopup",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -13216,13 +13216,13 @@ Class ImeContext from Object
 		return dn_x
 
 	Func Disable P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s7:Disable",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s7:Disable",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s7:Disable",dnPackItem(P1)) ok
 
 		return self
 
 	Func Enable P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:Enable",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s6:Enable",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:Enable",dnPackItem(P1)) ok
 
 		return self
@@ -13231,18 +13231,18 @@ Class ImeContext from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s10:GetImeMode",dnPackItem(P1))
 
 	Func IsOpen P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:IsOpen",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s6:IsOpen",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s6:IsOpen",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s6:IsOpen",[P1]) ok
 		return dn_x
 
 	Func SetImeStatus P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s12:SetImeStatus",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s12:SetImeStatus",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s12:SetImeStatus",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetOpenStatus P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s13:SetOpenStatus",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ImeContext, System.Windows.Forms',"s13:SetOpenStatus",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ImeContext, System.Windows.Forms'),"s13:SetOpenStatus",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -13278,8 +13278,8 @@ Class ImeModeConversion from ValueType
 		raise("DotNet Error: ImeModeConversionBits is a read-only property")
 
 	Func getIsCurrentConversionTableSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ImeModeConversion, System.Windows.Forms'),"s33:IsCurrentConversionTableSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ImeModeConversion, System.Windows.Forms'),"s33:IsCurrentConversionTableSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ImeModeConversion, System.Windows.Forms',"s33:IsCurrentConversionTableSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ImeModeConversion, System.Windows.Forms',"s33:IsCurrentConversionTableSupported",[]) ok
 		return dn_x
 
 	Func setIsCurrentConversionTableSupported P1
@@ -13336,7 +13336,7 @@ Class InputLanguage from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:CurrentInputLanguage",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.InputLanguage, System.Windows.Forms',"s20:CurrentInputLanguage",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"s20:CurrentInputLanguage",dnPackItem(P1)) ok
 		return self
 
@@ -14122,8 +14122,8 @@ Class ListBindingHelper from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s7:GetList",dnPackItem(P1))
 
 	Func GetListName P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s11:GetListName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s11:GetListName",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s11:GetListName",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s11:GetListName",[P1,P2]) ok
 		return dn_x
 
 	Func GetListItemProperties P1
@@ -17015,48 +17015,48 @@ Class ProgressBarRenderer from Object
 		return dn_x
 
 	Func DrawHorizontalBar P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s17:DrawHorizontalBar",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s17:DrawHorizontalBar",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s17:DrawHorizontalBar",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DrawVerticalBar P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s15:DrawVerticalBar",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s15:DrawVerticalBar",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s15:DrawVerticalBar",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DrawHorizontalChunks P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s20:DrawHorizontalChunks",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s20:DrawHorizontalChunks",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s20:DrawHorizontalChunks",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DrawVerticalChunks P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s18:DrawVerticalChunks",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s18:DrawVerticalChunks",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s18:DrawVerticalChunks",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getChunkThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s14:ChunkThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s14:ChunkThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s14:ChunkThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s14:ChunkThickness",[]) ok
 		return dn_x
 
 	Func setChunkThickness P1
 		raise("DotNet Error: ChunkThickness is a read-only property")
 
 	Func getChunkSpaceThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s19:ChunkSpaceThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"s19:ChunkSpaceThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s19:ChunkSpaceThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s19:ChunkSpaceThickness",[]) ok
 		return dn_x
 
 	Func setChunkSpaceThickness P1
@@ -17302,12 +17302,12 @@ Class RadioButtonRenderer from Object
 		return dn_x
 
 	Func IsBackgroundPartiallyTransparent P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s32:IsBackgroundPartiallyTransparent",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s32:IsBackgroundPartiallyTransparent",[P1]) ok
 		return dn_x
 
 	Func DrawParentBackground P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s20:DrawParentBackground",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -17323,12 +17323,12 @@ Class RadioButtonRenderer from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s12:GetGlyphSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getRenderMatchingApplicationState
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",[]) ok
 		return dn_x
 
 	Func setRenderMatchingApplicationState P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s30:RenderMatchingApplicationState",dnPackItem(P1)) ok
 		return self
 
@@ -17476,61 +17476,61 @@ Class ScrollBarRenderer from Object
 		return dn_x
 
 	Func DrawArrowButton P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s15:DrawArrowButton",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s15:DrawArrowButton",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s15:DrawArrowButton",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawHorizontalThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s19:DrawHorizontalThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawVerticalThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s17:DrawVerticalThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawHorizontalThumbGrip P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawHorizontalThumbGrip",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s23:DrawHorizontalThumbGrip",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawHorizontalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawVerticalThumbGrip P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s21:DrawVerticalThumbGrip",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s21:DrawVerticalThumbGrip",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s21:DrawVerticalThumbGrip",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawRightHorizontalTrack P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s24:DrawRightHorizontalTrack",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s24:DrawRightHorizontalTrack",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s24:DrawRightHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawLeftHorizontalTrack P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawLeftHorizontalTrack",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s23:DrawLeftHorizontalTrack",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s23:DrawLeftHorizontalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawUpperVerticalTrack P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawUpperVerticalTrack",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s22:DrawUpperVerticalTrack",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawUpperVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawLowerVerticalTrack P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawLowerVerticalTrack",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s22:DrawLowerVerticalTrack",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s22:DrawLowerVerticalTrack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawSizeBox P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:DrawSizeBox",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s11:DrawSizeBox",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:DrawSizeBox",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -17542,8 +17542,8 @@ Class ScrollBarRenderer from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s14:GetSizeBoxSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -17924,19 +17924,19 @@ Class SendKeys from Object
 		return dn_x
 
 	Func Send P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s4:Send",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s4:Send",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s4:Send",dnPackItem(P1)) ok
 
 		return self
 
 	Func SendWait P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s8:SendWait",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s8:SendWait",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s8:SendWait",dnPackItem(P1)) ok
 
 		return self
 
 	Func Flush 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s5:Flush")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s5:Flush")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SendKeys, System.Windows.Forms'),"s5:Flush","") ok
 
 		return self
@@ -18174,13 +18174,13 @@ Class SystemInformation from Object
 		return dn_x
 
 	Func GetVerticalScrollBarWidthForDpi P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:GetVerticalScrollBarWidthForDpi",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:GetVerticalScrollBarWidthForDpi",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:GetVerticalScrollBarWidthForDpi",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:GetVerticalScrollBarWidthForDpi",[P1]) ok
 		return dn_x
 
 	Func GetHorizontalScrollBarHeightForDpi P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:GetHorizontalScrollBarHeightForDpi",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:GetHorizontalScrollBarHeightForDpi",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:GetHorizontalScrollBarHeightForDpi",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:GetHorizontalScrollBarHeightForDpi",[P1]) ok
 		return dn_x
 
 	Func GetBorderSizeForDpi P1
@@ -18190,34 +18190,34 @@ Class SystemInformation from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:GetMenuFontForDpi",dnPackItem(P1))
 
 	Func VerticalScrollBarArrowHeightForDpi P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:VerticalScrollBarArrowHeightForDpi",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s34:VerticalScrollBarArrowHeightForDpi",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:VerticalScrollBarArrowHeightForDpi",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:VerticalScrollBarArrowHeightForDpi",[P1]) ok
 		return dn_x
 
 	Func GetHorizontalScrollBarArrowWidthForDpi P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s38:GetHorizontalScrollBarArrowWidthForDpi",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s38:GetHorizontalScrollBarArrowWidthForDpi",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s38:GetHorizontalScrollBarArrowWidthForDpi",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s38:GetHorizontalScrollBarArrowWidthForDpi",[P1]) ok
 		return dn_x
 
 	Func getDragFullWindows
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DragFullWindows")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DragFullWindows",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DragFullWindows")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DragFullWindows",[]) ok
 		return dn_x
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getHighContrast
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:HighContrast")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:HighContrast",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:HighContrast")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:HighContrast",[]) ok
 		return dn_x
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
 
 	Func getMouseWheelScrollLines
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollLines")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollLines",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollLines")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollLines",[]) ok
 		return dn_x
 
 	Func setMouseWheelScrollLines P1
@@ -18230,24 +18230,24 @@ Class SystemInformation from Object
 		raise("DotNet Error: PrimaryMonitorSize is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalScrollBarWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalScrollBarWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalScrollBarWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalScrollBarWidth",[]) ok
 		return dn_x
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:HorizontalScrollBarHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:HorizontalScrollBarHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:HorizontalScrollBarHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:HorizontalScrollBarHeight",[]) ok
 		return dn_x
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getCaptionHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:CaptionHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:CaptionHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:CaptionHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:CaptionHeight",[]) ok
 		return dn_x
 
 	Func setCaptionHeight P1
@@ -18266,16 +18266,16 @@ Class SystemInformation from Object
 		raise("DotNet Error: FixedFrameBorderSize is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarThumbHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarThumbHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarThumbHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarThumbHeight",[]) ok
 		return dn_x
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarThumbWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarThumbWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarThumbWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarThumbWidth",[]) ok
 		return dn_x
 
 	Func setHorizontalScrollBarThumbWidth P1
@@ -18300,8 +18300,8 @@ Class SystemInformation from Object
 		raise("DotNet Error: MenuFont is a read-only property")
 
 	Func getMenuHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MenuHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MenuHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MenuHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MenuHeight",[]) ok
 		return dn_x
 
 	Func setMenuHeight P1
@@ -18320,48 +18320,48 @@ Class SystemInformation from Object
 		raise("DotNet Error: WorkingArea is a read-only property")
 
 	Func getKanjiWindowHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:KanjiWindowHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:KanjiWindowHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:KanjiWindowHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:KanjiWindowHeight",[]) ok
 		return dn_x
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMousePresent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MousePresent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MousePresent",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MousePresent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MousePresent",[]) ok
 		return dn_x
 
 	Func setMousePresent P1
 		raise("DotNet Error: MousePresent is a read-only property")
 
 	Func getVerticalScrollBarArrowHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarArrowHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s28:VerticalScrollBarArrowHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarArrowHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarArrowHeight",[]) ok
 		return dn_x
 
 	Func setVerticalScrollBarArrowHeight P1
 		raise("DotNet Error: VerticalScrollBarArrowHeight is a read-only property")
 
 	Func getHorizontalScrollBarArrowWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarArrowWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:HorizontalScrollBarArrowWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarArrowWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarArrowWidth",[]) ok
 		return dn_x
 
 	Func setHorizontalScrollBarArrowWidth P1
 		raise("DotNet Error: HorizontalScrollBarArrowWidth is a read-only property")
 
 	Func getDebugOS
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:DebugOS")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:DebugOS",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:DebugOS")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:DebugOS",[]) ok
 		return dn_x
 
 	Func setDebugOS P1
 		raise("DotNet Error: DebugOS is a read-only property")
 
 	Func getMouseButtonsSwapped
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:MouseButtonsSwapped")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:MouseButtonsSwapped",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:MouseButtonsSwapped")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:MouseButtonsSwapped",[]) ok
 		return dn_x
 
 	Func setMouseButtonsSwapped P1
@@ -18398,8 +18398,8 @@ Class SystemInformation from Object
 		raise("DotNet Error: DoubleClickSize is a read-only property")
 
 	Func getDoubleClickTime
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DoubleClickTime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:DoubleClickTime",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DoubleClickTime")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DoubleClickTime",[]) ok
 		return dn_x
 
 	Func setDoubleClickTime P1
@@ -18412,40 +18412,40 @@ Class SystemInformation from Object
 		raise("DotNet Error: IconSpacingSize is a read-only property")
 
 	Func getRightAlignedMenus
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:RightAlignedMenus")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:RightAlignedMenus",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:RightAlignedMenus")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:RightAlignedMenus",[]) ok
 		return dn_x
 
 	Func setRightAlignedMenus P1
 		raise("DotNet Error: RightAlignedMenus is a read-only property")
 
 	Func getPenWindows
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:PenWindows")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:PenWindows",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:PenWindows")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:PenWindows",[]) ok
 		return dn_x
 
 	Func setPenWindows P1
 		raise("DotNet Error: PenWindows is a read-only property")
 
 	Func getDbcsEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s11:DbcsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s11:DbcsEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s11:DbcsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s11:DbcsEnabled",[]) ok
 		return dn_x
 
 	Func setDbcsEnabled P1
 		raise("DotNet Error: DbcsEnabled is a read-only property")
 
 	Func getMouseButtons
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MouseButtons")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MouseButtons",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MouseButtons")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MouseButtons",[]) ok
 		return dn_x
 
 	Func setMouseButtons P1
 		raise("DotNet Error: MouseButtons is a read-only property")
 
 	Func getSecure
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s6:Secure")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s6:Secure",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s6:Secure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s6:Secure",[]) ok
 		return dn_x
 
 	Func setSecure P1
@@ -18470,8 +18470,8 @@ Class SystemInformation from Object
 		raise("DotNet Error: SmallIconSize is a read-only property")
 
 	Func getToolWindowCaptionHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:ToolWindowCaptionHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:ToolWindowCaptionHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:ToolWindowCaptionHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:ToolWindowCaptionHeight",[]) ok
 		return dn_x
 
 	Func setToolWindowCaptionHeight P1
@@ -18520,16 +18520,16 @@ Class SystemInformation from Object
 		raise("DotNet Error: PrimaryMonitorMaximizedWindowSize is a read-only property")
 
 	Func getNetwork
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:Network")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s7:Network",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:Network")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:Network",[]) ok
 		return dn_x
 
 	Func setNetwork P1
 		raise("DotNet Error: Network is a read-only property")
 
 	Func getTerminalServerSession
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:TerminalServerSession")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:TerminalServerSession",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:TerminalServerSession")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:TerminalServerSession",[]) ok
 		return dn_x
 
 	Func setTerminalServerSession P1
@@ -18548,8 +18548,8 @@ Class SystemInformation from Object
 		raise("DotNet Error: DragSize is a read-only property")
 
 	Func getShowSounds
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:ShowSounds")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:ShowSounds",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:ShowSounds")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:ShowSounds",[]) ok
 		return dn_x
 
 	Func setShowSounds P1
@@ -18562,24 +18562,24 @@ Class SystemInformation from Object
 		raise("DotNet Error: MenuCheckSize is a read-only property")
 
 	Func getMidEastEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MidEastEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MidEastEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MidEastEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MidEastEnabled",[]) ok
 		return dn_x
 
 	Func setMidEastEnabled P1
 		raise("DotNet Error: MidEastEnabled is a read-only property")
 
 	Func getNativeMouseWheelSupport
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:NativeMouseWheelSupport")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s23:NativeMouseWheelSupport",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:NativeMouseWheelSupport")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:NativeMouseWheelSupport",[]) ok
 		return dn_x
 
 	Func setNativeMouseWheelSupport P1
 		raise("DotNet Error: NativeMouseWheelSupport is a read-only property")
 
 	Func getMouseWheelPresent
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:MouseWheelPresent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:MouseWheelPresent",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:MouseWheelPresent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:MouseWheelPresent",[]) ok
 		return dn_x
 
 	Func setMouseWheelPresent P1
@@ -18592,144 +18592,144 @@ Class SystemInformation from Object
 		raise("DotNet Error: VirtualScreen is a read-only property")
 
 	Func getMonitorCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MonitorCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:MonitorCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MonitorCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MonitorCount",[]) ok
 		return dn_x
 
 	Func setMonitorCount P1
 		raise("DotNet Error: MonitorCount is a read-only property")
 
 	Func getMonitorsSameDisplayFormat
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:MonitorsSameDisplayFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:MonitorsSameDisplayFormat",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:MonitorsSameDisplayFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:MonitorsSameDisplayFormat",[]) ok
 		return dn_x
 
 	Func setMonitorsSameDisplayFormat P1
 		raise("DotNet Error: MonitorsSameDisplayFormat is a read-only property")
 
 	Func getComputerName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:ComputerName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s12:ComputerName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:ComputerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:ComputerName",[]) ok
 		return dn_x
 
 	Func setComputerName P1
 		raise("DotNet Error: ComputerName is a read-only property")
 
 	Func getUserDomainName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:UserDomainName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:UserDomainName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:UserDomainName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:UserDomainName",[]) ok
 		return dn_x
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getUserInteractive
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:UserInteractive")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s15:UserInteractive",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:UserInteractive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:UserInteractive",[]) ok
 		return dn_x
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getUserName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:UserName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s8:UserName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s8:UserName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s8:UserName",[]) ok
 		return dn_x
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getIsDropShadowEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsDropShadowEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsDropShadowEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsDropShadowEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsDropShadowEnabled",[]) ok
 		return dn_x
 
 	Func setIsDropShadowEnabled P1
 		raise("DotNet Error: IsDropShadowEnabled is a read-only property")
 
 	Func getIsFlatMenuEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsFlatMenuEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsFlatMenuEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsFlatMenuEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsFlatMenuEnabled",[]) ok
 		return dn_x
 
 	Func setIsFlatMenuEnabled P1
 		raise("DotNet Error: IsFlatMenuEnabled is a read-only property")
 
 	Func getIsFontSmoothingEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsFontSmoothingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsFontSmoothingEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsFontSmoothingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsFontSmoothingEnabled",[]) ok
 		return dn_x
 
 	Func setIsFontSmoothingEnabled P1
 		raise("DotNet Error: IsFontSmoothingEnabled is a read-only property")
 
 	Func getFontSmoothingContrast
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:FontSmoothingContrast")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:FontSmoothingContrast",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:FontSmoothingContrast")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:FontSmoothingContrast",[]) ok
 		return dn_x
 
 	Func setFontSmoothingContrast P1
 		raise("DotNet Error: FontSmoothingContrast is a read-only property")
 
 	Func getFontSmoothingType
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:FontSmoothingType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:FontSmoothingType",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:FontSmoothingType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:FontSmoothingType",[]) ok
 		return dn_x
 
 	Func setFontSmoothingType P1
 		raise("DotNet Error: FontSmoothingType is a read-only property")
 
 	Func getIconHorizontalSpacing
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:IconHorizontalSpacing")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:IconHorizontalSpacing",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:IconHorizontalSpacing")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:IconHorizontalSpacing",[]) ok
 		return dn_x
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IconVerticalSpacing")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IconVerticalSpacing",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IconVerticalSpacing")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IconVerticalSpacing",[]) ok
 		return dn_x
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIsIconTitleWrappingEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsIconTitleWrappingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsIconTitleWrappingEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsIconTitleWrappingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsIconTitleWrappingEnabled",[]) ok
 		return dn_x
 
 	Func setIsIconTitleWrappingEnabled P1
 		raise("DotNet Error: IsIconTitleWrappingEnabled is a read-only property")
 
 	Func getMenuAccessKeysUnderlined
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:MenuAccessKeysUnderlined")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:MenuAccessKeysUnderlined",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:MenuAccessKeysUnderlined")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:MenuAccessKeysUnderlined",[]) ok
 		return dn_x
 
 	Func setMenuAccessKeysUnderlined P1
 		raise("DotNet Error: MenuAccessKeysUnderlined is a read-only property")
 
 	Func getKeyboardDelay
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardDelay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardDelay",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardDelay",[]) ok
 		return dn_x
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getIsKeyboardPreferred
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsKeyboardPreferred")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s19:IsKeyboardPreferred",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsKeyboardPreferred")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsKeyboardPreferred",[]) ok
 		return dn_x
 
 	Func setIsKeyboardPreferred P1
 		raise("DotNet Error: IsKeyboardPreferred is a read-only property")
 
 	Func getKeyboardSpeed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardSpeed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:KeyboardSpeed",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardSpeed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardSpeed",[]) ok
 		return dn_x
 
 	Func setKeyboardSpeed P1
@@ -18742,24 +18742,24 @@ Class SystemInformation from Object
 		raise("DotNet Error: MouseHoverSize is a read-only property")
 
 	Func getMouseHoverTime
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MouseHoverTime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:MouseHoverTime",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MouseHoverTime")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MouseHoverTime",[]) ok
 		return dn_x
 
 	Func setMouseHoverTime P1
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseSpeed
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MouseSpeed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:MouseSpeed",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MouseSpeed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MouseSpeed",[]) ok
 		return dn_x
 
 	Func setMouseSpeed P1
 		raise("DotNet Error: MouseSpeed is a read-only property")
 
 	Func getIsSnapToDefaultEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSnapToDefaultEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSnapToDefaultEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSnapToDefaultEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSnapToDefaultEnabled",[]) ok
 		return dn_x
 
 	Func setIsSnapToDefaultEnabled P1
@@ -18772,168 +18772,168 @@ Class SystemInformation from Object
 		raise("DotNet Error: PopupMenuAlignment is a read-only property")
 
 	Func getIsMenuFadeEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsMenuFadeEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:IsMenuFadeEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsMenuFadeEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsMenuFadeEnabled",[]) ok
 		return dn_x
 
 	Func setIsMenuFadeEnabled P1
 		raise("DotNet Error: IsMenuFadeEnabled is a read-only property")
 
 	Func getMenuShowDelay
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:MenuShowDelay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s13:MenuShowDelay",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:MenuShowDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:MenuShowDelay",[]) ok
 		return dn_x
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
 
 	Func getIsComboBoxAnimationEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsComboBoxAnimationEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s26:IsComboBoxAnimationEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsComboBoxAnimationEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsComboBoxAnimationEnabled",[]) ok
 		return dn_x
 
 	Func setIsComboBoxAnimationEnabled P1
 		raise("DotNet Error: IsComboBoxAnimationEnabled is a read-only property")
 
 	Func getIsTitleBarGradientEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsTitleBarGradientEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsTitleBarGradientEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsTitleBarGradientEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsTitleBarGradientEnabled",[]) ok
 		return dn_x
 
 	Func setIsTitleBarGradientEnabled P1
 		raise("DotNet Error: IsTitleBarGradientEnabled is a read-only property")
 
 	Func getIsHotTrackingEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s20:IsHotTrackingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s20:IsHotTrackingEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s20:IsHotTrackingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s20:IsHotTrackingEnabled",[]) ok
 		return dn_x
 
 	Func setIsHotTrackingEnabled P1
 		raise("DotNet Error: IsHotTrackingEnabled is a read-only property")
 
 	Func getIsListBoxSmoothScrollingEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:IsListBoxSmoothScrollingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:IsListBoxSmoothScrollingEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:IsListBoxSmoothScrollingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:IsListBoxSmoothScrollingEnabled",[]) ok
 		return dn_x
 
 	Func setIsListBoxSmoothScrollingEnabled P1
 		raise("DotNet Error: IsListBoxSmoothScrollingEnabled is a read-only property")
 
 	Func getIsMenuAnimationEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsMenuAnimationEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsMenuAnimationEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsMenuAnimationEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsMenuAnimationEnabled",[]) ok
 		return dn_x
 
 	Func setIsMenuAnimationEnabled P1
 		raise("DotNet Error: IsMenuAnimationEnabled is a read-only property")
 
 	Func getIsSelectionFadeEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSelectionFadeEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:IsSelectionFadeEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSelectionFadeEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSelectionFadeEnabled",[]) ok
 		return dn_x
 
 	Func setIsSelectionFadeEnabled P1
 		raise("DotNet Error: IsSelectionFadeEnabled is a read-only property")
 
 	Func getIsToolTipAnimationEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsToolTipAnimationEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:IsToolTipAnimationEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsToolTipAnimationEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsToolTipAnimationEnabled",[]) ok
 		return dn_x
 
 	Func setIsToolTipAnimationEnabled P1
 		raise("DotNet Error: IsToolTipAnimationEnabled is a read-only property")
 
 	Func getUIEffectsEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s16:UIEffectsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s16:UIEffectsEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s16:UIEffectsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s16:UIEffectsEnabled",[]) ok
 		return dn_x
 
 	Func setUIEffectsEnabled P1
 		raise("DotNet Error: UIEffectsEnabled is a read-only property")
 
 	Func getIsActiveWindowTrackingEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:IsActiveWindowTrackingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:IsActiveWindowTrackingEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:IsActiveWindowTrackingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:IsActiveWindowTrackingEnabled",[]) ok
 		return dn_x
 
 	Func setIsActiveWindowTrackingEnabled P1
 		raise("DotNet Error: IsActiveWindowTrackingEnabled is a read-only property")
 
 	Func getActiveWindowTrackingDelay
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:ActiveWindowTrackingDelay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s25:ActiveWindowTrackingDelay",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:ActiveWindowTrackingDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:ActiveWindowTrackingDelay",[]) ok
 		return dn_x
 
 	Func setActiveWindowTrackingDelay P1
 		raise("DotNet Error: ActiveWindowTrackingDelay is a read-only property")
 
 	Func getIsMinimizeRestoreAnimationEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s33:IsMinimizeRestoreAnimationEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s33:IsMinimizeRestoreAnimationEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s33:IsMinimizeRestoreAnimationEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s33:IsMinimizeRestoreAnimationEnabled",[]) ok
 		return dn_x
 
 	Func setIsMinimizeRestoreAnimationEnabled P1
 		raise("DotNet Error: IsMinimizeRestoreAnimationEnabled is a read-only property")
 
 	Func getBorderMultiplierFactor
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:BorderMultiplierFactor")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:BorderMultiplierFactor",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:BorderMultiplierFactor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:BorderMultiplierFactor",[]) ok
 		return dn_x
 
 	Func setBorderMultiplierFactor P1
 		raise("DotNet Error: BorderMultiplierFactor is a read-only property")
 
 	Func getCaretBlinkTime
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:CaretBlinkTime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s14:CaretBlinkTime",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:CaretBlinkTime")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:CaretBlinkTime",[]) ok
 		return dn_x
 
 	Func setCaretBlinkTime P1
 		raise("DotNet Error: CaretBlinkTime is a read-only property")
 
 	Func getCaretWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:CaretWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s10:CaretWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:CaretWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:CaretWidth",[]) ok
 		return dn_x
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getMouseWheelScrollDelta
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollDelta")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s21:MouseWheelScrollDelta",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollDelta")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollDelta",[]) ok
 		return dn_x
 
 	Func setMouseWheelScrollDelta P1
 		raise("DotNet Error: MouseWheelScrollDelta is a read-only property")
 
 	Func getVerticalFocusThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalFocusThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s22:VerticalFocusThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalFocusThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalFocusThickness",[]) ok
 		return dn_x
 
 	Func setVerticalFocusThickness P1
 		raise("DotNet Error: VerticalFocusThickness is a read-only property")
 
 	Func getHorizontalFocusThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:HorizontalFocusThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s24:HorizontalFocusThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:HorizontalFocusThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:HorizontalFocusThickness",[]) ok
 		return dn_x
 
 	Func setHorizontalFocusThickness P1
 		raise("DotNet Error: HorizontalFocusThickness is a read-only property")
 
 	Func getVerticalResizeBorderThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:VerticalResizeBorderThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s29:VerticalResizeBorderThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:VerticalResizeBorderThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:VerticalResizeBorderThickness",[]) ok
 		return dn_x
 
 	Func setVerticalResizeBorderThickness P1
 		raise("DotNet Error: VerticalResizeBorderThickness is a read-only property")
 
 	Func getHorizontalResizeBorderThickness
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:HorizontalResizeBorderThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s31:HorizontalResizeBorderThickness",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:HorizontalResizeBorderThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:HorizontalResizeBorderThickness",[]) ok
 		return dn_x
 
 	Func setHorizontalResizeBorderThickness P1
@@ -18946,8 +18946,8 @@ Class SystemInformation from Object
 		raise("DotNet Error: ScreenOrientation is a read-only property")
 
 	Func getSizingBorderWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:SizingBorderWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"s17:SizingBorderWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:SizingBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:SizingBorderWidth",[]) ok
 		return dn_x
 
 	Func setSizingBorderWidth P1
@@ -19068,14 +19068,14 @@ Class TabRenderer from Object
 		raise("DotNet Error: DrawTabItem does not take one argument: use named arguments, DrawTabItem([ :parameter = value, ... ])")
 
 	Func DrawTabPage P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:DrawTabPage",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TabRenderer, System.Windows.Forms',"s11:DrawTabPage",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:DrawTabPage",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.TabRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.TabRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -19890,8 +19890,8 @@ Class TextBoxRenderer from Object
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.TextBoxRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.TextBoxRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -20523,7 +20523,7 @@ Class ToolStripManager from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:LoadSettings",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",dnPackItem(P1)) ok
 
 		return self
@@ -20533,32 +20533,32 @@ Class ToolStripManager from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:SaveSettings",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",dnPackItem(P1)) ok
 
 		return self
 
 	Func IsValidShortcut P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s15:IsValidShortcut",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s15:IsValidShortcut",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s15:IsValidShortcut",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s15:IsValidShortcut",[P1]) ok
 		return dn_x
 
 	Func IsShortcutDefined P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s17:IsShortcutDefined",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s17:IsShortcutDefined",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s17:IsShortcutDefined",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s17:IsShortcutDefined",[P1]) ok
 		return dn_x
 
 	Func Merge P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s5:Merge",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s5:Merge",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s5:Merge",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s5:Merge",[P1,P2]) ok
 		return dn_x
 
 	Func RevertMerge P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s11:RevertMerge",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s11:RevertMerge",[P1]) ok
 		return dn_x
 
 	Func setRendererChangedEvent P1
@@ -20573,7 +20573,7 @@ Class ToolStripManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s8:Renderer","")
 
 	Func setRenderer P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s8:Renderer",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s8:Renderer",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s8:Renderer",dnPackItem(P1)) ok
 		return self
 
@@ -20581,17 +20581,17 @@ Class ToolStripManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s10:RenderMode","")
 
 	Func setRenderMode P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s10:RenderMode",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s10:RenderMode",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s10:RenderMode",dnPackItem(P1)) ok
 		return self
 
 	Func getVisualStylesEnabled
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s19:VisualStylesEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s19:VisualStylesEnabled",[]) ok
 		return dn_x
 
 	Func setVisualStylesEnabled P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s19:VisualStylesEnabled",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s19:VisualStylesEnabled",dnPackItem(P1)) ok
 		return self
 
@@ -21357,61 +21357,61 @@ Class TrackBarRenderer from Object
 		return dn_x
 
 	Func DrawHorizontalTrack P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTrack",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s19:DrawHorizontalTrack",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTrack",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DrawVerticalTrack P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTrack",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s17:DrawVerticalTrack",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTrack",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DrawHorizontalThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s19:DrawHorizontalThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawVerticalThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s17:DrawVerticalThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawLeftPointingThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s21:DrawLeftPointingThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s21:DrawLeftPointingThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s21:DrawLeftPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawRightPointingThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s22:DrawRightPointingThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s22:DrawRightPointingThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s22:DrawRightPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawTopPointingThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s20:DrawTopPointingThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s20:DrawTopPointingThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s20:DrawTopPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawBottomPointingThumb P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s23:DrawBottomPointingThumb",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s23:DrawBottomPointingThumb",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s23:DrawBottomPointingThumb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func DrawHorizontalTicks P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTicks",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s19:DrawHorizontalTicks",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s19:DrawHorizontalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
 
 	Func DrawVerticalTicks P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTicks",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s17:DrawVerticalTicks",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s17:DrawVerticalTicks",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
@@ -21429,8 +21429,8 @@ Class TrackBarRenderer from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s26:GetBottomPointingThumbSize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1
@@ -22445,18 +22445,18 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		return self
 
 	Func Uninstall 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s9:Uninstall")
+		dn_x = dotnet_callv("s4:call",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s9:Uninstall")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s9:Uninstall","") ok
 
 		return self
 
 	Func getAutoInstall
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s11:AutoInstall")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s11:AutoInstall",[]) ok
 		return dn_x
 
 	Func setAutoInstall P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall",P1)
+		dn_x = dotnet_callv("s3:set",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s11:AutoInstall",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms'),"s11:AutoInstall",dnPackItem(P1)) ok
 		return self
 
@@ -26450,8 +26450,8 @@ Class DataGridViewCell from DataGridViewElement
 		return dnSend("s4:call",nHandle,"s20:PositionEditingPanel",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func MeasureTextHeight P1,P2,P3,P4,P5
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s17:MeasureTextHeight",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s17:MeasureTextHeight",[P1,P2,P3,P4,P5]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.DataGridViewCell, System.Windows.Forms',"s17:MeasureTextHeight",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.DataGridViewCell, System.Windows.Forms',"s17:MeasureTextHeight",[P1,P2,P3,P4,P5]) ok
 		return dn_x
 
 	Func MeasureTextPreferredSize P1,P2,P3,P4,P5
@@ -26461,8 +26461,8 @@ Class DataGridViewCell from DataGridViewElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s15:MeasureTextSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func MeasureTextWidth P1,P2,P3,P4,P5
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s16:MeasureTextWidth",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"s16:MeasureTextWidth",[P1,P2,P3,P4,P5]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.DataGridViewCell, System.Windows.Forms',"s16:MeasureTextWidth",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.DataGridViewCell, System.Windows.Forms',"s16:MeasureTextWidth",[P1,P2,P3,P4,P5]) ok
 		return dn_x
 
 	Func getAccessibilityObject
@@ -29703,8 +29703,8 @@ Class OSFeature from FeatureSupport
 			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s9:IsPresent",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s9:IsPresent",[P1]) ok
+			dn_x = dotnet_call("s4:call",'System.Windows.Forms.OSFeature, System.Windows.Forms',"s9:IsPresent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.OSFeature, System.Windows.Forms',"s9:IsPresent",[P1]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsPresent",P1)
@@ -36050,16 +36050,16 @@ Class ListBox from ListControl
 		raise("DotNet Error: CustomTabOffsets is a read-only property")
 
 	Func getNoMatches
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s9:NoMatches")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s9:NoMatches",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s9:NoMatches")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s9:NoMatches",[]) ok
 		return dn_x
 
 	Func setNoMatches P1
 		raise("DotNet Error: NoMatches is a read-only property")
 
 	Func getDefaultItemHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s17:DefaultItemHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.ListBox, System.Windows.Forms'),"s17:DefaultItemHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s17:DefaultItemHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s17:DefaultItemHeight",[]) ok
 		return dn_x
 
 	Func setDefaultItemHeight P1

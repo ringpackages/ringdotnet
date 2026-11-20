@@ -2586,13 +2586,13 @@ Class ColorTranslator from Object
 		return dn_x
 
 	Func ToWin32 P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s7:ToWin32",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s7:ToWin32",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s7:ToWin32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s7:ToWin32",[P1]) ok
 		return dn_x
 
 	Func ToOle P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s5:ToOle",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s5:ToOle",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s5:ToOle",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s5:ToOle",[P1]) ok
 		return dn_x
 
 	Func FromOle P1
@@ -2605,8 +2605,8 @@ Class ColorTranslator from Object
 		return dnSend("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s8:FromHtml",dnPackItem(P1))
 
 	Func ToHtml P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s6:ToHtml",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"s6:ToHtml",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s6:ToHtml",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.ColorTranslator, System.Drawing.Primitives',"s6:ToHtml",[P1]) ok
 		return dn_x
 
 
@@ -3801,23 +3801,23 @@ Class Image from MarshalByRefObject
 		return dnSend("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s11:FromHbitmap",dnPackItem(P1))
 
 	Func IsExtendedPixelFormat P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s21:IsExtendedPixelFormat",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s21:IsExtendedPixelFormat",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.Image, System.Drawing.Common',"s21:IsExtendedPixelFormat",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.Image, System.Drawing.Common',"s21:IsExtendedPixelFormat",[P1]) ok
 		return dn_x
 
 	Func IsCanonicalPixelFormat P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s22:IsCanonicalPixelFormat",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s22:IsCanonicalPixelFormat",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.Image, System.Drawing.Common',"s22:IsCanonicalPixelFormat",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.Image, System.Drawing.Common',"s22:IsCanonicalPixelFormat",[P1]) ok
 		return dn_x
 
 	Func GetPixelFormatSize P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:GetPixelFormatSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:GetPixelFormatSize",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.Image, System.Drawing.Common',"s18:GetPixelFormatSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.Image, System.Drawing.Common',"s18:GetPixelFormatSize",[P1]) ok
 		return dn_x
 
 	Func IsAlphaPixelFormat P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:IsAlphaPixelFormat",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.Image, System.Drawing.Common'),"s18:IsAlphaPixelFormat",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.Image, System.Drawing.Common',"s18:IsAlphaPixelFormat",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.Image, System.Drawing.Common',"s18:IsAlphaPixelFormat",[P1]) ok
 		return dn_x
 
 	Func getTag
@@ -3941,29 +3941,29 @@ Class ImageAnimator from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames")
+			dn_x = dotnet_callv("s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s12:UpdateFrames")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames","") ok
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames",P1)
+		dn_x = dotnet_callv("s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s12:UpdateFrames",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s12:UpdateFrames",dnPackItem(P1)) ok
 
 		return self
 
 	Func Animate P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s7:Animate",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s7:Animate",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s7:Animate",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func CanAnimate P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s10:CanAnimate",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s10:CanAnimate",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s10:CanAnimate",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s10:CanAnimate",[P1]) ok
 		return dn_x
 
 	Func StopAnimate P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s11:StopAnimate",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Drawing.ImageAnimator, System.Drawing.Common',"s11:StopAnimate",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Drawing.ImageAnimator, System.Drawing.Common'),"s11:StopAnimate",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -6792,12 +6792,12 @@ Class SystemColors from Object
 		raise("DotNet Error: WindowText is a read-only property")
 
 	Func getUseAlternativeColorSet
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet",[]) ok
 		return dn_x
 
 	Func setUseAlternativeColorSet P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet",P1)
+		dn_x = dotnet_callv("s3:set",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Drawing.SystemColors, System.Drawing.Primitives'),"s22:UseAlternativeColorSet",dnPackItem(P1)) ok
 		return self
 

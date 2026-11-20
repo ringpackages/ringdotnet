@@ -385,15 +385,15 @@ Class Assembly from Object
 		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s18:GetCallingAssembly","")
 
 	Func CreateQualifiedName P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s19:CreateQualifiedName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s19:CreateQualifiedName",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s19:CreateQualifiedName",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s19:CreateQualifiedName",[P1,P2]) ok
 		return dn_x
 
 	Func GetAssembly P1
 		return dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s11:GetAssembly",dnPackItem(P1))
 
 	Func SetEntryAssembly P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s16:SetEntryAssembly",P1)
+		dn_x = dotnet_callv("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s16:SetEntryAssembly",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Reflection.Assembly, System.Private.CoreLib'),"s16:SetEntryAssembly",dnPackItem(P1)) ok
 
 		return self
@@ -650,8 +650,8 @@ Class AssemblyName from Object
 		return dnSend("s4:call",dnTypeHandle('System.Reflection.AssemblyName, System.Private.CoreLib'),"s15:GetAssemblyName",dnPackItem(P1))
 
 	Func ReferenceMatchesDefinition P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Reflection.AssemblyName, System.Private.CoreLib'),"s26:ReferenceMatchesDefinition",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Reflection.AssemblyName, System.Private.CoreLib'),"s26:ReferenceMatchesDefinition",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Reflection.AssemblyName, System.Private.CoreLib',"s26:ReferenceMatchesDefinition",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Reflection.AssemblyName, System.Private.CoreLib',"s26:ReferenceMatchesDefinition",[P1,P2]) ok
 		return dn_x
 
 	Func getName
@@ -3028,16 +3028,16 @@ Class ConstructorInfo from MethodBase
 		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func getConstructorName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s15:ConstructorName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s15:ConstructorName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s15:ConstructorName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s15:ConstructorName",[]) ok
 		return dn_x
 
 	Func setConstructorName P1
 		raise("DotNet Error: ConstructorName is a read-only property")
 
 	Func getTypeConstructorName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s19:TypeConstructorName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"s19:TypeConstructorName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s19:TypeConstructorName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s19:TypeConstructorName",[]) ok
 		return dn_x
 
 	Func setTypeConstructorName P1

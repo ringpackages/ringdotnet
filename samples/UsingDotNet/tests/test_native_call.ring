@@ -74,4 +74,9 @@ func main
 		cError = cCatchError
 	done
 	dnAssert("no method matches",substr(cError,"MissingMethodException") > 0,1)
+	# a static method that the extension reads, called again (the handle of the type is remembered), with an argument that is a list
+	# (nothing is sent: dnLate makes the request the Ring way, from the name of the type)
+	dnAssert("a static method, again",oMath.Max(3,4),4)
+	dnAssert("a static method with an object argument",new String().Concat([ :str0 = new StringBuilder("a").ToString(), :str1 = "b" ]),"ab")
+	dnAssert("a static method called with a list",len(new Path().Combine(["a","b"])),3)
 	dnTestSummary()

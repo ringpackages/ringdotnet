@@ -1368,8 +1368,8 @@ Class Animatable from Freezable
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeStoredWeakReference P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Animation.Animatable, PresentationCore',"s34:ShouldSerializeStoredWeakReference",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Animation.Animatable, PresentationCore',"s34:ShouldSerializeStoredWeakReference",[P1]) ok
 		return dn_x
 
 	Func getHasAnimatedProperties
@@ -10238,7 +10238,7 @@ Class Timeline from Animatable
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:GetDesiredFrameRate",dnPackItem(P1))
 
 	Func SetDesiredFrameRate P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Animation.Timeline, PresentationCore',"s19:SetDesiredFrameRate",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -14086,7 +14086,7 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SetTarget P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Animation.Storyboard, PresentationFramework',"s9:SetTarget",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -14095,18 +14095,18 @@ Class Storyboard from ParallelTimeline
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:GetTarget",dnPackItem(P1))
 
 	Func SetTargetName P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Animation.Storyboard, PresentationFramework',"s13:SetTargetName",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetTargetName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Media.Animation.Storyboard, PresentationFramework',"s13:GetTargetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Animation.Storyboard, PresentationFramework',"s13:GetTargetName",[P1]) ok
 		return dn_x
 
 	Func SetTargetProperty P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Animation.Storyboard, PresentationFramework',"s17:SetTargetProperty",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

@@ -684,13 +684,13 @@ Class ApplicationModelConventionExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
 
 		return self
 
 	Func Add P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s3:Add",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core',"s3:Add",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

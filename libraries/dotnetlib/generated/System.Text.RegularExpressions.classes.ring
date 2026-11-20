@@ -440,13 +440,13 @@ Class Regex from Object
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s6:Escape",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s6:Escape",[P1]) ok
 		return dn_x
 
 	Func Unescape P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s8:Unescape",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s8:Unescape",[P1]) ok
 		return dn_x
 
 	Func getOptions
@@ -470,12 +470,12 @@ Class Regex from Object
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getCacheSize
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s9:CacheSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s9:CacheSize",[]) ok
 		return dn_x
 
 	Func setCacheSize P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",P1)
+		dn_x = dotnet_callv("s3:set",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s9:CacheSize",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",dnPackItem(P1)) ok
 		return self
 
@@ -503,8 +503,8 @@ Class RegexRunner from Object
 		return dn_x
 
 	Func CharInClass P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions',"s11:CharInClass",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions',"s11:CharInClass",[P1,P2]) ok
 		return dn_x
 
 

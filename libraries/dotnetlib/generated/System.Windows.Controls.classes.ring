@@ -2566,40 +2566,40 @@ Class ContextMenuService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s14:GetContextMenu",dnPackItem(P1))
 
 	Func SetContextMenu P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s14:SetContextMenu",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s14:SetContextMenu",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s14:SetContextMenu",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHorizontalOffset P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s19:GetHorizontalOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s19:GetHorizontalOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s19:GetHorizontalOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s19:GetHorizontalOffset",[P1]) ok
 		return dn_x
 
 	Func SetHorizontalOffset P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s19:SetHorizontalOffset",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s19:SetHorizontalOffset",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s19:SetHorizontalOffset",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetVerticalOffset P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:GetVerticalOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:GetVerticalOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:GetVerticalOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:GetVerticalOffset",[P1]) ok
 		return dn_x
 
 	Func SetVerticalOffset P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:SetVerticalOffset",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:SetVerticalOffset",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:SetVerticalOffset",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHasDropShadow P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s16:GetHasDropShadow",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s16:GetHasDropShadow",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s16:GetHasDropShadow",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s16:GetHasDropShadow",[P1]) ok
 		return dn_x
 
 	Func SetHasDropShadow P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s16:SetHasDropShadow",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s16:SetHasDropShadow",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s16:SetHasDropShadow",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2608,7 +2608,7 @@ Class ContextMenuService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s18:GetPlacementTarget",dnPackItem(P1))
 
 	Func SetPlacementTarget P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s18:SetPlacementTarget",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s18:SetPlacementTarget",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s18:SetPlacementTarget",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2617,7 +2617,7 @@ Class ContextMenuService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s21:GetPlacementRectangle",dnPackItem(P1))
 
 	Func SetPlacementRectangle P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s21:SetPlacementRectangle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s21:SetPlacementRectangle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s21:SetPlacementRectangle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2626,53 +2626,53 @@ Class ContextMenuService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:GetPlacement",dnPackItem(P1))
 
 	Func SetPlacement P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:SetPlacement",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s12:SetPlacement",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:SetPlacement",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetShowOnDisabled P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:GetShowOnDisabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:GetShowOnDisabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:GetShowOnDisabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:GetShowOnDisabled",[P1]) ok
 		return dn_x
 
 	Func SetShowOnDisabled P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:SetShowOnDisabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s17:SetShowOnDisabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s17:SetShowOnDisabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsEnabled P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:GetIsEnabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:GetIsEnabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s12:GetIsEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s12:GetIsEnabled",[P1]) ok
 		return dn_x
 
 	Func SetIsEnabled P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:SetIsEnabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s12:SetIsEnabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s12:SetIsEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddContextMenuOpeningHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s28:AddContextMenuOpeningHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s28:AddContextMenuOpeningHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s28:AddContextMenuOpeningHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveContextMenuOpeningHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s31:RemoveContextMenuOpeningHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s31:RemoveContextMenuOpeningHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s31:RemoveContextMenuOpeningHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddContextMenuClosingHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s28:AddContextMenuClosingHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s28:AddContextMenuClosingHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s28:AddContextMenuClosingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveContextMenuClosingHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s31:RemoveContextMenuClosingHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ContextMenuService, PresentationFramework',"s31:RemoveContextMenuClosingHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ContextMenuService, PresentationFramework'),"s31:RemoveContextMenuClosingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -7369,45 +7369,45 @@ Class InkCanvas from FrameworkElement
 		return dn_x
 
 	Func GetTop P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s6:GetTop",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s6:GetTop",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s6:GetTop",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s6:GetTop",[P1]) ok
 		return dn_x
 
 	Func SetTop P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s6:SetTop",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s6:SetTop",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s6:SetTop",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetBottom P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s9:GetBottom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s9:GetBottom",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s9:GetBottom",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s9:GetBottom",[P1]) ok
 		return dn_x
 
 	Func SetBottom P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s9:SetBottom",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s9:SetBottom",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s9:SetBottom",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetLeft P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s7:GetLeft",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s7:GetLeft",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s7:GetLeft",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s7:GetLeft",[P1]) ok
 		return dn_x
 
 	Func SetLeft P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s7:SetLeft",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s7:SetLeft",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s7:SetLeft",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetRight P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s8:GetRight",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s8:GetRight",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s8:GetRight",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s8:GetRight",[P1]) ok
 		return dn_x
 
 	Func SetRight P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s8:SetRight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s8:SetRight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.InkCanvas, PresentationFramework'),"s8:SetRight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -9070,14 +9070,14 @@ Class WpfPanel from FrameworkElement
 		return dn_x
 
 	Func SetZIndex P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Panel, PresentationFramework'),"s9:SetZIndex",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Panel, PresentationFramework',"s9:SetZIndex",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Panel, PresentationFramework'),"s9:SetZIndex",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetZIndex P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Panel, PresentationFramework'),"s9:GetZIndex",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Panel, PresentationFramework'),"s9:GetZIndex",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Panel, PresentationFramework',"s9:GetZIndex",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Panel, PresentationFramework',"s9:GetZIndex",[P1]) ok
 		return dn_x
 
 	Func getBackground
@@ -10266,18 +10266,18 @@ Class SpellCheck from Object
 		return dn_x
 
 	Func SetIsEnabled_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s12:SetIsEnabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s12:SetIsEnabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s12:SetIsEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsEnabled_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s12:GetIsEnabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s12:GetIsEnabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s12:GetIsEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s12:GetIsEnabled",[P1]) ok
 		return dn_x
 
 	Func SetSpellingReform_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s17:SetSpellingReform",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s17:SetSpellingReform",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.SpellCheck, PresentationFramework'),"s17:SetSpellingReform",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10638,18 +10638,18 @@ Class TextBlock from FrameworkElement
 		return dn_x
 
 	Func SetBaselineOffset_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s17:SetBaselineOffset",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:SetBaselineOffset",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s17:SetBaselineOffset",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetBaselineOffset_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s17:GetBaselineOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s17:GetBaselineOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:GetBaselineOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:GetBaselineOffset",[P1]) ok
 		return dn_x
 
 	Func SetFontFamily_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetFontFamily",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetFontFamily",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetFontFamily",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10658,7 +10658,7 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:GetFontFamily",dnPackItem(P1))
 
 	Func SetFontStyle_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s12:SetFontStyle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s12:SetFontStyle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s12:SetFontStyle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10667,7 +10667,7 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s12:GetFontStyle",dnPackItem(P1))
 
 	Func SetFontWeight_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetFontWeight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetFontWeight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetFontWeight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10676,7 +10676,7 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:GetFontWeight",dnPackItem(P1))
 
 	Func SetFontStretch_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s14:SetFontStretch",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s14:SetFontStretch",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s14:SetFontStretch",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10685,18 +10685,18 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s14:GetFontStretch",dnPackItem(P1))
 
 	Func SetFontSize_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s11:SetFontSize",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s11:SetFontSize",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s11:SetFontSize",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetFontSize_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s11:GetFontSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s11:GetFontSize",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s11:GetFontSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s11:GetFontSize",[P1]) ok
 		return dn_x
 
 	Func SetForeground_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetForeground",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetForeground",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetForeground",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10705,18 +10705,18 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:GetForeground",dnPackItem(P1))
 
 	Func SetLineHeight_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetLineHeight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetLineHeight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:SetLineHeight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetLineHeight_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:GetLineHeight",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s13:GetLineHeight",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetLineHeight",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetLineHeight",[P1]) ok
 		return dn_x
 
 	Func SetLineStackingStrategy_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s23:SetLineStackingStrategy",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s23:SetLineStackingStrategy",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s23:SetLineStackingStrategy",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -10725,7 +10725,7 @@ Class TextBlock from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s23:GetLineStackingStrategy",dnPackItem(P1))
 
 	Func SetTextAlignment_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s16:SetTextAlignment",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s16:SetTextAlignment",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextBlock, PresentationFramework'),"s16:SetTextAlignment",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -11436,25 +11436,25 @@ Class TextSearch from DependencyObject
 		return self
 
 	Func SetTextPath P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s11:SetTextPath",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s11:SetTextPath",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s11:SetTextPath",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetTextPath P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s11:GetTextPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s11:GetTextPath",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s11:GetTextPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s11:GetTextPath",[P1]) ok
 		return dn_x
 
 	Func SetText P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s7:SetText",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s7:SetText",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s7:SetText",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetText P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s7:GetText",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.TextSearch, PresentationFramework'),"s7:GetText",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s7:GetText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.TextSearch, PresentationFramework',"s7:GetText",[P1]) ok
 		return dn_x
 
 	Func getTextPathProperty
@@ -11499,14 +11499,14 @@ Class ToolBarTray from FrameworkElement
 		return self
 
 	Func SetIsLocked_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolBarTray, PresentationFramework'),"s11:SetIsLocked",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolBarTray, PresentationFramework',"s11:SetIsLocked",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolBarTray, PresentationFramework'),"s11:SetIsLocked",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsLocked_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolBarTray, PresentationFramework'),"s11:GetIsLocked",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolBarTray, PresentationFramework'),"s11:GetIsLocked",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolBarTray, PresentationFramework',"s11:GetIsLocked",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolBarTray, PresentationFramework',"s11:GetIsLocked",[P1]) ok
 		return dn_x
 
 	Func getBackground
@@ -11609,40 +11609,40 @@ Class ToolTipService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s10:GetToolTip",dnPackItem(P1))
 
 	Func SetToolTip P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s10:SetToolTip",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s10:SetToolTip",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s10:SetToolTip",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHorizontalOffset P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetHorizontalOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetHorizontalOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetHorizontalOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetHorizontalOffset",[P1]) ok
 		return dn_x
 
 	Func SetHorizontalOffset P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetHorizontalOffset",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:SetHorizontalOffset",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetHorizontalOffset",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetVerticalOffset P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:GetVerticalOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:GetVerticalOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:GetVerticalOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:GetVerticalOffset",[P1]) ok
 		return dn_x
 
 	Func SetVerticalOffset P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:SetVerticalOffset",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:SetVerticalOffset",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:SetVerticalOffset",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHasDropShadow P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s16:GetHasDropShadow",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s16:GetHasDropShadow",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s16:GetHasDropShadow",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s16:GetHasDropShadow",[P1]) ok
 		return dn_x
 
 	Func SetHasDropShadow P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s16:SetHasDropShadow",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s16:SetHasDropShadow",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s16:SetHasDropShadow",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -11651,7 +11651,7 @@ Class ToolTipService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s18:GetPlacementTarget",dnPackItem(P1))
 
 	Func SetPlacementTarget P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s18:SetPlacementTarget",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s18:SetPlacementTarget",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s18:SetPlacementTarget",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -11660,7 +11660,7 @@ Class ToolTipService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s21:GetPlacementRectangle",dnPackItem(P1))
 
 	Func SetPlacementRectangle P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s21:SetPlacementRectangle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s21:SetPlacementRectangle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s21:SetPlacementRectangle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -11669,67 +11669,67 @@ Class ToolTipService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:GetPlacement",dnPackItem(P1))
 
 	Func SetPlacement P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:SetPlacement",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s12:SetPlacement",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:SetPlacement",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetShowOnDisabled P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:GetShowOnDisabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:GetShowOnDisabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:GetShowOnDisabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:GetShowOnDisabled",[P1]) ok
 		return dn_x
 
 	Func SetShowOnDisabled P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:SetShowOnDisabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s17:SetShowOnDisabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s17:SetShowOnDisabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsOpen P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s9:GetIsOpen",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s9:GetIsOpen",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s9:GetIsOpen",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s9:GetIsOpen",[P1]) ok
 		return dn_x
 
 	Func GetIsEnabled P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:GetIsEnabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:GetIsEnabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s12:GetIsEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s12:GetIsEnabled",[P1]) ok
 		return dn_x
 
 	Func SetIsEnabled P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:SetIsEnabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s12:SetIsEnabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s12:SetIsEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetShowDuration P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s15:GetShowDuration",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s15:GetShowDuration",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s15:GetShowDuration",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s15:GetShowDuration",[P1]) ok
 		return dn_x
 
 	Func SetShowDuration P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s15:SetShowDuration",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s15:SetShowDuration",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s15:SetShowDuration",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetInitialShowDelay P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetInitialShowDelay",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetInitialShowDelay",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetInitialShowDelay",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetInitialShowDelay",[P1]) ok
 		return dn_x
 
 	Func SetInitialShowDelay P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetInitialShowDelay",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:SetInitialShowDelay",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetInitialShowDelay",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetBetweenShowDelay P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetBetweenShowDelay",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:GetBetweenShowDelay",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetBetweenShowDelay",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:GetBetweenShowDelay",[P1]) ok
 		return dn_x
 
 	Func SetBetweenShowDelay P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetBetweenShowDelay",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s19:SetBetweenShowDelay",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s19:SetBetweenShowDelay",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -11738,31 +11738,31 @@ Class ToolTipService from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s30:GetShowsToolTipOnKeyboardFocus",dnPackItem(P1))
 
 	Func SetShowsToolTipOnKeyboardFocus P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s30:SetShowsToolTipOnKeyboardFocus",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s30:SetShowsToolTipOnKeyboardFocus",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s30:SetShowsToolTipOnKeyboardFocus",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddToolTipOpeningHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s24:AddToolTipOpeningHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s24:AddToolTipOpeningHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s24:AddToolTipOpeningHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveToolTipOpeningHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s27:RemoveToolTipOpeningHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s27:RemoveToolTipOpeningHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s27:RemoveToolTipOpeningHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddToolTipClosingHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s24:AddToolTipClosingHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s24:AddToolTipClosingHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s24:AddToolTipClosingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveToolTipClosingHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s27:RemoveToolTipClosingHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolTipService, PresentationFramework',"s27:RemoveToolTipClosingHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolTipService, PresentationFramework'),"s27:RemoveToolTipClosingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -12006,13 +12006,13 @@ Class Validation from Object
 		return dn_x
 
 	Func AddErrorHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s15:AddErrorHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s15:AddErrorHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s15:AddErrorHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveErrorHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s18:RemoveErrorHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s18:RemoveErrorHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s18:RemoveErrorHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -12021,15 +12021,15 @@ Class Validation from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s9:GetErrors",dnPackItem(P1))
 
 	Func GetHasError P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s11:GetHasError",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s11:GetHasError",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s11:GetHasError",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s11:GetHasError",[P1]) ok
 		return dn_x
 
 	Func GetErrorTemplate P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s16:GetErrorTemplate",dnPackItem(P1))
 
 	Func SetErrorTemplate P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s16:SetErrorTemplate",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s16:SetErrorTemplate",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s16:SetErrorTemplate",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -12038,7 +12038,7 @@ Class Validation from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s24:GetValidationAdornerSite",dnPackItem(P1))
 
 	Func SetValidationAdornerSite P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s24:SetValidationAdornerSite",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s24:SetValidationAdornerSite",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s24:SetValidationAdornerSite",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -12047,19 +12047,19 @@ Class Validation from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s27:GetValidationAdornerSiteFor",dnPackItem(P1))
 
 	Func SetValidationAdornerSiteFor P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s27:SetValidationAdornerSiteFor",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s27:SetValidationAdornerSiteFor",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s27:SetValidationAdornerSiteFor",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func MarkInvalid P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s11:MarkInvalid",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s11:MarkInvalid",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s11:MarkInvalid",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func ClearInvalid P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s12:ClearInvalid",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Validation, PresentationFramework',"s12:ClearInvalid",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Validation, PresentationFramework'),"s12:ClearInvalid",dnPackItem(P1)) ok
 
 		return self
@@ -14952,45 +14952,45 @@ Class Canvas from WpfPanel
 		return self
 
 	Func GetLeft P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s7:GetLeft",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s7:GetLeft",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s7:GetLeft",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s7:GetLeft",[P1]) ok
 		return dn_x
 
 	Func SetLeft P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s7:SetLeft",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s7:SetLeft",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s7:SetLeft",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetTop P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s6:GetTop",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s6:GetTop",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s6:GetTop",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s6:GetTop",[P1]) ok
 		return dn_x
 
 	Func SetTop P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s6:SetTop",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s6:SetTop",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s6:SetTop",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetRight P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s8:GetRight",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s8:GetRight",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s8:GetRight",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s8:GetRight",[P1]) ok
 		return dn_x
 
 	Func SetRight P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s8:SetRight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s8:SetRight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s8:SetRight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetBottom P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s9:GetBottom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s9:GetBottom",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s9:GetBottom",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s9:GetBottom",[P1]) ok
 		return dn_x
 
 	Func SetBottom P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s9:SetBottom",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Canvas, PresentationFramework',"s9:SetBottom",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Canvas, PresentationFramework'),"s9:SetBottom",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -16145,7 +16145,7 @@ Class DockPanel from WpfPanel
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.DockPanel, PresentationFramework'),"s7:GetDock",dnPackItem(P1))
 
 	Func SetDock P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.DockPanel, PresentationFramework'),"s7:SetDock",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.DockPanel, PresentationFramework',"s7:SetDock",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.DockPanel, PresentationFramework'),"s7:SetDock",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -16985,58 +16985,58 @@ Class Grid from WpfPanel
 		return dn_x
 
 	Func SetColumn P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s9:SetColumn",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s9:SetColumn",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s9:SetColumn",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetColumn P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s9:GetColumn",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s9:GetColumn",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s9:GetColumn",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s9:GetColumn",[P1]) ok
 		return dn_x
 
 	Func SetRow P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s6:SetRow",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s6:SetRow",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s6:SetRow",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetRow P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s6:GetRow",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s6:GetRow",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s6:GetRow",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s6:GetRow",[P1]) ok
 		return dn_x
 
 	Func SetColumnSpan P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s13:SetColumnSpan",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s13:SetColumnSpan",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s13:SetColumnSpan",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetColumnSpan P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s13:GetColumnSpan",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s13:GetColumnSpan",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s13:GetColumnSpan",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s13:GetColumnSpan",[P1]) ok
 		return dn_x
 
 	Func SetRowSpan P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s10:SetRowSpan",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s10:SetRowSpan",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s10:SetRowSpan",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetRowSpan P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s10:GetRowSpan",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s10:GetRowSpan",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s10:GetRowSpan",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s10:GetRowSpan",[P1]) ok
 		return dn_x
 
 	Func SetIsSharedSizeScope P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s20:SetIsSharedSizeScope",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s20:SetIsSharedSizeScope",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s20:SetIsSharedSizeScope",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsSharedSizeScope P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s20:GetIsSharedSizeScope",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.Grid, PresentationFramework'),"s20:GetIsSharedSizeScope",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s20:GetIsSharedSizeScope",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s20:GetIsSharedSizeScope",[P1]) ok
 		return dn_x
 
 	Func getShowGridLines
@@ -17142,14 +17142,14 @@ Class GridView from ViewBase
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.GridView, PresentationFramework'),"s19:GetColumnCollection",dnPackItem(P1))
 
 	Func SetColumnCollection P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.GridView, PresentationFramework'),"s19:SetColumnCollection",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.GridView, PresentationFramework',"s19:SetColumnCollection",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.GridView, PresentationFramework'),"s19:SetColumnCollection",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func ShouldSerializeColumnCollection P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.GridView, PresentationFramework'),"s31:ShouldSerializeColumnCollection",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.GridView, PresentationFramework'),"s31:ShouldSerializeColumnCollection",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.GridView, PresentationFramework',"s31:ShouldSerializeColumnCollection",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.GridView, PresentationFramework',"s31:ShouldSerializeColumnCollection",[P1]) ok
 		return dn_x
 
 	Func getColumns
@@ -17418,8 +17418,8 @@ Class ItemsControl from WpfControl
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ItemsControl, PresentationFramework'),"s13:GetItemsOwner",dnPackItem(P1))
 
 	Func GetAlternationIndex P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ItemsControl, PresentationFramework'),"s19:GetAlternationIndex",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ItemsControl, PresentationFramework'),"s19:GetAlternationIndex",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ItemsControl, PresentationFramework',"s19:GetAlternationIndex",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ItemsControl, PresentationFramework',"s19:GetAlternationIndex",[P1]) ok
 		return dn_x
 
 	Func ItemsControlFromItemContainer P1
@@ -18783,12 +18783,12 @@ Class VirtualizingPanel from WpfPanel
 		return self
 
 	Func GetIsVirtualizing P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s17:GetIsVirtualizing",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s17:GetIsVirtualizing",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s17:GetIsVirtualizing",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s17:GetIsVirtualizing",[P1]) ok
 		return dn_x
 
 	Func SetIsVirtualizing P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s17:SetIsVirtualizing",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s17:SetIsVirtualizing",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s17:SetIsVirtualizing",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -18797,18 +18797,18 @@ Class VirtualizingPanel from WpfPanel
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s21:GetVirtualizationMode",dnPackItem(P1))
 
 	Func SetVirtualizationMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s21:SetVirtualizationMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s21:SetVirtualizationMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s21:SetVirtualizationMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsVirtualizingWhenGrouping P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s29:GetIsVirtualizingWhenGrouping",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s29:GetIsVirtualizingWhenGrouping",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s29:GetIsVirtualizingWhenGrouping",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s29:GetIsVirtualizingWhenGrouping",[P1]) ok
 		return dn_x
 
 	Func SetIsVirtualizingWhenGrouping P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s29:SetIsVirtualizingWhenGrouping",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s29:SetIsVirtualizingWhenGrouping",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s29:SetIsVirtualizingWhenGrouping",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -18817,7 +18817,7 @@ Class VirtualizingPanel from WpfPanel
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s13:GetScrollUnit",dnPackItem(P1))
 
 	Func SetScrollUnit P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s13:SetScrollUnit",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s13:SetScrollUnit",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s13:SetScrollUnit",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -18826,7 +18826,7 @@ Class VirtualizingPanel from WpfPanel
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s14:GetCacheLength",dnPackItem(P1))
 
 	Func SetCacheLength P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s14:SetCacheLength",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s14:SetCacheLength",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s14:SetCacheLength",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -18835,18 +18835,18 @@ Class VirtualizingPanel from WpfPanel
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s18:GetCacheLengthUnit",dnPackItem(P1))
 
 	Func SetCacheLengthUnit P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s18:SetCacheLengthUnit",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s18:SetCacheLengthUnit",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s18:SetCacheLengthUnit",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsContainerVirtualizable P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s27:GetIsContainerVirtualizable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s27:GetIsContainerVirtualizable",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s27:GetIsContainerVirtualizable",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s27:GetIsContainerVirtualizable",[P1]) ok
 		return dn_x
 
 	Func SetIsContainerVirtualizable P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s27:SetIsContainerVirtualizable",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingPanel, PresentationFramework',"s27:SetIsContainerVirtualizable",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingPanel, PresentationFramework'),"s27:SetIsContainerVirtualizable",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -20114,18 +20114,18 @@ Class ScrollViewer from ContentControl
 		return self
 
 	Func SetCanContentScroll_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s19:SetCanContentScroll",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s19:SetCanContentScroll",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s19:SetCanContentScroll",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetCanContentScroll_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s19:GetCanContentScroll",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s19:GetCanContentScroll",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s19:GetCanContentScroll",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s19:GetCanContentScroll",[P1]) ok
 		return dn_x
 
 	Func SetHorizontalScrollBarVisibility_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s32:SetHorizontalScrollBarVisibility",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s32:SetHorizontalScrollBarVisibility",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s32:SetHorizontalScrollBarVisibility",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -20134,7 +20134,7 @@ Class ScrollViewer from ContentControl
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s32:GetHorizontalScrollBarVisibility",dnPackItem(P1))
 
 	Func SetVerticalScrollBarVisibility_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s30:SetVerticalScrollBarVisibility",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s30:SetVerticalScrollBarVisibility",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s30:SetVerticalScrollBarVisibility",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -20143,18 +20143,18 @@ Class ScrollViewer from ContentControl
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s30:GetVerticalScrollBarVisibility",dnPackItem(P1))
 
 	Func GetIsDeferredScrollingEnabled_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s29:GetIsDeferredScrollingEnabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s29:GetIsDeferredScrollingEnabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s29:GetIsDeferredScrollingEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s29:GetIsDeferredScrollingEnabled",[P1]) ok
 		return dn_x
 
 	Func SetIsDeferredScrollingEnabled_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s29:SetIsDeferredScrollingEnabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s29:SetIsDeferredScrollingEnabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s29:SetIsDeferredScrollingEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetPanningMode_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s14:SetPanningMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s14:SetPanningMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s14:SetPanningMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -20163,25 +20163,25 @@ Class ScrollViewer from ContentControl
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s14:GetPanningMode",dnPackItem(P1))
 
 	Func SetPanningDeceleration_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s22:SetPanningDeceleration",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s22:SetPanningDeceleration",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s22:SetPanningDeceleration",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetPanningDeceleration_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s22:GetPanningDeceleration",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s22:GetPanningDeceleration",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s22:GetPanningDeceleration",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s22:GetPanningDeceleration",[P1]) ok
 		return dn_x
 
 	Func SetPanningRatio_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s15:SetPanningRatio",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s15:SetPanningRatio",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s15:SetPanningRatio",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetPanningRatio_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s15:GetPanningRatio",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ScrollViewer, PresentationFramework'),"s15:GetPanningRatio",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s15:GetPanningRatio",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s15:GetPanningRatio",[P1]) ok
 		return dn_x
 
 	Func setScrollChangedEvent P1
@@ -20907,13 +20907,13 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		return dnSend("s4:call",nHandle,"s11:MakeVisible",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddCleanUpVirtualizedItemHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingStackPanel, PresentationFramework'),"s32:AddCleanUpVirtualizedItemHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingStackPanel, PresentationFramework',"s32:AddCleanUpVirtualizedItemHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingStackPanel, PresentationFramework'),"s32:AddCleanUpVirtualizedItemHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveCleanUpVirtualizedItemHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingStackPanel, PresentationFramework'),"s35:RemoveCleanUpVirtualizedItemHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingStackPanel, PresentationFramework',"s35:RemoveCleanUpVirtualizedItemHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.VirtualizingStackPanel, PresentationFramework'),"s35:RemoveCleanUpVirtualizedItemHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -21638,12 +21638,12 @@ Class ToolBar from HeaderedItemsControl
 		return self
 
 	Func GetIsOverflowItem P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Controls.ToolBar, PresentationFramework'),"s17:GetIsOverflowItem",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Controls.ToolBar, PresentationFramework'),"s17:GetIsOverflowItem",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolBar, PresentationFramework',"s17:GetIsOverflowItem",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Controls.ToolBar, PresentationFramework',"s17:GetIsOverflowItem",[P1]) ok
 		return dn_x
 
 	Func SetOverflowMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Controls.ToolBar, PresentationFramework'),"s15:SetOverflowMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Controls.ToolBar, PresentationFramework',"s15:SetOverflowMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Controls.ToolBar, PresentationFramework'),"s15:SetOverflowMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

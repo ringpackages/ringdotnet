@@ -1475,45 +1475,45 @@ Class FixedPage from FrameworkElement
 		return self
 
 	Func GetLeft P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:GetLeft",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:GetLeft",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s7:GetLeft",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s7:GetLeft",[P1]) ok
 		return dn_x
 
 	Func SetLeft P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:SetLeft",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s7:SetLeft",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s7:SetLeft",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetTop P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:GetTop",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:GetTop",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s6:GetTop",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s6:GetTop",[P1]) ok
 		return dn_x
 
 	Func SetTop P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:SetTop",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s6:SetTop",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s6:SetTop",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetRight P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:GetRight",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:GetRight",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s8:GetRight",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s8:GetRight",[P1]) ok
 		return dn_x
 
 	Func SetRight P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:SetRight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s8:SetRight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s8:SetRight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetBottom P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:GetBottom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:GetBottom",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s9:GetBottom",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s9:GetBottom",[P1]) ok
 		return dn_x
 
 	Func SetBottom P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:SetBottom",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s9:SetBottom",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s9:SetBottom",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1522,7 +1522,7 @@ Class FixedPage from FrameworkElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:GetNavigateUri",dnPackItem(P1))
 
 	Func SetNavigateUri P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:SetNavigateUri",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.FixedPage, PresentationFramework',"s14:SetNavigateUri",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.FixedPage, PresentationFramework'),"s14:SetNavigateUri",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3705,7 +3705,7 @@ Class TextElement from FrameworkContentElement
 		return self
 
 	Func SetFontFamily_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontFamily",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s13:SetFontFamily",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontFamily",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3714,7 +3714,7 @@ Class TextElement from FrameworkContentElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:GetFontFamily",dnPackItem(P1))
 
 	Func SetFontStyle_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s12:SetFontStyle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s12:SetFontStyle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s12:SetFontStyle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3723,7 +3723,7 @@ Class TextElement from FrameworkContentElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s12:GetFontStyle",dnPackItem(P1))
 
 	Func SetFontWeight_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontWeight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s13:SetFontWeight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetFontWeight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3732,7 +3732,7 @@ Class TextElement from FrameworkContentElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:GetFontWeight",dnPackItem(P1))
 
 	Func SetFontStretch_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s14:SetFontStretch",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s14:SetFontStretch",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s14:SetFontStretch",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3741,18 +3741,18 @@ Class TextElement from FrameworkContentElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s14:GetFontStretch",dnPackItem(P1))
 
 	Func SetFontSize_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:SetFontSize",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s11:SetFontSize",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:SetFontSize",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetFontSize_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:GetFontSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s11:GetFontSize",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s11:GetFontSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s11:GetFontSize",[P1]) ok
 		return dn_x
 
 	Func SetForeground_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetForeground",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.TextElement, PresentationFramework',"s13:SetForeground",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.TextElement, PresentationFramework'),"s13:SetForeground",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4116,337 +4116,337 @@ Class Typography from Object
 		return dn_x
 
 	Func SetStandardLigatures_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetStandardLigatures",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:SetStandardLigatures",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetStandardLigatures",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStandardLigatures_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetStandardLigatures",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetStandardLigatures",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetStandardLigatures",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetStandardLigatures",[P1]) ok
 		return dn_x
 
 	Func SetContextualLigatures_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetContextualLigatures",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:SetContextualLigatures",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetContextualLigatures",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetContextualLigatures_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetContextualLigatures",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetContextualLigatures",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetContextualLigatures",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetContextualLigatures",[P1]) ok
 		return dn_x
 
 	Func SetDiscretionaryLigatures_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:SetDiscretionaryLigatures",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s25:SetDiscretionaryLigatures",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:SetDiscretionaryLigatures",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetDiscretionaryLigatures_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:GetDiscretionaryLigatures",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s25:GetDiscretionaryLigatures",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s25:GetDiscretionaryLigatures",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s25:GetDiscretionaryLigatures",[P1]) ok
 		return dn_x
 
 	Func SetHistoricalLigatures_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetHistoricalLigatures",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:SetHistoricalLigatures",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetHistoricalLigatures",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHistoricalLigatures_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetHistoricalLigatures",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetHistoricalLigatures",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetHistoricalLigatures",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetHistoricalLigatures",[P1]) ok
 		return dn_x
 
 	Func SetAnnotationAlternates_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetAnnotationAlternates",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:SetAnnotationAlternates",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetAnnotationAlternates",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetAnnotationAlternates_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetAnnotationAlternates",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetAnnotationAlternates",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetAnnotationAlternates",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetAnnotationAlternates",[P1]) ok
 		return dn_x
 
 	Func SetContextualAlternates_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetContextualAlternates",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:SetContextualAlternates",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetContextualAlternates",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetContextualAlternates_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetContextualAlternates",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetContextualAlternates",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetContextualAlternates",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetContextualAlternates",[P1]) ok
 		return dn_x
 
 	Func SetHistoricalForms_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetHistoricalForms",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:SetHistoricalForms",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetHistoricalForms",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetHistoricalForms_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetHistoricalForms",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetHistoricalForms",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:GetHistoricalForms",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:GetHistoricalForms",[P1]) ok
 		return dn_x
 
 	Func SetKerning_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:SetKerning",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s10:SetKerning",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:SetKerning",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetKerning_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:GetKerning",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s10:GetKerning",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s10:GetKerning",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s10:GetKerning",[P1]) ok
 		return dn_x
 
 	Func SetCapitalSpacing_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetCapitalSpacing",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetCapitalSpacing",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetCapitalSpacing",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetCapitalSpacing_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetCapitalSpacing",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetCapitalSpacing",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetCapitalSpacing",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetCapitalSpacing",[P1]) ok
 		return dn_x
 
 	Func SetCaseSensitiveForms_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:SetCaseSensitiveForms",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s21:SetCaseSensitiveForms",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:SetCaseSensitiveForms",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetCaseSensitiveForms_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:GetCaseSensitiveForms",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s21:GetCaseSensitiveForms",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s21:GetCaseSensitiveForms",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s21:GetCaseSensitiveForms",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet1_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet1",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet1",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet1",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet1_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet1",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet1",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet1",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet1",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet2_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet2",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet2",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet2",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet2_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet2",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet2",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet2",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet3_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet3",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet3",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet3",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet3_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet3",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet3",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet3",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet3",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet4_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet4",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet4",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet4",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet4_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet4",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet4",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet4",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet4",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet5_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet5",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet5",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet5",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet5_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet5",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet5",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet5",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet5",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet6_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet6",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet6",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet6",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet6_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet6",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet6",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet6",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet6",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet7_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet7",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet7",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet7",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet7_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet7",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet7",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet7",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet7",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet8_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet8",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet8",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet8",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet8_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet8",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet8",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet8",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet8",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet9_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet9",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:SetStylisticSet9",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:SetStylisticSet9",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet9_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet9",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s16:GetStylisticSet9",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet9",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s16:GetStylisticSet9",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet10_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet10",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet10",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet10",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet10_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet10",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet10",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet10",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet10",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet11_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet11",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet11",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet11",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet11_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet11",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet11",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet11",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet11",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet12_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet12",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet12",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet12",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet12_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet12",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet12",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet12",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet12",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet13_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet13",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet13",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet13",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet13_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet13",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet13",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet13",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet13",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet14_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet14",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet14",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet14",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet14_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet14",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet14",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet14",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet14",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet15_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet15",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet15",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet15",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet15_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet15",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet15",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet15",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet15",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet16_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet16",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet16",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet16",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet16_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet16",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet16",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet16",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet16",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet17_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet17",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet17",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet17",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet17_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet17",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet17",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet17",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet17",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet18_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet18",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet18",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet18",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet18_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet18",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet18",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet18",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet18",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet19_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet19",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet19",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet19",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet19_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet19",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet19",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet19",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet19",[P1]) ok
 		return dn_x
 
 	Func SetStylisticSet20_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet20",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:SetStylisticSet20",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:SetStylisticSet20",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticSet20_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet20",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s17:GetStylisticSet20",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet20",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s17:GetStylisticSet20",[P1]) ok
 		return dn_x
 
 	Func SetFraction_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetFraction",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s11:SetFraction",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetFraction",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4455,40 +4455,40 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetFraction",dnPackItem(P1))
 
 	Func SetSlashedZero_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:SetSlashedZero",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s14:SetSlashedZero",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:SetSlashedZero",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetSlashedZero_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:GetSlashedZero",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s14:GetSlashedZero",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s14:GetSlashedZero",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s14:GetSlashedZero",[P1]) ok
 		return dn_x
 
 	Func SetMathematicalGreek_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetMathematicalGreek",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:SetMathematicalGreek",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetMathematicalGreek",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetMathematicalGreek_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetMathematicalGreek",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetMathematicalGreek",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetMathematicalGreek",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetMathematicalGreek",[P1]) ok
 		return dn_x
 
 	Func SetEastAsianExpertForms_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetEastAsianExpertForms",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:SetEastAsianExpertForms",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:SetEastAsianExpertForms",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetEastAsianExpertForms_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetEastAsianExpertForms",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s23:GetEastAsianExpertForms",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetEastAsianExpertForms",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s23:GetEastAsianExpertForms",[P1]) ok
 		return dn_x
 
 	Func SetVariants_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetVariants",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s11:SetVariants",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetVariants",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4497,7 +4497,7 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetVariants",dnPackItem(P1))
 
 	Func SetCapitals_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetCapitals",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s11:SetCapitals",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:SetCapitals",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4506,7 +4506,7 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s11:GetCapitals",dnPackItem(P1))
 
 	Func SetNumeralStyle_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:SetNumeralStyle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s15:SetNumeralStyle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:SetNumeralStyle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4515,7 +4515,7 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s15:GetNumeralStyle",dnPackItem(P1))
 
 	Func SetNumeralAlignment_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:SetNumeralAlignment",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s19:SetNumeralAlignment",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:SetNumeralAlignment",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4524,7 +4524,7 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s19:GetNumeralAlignment",dnPackItem(P1))
 
 	Func SetEastAsianWidths_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetEastAsianWidths",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:SetEastAsianWidths",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetEastAsianWidths",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4533,7 +4533,7 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetEastAsianWidths",dnPackItem(P1))
 
 	Func SetEastAsianLanguage_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetEastAsianLanguage",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:SetEastAsianLanguage",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetEastAsianLanguage",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -4542,36 +4542,36 @@ Class Typography from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetEastAsianLanguage",dnPackItem(P1))
 
 	Func SetStandardSwashes_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetStandardSwashes",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:SetStandardSwashes",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:SetStandardSwashes",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStandardSwashes_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetStandardSwashes",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s18:GetStandardSwashes",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:GetStandardSwashes",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s18:GetStandardSwashes",[P1]) ok
 		return dn_x
 
 	Func SetContextualSwashes_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetContextualSwashes",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:SetContextualSwashes",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:SetContextualSwashes",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetContextualSwashes_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetContextualSwashes",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s20:GetContextualSwashes",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetContextualSwashes",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s20:GetContextualSwashes",[P1]) ok
 		return dn_x
 
 	Func SetStylisticAlternates_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetStylisticAlternates",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:SetStylisticAlternates",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:SetStylisticAlternates",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetStylisticAlternates_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetStylisticAlternates",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Typography, PresentationFramework'),"s22:GetStylisticAlternates",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetStylisticAlternates",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Typography, PresentationFramework',"s22:GetStylisticAlternates",[P1]) ok
 		return dn_x
 
 	Func getStandardLigatures
@@ -5321,18 +5321,18 @@ Class Block from TextElement
 		return self
 
 	Func SetIsHyphenationEnabled_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetIsHyphenationEnabled",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s23:SetIsHyphenationEnabled",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetIsHyphenationEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetIsHyphenationEnabled_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:GetIsHyphenationEnabled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:GetIsHyphenationEnabled",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s23:GetIsHyphenationEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Block, PresentationFramework',"s23:GetIsHyphenationEnabled",[P1]) ok
 		return dn_x
 
 	Func SetTextAlignment_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s16:SetTextAlignment",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s16:SetTextAlignment",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s16:SetTextAlignment",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -5341,18 +5341,18 @@ Class Block from TextElement
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s16:GetTextAlignment",dnPackItem(P1))
 
 	Func SetLineHeight_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:SetLineHeight",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s13:SetLineHeight",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:SetLineHeight",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetLineHeight_ P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:GetLineHeight",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s13:GetLineHeight",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s13:GetLineHeight",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Documents.Block, PresentationFramework',"s13:GetLineHeight",[P1]) ok
 		return dn_x
 
 	Func SetLineStackingStrategy_ P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetLineStackingStrategy",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Documents.Block, PresentationFramework',"s23:SetLineStackingStrategy",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Documents.Block, PresentationFramework'),"s23:SetLineStackingStrategy",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

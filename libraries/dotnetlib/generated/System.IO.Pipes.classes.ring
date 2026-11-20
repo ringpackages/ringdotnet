@@ -612,7 +612,7 @@ Class PipesAclExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:GetAccessControl",dnPackItem(P1))
 
 	Func SetAccessControl P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Pipes.PipesAclExtensions, System.IO.Pipes',"s16:SetAccessControl",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -839,8 +839,8 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func getMaxAllowedServerInstances
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances",[]) ok
+		dn_x = dotnet_call("s3:get",'System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',"s25:MaxAllowedServerInstances")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',"s25:MaxAllowedServerInstances",[]) ok
 		return dn_x
 
 	Func setMaxAllowedServerInstances P1

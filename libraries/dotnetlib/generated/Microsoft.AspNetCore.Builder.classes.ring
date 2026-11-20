@@ -1847,8 +1847,8 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
 	Func getDefaultPattern
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s14:DefaultPattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s14:DefaultPattern",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s14:DefaultPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s14:DefaultPattern",[]) ok
 		return dn_x
 
 	Func setDefaultPattern P1
@@ -3561,7 +3561,7 @@ Class RunExtensions from Object
 		return dn_x
 
 	Func Run P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s3:Run",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions',"s3:Run",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s3:Run",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

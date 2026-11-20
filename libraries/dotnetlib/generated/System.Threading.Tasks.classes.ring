@@ -210,7 +210,7 @@ Class Parallel from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s6:Invoke",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1)) ok
 
 		return self
@@ -519,7 +519,7 @@ Class Task from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAll",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1)) ok
 
 		return self
@@ -528,8 +528,8 @@ Class Task from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",[P1]) ok
 		return dn_x
 
 	Func FromResult P1
@@ -985,7 +985,7 @@ Class TaskToAsyncResult from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s5:Begin",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func End_ P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s3:End",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s3:End",dnPackItem(P1)) ok
 
 		return self

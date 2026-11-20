@@ -251,24 +251,24 @@ Class Environments from Object
 		return dn_x
 
 	Func getDevelopment
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s11:Development")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s11:Development",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s11:Development")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s11:Development",[]) ok
 		return dn_x
 
 	Func setDevelopment P1
 		raise("DotNet Error: Development is a read-only property")
 
 	Func getStaging
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s7:Staging")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s7:Staging",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s7:Staging")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s7:Staging",[]) ok
 		return dn_x
 
 	Func setStaging P1
 		raise("DotNet Error: Staging is a read-only property")
 
 	Func getProduction
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s10:Production")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions'),"s10:Production",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s10:Production")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s10:Production",[]) ok
 		return dn_x
 
 	Func setProduction P1
@@ -660,24 +660,24 @@ Class HostDefaults from Object
 		return dn_x
 
 	Func getApplicationKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ApplicationKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ApplicationKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ApplicationKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ApplicationKey",[]) ok
 		return dn_x
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getEnvironmentKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:EnvironmentKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:EnvironmentKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:EnvironmentKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:EnvironmentKey",[]) ok
 		return dn_x
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getContentRootKey
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ContentRootKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"s14:ContentRootKey",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ContentRootKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ContentRootKey",[]) ok
 		return dn_x
 
 	Func setContentRootKey P1
@@ -701,23 +701,23 @@ Class HostEnvironmentEnvExtensions from Object
 		return dn_x
 
 	Func IsDevelopment P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",[P1]) ok
 		return dn_x
 
 	Func IsStaging P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",[P1]) ok
 		return dn_x
 
 	Func IsProduction P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",[P1]) ok
 		return dn_x
 
 	Func IsEnvironment P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",[P1,P2]) ok
 		return dn_x
 
 
@@ -840,7 +840,7 @@ Class HostingAbstractionsHostExtensions from Object
 		return dn_x
 
 	Func Start P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s5:Start",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",dnPackItem(P1)) ok
 
 		return self
@@ -849,13 +849,13 @@ Class HostingAbstractionsHostExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WaitForShutdown P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s15:WaitForShutdown",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s15:WaitForShutdown",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s15:WaitForShutdown",dnPackItem(P1)) ok
 
 		return self
 
 	Func Run P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s3:Run",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s3:Run",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s3:Run",dnPackItem(P1)) ok
 
 		return self
@@ -890,23 +890,23 @@ Class AspHostingEnvironmentExtensions from Object
 		return dn_x
 
 	Func IsDevelopment P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsDevelopment",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",[P1]) ok
 		return dn_x
 
 	Func IsStaging P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:IsStaging",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",[P1]) ok
 		return dn_x
 
 	Func IsProduction P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s12:IsProduction",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",[P1]) ok
 		return dn_x
 
 	Func IsEnvironment P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s13:IsEnvironment",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",[P1,P2]) ok
 		return dn_x
 
 

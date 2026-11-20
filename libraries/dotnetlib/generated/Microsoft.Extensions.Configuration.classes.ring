@@ -595,8 +595,8 @@ Class ConfigurationExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetConnectionString P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s19:GetConnectionString",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s19:GetConnectionString",[P1,P2]) ok
 		return dn_x
 
 	Func AsEnumerable P1
@@ -606,8 +606,8 @@ Class ConfigurationExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:AsEnumerable",dnPackItem(P1))
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s6:Exists",[P1]) ok
 		return dn_x
 
 	Func GetRequiredSection P1,P2
@@ -728,23 +728,23 @@ Class ConfigurationPath from Object
 		return dn_x
 
 	Func Combine P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s7:Combine",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s7:Combine",[P1]) ok
 		return dn_x
 
 	Func GetSectionKey P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s13:GetSectionKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s13:GetSectionKey",[P1]) ok
 		return dn_x
 
 	Func GetParentPath P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s13:GetParentPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s13:GetParentPath",[P1]) ok
 		return dn_x
 
 	Func getKeyDelimiter
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s12:KeyDelimiter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s12:KeyDelimiter",[]) ok
 		return dn_x
 
 	Func setKeyDelimiter P1
@@ -921,8 +921,8 @@ Class ConfigurationRootExtensions from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:GetDebugView",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:GetDebugView",[P1]) ok
 		return dn_x
 
 

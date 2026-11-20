@@ -301,7 +301,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s12:GetAnonymous","")
 
 	Func RunImpersonated P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s15:RunImpersonated",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -382,8 +382,8 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: DeviceClaims is a read-only property")
 
 	Func getDefaultIssuer
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s13:DefaultIssuer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s13:DefaultIssuer",[]) ok
 		return dn_x
 
 
@@ -519,16 +519,16 @@ Class SecurityIdentifier from IdentityReference
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MinBinaryLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MinBinaryLength",[]) ok
 		return dn_x
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MaxBinaryLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MaxBinaryLength",[]) ok
 		return dn_x
 
 	Func setMaxBinaryLength P1

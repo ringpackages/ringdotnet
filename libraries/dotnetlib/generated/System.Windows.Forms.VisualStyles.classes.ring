@@ -334,104 +334,104 @@ Class VisualStyleInformation from Object
 		return dn_x
 
 	Func getIsSupportedByOS
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsSupportedByOS")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsSupportedByOS",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS",[]) ok
 		return dn_x
 
 	Func setIsSupportedByOS P1
 		raise("DotNet Error: IsSupportedByOS is a read-only property")
 
 	Func getIsEnabledByUser
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsEnabledByUser")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s15:IsEnabledByUser",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser",[]) ok
 		return dn_x
 
 	Func setIsEnabledByUser P1
 		raise("DotNet Error: IsEnabledByUser is a read-only property")
 
 	Func getColorScheme
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:ColorScheme")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:ColorScheme",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:ColorScheme")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:ColorScheme",[]) ok
 		return dn_x
 
 	Func setColorScheme P1
 		raise("DotNet Error: ColorScheme is a read-only property")
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s4:Size")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s4:Size",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s4:Size")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s4:Size",[]) ok
 		return dn_x
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:DisplayName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:DisplayName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:DisplayName",[]) ok
 		return dn_x
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getCompany
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Company")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Company",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Company")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Company",[]) ok
 		return dn_x
 
 	Func setCompany P1
 		raise("DotNet Error: Company is a read-only property")
 
 	Func getAuthor
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s6:Author")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s6:Author",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s6:Author")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s6:Author",[]) ok
 		return dn_x
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getCopyright
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s9:Copyright")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s9:Copyright",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s9:Copyright")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s9:Copyright",[]) ok
 		return dn_x
 
 	Func setCopyright P1
 		raise("DotNet Error: Copyright is a read-only property")
 
 	Func getUrl
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s3:Url")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s3:Url",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s3:Url")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s3:Url",[]) ok
 		return dn_x
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Version")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s7:Version",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Version",[]) ok
 		return dn_x
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:Description")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s11:Description",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:Description")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:Description",[]) ok
 		return dn_x
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getSupportsFlatMenus
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:SupportsFlatMenus")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:SupportsFlatMenus",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus",[]) ok
 		return dn_x
 
 	Func setSupportsFlatMenus P1
 		raise("DotNet Error: SupportsFlatMenus is a read-only property")
 
 	Func getMinimumColorDepth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:MinimumColorDepth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:MinimumColorDepth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth",[]) ok
 		return dn_x
 
 	Func setMinimumColorDepth P1
@@ -602,8 +602,8 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func IsElementDefined P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s16:IsElementDefined",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s16:IsElementDefined",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s16:IsElementDefined",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s16:IsElementDefined",[P1]) ok
 		return dn_x
 
 	Func getClass
@@ -642,8 +642,8 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: LastHResult is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"s11:IsSupported",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
 		return dn_x
 
 	Func setIsSupported P1

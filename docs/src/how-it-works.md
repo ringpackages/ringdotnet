@@ -76,7 +76,7 @@ A call from Ring to .NET is a request that Ring packs, the extension sends to th
 | Call | Time | Calls in a second |
 |---|---|---|
 | a method that returns a text, a number or a yes/no (`oList.Contains("a")`), a property read (`oSB.Length`) | 2 to 3 µs | 350,000 to 450,000 |
-| a static method with numbers (`new Math().Max(1,2)`) | 4 to 5 µs | about 220,000 |
+| a static method with numbers (`new Math().Max(1,2)`) | 3 to 4 µs | about 300,000 |
 | a method that returns an object (`oSB.Append("x")`) | about 60 µs | about 17,000 |
 | `new StringBuilder("x")` | about 25 µs | about 40,000 |
 

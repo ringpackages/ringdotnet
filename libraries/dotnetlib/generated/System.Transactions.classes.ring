@@ -388,7 +388,7 @@ Class Transaction from Object
 		return dnSend("s3:get",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current","")
 
 	Func setCurrent P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current",P1)
+		dn_x = dotnet_callv("s3:set",'System.Transactions.Transaction, System.Transactions.Local',"s7:Current",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current",dnPackItem(P1)) ok
 		return self
 
@@ -541,7 +541,7 @@ Class TransactionManager from Object
 		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s8:Reenlist",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func RecoveryComplete P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s16:RecoveryComplete",P1)
+		dn_x = dotnet_callv("s4:call",'System.Transactions.TransactionManager, System.Transactions.Local',"s16:RecoveryComplete",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s16:RecoveryComplete",dnPackItem(P1)) ok
 
 		return self
@@ -558,7 +558,7 @@ Class TransactionManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback","")
 
 	Func setHostCurrentCallback P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback",P1)
+		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s19:HostCurrentCallback",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback",dnPackItem(P1)) ok
 		return self
 
@@ -566,7 +566,7 @@ Class TransactionManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout","")
 
 	Func setDefaultTimeout P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout",P1)
+		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:DefaultTimeout",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout",dnPackItem(P1)) ok
 		return self
 
@@ -574,17 +574,17 @@ Class TransactionManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout","")
 
 	Func setMaximumTimeout P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout",P1)
+		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:MaximumTimeout",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getImplicitDistributedTransactions
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",[]) ok
 		return dn_x
 
 	Func setImplicitDistributedTransactions P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions",P1)
+		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions",dnPackItem(P1)) ok
 		return self
 

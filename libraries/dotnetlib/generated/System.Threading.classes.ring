@@ -656,7 +656,7 @@ Class CompressedStack from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s18:GetCompressedStack","")
 
 	Func Run P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s3:Run",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Threading.CompressedStack, System.Private.CoreLib',"s3:Run",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.CompressedStack, System.Private.CoreLib'),"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -833,24 +833,24 @@ Class ExecutionContext from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s12:SuppressFlow","")
 
 	Func RestoreFlow 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s11:RestoreFlow")
+		dn_x = dotnet_callv("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s11:RestoreFlow")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s11:RestoreFlow","") ok
 
 		return self
 
 	Func IsFlowSuppressed 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s16:IsFlowSuppressed")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s16:IsFlowSuppressed",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s16:IsFlowSuppressed")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s16:IsFlowSuppressed",[]) ok
 		return dn_x
 
 	Func Run P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s3:Run",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s3:Run",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s3:Run",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func Restore P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s7:Restore",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s7:Restore",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.ExecutionContext, System.Private.CoreLib'),"s7:Restore",dnPackItem(P1)) ok
 
 		return self
@@ -1025,7 +1025,7 @@ Class Interlocked from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s4:Read",dnPackItem(P1))
 
 	Func MemoryBarrierProcessWide 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s24:MemoryBarrierProcessWide")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s24:MemoryBarrierProcessWide")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s24:MemoryBarrierProcessWide","") ok
 
 		return self
@@ -1037,7 +1037,7 @@ Class Interlocked from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s2:Or",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MemoryBarrier 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s13:MemoryBarrier")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s13:MemoryBarrier")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s13:MemoryBarrier","") ok
 
 		return self
@@ -1274,13 +1274,13 @@ Class Monitor from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s5:Enter",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",dnPackItem(P1)) ok
 
 		return self
 
 	Func Exit_ P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Exit",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s4:Exit",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Exit",dnPackItem(P1)) ok
 
 		return self
@@ -1289,38 +1289,38 @@ Class Monitor from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s8:TryEnter",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s8:TryEnter",[P1]) ok
 		return dn_x
 
 	Func IsEntered P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s9:IsEntered",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s9:IsEntered",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s9:IsEntered",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s9:IsEntered",[P1]) ok
 		return dn_x
 
 	Func Wait P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s4:Wait",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s4:Wait",[P1]) ok
 		return dn_x
 
 	Func Pulse P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Pulse",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s5:Pulse",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Pulse",dnPackItem(P1)) ok
 
 		return self
 
 	Func PulseAll P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:PulseAll",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s8:PulseAll",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:PulseAll",dnPackItem(P1)) ok
 
 		return self
 
 	Func getLockContentionCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s19:LockContentionCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s19:LockContentionCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.Monitor, System.Private.CoreLib',"s19:LockContentionCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.Monitor, System.Private.CoreLib',"s19:LockContentionCount",[]) ok
 		return dn_x
 
 	Func setLockContentionCount P1
@@ -2133,7 +2133,7 @@ Class SpinWait from ValueType
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.SpinWait, System.Private.CoreLib',"s9:SpinUntil",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",dnPackItem(P1)) ok
 
 		return self
@@ -2220,7 +2220,7 @@ Class SynchronizationContext from Object
 		return dn_x
 
 	Func SetSynchronizationContext P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.SynchronizationContext, System.Private.CoreLib'),"s25:SetSynchronizationContext",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.SynchronizationContext, System.Private.CoreLib',"s25:SetSynchronizationContext",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.SynchronizationContext, System.Private.CoreLib'),"s25:SetSynchronizationContext",dnPackItem(P1)) ok
 
 		return self
@@ -2400,48 +2400,48 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func SpinWait P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s8:SpinWait",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s8:SpinWait",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s8:SpinWait",dnPackItem(P1)) ok
 
 		return self
 
 	Func Yield 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Yield")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Yield",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s5:Yield")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Thread, System.Private.CoreLib',"s5:Yield",[]) ok
 		return dn_x
 
 	Func Sleep P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Sleep",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s5:Sleep",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s5:Sleep",dnPackItem(P1)) ok
 
 		return self
 
 	Func ResetAbort 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s10:ResetAbort")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s10:ResetAbort")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s10:ResetAbort","") ok
 
 		return self
 
 	Func BeginCriticalRegion 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginCriticalRegion")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s19:BeginCriticalRegion")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginCriticalRegion","") ok
 
 		return self
 
 	Func EndCriticalRegion 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndCriticalRegion")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:EndCriticalRegion")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndCriticalRegion","") ok
 
 		return self
 
 	Func BeginThreadAffinity 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginThreadAffinity")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s19:BeginThreadAffinity")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s19:BeginThreadAffinity","") ok
 
 		return self
 
 	Func EndThreadAffinity 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndThreadAffinity")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:EndThreadAffinity")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:EndThreadAffinity","") ok
 
 		return self
@@ -2456,7 +2456,7 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:GetNamedDataSlot",dnPackItem(P1))
 
 	Func FreeNamedDataSlot P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:FreeNamedDataSlot",P1)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:FreeNamedDataSlot",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s17:FreeNamedDataSlot",dnPackItem(P1)) ok
 
 		return self
@@ -2465,7 +2465,7 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s7:SetData",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s7:SetData",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2474,12 +2474,12 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s9:GetDomain","")
 
 	Func GetDomainID 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s11:GetDomainID")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s11:GetDomainID",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s11:GetDomainID")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Thread, System.Private.CoreLib',"s11:GetDomainID",[]) ok
 		return dn_x
 
 	Func MemoryBarrier 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:MemoryBarrier")
+		dn_x = dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s13:MemoryBarrier")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:MemoryBarrier","") ok
 
 		return self
@@ -2491,8 +2491,8 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:VolatileWrite",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCurrentProcessorId 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s21:GetCurrentProcessorId")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s21:GetCurrentProcessorId",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s21:GetCurrentProcessorId")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Thread, System.Private.CoreLib',"s21:GetCurrentProcessorId",[]) ok
 		return dn_x
 
 	Func getManagedThreadId
@@ -2587,7 +2587,7 @@ Class Thread from DotNetObject
 		return dnSend("s3:get",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:CurrentPrincipal","")
 
 	Func setCurrentPrincipal P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:CurrentPrincipal",P1)
+		dn_x = dotnet_callv("s3:set",'System.Threading.Thread, System.Private.CoreLib',"s16:CurrentPrincipal",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s16:CurrentPrincipal",dnPackItem(P1)) ok
 		return self
 
@@ -2650,8 +2650,8 @@ Class ThreadPool from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s17:QueueUserWorkItem",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s17:QueueUserWorkItem",[P1]) ok
 		return dn_x
 
 	Func UnsafeQueueUserWorkItem P1
@@ -2661,21 +2661,21 @@ Class ThreadPool from Object
 		raise("DotNet Error: UnsafeQueueUserWorkItem does not take one argument: use named arguments, UnsafeQueueUserWorkItem([ :parameter = value, ... ])")
 
 	Func BindHandle P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s10:BindHandle",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s10:BindHandle",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s10:BindHandle",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s10:BindHandle",[P1]) ok
 		return dn_x
 
 	Func SetMaxThreads P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMaxThreads",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMaxThreads",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMaxThreads",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMaxThreads",[P1,P2]) ok
 		return dn_x
 
 	Func GetMaxThreads 
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:GetMaxThreads","")
 
 	Func SetMinThreads P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMinThreads",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:SetMinThreads",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMinThreads",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMinThreads",[P1,P2]) ok
 		return dn_x
 
 	Func GetMinThreads 
@@ -2685,24 +2685,24 @@ Class ThreadPool from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s19:GetAvailableThreads","")
 
 	Func getPendingWorkItemCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s20:PendingWorkItemCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s20:PendingWorkItemCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s20:PendingWorkItemCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s20:PendingWorkItemCount",[]) ok
 		return dn_x
 
 	Func setPendingWorkItemCount P1
 		raise("DotNet Error: PendingWorkItemCount is a read-only property")
 
 	Func getThreadCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s11:ThreadCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s11:ThreadCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s11:ThreadCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s11:ThreadCount",[]) ok
 		return dn_x
 
 	Func setThreadCount P1
 		raise("DotNet Error: ThreadCount is a read-only property")
 
 	Func getCompletedWorkItemCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s22:CompletedWorkItemCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s22:CompletedWorkItemCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s22:CompletedWorkItemCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s22:CompletedWorkItemCount",[]) ok
 		return dn_x
 
 	Func setCompletedWorkItemCount P1
@@ -2778,8 +2778,8 @@ Class Timeout from Object
 		raise("DotNet Error: InfiniteTimeSpan is a read-only property")
 
 	Func getInfinite
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.Timeout, System.Private.CoreLib'),"s8:Infinite")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.Timeout, System.Private.CoreLib'),"s8:Infinite",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.Timeout, System.Private.CoreLib',"s8:Infinite")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.Timeout, System.Private.CoreLib',"s8:Infinite",[]) ok
 		return dn_x
 
 	Func setInfinite P1
@@ -2839,8 +2839,8 @@ Class Timer from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func getActiveCount
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.Timer, System.Private.CoreLib'),"s11:ActiveCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.Timer, System.Private.CoreLib'),"s11:ActiveCount",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.Timer, System.Private.CoreLib',"s11:ActiveCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.Timer, System.Private.CoreLib',"s11:ActiveCount",[]) ok
 		return dn_x
 
 	Func setActiveCount P1
@@ -2914,16 +2914,16 @@ Class WaitHandle from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAll",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAll",[P1]) ok
 		return dn_x
 
 	Func WaitAny P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAny",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAny",[P1]) ok
 		return dn_x
 
 	Func SignalAndWait P1
@@ -2949,8 +2949,8 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func getWaitTimeout
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s11:WaitTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s11:WaitTimeout",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Threading.WaitHandle, System.Private.CoreLib',"s11:WaitTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Threading.WaitHandle, System.Private.CoreLib',"s11:WaitTimeout",[]) ok
 		return dn_x
 
 	Func setWaitTimeout P1
@@ -2977,7 +2977,7 @@ Class WaitHandleExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandleExtensions, System.Private.CoreLib'),"s17:GetSafeWaitHandle",dnPackItem(P1))
 
 	Func SetSafeWaitHandle P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Threading.WaitHandleExtensions, System.Private.CoreLib'),"s17:SetSafeWaitHandle",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Threading.WaitHandleExtensions, System.Private.CoreLib',"s17:SetSafeWaitHandle",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.WaitHandleExtensions, System.Private.CoreLib'),"s17:SetSafeWaitHandle",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self

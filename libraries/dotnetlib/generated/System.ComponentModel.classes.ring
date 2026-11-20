@@ -789,7 +789,7 @@ Class AsyncOperationManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s22:SynchronizationContext","")
 
 	Func setSynchronizationContext P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s22:SynchronizationContext",P1)
+		dn_x = dotnet_callv("s3:set",'System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync',"s22:SynchronizationContext",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.ComponentModel.AsyncOperationManager, System.ComponentModel.EventBasedAsync'),"s22:SynchronizationContext",dnPackItem(P1)) ok
 		return self
 
@@ -2475,26 +2475,26 @@ Class LicenseManager from Object
 		raise("DotNet Error: CreateWithContext does not take one argument: use named arguments, CreateWithContext([ :parameter = value, ... ])")
 
 	Func IsLicensed P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s10:IsLicensed",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s10:IsLicensed",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s10:IsLicensed",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s10:IsLicensed",[P1]) ok
 		return dn_x
 
 	Func IsValid P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s7:IsValid",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s7:IsValid",[P1]) ok
 		return dn_x
 
 	Func LockContext P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s11:LockContext",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s11:LockContext",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s11:LockContext",dnPackItem(P1)) ok
 
 		return self
 
 	Func UnlockContext P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s13:UnlockContext",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s13:UnlockContext",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s13:UnlockContext",dnPackItem(P1)) ok
 
 		return self
@@ -2503,7 +2503,7 @@ Class LicenseManager from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s8:Validate",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",dnPackItem(P1)) ok
 
 		return self
@@ -2512,7 +2512,7 @@ Class LicenseManager from Object
 		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s14:CurrentContext",P1)
+		dn_x = dotnet_callv("s3:set",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s14:CurrentContext",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
@@ -2964,23 +2964,23 @@ Class MaskedTextProvider from Object
 		return dn_x
 
 	Func GetOperationResultFromHint P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s26:GetOperationResultFromHint",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s26:GetOperationResultFromHint",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s26:GetOperationResultFromHint",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s26:GetOperationResultFromHint",[P1]) ok
 		return dn_x
 
 	Func IsValidInputChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s16:IsValidInputChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s16:IsValidInputChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s16:IsValidInputChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s16:IsValidInputChar",[P1]) ok
 		return dn_x
 
 	Func IsValidMaskChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s15:IsValidMaskChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s15:IsValidMaskChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s15:IsValidMaskChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s15:IsValidMaskChar",[P1]) ok
 		return dn_x
 
 	Func IsValidPasswordChar P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s19:IsValidPasswordChar",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s19:IsValidPasswordChar",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s19:IsValidPasswordChar",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s19:IsValidPasswordChar",[P1]) ok
 		return dn_x
 
 	Func Item P1
@@ -3161,8 +3161,8 @@ Class MaskedTextProvider from Object
 		raise("DotNet Error: DefaultPasswordChar is a read-only property")
 
 	Func getInvalidIndex
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s12:InvalidIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"s12:InvalidIndex",[]) ok
+		dn_x = dotnet_call("s3:get",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s12:InvalidIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s12:InvalidIndex",[]) ok
 		return dn_x
 
 	Func setInvalidIndex P1
@@ -3487,18 +3487,18 @@ Class SyntaxCheck from Object
 		return dn_x
 
 	Func CheckMachineName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s16:CheckMachineName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s16:CheckMachineName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s16:CheckMachineName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s16:CheckMachineName",[P1]) ok
 		return dn_x
 
 	Func CheckPath P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s9:CheckPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s9:CheckPath",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s9:CheckPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s9:CheckPath",[P1]) ok
 		return dn_x
 
 	Func CheckRootedPath P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s15:CheckRootedPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"s15:CheckRootedPath",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s15:CheckRootedPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s15:CheckRootedPath",[P1]) ok
 		return dn_x
 
 
@@ -3765,7 +3765,7 @@ Class TypeDescriptor from Object
 		return dn_x
 
 	Func RegisterType 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:RegisterType")
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:RegisterType")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:RegisterType","") ok
 
 		return self
@@ -3774,25 +3774,25 @@ Class TypeDescriptor from Object
 		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:AddAttributes",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddEditorTable P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:AddEditorTable",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s14:AddEditorTable",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:AddEditorTable",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddProvider P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:AddProvider",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s11:AddProvider",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:AddProvider",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddProviderTransparent P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s22:AddProviderTransparent",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s22:AddProviderTransparent",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s22:AddProviderTransparent",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func CreateAssociation P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:CreateAssociation",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s17:CreateAssociation",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:CreateAssociation",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -3825,16 +3825,16 @@ Class TypeDescriptor from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetClassName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetClassName",[P1]) ok
 		return dn_x
 
 	Func GetComponentName P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s16:GetComponentName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s16:GetComponentName",[P1]) ok
 		return dn_x
 
 	Func GetConverter P1
@@ -3874,8 +3874,8 @@ Class TypeDescriptor from Object
 		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s27:GetEventsFromRegisteredType",dnPackItem(P1))
 
 	Func GetFullComponentName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s20:GetFullComponentName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s20:GetFullComponentName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s20:GetFullComponentName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s20:GetFullComponentName",[P1]) ok
 		return dn_x
 
 	Func GetProperties P1
@@ -3894,7 +3894,7 @@ Class TypeDescriptor from Object
 		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:GetReflectionType",dnPackItem(P1))
 
 	Func Refresh P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s7:Refresh",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s7:Refresh",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s7:Refresh",dnPackItem(P1)) ok
 
 		return self
@@ -3903,31 +3903,31 @@ Class TypeDescriptor from Object
 		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:CreateDesigner",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RemoveAssociation P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:RemoveAssociation",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s17:RemoveAssociation",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s17:RemoveAssociation",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveAssociations P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:RemoveAssociations",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s18:RemoveAssociations",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:RemoveAssociations",dnPackItem(P1)) ok
 
 		return self
 
 	Func RemoveProvider P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:RemoveProvider",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s14:RemoveProvider",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:RemoveProvider",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveProviderTransparent P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s25:RemoveProviderTransparent",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s25:RemoveProviderTransparent",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s25:RemoveProviderTransparent",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SortDescriptorArray P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s19:SortDescriptorArray",P1)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s19:SortDescriptorArray",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s19:SortDescriptorArray",dnPackItem(P1)) ok
 
 		return self
@@ -3956,7 +3956,7 @@ Class TypeDescriptor from Object
 		return dnSend("s3:get",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s26:ComNativeDescriptorHandler","")
 
 	Func setComNativeDescriptorHandler P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s26:ComNativeDescriptorHandler",P1)
+		dn_x = dotnet_callv("s3:set",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s26:ComNativeDescriptorHandler",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s26:ComNativeDescriptorHandler",dnPackItem(P1)) ok
 		return self
 

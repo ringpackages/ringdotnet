@@ -1450,19 +1450,19 @@ Class AuthenticationTokenExtensions from Object
 		return dn_x
 
 	Func StoreTokens P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s11:StoreTokens",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s11:StoreTokens",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s11:StoreTokens",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func GetTokenValue P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s13:GetTokenValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s13:GetTokenValue",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s13:GetTokenValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s13:GetTokenValue",[P1,P2]) ok
 		return dn_x
 
 	Func UpdateTokenValue P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s16:UpdateTokenValue",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s16:UpdateTokenValue",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s16:UpdateTokenValue",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s16:UpdateTokenValue",[P1,P2,P3]) ok
 		return dn_x
 
 	Func GetTokens P1
@@ -1492,8 +1492,8 @@ Class Base64UrlTextEncoder from Object
 		return dn_x
 
 	Func Encode P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"s6:Encode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"s6:Encode",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication',"s6:Encode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication',"s6:Encode",[P1]) ok
 		return dn_x
 
 	Func Decode P1
@@ -1538,25 +1538,25 @@ Class ClaimActionCollectionMapExtensions from Object
 		raise("DotNet Error: MapCustomJson does not take one argument: use named arguments, MapCustomJson([ :parameter = value, ... ])")
 
 	Func MapAll P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s6:MapAll",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s6:MapAll",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s6:MapAll",dnPackItem(P1)) ok
 
 		return self
 
 	Func MapAllExcept P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s12:MapAllExcept",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s12:MapAllExcept",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s12:MapAllExcept",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DeleteClaim P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s11:DeleteClaim",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s11:DeleteClaim",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s11:DeleteClaim",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func DeleteClaims P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s12:DeleteClaims",P1,P2)
+		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s12:DeleteClaims",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s12:DeleteClaims",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1831,8 +1831,8 @@ Class JsonDocumentAuthExtensions from Object
 		return dn_x
 
 	Func GetString P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication'),"s9:GetString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication'),"s9:GetString",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication',"s9:GetString",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication',"s9:GetString",[P1,P2]) ok
 		return dn_x
 
 

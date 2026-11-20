@@ -247,18 +247,18 @@ Class CodeIdentifier from Object
 		return dn_x
 
 	Func MakePascal P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s10:MakePascal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s10:MakePascal",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s10:MakePascal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s10:MakePascal",[P1]) ok
 		return dn_x
 
 	Func MakeCamel P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeCamel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeCamel",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeCamel",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeCamel",[P1]) ok
 		return dn_x
 
 	Func MakeValid P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"s9:MakeValid",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeValid",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeValid",[P1]) ok
 		return dn_x
 
 
@@ -1856,8 +1856,8 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func IsDataSet P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"s9:IsDataSet",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"s9:IsDataSet",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.XmlSchemas, System.Private.Xml',"s9:IsDataSet",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Serialization.XmlSchemas, System.Private.Xml',"s9:IsDataSet",[P1]) ok
 		return dn_x
 
 	Func Item P1
@@ -1958,8 +1958,8 @@ Class XmlSerializer from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s28:GetXmlSerializerAssemblyName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s28:GetXmlSerializerAssemblyName",[P1]) ok
 		return dn_x
 
 	Func setUnknownNodeEvent P1

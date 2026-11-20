@@ -213,6 +213,9 @@ func dnCreate  cTypeName, aParameters
 # text, a number or a yes/no (an object, null...), and [0] when it did not send the request because an argument is not a text or a number
 func dnLate  aMarker, cOperation, nHandle, cName, aArgs
 	if aMarker[1] = 0
+		if isstring(nHandle)          # a static method: the extension was given the name of the type
+			nHandle = dnTypeHandle(nHandle)
+		ok
 		return dnSend(cOperation,nHandle,cName,dnPack(aArgs))
 	ok
 	return dnFinish(aMarker[2])

@@ -601,6 +601,82 @@ static char *ringdotnet_additem ( char *p, char cTag, const char *cData, int nSi
 	return p + nSize ;
 }
 
+/* The handle of the type object of a type name, for the static methods: dotnet_call may be given the name of the type (a text) instead of
+   a handle. The first call asks the bridge ("type" request), the handle is remembered here, so that later calls do not look it up in Ring. */
+#define DN_TYPECACHE 512
+static struct {
+	char *cName ;
+	int nLen ;
+	double nHandle ;
+} g_aTypeCache[DN_TYPECACHE] ;
+
+static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle )
+{
+	unsigned int nHash = 5381, nSlot ;
+	int x, nTry ;
+	char *pRequest, *p ;
+	const unsigned char *pOut ;
+	int nOutSize = 0 ;
+	for ( x = 0 ; x < nLen ; x++ ) {
+		nHash = nHash * 33 + (unsigned char) cName[x] ;
+	}
+	nSlot = nHash % DN_TYPECACHE ;
+	for ( nTry = 0 ; nTry < DN_TYPECACHE ; nTry++ ) {
+		unsigned int nAt = (nSlot + (unsigned int) nTry) % DN_TYPECACHE ;
+		if ( ! g_aTypeCache[nAt].cName ) {
+			nSlot = nAt ;
+			break ;
+		}
+		if ( (g_aTypeCache[nAt].nLen == nLen) && (memcmp(g_aTypeCache[nAt].cName,cName,(size_t) nLen) == 0) ) {
+			*pHandle = g_aTypeCache[nAt].nHandle ;
+			return 1 ;
+		}
+		if ( nTry == DN_TYPECACHE - 1 ) {
+			nSlot = DN_TYPECACHE ;          /* the table is full: ask every time */
+		}
+	}
+	pRequest = (char *) malloc((size_t) nLen + 32);
+	if ( ! pRequest ) {
+		return 0 ;
+	}
+	p = pRequest ;
+	p += sprintf(p,"s4:type");
+	p = ringdotnet_additem(p,'s',cName,nLen);
+	g_nDepth++ ;
+	pOut = g_pInvoke((const unsigned char *) pRequest,(int) (p - pRequest),&nOutSize);
+	g_nDepth-- ;
+	free(pRequest);
+	if ( ! pOut ) {
+		return 0 ;
+	}
+	/* "o<length>:<handle>|<type>..." */
+	if ( (nOutSize > 3) && (pOut[0] == 'o') ) {
+		int nColon = 1 ;
+		double nValue = 0 ;
+		while ( (nColon < nOutSize) && (pOut[nColon] != ':') ) {
+			nColon++ ;
+		}
+		nColon++ ;
+		while ( (nColon < nOutSize) && (pOut[nColon] >= '0') && (pOut[nColon] <= '9') ) {
+			nValue = nValue * 10 + (pOut[nColon] - '0') ;
+			nColon++ ;
+		}
+		g_pFree((void *) pOut);
+		*pHandle = nValue ;
+		if ( (nValue > 0) && (nSlot < DN_TYPECACHE) ) {
+			g_aTypeCache[nSlot].cName = (char *) malloc((size_t) nLen + 1);
+			if ( g_aTypeCache[nSlot].cName ) {
+				memcpy(g_aTypeCache[nSlot].cName,cName,(size_t) nLen);
+				g_aTypeCache[nSlot].nLen = nLen ;
+				g_aTypeCache[nSlot].nHandle = nValue ;
+			}
+		}
+		return nValue > 0 ;
+	}
+	g_pFree((void *) pOut);
+	return 0 ;
+}
+
 static void ringdotnet_docall ( void *pPointer, int nVoid )
 {
 	int nPara, x, nSize, nOutSize = 0, nLen, nColon ;
@@ -610,9 +686,23 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 	const unsigned char *pOut ;
 	char cTag ;
 	nPara = RING_API_PARACOUNT ;
-	if ( (nPara < 3) || (! RING_API_ISSTRING(1)) || (! RING_API_ISNUMBER(2)) || (! RING_API_ISSTRING(3)) ) {
+	double nTarget ;
+	if ( (nPara < 3) || (! RING_API_ISSTRING(1)) || ((! RING_API_ISNUMBER(2)) && (! RING_API_ISSTRING(2))) || (! RING_API_ISSTRING(3)) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
+	}
+	if ( RING_API_ISSTRING(2) ) {
+		/* the name of a type (a static method): its handle comes from the table of this file */
+		if ( ! ringdotnet_startruntime(NULL) ) {
+			RING_API_ERROR(g_cError);
+			return ;
+		}
+		if ( ! ringdotnet_typehandle(RING_API_GETSTRING(2),(int) RING_API_GETSTRINGSIZE(2),&nTarget) ) {
+			RING_API_ERROR("Can't find the .NET type");
+			return ;
+		}
+	} else {
+		nTarget = RING_API_GETNUMBER(2) ;
 	}
 	/* the size of the request: the operation, the target, the name and the arguments (a number needs at most 48 bytes) */
 	nCapacity = (size_t) RING_API_GETSTRINGSIZE(1) + (size_t) RING_API_GETSTRINGSIZE(3) + 64 ;
@@ -642,10 +732,10 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 	p = pRequest ;
 	memcpy(p,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1));
 	p += RING_API_GETSTRINGSIZE(1) ;
-	if ( RING_API_GETNUMBER(2) == 0 ) {
+	if ( nTarget == 0 ) {
 		p += sprintf(p,"z0:");
 	} else {
-		nLen = sprintf(cNum,"%.0f",RING_API_GETNUMBER(2));
+		nLen = sprintf(cNum,"%.0f",nTarget);
 		p += sprintf(p,"o%d:%s",nLen,cNum);
 	}
 	memcpy(p,RING_API_GETSTRING(3),(size_t) RING_API_GETSTRINGSIZE(3));

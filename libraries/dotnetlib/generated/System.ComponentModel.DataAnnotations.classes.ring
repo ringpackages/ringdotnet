@@ -237,8 +237,8 @@ Class Validator from Object
 		return dn_x
 
 	Func TryValidateProperty P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s19:TryValidateProperty",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s19:TryValidateProperty",[P1,P2,P3]) ok
 		return dn_x
 
 	Func TryValidateObject P1
@@ -248,12 +248,12 @@ Class Validator from Object
 		raise("DotNet Error: TryValidateObject does not take one argument: use named arguments, TryValidateObject([ :parameter = value, ... ])")
 
 	Func TryValidateValue P1,P2,P3,P4
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",[P1,P2,P3,P4]) ok
+		dn_x = dotnet_call("s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s16:TryValidateValue",P1,P2,P3,P4)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s16:TryValidateValue",[P1,P2,P3,P4]) ok
 		return dn_x
 
 	Func ValidateProperty P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s16:ValidateProperty",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -266,7 +266,7 @@ Class Validator from Object
 		raise("DotNet Error: ValidateObject does not take one argument: use named arguments, ValidateObject([ :parameter = value, ... ])")
 
 	Func ValidateValue P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s13:ValidateValue",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self

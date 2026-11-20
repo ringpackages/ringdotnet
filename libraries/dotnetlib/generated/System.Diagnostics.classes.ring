@@ -631,12 +631,12 @@ Class Activity from Object
 		return dnSend("s3:get",nHandle,"s8:IdFormat","")
 
 	Func getForceDefaultIdFormat
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat",[]) ok
 		return dn_x
 
 	Func setForceDefaultIdFormat P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s20:ForceDefaultIdFormat",dnPackItem(P1)) ok
 		return self
 
@@ -644,7 +644,7 @@ Class Activity from Object
 		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s7:Current","")
 
 	Func setCurrent P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s7:Current",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s7:Current",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s7:Current",dnPackItem(P1)) ok
 		return self
 
@@ -652,7 +652,7 @@ Class Activity from Object
 		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s16:TraceIdGenerator","")
 
 	Func setTraceIdGenerator P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s16:TraceIdGenerator",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s16:TraceIdGenerator",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s16:TraceIdGenerator",dnPackItem(P1)) ok
 		return self
 
@@ -660,7 +660,7 @@ Class Activity from Object
 		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s15:DefaultIdFormat","")
 
 	Func setDefaultIdFormat P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s15:DefaultIdFormat",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s15:DefaultIdFormat",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource'),"s15:DefaultIdFormat",dnPackItem(P1)) ok
 		return self
 
@@ -1061,7 +1061,7 @@ Class ActivitySource from Object
 		return dn_x
 
 	Func AddActivityListener P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource'),"s19:AddActivityListener",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',"s19:AddActivityListener",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource'),"s19:AddActivityListener",dnPackItem(P1)) ok
 
 		return self
@@ -1375,25 +1375,25 @@ Class Debug from Object
 		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:SetProvider",dnPackItem(P1))
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Close")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Close")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Close","") ok
 
 		return self
 
 	Func Flush 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Flush")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Flush")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Flush","") ok
 
 		return self
 
 	Func Indent 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Indent")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s6:Indent")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Indent","") ok
 
 		return self
 
 	Func Unindent 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s8:Unindent")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s8:Unindent")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s8:Unindent","") ok
 
 		return self
@@ -1403,7 +1403,7 @@ Class Debug from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Print",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",dnPackItem(P1)) ok
 
 		return self
@@ -1412,7 +1412,7 @@ Class Debug from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s6:Assert",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",dnPackItem(P1)) ok
 
 		return self
@@ -1422,7 +1422,7 @@ Class Debug from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s4:Fail",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",dnPackItem(P1)) ok
 
 		return self
@@ -1432,7 +1432,7 @@ Class Debug from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:WriteLine",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",dnPackItem(P1)) ok
 
 		return self
@@ -1442,7 +1442,7 @@ Class Debug from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Write",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",dnPackItem(P1)) ok
 
 		return self
@@ -1460,32 +1460,32 @@ Class Debug from Object
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func getAutoFlush
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush",[]) ok
 		return dn_x
 
 	Func setAutoFlush P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:AutoFlush",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentLevel
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel",[]) ok
 		return dn_x
 
 	Func setIndentLevel P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:IndentLevel",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize",[]) ok
 		return dn_x
 
 	Func setIndentSize P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s10:IndentSize",dnPackItem(P1)) ok
 		return self
 
@@ -1546,13 +1546,13 @@ Class DebugProvider from Object
 		return dn_x
 
 	Func FailCore P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s8:FailCore",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.DebugProvider, System.Private.CoreLib',"s8:FailCore",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s8:FailCore",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
 
 	Func WriteCore P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s9:WriteCore",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.DebugProvider, System.Private.CoreLib',"s9:WriteCore",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"s9:WriteCore",dnPackItem(P1)) ok
 
 		return self
@@ -1578,50 +1578,50 @@ Class Debugger from Object
 		return dn_x
 
 	Func Break_ 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s5:Break")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s5:Break")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s5:Break","") ok
 
 		return self
 
 	Func Launch 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s6:Launch")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s6:Launch",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s6:Launch")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s6:Launch",[]) ok
 		return dn_x
 
 	Func NotifyOfCrossThreadDependency 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s29:NotifyOfCrossThreadDependency")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s29:NotifyOfCrossThreadDependency")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s29:NotifyOfCrossThreadDependency","") ok
 
 		return self
 
 	Func Log P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s3:Log",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s3:Log",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s3:Log",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
 
 	Func IsLogging 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s9:IsLogging")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s9:IsLogging",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s9:IsLogging")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s9:IsLogging",[]) ok
 		return dn_x
 
 	Func BreakForUserUnhandledException P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s30:BreakForUserUnhandledException",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s30:BreakForUserUnhandledException",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s30:BreakForUserUnhandledException",dnPackItem(P1)) ok
 
 		return self
 
 	Func getIsAttached
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s10:IsAttached")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s10:IsAttached",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s10:IsAttached")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s10:IsAttached",[]) ok
 		return dn_x
 
 	Func setIsAttached P1
 		raise("DotNet Error: IsAttached is a read-only property")
 
 	Func getDefaultCategory
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s15:DefaultCategory")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Debugger, System.Private.CoreLib'),"s15:DefaultCategory",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s15:DefaultCategory")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s15:DefaultCategory",[]) ok
 		return dn_x
 
 	Func setDefaultCategory P1
@@ -1778,7 +1778,7 @@ Class DistributedContextPropagator from Object
 		return dnSend("s3:get",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s7:Current","")
 
 	Func setCurrent P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s7:Current",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource',"s7:Current",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.DistributedContextPropagator, System.Diagnostics.DiagnosticSource'),"s7:Current",dnPackItem(P1)) ok
 		return self
 
@@ -2300,13 +2300,13 @@ Class Process from Component
 		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s17:GetCurrentProcess","")
 
 	Func EnterDebugMode 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:EnterDebugMode")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:EnterDebugMode")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:EnterDebugMode","") ok
 
 		return self
 
 	Func LeaveDebugMode 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:LeaveDebugMode")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:LeaveDebugMode")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:LeaveDebugMode","") ok
 
 		return self
@@ -3345,8 +3345,8 @@ Class StackFrame from Object
 		return dn_x
 
 	Func getOFFSET_UNKNOWN
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.StackFrame, System.Private.CoreLib'),"s14:OFFSET_UNKNOWN")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.StackFrame, System.Private.CoreLib'),"s14:OFFSET_UNKNOWN",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN",[]) ok
 		return dn_x
 
 	Func setOFFSET_UNKNOWN P1
@@ -3370,23 +3370,23 @@ Class StackFrameExtensions from Object
 		return dn_x
 
 	Func HasNativeImage P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s14:HasNativeImage",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s14:HasNativeImage",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s14:HasNativeImage",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s14:HasNativeImage",[P1]) ok
 		return dn_x
 
 	Func HasMethod P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasMethod",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasMethod",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s9:HasMethod",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s9:HasMethod",[P1]) ok
 		return dn_x
 
 	Func HasILOffset P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s11:HasILOffset",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s11:HasILOffset",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s11:HasILOffset",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s11:HasILOffset",[P1]) ok
 		return dn_x
 
 	Func HasSource P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasSource",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.StackFrameExtensions, System.Private.CoreLib'),"s9:HasSource",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s9:HasSource",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.StackFrameExtensions, System.Private.CoreLib',"s9:HasSource",[P1]) ok
 		return dn_x
 
 	Func GetNativeIP P1
@@ -3455,8 +3455,8 @@ Class StackTrace from Object
 		raise("DotNet Error: FrameCount is a read-only property")
 
 	Func getMETHODS_TO_SKIP
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.StackTrace, System.Private.CoreLib'),"s15:METHODS_TO_SKIP")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.StackTrace, System.Private.CoreLib'),"s15:METHODS_TO_SKIP",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.StackTrace, System.Private.CoreLib',"s15:METHODS_TO_SKIP")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.StackTrace, System.Private.CoreLib',"s15:METHODS_TO_SKIP",[]) ok
 		return dn_x
 
 	Func setMETHODS_TO_SKIP P1
@@ -3523,8 +3523,8 @@ Class Stopwatch from Object
 		return dnSend("s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s8:StartNew","")
 
 	Func GetTimestamp 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s12:GetTimestamp")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s12:GetTimestamp",[]) ok
+		dn_x = dotnet_call("s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s12:GetTimestamp")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s12:GetTimestamp",[]) ok
 		return dn_x
 
 	Func GetElapsedTime P1
@@ -3564,16 +3564,16 @@ Class Stopwatch from Object
 		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s9:Frequency")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s9:Frequency",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s9:Frequency")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s9:Frequency",[]) ok
 		return dn_x
 
 	Func setFrequency P1
 		raise("DotNet Error: Frequency is a read-only property")
 
 	Func getIsHighResolution
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s16:IsHighResolution")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s16:IsHighResolution",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s16:IsHighResolution")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s16:IsHighResolution",[]) ok
 		return dn_x
 
 	Func setIsHighResolution P1
@@ -3781,13 +3781,13 @@ Class Trace from Object
 		return dn_x
 
 	Func Flush 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Flush")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Flush")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Flush","") ok
 
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Close")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Close")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Close","") ok
 
 		return self
@@ -3797,7 +3797,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s6:Assert",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",dnPackItem(P1)) ok
 
 		return self
@@ -3807,13 +3807,13 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s4:Fail",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",dnPackItem(P1)) ok
 
 		return self
 
 	Func Refresh 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s7:Refresh")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s7:Refresh")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s7:Refresh","") ok
 
 		return self
@@ -3823,7 +3823,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s16:TraceInformation",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",dnPackItem(P1)) ok
 
 		return self
@@ -3833,7 +3833,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s12:TraceWarning",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",dnPackItem(P1)) ok
 
 		return self
@@ -3843,7 +3843,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:TraceError",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",dnPackItem(P1)) ok
 
 		return self
@@ -3853,7 +3853,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Write",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",dnPackItem(P1)) ok
 
 		return self
@@ -3863,7 +3863,7 @@ Class Trace from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",P1)
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:WriteLine",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",dnPackItem(P1)) ok
 
 		return self
@@ -3883,13 +3883,13 @@ Class Trace from Object
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func Indent 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Indent")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s6:Indent")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Indent","") ok
 
 		return self
 
 	Func Unindent 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s8:Unindent")
+		dn_x = dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s8:Unindent")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s8:Unindent","") ok
 
 		return self
@@ -3915,42 +3915,42 @@ Class Trace from Object
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getAutoFlush
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush",[]) ok
 		return dn_x
 
 	Func setAutoFlush P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:AutoFlush",dnPackItem(P1)) ok
 		return self
 
 	Func getUseGlobalLock
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock",[]) ok
 		return dn_x
 
 	Func setUseGlobalLock P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s13:UseGlobalLock",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentLevel
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel",[]) ok
 		return dn_x
 
 	Func setIndentLevel P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:IndentLevel",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize",[]) ok
 		return dn_x
 
 	Func setIndentSize P1
-		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize",P1)
+		dn_x = dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize",P1)
 		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:IndentSize",dnPackItem(P1)) ok
 		return self
 

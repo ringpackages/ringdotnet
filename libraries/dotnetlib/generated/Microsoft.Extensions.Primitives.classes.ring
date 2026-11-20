@@ -343,13 +343,13 @@ Class StringSegment from ValueType
 		return dnSend("s4:call",nHandle,"s5:Split",dnPackItem(P1))
 
 	Func Compare P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s7:Compare",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s7:Compare",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",[P1,P2,P3]) ok
 		return dn_x
 
 	Func IsNullOrEmpty P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",[P1]) ok
 		return dn_x
 
 	Func Item P1
@@ -552,8 +552,8 @@ Class StringValues from ValueType
 		return dn_x
 
 	Func IsNullOrEmpty P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s13:IsNullOrEmpty",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",[P1]) ok
 		return dn_x
 
 	Func Concat P1,P2

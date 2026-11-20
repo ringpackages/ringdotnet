@@ -943,13 +943,13 @@ Class Socket from Object
 		return dn_x
 
 	Func Select P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",P1,P2,P3,P4)
+		dn_x = dotnet_callv("s4:call",'System.Net.Sockets.Socket, System.Net.Sockets',"s6:Select",P1,P2,P3,P4)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
 
 		return self
 
 	Func CancelConnectAsync P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",P1)
+		dn_x = dotnet_callv("s4:call",'System.Net.Sockets.Socket, System.Net.Sockets',"s18:CancelConnectAsync",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",dnPackItem(P1)) ok
 
 		return self
@@ -1159,40 +1159,40 @@ Class Socket from Object
 		return self
 
 	Func getSupportsIPv4
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv4")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv4",[]) ok
 		return dn_x
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv6")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv6",[]) ok
 		return dn_x
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv4")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv4",[]) ok
 		return dn_x
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv6")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv6",[]) ok
 		return dn_x
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s27:OSSupportsUnixDomainSockets")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s27:OSSupportsUnixDomainSockets",[]) ok
 		return dn_x
 
 	Func setOSSupportsUnixDomainSockets P1

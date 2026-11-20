@@ -329,32 +329,32 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getMinHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MinHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MinHeight",[]) ok
 		return dn_x
 
 	Func setMinHeight P1
 		raise("DotNet Error: MinHeight is a read-only property")
 
 	Func getMinWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MinWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MinWidth",[]) ok
 		return dn_x
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
 
 	Func getMaxHeight
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MaxHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MaxHeight",[]) ok
 		return dn_x
 
 	Func setMaxHeight P1
 		raise("DotNet Error: MaxHeight is a read-only property")
 
 	Func getMaxWidth
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MaxWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MaxWidth",[]) ok
 		return dn_x
 
 	Func setMaxWidth P1
@@ -994,8 +994,8 @@ Class StrokeCollection from DotNetObject
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInkSerializedFormat
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Ink.StrokeCollection, PresentationCore',"s19:InkSerializedFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Ink.StrokeCollection, PresentationCore',"s19:InkSerializedFormat",[]) ok
 		return dn_x
 
 	Func setInkSerializedFormat P1

@@ -1223,49 +1223,49 @@ Class EntityFrameworkMetricsData from Object
 		return dn_x
 
 	Func ReportDbContextInitializing 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportDbContextInitializing")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s27:ReportDbContextInitializing")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportDbContextInitializing","") ok
 
 		return self
 
 	Func ReportDbContextDisposing 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s24:ReportDbContextDisposing")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s24:ReportDbContextDisposing")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s24:ReportDbContextDisposing","") ok
 
 		return self
 
 	Func ReportQueryExecuting 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s20:ReportQueryExecuting")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s20:ReportQueryExecuting")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s20:ReportQueryExecuting","") ok
 
 		return self
 
 	Func ReportSavingChanges 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s19:ReportSavingChanges")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s19:ReportSavingChanges")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s19:ReportSavingChanges","") ok
 
 		return self
 
 	Func ReportCompiledQueryCacheHit 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportCompiledQueryCacheHit")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s27:ReportCompiledQueryCacheHit")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s27:ReportCompiledQueryCacheHit","") ok
 
 		return self
 
 	Func ReportCompiledQueryCacheMiss 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s28:ReportCompiledQueryCacheMiss")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s28:ReportCompiledQueryCacheMiss")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s28:ReportCompiledQueryCacheMiss","") ok
 
 		return self
 
 	Func ReportExecutionStrategyOperationFailure 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s39:ReportExecutionStrategyOperationFailure")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s39:ReportExecutionStrategyOperationFailure")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s39:ReportExecutionStrategyOperationFailure","") ok
 
 		return self
 
 	Func ReportOptimisticConcurrencyFailure 
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s34:ReportOptimisticConcurrencyFailure")
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s34:ReportOptimisticConcurrencyFailure")
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"s34:ReportOptimisticConcurrencyFailure","") ok
 
 		return self
@@ -1335,8 +1335,8 @@ Class ExpressionExtensions from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s5:Print",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s5:Print",[P1]) ok
 		return dn_x
 
 	Func MakeMemberAccess P1,P2
@@ -2009,8 +2009,8 @@ Class MethodInfoExtensions from Object
 		return dn_x
 
 	Func IsEFPropertyMethod P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore'),"s18:IsEFPropertyMethod",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore'),"s18:IsEFPropertyMethod",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore',"s18:IsEFPropertyMethod",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore',"s18:IsEFPropertyMethod",[P1]) ok
 		return dn_x
 
 
@@ -2410,8 +2410,8 @@ Class ProductInfo from Object
 		return dn_x
 
 	Func GetVersion 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore'),"s10:GetVersion")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore'),"s10:GetVersion",[]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore',"s10:GetVersion")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore',"s10:GetVersion",[]) ok
 		return dn_x
 
 
@@ -2770,8 +2770,8 @@ Class EfRelationalPropertyExtensions from Object
 		return dn_x
 
 	Func FormatColumns P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s13:FormatColumns",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s13:FormatColumns",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational',"s13:FormatColumns",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational',"s13:FormatColumns",[P1,P2]) ok
 		return dn_x
 
 	Func GetColumnNames P1,P2
@@ -3095,12 +3095,12 @@ Class SpatialiteLoader from Object
 		return dn_x
 
 	Func TryLoad P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s7:TryLoad",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s7:TryLoad",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite',"s7:TryLoad",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite',"s7:TryLoad",[P1]) ok
 		return dn_x
 
 	Func Load_ P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s4:Load",P1)
+		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite',"s4:Load",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite'),"s4:Load",dnPackItem(P1)) ok
 
 		return self
@@ -3194,8 +3194,8 @@ Class TypeExtensions from Object
 		return dn_x
 
 	Func ShortDisplayName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore'),"s16:ShortDisplayName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore'),"s16:ShortDisplayName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore',"s16:ShortDisplayName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore',"s16:ShortDisplayName",[P1]) ok
 		return dn_x
 
 

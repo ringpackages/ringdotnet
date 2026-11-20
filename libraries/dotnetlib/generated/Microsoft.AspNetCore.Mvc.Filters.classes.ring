@@ -530,40 +530,40 @@ Class FilterScope from Object
 		return dn_x
 
 	Func getFirst
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s5:First")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s5:First",[]) ok
 		return dn_x
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Global")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Global",[]) ok
 		return dn_x
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s10:Controller")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s10:Controller",[]) ok
 		return dn_x
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Action")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Action",[]) ok
 		return dn_x
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last",[]) ok
+		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s4:Last")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s4:Last",[]) ok
 		return dn_x
 
 	Func setLast P1

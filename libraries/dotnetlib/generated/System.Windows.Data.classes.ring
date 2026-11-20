@@ -575,20 +575,20 @@ Class BindingOperations from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s28:GetPriorityBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClearBinding P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s12:ClearBinding",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s12:ClearBinding",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s12:ClearBinding",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func ClearAllBindings P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:ClearAllBindings",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s16:ClearAllBindings",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:ClearAllBindings",dnPackItem(P1)) ok
 
 		return self
 
 	Func IsDataBound P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s11:IsDataBound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s11:IsDataBound",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s11:IsDataBound",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s11:IsDataBound",[P1,P2]) ok
 		return dn_x
 
 	Func EnableCollectionSynchronization P1
@@ -599,13 +599,13 @@ Class BindingOperations from Object
 		raise("DotNet Error: EnableCollectionSynchronization does not take one argument: use named arguments, EnableCollectionSynchronization([ :parameter = value, ... ])")
 
 	Func DisableCollectionSynchronization P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s32:DisableCollectionSynchronization",P1)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s32:DisableCollectionSynchronization",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s32:DisableCollectionSynchronization",dnPackItem(P1)) ok
 
 		return self
 
 	Func AccessCollection P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:AccessCollection",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.BindingOperations, PresentationFramework',"s16:AccessCollection",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.BindingOperations, PresentationFramework'),"s16:AccessCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -1088,8 +1088,8 @@ Class CollectionViewSource from DependencyObject
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s14:GetDefaultView",dnPackItem(P1))
 
 	Func IsDefaultView P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s13:IsDefaultView",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Data.CollectionViewSource, PresentationFramework'),"s13:IsDefaultView",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.Windows.Data.CollectionViewSource, PresentationFramework',"s13:IsDefaultView",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Data.CollectionViewSource, PresentationFramework',"s13:IsDefaultView",[P1]) ok
 		return dn_x
 
 	Func setFilterEvent P1
@@ -1422,25 +1422,25 @@ Class DataChangedEventManager from WeakEventManager
 		return self
 
 	Func AddListener P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s11:AddListener",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.DataChangedEventManager, PresentationFramework',"s11:AddListener",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s11:AddListener",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveListener P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s14:RemoveListener",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.DataChangedEventManager, PresentationFramework',"s14:RemoveListener",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s10:AddHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.DataChangedEventManager, PresentationFramework',"s10:AddHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s13:RemoveHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.DataChangedEventManager, PresentationFramework',"s13:RemoveHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2050,25 +2050,25 @@ Class WpfBinding from BindingBase
 		return dn_x
 
 	Func AddSourceUpdatedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddSourceUpdatedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s23:AddSourceUpdatedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveSourceUpdatedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveSourceUpdatedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s26:RemoveSourceUpdatedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AddTargetUpdatedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddTargetUpdatedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s23:AddTargetUpdatedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s23:AddTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func RemoveTargetUpdatedHandler P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveTargetUpdatedHandler",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s26:RemoveTargetUpdatedHandler",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s26:RemoveTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2077,7 +2077,7 @@ Class WpfBinding from BindingBase
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s22:GetXmlNamespaceManager",dnPackItem(P1))
 
 	Func SetXmlNamespaceManager P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s22:SetXmlNamespaceManager",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s22:SetXmlNamespaceManager",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s22:SetXmlNamespaceManager",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -2293,8 +2293,8 @@ Class WpfBinding from BindingBase
 		raise("DotNet Error: DoNothing is a read-only property")
 
 	Func getIndexerName
-		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s11:IndexerName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Data.Binding, PresentationFramework'),"s11:IndexerName",[]) ok
+		dn_x = dotnet_call("s3:get",'System.Windows.Data.Binding, PresentationFramework',"s11:IndexerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Data.Binding, PresentationFramework',"s11:IndexerName",[]) ok
 		return dn_x
 
 	Func setIndexerName P1

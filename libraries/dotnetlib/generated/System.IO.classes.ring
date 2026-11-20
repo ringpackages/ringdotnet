@@ -462,18 +462,18 @@ Class Directory from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s22:CreateTempSubdirectory",dnPackItem(P1))
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Exists",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Exists",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Directory, System.Private.CoreLib',"s6:Exists",[P1]) ok
 		return dn_x
 
 	Func SetCreationTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:SetCreationTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s15:SetCreationTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetCreationTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:SetCreationTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s18:SetCreationTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -485,13 +485,13 @@ Class Directory from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s18:GetCreationTimeUtc",dnPackItem(P1))
 
 	Func SetLastWriteTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:SetLastWriteTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s16:SetLastWriteTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetLastWriteTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:SetLastWriteTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -503,13 +503,13 @@ Class Directory from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:GetLastWriteTimeUtc",dnPackItem(P1))
 
 	Func SetLastAccessTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s17:SetLastAccessTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s17:SetLastAccessTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetLastAccessTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s20:SetLastAccessTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -557,23 +557,23 @@ Class Directory from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s26:EnumerateFileSystemEntries",dnPackItem(P1))
 
 	Func GetDirectoryRoot P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:GetDirectoryRoot",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s16:GetDirectoryRoot",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s16:GetDirectoryRoot",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Directory, System.Private.CoreLib',"s16:GetDirectoryRoot",[P1]) ok
 		return dn_x
 
 	Func GetCurrentDirectory 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:GetCurrentDirectory")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:GetCurrentDirectory",[]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:GetCurrentDirectory")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:GetCurrentDirectory",[]) ok
 		return dn_x
 
 	Func SetCurrentDirectory P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetCurrentDirectory",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:SetCurrentDirectory",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s19:SetCurrentDirectory",dnPackItem(P1)) ok
 
 		return self
 
 	Func Move P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s4:Move",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s4:Move",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s4:Move",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -583,7 +583,7 @@ Class Directory from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s6:Delete",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1)) ok
 
 		return self
@@ -865,14 +865,14 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 
 	Func Delete P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Delete",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Delete",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1)) ok
 
 		return self
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Exists",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Exists",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.File, System.Private.CoreLib',"s6:Exists",[P1]) ok
 		return dn_x
 
 	Func Open P1
@@ -888,13 +888,13 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:OpenHandle",dnPackItem(P1))
 
 	Func SetCreationTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetCreationTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s15:SetCreationTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetCreationTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetCreationTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:SetCreationTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s18:SetCreationTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:SetCreationTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -906,13 +906,13 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:GetCreationTimeUtc",dnPackItem(P1))
 
 	Func SetLastAccessTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:SetLastAccessTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s17:SetLastAccessTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:SetLastAccessTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetLastAccessTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s20:SetLastAccessTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s20:SetLastAccessTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -924,13 +924,13 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s20:GetLastAccessTimeUtc",dnPackItem(P1))
 
 	Func SetLastWriteTime P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:SetLastWriteTime",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s16:SetLastWriteTime",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:SetLastWriteTime",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func SetLastWriteTimeUtc P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s19:SetLastWriteTimeUtc",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:SetLastWriteTimeUtc",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -945,7 +945,7 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:GetAttributes",dnPackItem(P1))
 
 	Func SetAttributes P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:SetAttributes",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s13:SetAttributes",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -954,7 +954,7 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:GetUnixFileMode",dnPackItem(P1))
 
 	Func SetUnixFileMode P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetUnixFileMode",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s15:SetUnixFileMode",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s15:SetUnixFileMode",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -969,8 +969,8 @@ Class File from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.File, System.Private.CoreLib',"s11:ReadAllText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.File, System.Private.CoreLib',"s11:ReadAllText",[P1]) ok
 		return dn_x
 
 	Func WriteAllText P1
@@ -984,13 +984,13 @@ Class File from Object
 		return dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:ReadAllBytes",dnPackItem(P1))
 
 	Func WriteAllBytes P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:WriteAllBytes",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s13:WriteAllBytes",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:WriteAllBytes",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func AppendAllBytes P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:AppendAllBytes",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s14:AppendAllBytes",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:AppendAllBytes",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
@@ -1055,13 +1055,13 @@ Class File from Object
 		raise("DotNet Error: Move does not take one argument: use named arguments, Move([ :parameter = value, ... ])")
 
 	Func Encrypt P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Encrypt",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s7:Encrypt",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Encrypt",dnPackItem(P1)) ok
 
 		return self
 
 	Func Decrypt P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Decrypt",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s7:Decrypt",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Decrypt",dnPackItem(P1)) ok
 
 		return self
@@ -1611,79 +1611,79 @@ Class Path from Object
 		return dn_x
 
 	Func ChangeExtension P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:ChangeExtension",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:ChangeExtension",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:ChangeExtension",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s15:ChangeExtension",[P1,P2]) ok
 		return dn_x
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s6:Exists",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s6:Exists",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s6:Exists",[P1]) ok
 		return dn_x
 
 	Func GetDirectoryName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s16:GetDirectoryName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s16:GetDirectoryName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s16:GetDirectoryName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s16:GetDirectoryName",[P1]) ok
 		return dn_x
 
 	Func GetExtension P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:GetExtension",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:GetExtension",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:GetExtension",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s12:GetExtension",[P1]) ok
 		return dn_x
 
 	Func GetFileName P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFileName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFileName",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFileName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFileName",[P1]) ok
 		return dn_x
 
 	Func GetFileNameWithoutExtension P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s27:GetFileNameWithoutExtension",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s27:GetFileNameWithoutExtension",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s27:GetFileNameWithoutExtension",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s27:GetFileNameWithoutExtension",[P1]) ok
 		return dn_x
 
 	Func GetRandomFileName 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s17:GetRandomFileName")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s17:GetRandomFileName",[]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s17:GetRandomFileName")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s17:GetRandomFileName",[]) ok
 		return dn_x
 
 	Func IsPathFullyQualified P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s20:IsPathFullyQualified",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s20:IsPathFullyQualified",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s20:IsPathFullyQualified",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s20:IsPathFullyQualified",[P1]) ok
 		return dn_x
 
 	Func HasExtension P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:HasExtension",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:HasExtension",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:HasExtension",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s12:HasExtension",[P1]) ok
 		return dn_x
 
 	Func Combine P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s7:Combine",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s7:Combine",[P1]) ok
 		return dn_x
 
 	Func Join P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s4:Join",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s4:Join",[P1]) ok
 		return dn_x
 
 	Func GetRelativePath P1,P2
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetRelativePath",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetRelativePath",[P1,P2]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetRelativePath",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetRelativePath",[P1,P2]) ok
 		return dn_x
 
 	Func TrimEndingDirectorySeparator P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s28:TrimEndingDirectorySeparator",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s28:TrimEndingDirectorySeparator",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s28:TrimEndingDirectorySeparator",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s28:TrimEndingDirectorySeparator",[P1]) ok
 		return dn_x
 
 	Func EndsInDirectorySeparator P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s24:EndsInDirectorySeparator",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s24:EndsInDirectorySeparator",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s24:EndsInDirectorySeparator",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s24:EndsInDirectorySeparator",[P1]) ok
 		return dn_x
 
 	Func GetInvalidFileNameChars 
@@ -1696,28 +1696,28 @@ Class Path from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",dnPackItem(P1))
 		ok
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFullPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFullPath",[P1]) ok
 		return dn_x
 
 	Func GetTempPath 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetTempPath")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetTempPath",[]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetTempPath")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetTempPath",[]) ok
 		return dn_x
 
 	Func GetTempFileName 
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetTempFileName")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s15:GetTempFileName",[]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetTempFileName")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetTempFileName",[]) ok
 		return dn_x
 
 	Func IsPathRooted P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:IsPathRooted",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s12:IsPathRooted",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:IsPathRooted",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s12:IsPathRooted",[P1]) ok
 		return dn_x
 
 	Func GetPathRoot P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetPathRoot",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetPathRoot",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetPathRoot",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetPathRoot",[P1]) ok
 		return dn_x
 
 	Func getDirectorySeparatorChar
@@ -1768,19 +1768,19 @@ Class RandomAccess from Object
 		return dn_x
 
 	Func GetLength P1
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:GetLength",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:GetLength",[P1]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s9:GetLength",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s9:GetLength",[P1]) ok
 		return dn_x
 
 	Func SetLength P1,P2
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:SetLength",P1,P2)
+		dn_x = dotnet_callv("s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s9:SetLength",P1,P2)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:SetLength",dnPackItem(P1) + dnPackItem(P2)) ok
 
 		return self
 
 	Func Read P1,P2,P3
-		dn_x = dotnet_call("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s4:Read",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s4:Read",[P1,P2,P3]) ok
+		dn_x = dotnet_call("s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s4:Read",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s4:Read",[P1,P2,P3]) ok
 		return dn_x
 
 	Func ReadAsync P1
@@ -1790,7 +1790,7 @@ Class RandomAccess from Object
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func Write P1,P2,P3
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s5:Write",P1,P2,P3)
+		dn_x = dotnet_callv("s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s5:Write",P1,P2,P3)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
 
 		return self
@@ -1802,7 +1802,7 @@ Class RandomAccess from Object
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func FlushToDisk P1
-		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s11:FlushToDisk",P1)
+		dn_x = dotnet_callv("s4:call",'System.IO.RandomAccess, System.Private.CoreLib',"s11:FlushToDisk",P1)
 		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s11:FlushToDisk",dnPackItem(P1)) ok
 
 		return self
