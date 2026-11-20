@@ -978,6 +978,7 @@ Class FormValueProviderFactory from Object
 Class IBinderTypeProviderMetadata from DotNetObject
 
 	BinderType
+	BindingSource
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -993,6 +994,12 @@ Class IBinderTypeProviderMetadata from DotNetObject
 
 	Func setBinderType P1
 		raise("DotNet Error: BinderType is a read-only property")
+
+	Func getBindingSource
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BindingSource"))
+
+	Func setBindingSource P1
+		raise("DotNet Error: BindingSource is a read-only property")
 
 
 Class IBindingSourceMetadata from DotNetObject
@@ -1029,6 +1036,14 @@ Class IBindingSourceValueProvider from DotNetObject
 	Func Filter P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
+	Func ContainsPrefix P1
+		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+
 
 Class ICollectionModelBinder from DotNetObject
 
@@ -1046,6 +1061,9 @@ Class ICollectionModelBinder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func BindModelAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindModelAsync",P1))
+
 
 Class IEnumerableValueProvider from DotNetObject
 
@@ -1061,6 +1079,14 @@ Class IEnumerableValueProvider from DotNetObject
 	Func GetKeysFromPrefix P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
+	Func ContainsPrefix P1
+		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+
 
 Class IKeyRewriterValueProvider from DotNetObject
 
@@ -1075,6 +1101,14 @@ Class IKeyRewriterValueProvider from DotNetObject
 
 	Func Filter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
+
+	Func ContainsPrefix P1
+		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 
 Class IModelBinder from DotNetObject

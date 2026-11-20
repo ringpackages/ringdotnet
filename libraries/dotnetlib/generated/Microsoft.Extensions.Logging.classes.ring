@@ -393,6 +393,11 @@ Class ILoggerFactory from DotNetObject
 
 		return self
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 
 Class ILoggerProvider from DotNetObject
 
@@ -407,6 +412,11 @@ Class ILoggerProvider from DotNetObject
 
 	Func CreateLogger P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateLogger",P1))
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
 
 
 Class ILoggingBuilder from DotNetObject

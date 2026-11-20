@@ -12160,6 +12160,7 @@ Class IBindableComponent from DotNetObject
 
 	DataBindings
 	BindingContext
+	Site
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -12168,6 +12169,19 @@ Class IBindableComponent from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func setDisposedEvent P1
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Disposed",dnCallback(P1)])
+		return self
+
+	Func clearDisposedEvent
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Disposed"])
 		return self
 
 	Func getDataBindings
@@ -12181,6 +12195,13 @@ Class IBindableComponent from DotNetObject
 
 	Func setBindingContext P1
 		dotnet_callv("s3:set",nHandle,"s14:BindingContext",P1)
+		return self
+
+	Func getSite
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Site"))
+
+	Func setSite P1
+		dotnet_callv("s3:set",nHandle,"s4:Site",P1)
 		return self
 
 

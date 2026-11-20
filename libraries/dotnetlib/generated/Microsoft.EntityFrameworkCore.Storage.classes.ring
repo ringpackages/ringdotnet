@@ -1203,6 +1203,14 @@ Class IDbContextTransaction from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ReleaseSavepointAsync",P1))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func DisposeAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
 	Func getTransactionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
 
@@ -1270,6 +1278,20 @@ Class IDbContextTransactionManager from DotNetObject
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync",P1))
+
+	Func ResetState 
+		dotnet_callv("s4:call",nHandle,"s10:ResetState")
+
+		return self
+
+	Func ResetStateAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ResetStateAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync",P1))
 
 	Func getCurrentTransaction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CurrentTransaction"))
@@ -1381,6 +1403,9 @@ Class IRawSqlCommandBuilder from DotNetObject
 
 Class IRelationalCommand from DotNetObject
 
+	CommandText
+	Parameters
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1423,6 +1448,23 @@ Class IRelationalCommand from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s12:PopulateFrom",P1)
 
 		return self
+
+	Func CreateDbCommand P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDbCommand",P1,P2,P3))
+
+	Func getCommandText
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCommandText P1
+		raise("DotNet Error: CommandText is a read-only property")
+
+	Func getParameters
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
+
+	Func setParameters P1
+		raise("DotNet Error: Parameters is a read-only property")
 
 
 Class IRelationalCommandBuilder from DotNetObject
@@ -1589,6 +1631,86 @@ Class IRelationalConnection from DotNetObject
 
 		return self
 
+	Func BeginTransaction P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
+
+	Func BeginTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
+
+	Func UseTransaction P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseTransaction",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseTransaction",P1))
+
+	Func UseTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseTransactionAsync",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseTransactionAsync",P1))
+
+	Func CommitTransaction 
+		dotnet_callv("s4:call",nHandle,"s17:CommitTransaction")
+
+		return self
+
+	Func CommitTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CommitTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync",P1))
+
+	Func RollbackTransaction 
+		dotnet_callv("s4:call",nHandle,"s19:RollbackTransaction")
+
+		return self
+
+	Func RollbackTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync",P1))
+
+	Func ResetState 
+		dotnet_callv("s4:call",nHandle,"s10:ResetState")
+
+		return self
+
+	Func ResetStateAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ResetStateAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync",P1))
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func DisposeAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
 	Func getConnectionString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1717,12 +1839,64 @@ Class IRelationalDatabaseCreator from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func EnsureDeleted 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureDeleted")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func EnsureDeletedAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync",P1))
+
+	Func EnsureCreated 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureCreated")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func EnsureCreatedAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync",P1))
+
+	Func CanConnect 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:CanConnect")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanConnectAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CanConnectAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CanConnectAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CanConnectAsync",P1))
+
 
 Class IRelationalDatabaseFacadeDependencies from DotNetObject
 
 	RelationalConnection
 	RawSqlCommandBuilder
 	CommandLogger
+	TransactionManager
+	DatabaseCreator
+	ExecutionStrategy
+	ExecutionStrategyFactory
+	DatabaseProviders
+	ConcurrencyDetector
+	CoreOptions
+	QueryProvider
+	AdHocMapper
+	TypeMappingSource
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1750,6 +1924,66 @@ Class IRelationalDatabaseFacadeDependencies from DotNetObject
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
+
+	Func getTransactionManager
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:TransactionManager"))
+
+	Func setTransactionManager P1
+		raise("DotNet Error: TransactionManager is a read-only property")
+
+	Func getDatabaseCreator
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DatabaseCreator"))
+
+	Func setDatabaseCreator P1
+		raise("DotNet Error: DatabaseCreator is a read-only property")
+
+	Func getExecutionStrategy
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExecutionStrategy"))
+
+	Func setExecutionStrategy P1
+		raise("DotNet Error: ExecutionStrategy is a read-only property")
+
+	Func getExecutionStrategyFactory
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:ExecutionStrategyFactory"))
+
+	Func setExecutionStrategyFactory P1
+		raise("DotNet Error: ExecutionStrategyFactory is a read-only property")
+
+	Func getDatabaseProviders
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DatabaseProviders"))
+
+	Func setDatabaseProviders P1
+		raise("DotNet Error: DatabaseProviders is a read-only property")
+
+	Func getConcurrencyDetector
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ConcurrencyDetector"))
+
+	Func setConcurrencyDetector P1
+		raise("DotNet Error: ConcurrencyDetector is a read-only property")
+
+	Func getCoreOptions
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CoreOptions"))
+
+	Func setCoreOptions P1
+		raise("DotNet Error: CoreOptions is a read-only property")
+
+	Func getQueryProvider
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QueryProvider"))
+
+	Func setQueryProvider P1
+		raise("DotNet Error: QueryProvider is a read-only property")
+
+	Func getAdHocMapper
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:AdHocMapper"))
+
+	Func setAdHocMapper P1
+		raise("DotNet Error: AdHocMapper is a read-only property")
+
+	Func getTypeMappingSource
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
+
+	Func setTypeMappingSource P1
+		raise("DotNet Error: TypeMappingSource is a read-only property")
 
 
 Class IRelationalParameter from DotNetObject
@@ -1796,6 +2030,8 @@ Class IRelationalTransactionFactory from DotNetObject
 
 Class IRelationalTransactionManager from DotNetObject
 
+	CurrentTransaction
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1806,11 +2042,20 @@ Class IRelationalTransactionManager from DotNetObject
 		return self
 
 	Func BeginTransaction P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
 
 	Func BeginTransactionAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
 
@@ -1825,6 +2070,54 @@ Class IRelationalTransactionManager from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseTransactionAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseTransactionAsync",P1))
+
+	Func CommitTransaction 
+		dotnet_callv("s4:call",nHandle,"s17:CommitTransaction")
+
+		return self
+
+	Func CommitTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CommitTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync",P1))
+
+	Func RollbackTransaction 
+		dotnet_callv("s4:call",nHandle,"s19:RollbackTransaction")
+
+		return self
+
+	Func RollbackTransactionAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync",P1))
+
+	Func ResetState 
+		dotnet_callv("s4:call",nHandle,"s10:ResetState")
+
+		return self
+
+	Func ResetStateAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ResetStateAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync",P1))
+
+	Func getCurrentTransaction
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CurrentTransaction"))
+
+	Func setCurrentTransaction P1
+		raise("DotNet Error: CurrentTransaction is a read-only property")
 
 
 Class IRelationalTypeMappingSource from DotNetObject

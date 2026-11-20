@@ -403,6 +403,11 @@ Class INameScope from DotNetObject
 
 Class INameScopeDictionary from DotNetObject
 
+	Keys
+	Values
+	Count
+	IsReadOnly
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -411,6 +416,87 @@ Class INameScopeDictionary from DotNetObject
 			return self
 		ok
 		return self
+
+	Func RegisterName P1,P2
+		dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+
+		return self
+
+	Func UnregisterName P1
+		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+
+		return self
+
+	Func FindName P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+
+	Func ContainsKey P1
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Add P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+
+		return self
+
+	Func Remove P1
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func TryGetValue P1
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func getKeys
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
+
+	Func setKeys P1
+		raise("DotNet Error: Keys is a read-only property")
+
+	Func getValues
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
+
+	Func setValues P1
+		raise("DotNet Error: Values is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
 
 
 Class IProvideValueTarget from DotNetObject
@@ -497,6 +583,10 @@ Class IUriContext from DotNetObject
 
 Class IValueSerializerContext from DotNetObject
 
+	Container
+	Instance
+	PropertyDescriptor
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -508,6 +598,37 @@ Class IValueSerializerContext from DotNetObject
 
 	Func GetValueSerializerFor P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetValueSerializerFor",P1))
+
+	Func OnComponentChanging 
+		dn_x = dotnet_call("s4:call",nHandle,"s19:OnComponentChanging")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func OnComponentChanged 
+		dotnet_callv("s4:call",nHandle,"s18:OnComponentChanged")
+
+		return self
+
+	Func GetService P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
+
+	Func getContainer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Container"))
+
+	Func setContainer P1
+		raise("DotNet Error: Container is a read-only property")
+
+	Func getInstance
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Instance"))
+
+	Func setInstance P1
+		raise("DotNet Error: Instance is a read-only property")
+
+	Func getPropertyDescriptor
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:PropertyDescriptor"))
+
+	Func setPropertyDescriptor P1
+		raise("DotNet Error: PropertyDescriptor is a read-only property")
 
 
 Class IXamlTypeResolver from DotNetObject

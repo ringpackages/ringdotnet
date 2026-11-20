@@ -861,6 +861,12 @@ Class INamedRouter from DotNetObject
 		ok
 		return self
 
+	Func RouteAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+
+	Func GetVirtualPath P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -959,6 +965,12 @@ Class IRouteCollection from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
+
+	Func RouteAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+
+	Func GetVirtualPath P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
 
 
 Class IRouteConstraint from DotNetObject

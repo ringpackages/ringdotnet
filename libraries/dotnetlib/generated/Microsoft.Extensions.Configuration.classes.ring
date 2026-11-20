@@ -1239,6 +1239,9 @@ Class IConfigurationBuilder from DotNetObject
 
 Class IConfigurationManager from DotNetObject
 
+	Properties
+	Sources
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1247,6 +1250,33 @@ Class IConfigurationManager from DotNetObject
 			return self
 		ok
 		return self
+
+	Func GetSection P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSection",P1))
+
+	Func GetChildren 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetChildren"))
+
+	Func GetReloadToken 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
+
+	Func Add P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+
+	Func Build 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+
+	Func getProperties
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
+
+	Func setProperties P1
+		raise("DotNet Error: Properties is a read-only property")
+
+	Func getSources
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Sources"))
+
+	Func setSources P1
+		raise("DotNet Error: Sources is a read-only property")
 
 
 Class IConfigurationProvider from DotNetObject
@@ -1298,6 +1328,15 @@ Class IConfigurationRoot from DotNetObject
 
 		return self
 
+	Func GetSection P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSection",P1))
+
+	Func GetChildren 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetChildren"))
+
+	Func GetReloadToken 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
+
 	Func getProviders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Providers"))
 
@@ -1319,6 +1358,15 @@ Class IConfigurationSection from DotNetObject
 			return self
 		ok
 		return self
+
+	Func GetSection P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSection",P1))
+
+	Func GetChildren 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetChildren"))
+
+	Func GetReloadToken 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
 	Func getKey
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")

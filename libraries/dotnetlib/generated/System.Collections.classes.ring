@@ -981,6 +981,9 @@ Class ICollection from DotNetObject
 
 		return self
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1027,6 +1030,9 @@ Class IDictionary from DotNetObject
 	Values
 	IsReadOnly
 	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1057,6 +1063,11 @@ Class IDictionary from DotNetObject
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
@@ -1095,12 +1106,35 @@ Class IDictionary from DotNetObject
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
+
 
 Class IDictionaryEnumerator from DotNetObject
 
 	Key
 	Value
 	Entry
+	Current
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1109,6 +1143,16 @@ Class IDictionaryEnumerator from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func MoveNext 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Reset 
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
+
 		return self
 
 	Func getKey
@@ -1128,6 +1172,12 @@ Class IDictionaryEnumerator from DotNetObject
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")
+
+	Func getCurrent
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
+
+	Func setCurrent P1
+		raise("DotNet Error: Current is a read-only property")
 
 
 Class IEnumerable from DotNetObject
@@ -1201,6 +1251,9 @@ Class IList from DotNetObject
 
 	IsReadOnly
 	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1246,6 +1299,14 @@ Class IList from DotNetObject
 
 		return self
 
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1268,6 +1329,28 @@ Class IList from DotNetObject
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
 
 
 Class IStructuralComparable from DotNetObject

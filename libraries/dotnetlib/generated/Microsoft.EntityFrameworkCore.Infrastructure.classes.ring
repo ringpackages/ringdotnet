@@ -1404,6 +1404,30 @@ Class IAnnotatable from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 
 Class IAnnotation from DotNetObject
 
@@ -1467,6 +1491,16 @@ Class ICoreSingletonOptions from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func Initialize P1
+		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
+
+		return self
+
+	Func Validate P1
+		dotnet_callv("s4:call",nHandle,"s8:Validate",P1)
+
 		return self
 
 	Func getAreDetailedErrorsEnabled

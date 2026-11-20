@@ -669,6 +669,14 @@ Class IMigrationsDatabaseLock from DotNetObject
 		ok
 		raise("DotNet Error: ReacquireIfNeededAsync does not take one argument: use named arguments, ReacquireIfNeededAsync([ :parameter = value, ... ])")
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func DisposeAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
 
 Class IMigrationsIdGenerator from DotNetObject
 

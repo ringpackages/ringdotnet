@@ -220,6 +220,9 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 
 		return self
 
+	Func Promote 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
+
 
 Class ISimpleTransactionSuperior from DotNetObject
 
@@ -237,6 +240,9 @@ Class ISimpleTransactionSuperior from DotNetObject
 
 		return self
 
+	Func Promote 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
+
 
 Class ISinglePhaseNotification from DotNetObject
 
@@ -251,6 +257,26 @@ Class ISinglePhaseNotification from DotNetObject
 
 	Func SinglePhaseCommit P1
 		dotnet_callv("s4:call",nHandle,"s17:SinglePhaseCommit",P1)
+
+		return self
+
+	Func Prepare P1
+		dotnet_callv("s4:call",nHandle,"s7:Prepare",P1)
+
+		return self
+
+	Func Commit P1
+		dotnet_callv("s4:call",nHandle,"s6:Commit",P1)
+
+		return self
+
+	Func Rollback P1
+		dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
+
+		return self
+
+	Func InDoubt P1
+		dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
 
 		return self
 

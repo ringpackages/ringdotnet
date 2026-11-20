@@ -54,4 +54,13 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 	Func GetReferencedTypeOnImport P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencedTypeOnImport",P1,P2,P3))
 
+	Func GetSurrogateType P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSurrogateType",P1))
+
+	Func GetObjectToSerialize P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetObjectToSerialize",P1,P2))
+
+	Func GetDeserializedObject P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeserializedObject",P1,P2))
+
 

@@ -1637,6 +1637,18 @@ Class IAuthenticationRequestHandler from DotNetObject
 	Func HandleRequestAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:HandleRequestAsync"))
 
+	Func InitializeAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+
+	Func AuthenticateAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+
+	Func ChallengeAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+
+	Func ForbidAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+
 
 Class IAuthenticationSchemeProvider from DotNetObject
 
@@ -1730,6 +1742,21 @@ Class IAuthenticationSignInHandler from DotNetObject
 	Func SignInAsync P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2))
 
+	Func SignOutAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+
+	Func InitializeAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+
+	Func AuthenticateAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+
+	Func ChallengeAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+
+	Func ForbidAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+
 
 Class IAuthenticationSignOutHandler from DotNetObject
 
@@ -1744,6 +1771,18 @@ Class IAuthenticationSignOutHandler from DotNetObject
 
 	Func SignOutAsync P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+
+	Func InitializeAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+
+	Func AuthenticateAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+
+	Func ChallengeAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+
+	Func ForbidAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
 
 
 Class IClaimsTransformation from DotNetObject

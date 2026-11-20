@@ -352,6 +352,11 @@ Class IWebHost from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getServerFeatures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ServerFeatures"))
 
@@ -398,6 +403,10 @@ Class IWebHostEnvironment from DotNetObject
 
 	WebRootPath
 	WebRootFileProvider
+	EnvironmentName
+	ApplicationName
+	ContentRootPath
+	ContentRootFileProvider
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -422,6 +431,40 @@ Class IWebHostEnvironment from DotNetObject
 
 	Func setWebRootFileProvider P1
 		dotnet_callv("s3:set",nHandle,"s19:WebRootFileProvider",P1)
+		return self
+
+	Func getEnvironmentName
+		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setEnvironmentName P1
+		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
+		return self
+
+	Func getApplicationName
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setApplicationName P1
+		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
+		return self
+
+	Func getContentRootPath
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setContentRootPath P1
+		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
+		return self
+
+	Func getContentRootFileProvider
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:ContentRootFileProvider"))
+
+	Func setContentRootFileProvider P1
+		dotnet_callv("s3:set",nHandle,"s23:ContentRootFileProvider",P1)
 		return self
 
 

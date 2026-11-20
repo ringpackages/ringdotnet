@@ -1334,6 +1334,12 @@ Class IAsyncQueryProvider from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
 
+	Func CreateQuery P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateQuery",P1))
+
+	Func Execute P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Execute",P1))
+
 
 Class ICompiledQueryCacheKeyGenerator from DotNetObject
 

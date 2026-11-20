@@ -595,6 +595,16 @@ Class IAlwaysRunResultFilter from DotNetObject
 		ok
 		return self
 
+	Func OnResultExecuting P1
+		dotnet_callv("s4:call",nHandle,"s17:OnResultExecuting",P1)
+
+		return self
+
+	Func OnResultExecuted P1
+		dotnet_callv("s4:call",nHandle,"s16:OnResultExecuted",P1)
+
+		return self
+
 
 Class IAsyncActionFilter from DotNetObject
 
@@ -621,6 +631,9 @@ Class IAsyncAlwaysRunResultFilter from DotNetObject
 			return self
 		ok
 		return self
+
+	Func OnResultExecutionAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
 
 
 Class IAsyncAuthorizationFilter from DotNetObject

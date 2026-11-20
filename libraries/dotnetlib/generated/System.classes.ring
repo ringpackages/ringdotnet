@@ -889,6 +889,14 @@ Class ISpanFormattable from DotNetObject
 		ok
 		return self
 
+	Func Format P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
+
 
 Class IUtf8SpanFormattable from DotNetObject
 

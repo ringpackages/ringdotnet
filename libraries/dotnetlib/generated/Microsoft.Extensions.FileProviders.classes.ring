@@ -157,6 +157,9 @@ Class IDirectoryContents from DotNetObject
 		ok
 		return self
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func getExists
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

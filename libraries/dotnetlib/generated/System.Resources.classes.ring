@@ -42,6 +42,11 @@ Class IResourceReader from DotNetObject
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 
 Class ResourceManager from Object
 

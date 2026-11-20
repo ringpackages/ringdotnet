@@ -1101,6 +1101,9 @@ Class IFeatureCollection from DotNetObject
 
 		return self
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 

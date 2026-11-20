@@ -171,6 +171,11 @@ Class ICacheEntry from DotNetObject
 		ok
 		return self
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
 
@@ -256,6 +261,11 @@ Class IMemoryCache from DotNetObject
 
 	Func GetCurrentStatistics 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetCurrentStatistics"))
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
 
 
 Class MemoryCache from Object

@@ -5158,6 +5158,16 @@ Class ILoggingOptions from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Initialize P1
+		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
+
+		return self
+
+	Func Validate P1
+		dotnet_callv("s4:call",nHandle,"s8:Validate",P1)
+
+		return self
+
 	Func getIsSensitiveDataLoggingEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5250,6 +5260,13 @@ Class IQueryExpressionInterceptor from DotNetObject
 
 
 Class IRelationalCommandDiagnosticsLogger from DotNetObject
+
+	Options
+	Definitions
+	Logger
+	DiagnosticSource
+	DbContextLogger
+	Interceptors
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5376,8 +5393,69 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ShouldLogSensitiveData 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldLogSensitiveData")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShouldLog P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShouldLog",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DispatchEventData P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s17:DispatchEventData",P1,P2,P3,P4)
+
+		return self
+
+	Func NeedsEventData P1
+		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
+
+	Func getOptions
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+
+	Func setOptions P1
+		raise("DotNet Error: Options is a read-only property")
+
+	Func getDefinitions
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Definitions"))
+
+	Func setDefinitions P1
+		raise("DotNet Error: Definitions is a read-only property")
+
+	Func getLogger
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Logger"))
+
+	Func setLogger P1
+		raise("DotNet Error: Logger is a read-only property")
+
+	Func getDiagnosticSource
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:DiagnosticSource"))
+
+	Func setDiagnosticSource P1
+		raise("DotNet Error: DiagnosticSource is a read-only property")
+
+	Func getDbContextLogger
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DbContextLogger"))
+
+	Func setDbContextLogger P1
+		raise("DotNet Error: DbContextLogger is a read-only property")
+
+	Func getInterceptors
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Interceptors"))
+
+	Func setInterceptors P1
+		raise("DotNet Error: Interceptors is a read-only property")
+
 
 Class IRelationalConnectionDiagnosticsLogger from DotNetObject
+
+	Options
+	Definitions
+	Logger
+	DiagnosticSource
+	DbContextLogger
+	Interceptors
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5469,6 +5547,60 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldLogConnectionClose",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ShouldLogSensitiveData 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldLogSensitiveData")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShouldLog P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShouldLog",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DispatchEventData P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s17:DispatchEventData",P1,P2,P3,P4)
+
+		return self
+
+	Func NeedsEventData P1
+		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
+
+	Func getOptions
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+
+	Func setOptions P1
+		raise("DotNet Error: Options is a read-only property")
+
+	Func getDefinitions
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Definitions"))
+
+	Func setDefinitions P1
+		raise("DotNet Error: Definitions is a read-only property")
+
+	Func getLogger
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Logger"))
+
+	Func setLogger P1
+		raise("DotNet Error: Logger is a read-only property")
+
+	Func getDiagnosticSource
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:DiagnosticSource"))
+
+	Func setDiagnosticSource P1
+		raise("DotNet Error: DiagnosticSource is a read-only property")
+
+	Func getDbContextLogger
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DbContextLogger"))
+
+	Func setDbContextLogger P1
+		raise("DotNet Error: DbContextLogger is a read-only property")
+
+	Func getInterceptors
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Interceptors"))
+
+	Func setInterceptors P1
+		raise("DotNet Error: Interceptors is a read-only property")
 
 
 Class ISaveChangesInterceptor from DotNetObject

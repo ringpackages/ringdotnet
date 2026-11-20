@@ -1410,6 +1410,41 @@ Class IRecyclingItemContainerGenerator from DotNetObject
 
 		return self
 
+	Func GetItemContainerGeneratorForPanel P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetItemContainerGeneratorForPanel",P1))
+
+	Func StartAt P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:StartAt",P1))
+		ok
+		raise("DotNet Error: StartAt does not take one argument: use named arguments, StartAt([ :parameter = value, ... ])")
+
+	Func GenerateNext 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GenerateNext"))
+
+	Func PrepareItemContainer P1
+		dotnet_callv("s4:call",nHandle,"s20:PrepareItemContainer",P1)
+
+		return self
+
+	Func RemoveAll 
+		dotnet_callv("s4:call",nHandle,"s9:RemoveAll")
+
+		return self
+
+	Func Remove P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1,P2)
+
+		return self
+
+	Func GeneratorPositionFromIndex P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GeneratorPositionFromIndex",P1))
+
+	Func IndexFromGeneratorPosition P1
+		dn_x = dotnet_call("s4:call",nHandle,"s26:IndexFromGeneratorPosition",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 
 Class IScrollInfo from DotNetObject
 

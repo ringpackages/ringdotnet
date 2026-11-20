@@ -1414,6 +1414,9 @@ Class IAdHocMapper from DotNetObject
 Class ICheckConstraint from DotNetObject
 
 	EntityType
+	ModelName
+	Name
+	Sql
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1424,11 +1427,111 @@ Class ICheckConstraint from DotNetObject
 		ok
 		return self
 
+	Func GetDefaultName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
+
+	Func GetName_ P1
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
+
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSql
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Sql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSql P1
+		raise("DotNet Error: Sql is a read-only property")
 
 
 Class IClrCollectionAccessor from DotNetObject
@@ -1549,6 +1652,12 @@ Class IColumn from DotNetObject
 	IsStored
 	Comment
 	Collation
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1564,6 +1673,66 @@ Class IColumn from DotNetObject
 
 	Func FindColumnMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getTable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
@@ -1665,6 +1834,48 @@ Class IColumn from DotNetObject
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class IColumnBase from DotNetObject
 
@@ -1701,6 +1912,51 @@ Class IColumnBase from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -1763,6 +2019,8 @@ Class EfIColumnMapping from DotNetObject
 
 	Column
 	TableMapping
+	Property
+	TypeMapping
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1788,6 +2046,51 @@ Class EfIColumnMapping from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
 
@@ -1799,6 +2102,18 @@ Class EfIColumnMapping from DotNetObject
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")
+
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
 
 
 Class IColumnMappingBase from DotNetObject
@@ -1816,6 +2131,51 @@ Class IColumnMappingBase from DotNetObject
 			return self
 		ok
 		return self
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
@@ -1845,6 +2205,14 @@ Class IColumnMappingBase from DotNetObject
 Class IComplexProperty from DotNetObject
 
 	ComplexType
+	IsNullable
+	IsCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1854,6 +2222,98 @@ Class IComplexProperty from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getComplexType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ComplexType"))
@@ -1861,10 +2321,71 @@ Class IComplexProperty from DotNetObject
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")
 
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IComplexType from DotNetObject
 
 	ComplexProperty
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
+	ConstructorBinding
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1875,11 +2396,234 @@ Class IComplexType from DotNetObject
 		ok
 		return self
 
+	Func IsContainedBy P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsContainedBy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSnapshottableMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetSnapshottableMembers"))
+
+	Func GetPropertiesInHierarchy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetPropertiesInHierarchy"))
+
+	Func GetFlattenedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFlattenedProperties"))
+
+	Func GetFlattenedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetFlattenedComplexProperties"))
+
+	Func GetFlattenedDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetFlattenedDeclaredProperties"))
+
+	Func GetFlattenedPropertiesInHierarchy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetFlattenedPropertiesInHierarchy"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
+	Func getConstructorBinding
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ConstructorBinding"))
+
+	Func setConstructorBinding P1
+		raise("DotNet Error: ConstructorBinding is a read-only property")
 
 
 Class IConstructorBindingFactory from DotNetObject
@@ -1953,6 +2697,21 @@ Class IConventionAnnotatable from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -1970,6 +2729,9 @@ Class IConventionAnnotatable from DotNetObject
 
 Class IConventionAnnotation from DotNetObject
 
+	Name
+	Value
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1982,11 +2744,29 @@ Class IConventionAnnotation from DotNetObject
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+
+	Func setValue P1
+		raise("DotNet Error: Value is a read-only property")
+
 
 Class IConventionCheckConstraint from DotNetObject
 
 	Builder
 	EntityType
+	ModelName
+	Name
+	Sql
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2013,6 +2793,91 @@ Class IConventionCheckConstraint from DotNetObject
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
+	Func GetDefaultName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
+
+	Func GetName_ P1
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2025,11 +2890,49 @@ Class IConventionCheckConstraint from DotNetObject
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getSql
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Sql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSql P1
+		raise("DotNet Error: Sql is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionComplexProperty from DotNetObject
 
 	Builder
 	ComplexType
+	IsNullable
+	IsCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2049,6 +2952,120 @@ Class IConventionComplexProperty from DotNetObject
 	Func GetIsNullableConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2061,11 +3078,74 @@ Class IConventionComplexProperty from DotNetObject
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")
 
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionComplexType from DotNetObject
 
 	Builder
 	ComplexProperty
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2075,6 +3155,246 @@ Class IConventionComplexType from DotNetObject
 			return self
 		ok
 		return self
+
+	Func IsContainedBy P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsContainedBy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddIgnored P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func RemoveIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindIgnoredConfigurationSource P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIgnoredConfigurationSource",P1))
+
+	Func GetIgnoredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
+
+	Func IsIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
+
+	Func AddIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddIndexerProperty does not take one argument: use named arguments, AddIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
+
+	Func AddComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
+
+	Func AddComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveComplexProperty",P1))
+
+	Func SetChangeTrackingStrategy P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1))
+
+	Func GetChangeTrackingStrategyConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetChangeTrackingStrategyConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -2088,12 +3408,75 @@ Class IConventionComplexType from DotNetObject
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")
 
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionDbFunction from DotNetObject
 
 	Model
 	Builder
 	Parameters
+	Name
+	Schema
+	ModelName
+	MethodInfo
+	IsBuiltIn
+	IsScalar
+	IsAggregate
+	IsNullable
+	StoreType
+	ReturnType
+	TypeMapping
+	Translation
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2190,6 +3573,75 @@ Class IConventionDbFunction from DotNetObject
 	Func GetTranslationConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTranslationConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -2208,10 +3660,91 @@ Class IConventionDbFunction from DotNetObject
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getMethodInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MethodInfo"))
+
+	Func setMethodInfo P1
+		raise("DotNet Error: MethodInfo is a read-only property")
+
+	Func getIsBuiltIn
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsBuiltIn")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsScalar
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsScalar")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsScalar P1
+		raise("DotNet Error: IsScalar is a read-only property")
+
+	Func getIsAggregate
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAggregate")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsAggregate P1
+		raise("DotNet Error: IsAggregate is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getReturnType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
+
+	Func setReturnType P1
+		raise("DotNet Error: ReturnType is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func getTranslation
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translation"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionDbFunctionParameter from DotNetObject
 
 	Builder
+	Name
+	ClrType
+	StoreType
+	PropagatesNullability
+	TypeMapping
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2247,6 +3780,75 @@ Class IConventionDbFunctionParameter from DotNetObject
 	Func GetTypeMappingConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTypeMappingConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
 
@@ -2256,11 +3858,52 @@ Class IConventionDbFunctionParameter from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getPropagatesNullability
+		dn_x = dotnet_call("s3:get",nHandle,"s21:PropagatesNullability")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropagatesNullability P1
+		raise("DotNet Error: PropagatesNullability is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionElementType from DotNetObject
 
 	CollectionProperty
 	Builder
+	ClrType
+	IsNullable
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2364,6 +4007,105 @@ Class IConventionElementType from DotNetObject
 	Func GetJsonValueReaderWriterTypeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s47:GetJsonValueReaderWriterTypeConfigurationSource"))
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetValueComparer"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -2376,12 +4118,38 @@ Class IConventionElementType from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionEntityType from DotNetObject
 
 	Builder
 	BaseType
 	IsKeyless
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2659,6 +4427,298 @@ Class IConventionEntityType from DotNetObject
 	Func GetNavigationAccessModeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s42:GetNavigationAccessModeConfigurationSource"))
 
+	Func GetSeedData P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetSeedData",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData",P1))
+
+	Func GetQueryFilter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
+
+	Func GetDiscriminatorPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIsDiscriminatorMappingComplete 
+		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDiscriminatorValue 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
+
+	Func GetDefaultDiscriminatorValue 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConcreteDerivedTypesInclusive 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetConcreteDerivedTypesInclusive"))
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsOwned 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsInOwnershipPath P1
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasServiceProperties 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetNavigationAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
+
+	Func GetOrCreateMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetOrCreateMaterializer",P1))
+
+	Func GetOrCreateEmptyMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddIgnored P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func RemoveIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindIgnoredConfigurationSource P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIgnoredConfigurationSource",P1))
+
+	Func GetIgnoredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
+
+	Func IsIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
+
+	Func AddIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddIndexerProperty does not take one argument: use named arguments, AddIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
+
+	Func AddComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
+
+	Func AddComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveComplexProperty",P1))
+
+	Func SetChangeTrackingStrategy P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1))
+
+	Func GetChangeTrackingStrategyConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetChangeTrackingStrategyConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2673,11 +4733,64 @@ Class IConventionEntityType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionEntityTypeMappingFragment from DotNetObject
 
 	EntityType
 	Builder
+	StoreObject
+	IsTableExcludedFromMigrations
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2700,6 +4813,75 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 	Func GetIsTableExcludedFromMigrationsConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -2712,6 +4894,23 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
+
+	Func getIsTableExcludedFromMigrations
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:IsTableExcludedFromMigrations"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionForeignKey from DotNetObject
 
@@ -2722,6 +4921,12 @@ Class IConventionForeignKey from DotNetObject
 	PrincipalEntityType
 	DependentToPrincipal
 	PrincipalToDependent
+	IsUnique
+	IsRequired
+	IsRequiredDependent
+	IsOwnership
+	DeleteBehavior
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2822,6 +5027,80 @@ Class IConventionForeignKey from DotNetObject
 	Func GetNavigation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
 
+	Func IsBaseLinking 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2855,12 +5134,47 @@ Class IConventionForeignKey from DotNetObject
 	Func getPrincipalToDependent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:PrincipalToDependent"))
 
+	Func getIsUnique
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsRequired
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsRequired")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsRequiredDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsRequiredDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsOwnership
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsOwnership")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getDeleteBehavior
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionIndex from DotNetObject
 
 	Builder
 	Properties
 	DeclaringEntityType
+	Name
+	IsUnique
+	IsDescending
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2892,6 +5206,80 @@ Class IConventionIndex from DotNetObject
 	Func GetIsDescendingConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetIsDescendingConfigurationSource"))
 
+	Func DisplayName 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2910,12 +5298,37 @@ Class IConventionIndex from DotNetObject
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getIsUnique
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsDescending
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:IsDescending"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionKey from DotNetObject
 
 	Builder
 	Properties
 	DeclaringEntityType
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2932,6 +5345,80 @@ Class IConventionKey from DotNetObject
 	Func GetReferencingForeignKeys 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -2950,10 +5437,20 @@ Class IConventionKey from DotNetObject
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionModel from DotNetObject
 
 	Builder
+	ModelId
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3102,11 +5599,115 @@ Class IConventionModel from DotNetObject
 	Func FinalizeModel 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FinalizeModel"))
 
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func GetEmbeddedDiscriminatorName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetProductVersion 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShared P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
+
+	Func getModelId
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
+
+	Func setModelId P1
+		raise("DotNet Error: ModelId is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
 
 
 Class IConventionNavigation from DotNetObject
@@ -3116,6 +5717,17 @@ Class IConventionNavigation from DotNetObject
 	TargetEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3134,6 +5746,138 @@ Class IConventionNavigation from DotNetObject
 
 	Func GetInverseConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetInverseConfigurationSource"))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetIsEagerLoaded P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsEagerLoaded",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsEagerLoaded",P1))
+
+	Func GetIsEagerLoadedConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsEagerLoadedConfigurationSource"))
+
+	Func SetLazyLoadingEnabled P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetLazyLoadingEnabled",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetLazyLoadingEnabled",P1))
+
+	Func GetLazyLoadingEnabledConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetLazyLoadingEnabledConfigurationSource"))
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -3162,8 +5906,92 @@ Class IConventionNavigation from DotNetObject
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
 
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionNavigationBase from DotNetObject
+
+	DeclaringEntityType
+	TargetEntityType
+	Inverse
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	Builder
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3192,11 +6020,206 @@ Class IConventionNavigationBase from DotNetObject
 	Func GetLazyLoadingEnabledConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetLazyLoadingEnabledConfigurationSource"))
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func getDeclaringEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
+
+	Func setDeclaringEntityType P1
+		raise("DotNet Error: DeclaringEntityType is a read-only property")
+
+	Func getTargetEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:TargetEntityType"))
+
+	Func setTargetEntityType P1
+		raise("DotNet Error: TargetEntityType is a read-only property")
+
+	Func getInverse
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
+
+	Func setInverse P1
+		raise("DotNet Error: Inverse is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
+
+	Func setBuilder P1
+		raise("DotNet Error: Builder is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionProperty from DotNetObject
 
 	Builder
 	DeclaringEntityType
+	IsNullable
+	ValueGenerated
+	IsConcurrencyToken
+	IsPrimitiveCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3398,6 +6421,190 @@ Class IConventionProperty from DotNetObject
 	Func GetElementTypeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetElementTypeConfigurationSource"))
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetBeforeSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetBeforeSaveBehavior"))
+
+	Func GetAfterSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAfterSaveBehavior"))
+
+	Func GetValueGeneratorFactory 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetValueGeneratorFactory"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetValueComparer"))
+
+	Func GetKeyValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetKeyValueComparer"))
+
+	Func GetProviderValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetProviderValueComparer"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func IsForeignKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsUniqueIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -3410,10 +6617,78 @@ Class IConventionProperty from DotNetObject
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getValueGenerated
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+
+	Func getIsConcurrencyToken
+		dn_x = dotnet_call("s3:get",nHandle,"s18:IsConcurrencyToken")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsPrimitiveCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsPrimitiveCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPrimitiveCollection P1
+		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionPropertyBase from DotNetObject
 
 	DeclaringType
+	Name
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	Builder
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3451,17 +6726,136 @@ Class IConventionPropertyBase from DotNetObject
 	Func GetPropertyAccessModeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getDeclaringType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
+
+	Func setBuilder P1
+		raise("DotNet Error: Builder is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionRelationalPropertyOverrides from DotNetObject
 
 	Property
 	Builder
+	StoreObject
+	ColumnName
+	IsColumnNameOverridden
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3503,6 +6897,75 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 	Func GetColumnNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnNameConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
 
@@ -3515,11 +6978,48 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
+
+	Func getColumnName
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsColumnNameOverridden
+		dn_x = dotnet_call("s3:get",nHandle,"s22:IsColumnNameOverridden")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsColumnNameOverridden P1
+		raise("DotNet Error: IsColumnNameOverridden is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionSequence from DotNetObject
 
 	Model
 	Builder
+	Name
+	ModelSchema
+	Schema
+	StartValue
+	IncrementBy
+	MinValue
+	MaxValue
+	Type
+	IsCyclic
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3587,6 +7087,75 @@ Class IConventionSequence from DotNetObject
 	Func GetIsCyclicConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsCyclicConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -3599,11 +7168,75 @@ Class IConventionSequence from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getModelSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ModelSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelSchema P1
+		raise("DotNet Error: ModelSchema is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getStartValue
+		dn_x = dotnet_call("s3:get",nHandle,"s10:StartValue")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIncrementBy
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IncrementBy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getMinValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:MinValue"))
+
+	Func getMaxValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:MaxValue"))
+
+	Func getType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
+
+	Func getIsCyclic
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsCyclic")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionServiceProperty from DotNetObject
 
 	Builder
 	DeclaringEntityType
+	ParameterBinding
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3623,6 +7256,120 @@ Class IConventionServiceProperty from DotNetObject
 	Func GetParameterBindingConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetParameterBindingConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -3635,6 +7382,52 @@ Class IConventionServiceProperty from DotNetObject
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getParameterBinding
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParameterBinding"))
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionSkipNavigation from DotNetObject
 
@@ -3644,6 +7437,17 @@ Class IConventionSkipNavigation from DotNetObject
 	JoinEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3671,6 +7475,138 @@ Class IConventionSkipNavigation from DotNetObject
 
 	Func GetInverseConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetInverseConfigurationSource"))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetIsEagerLoaded P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsEagerLoaded",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsEagerLoaded",P1))
+
+	Func GetIsEagerLoadedConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsEagerLoadedConfigurationSource"))
+
+	Func SetLazyLoadingEnabled P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetLazyLoadingEnabled",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetLazyLoadingEnabled",P1))
+
+	Func GetLazyLoadingEnabledConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetLazyLoadingEnabledConfigurationSource"))
+
+	Func GetConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
+
+	Func SetFieldInfo P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
+
+	Func SetField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
+
+	Func GetFieldInfoConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
+
+	Func SetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
+
+	Func GetPropertyAccessModeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -3702,6 +7638,75 @@ Class IConventionSkipNavigation from DotNetObject
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
 
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionStoredProcedure from DotNetObject
 
@@ -3709,6 +7714,10 @@ Class IConventionStoredProcedure from DotNetObject
 	Builder
 	Parameters
 	ResultColumns
+	Name
+	Schema
+	IsRowsAffectedReturned
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3809,6 +7818,83 @@ Class IConventionStoredProcedure from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetStoreIdentifier 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
+
+	Func GetSchemaQualifiedName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -3833,11 +7919,40 @@ Class IConventionStoredProcedure from DotNetObject
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsRowsAffectedReturned
+		dn_x = dotnet_call("s3:get",nHandle,"s22:IsRowsAffectedReturned")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionStoredProcedureParameter from DotNetObject
 
 	StoredProcedure
 	Builder
+	Name
+	PropertyName
+	Direction
+	ForOriginalValue
+	ForRowsAffected
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3870,6 +7985,75 @@ Class IConventionStoredProcedureParameter from DotNetObject
 	Func GetDirectionConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetDirectionConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
 
@@ -3882,11 +8066,53 @@ Class IConventionStoredProcedureParameter from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getDirection
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+
+	Func getForOriginalValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForOriginalValue"))
+
+	Func setForOriginalValue P1
+		raise("DotNet Error: ForOriginalValue is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionStoredProcedureResultColumn from DotNetObject
 
 	StoredProcedure
 	Builder
+	Name
+	PropertyName
+	ForRowsAffected
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3910,6 +8136,75 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
 
@@ -3922,11 +8217,42 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionTrigger from DotNetObject
 
 	Builder
 	EntityType
+	ModelName
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3940,6 +8266,75 @@ Class IConventionTrigger from DotNetObject
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -3952,12 +8347,33 @@ Class IConventionTrigger from DotNetObject
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IConventionTypeBase from DotNetObject
 
 	Model
 	Builder
 	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
+	IsInModel
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4090,6 +8506,104 @@ Class IConventionTypeBase from DotNetObject
 	Func GetPropertyAccessModeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
+
+	Func SetAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
+		ok
+		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -4108,12 +8622,62 @@ Class IConventionTypeBase from DotNetObject
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
+	Func getIsInModel
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInModel")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsInModel P1
+		raise("DotNet Error: IsInModel is a read-only property")
+
 
 Class IDbFunction from DotNetObject
 
 	Model
 	Parameters
 	StoreFunction
+	Name
+	Schema
+	ModelName
+	MethodInfo
+	IsBuiltIn
+	IsScalar
+	IsAggregate
+	IsNullable
+	StoreType
+	ReturnType
+	TypeMapping
+	Translation
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4123,6 +8687,66 @@ Class IDbFunction from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -4142,11 +8766,103 @@ Class IDbFunction from DotNetObject
 	Func setStoreFunction P1
 		raise("DotNet Error: StoreFunction is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getMethodInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MethodInfo"))
+
+	Func setMethodInfo P1
+		raise("DotNet Error: MethodInfo is a read-only property")
+
+	Func getIsBuiltIn
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsBuiltIn")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsBuiltIn P1
+		raise("DotNet Error: IsBuiltIn is a read-only property")
+
+	Func getIsScalar
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsScalar")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsScalar P1
+		raise("DotNet Error: IsScalar is a read-only property")
+
+	Func getIsAggregate
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAggregate")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsAggregate P1
+		raise("DotNet Error: IsAggregate is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getReturnType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
+
+	Func setReturnType P1
+		raise("DotNet Error: ReturnType is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTranslation
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translation"))
+
+	Func setTranslation P1
+		raise("DotNet Error: Translation is a read-only property")
+
 
 Class IDbFunctionParameter from DotNetObject
 
 	StoreType
 	StoreFunctionParameter
+	Name
+	ClrType
+	PropagatesNullability
+	TypeMapping
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4156,6 +8872,66 @@ Class IDbFunctionParameter from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getStoreType
 		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
@@ -4173,6 +8949,34 @@ Class IDbFunctionParameter from DotNetObject
 
 	Func setStoreFunctionParameter P1
 		raise("DotNet Error: StoreFunctionParameter is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getPropagatesNullability
+		dn_x = dotnet_call("s3:get",nHandle,"s21:PropagatesNullability")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropagatesNullability P1
+		raise("DotNet Error: PropagatesNullability is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
 
 
 Class IDesignTimeModel from DotNetObject
@@ -4198,6 +9002,8 @@ Class IDesignTimeModel from DotNetObject
 Class IElementType from DotNetObject
 
 	CollectionProperty
+	ClrType
+	IsNullable
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4208,17 +9014,128 @@ Class IElementType from DotNetObject
 		ok
 		return self
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetValueComparer"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
 
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
 
 Class IEntityType from DotNetObject
 
 	BaseType
 	ServiceOnlyConstructorBinding
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
+	ConstructorBinding
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4394,6 +9311,209 @@ Class IEntityType from DotNetObject
 	Func GetDeclaredTriggers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDeclaredTriggers"))
 
+	Func GetSeedData P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetSeedData",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData",P1))
+
+	Func GetQueryFilter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
+
+	Func GetDiscriminatorPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIsDiscriminatorMappingComplete 
+		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDiscriminatorValue 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
+
+	Func GetDefaultDiscriminatorValue 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsOwned 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsInOwnershipPath P1
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasServiceProperties 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetNavigationAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
+
+	Func GetOrCreateMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetOrCreateMaterializer",P1))
+
+	Func GetOrCreateEmptyMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSnapshottableMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetSnapshottableMembers"))
+
+	Func GetPropertiesInHierarchy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetPropertiesInHierarchy"))
+
+	Func GetFlattenedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFlattenedProperties"))
+
+	Func GetFlattenedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetFlattenedComplexProperties"))
+
+	Func GetFlattenedDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetFlattenedDeclaredProperties"))
+
+	Func GetFlattenedPropertiesInHierarchy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetFlattenedPropertiesInHierarchy"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
@@ -4406,10 +9526,60 @@ Class IEntityType from DotNetObject
 	Func setServiceOnlyConstructorBinding P1
 		raise("DotNet Error: ServiceOnlyConstructorBinding is a read-only property")
 
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
+	Func getConstructorBinding
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ConstructorBinding"))
+
+	Func setConstructorBinding P1
+		raise("DotNet Error: ConstructorBinding is a read-only property")
+
 
 Class IEntityTypeMappingFragment from DotNetObject
 
 	EntityType
+	StoreObject
+	IsTableExcludedFromMigrations
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4420,11 +9590,83 @@ Class IEntityTypeMappingFragment from DotNetObject
 		ok
 		return self
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
+
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
+
+	Func getIsTableExcludedFromMigrations
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:IsTableExcludedFromMigrations"))
+
+	Func setIsTableExcludedFromMigrations P1
+		raise("DotNet Error: IsTableExcludedFromMigrations is a read-only property")
 
 
 Class IForeignKey from DotNetObject
@@ -4435,6 +9677,11 @@ Class IForeignKey from DotNetObject
 	PrincipalEntityType
 	DependentToPrincipal
 	PrincipalToDependent
+	IsUnique
+	IsRequired
+	IsRequiredDependent
+	IsOwnership
+	DeleteBehavior
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4456,6 +9703,71 @@ Class IForeignKey from DotNetObject
 
 	Func GetDependentKeyValueFactory 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDependentKeyValueFactory"))
+
+	Func IsBaseLinking 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -4493,6 +9805,44 @@ Class IForeignKey from DotNetObject
 	Func setPrincipalToDependent P1
 		raise("DotNet Error: PrincipalToDependent is a read-only property")
 
+	Func getIsUnique
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsUnique P1
+		raise("DotNet Error: IsUnique is a read-only property")
+
+	Func getIsRequired
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsRequired")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsRequired P1
+		raise("DotNet Error: IsRequired is a read-only property")
+
+	Func getIsRequiredDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsRequiredDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsRequiredDependent P1
+		raise("DotNet Error: IsRequiredDependent is a read-only property")
+
+	Func getIsOwnership
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsOwnership")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOwnership P1
+		raise("DotNet Error: IsOwnership is a read-only property")
+
+	Func getDeleteBehavior
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+
+	Func setDeleteBehavior P1
+		raise("DotNet Error: DeleteBehavior is a read-only property")
+
 
 Class IForeignKeyConstraint from DotNetObject
 
@@ -4526,6 +9876,51 @@ Class IForeignKeyConstraint from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -4583,6 +9978,13 @@ Class IForeignKeyConstraint from DotNetObject
 Class IFunctionColumn from DotNetObject
 
 	PropertyMappings
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4596,6 +9998,66 @@ Class IFunctionColumn from DotNetObject
 	Func FindColumnMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
 
@@ -4605,11 +10067,62 @@ Class IFunctionColumn from DotNetObject
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class IFunctionColumnMapping from DotNetObject
 
 	Column
 	FunctionMapping
+	Property
+	TypeMapping
+	TableMapping
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4635,6 +10148,51 @@ Class IFunctionColumnMapping from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
 
@@ -4647,6 +10205,24 @@ Class IFunctionColumnMapping from DotNetObject
 	Func setFunctionMapping P1
 		raise("DotNet Error: FunctionMapping is a read-only property")
 
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTableMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TableMapping"))
+
+	Func setTableMapping P1
+		raise("DotNet Error: TableMapping is a read-only property")
+
 
 Class IFunctionMapping from DotNetObject
 
@@ -4654,6 +10230,11 @@ Class IFunctionMapping from DotNetObject
 	StoreFunction
 	DbFunction
 	ColumnMappings
+	TypeBase
+	Table
+	IsSharedTablePrincipal
+	IsSplitEntityTypePrincipal
+	IncludesDerivedTypes
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4663,6 +10244,66 @@ Class IFunctionMapping from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getIsDefaultFunctionMapping
 		dn_x = dotnet_call("s3:get",nHandle,"s24:IsDefaultFunctionMapping")
@@ -4690,11 +10331,44 @@ Class IFunctionMapping from DotNetObject
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
+	Func getTypeBase
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
+
+	Func setTypeBase P1
+		raise("DotNet Error: TypeBase is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getIsSharedTablePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:IsSharedTablePrincipal"))
+
+	Func setIsSharedTablePrincipal P1
+		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
+
+	Func getIsSplitEntityTypePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:IsSplitEntityTypePrincipal"))
+
+	Func setIsSplitEntityTypePrincipal P1
+		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
+
+	Func getIncludesDerivedTypes
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:IncludesDerivedTypes"))
+
+	Func setIncludesDerivedTypes P1
+		raise("DotNet Error: IncludesDerivedTypes is a read-only property")
+
 
 Class IIndex from DotNetObject
 
 	Properties
 	DeclaringEntityType
+	Name
+	IsUnique
+	IsDescending
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4708,6 +10382,71 @@ Class IIndex from DotNetObject
 	Func GetNullableValueFactory 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNullableValueFactory"))
 
+	Func DisplayName 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -4719,6 +10458,28 @@ Class IIndex from DotNetObject
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getIsUnique
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsUnique P1
+		raise("DotNet Error: IsUnique is a read-only property")
+
+	Func getIsDescending
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:IsDescending"))
+
+	Func setIsDescending P1
+		raise("DotNet Error: IsDescending is a read-only property")
 
 
 Class IKey from DotNetObject
@@ -4744,6 +10505,71 @@ Class IKey from DotNetObject
 	Func GetPrincipalKeyValueFactory 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetPrincipalKeyValueFactory"))
 
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -4760,6 +10586,7 @@ Class IKey from DotNetObject
 Class IModel from DotNetObject
 
 	ModelDependencies
+	ModelId
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4805,12 +10632,99 @@ Class IModel from DotNetObject
 	Func FindTypeMappingConfiguration P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:FindTypeMappingConfiguration",P1))
 
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func GetEmbeddedDiscriminatorName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetProductVersion 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShared P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getModelDependencies
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ModelDependencies"))
 
 	Func setModelDependencies P1
 		dotnet_callv("s3:set",nHandle,"s17:ModelDependencies",P1)
 		return self
+
+	Func getModelId
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
+
+	Func setModelId P1
+		raise("DotNet Error: ModelId is a read-only property")
 
 
 Class IMutableAnnotatable from DotNetObject
@@ -4845,6 +10759,30 @@ Class IMutableAnnotatable from DotNetObject
 
 		return self
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -4857,6 +10795,8 @@ Class IMutableCheckConstraint from DotNetObject
 
 	EntityType
 	Name
+	ModelName
+	Sql
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4865,6 +10805,82 @@ Class IMutableCheckConstraint from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func GetDefaultName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
+
+	Func GetName_ P1
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getEntityType
@@ -4882,11 +10898,34 @@ Class IMutableCheckConstraint from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getSql
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Sql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSql P1
+		raise("DotNet Error: Sql is a read-only property")
+
 
 Class IMutableComplexProperty from DotNetObject
 
 	ComplexType
 	IsNullable
+	IsCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4895,6 +10934,94 @@ Class IMutableComplexProperty from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getComplexType
@@ -4912,10 +11039,62 @@ Class IMutableComplexProperty from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
 		return self
 
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IMutableComplexType from DotNetObject
 
 	ComplexProperty
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4926,11 +11105,265 @@ Class IMutableComplexType from DotNetObject
 		ok
 		return self
 
+	Func IsContainedBy P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsContainedBy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func RemoveIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIgnoredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
+
+	Func AddProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
+
+	Func AddIndexerProperty P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddIndexerProperty",P1,P2))
+
+	Func RemoveProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
+
+	Func AddComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
+
+	Func AddComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveComplexProperty",P1))
+
+	Func SetChangeTrackingStrategy P1
+		dotnet_callv("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
 
 
 Class IMutableDbFunction from DotNetObject
@@ -4944,6 +11377,11 @@ Class IMutableDbFunction from DotNetObject
 	Model
 	Parameters
 	Translation
+	ModelName
+	MethodInfo
+	IsScalar
+	IsAggregate
+	ReturnType
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4952,6 +11390,66 @@ Class IMutableDbFunction from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getName
@@ -5025,11 +11523,50 @@ Class IMutableDbFunction from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s11:Translation",P1)
 		return self
 
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
+	Func getMethodInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MethodInfo"))
+
+	Func setMethodInfo P1
+		raise("DotNet Error: MethodInfo is a read-only property")
+
+	Func getIsScalar
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsScalar")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsScalar P1
+		raise("DotNet Error: IsScalar is a read-only property")
+
+	Func getIsAggregate
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAggregate")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsAggregate P1
+		raise("DotNet Error: IsAggregate is a read-only property")
+
+	Func getReturnType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
+
+	Func setReturnType P1
+		raise("DotNet Error: ReturnType is a read-only property")
+
 
 Class IMutableDbFunctionParameter from DotNetObject
 
 	StoreType
 	TypeMapping
+	Name
+	ClrType
+	PropagatesNullability
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5038,6 +11575,66 @@ Class IMutableDbFunctionParameter from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getFunction
@@ -5059,11 +11656,34 @@ Class IMutableDbFunctionParameter from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s11:TypeMapping",P1)
 		return self
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getPropagatesNullability
+		dn_x = dotnet_call("s3:get",nHandle,"s21:PropagatesNullability")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropagatesNullability P1
+		raise("DotNet Error: PropagatesNullability is a read-only property")
+
 
 Class IMutableElementType from DotNetObject
 
 	CollectionProperty
 	IsNullable
+	ClrType
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5119,6 +11739,96 @@ Class IMutableElementType from DotNetObject
 
 		return self
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetValueComparer"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -5134,11 +11844,23 @@ Class IMutableElementType from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
 		return self
 
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
 
 Class IMutableEntityType from DotNetObject
 
 	BaseType
 	IsKeyless
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5367,6 +12089,270 @@ Class IMutableEntityType from DotNetObject
 
 		return self
 
+	Func GetSeedData P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetSeedData",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData",P1))
+
+	Func GetQueryFilter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
+
+	Func GetDiscriminatorPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIsDiscriminatorMappingComplete 
+		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDiscriminatorValue 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
+
+	Func GetDefaultDiscriminatorValue 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConcreteDerivedTypesInclusive 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetConcreteDerivedTypesInclusive"))
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsOwned 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsInOwnershipPath P1
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasServiceProperties 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetNavigationAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
+
+	Func GetOrCreateMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetOrCreateMaterializer",P1))
+
+	Func GetOrCreateEmptyMaterializer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func RemoveIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIgnored P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIgnoredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
+
+	Func AddProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
+
+	Func AddIndexerProperty P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddIndexerProperty",P1,P2))
+
+	Func RemoveProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
+
+	Func AddComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
+
+	Func AddComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func RemoveComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveComplexProperty",P1))
+
+	Func SetChangeTrackingStrategy P1
+		dotnet_callv("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
@@ -5383,11 +12369,54 @@ Class IMutableEntityType from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s9:IsKeyless",P1)
 		return self
 
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
 
 Class IMutableEntityTypeMappingFragment from DotNetObject
 
 	EntityType
 	IsTableExcludedFromMigrations
+	StoreObject
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5396,6 +12425,66 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getEntityType
@@ -5410,6 +12499,12 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 	Func setIsTableExcludedFromMigrations P1
 		dotnet_callv("s3:set",nHandle,"s29:IsTableExcludedFromMigrations",P1)
 		return self
+
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
 
 
 Class IMutableForeignKey from DotNetObject
@@ -5454,6 +12549,71 @@ Class IMutableForeignKey from DotNetObject
 
 	Func GetNavigation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
+
+	Func IsBaseLinking 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -5532,6 +12692,7 @@ Class IMutableIndex from DotNetObject
 	IsDescending
 	Properties
 	DeclaringEntityType
+	Name
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5540,6 +12701,71 @@ Class IMutableIndex from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func DisplayName 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getIsUnique
@@ -5570,6 +12796,14 @@ Class IMutableIndex from DotNetObject
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
 
 Class IMutableKey from DotNetObject
 
@@ -5588,6 +12822,71 @@ Class IMutableKey from DotNetObject
 	Func GetReferencingForeignKeys 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -5602,6 +12901,8 @@ Class IMutableKey from DotNetObject
 
 
 Class IMutableModel from DotNetObject
+
+	ModelId
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5707,6 +13008,93 @@ Class IMutableModel from DotNetObject
 	Func FinalizeModel 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FinalizeModel"))
 
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func GetEmbeddedDiscriminatorName 
+		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetProductVersion 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShared P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
+	Func getModelId
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
+
+	Func setModelId P1
+		raise("DotNet Error: ModelId is a read-only property")
+
 
 Class IMutableNavigation from DotNetObject
 
@@ -5714,6 +13102,16 @@ Class IMutableNavigation from DotNetObject
 	TargetEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5726,6 +13124,104 @@ Class IMutableNavigation from DotNetObject
 
 	Func SetInverse P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetIsEagerLoaded P1
+		dotnet_callv("s4:call",nHandle,"s16:SetIsEagerLoaded",P1)
+
+		return self
+
+	Func SetLazyLoadingEnabled P1
+		dotnet_callv("s4:call",nHandle,"s21:SetLazyLoadingEnabled",P1)
+
+		return self
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -5748,8 +13244,85 @@ Class IMutableNavigation from DotNetObject
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
 
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IMutableNavigationBase from DotNetObject
+
+	DeclaringEntityType
+	TargetEntityType
+	Inverse
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5770,6 +13343,153 @@ Class IMutableNavigationBase from DotNetObject
 
 		return self
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
+	Func getDeclaringEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
+
+	Func setDeclaringEntityType P1
+		raise("DotNet Error: DeclaringEntityType is a read-only property")
+
+	Func getTargetEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:TargetEntityType"))
+
+	Func setTargetEntityType P1
+		raise("DotNet Error: TargetEntityType is a read-only property")
+
+	Func getInverse
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
+
+	Func setInverse P1
+		raise("DotNet Error: Inverse is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IMutableProperty from DotNetObject
 
@@ -5778,6 +13498,12 @@ Class IMutableProperty from DotNetObject
 	ValueGenerated
 	IsConcurrencyToken
 	Sentinel
+	IsPrimitiveCollection
+	Name
+	DeclaringType
+	ClrType
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5879,6 +13605,164 @@ Class IMutableProperty from DotNetObject
 
 		return self
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetBeforeSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetBeforeSaveBehavior"))
+
+	Func GetAfterSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAfterSaveBehavior"))
+
+	Func GetValueGeneratorFactory 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetValueGeneratorFactory"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetValueComparer"))
+
+	Func GetKeyValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetKeyValueComparer"))
+
+	Func GetProviderValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetProviderValueComparer"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func IsForeignKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsUniqueIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
@@ -5917,11 +13801,55 @@ Class IMutableProperty from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s8:Sentinel",P1)
 		return self
 
+	Func getIsPrimitiveCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsPrimitiveCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPrimitiveCollection P1
+		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IMutablePropertyBase from DotNetObject
 
 	DeclaringType
 	FieldInfo
+	Name
+	ClrType
+	Sentinel
+	PropertyInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5942,6 +13870,69 @@ Class IMutablePropertyBase from DotNetObject
 
 		return self
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getDeclaringType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
 
@@ -5955,11 +13946,39 @@ Class IMutablePropertyBase from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s9:FieldInfo",P1)
 		return self
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
 
 Class IMutableRelationalPropertyOverrides from DotNetObject
 
 	Property
 	ColumnName
+	StoreObject
+	IsColumnNameOverridden
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5972,6 +13991,66 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 
 	Func RemoveColumnNameOverride 
 		dotnet_callv("s4:call",nHandle,"s24:RemoveColumnNameOverride")
+
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
 
 		return self
 
@@ -5990,6 +14069,20 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s10:ColumnName",P1)
 		return self
 
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
+
+	Func getIsColumnNameOverridden
+		dn_x = dotnet_call("s3:get",nHandle,"s22:IsColumnNameOverridden")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsColumnNameOverridden P1
+		raise("DotNet Error: IsColumnNameOverridden is a read-only property")
+
 
 Class IMutableSequence from DotNetObject
 
@@ -6000,6 +14093,9 @@ Class IMutableSequence from DotNetObject
 	MaxValue
 	Type
 	IsCyclic
+	Name
+	ModelSchema
+	Schema
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6008,6 +14104,66 @@ Class IMutableSequence from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getModel
@@ -6064,11 +14220,41 @@ Class IMutableSequence from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s8:IsCyclic",P1)
 		return self
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getModelSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ModelSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelSchema P1
+		raise("DotNet Error: ModelSchema is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
 
 Class IMutableServiceProperty from DotNetObject
 
 	DeclaringEntityType
 	ParameterBinding
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6077,6 +14263,94 @@ Class IMutableServiceProperty from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getDeclaringEntityType
@@ -6092,6 +14366,44 @@ Class IMutableServiceProperty from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s16:ParameterBinding",P1)
 		return self
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IMutableSkipNavigation from DotNetObject
 
@@ -6100,6 +14412,16 @@ Class IMutableSkipNavigation from DotNetObject
 	JoinEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6117,6 +14439,104 @@ Class IMutableSkipNavigation from DotNetObject
 
 	Func SetInverse P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetIsEagerLoaded P1
+		dotnet_callv("s4:call",nHandle,"s16:SetIsEagerLoaded",P1)
+
+		return self
+
+	Func SetLazyLoadingEnabled P1
+		dotnet_callv("s4:call",nHandle,"s21:SetLazyLoadingEnabled",P1)
+
+		return self
+
+	Func SetField P1
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
+
+		return self
+
+	Func SetPropertyAccessMode P1
+		dotnet_callv("s4:call",nHandle,"s21:SetPropertyAccessMode",P1)
+
+		return self
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -6141,6 +14561,70 @@ Class IMutableSkipNavigation from DotNetObject
 
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
+
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
 
 
 Class IMutableStoredProcedure from DotNetObject
@@ -6190,6 +14674,74 @@ Class IMutableStoredProcedure from DotNetObject
 
 	Func AddRowsAffectedResultColumn 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddRowsAffectedResultColumn"))
+
+	Func GetStoreIdentifier 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
+
+	Func GetSchemaQualifiedName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -6242,6 +14794,9 @@ Class IMutableStoredProcedureParameter from DotNetObject
 	StoredProcedure
 	Name
 	Direction
+	PropertyName
+	ForOriginalValue
+	ForRowsAffected
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6250,6 +14805,66 @@ Class IMutableStoredProcedureParameter from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getStoredProcedure
@@ -6274,11 +14889,35 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
 		return self
 
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getForOriginalValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForOriginalValue"))
+
+	Func setForOriginalValue P1
+		raise("DotNet Error: ForOriginalValue is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
 
 Class IMutableStoredProcedureResultColumn from DotNetObject
 
 	StoredProcedure
 	Name
+	PropertyName
+	ForRowsAffected
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6287,6 +14926,66 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
 		return self
 
 	Func getStoredProcedure
@@ -6304,10 +15003,27 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
 
 Class IMutableTrigger from DotNetObject
 
 	EntityType
+	ModelName
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6318,17 +15034,89 @@ Class IMutableTrigger from DotNetObject
 		ok
 		return self
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
+
 
 Class IMutableTypeBase from DotNetObject
 
 	Model
 	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6442,6 +15230,95 @@ Class IMutableTypeBase from DotNetObject
 
 		return self
 
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AddAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
+
+	Func SetAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s13:SetAnnotation",P1,P2)
+
+		return self
+
+	Func RemoveAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
+
+	Func AddAnnotations P1
+		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
+
+		return self
+
+	Func SetOrRemoveAnnotation P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -6454,6 +15331,36 @@ Class IMutableTypeBase from DotNetObject
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
+
 
 Class INavigation from DotNetObject
 
@@ -6461,6 +15368,16 @@ Class INavigation from DotNetObject
 	TargetEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6470,6 +15387,106 @@ Class INavigation from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollectionAccessor 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCollectionAccessor"))
+
+	Func SetIsLoadedWhenNoTracking P1
+		dotnet_callv("s4:call",nHandle,"s25:SetIsLoadedWhenNoTracking",P1)
+
+		return self
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -6495,12 +15512,91 @@ Class INavigation from DotNetObject
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
 
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsEagerLoaded P1
+		raise("DotNet Error: IsEagerLoaded is a read-only property")
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setLazyLoadingEnabled P1
+		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class INavigationBase from DotNetObject
 
 	DeclaringEntityType
 	TargetEntityType
 	Inverse
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6519,6 +15615,83 @@ Class INavigationBase from DotNetObject
 
 		return self
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
@@ -6536,6 +15709,68 @@ Class INavigationBase from DotNetObject
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsEagerLoaded P1
+		raise("DotNet Error: IsEagerLoaded is a read-only property")
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setLazyLoadingEnabled P1
+		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
 
 
 Class IParameterBindingFactories from DotNetObject
@@ -6575,6 +15810,11 @@ Class IParameterBindingFactory from DotNetObject
 
 Class IPrimaryKeyConstraint from DotNetObject
 
+	Name
+	MappedKeys
+	Table
+	Columns
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -6584,10 +15824,111 @@ Class IPrimaryKeyConstraint from DotNetObject
 		ok
 		return self
 
+	Func GetIsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetIsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getMappedKeys
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MappedKeys"))
+
+	Func setMappedKeys P1
+		raise("DotNet Error: MappedKeys is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getColumns
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Columns"))
+
+	Func setColumns P1
+		raise("DotNet Error: Columns is a read-only property")
+
 
 Class IProperty from DotNetObject
 
 	DeclaringEntityType
+	IsNullable
+	ValueGenerated
+	IsConcurrencyToken
+	IsPrimitiveCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6631,16 +15972,242 @@ Class IProperty from DotNetObject
 	Func GetElementType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetElementType"))
 
+	Func GetTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTypeMapping"))
+
+	Func FindTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindTypeMapping"))
+
+	Func GetMaxLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetMaxLength"))
+
+	Func GetPrecision 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPrecision"))
+
+	Func GetScale 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetScale"))
+
+	Func IsUnicode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode"))
+
+	Func GetBeforeSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetBeforeSaveBehavior"))
+
+	Func GetAfterSaveBehavior 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAfterSaveBehavior"))
+
+	Func GetValueGeneratorFactory 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetValueGeneratorFactory"))
+
+	Func GetValueConverter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetValueConverter"))
+
+	Func GetProviderClrType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func GetJsonValueReaderWriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
+
+	Func IsForeignKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsUniqueIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsPrimaryKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsKey 
+		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getValueGenerated
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+
+	Func setValueGenerated P1
+		raise("DotNet Error: ValueGenerated is a read-only property")
+
+	Func getIsConcurrencyToken
+		dn_x = dotnet_call("s3:get",nHandle,"s18:IsConcurrencyToken")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsConcurrencyToken P1
+		raise("DotNet Error: IsConcurrencyToken is a read-only property")
+
+	Func getIsPrimitiveCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsPrimitiveCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPrimitiveCollection P1
+		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IPropertyBase from DotNetObject
 
 	DeclaringType
+	Name
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6665,11 +16232,106 @@ Class IPropertyBase from DotNetObject
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getDeclaringType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
 
 
 Class IPropertyParameterBindingFactory from DotNetObject
@@ -6734,6 +16396,30 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6770,6 +16456,12 @@ Class IReadOnlyComplexProperty from DotNetObject
 	ComplexType
 	IsNullable
 	IsCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6795,6 +16487,48 @@ Class IReadOnlyComplexProperty from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getComplexType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ComplexType"))
 
@@ -6817,10 +16551,54 @@ Class IReadOnlyComplexProperty from DotNetObject
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IReadOnlyComplexType from DotNetObject
 
 	ComplexProperty
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -6851,11 +16629,169 @@ Class IReadOnlyComplexType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
 
 
 Class IReadOnlyDbFunction from DotNetObject
@@ -6896,6 +16832,30 @@ Class IReadOnlyDbFunction from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -7032,6 +16992,30 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
 
@@ -7132,6 +17116,30 @@ Class IReadOnlyElementType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -7156,6 +17164,12 @@ Class IReadOnlyElementType from DotNetObject
 Class IReadOnlyEntityType from DotNetObject
 
 	BaseType
+	Model
+	ContainingEntityType
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -7375,11 +17389,164 @@ Class IReadOnlyEntityType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindProperty",P1))
+
+	Func FindProperties P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindProperties",P1))
+
+	Func FindDeclaredProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindDeclaredProperty",P1))
+
+	Func GetProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+
+	Func GetDeclaredProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeclaredProperties"))
+
+	Func GetDerivedProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDerivedProperties"))
+
+	Func GetProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
+
+	Func FindComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindComplexProperty",P1))
+
+	Func FindDeclaredComplexProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindDeclaredComplexProperty",P1))
+
+	Func GetComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetComplexProperties"))
+
+	Func GetDeclaredComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDeclaredComplexProperties"))
+
+	Func GetDerivedComplexProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedComplexProperties"))
+
+	Func GetMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
+
+	Func GetDeclaredMembers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMembers"))
+
+	Func FindMember P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindMember",P1))
+
+	Func FindMembersInHierarchy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getContainingEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:ContainingEntityType"))
+
+	Func setContainingEntityType P1
+		raise("DotNet Error: ContainingEntityType is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
 
 
 Class IReadOnlyEntityTypeMappingFragment from DotNetObject
@@ -7409,6 +17576,30 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -7480,6 +17671,30 @@ Class IReadOnlyForeignKey from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -7595,6 +17810,30 @@ Class IReadOnlyIndex from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -7664,6 +17903,30 @@ Class IReadOnlyKey from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -7747,6 +18010,30 @@ Class IReadOnlyModel from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModelId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
 
@@ -7761,6 +18048,15 @@ Class IReadOnlyNavigation from DotNetObject
 	Inverse
 	ForeignKey
 	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -7783,6 +18079,48 @@ Class IReadOnlyNavigation from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -7818,6 +18156,68 @@ Class IReadOnlyNavigation from DotNetObject
 	Func setIsOnDependent P1
 		raise("DotNet Error: IsOnDependent is a read-only property")
 
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsEagerLoaded P1
+		raise("DotNet Error: IsEagerLoaded is a read-only property")
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setLazyLoadingEnabled P1
+		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IReadOnlyNavigationBase from DotNetObject
 
@@ -7827,6 +18227,12 @@ Class IReadOnlyNavigationBase from DotNetObject
 	IsCollection
 	IsEagerLoaded
 	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -7836,6 +18242,48 @@ Class IReadOnlyNavigationBase from DotNetObject
 			return self
 		ok
 		return self
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -7879,6 +18327,44 @@ Class IReadOnlyNavigationBase from DotNetObject
 	Func setLazyLoadingEnabled P1
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IReadOnlyProperty from DotNetObject
 
@@ -7887,6 +18373,12 @@ Class IReadOnlyProperty from DotNetObject
 	ValueGenerated
 	IsConcurrencyToken
 	IsPrimitiveCollection
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8003,6 +18495,48 @@ Class IReadOnlyProperty from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
@@ -8038,6 +18572,44 @@ Class IReadOnlyProperty from DotNetObject
 
 	Func setIsPrimitiveCollection P1
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
 
 
 Class IReadOnlyPropertyBase from DotNetObject
@@ -8075,6 +18647,30 @@ Class IReadOnlyPropertyBase from DotNetObject
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -8146,6 +18742,30 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
 
@@ -8209,6 +18829,30 @@ Class IReadOnlySequence from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -8289,6 +18933,12 @@ Class IReadOnlyServiceProperty from DotNetObject
 
 	DeclaringEntityType
 	ParameterBinding
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8311,6 +18961,48 @@ Class IReadOnlyServiceProperty from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -8326,6 +19018,44 @@ Class IReadOnlyServiceProperty from DotNetObject
 	Func setParameterBinding P1
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class IReadOnlySkipNavigation from DotNetObject
 
@@ -8333,6 +19063,17 @@ Class IReadOnlySkipNavigation from DotNetObject
 	Inverse
 	ForeignKey
 	IsOnDependent
+	DeclaringEntityType
+	TargetEntityType
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8355,6 +19096,48 @@ Class IReadOnlySkipNavigation from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -8383,6 +19166,80 @@ Class IReadOnlySkipNavigation from DotNetObject
 
 	Func setIsOnDependent P1
 		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getDeclaringEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
+
+	Func setDeclaringEntityType P1
+		raise("DotNet Error: DeclaringEntityType is a read-only property")
+
+	Func getTargetEntityType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:TargetEntityType"))
+
+	Func setTargetEntityType P1
+		raise("DotNet Error: TargetEntityType is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsEagerLoaded P1
+		raise("DotNet Error: IsEagerLoaded is a read-only property")
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setLazyLoadingEnabled P1
+		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
 
 
 Class IReadOnlyStoredProcedure from DotNetObject
@@ -8438,6 +19295,30 @@ Class IReadOnlyStoredProcedure from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -8517,6 +19398,30 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
 
@@ -8591,6 +19496,30 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
 
@@ -8648,6 +19577,30 @@ Class IReadOnlyTrigger from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -8776,6 +19729,30 @@ Class IReadOnlyTypeBase from DotNetObject
 	Func FindIndexerPropertyInfo 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -8890,6 +19867,51 @@ Class IRelationalModel from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -8944,6 +19966,9 @@ Class IRelationalModel from DotNetObject
 Class IRelationalPropertyOverrides from DotNetObject
 
 	Property
+	StoreObject
+	ColumnName
+	IsColumnNameOverridden
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8953,6 +19978,66 @@ Class IRelationalPropertyOverrides from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
@@ -8960,10 +20045,41 @@ Class IRelationalPropertyOverrides from DotNetObject
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
+	Func getStoreObject
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
+
+	Func setStoreObject P1
+		raise("DotNet Error: StoreObject is a read-only property")
+
+	Func getColumnName
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setColumnName P1
+		raise("DotNet Error: ColumnName is a read-only property")
+
+	Func getIsColumnNameOverridden
+		dn_x = dotnet_call("s3:get",nHandle,"s22:IsColumnNameOverridden")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsColumnNameOverridden P1
+		raise("DotNet Error: IsColumnNameOverridden is a read-only property")
+
 
 Class ISequence from DotNetObject
 
 	Model
+	Name
+	ModelSchema
+	Schema
+	StartValue
+	IncrementBy
+	MinValue
+	MaxValue
+	Type
+	IsCyclic
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8973,6 +20089,66 @@ Class ISequence from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -8980,11 +20156,83 @@ Class ISequence from DotNetObject
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getModelSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ModelSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelSchema P1
+		raise("DotNet Error: ModelSchema is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getStartValue
+		dn_x = dotnet_call("s3:get",nHandle,"s10:StartValue")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStartValue P1
+		raise("DotNet Error: StartValue is a read-only property")
+
+	Func getIncrementBy
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IncrementBy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIncrementBy P1
+		raise("DotNet Error: IncrementBy is a read-only property")
+
+	Func getMinValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:MinValue"))
+
+	Func setMinValue P1
+		raise("DotNet Error: MinValue is a read-only property")
+
+	Func getMaxValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:MaxValue"))
+
+	Func setMaxValue P1
+		raise("DotNet Error: MaxValue is a read-only property")
+
+	Func getType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
+
+	Func setType P1
+		raise("DotNet Error: Type is a read-only property")
+
+	Func getIsCyclic
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsCyclic")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCyclic P1
+		raise("DotNet Error: IsCyclic is a read-only property")
+
 
 Class IServiceProperty from DotNetObject
 
 	DeclaringEntityType
 	ParameterBinding
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -8994,6 +20242,98 @@ Class IServiceProperty from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -9007,6 +20347,44 @@ Class IServiceProperty from DotNetObject
 	Func setParameterBinding P1
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class ISkipNavigation from DotNetObject
 
@@ -9015,6 +20393,16 @@ Class ISkipNavigation from DotNetObject
 	JoinEntityType
 	ForeignKey
 	Inverse
+	IsOnDependent
+	IsCollection
+	IsEagerLoaded
+	LazyLoadingEnabled
+	Name
+	DeclaringType
+	ClrType
+	Sentinel
+	PropertyInfo
+	FieldInfo
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9024,6 +20412,106 @@ Class ISkipNavigation from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsShadowProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIndexerProperty 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollectionAccessor 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCollectionAccessor"))
+
+	Func SetIsLoadedWhenNoTracking P1
+		dotnet_callv("s4:call",nHandle,"s25:SetIsLoadedWhenNoTracking",P1)
+
+		return self
+
+	Func GetGetter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
+
+	Func GetMemberInfo P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
+
+	Func GetIndex 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCurrentValueComparer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -9055,12 +20543,88 @@ Class ISkipNavigation from DotNetObject
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
 
+	Func getIsOnDependent
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsOnDependent")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsOnDependent P1
+		raise("DotNet Error: IsOnDependent is a read-only property")
+
+	Func getIsCollection
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsCollection P1
+		raise("DotNet Error: IsCollection is a read-only property")
+
+	Func getIsEagerLoaded
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEagerLoaded")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsEagerLoaded P1
+		raise("DotNet Error: IsEagerLoaded is a read-only property")
+
+	Func getLazyLoadingEnabled
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setLazyLoadingEnabled P1
+		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getDeclaringType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DeclaringType"))
+
+	Func setDeclaringType P1
+		raise("DotNet Error: DeclaringType is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getSentinel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sentinel"))
+
+	Func setSentinel P1
+		raise("DotNet Error: Sentinel is a read-only property")
+
+	Func getPropertyInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PropertyInfo"))
+
+	Func setPropertyInfo P1
+		raise("DotNet Error: PropertyInfo is a read-only property")
+
+	Func getFieldInfo
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FieldInfo"))
+
+	Func setFieldInfo P1
+		raise("DotNet Error: FieldInfo is a read-only property")
+
 
 Class ISqlQuery from DotNetObject
 
 	EntityTypeMappings
 	Columns
 	Sql
+	Name
+	Schema
+	SchemaQualifiedName
+	Model
+	IsShared
+	ComplexTypeMappings
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9073,6 +20637,77 @@ Class ISqlQuery from DotNetObject
 
 	Func FindColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindColumn",P1))
+
+	Func GetRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRowInternalForeignKeys",P1))
+
+	Func GetReferencingRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetReferencingRowInternalForeignKeys",P1))
+
+	Func IsOptional P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsOptional",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
@@ -9094,11 +20729,62 @@ Class ISqlQuery from DotNetObject
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getSchemaQualifiedName
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchemaQualifiedName P1
+		raise("DotNet Error: SchemaQualifiedName is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getIsShared
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsShared")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsShared P1
+		raise("DotNet Error: IsShared is a read-only property")
+
+	Func getComplexTypeMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ComplexTypeMappings"))
+
+	Func setComplexTypeMappings P1
+		raise("DotNet Error: ComplexTypeMappings is a read-only property")
+
 
 Class ISqlQueryColumn from DotNetObject
 
 	SqlQuery
 	PropertyMappings
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9112,6 +20798,66 @@ Class ISqlQueryColumn from DotNetObject
 	Func FindColumnMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getSqlQuery
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SqlQuery"))
 
@@ -9124,11 +20870,62 @@ Class ISqlQueryColumn from DotNetObject
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class ISqlQueryColumnMapping from DotNetObject
 
 	Column
 	SqlQueryMapping
+	Property
+	TypeMapping
+	TableMapping
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9154,6 +20951,51 @@ Class ISqlQueryColumnMapping from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
 
@@ -9166,12 +21008,35 @@ Class ISqlQueryColumnMapping from DotNetObject
 	Func setSqlQueryMapping P1
 		raise("DotNet Error: SqlQueryMapping is a read-only property")
 
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTableMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TableMapping"))
+
+	Func setTableMapping P1
+		raise("DotNet Error: TableMapping is a read-only property")
+
 
 Class ISqlQueryMapping from DotNetObject
 
 	IsDefaultSqlQueryMapping
 	SqlQuery
 	ColumnMappings
+	TypeBase
+	Table
+	IsSharedTablePrincipal
+	IsSplitEntityTypePrincipal
+	IncludesDerivedTypes
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9181,6 +21046,66 @@ Class ISqlQueryMapping from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getIsDefaultSqlQueryMapping
 		dn_x = dotnet_call("s3:get",nHandle,"s24:IsDefaultSqlQueryMapping")
@@ -9203,6 +21128,36 @@ Class ISqlQueryMapping from DotNetObject
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
+	Func getTypeBase
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
+
+	Func setTypeBase P1
+		raise("DotNet Error: TypeBase is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getIsSharedTablePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:IsSharedTablePrincipal"))
+
+	Func setIsSharedTablePrincipal P1
+		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
+
+	Func getIsSplitEntityTypePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:IsSplitEntityTypePrincipal"))
+
+	Func setIsSplitEntityTypePrincipal P1
+		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
+
+	Func getIncludesDerivedTypes
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:IncludesDerivedTypes"))
+
+	Func setIncludesDerivedTypes P1
+		raise("DotNet Error: IncludesDerivedTypes is a read-only property")
+
 
 Class IStoreFunction from DotNetObject
 
@@ -9212,6 +21167,12 @@ Class IStoreFunction from DotNetObject
 	ReturnType
 	EntityTypeMappings
 	Columns
+	Name
+	Schema
+	SchemaQualifiedName
+	Model
+	IsShared
+	ComplexTypeMappings
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9224,6 +21185,77 @@ Class IStoreFunction from DotNetObject
 
 	Func FindColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindColumn",P1))
+
+	Func GetRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRowInternalForeignKeys",P1))
+
+	Func GetReferencingRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetReferencingRowInternalForeignKeys",P1))
+
+	Func IsOptional P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsOptional",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getDbFunctions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:DbFunctions"))
@@ -9265,6 +21297,50 @@ Class IStoreFunction from DotNetObject
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getSchemaQualifiedName
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchemaQualifiedName P1
+		raise("DotNet Error: SchemaQualifiedName is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getIsShared
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsShared")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsShared P1
+		raise("DotNet Error: IsShared is a read-only property")
+
+	Func getComplexTypeMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ComplexTypeMappings"))
+
+	Func setComplexTypeMappings P1
+		raise("DotNet Error: ComplexTypeMappings is a read-only property")
+
 
 Class IStoreFunctionParameter from DotNetObject
 
@@ -9294,6 +21370,51 @@ Class IStoreFunctionParameter from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -9338,6 +21459,13 @@ Class IStoreStoredProcedure from DotNetObject
 	ReturnValue
 	Parameters
 	ResultColumns
+	Name
+	Schema
+	SchemaQualifiedName
+	Model
+	IsShared
+	ComplexTypeMappings
+	Columns
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9353,6 +21481,80 @@ Class IStoreStoredProcedure from DotNetObject
 
 	Func FindResultColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:FindResultColumn",P1))
+
+	Func FindColumn P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindColumn",P1))
+
+	Func GetRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRowInternalForeignKeys",P1))
+
+	Func GetReferencingRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetReferencingRowInternalForeignKeys",P1))
+
+	Func IsOptional P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsOptional",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getStoredProcedures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoredProcedures"))
@@ -9384,6 +21586,56 @@ Class IStoreStoredProcedure from DotNetObject
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getSchemaQualifiedName
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchemaQualifiedName P1
+		raise("DotNet Error: SchemaQualifiedName is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getIsShared
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsShared")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsShared P1
+		raise("DotNet Error: IsShared is a read-only property")
+
+	Func getComplexTypeMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ComplexTypeMappings"))
+
+	Func setComplexTypeMappings P1
+		raise("DotNet Error: ComplexTypeMappings is a read-only property")
+
+	Func getColumns
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Columns"))
+
+	Func setColumns P1
+		raise("DotNet Error: Columns is a read-only property")
+
 
 Class IStoreStoredProcedureParameter from DotNetObject
 
@@ -9391,6 +21643,13 @@ Class IStoreStoredProcedureParameter from DotNetObject
 	PropertyMappings
 	Direction
 	Position
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9403,6 +21662,69 @@ Class IStoreStoredProcedureParameter from DotNetObject
 
 	Func FindParameterMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FindParameterMapping",P1))
+
+	Func FindColumnMapping P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -9430,12 +21752,67 @@ Class IStoreStoredProcedureParameter from DotNetObject
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class IStoreStoredProcedureResultColumn from DotNetObject
 
 	StoredProcedure
 	PropertyMappings
 	Position
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9448,6 +21825,66 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 
 	Func FindColumnMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -9469,10 +21906,66 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class IStoreStoredProcedureReturnValue from DotNetObject
 
 	StoredProcedure
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	PropertyMappings
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9483,11 +21976,128 @@ Class IStoreStoredProcedureReturnValue from DotNetObject
 		ok
 		return self
 
+	Func FindColumnMapping P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getPropertyMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PropertyMappings"))
+
+	Func setPropertyMappings P1
+		raise("DotNet Error: PropertyMappings is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
 
 
 Class IStoredProcedure from DotNetObject
@@ -9497,6 +22107,8 @@ Class IStoredProcedure from DotNetObject
 	StoreStoredProcedure
 	Parameters
 	ResultColumns
+	Schema
+	IsRowsAffectedReturned
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9524,6 +22136,71 @@ Class IStoredProcedure from DotNetObject
 
 	Func GetStoreIdentifier 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
+
+	Func GetSchemaQualifiedName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -9557,6 +22234,22 @@ Class IStoredProcedure from DotNetObject
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")
 
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getIsRowsAffectedReturned
+		dn_x = dotnet_call("s3:get",nHandle,"s22:IsRowsAffectedReturned")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsRowsAffectedReturned P1
+		raise("DotNet Error: IsRowsAffectedReturned is a read-only property")
+
 
 Class IStoredProcedureMapping from DotNetObject
 
@@ -9566,6 +22259,12 @@ Class IStoredProcedureMapping from DotNetObject
 	TableMapping
 	ParameterMappings
 	ResultColumnMappings
+	TypeBase
+	Table
+	ColumnMappings
+	IsSharedTablePrincipal
+	IsSplitEntityTypePrincipal
+	IncludesDerivedTypes
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9575,6 +22274,66 @@ Class IStoredProcedureMapping from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getStoreStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:StoreStoredProcedure"))
@@ -9612,39 +22371,52 @@ Class IStoredProcedureMapping from DotNetObject
 	Func setResultColumnMappings P1
 		raise("DotNet Error: ResultColumnMappings is a read-only property")
 
+	Func getTypeBase
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
+
+	Func setTypeBase P1
+		raise("DotNet Error: TypeBase is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getColumnMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ColumnMappings"))
+
+	Func setColumnMappings P1
+		raise("DotNet Error: ColumnMappings is a read-only property")
+
+	Func getIsSharedTablePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:IsSharedTablePrincipal"))
+
+	Func setIsSharedTablePrincipal P1
+		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
+
+	Func getIsSplitEntityTypePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:IsSplitEntityTypePrincipal"))
+
+	Func setIsSplitEntityTypePrincipal P1
+		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
+
+	Func getIncludesDerivedTypes
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:IncludesDerivedTypes"))
+
+	Func setIncludesDerivedTypes P1
+		raise("DotNet Error: IncludesDerivedTypes is a read-only property")
+
 
 Class IStoredProcedureParameter from DotNetObject
 
 	StoredProcedure
 	StoreParameter
-
-	Func init 
-		if nDotNetWrapHandle != 0
-			nHandle = nDotNetWrapHandle
-			nDotNetWrapHandle = 0
-			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
-			return self
-		ok
-		return self
-
-	Func getStoredProcedure
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
-
-	Func setStoredProcedure P1
-		raise("DotNet Error: StoredProcedure is a read-only property")
-
-	Func getStoreParameter
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StoreParameter"))
-
-	Func setStoreParameter P1
-		raise("DotNet Error: StoreParameter is a read-only property")
-
-
-Class IStoredProcedureParameterMapping from DotNetObject
-
-	StoreParameter
-	Parameter
-	StoredProcedureMapping
+	Name
+	PropertyName
+	Direction
+	ForOriginalValue
+	ForRowsAffected
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9667,6 +22439,179 @@ Class IStoredProcedureParameterMapping from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func getStoredProcedure
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
+
+	Func setStoredProcedure P1
+		raise("DotNet Error: StoredProcedure is a read-only property")
+
+	Func getStoreParameter
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StoreParameter"))
+
+	Func setStoreParameter P1
+		raise("DotNet Error: StoreParameter is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getDirection
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+
+	Func setDirection P1
+		raise("DotNet Error: Direction is a read-only property")
+
+	Func getForOriginalValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForOriginalValue"))
+
+	Func setForOriginalValue P1
+		raise("DotNet Error: ForOriginalValue is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
+
+Class IStoredProcedureParameterMapping from DotNetObject
+
+	StoreParameter
+	Parameter
+	StoredProcedureMapping
+	Property
+	Column
+	TypeMapping
+	TableMapping
+
+	Func init 
+		if nDotNetWrapHandle != 0
+			nHandle = nDotNetWrapHandle
+			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
+			return self
+		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -9688,39 +22633,38 @@ Class IStoredProcedureParameterMapping from DotNetObject
 	Func setStoredProcedureMapping P1
 		raise("DotNet Error: StoredProcedureMapping is a read-only property")
 
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getColumn
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
+
+	Func setColumn P1
+		raise("DotNet Error: Column is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTableMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TableMapping"))
+
+	Func setTableMapping P1
+		raise("DotNet Error: TableMapping is a read-only property")
+
 
 Class IStoredProcedureResultColumn from DotNetObject
 
 	StoredProcedure
 	StoreResultColumn
-
-	Func init 
-		if nDotNetWrapHandle != 0
-			nHandle = nDotNetWrapHandle
-			nDotNetWrapHandle = 0
-			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
-			return self
-		ok
-		return self
-
-	Func getStoredProcedure
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
-
-	Func setStoredProcedure P1
-		raise("DotNet Error: StoredProcedure is a read-only property")
-
-	Func getStoreResultColumn
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StoreResultColumn"))
-
-	Func setStoreResultColumn P1
-		raise("DotNet Error: StoreResultColumn is a read-only property")
-
-
-Class IStoredProcedureResultColumnMapping from DotNetObject
-
-	StoreResultColumn
-	ResultColumn
-	StoredProcedureMapping
+	Name
+	PropertyName
+	ForRowsAffected
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9746,6 +22690,167 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func getStoredProcedure
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
+
+	Func setStoredProcedure P1
+		raise("DotNet Error: StoredProcedure is a read-only property")
+
+	Func getStoreResultColumn
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StoreResultColumn"))
+
+	Func setStoreResultColumn P1
+		raise("DotNet Error: StoreResultColumn is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getPropertyName
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setPropertyName P1
+		raise("DotNet Error: PropertyName is a read-only property")
+
+	Func getForRowsAffected
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ForRowsAffected")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setForRowsAffected P1
+		raise("DotNet Error: ForRowsAffected is a read-only property")
+
+
+Class IStoredProcedureResultColumnMapping from DotNetObject
+
+	StoreResultColumn
+	ResultColumn
+	StoredProcedureMapping
+	Property
+	Column
+	TypeMapping
+	TableMapping
+
+	Func init 
+		if nDotNetWrapHandle != 0
+			nHandle = nDotNetWrapHandle
+			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
+			return self
+		ok
+		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getStoreResultColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StoreResultColumn"))
 
@@ -9764,6 +22869,30 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 	Func setStoredProcedureMapping P1
 		raise("DotNet Error: StoredProcedureMapping is a read-only property")
 
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getColumn
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
+
+	Func setColumn P1
+		raise("DotNet Error: Column is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTableMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TableMapping"))
+
+	Func setTableMapping P1
+		raise("DotNet Error: TableMapping is a read-only property")
+
 
 Class ITable from DotNetObject
 
@@ -9778,6 +22907,12 @@ Class ITable from DotNetObject
 	CheckConstraints
 	Triggers
 	Comment
+	Name
+	Schema
+	SchemaQualifiedName
+	Model
+	IsShared
+	ComplexTypeMappings
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -9790,6 +22925,77 @@ Class ITable from DotNetObject
 
 	Func FindColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindColumn",P1))
+
+	Func GetRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRowInternalForeignKeys",P1))
+
+	Func GetReferencingRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetReferencingRowInternalForeignKeys",P1))
+
+	Func IsOptional P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsOptional",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
@@ -9861,6 +23067,50 @@ Class ITable from DotNetObject
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getSchemaQualifiedName
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchemaQualifiedName P1
+		raise("DotNet Error: SchemaQualifiedName is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getIsShared
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsShared")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsShared P1
+		raise("DotNet Error: IsShared is a read-only property")
+
+	Func getComplexTypeMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ComplexTypeMappings"))
+
+	Func setComplexTypeMappings P1
+		raise("DotNet Error: ComplexTypeMappings is a read-only property")
+
 
 Class ITableBase from DotNetObject
 
@@ -9908,6 +23158,51 @@ Class ITableBase from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -10002,6 +23297,51 @@ Class ITableIndex from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10058,6 +23398,10 @@ Class EfITableMapping from DotNetObject
 	InsertStoredProcedureMapping
 	DeleteStoredProcedureMapping
 	UpdateStoredProcedureMapping
+	TypeBase
+	IsSharedTablePrincipal
+	IsSplitEntityTypePrincipal
+	IncludesDerivedTypes
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10067,6 +23411,66 @@ Class EfITableMapping from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getTable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
@@ -10097,6 +23501,30 @@ Class EfITableMapping from DotNetObject
 
 	Func setUpdateStoredProcedureMapping P1
 		raise("DotNet Error: UpdateStoredProcedureMapping is a read-only property")
+
+	Func getTypeBase
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
+
+	Func setTypeBase P1
+		raise("DotNet Error: TypeBase is a read-only property")
+
+	Func getIsSharedTablePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:IsSharedTablePrincipal"))
+
+	Func setIsSharedTablePrincipal P1
+		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
+
+	Func getIsSplitEntityTypePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:IsSplitEntityTypePrincipal"))
+
+	Func setIsSplitEntityTypePrincipal P1
+		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
+
+	Func getIncludesDerivedTypes
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:IncludesDerivedTypes"))
+
+	Func setIncludesDerivedTypes P1
+		raise("DotNet Error: IncludesDerivedTypes is a read-only property")
 
 
 Class ITableMappingBase from DotNetObject
@@ -10129,6 +23557,51 @@ Class ITableMappingBase from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -10172,6 +23645,7 @@ Class ITableMappingBase from DotNetObject
 Class ITrigger from DotNetObject
 
 	EntityType
+	ModelName
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10182,11 +23656,79 @@ Class ITrigger from DotNetObject
 		ok
 		return self
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
+
+	Func getModelName
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setModelName P1
+		raise("DotNet Error: ModelName is a read-only property")
 
 
 Class ITypeBase from DotNetObject
@@ -10194,6 +23736,10 @@ Class ITypeBase from DotNetObject
 	Model
 	ContainingEntityType
 	ConstructorBinding
+	Name
+	ClrType
+	HasSharedClrType
+	IsPropertyBag
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10270,6 +23816,95 @@ Class ITypeBase from DotNetObject
 	Func GetFlattenedPropertiesInHierarchy 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetFlattenedPropertiesInHierarchy"))
 
+	Func IsAbstract 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func DisplayName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ShortName 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsAssignableFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStrictlyDerivedFrom P1
+		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetChangeTrackingStrategy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetChangeTrackingStrategy"))
+
+	Func GetPropertyAccessMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
+
+	Func FindIndexerPropertyInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -10287,6 +23922,36 @@ Class ITypeBase from DotNetObject
 
 	Func setConstructorBinding P1
 		raise("DotNet Error: ConstructorBinding is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
+
+	Func setClrType P1
+		raise("DotNet Error: ClrType is a read-only property")
+
+	Func getHasSharedClrType
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HasSharedClrType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setHasSharedClrType P1
+		raise("DotNet Error: HasSharedClrType is a read-only property")
+
+	Func getIsPropertyBag
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPropertyBag")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsPropertyBag P1
+		raise("DotNet Error: IsPropertyBag is a read-only property")
 
 
 Class ITypeMappingConfiguration from DotNetObject
@@ -10319,6 +23984,51 @@ Class ITypeMappingConfiguration from DotNetObject
 
 	Func GetProviderClrType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetProviderClrType"))
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getClrType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
@@ -10363,6 +24073,51 @@ Class IUniqueConstraint from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10395,6 +24150,12 @@ Class IView from DotNetObject
 	EntityTypeMappings
 	Columns
 	ViewDefinitionSql
+	Name
+	Schema
+	SchemaQualifiedName
+	Model
+	IsShared
+	ComplexTypeMappings
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10407,6 +24168,77 @@ Class IView from DotNetObject
 
 	Func FindColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FindColumn",P1))
+
+	Func GetRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRowInternalForeignKeys",P1))
+
+	Func GetReferencingRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetReferencingRowInternalForeignKeys",P1))
+
+	Func IsOptional P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsOptional",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
@@ -10428,11 +24260,62 @@ Class IView from DotNetObject
 	Func setViewDefinitionSql P1
 		raise("DotNet Error: ViewDefinitionSql is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getSchema
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchema P1
+		raise("DotNet Error: Schema is a read-only property")
+
+	Func getSchemaQualifiedName
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SchemaQualifiedName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSchemaQualifiedName P1
+		raise("DotNet Error: SchemaQualifiedName is a read-only property")
+
+	Func getModel
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
+
+	Func setModel P1
+		raise("DotNet Error: Model is a read-only property")
+
+	Func getIsShared
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsShared")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsShared P1
+		raise("DotNet Error: IsShared is a read-only property")
+
+	Func getComplexTypeMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ComplexTypeMappings"))
+
+	Func setComplexTypeMappings P1
+		raise("DotNet Error: ComplexTypeMappings is a read-only property")
+
 
 Class IViewColumn from DotNetObject
 
 	View
 	PropertyMappings
+	Name
+	StoreType
+	ProviderClrType
+	StoreTypeMapping
+	IsNullable
+	Table
+	ProviderValueComparer
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10446,6 +24329,66 @@ Class IViewColumn from DotNetObject
 	Func FindColumnMapping P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getView
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
 
@@ -10458,11 +24401,62 @@ Class IViewColumn from DotNetObject
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		raise("DotNet Error: Name is a read-only property")
+
+	Func getStoreType
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setStoreType P1
+		raise("DotNet Error: StoreType is a read-only property")
+
+	Func getProviderClrType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProviderClrType"))
+
+	Func setProviderClrType P1
+		raise("DotNet Error: ProviderClrType is a read-only property")
+
+	Func getStoreTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypeMapping"))
+
+	Func setStoreTypeMapping P1
+		raise("DotNet Error: StoreTypeMapping is a read-only property")
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getProviderValueComparer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProviderValueComparer"))
+
+	Func setProviderValueComparer P1
+		raise("DotNet Error: ProviderValueComparer is a read-only property")
+
 
 Class IViewColumnMapping from DotNetObject
 
 	Column
 	ViewMapping
+	Property
+	TypeMapping
+	TableMapping
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10488,6 +24482,51 @@ Class IViewColumnMapping from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
 
@@ -10500,11 +24539,34 @@ Class IViewColumnMapping from DotNetObject
 	Func setViewMapping P1
 		raise("DotNet Error: ViewMapping is a read-only property")
 
+	Func getProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
+
+	Func setProperty P1
+		raise("DotNet Error: Property is a read-only property")
+
+	Func getTypeMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))
+
+	Func setTypeMapping P1
+		raise("DotNet Error: TypeMapping is a read-only property")
+
+	Func getTableMapping
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TableMapping"))
+
+	Func setTableMapping P1
+		raise("DotNet Error: TableMapping is a read-only property")
+
 
 Class IViewMapping from DotNetObject
 
 	View
 	ColumnMappings
+	TypeBase
+	Table
+	IsSharedTablePrincipal
+	IsSplitEntityTypePrincipal
+	IncludesDerivedTypes
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -10514,6 +24576,66 @@ Class IViewMapping from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
+
+	Func FindRuntimeAnnotationValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRuntimeAnnotationValue",P1))
+
+	Func GetRuntimeAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRuntimeAnnotations"))
+
+	Func AddRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRuntimeAnnotation",P1,P2))
+
+	Func SetRuntimeAnnotation P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetRuntimeAnnotation",P1,P2))
+
+	Func RemoveRuntimeAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RemoveRuntimeAnnotation",P1))
+
+	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func FindAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
+
+	Func GetAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
+
+	Func GetAnnotation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
+
+	Func AnnotationsToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getView
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
@@ -10526,6 +24648,36 @@ Class IViewMapping from DotNetObject
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
+
+	Func getTypeBase
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
+
+	Func setTypeBase P1
+		raise("DotNet Error: TypeBase is a read-only property")
+
+	Func getTable
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
+
+	Func setTable P1
+		raise("DotNet Error: Table is a read-only property")
+
+	Func getIsSharedTablePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:IsSharedTablePrincipal"))
+
+	Func setIsSharedTablePrincipal P1
+		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
+
+	Func getIsSplitEntityTypePrincipal
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:IsSplitEntityTypePrincipal"))
+
+	Func setIsSplitEntityTypePrincipal P1
+		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
+
+	Func getIncludesDerivedTypes
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:IncludesDerivedTypes"))
+
+	Func setIncludesDerivedTypes P1
+		raise("DotNet Error: IncludesDerivedTypes is a read-only property")
 
 
 Class IndexComparer from Object

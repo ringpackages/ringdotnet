@@ -2546,6 +2546,16 @@ Class IHubEndpointConventionBuilder from DotNetObject
 		ok
 		return self
 
+	Func Add P1
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+
+		return self
+
+	Func Finally P1
+		dotnet_callv("s4:call",nHandle,"s7:Finally",P1)
+
+		return self
+
 
 Class IISOptions from Object
 

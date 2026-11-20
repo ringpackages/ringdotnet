@@ -1497,6 +1497,9 @@ Class IKeyedServiceProvider from DotNetObject
 	Func GetRequiredKeyedService P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
 
+	Func GetService P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
+
 
 Class IMvcBuilder from DotNetObject
 
@@ -1594,6 +1597,9 @@ Class IServerSideBlazorBuilder from DotNetObject
 
 Class IServiceCollection from DotNetObject
 
+	Count
+	IsReadOnly
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1602,6 +1608,65 @@ Class IServiceCollection from DotNetObject
 			return self
 		ok
 		return self
+
+	Func IndexOf P1
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func RemoveAt P1
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+
+		return self
+
+	Func Add P1
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+
+		return self
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
 
 
 Class IServiceProviderIsKeyedService from DotNetObject
@@ -1617,6 +1682,11 @@ Class IServiceProviderIsKeyedService from DotNetObject
 
 	Func IsKeyedService P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsKeyedService",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsService P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsService",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -1649,6 +1719,11 @@ Class IServiceScope from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
 		return self
 
 	Func getServiceProvider

@@ -3277,6 +3277,11 @@ Class ICryptoTransform from DotNetObject
 	Func TransformFinalBlock P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformFinalBlock",P1,P2,P3))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getInputBlockSize
 		dn_x = dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

@@ -1467,6 +1467,11 @@ Class IBindingList from DotNetObject
 	IsSorted
 	SortProperty
 	SortDirection
+	IsReadOnly
+	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1504,6 +1509,49 @@ Class IBindingList from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s10:RemoveSort")
 
 		return self
+
+	Func Add P1
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func IndexOf P1
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func RemoveAt P1
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
@@ -1581,6 +1629,44 @@ Class IBindingList from DotNetObject
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
 
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
+	Func getIsFixedSize
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsFixedSize P1
+		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
+
 
 Class IBindingListView from DotNetObject
 
@@ -1588,6 +1674,20 @@ Class IBindingListView from DotNetObject
 	SortDescriptions
 	SupportsAdvancedSorting
 	SupportsFiltering
+	AllowNew
+	AllowEdit
+	AllowRemove
+	SupportsChangeNotification
+	SupportsSearching
+	SupportsSorting
+	IsSorted
+	SortProperty
+	SortDirection
+	IsReadOnly
+	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1599,6 +1699,10 @@ Class IBindingListView from DotNetObject
 		return self
 
 	Func ApplySort P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:ApplySort",P1)
+			return self
+		ok
 		dotnet_callv("s4:call",nHandle,"s9:ApplySort",P1)
 
 		return self
@@ -1606,6 +1710,80 @@ Class IBindingListView from DotNetObject
 	Func RemoveFilter 
 		dotnet_callv("s4:call",nHandle,"s12:RemoveFilter")
 
+		return self
+
+	Func AddNew 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
+
+	Func AddIndex P1
+		dotnet_callv("s4:call",nHandle,"s8:AddIndex",P1)
+
+		return self
+
+	Func Find P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Find",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func RemoveIndex P1
+		dotnet_callv("s4:call",nHandle,"s11:RemoveIndex",P1)
+
+		return self
+
+	Func RemoveSort 
+		dotnet_callv("s4:call",nHandle,"s10:RemoveSort")
+
+		return self
+
+	Func Add P1
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func IndexOf P1
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func RemoveAt P1
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func setListChangedEvent P1
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
+		return self
+
+	Func clearListChangedEvent
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"ListChanged"])
 		return self
 
 	Func getFilter
@@ -1638,6 +1816,112 @@ Class IBindingListView from DotNetObject
 
 	Func setSupportsFiltering P1
 		raise("DotNet Error: SupportsFiltering is a read-only property")
+
+	Func getAllowNew
+		dn_x = dotnet_call("s3:get",nHandle,"s8:AllowNew")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setAllowNew P1
+		raise("DotNet Error: AllowNew is a read-only property")
+
+	Func getAllowEdit
+		dn_x = dotnet_call("s3:get",nHandle,"s9:AllowEdit")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setAllowEdit P1
+		raise("DotNet Error: AllowEdit is a read-only property")
+
+	Func getAllowRemove
+		dn_x = dotnet_call("s3:get",nHandle,"s11:AllowRemove")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setAllowRemove P1
+		raise("DotNet Error: AllowRemove is a read-only property")
+
+	Func getSupportsChangeNotification
+		dn_x = dotnet_call("s3:get",nHandle,"s26:SupportsChangeNotification")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSupportsChangeNotification P1
+		raise("DotNet Error: SupportsChangeNotification is a read-only property")
+
+	Func getSupportsSearching
+		dn_x = dotnet_call("s3:get",nHandle,"s17:SupportsSearching")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSupportsSearching P1
+		raise("DotNet Error: SupportsSearching is a read-only property")
+
+	Func getSupportsSorting
+		dn_x = dotnet_call("s3:get",nHandle,"s15:SupportsSorting")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSupportsSorting P1
+		raise("DotNet Error: SupportsSorting is a read-only property")
+
+	Func getIsSorted
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSorted")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSorted P1
+		raise("DotNet Error: IsSorted is a read-only property")
+
+	Func getSortProperty
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SortProperty"))
+
+	Func setSortProperty P1
+		raise("DotNet Error: SortProperty is a read-only property")
+
+	Func getSortDirection
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SortDirection"))
+
+	Func setSortDirection P1
+		raise("DotNet Error: SortDirection is a read-only property")
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
+	Func getIsFixedSize
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsFixedSize P1
+		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
 
 
 Class ICancelAddNew from DotNetObject
@@ -1702,6 +1986,11 @@ Class IComponent from DotNetObject
 		ok
 		return self
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func setDisposedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Disposed",dnCallback(P1)])
 		return self
@@ -1742,6 +2031,11 @@ Class IContainer from DotNetObject
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -1951,6 +2245,7 @@ Class IListSource from DotNetObject
 Class INestedContainer from DotNetObject
 
 	Owner
+	Components
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1959,6 +2254,25 @@ Class INestedContainer from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func Add P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
 		return self
 
 	Func getOwner
@@ -1967,10 +2281,20 @@ Class INestedContainer from DotNetObject
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")
 
+	Func getComponents
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Components"))
+
+	Func setComponents P1
+		raise("DotNet Error: Components is a read-only property")
+
 
 Class INestedSite from DotNetObject
 
 	FullName
+	Component
+	Container
+	DesignMode
+	Name
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1981,6 +2305,9 @@ Class INestedSite from DotNetObject
 		ok
 		return self
 
+	Func GetService P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
+
 	Func getFullName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:FullName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1988,6 +2315,35 @@ Class INestedSite from DotNetObject
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
+
+	Func getComponent
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Component"))
+
+	Func setComponent P1
+		raise("DotNet Error: Component is a read-only property")
+
+	Func getContainer
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Container"))
+
+	Func setContainer P1
+		raise("DotNet Error: Container is a read-only property")
+
+	Func getDesignMode
+		dn_x = dotnet_call("s3:get",nHandle,"s10:DesignMode")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setDesignMode P1
+		raise("DotNet Error: DesignMode is a read-only property")
+
+	Func getName
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setName P1
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		return self
 
 
 Class INotifyDataErrorInfo from DotNetObject
@@ -2087,6 +2443,8 @@ Class IRaiseItemChangedEvents from DotNetObject
 
 Class IRevertibleChangeTracking from DotNetObject
 
+	IsChanged
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -2100,6 +2458,19 @@ Class IRevertibleChangeTracking from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s13:RejectChanges")
 
 		return self
+
+	Func AcceptChanges 
+		dotnet_callv("s4:call",nHandle,"s13:AcceptChanges")
+
+		return self
+
+	Func getIsChanged
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsChanged")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsChanged P1
+		raise("DotNet Error: IsChanged is a read-only property")
 
 
 Class ISite from DotNetObject
@@ -2117,6 +2488,9 @@ Class ISite from DotNetObject
 			return self
 		ok
 		return self
+
+	Func GetService P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
 	Func getComponent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Component"))
@@ -2181,6 +2555,16 @@ Class ISupportInitializeNotification from DotNetObject
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func BeginInit 
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
+
+		return self
+
+	Func EndInit 
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
+
 		return self
 
 	Func setInitializedEvent P1
@@ -2255,6 +2639,9 @@ Class ITypeDescriptorContext from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s18:OnComponentChanged")
 
 		return self
+
+	Func GetService P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
 	Func getContainer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Container"))

@@ -1033,6 +1033,7 @@ Class IArgumentProvider from DotNetObject
 Class IDynamicExpression from DotNetObject
 
 	DelegateType
+	ArgumentCount
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1049,11 +1050,22 @@ Class IDynamicExpression from DotNetObject
 	Func CreateCallSite 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateCallSite"))
 
+	Func GetArgument P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+
 	Func getDelegateType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DelegateType"))
 
 	Func setDelegateType P1
 		raise("DotNet Error: DelegateType is a read-only property")
+
+	Func getArgumentCount
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setArgumentCount P1
+		raise("DotNet Error: ArgumentCount is a read-only property")
 
 
 Class LabelTarget from Object

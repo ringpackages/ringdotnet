@@ -1372,6 +1372,7 @@ Class IConventionAnnotatableBuilder from DotNetObject
 Class IConventionCheckConstraintBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1416,16 +1417,41 @@ Class IConventionCheckConstraintBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionComplexPropertyBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1452,16 +1478,91 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func HasField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:HasField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
+
+	Func CanSetField P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UsePropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionComplexTypeBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1523,16 +1624,170 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
+	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
+
+	Func CanHaveProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanHaveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s15:CanHaveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:IndexerProperty",P1))
+		ok
+		raise("DotNet Error: IndexerProperty does not take one argument: use named arguments, IndexerProperty([ :parameter = value, ... ])")
+
+	Func CanHaveIndexerProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveIndexerProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanHaveIndexerProperty does not take one argument: use named arguments, CanHaveIndexerProperty([ :parameter = value, ... ])")
+
+	Func CreateUniqueProperty P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateUniqueProperty",P1,P2,P3))
+
+	Func GetOrCreateProperties P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:GetOrCreateProperties",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetOrCreateProperties",P1))
+
+	Func CanRemoveProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanRemoveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s17:CanRemoveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
+
+	Func CanHaveComplexProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:ComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: ComplexIndexerProperty does not take one argument: use named arguments, ComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func CanHaveComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s29:CanHaveComplexIndexerProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanHaveComplexIndexerProperty does not take one argument: use named arguments, CanHaveComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func CanRemoveComplexProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIgnored P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanIgnore P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetChangeTrackingStrategy P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionDbFunctionBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1679,16 +1934,41 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasParameter",P1))
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionDbFunctionParameterBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1749,11 +2029,35 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
+
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
 
 
 Class IConventionDiscriminatorBuilder from DotNetObject
@@ -1811,6 +2115,7 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 Class IConventionElementTypeBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -1983,16 +2288,41 @@ Class IConventionElementTypeBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionEntityTypeBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2363,16 +2693,170 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		ok
 		raise("DotNet Error: GetTargetEntityTypeBuilder does not take one argument: use named arguments, GetTargetEntityTypeBuilder([ :parameter = value, ... ])")
 
+	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
+
+	Func CanHaveProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanHaveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s15:CanHaveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:IndexerProperty",P1))
+		ok
+		raise("DotNet Error: IndexerProperty does not take one argument: use named arguments, IndexerProperty([ :parameter = value, ... ])")
+
+	Func CanHaveIndexerProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveIndexerProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanHaveIndexerProperty does not take one argument: use named arguments, CanHaveIndexerProperty([ :parameter = value, ... ])")
+
+	Func CreateUniqueProperty P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateUniqueProperty",P1,P2,P3))
+
+	Func GetOrCreateProperties P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:GetOrCreateProperties",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetOrCreateProperties",P1))
+
+	Func CanRemoveProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanRemoveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s17:CanRemoveProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ComplexProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ComplexProperty",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
+
+	Func CanHaveComplexProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:ComplexIndexerProperty",P1))
+		ok
+		raise("DotNet Error: ComplexIndexerProperty does not take one argument: use named arguments, ComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func CanHaveComplexIndexerProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s29:CanHaveComplexIndexerProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanHaveComplexIndexerProperty does not take one argument: use named arguments, CanHaveComplexIndexerProperty([ :parameter = value, ... ])")
+
+	Func CanRemoveComplexProperty P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveComplexProperty",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsIgnored P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanIgnore P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetChangeTrackingStrategy P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2383,16 +2867,59 @@ Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 		ok
 		return self
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionForeignKeyBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2585,16 +3112,41 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionIndexBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2655,16 +3207,41 @@ Class IConventionIndexBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionKeyBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2693,16 +3270,41 @@ Class IConventionKeyBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionModelBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2863,16 +3465,41 @@ Class IConventionModelBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionNavigationBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2931,11 +3558,85 @@ Class IConventionNavigationBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func HasField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:HasField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
+
+	Func CanSetField P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UsePropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
+
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
 
 
 Class IConventionOwnedEntityTypeBuilder from DotNetObject
@@ -2953,6 +3654,7 @@ Class IConventionOwnedEntityTypeBuilder from DotNetObject
 Class IConventionPropertyBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3251,16 +3953,91 @@ Class IConventionPropertyBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func HasField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:HasField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
+
+	Func CanSetField P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UsePropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionRelationalPropertyOverridesBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3271,16 +4048,59 @@ Class IConventionRelationalPropertyOverridesBuilder from DotNetObject
 		ok
 		return self
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionSequenceBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3405,16 +4225,41 @@ Class IConventionSequenceBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionServicePropertyBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3441,16 +4286,91 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func HasField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:HasField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
+
+	Func CanSetField P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UsePropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionSkipNavigationBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3525,16 +4445,91 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:EnableLazyLoading",P1))
 
+	Func HasAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasAnnotation",P1))
+		ok
+		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
+
+	Func HasNonNullAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",P1))
+		ok
+		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
+
+	Func HasNoAnnotation P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:HasNoAnnotation",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
+
+	Func HasField P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:HasField",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
+
+	Func CanSetField P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UsePropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
+
+	Func CanSetPropertyAccessMode P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionStoredProcedureBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3691,16 +4686,41 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionStoredProcedureParameterBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3761,16 +4781,41 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3815,16 +4860,41 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionTriggerBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3853,16 +4923,41 @@ Class IConventionTriggerBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
+
 
 Class IConventionTypeBaseBuilder from DotNetObject
 
 	Metadata
+	ModelBuilder
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -4053,11 +5148,35 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CanSetAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
+
+	Func CanRemoveAnnotation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
+
+	Func getModelBuilder
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ModelBuilder"))
+
+	Func setModelBuilder P1
+		raise("DotNet Error: ModelBuilder is a read-only property")
 
 
 Class IndexBuilder from Object

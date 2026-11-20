@@ -981,6 +981,11 @@ Class IHost from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1220,6 +1225,12 @@ Class IHostedLifecycleService from DotNetObject
 
 	Func StoppedAsync P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:StoppedAsync",P1))
+
+	Func StartAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+
+	Func StopAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 
 Class IHostedService from DotNetObject

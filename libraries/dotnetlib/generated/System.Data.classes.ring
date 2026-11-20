@@ -2580,6 +2580,12 @@ Class IColumnMapping from DotNetObject
 
 Class IColumnMappingCollection from DotNetObject
 
+	IsReadOnly
+	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -2589,8 +2595,15 @@ Class IColumnMappingCollection from DotNetObject
 		ok
 		return self
 
-	Func Add P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1,P2))
+	Func Add P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
@@ -2610,12 +2623,73 @@ Class IColumnMappingCollection from DotNetObject
 
 		return self
 
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
+	Func getIsFixedSize
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsFixedSize P1
+		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
 
 
 Class IDataAdapter from DotNetObject
@@ -2746,6 +2820,12 @@ Class IDataParameter from DotNetObject
 
 Class IDataParameterCollection from DotNetObject
 
+	IsReadOnly
+	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -2770,6 +2850,34 @@ Class IDataParameterCollection from DotNetObject
 
 		return self
 
+	Func Add P1
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -2777,12 +2885,51 @@ Class IDataParameterCollection from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
+	Func getIsFixedSize
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsFixedSize P1
+		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
+
 
 Class IDataReader from DotNetObject
 
 	Depth
 	IsClosed
 	RecordsAffected
+	FieldCount
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -2811,6 +2958,109 @@ Class IDataReader from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func GetName P1
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDataTypeName P1
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFieldType P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
+
+	Func GetValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+
+	Func GetValues P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetOrdinal P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetOrdinal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetBoolean P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetByte P1
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetBytes P1,P2,P3,P4,P5
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetChar P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetChar",P1))
+
+	Func GetChars P1,P2,P3,P4,P5
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetGuid P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
+
+	Func GetInt16 P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetInt32 P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetInt64 P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFloat P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetFloat",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDouble P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetString P1
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDecimal P1
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDateTime P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
+
+	Func GetData P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+
+	Func IsDBNull P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsDBNull",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getDepth
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Depth")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2834,6 +3084,14 @@ Class IDataReader from DotNetObject
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
+
+	Func getFieldCount
+		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setFieldCount P1
+		raise("DotNet Error: FieldCount is a read-only property")
 
 
 Class IDataRecord from DotNetObject
@@ -3008,6 +3266,11 @@ Class IDbCommand from DotNetObject
 	Func ExecuteScalar 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getConnection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
@@ -3104,6 +3367,11 @@ Class IDbConnection from DotNetObject
 
 		return self
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 	Func getConnectionString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3142,6 +3410,9 @@ Class IDbDataAdapter from DotNetObject
 	InsertCommand
 	UpdateCommand
 	DeleteCommand
+	MissingMappingAction
+	MissingSchemaAction
+	TableMappings
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3151,6 +3422,22 @@ Class IDbDataAdapter from DotNetObject
 			return self
 		ok
 		return self
+
+	Func FillSchema P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FillSchema",P1,P2))
+
+	Func Fill P1
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFillParameters 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetFillParameters"))
+
+	Func Update P1
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getSelectCommand
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SelectCommand"))
@@ -3180,12 +3467,39 @@ Class IDbDataAdapter from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s13:DeleteCommand",P1)
 		return self
 
+	Func getMissingMappingAction
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MissingMappingAction"))
+
+	Func setMissingMappingAction P1
+		dotnet_callv("s3:set",nHandle,"s20:MissingMappingAction",P1)
+		return self
+
+	Func getMissingSchemaAction
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:MissingSchemaAction"))
+
+	Func setMissingSchemaAction P1
+		dotnet_callv("s3:set",nHandle,"s19:MissingSchemaAction",P1)
+		return self
+
+	Func getTableMappings
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TableMappings"))
+
+	Func setTableMappings P1
+		raise("DotNet Error: TableMappings is a read-only property")
+
 
 Class IDbDataParameter from DotNetObject
 
 	Precision
 	Scale
 	Size
+	DbType
+	Direction
+	IsNullable
+	ParameterName
+	SourceColumn
+	SourceVersion
+	Value
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3223,6 +3537,60 @@ Class IDbDataParameter from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
 		return self
 
+	Func getDbType
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:DbType"))
+
+	Func setDbType P1
+		dotnet_callv("s3:set",nHandle,"s6:DbType",P1)
+		return self
+
+	Func getDirection
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+
+	Func setDirection P1
+		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		return self
+
+	Func getIsNullable
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsNullable P1
+		raise("DotNet Error: IsNullable is a read-only property")
+
+	Func getParameterName
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setParameterName P1
+		dotnet_callv("s3:set",nHandle,"s13:ParameterName",P1)
+		return self
+
+	Func getSourceColumn
+		dn_x = dotnet_call("s3:get",nHandle,"s12:SourceColumn")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setSourceColumn P1
+		dotnet_callv("s3:set",nHandle,"s12:SourceColumn",P1)
+		return self
+
+	Func getSourceVersion
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SourceVersion"))
+
+	Func setSourceVersion P1
+		dotnet_callv("s3:set",nHandle,"s13:SourceVersion",P1)
+		return self
+
+	Func getValue
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+
+	Func setValue P1
+		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		return self
+
 
 Class IDbTransaction from DotNetObject
 
@@ -3245,6 +3613,11 @@ Class IDbTransaction from DotNetObject
 
 	Func Rollback 
 		dotnet_callv("s4:call",nHandle,"s8:Rollback")
+
+		return self
+
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -3303,6 +3676,12 @@ Class ITableMapping from DotNetObject
 
 Class ITableMappingCollection from DotNetObject
 
+	IsReadOnly
+	IsFixedSize
+	Count
+	SyncRoot
+	IsSynchronized
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -3312,8 +3691,15 @@ Class ITableMappingCollection from DotNetObject
 		ok
 		return self
 
-	Func Add P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1,P2))
+	Func Add P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
@@ -3333,12 +3719,73 @@ Class ITableMappingCollection from DotNetObject
 
 		return self
 
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Insert P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+
+		return self
+
+	Func Remove P1
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+
+		return self
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
+	Func getIsFixedSize
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsFixedSize P1
+		raise("DotNet Error: IsFixedSize is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getSyncRoot
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
+
+	Func setSyncRoot P1
+		raise("DotNet Error: SyncRoot is a read-only property")
+
+	Func getIsSynchronized
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsSynchronized P1
+		raise("DotNet Error: IsSynchronized is a read-only property")
 
 
 Class InternalDataCollectionBase from Object

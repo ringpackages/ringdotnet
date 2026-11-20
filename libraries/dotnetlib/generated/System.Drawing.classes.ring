@@ -3526,6 +3526,11 @@ Class IDeviceContext from DotNetObject
 
 		return self
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
 
 Class Icon from MarshalByRefObject
 

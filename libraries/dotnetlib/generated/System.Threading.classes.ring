@@ -966,6 +966,14 @@ Class ITimer from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Dispose 
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
+
+		return self
+
+	Func DisposeAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
 
 Class Interlocked from Object
 

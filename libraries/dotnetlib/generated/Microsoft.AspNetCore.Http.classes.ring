@@ -2915,6 +2915,9 @@ Class IFormCollection from DotNetObject
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -3020,6 +3023,8 @@ Class IFormFile from DotNetObject
 
 Class IFormFileCollection from DotNetObject
 
+	Count
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -3035,8 +3040,19 @@ Class IFormFileCollection from DotNetObject
 	Func GetFiles P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles",P1))
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
 
 
 Class IHeaderDictionary from DotNetObject
@@ -3131,6 +3147,10 @@ Class IHeaderDictionary from DotNetObject
 	XRequestedWith
 	XUACompatible
 	XXSSProtection
+	Keys
+	Values
+	Count
+	IsReadOnly
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -3140,6 +3160,46 @@ Class IHeaderDictionary from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ContainsKey P1
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Add P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+
+		return self
+
+	Func Remove P1
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func TryGetValue P1
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
+
+	Func Clear 
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
+
+		return self
+
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CopyTo P1,P2
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+
+		return self
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -3778,6 +3838,34 @@ Class IHeaderDictionary from DotNetObject
 		dotnet_callv("s3:set",nHandle,"s14:XXSSProtection",P1)
 		return self
 
+	Func getKeys
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
+
+	Func setKeys P1
+		raise("DotNet Error: Keys is a read-only property")
+
+	Func getValues
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
+
+	Func setValues P1
+		raise("DotNet Error: Values is a read-only property")
+
+	Func getCount
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
+	Func getIsReadOnly
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func setIsReadOnly P1
+		raise("DotNet Error: IsReadOnly is a read-only property")
+
 
 Class IHttpContextAccessor from DotNetObject
 
@@ -3930,6 +4018,9 @@ Class IQueryCollection from DotNetObject
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -3969,6 +4060,9 @@ Class IRequestCookieCollection from DotNetObject
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
+
+	Func GetEnumerator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
