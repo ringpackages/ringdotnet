@@ -137,32 +137,48 @@ Class BitmapEffectCollection from Animatable
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
@@ -172,11 +188,14 @@ Class BitmapEffectCollection from Animatable
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -227,27 +246,32 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func ShouldSerializeInput 
-		return dnSend("s4:call",nHandle,"s20:ShouldSerializeInput","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeInput")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ShouldSerializeInput",[]) ok
+		return dn_x
 
 	Func getInput
 		return dnSend("s3:get",nHandle,"s5:Input","")
 
 	Func setInput P1
-		dnSend("s3:set",nHandle,"s5:Input",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Input",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Input",dnPackItem(P1)) ok
 		return self
 
 	Func getAreaToApplyEffectUnits
 		return dnSend("s3:get",nHandle,"s22:AreaToApplyEffectUnits","")
 
 	Func setAreaToApplyEffectUnits P1
-		dnSend("s3:set",nHandle,"s22:AreaToApplyEffectUnits",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:AreaToApplyEffectUnits",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:AreaToApplyEffectUnits",dnPackItem(P1)) ok
 		return self
 
 	Func getAreaToApplyEffect
 		return dnSend("s3:get",nHandle,"s17:AreaToApplyEffect","")
 
 	Func setAreaToApplyEffect P1
-		dnSend("s3:set",nHandle,"s17:AreaToApplyEffect",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:AreaToApplyEffect",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:AreaToApplyEffect",dnPackItem(P1)) ok
 		return self
 
 	Func getContextInputSource
@@ -321,7 +345,9 @@ Class PixelShader from Animatable
 		return self
 
 	Func SetStreamSource P1
-		dnSend("s4:call",nHandle,"s15:SetStreamSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetStreamSource",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetStreamSource",dnPackItem(P1)) ok
+
 		return self
 
 	Func setInvalidPixelShaderEncounteredEvent P1
@@ -336,14 +362,16 @@ Class PixelShader from Animatable
 		return dnSend("s3:get",nHandle,"s9:UriSource","")
 
 	Func setUriSource P1
-		dnSend("s3:set",nHandle,"s9:UriSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:UriSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:UriSource",dnPackItem(P1)) ok
 		return self
 
 	Func getShaderRenderMode
 		return dnSend("s3:get",nHandle,"s16:ShaderRenderMode","")
 
 	Func setShaderRenderMode P1
-		dnSend("s3:set",nHandle,"s16:ShaderRenderMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ShaderRenderMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ShaderRenderMode",dnPackItem(P1)) ok
 		return self
 
 	Func getUriSourceProperty
@@ -391,38 +419,51 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getBevelWidth
-		return dnSend("s3:get",nHandle,"s10:BevelWidth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:BevelWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:BevelWidth",[]) ok
+		return dn_x
 
 	Func setBevelWidth P1
-		dnSend("s3:set",nHandle,"s10:BevelWidth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:BevelWidth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BevelWidth",dnPackItem(P1)) ok
 		return self
 
 	Func getRelief
-		return dnSend("s3:get",nHandle,"s6:Relief","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Relief")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Relief",[]) ok
+		return dn_x
 
 	Func setRelief P1
-		dnSend("s3:set",nHandle,"s6:Relief",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Relief",dnPackItem(P1)) ok
 		return self
 
 	Func getLightAngle
-		return dnSend("s3:get",nHandle,"s10:LightAngle","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:LightAngle")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:LightAngle",[]) ok
+		return dn_x
 
 	Func setLightAngle P1
-		dnSend("s3:set",nHandle,"s10:LightAngle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:LightAngle",dnPackItem(P1)) ok
 		return self
 
 	Func getSmoothness
-		return dnSend("s3:get",nHandle,"s10:Smoothness","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Smoothness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Smoothness",[]) ok
+		return dn_x
 
 	Func setSmoothness P1
-		dnSend("s3:set",nHandle,"s10:Smoothness",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Smoothness",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Smoothness",dnPackItem(P1)) ok
 		return self
 
 	Func getEdgeProfile
 		return dnSend("s3:get",nHandle,"s11:EdgeProfile","")
 
 	Func setEdgeProfile P1
-		dnSend("s3:set",nHandle,"s11:EdgeProfile",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:EdgeProfile",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:EdgeProfile",dnPackItem(P1)) ok
 		return self
 
 	Func getBevelWidthProperty
@@ -483,7 +524,8 @@ Class BitmapEffectGroup from BitmapEffect
 		return dnSend("s3:get",nHandle,"s8:Children","")
 
 	Func setChildren P1
-		dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
 		return self
 
 	Func getChildrenProperty
@@ -519,17 +561,21 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getRadius
-		return dnSend("s3:get",nHandle,"s6:Radius","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Radius",[]) ok
+		return dn_x
 
 	Func setRadius P1
-		dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1)) ok
 		return self
 
 	Func getKernelType
 		return dnSend("s3:get",nHandle,"s10:KernelType","")
 
 	Func setKernelType P1
-		dnSend("s3:set",nHandle,"s10:KernelType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:KernelType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:KernelType",dnPackItem(P1)) ok
 		return self
 
 	Func getRadiusProperty
@@ -573,24 +619,29 @@ Class BlurEffect from Effect
 		return self
 
 	Func getRadius
-		return dnSend("s3:get",nHandle,"s6:Radius","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Radius",[]) ok
+		return dn_x
 
 	Func setRadius P1
-		dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1)) ok
 		return self
 
 	Func getKernelType
 		return dnSend("s3:get",nHandle,"s10:KernelType","")
 
 	Func setKernelType P1
-		dnSend("s3:set",nHandle,"s10:KernelType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:KernelType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:KernelType",dnPackItem(P1)) ok
 		return self
 
 	Func getRenderingBias
 		return dnSend("s3:get",nHandle,"s13:RenderingBias","")
 
 	Func setRenderingBias P1
-		dnSend("s3:set",nHandle,"s13:RenderingBias",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:RenderingBias",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:RenderingBias",dnPackItem(P1)) ok
 		return self
 
 	Func getRadiusProperty
@@ -646,45 +697,61 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getShadowDepth
-		return dnSend("s3:get",nHandle,"s11:ShadowDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ShadowDepth",[]) ok
+		return dn_x
 
 	Func setShadowDepth P1
-		dnSend("s3:set",nHandle,"s11:ShadowDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ShadowDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getColor
 		return dnSend("s3:get",nHandle,"s5:Color","")
 
 	Func setColor P1
-		dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
 		return self
 
 	Func getDirection
-		return dnSend("s3:get",nHandle,"s9:Direction","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Direction")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Direction",[]) ok
+		return dn_x
 
 	Func setDirection P1
-		dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1)) ok
 		return self
 
 	Func getNoise
-		return dnSend("s3:get",nHandle,"s5:Noise","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Noise")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Noise",[]) ok
+		return dn_x
 
 	Func setNoise P1
-		dnSend("s3:set",nHandle,"s5:Noise",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Noise",dnPackItem(P1)) ok
 		return self
 
 	Func getOpacity
-		return dnSend("s3:get",nHandle,"s7:Opacity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Opacity",[]) ok
+		return dn_x
 
 	Func setOpacity P1
-		dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1)) ok
 		return self
 
 	Func getSoftness
-		return dnSend("s3:get",nHandle,"s8:Softness","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Softness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Softness",[]) ok
+		return dn_x
 
 	Func setSoftness P1
-		dnSend("s3:set",nHandle,"s8:Softness",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Softness",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Softness",dnPackItem(P1)) ok
 		return self
 
 	Func getShadowDepthProperty
@@ -758,45 +825,59 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getShadowDepth
-		return dnSend("s3:get",nHandle,"s11:ShadowDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ShadowDepth",[]) ok
+		return dn_x
 
 	Func setShadowDepth P1
-		dnSend("s3:set",nHandle,"s11:ShadowDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ShadowDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getColor
 		return dnSend("s3:get",nHandle,"s5:Color","")
 
 	Func setColor P1
-		dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
 		return self
 
 	Func getDirection
-		return dnSend("s3:get",nHandle,"s9:Direction","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Direction")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Direction",[]) ok
+		return dn_x
 
 	Func setDirection P1
-		dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1)) ok
 		return self
 
 	Func getOpacity
-		return dnSend("s3:get",nHandle,"s7:Opacity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Opacity",[]) ok
+		return dn_x
 
 	Func setOpacity P1
-		dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1)) ok
 		return self
 
 	Func getBlurRadius
-		return dnSend("s3:get",nHandle,"s10:BlurRadius","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:BlurRadius")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:BlurRadius",[]) ok
+		return dn_x
 
 	Func setBlurRadius P1
-		dnSend("s3:set",nHandle,"s10:BlurRadius",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:BlurRadius",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BlurRadius",dnPackItem(P1)) ok
 		return self
 
 	Func getRenderingBias
 		return dnSend("s3:get",nHandle,"s13:RenderingBias","")
 
 	Func setRenderingBias P1
-		dnSend("s3:set",nHandle,"s13:RenderingBias",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:RenderingBias",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:RenderingBias",dnPackItem(P1)) ok
 		return self
 
 	Func getShadowDepthProperty
@@ -862,17 +943,23 @@ Class EmbossBitmapEffect from BitmapEffect
 		return self
 
 	Func getLightAngle
-		return dnSend("s3:get",nHandle,"s10:LightAngle","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:LightAngle")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:LightAngle",[]) ok
+		return dn_x
 
 	Func setLightAngle P1
-		dnSend("s3:set",nHandle,"s10:LightAngle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:LightAngle",dnPackItem(P1)) ok
 		return self
 
 	Func getRelief
-		return dnSend("s3:get",nHandle,"s6:Relief","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Relief")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Relief",[]) ok
+		return dn_x
 
 	Func setRelief P1
-		dnSend("s3:set",nHandle,"s6:Relief",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Relief",dnPackItem(P1)) ok
 		return self
 
 	Func getLightAngleProperty
@@ -921,28 +1008,38 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		return dnSend("s3:get",nHandle,"s9:GlowColor","")
 
 	Func setGlowColor P1
-		dnSend("s3:set",nHandle,"s9:GlowColor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:GlowColor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:GlowColor",dnPackItem(P1)) ok
 		return self
 
 	Func getGlowSize
-		return dnSend("s3:get",nHandle,"s8:GlowSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:GlowSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:GlowSize",[]) ok
+		return dn_x
 
 	Func setGlowSize P1
-		dnSend("s3:set",nHandle,"s8:GlowSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:GlowSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:GlowSize",dnPackItem(P1)) ok
 		return self
 
 	Func getNoise
-		return dnSend("s3:get",nHandle,"s5:Noise","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Noise")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Noise",[]) ok
+		return dn_x
 
 	Func setNoise P1
-		dnSend("s3:set",nHandle,"s5:Noise",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Noise",dnPackItem(P1)) ok
 		return self
 
 	Func getOpacity
-		return dnSend("s3:get",nHandle,"s7:Opacity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Opacity",[]) ok
+		return dn_x
 
 	Func setOpacity P1
-		dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1)) ok
 		return self
 
 	Func getGlowColorProperty

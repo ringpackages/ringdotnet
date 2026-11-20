@@ -187,7 +187,9 @@ Class AuthenticationHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -196,13 +198,17 @@ Class AuthenticationHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getScheme
-		return dnSend("s3:get",nHandle,"s6:Scheme","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Scheme")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Scheme",[]) ok
+		return dn_x
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getParameter
-		return dnSend("s3:get",nHandle,"s9:Parameter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Parameter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Parameter",[]) ok
+		return dn_x
 
 	Func setParameter P1
 		raise("DotNet Error: Parameter is a read-only property")
@@ -245,7 +251,9 @@ Class CacheControlHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -254,10 +262,13 @@ Class CacheControlHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNoCache
-		return dnSend("s3:get",nHandle,"s7:NoCache","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NoCache")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NoCache",[]) ok
+		return dn_x
 
 	Func setNoCache P1
-		dnSend("s3:set",nHandle,"s7:NoCache",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NoCache",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NoCache",dnPackItem(P1)) ok
 		return self
 
 	Func getNoCacheHeaders
@@ -267,73 +278,95 @@ Class CacheControlHeaderValue from Object
 		raise("DotNet Error: NoCacheHeaders is a read-only property")
 
 	Func getNoStore
-		return dnSend("s3:get",nHandle,"s7:NoStore","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NoStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NoStore",[]) ok
+		return dn_x
 
 	Func setNoStore P1
-		dnSend("s3:set",nHandle,"s7:NoStore",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NoStore",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NoStore",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxAge
 		return dnSend("s3:get",nHandle,"s6:MaxAge","")
 
 	Func setMaxAge P1
-		dnSend("s3:set",nHandle,"s6:MaxAge",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:MaxAge",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:MaxAge",dnPackItem(P1)) ok
 		return self
 
 	Func getSharedMaxAge
 		return dnSend("s3:get",nHandle,"s12:SharedMaxAge","")
 
 	Func setSharedMaxAge P1
-		dnSend("s3:set",nHandle,"s12:SharedMaxAge",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SharedMaxAge",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SharedMaxAge",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxStale
-		return dnSend("s3:get",nHandle,"s8:MaxStale","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxStale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxStale",[]) ok
+		return dn_x
 
 	Func setMaxStale P1
-		dnSend("s3:set",nHandle,"s8:MaxStale",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxStale",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxStale",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxStaleLimit
 		return dnSend("s3:get",nHandle,"s13:MaxStaleLimit","")
 
 	Func setMaxStaleLimit P1
-		dnSend("s3:set",nHandle,"s13:MaxStaleLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:MaxStaleLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:MaxStaleLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getMinFresh
 		return dnSend("s3:get",nHandle,"s8:MinFresh","")
 
 	Func setMinFresh P1
-		dnSend("s3:set",nHandle,"s8:MinFresh",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MinFresh",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MinFresh",dnPackItem(P1)) ok
 		return self
 
 	Func getNoTransform
-		return dnSend("s3:get",nHandle,"s11:NoTransform","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:NoTransform")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:NoTransform",[]) ok
+		return dn_x
 
 	Func setNoTransform P1
-		dnSend("s3:set",nHandle,"s11:NoTransform",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:NoTransform",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:NoTransform",dnPackItem(P1)) ok
 		return self
 
 	Func getOnlyIfCached
-		return dnSend("s3:get",nHandle,"s12:OnlyIfCached","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:OnlyIfCached")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:OnlyIfCached",[]) ok
+		return dn_x
 
 	Func setOnlyIfCached P1
-		dnSend("s3:set",nHandle,"s12:OnlyIfCached",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:OnlyIfCached",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:OnlyIfCached",dnPackItem(P1)) ok
 		return self
 
 	Func getPublic
-		return dnSend("s3:get",nHandle,"s6:Public","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Public")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Public",[]) ok
+		return dn_x
 
 	Func setPublic P1
-		dnSend("s3:set",nHandle,"s6:Public",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Public",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Public",dnPackItem(P1)) ok
 		return self
 
 	Func getPrivate
-		return dnSend("s3:get",nHandle,"s7:Private","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Private")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Private",[]) ok
+		return dn_x
 
 	Func setPrivate P1
-		dnSend("s3:set",nHandle,"s7:Private",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Private",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Private",dnPackItem(P1)) ok
 		return self
 
 	Func getPrivateHeaders
@@ -343,17 +376,23 @@ Class CacheControlHeaderValue from Object
 		raise("DotNet Error: PrivateHeaders is a read-only property")
 
 	Func getMustRevalidate
-		return dnSend("s3:get",nHandle,"s14:MustRevalidate","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:MustRevalidate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:MustRevalidate",[]) ok
+		return dn_x
 
 	Func setMustRevalidate P1
-		dnSend("s3:set",nHandle,"s14:MustRevalidate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:MustRevalidate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:MustRevalidate",dnPackItem(P1)) ok
 		return self
 
 	Func getProxyRevalidate
-		return dnSend("s3:get",nHandle,"s15:ProxyRevalidate","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ProxyRevalidate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ProxyRevalidate",[]) ok
+		return dn_x
 
 	Func setProxyRevalidate P1
-		dnSend("s3:set",nHandle,"s15:ProxyRevalidate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ProxyRevalidate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ProxyRevalidate",dnPackItem(P1)) ok
 		return self
 
 	Func getExtensions
@@ -387,7 +426,9 @@ Class ContentDispositionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -396,10 +437,13 @@ Class ContentDispositionHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getDispositionType
-		return dnSend("s3:get",nHandle,"s15:DispositionType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:DispositionType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:DispositionType",[]) ok
+		return dn_x
 
 	Func setDispositionType P1
-		dnSend("s3:set",nHandle,"s15:DispositionType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:DispositionType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DispositionType",dnPackItem(P1)) ok
 		return self
 
 	Func getParameters
@@ -409,52 +453,65 @@ Class ContentDispositionHeaderValue from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getFileName
-		return dnSend("s3:get",nHandle,"s8:FileName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FileName",[]) ok
+		return dn_x
 
 	Func setFileName P1
-		dnSend("s3:set",nHandle,"s8:FileName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FileName",dnPackItem(P1)) ok
 		return self
 
 	Func getFileNameStar
-		return dnSend("s3:get",nHandle,"s12:FileNameStar","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:FileNameStar")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FileNameStar",[]) ok
+		return dn_x
 
 	Func setFileNameStar P1
-		dnSend("s3:set",nHandle,"s12:FileNameStar",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:FileNameStar",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FileNameStar",dnPackItem(P1)) ok
 		return self
 
 	Func getCreationDate
 		return dnSend("s3:get",nHandle,"s12:CreationDate","")
 
 	Func setCreationDate P1
-		dnSend("s3:set",nHandle,"s12:CreationDate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:CreationDate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CreationDate",dnPackItem(P1)) ok
 		return self
 
 	Func getModificationDate
 		return dnSend("s3:get",nHandle,"s16:ModificationDate","")
 
 	Func setModificationDate P1
-		dnSend("s3:set",nHandle,"s16:ModificationDate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ModificationDate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ModificationDate",dnPackItem(P1)) ok
 		return self
 
 	Func getReadDate
 		return dnSend("s3:get",nHandle,"s8:ReadDate","")
 
 	Func setReadDate P1
-		dnSend("s3:set",nHandle,"s8:ReadDate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:ReadDate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:ReadDate",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 
@@ -494,7 +551,9 @@ Class ContentRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -503,10 +562,13 @@ Class ContentRangeHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
-		return dnSend("s3:get",nHandle,"s4:Unit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Unit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Unit",[]) ok
+		return dn_x
 
 	Func setUnit P1
-		dnSend("s3:set",nHandle,"s4:Unit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Unit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Unit",dnPackItem(P1)) ok
 		return self
 
 	Func getFrom
@@ -528,13 +590,17 @@ Class ContentRangeHeaderValue from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getHasLength
-		return dnSend("s3:get",nHandle,"s9:HasLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:HasLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:HasLength",[]) ok
+		return dn_x
 
 	Func setHasLength P1
 		raise("DotNet Error: HasLength is a read-only property")
 
 	Func getHasRange
-		return dnSend("s3:get",nHandle,"s8:HasRange","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HasRange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HasRange",[]) ok
+		return dn_x
 
 	Func setHasRange P1
 		raise("DotNet Error: HasRange is a read-only property")
@@ -573,7 +639,9 @@ Class EntityTagHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -582,13 +650,17 @@ Class EntityTagHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getTag
-		return dnSend("s3:get",nHandle,"s3:Tag","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Tag")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Tag",[]) ok
+		return dn_x
 
 	Func setTag P1
 		raise("DotNet Error: Tag is a read-only property")
 
 	Func getIsWeak
-		return dnSend("s3:get",nHandle,"s6:IsWeak","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsWeak")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsWeak",[]) ok
+		return dn_x
 
 	Func setIsWeak P1
 		raise("DotNet Error: IsWeak is a read-only property")
@@ -626,7 +698,9 @@ Class HeaderStringValues from ValueType
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -646,11 +720,15 @@ Class HttpHeaders from Object
 		return self
 
 	Func Add P1,P2
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func TryAddWithoutValidation P1,P2
-		return dnSend("s4:call",nHandle,"s23:TryAddWithoutValidation",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s23:TryAddWithoutValidation",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:TryAddWithoutValidation",[P1,P2]) ok
+		return dn_x
 
 	Func GetValues P1
 		return dnSend("s4:call",nHandle,"s9:GetValues",dnPackItem(P1))
@@ -659,20 +737,28 @@ Class HttpHeaders from Object
 		return dnSend("s4:call",nHandle,"s12:TryGetValues",dnPackItem(P1))
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNonValidated
 		return dnSend("s3:get",nHandle,"s12:NonValidated","")
@@ -704,7 +790,9 @@ Class HttpHeadersNonValidated from ValueType
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func TryGetValues P1
 		return dnSend("s4:call",nHandle,"s12:TryGetValues",dnPackItem(P1))
@@ -716,7 +804,9 @@ Class HttpHeadersNonValidated from ValueType
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -755,7 +845,9 @@ Class MediaTypeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -764,10 +856,13 @@ Class MediaTypeHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getCharSet
-		return dnSend("s3:get",nHandle,"s7:CharSet","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:CharSet")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CharSet",[]) ok
+		return dn_x
 
 	Func setCharSet P1
-		dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1)) ok
 		return self
 
 	Func getParameters
@@ -777,10 +872,13 @@ Class MediaTypeHeaderValue from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getMediaType
-		return dnSend("s3:get",nHandle,"s9:MediaType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MediaType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MediaType",[]) ok
+		return dn_x
 
 	Func setMediaType P1
-		dnSend("s3:set",nHandle,"s9:MediaType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:MediaType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MediaType",dnPackItem(P1)) ok
 		return self
 
 
@@ -816,7 +914,9 @@ Class NameValueHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -825,16 +925,21 @@ Class NameValueHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -870,7 +975,9 @@ Class ProductHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -879,13 +986,17 @@ Class ProductHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		return dn_x
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -923,7 +1034,9 @@ Class ProductInfoHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -938,7 +1051,9 @@ Class ProductInfoHeaderValue from Object
 		raise("DotNet Error: Product is a read-only property")
 
 	Func getComment
-		return dnSend("s3:get",nHandle,"s7:Comment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Comment",[]) ok
+		return dn_x
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
@@ -961,7 +1076,9 @@ Class RangeConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1022,7 +1139,9 @@ Class RangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1031,10 +1150,13 @@ Class RangeHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
-		return dnSend("s3:get",nHandle,"s4:Unit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Unit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Unit",[]) ok
+		return dn_x
 
 	Func setUnit P1
-		dnSend("s3:set",nHandle,"s4:Unit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Unit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Unit",dnPackItem(P1)) ok
 		return self
 
 	Func getRanges
@@ -1061,7 +1183,9 @@ Class RangeItemHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFrom
 		return dnSend("s3:get",nHandle,"s4:From","")
@@ -1093,7 +1217,9 @@ Class RetryConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1146,7 +1272,9 @@ Class StringWithQualityHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1155,7 +1283,9 @@ Class StringWithQualityHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1184,7 +1314,9 @@ Class TransferCodingHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1193,7 +1325,9 @@ Class TransferCodingHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1239,7 +1373,9 @@ Class ViaHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1248,25 +1384,33 @@ Class ViaHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getProtocolName
-		return dnSend("s3:get",nHandle,"s12:ProtocolName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProtocolName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProtocolName",[]) ok
+		return dn_x
 
 	Func setProtocolName P1
 		raise("DotNet Error: ProtocolName is a read-only property")
 
 	Func getProtocolVersion
-		return dnSend("s3:get",nHandle,"s15:ProtocolVersion","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ProtocolVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ProtocolVersion",[]) ok
+		return dn_x
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getReceivedBy
-		return dnSend("s3:get",nHandle,"s10:ReceivedBy","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ReceivedBy")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ReceivedBy",[]) ok
+		return dn_x
 
 	Func setReceivedBy P1
 		raise("DotNet Error: ReceivedBy is a read-only property")
 
 	Func getComment
-		return dnSend("s3:get",nHandle,"s7:Comment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Comment",[]) ok
+		return dn_x
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
@@ -1306,7 +1450,9 @@ Class WarningHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"s5:Parse",dnPackItem(P1))
@@ -1315,19 +1461,25 @@ Class WarningHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getCode
-		return dnSend("s3:get",nHandle,"s4:Code","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Code")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Code",[]) ok
+		return dn_x
 
 	Func setCode P1
 		raise("DotNet Error: Code is a read-only property")
 
 	Func getAgent
-		return dnSend("s3:get",nHandle,"s5:Agent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Agent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Agent",[]) ok
+		return dn_x
 
 	Func setAgent P1
 		raise("DotNet Error: Agent is a read-only property")
 
 	Func getText
-		return dnSend("s3:get",nHandle,"s4:Text","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
@@ -1372,7 +1524,8 @@ Class HttpContentHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s18:ContentDisposition","")
 
 	Func setContentDisposition P1
-		dnSend("s3:set",nHandle,"s18:ContentDisposition",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ContentDisposition",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ContentDisposition",dnPackItem(P1)) ok
 		return self
 
 	Func getContentEncoding
@@ -1391,49 +1544,56 @@ Class HttpContentHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s13:ContentLength","")
 
 	Func setContentLength P1
-		dnSend("s3:set",nHandle,"s13:ContentLength",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ContentLength",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ContentLength",dnPackItem(P1)) ok
 		return self
 
 	Func getContentLocation
 		return dnSend("s3:get",nHandle,"s15:ContentLocation","")
 
 	Func setContentLocation P1
-		dnSend("s3:set",nHandle,"s15:ContentLocation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ContentLocation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ContentLocation",dnPackItem(P1)) ok
 		return self
 
 	Func getContentMD5
 		return dnSend("s3:get",nHandle,"s10:ContentMD5","")
 
 	Func setContentMD5 P1
-		dnSend("s3:set",nHandle,"s10:ContentMD5",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:ContentMD5",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ContentMD5",dnPackItem(P1)) ok
 		return self
 
 	Func getContentRange
 		return dnSend("s3:get",nHandle,"s12:ContentRange","")
 
 	Func setContentRange P1
-		dnSend("s3:set",nHandle,"s12:ContentRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ContentRange",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ContentRange",dnPackItem(P1)) ok
 		return self
 
 	Func getContentType
 		return dnSend("s3:get",nHandle,"s11:ContentType","")
 
 	Func setContentType P1
-		dnSend("s3:set",nHandle,"s11:ContentType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ContentType",dnPackItem(P1)) ok
 		return self
 
 	Func getExpires
 		return dnSend("s3:get",nHandle,"s7:Expires","")
 
 	Func setExpires P1
-		dnSend("s3:set",nHandle,"s7:Expires",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Expires",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Expires",dnPackItem(P1)) ok
 		return self
 
 	Func getLastModified
 		return dnSend("s3:get",nHandle,"s12:LastModified","")
 
 	Func setLastModified P1
-		dnSend("s3:set",nHandle,"s12:LastModified",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:LastModified",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:LastModified",dnPackItem(P1)) ok
 		return self
 
 
@@ -1509,28 +1669,36 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s13:Authorization","")
 
 	Func setAuthorization P1
-		dnSend("s3:set",nHandle,"s13:Authorization",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:Authorization",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:Authorization",dnPackItem(P1)) ok
 		return self
 
 	Func getExpectContinue
 		return dnSend("s3:get",nHandle,"s14:ExpectContinue","")
 
 	Func setExpectContinue P1
-		dnSend("s3:set",nHandle,"s14:ExpectContinue",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ExpectContinue",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ExpectContinue",dnPackItem(P1)) ok
 		return self
 
 	Func getFrom
-		return dnSend("s3:get",nHandle,"s4:From","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:From")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:From",[]) ok
+		return dn_x
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getHost
-		return dnSend("s3:get",nHandle,"s4:Host","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Host",[]) ok
+		return dn_x
 
 	Func setHost P1
-		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1)) ok
 		return self
 
 	Func getIfMatch
@@ -1543,7 +1711,8 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s15:IfModifiedSince","")
 
 	Func setIfModifiedSince P1
-		dnSend("s3:set",nHandle,"s15:IfModifiedSince",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:IfModifiedSince",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:IfModifiedSince",dnPackItem(P1)) ok
 		return self
 
 	Func getIfNoneMatch
@@ -1556,49 +1725,58 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s7:IfRange","")
 
 	Func setIfRange P1
-		dnSend("s3:set",nHandle,"s7:IfRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:IfRange",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:IfRange",dnPackItem(P1)) ok
 		return self
 
 	Func getIfUnmodifiedSince
 		return dnSend("s3:get",nHandle,"s17:IfUnmodifiedSince","")
 
 	Func setIfUnmodifiedSince P1
-		dnSend("s3:set",nHandle,"s17:IfUnmodifiedSince",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:IfUnmodifiedSince",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:IfUnmodifiedSince",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxForwards
 		return dnSend("s3:get",nHandle,"s11:MaxForwards","")
 
 	Func setMaxForwards P1
-		dnSend("s3:set",nHandle,"s11:MaxForwards",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:MaxForwards",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MaxForwards",dnPackItem(P1)) ok
 		return self
 
 	Func getProtocol
-		return dnSend("s3:get",nHandle,"s8:Protocol","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		return dn_x
 
 	Func setProtocol P1
-		dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1)) ok
 		return self
 
 	Func getProxyAuthorization
 		return dnSend("s3:get",nHandle,"s18:ProxyAuthorization","")
 
 	Func setProxyAuthorization P1
-		dnSend("s3:set",nHandle,"s18:ProxyAuthorization",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ProxyAuthorization",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ProxyAuthorization",dnPackItem(P1)) ok
 		return self
 
 	Func getRange
 		return dnSend("s3:get",nHandle,"s5:Range","")
 
 	Func setRange P1
-		dnSend("s3:set",nHandle,"s5:Range",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Range",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Range",dnPackItem(P1)) ok
 		return self
 
 	Func getReferrer
 		return dnSend("s3:get",nHandle,"s8:Referrer","")
 
 	Func setReferrer P1
-		dnSend("s3:set",nHandle,"s8:Referrer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Referrer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Referrer",dnPackItem(P1)) ok
 		return self
 
 	Func getTE
@@ -1623,7 +1801,8 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s12:CacheControl","")
 
 	Func setCacheControl P1
-		dnSend("s3:set",nHandle,"s12:CacheControl",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:CacheControl",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CacheControl",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
@@ -1636,14 +1815,16 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s15:ConnectionClose","")
 
 	Func setConnectionClose P1
-		dnSend("s3:set",nHandle,"s15:ConnectionClose",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ConnectionClose",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ConnectionClose",dnPackItem(P1)) ok
 		return self
 
 	Func getDate
 		return dnSend("s3:get",nHandle,"s4:Date","")
 
 	Func setDate P1
-		dnSend("s3:set",nHandle,"s4:Date",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Date",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Date",dnPackItem(P1)) ok
 		return self
 
 	Func getPragma
@@ -1668,7 +1849,8 @@ Class HttpRequestHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s23:TransferEncodingChunked","")
 
 	Func setTransferEncodingChunked P1
-		dnSend("s3:set",nHandle,"s23:TransferEncodingChunked",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:TransferEncodingChunked",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:TransferEncodingChunked",dnPackItem(P1)) ok
 		return self
 
 	Func getUpgrade
@@ -1732,21 +1914,24 @@ Class HttpResponseHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s3:Age","")
 
 	Func setAge P1
-		dnSend("s3:set",nHandle,"s3:Age",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Age",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Age",dnPackItem(P1)) ok
 		return self
 
 	Func getETag
 		return dnSend("s3:get",nHandle,"s4:ETag","")
 
 	Func setETag P1
-		dnSend("s3:set",nHandle,"s4:ETag",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:ETag",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:ETag",dnPackItem(P1)) ok
 		return self
 
 	Func getLocation
 		return dnSend("s3:get",nHandle,"s8:Location","")
 
 	Func setLocation P1
-		dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1)) ok
 		return self
 
 	Func getProxyAuthenticate
@@ -1759,7 +1944,8 @@ Class HttpResponseHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s10:RetryAfter","")
 
 	Func setRetryAfter P1
-		dnSend("s3:set",nHandle,"s10:RetryAfter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:RetryAfter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:RetryAfter",dnPackItem(P1)) ok
 		return self
 
 	Func getServer
@@ -1784,7 +1970,8 @@ Class HttpResponseHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s12:CacheControl","")
 
 	Func setCacheControl P1
-		dnSend("s3:set",nHandle,"s12:CacheControl",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:CacheControl",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CacheControl",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
@@ -1797,14 +1984,16 @@ Class HttpResponseHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s15:ConnectionClose","")
 
 	Func setConnectionClose P1
-		dnSend("s3:set",nHandle,"s15:ConnectionClose",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ConnectionClose",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ConnectionClose",dnPackItem(P1)) ok
 		return self
 
 	Func getDate
 		return dnSend("s3:get",nHandle,"s4:Date","")
 
 	Func setDate P1
-		dnSend("s3:set",nHandle,"s4:Date",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Date",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Date",dnPackItem(P1)) ok
 		return self
 
 	Func getPragma
@@ -1829,7 +2018,8 @@ Class HttpResponseHeaders from HttpHeaders
 		return dnSend("s3:get",nHandle,"s23:TransferEncodingChunked","")
 
 	Func setTransferEncodingChunked P1
-		dnSend("s3:set",nHandle,"s23:TransferEncodingChunked",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:TransferEncodingChunked",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:TransferEncodingChunked",dnPackItem(P1)) ok
 		return self
 
 	Func getUpgrade
@@ -1891,7 +2081,8 @@ Class MediaTypeWithQualityHeaderValue from MediaTypeHeaderValue
 		return dnSend("s3:get",nHandle,"s7:Quality","")
 
 	Func setQuality P1
-		dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Quality",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1)) ok
 		return self
 
 
@@ -1978,7 +2169,8 @@ Class TransferCodingWithQualityHeaderValue from TransferCodingHeaderValue
 		return dnSend("s3:get",nHandle,"s7:Quality","")
 
 	Func setQuality P1
-		dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Quality",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1)) ok
 		return self
 
 

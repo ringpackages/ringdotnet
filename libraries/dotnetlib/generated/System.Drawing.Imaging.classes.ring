@@ -129,48 +129,64 @@ Class BitmapData from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getStride
-		return dnSend("s3:get",nHandle,"s6:Stride","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Stride")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Stride",[]) ok
+		return dn_x
 
 	Func setStride P1
-		dnSend("s3:set",nHandle,"s6:Stride",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Stride",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Stride",dnPackItem(P1)) ok
 		return self
 
 	Func getPixelFormat
 		return dnSend("s3:get",nHandle,"s11:PixelFormat","")
 
 	Func setPixelFormat P1
-		dnSend("s3:set",nHandle,"s11:PixelFormat",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:PixelFormat",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:PixelFormat",dnPackItem(P1)) ok
 		return self
 
 	Func getScan0
 		return dnSend("s3:get",nHandle,"s5:Scan0","")
 
 	Func setScan0 P1
-		dnSend("s3:set",nHandle,"s5:Scan0",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Scan0",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Scan0",dnPackItem(P1)) ok
 		return self
 
 	Func getReserved
-		return dnSend("s3:get",nHandle,"s8:Reserved","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Reserved")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Reserved",[]) ok
+		return dn_x
 
 	Func setReserved P1
-		dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Reserved",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1)) ok
 		return self
 
 
@@ -188,11 +204,15 @@ Class CachedBitmap from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ColorMap from Object
@@ -219,20 +239,24 @@ Class ColorMap from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getOldColor
 		return dnSend("s3:get",nHandle,"s8:OldColor","")
 
 	Func setOldColor P1
-		dnSend("s3:set",nHandle,"s8:OldColor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:OldColor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:OldColor",dnPackItem(P1)) ok
 		return self
 
 	Func getNewColor
 		return dnSend("s3:get",nHandle,"s8:NewColor","")
 
 	Func setNewColor P1
-		dnSend("s3:set",nHandle,"s8:NewColor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:NewColor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:NewColor",dnPackItem(P1)) ok
 		return self
 
 
@@ -299,181 +323,258 @@ Class ColorMatrix from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMatrix00
-		return dnSend("s3:get",nHandle,"s8:Matrix00","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix00")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix00",[]) ok
+		return dn_x
 
 	Func setMatrix00 P1
-		dnSend("s3:set",nHandle,"s8:Matrix00",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix00",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix00",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix01
-		return dnSend("s3:get",nHandle,"s8:Matrix01","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix01")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix01",[]) ok
+		return dn_x
 
 	Func setMatrix01 P1
-		dnSend("s3:set",nHandle,"s8:Matrix01",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix01",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix01",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix02
-		return dnSend("s3:get",nHandle,"s8:Matrix02","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix02")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix02",[]) ok
+		return dn_x
 
 	Func setMatrix02 P1
-		dnSend("s3:set",nHandle,"s8:Matrix02",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix02",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix02",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix03
-		return dnSend("s3:get",nHandle,"s8:Matrix03","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix03")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix03",[]) ok
+		return dn_x
 
 	Func setMatrix03 P1
-		dnSend("s3:set",nHandle,"s8:Matrix03",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix03",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix03",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix04
-		return dnSend("s3:get",nHandle,"s8:Matrix04","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix04")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix04",[]) ok
+		return dn_x
 
 	Func setMatrix04 P1
-		dnSend("s3:set",nHandle,"s8:Matrix04",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix04",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix04",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix10
-		return dnSend("s3:get",nHandle,"s8:Matrix10","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix10")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix10",[]) ok
+		return dn_x
 
 	Func setMatrix10 P1
-		dnSend("s3:set",nHandle,"s8:Matrix10",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix10",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix10",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix11
-		return dnSend("s3:get",nHandle,"s8:Matrix11","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix11")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix11",[]) ok
+		return dn_x
 
 	Func setMatrix11 P1
-		dnSend("s3:set",nHandle,"s8:Matrix11",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix11",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix11",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix12
-		return dnSend("s3:get",nHandle,"s8:Matrix12","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix12")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix12",[]) ok
+		return dn_x
 
 	Func setMatrix12 P1
-		dnSend("s3:set",nHandle,"s8:Matrix12",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix12",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix12",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix13
-		return dnSend("s3:get",nHandle,"s8:Matrix13","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix13")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix13",[]) ok
+		return dn_x
 
 	Func setMatrix13 P1
-		dnSend("s3:set",nHandle,"s8:Matrix13",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix13",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix13",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix14
-		return dnSend("s3:get",nHandle,"s8:Matrix14","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix14")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix14",[]) ok
+		return dn_x
 
 	Func setMatrix14 P1
-		dnSend("s3:set",nHandle,"s8:Matrix14",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix14",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix14",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix20
-		return dnSend("s3:get",nHandle,"s8:Matrix20","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix20")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix20",[]) ok
+		return dn_x
 
 	Func setMatrix20 P1
-		dnSend("s3:set",nHandle,"s8:Matrix20",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix20",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix20",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix21
-		return dnSend("s3:get",nHandle,"s8:Matrix21","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix21")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix21",[]) ok
+		return dn_x
 
 	Func setMatrix21 P1
-		dnSend("s3:set",nHandle,"s8:Matrix21",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix21",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix21",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix22
-		return dnSend("s3:get",nHandle,"s8:Matrix22","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix22")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix22",[]) ok
+		return dn_x
 
 	Func setMatrix22 P1
-		dnSend("s3:set",nHandle,"s8:Matrix22",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix22",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix22",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix23
-		return dnSend("s3:get",nHandle,"s8:Matrix23","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix23")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix23",[]) ok
+		return dn_x
 
 	Func setMatrix23 P1
-		dnSend("s3:set",nHandle,"s8:Matrix23",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix23",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix23",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix24
-		return dnSend("s3:get",nHandle,"s8:Matrix24","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix24")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix24",[]) ok
+		return dn_x
 
 	Func setMatrix24 P1
-		dnSend("s3:set",nHandle,"s8:Matrix24",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix24",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix24",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix30
-		return dnSend("s3:get",nHandle,"s8:Matrix30","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix30")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix30",[]) ok
+		return dn_x
 
 	Func setMatrix30 P1
-		dnSend("s3:set",nHandle,"s8:Matrix30",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix30",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix30",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix31
-		return dnSend("s3:get",nHandle,"s8:Matrix31","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix31")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix31",[]) ok
+		return dn_x
 
 	Func setMatrix31 P1
-		dnSend("s3:set",nHandle,"s8:Matrix31",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix31",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix31",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix32
-		return dnSend("s3:get",nHandle,"s8:Matrix32","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix32")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix32",[]) ok
+		return dn_x
 
 	Func setMatrix32 P1
-		dnSend("s3:set",nHandle,"s8:Matrix32",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix32",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix32",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix33
-		return dnSend("s3:get",nHandle,"s8:Matrix33","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix33")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix33",[]) ok
+		return dn_x
 
 	Func setMatrix33 P1
-		dnSend("s3:set",nHandle,"s8:Matrix33",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix33",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix33",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix34
-		return dnSend("s3:get",nHandle,"s8:Matrix34","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix34")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix34",[]) ok
+		return dn_x
 
 	Func setMatrix34 P1
-		dnSend("s3:set",nHandle,"s8:Matrix34",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix34",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix34",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix40
-		return dnSend("s3:get",nHandle,"s8:Matrix40","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix40")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix40",[]) ok
+		return dn_x
 
 	Func setMatrix40 P1
-		dnSend("s3:set",nHandle,"s8:Matrix40",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix40",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix40",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix41
-		return dnSend("s3:get",nHandle,"s8:Matrix41","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix41")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix41",[]) ok
+		return dn_x
 
 	Func setMatrix41 P1
-		dnSend("s3:set",nHandle,"s8:Matrix41",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix41",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix41",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix42
-		return dnSend("s3:get",nHandle,"s8:Matrix42","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix42")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix42",[]) ok
+		return dn_x
 
 	Func setMatrix42 P1
-		dnSend("s3:set",nHandle,"s8:Matrix42",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix42",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix42",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix43
-		return dnSend("s3:get",nHandle,"s8:Matrix43","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix43")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix43",[]) ok
+		return dn_x
 
 	Func setMatrix43 P1
-		dnSend("s3:set",nHandle,"s8:Matrix43",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix43",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix43",dnPackItem(P1)) ok
 		return self
 
 	Func getMatrix44
-		return dnSend("s3:get",nHandle,"s8:Matrix44","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix44")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Matrix44",[]) ok
+		return dn_x
 
 	Func setMatrix44 P1
-		dnSend("s3:set",nHandle,"s8:Matrix44",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Matrix44",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Matrix44",dnPackItem(P1)) ok
 		return self
 
 
@@ -494,13 +595,17 @@ Class ColorPalette from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateOptimalPalette P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"s20:CreateOptimalPalette",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getFlags
-		return dnSend("s3:get",nHandle,"s5:Flags","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Flags")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Flags",[]) ok
+		return dn_x
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
@@ -541,7 +646,9 @@ Class ImagingEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGuid
 		return dnSend("s3:get",nHandle,"s4:Guid","")
@@ -662,20 +769,25 @@ Class EncoderParameter from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetType_ 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEncoder
 		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Encoder",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1)) ok
 		return self
 
 	Func getType
@@ -691,7 +803,9 @@ Class EncoderParameter from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getNumberOfValues
-		return dnSend("s3:get",nHandle,"s14:NumberOfValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:NumberOfValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:NumberOfValues",[]) ok
+		return dn_x
 
 	Func setNumberOfValues P1
 		raise("DotNet Error: NumberOfValues is a read-only property")
@@ -736,17 +850,22 @@ Class EncoderParameters from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getParam
 		return dnSend("s3:get",nHandle,"s5:Param","")
 
 	Func setParam P1
-		dnSend("s3:set",nHandle,"s5:Param",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Param",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Param",dnPackItem(P1)) ok
 		return self
 
 
@@ -769,7 +888,9 @@ Class FrameDimension from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGuid
 		return dnSend("s3:get",nHandle,"s4:Guid","")
@@ -817,7 +938,9 @@ Class ImageAttributes from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Clone 
@@ -828,7 +951,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s14:SetColorMatrix",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s14:SetColorMatrix",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:SetColorMatrix",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:SetColorMatrix",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearColorMatrix P1
@@ -837,10 +962,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s16:ClearColorMatrix","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s16:ClearColorMatrix")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ClearColorMatrix","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s16:ClearColorMatrix",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ClearColorMatrix",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ClearColorMatrix",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetColorMatrices P1
@@ -855,7 +984,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s12:SetThreshold",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s12:SetThreshold",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:SetThreshold",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:SetThreshold",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearThreshold P1
@@ -864,10 +995,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s14:ClearThreshold","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s14:ClearThreshold")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ClearThreshold","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s14:ClearThreshold",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:ClearThreshold",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ClearThreshold",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetGamma P1
@@ -875,7 +1010,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s8:SetGamma",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s8:SetGamma",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetGamma",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetGamma",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearGamma P1
@@ -884,10 +1021,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s10:ClearGamma","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s10:ClearGamma")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:ClearGamma","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s10:ClearGamma",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:ClearGamma",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:ClearGamma",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetNoOp P1
@@ -896,10 +1037,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s7:SetNoOp","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s7:SetNoOp")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetNoOp","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s7:SetNoOp",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetNoOp",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetNoOp",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearNoOp P1
@@ -908,10 +1053,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s9:ClearNoOp","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s9:ClearNoOp")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:ClearNoOp","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s9:ClearNoOp",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:ClearNoOp",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:ClearNoOp",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetColorKey P1
@@ -927,10 +1076,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s13:ClearColorKey","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s13:ClearColorKey")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ClearColorKey","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s13:ClearColorKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ClearColorKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ClearColorKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetOutputChannel P1
@@ -938,7 +1091,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s16:SetOutputChannel",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s16:SetOutputChannel",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetOutputChannel",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetOutputChannel",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearOutputChannel P1
@@ -947,10 +1102,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s18:ClearOutputChannel","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s18:ClearOutputChannel")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ClearOutputChannel","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s18:ClearOutputChannel",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:ClearOutputChannel",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ClearOutputChannel",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetOutputChannelColorProfile P1
@@ -958,7 +1117,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s28:SetOutputChannelColorProfile",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearOutputChannelColorProfile P1
@@ -967,10 +1128,14 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s30:ClearOutputChannelColorProfile")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s30:ClearOutputChannelColorProfile",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetRemapTable P1
@@ -978,7 +1143,9 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s13:SetRemapTable",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s13:SetRemapTable",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetRemapTable",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetRemapTable",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearRemapTable P1
@@ -987,18 +1154,26 @@ Class ImageAttributes from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s15:ClearRemapTable","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s15:ClearRemapTable")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ClearRemapTable","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s15:ClearRemapTable",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:ClearRemapTable",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ClearRemapTable",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetBrushRemapTable P1
-		dnSend("s4:call",nHandle,"s18:SetBrushRemapTable",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetBrushRemapTable",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetBrushRemapTable",dnPackItem(P1)) ok
+
 		return self
 
 	Func ClearBrushRemapTable 
-		dnSend("s4:call",nHandle,"s20:ClearBrushRemapTable","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:ClearBrushRemapTable")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ClearBrushRemapTable","") ok
+
 		return self
 
 	Func SetWrapMode P1
@@ -1006,15 +1181,21 @@ Class ImageAttributes from Object
 			dnSend("s9:callnamed",nHandle,"s11:SetWrapMode",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s11:SetWrapMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetWrapMode",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetWrapMode",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetAdjustedPalette P1,P2
-		dnSend("s4:call",nHandle,"s18:GetAdjustedPalette",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:GetAdjustedPalette",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:GetAdjustedPalette",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ImageCodecInfo from Object
@@ -1041,7 +1222,9 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetImageDecoders 
 		return dnSend("s4:call",dnTypeHandle('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"s16:GetImageDecoders","")
@@ -1053,77 +1236,100 @@ Class ImageCodecInfo from Object
 		return dnSend("s3:get",nHandle,"s5:Clsid","")
 
 	Func setClsid P1
-		dnSend("s3:set",nHandle,"s5:Clsid",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Clsid",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Clsid",dnPackItem(P1)) ok
 		return self
 
 	Func getFormatID
 		return dnSend("s3:get",nHandle,"s8:FormatID","")
 
 	Func setFormatID P1
-		dnSend("s3:set",nHandle,"s8:FormatID",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:FormatID",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FormatID",dnPackItem(P1)) ok
 		return self
 
 	Func getCodecName
-		return dnSend("s3:get",nHandle,"s9:CodecName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:CodecName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:CodecName",[]) ok
+		return dn_x
 
 	Func setCodecName P1
-		dnSend("s3:set",nHandle,"s9:CodecName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:CodecName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:CodecName",dnPackItem(P1)) ok
 		return self
 
 	Func getDllName
-		return dnSend("s3:get",nHandle,"s7:DllName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:DllName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:DllName",[]) ok
+		return dn_x
 
 	Func setDllName P1
-		dnSend("s3:set",nHandle,"s7:DllName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:DllName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:DllName",dnPackItem(P1)) ok
 		return self
 
 	Func getFormatDescription
-		return dnSend("s3:get",nHandle,"s17:FormatDescription","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:FormatDescription")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:FormatDescription",[]) ok
+		return dn_x
 
 	Func setFormatDescription P1
-		dnSend("s3:set",nHandle,"s17:FormatDescription",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:FormatDescription",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:FormatDescription",dnPackItem(P1)) ok
 		return self
 
 	Func getFilenameExtension
-		return dnSend("s3:get",nHandle,"s17:FilenameExtension","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:FilenameExtension")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:FilenameExtension",[]) ok
+		return dn_x
 
 	Func setFilenameExtension P1
-		dnSend("s3:set",nHandle,"s17:FilenameExtension",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:FilenameExtension",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:FilenameExtension",dnPackItem(P1)) ok
 		return self
 
 	Func getMimeType
-		return dnSend("s3:get",nHandle,"s8:MimeType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MimeType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MimeType",[]) ok
+		return dn_x
 
 	Func setMimeType P1
-		dnSend("s3:set",nHandle,"s8:MimeType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MimeType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MimeType",dnPackItem(P1)) ok
 		return self
 
 	Func getFlags
 		return dnSend("s3:get",nHandle,"s5:Flags","")
 
 	Func setFlags P1
-		dnSend("s3:set",nHandle,"s5:Flags",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Flags",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Flags",dnPackItem(P1)) ok
 		return self
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		return dn_x
 
 	Func setVersion P1
-		dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Version",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1)) ok
 		return self
 
 	Func getSignaturePatterns
 		return dnSend("s3:get",nHandle,"s17:SignaturePatterns","")
 
 	Func setSignaturePatterns P1
-		dnSend("s3:set",nHandle,"s17:SignaturePatterns",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:SignaturePatterns",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:SignaturePatterns",dnPackItem(P1)) ok
 		return self
 
 	Func getSignatureMasks
 		return dnSend("s3:get",nHandle,"s14:SignatureMasks","")
 
 	Func setSignatureMasks P1
-		dnSend("s3:set",nHandle,"s14:SignatureMasks",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:SignatureMasks",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SignatureMasks",dnPackItem(P1)) ok
 		return self
 
 
@@ -1168,7 +1374,9 @@ Class ImageFormat from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGuid
 		return dnSend("s3:get",nHandle,"s4:Guid","")
@@ -1281,55 +1489,78 @@ Class MetaHeader from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Type",[]) ok
+		return dn_x
 
 	Func setType P1
-		dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
 		return self
 
 	Func getHeaderSize
-		return dnSend("s3:get",nHandle,"s10:HeaderSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:HeaderSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HeaderSize",[]) ok
+		return dn_x
 
 	Func setHeaderSize P1
-		dnSend("s3:set",nHandle,"s10:HeaderSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:HeaderSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:HeaderSize",dnPackItem(P1)) ok
 		return self
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		return dn_x
 
 	Func setVersion P1
-		dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Version",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
-		return dnSend("s3:get",nHandle,"s4:Size","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Size",[]) ok
+		return dn_x
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 	Func getNoObjects
-		return dnSend("s3:get",nHandle,"s9:NoObjects","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:NoObjects")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:NoObjects",[]) ok
+		return dn_x
 
 	Func setNoObjects P1
-		dnSend("s3:set",nHandle,"s9:NoObjects",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:NoObjects",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:NoObjects",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxRecord
-		return dnSend("s3:get",nHandle,"s9:MaxRecord","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxRecord")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MaxRecord",[]) ok
+		return dn_x
 
 	Func setMaxRecord P1
-		dnSend("s3:set",nHandle,"s9:MaxRecord",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:MaxRecord",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MaxRecord",dnPackItem(P1)) ok
 		return self
 
 	Func getNoParameters
-		return dnSend("s3:get",nHandle,"s12:NoParameters","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:NoParameters")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:NoParameters",[]) ok
+		return dn_x
 
 	Func setNoParameters P1
-		dnSend("s3:set",nHandle,"s12:NoParameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:NoParameters",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:NoParameters",dnPackItem(P1)) ok
 		return self
 
 
@@ -1362,7 +1593,9 @@ Class Metafile from Image
 		return self
 
 	Func PlayRecord P1,P2,P3,P4
-		dnSend("s4:call",nHandle,"s10:PlayRecord",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:PlayRecord",P1,P2,P3,P4)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:PlayRecord",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+
 		return self
 
 	Func GetMetafileHeader P1
@@ -1404,34 +1637,52 @@ Class MetafileHeader from Object
 		return self
 
 	Func IsWmf 
-		return dnSend("s4:call",nHandle,"s5:IsWmf","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:IsWmf")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:IsWmf",[]) ok
+		return dn_x
 
 	Func IsWmfPlaceable 
-		return dnSend("s4:call",nHandle,"s14:IsWmfPlaceable","")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsWmfPlaceable")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsWmfPlaceable",[]) ok
+		return dn_x
 
 	Func IsEmf 
-		return dnSend("s4:call",nHandle,"s5:IsEmf","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:IsEmf")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:IsEmf",[]) ok
+		return dn_x
 
 	Func IsEmfOrEmfPlus 
-		return dnSend("s4:call",nHandle,"s14:IsEmfOrEmfPlus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsEmfOrEmfPlus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsEmfOrEmfPlus",[]) ok
+		return dn_x
 
 	Func IsEmfPlus 
-		return dnSend("s4:call",nHandle,"s9:IsEmfPlus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsEmfPlus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsEmfPlus",[]) ok
+		return dn_x
 
 	Func IsEmfPlusDual 
-		return dnSend("s4:call",nHandle,"s13:IsEmfPlusDual","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEmfPlusDual")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:IsEmfPlusDual",[]) ok
+		return dn_x
 
 	Func IsEmfPlusOnly 
-		return dnSend("s4:call",nHandle,"s13:IsEmfPlusOnly","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEmfPlusOnly")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:IsEmfPlusOnly",[]) ok
+		return dn_x
 
 	Func IsDisplay 
-		return dnSend("s4:call",nHandle,"s9:IsDisplay","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsDisplay")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsDisplay",[]) ok
+		return dn_x
 
 	Func GetType_ 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getType
 		return dnSend("s3:get",nHandle,"s4:Type","")
@@ -1440,25 +1691,33 @@ Class MetafileHeader from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getMetafileSize
-		return dnSend("s3:get",nHandle,"s12:MetafileSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:MetafileSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MetafileSize",[]) ok
+		return dn_x
 
 	Func setMetafileSize P1
 		raise("DotNet Error: MetafileSize is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		return dn_x
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDpiX
-		return dnSend("s3:get",nHandle,"s4:DpiX","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiX")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:DpiX",[]) ok
+		return dn_x
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnSend("s3:get",nHandle,"s4:DpiY","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:DpiY",[]) ok
+		return dn_x
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
@@ -1476,19 +1735,25 @@ Class MetafileHeader from Object
 		raise("DotNet Error: WmfHeader is a read-only property")
 
 	Func getEmfPlusHeaderSize
-		return dnSend("s3:get",nHandle,"s17:EmfPlusHeaderSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:EmfPlusHeaderSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:EmfPlusHeaderSize",[]) ok
+		return dn_x
 
 	Func setEmfPlusHeaderSize P1
 		raise("DotNet Error: EmfPlusHeaderSize is a read-only property")
 
 	Func getLogicalDpiX
-		return dnSend("s3:get",nHandle,"s11:LogicalDpiX","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:LogicalDpiX")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:LogicalDpiX",[]) ok
+		return dn_x
 
 	Func setLogicalDpiX P1
 		raise("DotNet Error: LogicalDpiX is a read-only property")
 
 	Func getLogicalDpiY
-		return dnSend("s3:get",nHandle,"s11:LogicalDpiY","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:LogicalDpiY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:LogicalDpiY",[]) ok
+		return dn_x
 
 	Func setLogicalDpiY P1
 		raise("DotNet Error: LogicalDpiY is a read-only property")
@@ -1514,34 +1779,46 @@ Class PropertyItem from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
-		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:Id",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1)) ok
 		return self
 
 	Func getLen
-		return dnSend("s3:get",nHandle,"s3:Len","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Len")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Len",[]) ok
+		return dn_x
 
 	Func setLen P1
-		dnSend("s3:set",nHandle,"s3:Len",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Len",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Len",dnPackItem(P1)) ok
 		return self
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Type",[]) ok
+		return dn_x
 
 	Func setType P1
-		dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -1576,69 +1853,98 @@ Class WmfPlaceableFileHeader from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
-		dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1)) ok
 		return self
 
 	Func getHmf
-		return dnSend("s3:get",nHandle,"s3:Hmf","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Hmf")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Hmf",[]) ok
+		return dn_x
 
 	Func setHmf P1
-		dnSend("s3:set",nHandle,"s3:Hmf",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Hmf",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Hmf",dnPackItem(P1)) ok
 		return self
 
 	Func getBboxLeft
-		return dnSend("s3:get",nHandle,"s8:BboxLeft","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:BboxLeft")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:BboxLeft",[]) ok
+		return dn_x
 
 	Func setBboxLeft P1
-		dnSend("s3:set",nHandle,"s8:BboxLeft",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:BboxLeft",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:BboxLeft",dnPackItem(P1)) ok
 		return self
 
 	Func getBboxTop
-		return dnSend("s3:get",nHandle,"s7:BboxTop","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:BboxTop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:BboxTop",[]) ok
+		return dn_x
 
 	Func setBboxTop P1
-		dnSend("s3:set",nHandle,"s7:BboxTop",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:BboxTop",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BboxTop",dnPackItem(P1)) ok
 		return self
 
 	Func getBboxRight
-		return dnSend("s3:get",nHandle,"s9:BboxRight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:BboxRight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:BboxRight",[]) ok
+		return dn_x
 
 	Func setBboxRight P1
-		dnSend("s3:set",nHandle,"s9:BboxRight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:BboxRight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:BboxRight",dnPackItem(P1)) ok
 		return self
 
 	Func getBboxBottom
-		return dnSend("s3:get",nHandle,"s10:BboxBottom","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:BboxBottom")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:BboxBottom",[]) ok
+		return dn_x
 
 	Func setBboxBottom P1
-		dnSend("s3:set",nHandle,"s10:BboxBottom",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:BboxBottom",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BboxBottom",dnPackItem(P1)) ok
 		return self
 
 	Func getInch
-		return dnSend("s3:get",nHandle,"s4:Inch","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Inch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Inch",[]) ok
+		return dn_x
 
 	Func setInch P1
-		dnSend("s3:set",nHandle,"s4:Inch",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Inch",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Inch",dnPackItem(P1)) ok
 		return self
 
 	Func getReserved
-		return dnSend("s3:get",nHandle,"s8:Reserved","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Reserved")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Reserved",[]) ok
+		return dn_x
 
 	Func setReserved P1
-		dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Reserved",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1)) ok
 		return self
 
 	Func getChecksum
-		return dnSend("s3:get",nHandle,"s8:Checksum","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Checksum")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Checksum",[]) ok
+		return dn_x
 
 	Func setChecksum P1
-		dnSend("s3:set",nHandle,"s8:Checksum",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Checksum",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Checksum",dnPackItem(P1)) ok
 		return self
 
 

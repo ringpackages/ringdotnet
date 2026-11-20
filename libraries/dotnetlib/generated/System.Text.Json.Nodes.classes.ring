@@ -54,7 +54,9 @@ Class JsonNode from Object
 		return dnSend("s4:call",nHandle,"s7:AsValue","")
 
 	Func GetPath 
-		return dnSend("s4:call",nHandle,"s7:GetPath","")
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetPath")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetPath",[]) ok
+		return dn_x
 
 	Func GetValue 
 		return dnSend("s4:call",nHandle,"s8:GetValue","")
@@ -66,13 +68,19 @@ Class JsonNode from Object
 		return dnSend("s4:call",nHandle,"s12:GetValueKind","")
 
 	Func GetPropertyName 
-		return dnSend("s4:call",nHandle,"s15:GetPropertyName","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetPropertyName")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetPropertyName",[]) ok
+		return dn_x
 
 	Func GetElementIndex 
-		return dnSend("s4:call",nHandle,"s15:GetElementIndex","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetElementIndex")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetElementIndex",[]) ok
+		return dn_x
 
 	Func ReplaceWith P1
-		dnSend("s4:call",nHandle,"s11:ReplaceWith",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:ReplaceWith",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ReplaceWith",dnPackItem(P1)) ok
+
 		return self
 
 	Func ToJsonString P1
@@ -80,23 +88,33 @@ Class JsonNode from Object
 			return dnSend("s9:callnamed",nHandle,"s12:ToJsonString",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s12:ToJsonString","")
+			dn_x = dotnet_call("s4:call",nHandle,"s12:ToJsonString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ToJsonString",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s12:ToJsonString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ToJsonString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ToJsonString",[P1]) ok
+		return dn_x
 
 	Func WriteTo P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s7:WriteTo",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func DeepEquals P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:DeepEquals",[P1,P2]) ok
+		return dn_x
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -114,7 +132,8 @@ Class JsonNode from Object
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getOptions
@@ -159,10 +178,13 @@ Class JsonNodeOptions from ValueType
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnSend("s3:get",nHandle,"s27:PropertyNameCaseInsensitive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:PropertyNameCaseInsensitive",[]) ok
+		return dn_x
 
 	Func setPropertyNameCaseInsensitive P1
-		dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1)) ok
 		return self
 
 
@@ -208,28 +230,42 @@ Class JsonArray from JsonNode
 		return dnSend("s4:call",nHandle,"s9:GetValues","")
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetEnumerator 
@@ -242,7 +278,9 @@ Class JsonArray from JsonNode
 		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"s6:Create",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -294,18 +332,26 @@ Class JsonObject from JsonNode
 			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func ContainsKey P1
-		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		return dn_x
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
@@ -321,14 +367,20 @@ Class JsonObject from JsonNode
 		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2,P3
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Create P1
@@ -338,7 +390,9 @@ Class JsonObject from JsonNode
 		return dnSend("s4:call",dnTypeHandle('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"s6:Create",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

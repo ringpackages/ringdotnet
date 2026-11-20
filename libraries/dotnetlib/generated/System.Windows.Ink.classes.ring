@@ -127,7 +127,9 @@ Class DrawingAttributeIds from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getColor
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"s5:Color","")
@@ -206,11 +208,15 @@ Class DrawingAttributes from Object
 		return self
 
 	Func AddPropertyData P1,P2
-		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddPropertyData",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePropertyData P1
-		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:RemovePropertyData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetPropertyData P1
@@ -220,10 +226,14 @@ Class DrawingAttributes from Object
 		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ContainsPropertyData",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Clone 
 		return dnSend("s4:call",nHandle,"s5:Clone","")
@@ -248,78 +258,104 @@ Class DrawingAttributes from Object
 		return dnSend("s3:get",nHandle,"s5:Color","")
 
 	Func setColor P1
-		dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
 		return self
 
 	Func getStylusTip
 		return dnSend("s3:get",nHandle,"s9:StylusTip","")
 
 	Func setStylusTip P1
-		dnSend("s3:set",nHandle,"s9:StylusTip",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:StylusTip",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:StylusTip",dnPackItem(P1)) ok
 		return self
 
 	Func getStylusTipTransform
 		return dnSend("s3:get",nHandle,"s18:StylusTipTransform","")
 
 	Func setStylusTipTransform P1
-		dnSend("s3:set",nHandle,"s18:StylusTipTransform",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:StylusTipTransform",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:StylusTipTransform",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getFitToCurve
-		return dnSend("s3:get",nHandle,"s10:FitToCurve","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:FitToCurve")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FitToCurve",[]) ok
+		return dn_x
 
 	Func setFitToCurve P1
-		dnSend("s3:set",nHandle,"s10:FitToCurve",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:FitToCurve",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:FitToCurve",dnPackItem(P1)) ok
 		return self
 
 	Func getIgnorePressure
-		return dnSend("s3:get",nHandle,"s14:IgnorePressure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IgnorePressure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IgnorePressure",[]) ok
+		return dn_x
 
 	Func setIgnorePressure P1
-		dnSend("s3:set",nHandle,"s14:IgnorePressure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:IgnorePressure",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:IgnorePressure",dnPackItem(P1)) ok
 		return self
 
 	Func getIsHighlighter
-		return dnSend("s3:get",nHandle,"s13:IsHighlighter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsHighlighter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsHighlighter",[]) ok
+		return dn_x
 
 	Func setIsHighlighter P1
-		dnSend("s3:set",nHandle,"s13:IsHighlighter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:IsHighlighter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:IsHighlighter",dnPackItem(P1)) ok
 		return self
 
 	Func getMinHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MinHeight",[]) ok
+		return dn_x
 
 	Func setMinHeight P1
 		raise("DotNet Error: MinHeight is a read-only property")
 
 	Func getMinWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MinWidth",[]) ok
+		return dn_x
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
 
 	Func getMaxHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s9:MaxHeight",[]) ok
+		return dn_x
 
 	Func setMaxHeight P1
 		raise("DotNet Error: MaxHeight is a read-only property")
 
 	Func getMaxWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.DrawingAttributes, PresentationCore'),"s8:MaxWidth",[]) ok
+		return dn_x
 
 	Func setMaxWidth P1
 		raise("DotNet Error: MaxWidth is a read-only property")
@@ -369,7 +405,9 @@ Class GestureRecognitionResult from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRecognitionConfidence
 		return dnSend("s3:get",nHandle,"s21:RecognitionConfidence","")
@@ -423,7 +461,9 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func SetEnabledGestures P1
-		dnSend("s4:call",nHandle,"s18:SetEnabledGestures",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetEnabledGestures",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetEnabledGestures",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetEnabledGestures 
@@ -433,11 +473,15 @@ Class GestureRecognizer from DependencyObject
 		return dnSend("s4:call",nHandle,"s9:Recognize",dnPackItem(P1))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func getIsRecognizerAvailable
-		return dnSend("s3:get",nHandle,"s21:IsRecognizerAvailable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsRecognizerAvailable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsRecognizerAvailable",[]) ok
+		return dn_x
 
 	Func setIsRecognizerAvailable P1
 		raise("DotNet Error: IsRecognizerAvailable is a read-only property")
@@ -457,22 +501,32 @@ Class IncrementalHitTester from Object
 		return self
 
 	Func AddPoint P1
-		dnSend("s4:call",nHandle,"s8:AddPoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddPoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddPoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddPoints P1
-		dnSend("s4:call",nHandle,"s9:AddPoints",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddPoints",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddPoints",dnPackItem(P1)) ok
+
 		return self
 
 	Func EndHitTesting 
-		dnSend("s4:call",nHandle,"s13:EndHitTesting","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:EndHitTesting")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:EndHitTesting","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsValid
-		return dnSend("s3:get",nHandle,"s7:IsValid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsValid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsValid",[]) ok
+		return dn_x
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
@@ -576,18 +630,24 @@ Class Stroke from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Transform P1,P2
-		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:Transform",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetBezierStylusPoints 
 		return dnSend("s4:call",nHandle,"s21:GetBezierStylusPoints","")
 
 	Func AddPropertyData P1,P2
-		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddPropertyData",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePropertyData P1
-		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:RemovePropertyData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetPropertyData P1
@@ -597,7 +657,9 @@ Class Stroke from Object
 		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ContainsPropertyData",[P1]) ok
+		return dn_x
 
 	Func GetBounds 
 		return dnSend("s4:call",nHandle,"s9:GetBounds","")
@@ -607,7 +669,9 @@ Class Stroke from Object
 			dnSend("s9:callnamed",nHandle,"s4:Draw",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Draw",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetClipResult P1
@@ -623,7 +687,9 @@ Class Stroke from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:HitTest",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:HitTest",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:HitTest",[P1]) ok
+		return dn_x
 
 	Func GetGeometry P1
 		if dnIsNamed(P1)
@@ -635,7 +701,9 @@ Class Stroke from Object
 		return dnSend("s4:call",nHandle,"s11:GetGeometry",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setDrawingAttributesChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"DrawingAttributesChanged",dnCallback(P1)])
@@ -689,14 +757,16 @@ Class Stroke from Object
 		return dnSend("s3:get",nHandle,"s17:DrawingAttributes","")
 
 	Func setDrawingAttributes P1
-		dnSend("s3:set",nHandle,"s17:DrawingAttributes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:DrawingAttributes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DrawingAttributes",dnPackItem(P1)) ok
 		return self
 
 	Func getStylusPoints
 		return dnSend("s3:get",nHandle,"s12:StylusPoints","")
 
 	Func setStylusPoints P1
-		dnSend("s3:set",nHandle,"s12:StylusPoints",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:StylusPoints",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:StylusPoints",dnPackItem(P1)) ok
 		return self
 
 
@@ -744,15 +814,21 @@ Class StrokeCollection from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Save",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddPropertyData P1,P2
-		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddPropertyData",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePropertyData P1
-		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:RemovePropertyData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetPropertyData P1
@@ -762,28 +838,40 @@ Class StrokeCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ContainsPropertyData",[P1]) ok
+		return dn_x
 
 	Func Transform P1,P2
-		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:Transform",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Clone 
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Replace P1,P2
-		dnSend("s4:call",nHandle,"s7:Replace",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Replace",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Replace",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetBounds 
@@ -796,7 +884,9 @@ Class StrokeCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:HitTest",dnPackItem(P1))
 
 	Func Clip P1
-		dnSend("s4:call",nHandle,"s4:Clip",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Clip",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Clip",dnPackItem(P1)) ok
+
 		return self
 
 	Func Erase P1
@@ -804,11 +894,15 @@ Class StrokeCollection from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s5:Erase",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Erase",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Erase",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Erase",dnPackItem(P1)) ok
+
 		return self
 
 	Func Draw P1
-		dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Draw",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetIncrementalStrokeHitTester P1
@@ -818,44 +912,61 @@ Class StrokeCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s28:GetIncrementalLassoHitTester",dnPackItem(P1))
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func setStrokesChangedEvent P1
@@ -875,13 +986,17 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInkSerializedFormat
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Ink.StrokeCollection, PresentationCore'),"s19:InkSerializedFormat",[]) ok
+		return dn_x
 
 	Func setInkSerializedFormat P1
 		raise("DotNet Error: InkSerializedFormat is a read-only property")
@@ -984,22 +1099,30 @@ Class StylusShape from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Rotation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Rotation",[]) ok
+		return dn_x
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")

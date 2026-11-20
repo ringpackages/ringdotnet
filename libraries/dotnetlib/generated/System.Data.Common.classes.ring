@@ -212,26 +212,36 @@ Class DataAdapter from Component
 		return self
 
 	Func ShouldSerializeAcceptChangesDuringFill 
-		return dnSend("s4:call",nHandle,"s38:ShouldSerializeAcceptChangesDuringFill","")
+		dn_x = dotnet_call("s4:call",nHandle,"s38:ShouldSerializeAcceptChangesDuringFill")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s38:ShouldSerializeAcceptChangesDuringFill",[]) ok
+		return dn_x
 
 	Func ResetFillLoadOption 
-		dnSend("s4:call",nHandle,"s19:ResetFillLoadOption","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ResetFillLoadOption")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ResetFillLoadOption","") ok
+
 		return self
 
 	Func ShouldSerializeFillLoadOption 
-		return dnSend("s4:call",nHandle,"s29:ShouldSerializeFillLoadOption","")
+		dn_x = dotnet_call("s4:call",nHandle,"s29:ShouldSerializeFillLoadOption")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s29:ShouldSerializeFillLoadOption",[]) ok
+		return dn_x
 
 	Func FillSchema P1,P2
 		return dnSend("s4:call",nHandle,"s10:FillSchema",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Fill P1
-		return dnSend("s4:call",nHandle,"s4:Fill",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Fill",[P1]) ok
+		return dn_x
 
 	Func GetFillParameters 
 		return dnSend("s4:call",nHandle,"s17:GetFillParameters","")
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Update",[P1]) ok
+		return dn_x
 
 	Func setFillErrorEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"FillError",dnCallback(P1)])
@@ -242,52 +252,67 @@ Class DataAdapter from Component
 		return self
 
 	Func getAcceptChangesDuringFill
-		return dnSend("s3:get",nHandle,"s23:AcceptChangesDuringFill","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:AcceptChangesDuringFill")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:AcceptChangesDuringFill",[]) ok
+		return dn_x
 
 	Func setAcceptChangesDuringFill P1
-		dnSend("s3:set",nHandle,"s23:AcceptChangesDuringFill",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:AcceptChangesDuringFill",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:AcceptChangesDuringFill",dnPackItem(P1)) ok
 		return self
 
 	Func getAcceptChangesDuringUpdate
-		return dnSend("s3:get",nHandle,"s25:AcceptChangesDuringUpdate","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:AcceptChangesDuringUpdate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:AcceptChangesDuringUpdate",[]) ok
+		return dn_x
 
 	Func setAcceptChangesDuringUpdate P1
-		dnSend("s3:set",nHandle,"s25:AcceptChangesDuringUpdate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s25:AcceptChangesDuringUpdate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s25:AcceptChangesDuringUpdate",dnPackItem(P1)) ok
 		return self
 
 	Func getContinueUpdateOnError
-		return dnSend("s3:get",nHandle,"s21:ContinueUpdateOnError","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:ContinueUpdateOnError")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ContinueUpdateOnError",[]) ok
+		return dn_x
 
 	Func setContinueUpdateOnError P1
-		dnSend("s3:set",nHandle,"s21:ContinueUpdateOnError",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ContinueUpdateOnError",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ContinueUpdateOnError",dnPackItem(P1)) ok
 		return self
 
 	Func getFillLoadOption
 		return dnSend("s3:get",nHandle,"s14:FillLoadOption","")
 
 	Func setFillLoadOption P1
-		dnSend("s3:set",nHandle,"s14:FillLoadOption",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:FillLoadOption",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FillLoadOption",dnPackItem(P1)) ok
 		return self
 
 	Func getMissingMappingAction
 		return dnSend("s3:get",nHandle,"s20:MissingMappingAction","")
 
 	Func setMissingMappingAction P1
-		dnSend("s3:set",nHandle,"s20:MissingMappingAction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:MissingMappingAction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:MissingMappingAction",dnPackItem(P1)) ok
 		return self
 
 	Func getMissingSchemaAction
 		return dnSend("s3:get",nHandle,"s19:MissingSchemaAction","")
 
 	Func setMissingSchemaAction P1
-		dnSend("s3:set",nHandle,"s19:MissingSchemaAction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:MissingSchemaAction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:MissingSchemaAction",dnPackItem(P1)) ok
 		return self
 
 	Func getReturnProviderSpecificTypes
-		return dnSend("s3:get",nHandle,"s27:ReturnProviderSpecificTypes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:ReturnProviderSpecificTypes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:ReturnProviderSpecificTypes",[]) ok
+		return dn_x
 
 	Func setReturnProviderSpecificTypes P1
-		dnSend("s3:set",nHandle,"s27:ReturnProviderSpecificTypes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s27:ReturnProviderSpecificTypes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s27:ReturnProviderSpecificTypes",dnPackItem(P1)) ok
 		return self
 
 	Func getTableMappings
@@ -346,17 +371,23 @@ Class DataColumnMapping from MarshalByRefObject
 		raise("DotNet Error: GetDataColumnBySchemaAction does not take one argument: use named arguments, GetDataColumnBySchemaAction([ :parameter = value, ... ])")
 
 	Func getDataSetColumn
-		return dnSend("s3:get",nHandle,"s13:DataSetColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:DataSetColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DataSetColumn",[]) ok
+		return dn_x
 
 	Func setDataSetColumn P1
-		dnSend("s3:set",nHandle,"s13:DataSetColumn",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:DataSetColumn",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:DataSetColumn",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceColumn
-		return dnSend("s3:get",nHandle,"s12:SourceColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:SourceColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:SourceColumn",[]) ok
+		return dn_x
 
 	Func setSourceColumn P1
-		dnSend("s3:set",nHandle,"s12:SourceColumn",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SourceColumn",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SourceColumn",dnPackItem(P1)) ok
 		return self
 
 
@@ -386,21 +417,31 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetByDataSetColumn P1
@@ -410,21 +451,31 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func IndexOfDataSetColumn P1
-		return dnSend("s4:call",nHandle,"s20:IndexOfDataSetColumn",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s20:IndexOfDataSetColumn",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:IndexOfDataSetColumn",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5,P6
@@ -437,11 +488,14 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -503,17 +557,23 @@ Class DataTableMapping from MarshalByRefObject
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getDataSetTable
-		return dnSend("s3:get",nHandle,"s12:DataSetTable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:DataSetTable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DataSetTable",[]) ok
+		return dn_x
 
 	Func setDataSetTable P1
-		dnSend("s3:set",nHandle,"s12:DataSetTable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DataSetTable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DataSetTable",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceTable
-		return dnSend("s3:get",nHandle,"s11:SourceTable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:SourceTable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:SourceTable",[]) ok
+		return dn_x
 
 	Func setSourceTable P1
-		dnSend("s3:set",nHandle,"s11:SourceTable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SourceTable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SourceTable",dnPackItem(P1)) ok
 		return self
 
 
@@ -543,21 +603,31 @@ Class DataTableMappingCollection from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetByDataSetTable P1
@@ -567,21 +637,31 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func IndexOfDataSetTable P1
-		return dnSend("s4:call",nHandle,"s19:IndexOfDataSetTable",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:IndexOfDataSetTable",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:IndexOfDataSetTable",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetTableMappingBySchemaAction P1,P2,P3,P4
@@ -591,11 +671,14 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -636,7 +719,9 @@ Class DbBatch from Object
 		return dnSend("s4:call",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
 
 	Func ExecuteNonQuery 
-		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ExecuteNonQuery",[]) ok
+		return dn_x
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -660,7 +745,9 @@ Class DbBatch from Object
 		return dnSend("s4:call",nHandle,"s18:ExecuteScalarAsync",dnPackItem(P1))
 
 	Func Prepare 
-		dnSend("s4:call",nHandle,"s7:Prepare","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Prepare")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Prepare","") ok
+
 		return self
 
 	Func PrepareAsync P1
@@ -673,21 +760,27 @@ Class DbBatch from Object
 		return dnSend("s4:call",nHandle,"s12:PrepareAsync",dnPackItem(P1))
 
 	Func Cancel 
-		dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Cancel","") ok
+
 		return self
 
 	Func CreateBatchCommand 
 		return dnSend("s4:call",nHandle,"s18:CreateBatchCommand","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBatchCommands
 		return dnSend("s3:get",nHandle,"s13:BatchCommands","")
@@ -696,24 +789,29 @@ Class DbBatch from Object
 		raise("DotNet Error: BatchCommands is a read-only property")
 
 	Func getTimeout
-		return dnSend("s3:get",nHandle,"s7:Timeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Timeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Timeout",[]) ok
+		return dn_x
 
 	Func setTimeout P1
-		dnSend("s3:set",nHandle,"s7:Timeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Timeout",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
 		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1)) ok
 		return self
 
 	Func getTransaction
 		return dnSend("s3:get",nHandle,"s11:Transaction","")
 
 	Func setTransaction P1
-		dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:Transaction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1)) ok
 		return self
 
 
@@ -738,24 +836,32 @@ Class DbBatchCommand from Object
 		return dnSend("s4:call",nHandle,"s15:CreateParameter","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCommandText
-		return dnSend("s3:get",nHandle,"s11:CommandText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CommandText",[]) ok
+		return dn_x
 
 	Func setCommandText P1
-		dnSend("s3:set",nHandle,"s11:CommandText",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:CommandText",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CommandText",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandType
 		return dnSend("s3:get",nHandle,"s11:CommandType","")
 
 	Func setCommandType P1
-		dnSend("s3:set",nHandle,"s11:CommandType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:CommandType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CommandType",dnPackItem(P1)) ok
 		return self
 
 	Func getRecordsAffected
-		return dnSend("s3:get",nHandle,"s15:RecordsAffected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:RecordsAffected",[]) ok
+		return dn_x
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
@@ -767,7 +873,9 @@ Class DbBatchCommand from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCanCreateParameter
-		return dnSend("s3:get",nHandle,"s18:CanCreateParameter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:CanCreateParameter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:CanCreateParameter",[]) ok
+		return dn_x
 
 	Func setCanCreateParameter P1
 		raise("DotNet Error: CanCreateParameter is a read-only property")
@@ -791,52 +899,75 @@ Class DbBatchCommandCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -878,7 +1009,9 @@ Class DbColumn from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -890,37 +1023,49 @@ Class DbColumn from Object
 		raise("DotNet Error: AllowDBNull is a read-only property")
 
 	Func getBaseCatalogName
-		return dnSend("s3:get",nHandle,"s15:BaseCatalogName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:BaseCatalogName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BaseCatalogName",[]) ok
+		return dn_x
 
 	Func setBaseCatalogName P1
 		raise("DotNet Error: BaseCatalogName is a read-only property")
 
 	Func getBaseColumnName
-		return dnSend("s3:get",nHandle,"s14:BaseColumnName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:BaseColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:BaseColumnName",[]) ok
+		return dn_x
 
 	Func setBaseColumnName P1
 		raise("DotNet Error: BaseColumnName is a read-only property")
 
 	Func getBaseSchemaName
-		return dnSend("s3:get",nHandle,"s14:BaseSchemaName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:BaseSchemaName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:BaseSchemaName",[]) ok
+		return dn_x
 
 	Func setBaseSchemaName P1
 		raise("DotNet Error: BaseSchemaName is a read-only property")
 
 	Func getBaseServerName
-		return dnSend("s3:get",nHandle,"s14:BaseServerName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:BaseServerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:BaseServerName",[]) ok
+		return dn_x
 
 	Func setBaseServerName P1
 		raise("DotNet Error: BaseServerName is a read-only property")
 
 	Func getBaseTableName
-		return dnSend("s3:get",nHandle,"s13:BaseTableName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:BaseTableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:BaseTableName",[]) ok
+		return dn_x
 
 	Func setBaseTableName P1
 		raise("DotNet Error: BaseTableName is a read-only property")
 
 	Func getColumnName
-		return dnSend("s3:get",nHandle,"s10:ColumnName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ColumnName",[]) ok
+		return dn_x
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
@@ -1004,7 +1149,9 @@ Class DbColumn from Object
 		raise("DotNet Error: NumericScale is a read-only property")
 
 	Func getUdtAssemblyQualifiedName
-		return dnSend("s3:get",nHandle,"s24:UdtAssemblyQualifiedName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s24:UdtAssemblyQualifiedName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:UdtAssemblyQualifiedName",[]) ok
+		return dn_x
 
 	Func setUdtAssemblyQualifiedName P1
 		raise("DotNet Error: UdtAssemblyQualifiedName is a read-only property")
@@ -1016,7 +1163,9 @@ Class DbColumn from Object
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getDataTypeName
-		return dnSend("s3:get",nHandle,"s12:DataTypeName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:DataTypeName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DataTypeName",[]) ok
+		return dn_x
 
 	Func setDataTypeName P1
 		raise("DotNet Error: DataTypeName is a read-only property")
@@ -1043,14 +1192,18 @@ Class DbCommand from Component
 		return self
 
 	Func Cancel 
-		dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Cancel","") ok
+
 		return self
 
 	Func CreateParameter 
 		return dnSend("s4:call",nHandle,"s15:CreateParameter","")
 
 	Func ExecuteNonQuery 
-		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ExecuteNonQuery",[]) ok
+		return dn_x
 
 	Func ExecuteReader P1
 		if dnIsNamed(P1)
@@ -1092,7 +1245,9 @@ Class DbCommand from Component
 		return dnSend("s4:call",nHandle,"s13:ExecuteScalar","")
 
 	Func Prepare 
-		dnSend("s4:call",nHandle,"s7:Prepare","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Prepare")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Prepare","") ok
+
 		return self
 
 	Func PrepareAsync P1
@@ -1108,38 +1263,49 @@ Class DbCommand from Component
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func getCommandText
-		return dnSend("s3:get",nHandle,"s11:CommandText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CommandText",[]) ok
+		return dn_x
 
 	Func setCommandText P1
-		dnSend("s3:set",nHandle,"s11:CommandText",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:CommandText",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CommandText",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandTimeout
-		return dnSend("s3:get",nHandle,"s14:CommandTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:CommandTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CommandTimeout",[]) ok
+		return dn_x
 
 	Func setCommandTimeout P1
-		dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CommandTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandType
 		return dnSend("s3:get",nHandle,"s11:CommandType","")
 
 	Func setCommandType P1
-		dnSend("s3:set",nHandle,"s11:CommandType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:CommandType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CommandType",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
 		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1)) ok
 		return self
 
 	Func getDesignTimeVisible
-		return dnSend("s3:get",nHandle,"s17:DesignTimeVisible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:DesignTimeVisible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DesignTimeVisible",[]) ok
+		return dn_x
 
 	Func setDesignTimeVisible P1
-		dnSend("s3:set",nHandle,"s17:DesignTimeVisible",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:DesignTimeVisible",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DesignTimeVisible",dnPackItem(P1)) ok
 		return self
 
 	Func getParameters
@@ -1152,14 +1318,16 @@ Class DbCommand from Component
 		return dnSend("s3:get",nHandle,"s11:Transaction","")
 
 	Func setTransaction P1
-		dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:Transaction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1)) ok
 		return self
 
 	Func getUpdatedRowSource
 		return dnSend("s3:get",nHandle,"s16:UpdatedRowSource","")
 
 	Func setUpdatedRowSource P1
-		dnSend("s3:set",nHandle,"s16:UpdatedRowSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:UpdatedRowSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:UpdatedRowSource",dnPackItem(P1)) ok
 		return self
 
 
@@ -1211,69 +1379,93 @@ Class DbCommandBuilder from Component
 		return dnSend("s4:call",nHandle,"s16:GetDeleteCommand",dnPackItem(P1))
 
 	Func QuoteIdentifier P1
-		return dnSend("s4:call",nHandle,"s15:QuoteIdentifier",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:QuoteIdentifier",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:QuoteIdentifier",[P1]) ok
+		return dn_x
 
 	Func RefreshSchema 
-		dnSend("s4:call",nHandle,"s13:RefreshSchema","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RefreshSchema")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RefreshSchema","") ok
+
 		return self
 
 	Func UnquoteIdentifier P1
-		return dnSend("s4:call",nHandle,"s17:UnquoteIdentifier",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:UnquoteIdentifier",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:UnquoteIdentifier",[P1]) ok
+		return dn_x
 
 	Func getConflictOption
 		return dnSend("s3:get",nHandle,"s14:ConflictOption","")
 
 	Func setConflictOption P1
-		dnSend("s3:set",nHandle,"s14:ConflictOption",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ConflictOption",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ConflictOption",dnPackItem(P1)) ok
 		return self
 
 	Func getCatalogLocation
 		return dnSend("s3:get",nHandle,"s15:CatalogLocation","")
 
 	Func setCatalogLocation P1
-		dnSend("s3:set",nHandle,"s15:CatalogLocation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:CatalogLocation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:CatalogLocation",dnPackItem(P1)) ok
 		return self
 
 	Func getCatalogSeparator
-		return dnSend("s3:get",nHandle,"s16:CatalogSeparator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:CatalogSeparator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:CatalogSeparator",[]) ok
+		return dn_x
 
 	Func setCatalogSeparator P1
-		dnSend("s3:set",nHandle,"s16:CatalogSeparator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:CatalogSeparator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:CatalogSeparator",dnPackItem(P1)) ok
 		return self
 
 	Func getDataAdapter
 		return dnSend("s3:get",nHandle,"s11:DataAdapter","")
 
 	Func setDataAdapter P1
-		dnSend("s3:set",nHandle,"s11:DataAdapter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DataAdapter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DataAdapter",dnPackItem(P1)) ok
 		return self
 
 	Func getQuotePrefix
-		return dnSend("s3:get",nHandle,"s11:QuotePrefix","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:QuotePrefix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:QuotePrefix",[]) ok
+		return dn_x
 
 	Func setQuotePrefix P1
-		dnSend("s3:set",nHandle,"s11:QuotePrefix",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:QuotePrefix",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QuotePrefix",dnPackItem(P1)) ok
 		return self
 
 	Func getQuoteSuffix
-		return dnSend("s3:get",nHandle,"s11:QuoteSuffix","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:QuoteSuffix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:QuoteSuffix",[]) ok
+		return dn_x
 
 	Func setQuoteSuffix P1
-		dnSend("s3:set",nHandle,"s11:QuoteSuffix",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:QuoteSuffix",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QuoteSuffix",dnPackItem(P1)) ok
 		return self
 
 	Func getSchemaSeparator
-		return dnSend("s3:get",nHandle,"s15:SchemaSeparator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:SchemaSeparator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:SchemaSeparator",[]) ok
+		return dn_x
 
 	Func setSchemaSeparator P1
-		dnSend("s3:set",nHandle,"s15:SchemaSeparator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:SchemaSeparator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:SchemaSeparator",dnPackItem(P1)) ok
 		return self
 
 	Func getSetAllValues
-		return dnSend("s3:get",nHandle,"s12:SetAllValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:SetAllValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:SetAllValues",[]) ok
+		return dn_x
 
 	Func setSetAllValues P1
-		dnSend("s3:set",nHandle,"s12:SetAllValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SetAllValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SetAllValues",dnPackItem(P1)) ok
 		return self
 
 
@@ -1315,7 +1507,9 @@ Class DbConnection from Component
 		return dnSend("s4:call",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func CloseAsync 
@@ -1325,7 +1519,9 @@ Class DbConnection from Component
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func ChangeDatabase P1
-		dnSend("s4:call",nHandle,"s14:ChangeDatabase",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:ChangeDatabase",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ChangeDatabase",dnPackItem(P1)) ok
+
 		return self
 
 	Func ChangeDatabaseAsync P1
@@ -1341,7 +1537,9 @@ Class DbConnection from Component
 		return dnSend("s4:call",nHandle,"s13:CreateCommand","")
 
 	Func EnlistTransaction P1
-		dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:EnlistTransaction",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetSchema P1
@@ -1363,7 +1561,9 @@ Class DbConnection from Component
 		return dnSend("s4:call",nHandle,"s14:GetSchemaAsync",dnPackItem(P1))
 
 	Func Open 
-		dnSend("s4:call",nHandle,"s4:Open","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Open")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Open","") ok
+
 		return self
 
 	Func OpenAsync P1
@@ -1384,32 +1584,43 @@ Class DbConnection from Component
 		return self
 
 	Func getConnectionString
-		return dnSend("s3:get",nHandle,"s16:ConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		return dn_x
 
 	Func setConnectionString P1
-		dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectionTimeout
-		return dnSend("s3:get",nHandle,"s17:ConnectionTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:ConnectionTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ConnectionTimeout",[]) ok
+		return dn_x
 
 	Func setConnectionTimeout P1
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
 
 	Func getDatabase
-		return dnSend("s3:get",nHandle,"s8:Database","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Database")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Database",[]) ok
+		return dn_x
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getDataSource
-		return dnSend("s3:get",nHandle,"s10:DataSource","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:DataSource")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:DataSource",[]) ok
+		return dn_x
 
 	Func setDataSource P1
 		raise("DotNet Error: DataSource is a read-only property")
 
 	Func getServerVersion
-		return dnSend("s3:get",nHandle,"s13:ServerVersion","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ServerVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ServerVersion",[]) ok
+		return dn_x
 
 	Func setServerVersion P1
 		raise("DotNet Error: ServerVersion is a read-only property")
@@ -1421,7 +1632,9 @@ Class DbConnection from Component
 		raise("DotNet Error: State is a read-only property")
 
 	Func getCanCreateBatch
-		return dnSend("s3:get",nHandle,"s14:CanCreateBatch","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CanCreateBatch",[]) ok
+		return dn_x
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
@@ -1472,30 +1685,44 @@ Class DbConnectionStringBuilder from Object
 		return self
 
 	Func Add P1,P2
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func ContainsKey P1
-		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		return dn_x
 
 	Func EquivalentTo P1
-		return dnSend("s4:call",nHandle,"s12:EquivalentTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:EquivalentTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:EquivalentTo",[P1]) ok
+		return dn_x
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func ShouldSerialize P1
-		return dnSend("s4:call",nHandle,"s15:ShouldSerialize",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ShouldSerialize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ShouldSerialize",[P1]) ok
+		return dn_x
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AppendKeyValuePair P1
 		if dnIsNamed(P1)
@@ -1508,37 +1735,50 @@ Class DbConnectionStringBuilder from Object
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getBrowsableConnectionString
-		return dnSend("s3:get",nHandle,"s25:BrowsableConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:BrowsableConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:BrowsableConnectionString",[]) ok
+		return dn_x
 
 	Func setBrowsableConnectionString P1
-		dnSend("s3:set",nHandle,"s25:BrowsableConnectionString",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s25:BrowsableConnectionString",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s25:BrowsableConnectionString",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectionString
-		return dnSend("s3:get",nHandle,"s16:ConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		return dn_x
 
 	Func setConnectionString P1
-		dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
@@ -1575,21 +1815,27 @@ Class DbDataReader from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func CloseAsync 
 		return dnSend("s4:call",nHandle,"s10:CloseAsync","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func GetDataTypeName P1
-		return dnSend("s4:call",nHandle,"s15:GetDataTypeName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetDataTypeName",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
@@ -1598,10 +1844,14 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s12:GetFieldType",dnPackItem(P1))
 
 	Func GetName P1
-		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetName",[P1]) ok
+		return dn_x
 
 	Func GetOrdinal P1
-		return dnSend("s4:call",nHandle,"s10:GetOrdinal",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetOrdinal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetOrdinal",[P1]) ok
+		return dn_x
 
 	Func GetSchemaTable 
 		return dnSend("s4:call",nHandle,"s14:GetSchemaTable","")
@@ -1625,19 +1875,27 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s20:GetColumnSchemaAsync",dnPackItem(P1))
 
 	Func GetBoolean P1
-		return dnSend("s4:call",nHandle,"s10:GetBoolean",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetBoolean",[P1]) ok
+		return dn_x
 
 	Func GetByte P1
-		return dnSend("s4:call",nHandle,"s7:GetByte",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetByte",[P1]) ok
+		return dn_x
 
 	Func GetBytes P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetBytes",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func GetChar P1
 		return dnSend("s4:call",nHandle,"s7:GetChar",dnPackItem(P1))
 
 	Func GetChars P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s8:GetChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetChars",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func GetData P1
 		return dnSend("s4:call",nHandle,"s7:GetData",dnPackItem(P1))
@@ -1646,25 +1904,37 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s11:GetDateTime",dnPackItem(P1))
 
 	Func GetDecimal P1
-		return dnSend("s4:call",nHandle,"s10:GetDecimal",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetDecimal",[P1]) ok
+		return dn_x
 
 	Func GetDouble P1
-		return dnSend("s4:call",nHandle,"s9:GetDouble",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetDouble",[P1]) ok
+		return dn_x
 
 	Func GetFloat P1
-		return dnSend("s4:call",nHandle,"s8:GetFloat",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetFloat",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetFloat",[P1]) ok
+		return dn_x
 
 	Func GetGuid P1
 		return dnSend("s4:call",nHandle,"s7:GetGuid",dnPackItem(P1))
 
 	Func GetInt16 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt16",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt16",[P1]) ok
+		return dn_x
 
 	Func GetInt32 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt32",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt32",[P1]) ok
+		return dn_x
 
 	Func GetInt64 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt64",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt64",[P1]) ok
+		return dn_x
 
 	Func GetProviderSpecificFieldType P1
 		return dnSend("s4:call",nHandle,"s28:GetProviderSpecificFieldType",dnPackItem(P1))
@@ -1673,10 +1943,14 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s24:GetProviderSpecificValue",dnPackItem(P1))
 
 	Func GetProviderSpecificValues P1
-		return dnSend("s4:call",nHandle,"s25:GetProviderSpecificValues",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s25:GetProviderSpecificValues",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:GetProviderSpecificValues",[P1]) ok
+		return dn_x
 
 	Func GetString P1
-		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		return dn_x
 
 	Func GetStream P1
 		return dnSend("s4:call",nHandle,"s9:GetStream",dnPackItem(P1))
@@ -1697,10 +1971,14 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s18:GetFieldValueAsync",dnPackItem(P1))
 
 	Func GetValues P1
-		return dnSend("s4:call",nHandle,"s9:GetValues",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetValues",[P1]) ok
+		return dn_x
 
 	Func IsDBNull P1
-		return dnSend("s4:call",nHandle,"s8:IsDBNull",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsDBNull",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:IsDBNull",[P1]) ok
+		return dn_x
 
 	Func IsDBNullAsync P1
 		if dnIsNamed(P1)
@@ -1709,10 +1987,14 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:IsDBNullAsync",dnPackItem(P1))
 
 	Func NextResult 
-		return dnSend("s4:call",nHandle,"s10:NextResult","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:NextResult")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:NextResult",[]) ok
+		return dn_x
 
 	Func Read 
-		return dnSend("s4:call",nHandle,"s4:Read","")
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Read")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Read",[]) ok
+		return dn_x
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
@@ -1736,37 +2018,49 @@ Class DbDataReader from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getDepth
-		return dnSend("s3:get",nHandle,"s5:Depth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Depth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Depth",[]) ok
+		return dn_x
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getFieldCount
-		return dnSend("s3:get",nHandle,"s10:FieldCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FieldCount",[]) ok
+		return dn_x
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
 
 	Func getHasRows
-		return dnSend("s3:get",nHandle,"s7:HasRows","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:HasRows")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:HasRows",[]) ok
+		return dn_x
 
 	Func setHasRows P1
 		raise("DotNet Error: HasRows is a read-only property")
 
 	Func getIsClosed
-		return dnSend("s3:get",nHandle,"s8:IsClosed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsClosed",[]) ok
+		return dn_x
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getRecordsAffected
-		return dnSend("s3:get",nHandle,"s15:RecordsAffected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:RecordsAffected",[]) ok
+		return dn_x
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getVisibleFieldCount
-		return dnSend("s3:get",nHandle,"s17:VisibleFieldCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:VisibleFieldCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:VisibleFieldCount",[]) ok
+		return dn_x
 
 	Func setVisibleFieldCount P1
 		raise("DotNet Error: VisibleFieldCount is a read-only property")
@@ -1784,13 +2078,17 @@ Class DbDataReaderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetColumnSchema P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s15:GetColumnSchema",dnPackItem(P1))
 
 	Func CanGetColumnSchema P1
-		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s18:CanGetColumnSchema",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s18:CanGetColumnSchema",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"s18:CanGetColumnSchema",[P1]) ok
+		return dn_x
 
 
 Class DbDataRecord from Object
@@ -1807,79 +2105,115 @@ Class DbDataRecord from Object
 		return self
 
 	Func GetBoolean P1
-		return dnSend("s4:call",nHandle,"s10:GetBoolean",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetBoolean",[P1]) ok
+		return dn_x
 
 	Func GetByte P1
-		return dnSend("s4:call",nHandle,"s7:GetByte",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetByte",[P1]) ok
+		return dn_x
 
 	Func GetBytes P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetBytes",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func GetChar P1
 		return dnSend("s4:call",nHandle,"s7:GetChar",dnPackItem(P1))
 
 	Func GetChars P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s8:GetChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetChars",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func GetData P1
 		return dnSend("s4:call",nHandle,"s7:GetData",dnPackItem(P1))
 
 	Func GetDataTypeName P1
-		return dnSend("s4:call",nHandle,"s15:GetDataTypeName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetDataTypeName",[P1]) ok
+		return dn_x
 
 	Func GetDateTime P1
 		return dnSend("s4:call",nHandle,"s11:GetDateTime",dnPackItem(P1))
 
 	Func GetDecimal P1
-		return dnSend("s4:call",nHandle,"s10:GetDecimal",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetDecimal",[P1]) ok
+		return dn_x
 
 	Func GetDouble P1
-		return dnSend("s4:call",nHandle,"s9:GetDouble",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetDouble",[P1]) ok
+		return dn_x
 
 	Func GetFieldType P1
 		return dnSend("s4:call",nHandle,"s12:GetFieldType",dnPackItem(P1))
 
 	Func GetFloat P1
-		return dnSend("s4:call",nHandle,"s8:GetFloat",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetFloat",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetFloat",[P1]) ok
+		return dn_x
 
 	Func GetGuid P1
 		return dnSend("s4:call",nHandle,"s7:GetGuid",dnPackItem(P1))
 
 	Func GetInt16 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt16",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt16",[P1]) ok
+		return dn_x
 
 	Func GetInt32 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt32",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt32",[P1]) ok
+		return dn_x
 
 	Func GetInt64 P1
-		return dnSend("s4:call",nHandle,"s8:GetInt64",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt64",[P1]) ok
+		return dn_x
 
 	Func GetName P1
-		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetName",[P1]) ok
+		return dn_x
 
 	Func GetOrdinal P1
-		return dnSend("s4:call",nHandle,"s10:GetOrdinal",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetOrdinal",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetOrdinal",[P1]) ok
+		return dn_x
 
 	Func GetString P1
-		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		return dn_x
 
 	Func GetValue P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func GetValues P1
-		return dnSend("s4:call",nHandle,"s9:GetValues",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetValues",[P1]) ok
+		return dn_x
 
 	Func IsDBNull P1
-		return dnSend("s4:call",nHandle,"s8:IsDBNull",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsDBNull",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:IsDBNull",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getFieldCount
-		return dnSend("s3:get",nHandle,"s10:FieldCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FieldCount",[]) ok
+		return dn_x
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
@@ -1926,17 +2260,23 @@ Class DbDataSource from Object
 		return dnSend("s4:call",nHandle,"s11:CreateBatch","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConnectionString
-		return dnSend("s3:get",nHandle,"s16:ConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		return dn_x
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
@@ -1957,7 +2297,9 @@ Class DbDataSourceEnumerator from Object
 		return dnSend("s4:call",nHandle,"s14:GetDataSources","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DbEnumerator from Object
@@ -1991,14 +2333,20 @@ Class DbEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnSend("s4:call",nHandle,"s8:MoveNext","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		return dn_x
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCurrent
 		return dnSend("s3:get",nHandle,"s7:Current","")
@@ -2025,34 +2373,46 @@ Class DbMetaDataCollectionNames from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMetaDataCollections
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s19:MetaDataCollections","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s19:MetaDataCollections")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s19:MetaDataCollections",[]) ok
+		return dn_x
 
 	Func setMetaDataCollections P1
 		raise("DotNet Error: MetaDataCollections is a read-only property")
 
 	Func getDataSourceInformation
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s21:DataSourceInformation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s21:DataSourceInformation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s21:DataSourceInformation",[]) ok
+		return dn_x
 
 	Func setDataSourceInformation P1
 		raise("DotNet Error: DataSourceInformation is a read-only property")
 
 	Func getDataTypes
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s9:DataTypes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s9:DataTypes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s9:DataTypes",[]) ok
+		return dn_x
 
 	Func setDataTypes P1
 		raise("DotNet Error: DataTypes is a read-only property")
 
 	Func getRestrictions
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s12:Restrictions","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s12:Restrictions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s12:Restrictions",[]) ok
+		return dn_x
 
 	Func setRestrictions P1
 		raise("DotNet Error: Restrictions is a read-only property")
 
 	Func getReservedWords
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s13:ReservedWords","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s13:ReservedWords")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"s13:ReservedWords",[]) ok
+		return dn_x
 
 	Func setReservedWords P1
 		raise("DotNet Error: ReservedWords is a read-only property")
@@ -2113,262 +2473,350 @@ Class DbMetaDataColumnNames from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCollectionName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:CollectionName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:CollectionName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:CollectionName",[]) ok
+		return dn_x
 
 	Func setCollectionName P1
 		raise("DotNet Error: CollectionName is a read-only property")
 
 	Func getColumnSize
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:ColumnSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:ColumnSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:ColumnSize",[]) ok
+		return dn_x
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getCompositeIdentifierSeparatorPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s35:CompositeIdentifierSeparatorPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s35:CompositeIdentifierSeparatorPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s35:CompositeIdentifierSeparatorPattern",[]) ok
+		return dn_x
 
 	Func setCompositeIdentifierSeparatorPattern P1
 		raise("DotNet Error: CompositeIdentifierSeparatorPattern is a read-only property")
 
 	Func getCreateFormat
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:CreateFormat","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:CreateFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:CreateFormat",[]) ok
+		return dn_x
 
 	Func setCreateFormat P1
 		raise("DotNet Error: CreateFormat is a read-only property")
 
 	Func getCreateParameters
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s16:CreateParameters","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s16:CreateParameters")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s16:CreateParameters",[]) ok
+		return dn_x
 
 	Func setCreateParameters P1
 		raise("DotNet Error: CreateParameters is a read-only property")
 
 	Func getDataSourceProductName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:DataSourceProductName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:DataSourceProductName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:DataSourceProductName",[]) ok
+		return dn_x
 
 	Func setDataSourceProductName P1
 		raise("DotNet Error: DataSourceProductName is a read-only property")
 
 	Func getDataSourceProductVersion
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s24:DataSourceProductVersion","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s24:DataSourceProductVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s24:DataSourceProductVersion",[]) ok
+		return dn_x
 
 	Func setDataSourceProductVersion P1
 		raise("DotNet Error: DataSourceProductVersion is a read-only property")
 
 	Func getDataType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:DataType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:DataType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:DataType",[]) ok
+		return dn_x
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getDataSourceProductVersionNormalized
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s34:DataSourceProductVersionNormalized","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s34:DataSourceProductVersionNormalized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s34:DataSourceProductVersionNormalized",[]) ok
+		return dn_x
 
 	Func setDataSourceProductVersionNormalized P1
 		raise("DotNet Error: DataSourceProductVersionNormalized is a read-only property")
 
 	Func getGroupByBehavior
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:GroupByBehavior","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:GroupByBehavior")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:GroupByBehavior",[]) ok
+		return dn_x
 
 	Func setGroupByBehavior P1
 		raise("DotNet Error: GroupByBehavior is a read-only property")
 
 	Func getIdentifierCase
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:IdentifierCase","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:IdentifierCase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:IdentifierCase",[]) ok
+		return dn_x
 
 	Func setIdentifierCase P1
 		raise("DotNet Error: IdentifierCase is a read-only property")
 
 	Func getIdentifierPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IdentifierPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IdentifierPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IdentifierPattern",[]) ok
+		return dn_x
 
 	Func setIdentifierPattern P1
 		raise("DotNet Error: IdentifierPattern is a read-only property")
 
 	Func getIsAutoIncrementable
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s19:IsAutoIncrementable","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s19:IsAutoIncrementable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s19:IsAutoIncrementable",[]) ok
+		return dn_x
 
 	Func setIsAutoIncrementable P1
 		raise("DotNet Error: IsAutoIncrementable is a read-only property")
 
 	Func getIsBestMatch
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s11:IsBestMatch","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s11:IsBestMatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s11:IsBestMatch",[]) ok
+		return dn_x
 
 	Func setIsBestMatch P1
 		raise("DotNet Error: IsBestMatch is a read-only property")
 
 	Func getIsCaseSensitive
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:IsCaseSensitive","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:IsCaseSensitive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s15:IsCaseSensitive",[]) ok
+		return dn_x
 
 	Func setIsCaseSensitive P1
 		raise("DotNet Error: IsCaseSensitive is a read-only property")
 
 	Func getIsConcurrencyType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IsConcurrencyType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IsConcurrencyType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s17:IsConcurrencyType",[]) ok
+		return dn_x
 
 	Func setIsConcurrencyType P1
 		raise("DotNet Error: IsConcurrencyType is a read-only property")
 
 	Func getIsFixedLength
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:IsFixedLength","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:IsFixedLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:IsFixedLength",[]) ok
+		return dn_x
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getIsFixedPrecisionScale
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:IsFixedPrecisionScale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:IsFixedPrecisionScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:IsFixedPrecisionScale",[]) ok
+		return dn_x
 
 	Func setIsFixedPrecisionScale P1
 		raise("DotNet Error: IsFixedPrecisionScale is a read-only property")
 
 	Func getIsLiteralSupported
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s18:IsLiteralSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s18:IsLiteralSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s18:IsLiteralSupported",[]) ok
+		return dn_x
 
 	Func setIsLiteralSupported P1
 		raise("DotNet Error: IsLiteralSupported is a read-only property")
 
 	Func getIsLong
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s6:IsLong","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s6:IsLong")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s6:IsLong",[]) ok
+		return dn_x
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getIsNullable
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsNullable","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsNullable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsNullable",[]) ok
+		return dn_x
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getIsSearchable
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:IsSearchable","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:IsSearchable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:IsSearchable",[]) ok
+		return dn_x
 
 	Func setIsSearchable P1
 		raise("DotNet Error: IsSearchable is a read-only property")
 
 	Func getIsSearchableWithLike
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:IsSearchableWithLike","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:IsSearchableWithLike")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:IsSearchableWithLike",[]) ok
+		return dn_x
 
 	Func setIsSearchableWithLike P1
 		raise("DotNet Error: IsSearchableWithLike is a read-only property")
 
 	Func getIsUnsigned
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsUnsigned","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsUnsigned")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s10:IsUnsigned",[]) ok
+		return dn_x
 
 	Func setIsUnsigned P1
 		raise("DotNet Error: IsUnsigned is a read-only property")
 
 	Func getLiteralPrefix
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralPrefix","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralPrefix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralPrefix",[]) ok
+		return dn_x
 
 	Func setLiteralPrefix P1
 		raise("DotNet Error: LiteralPrefix is a read-only property")
 
 	Func getLiteralSuffix
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralSuffix","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralSuffix")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s13:LiteralSuffix",[]) ok
+		return dn_x
 
 	Func setLiteralSuffix P1
 		raise("DotNet Error: LiteralSuffix is a read-only property")
 
 	Func getMaximumScale
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MaximumScale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MaximumScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MaximumScale",[]) ok
+		return dn_x
 
 	Func setMaximumScale P1
 		raise("DotNet Error: MaximumScale is a read-only property")
 
 	Func getMinimumScale
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MinimumScale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MinimumScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:MinimumScale",[]) ok
+		return dn_x
 
 	Func setMinimumScale P1
 		raise("DotNet Error: MinimumScale is a read-only property")
 
 	Func getNumberOfIdentifierParts
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:NumberOfIdentifierParts","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:NumberOfIdentifierParts")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:NumberOfIdentifierParts",[]) ok
+		return dn_x
 
 	Func setNumberOfIdentifierParts P1
 		raise("DotNet Error: NumberOfIdentifierParts is a read-only property")
 
 	Func getNumberOfRestrictions
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:NumberOfRestrictions","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:NumberOfRestrictions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:NumberOfRestrictions",[]) ok
+		return dn_x
 
 	Func setNumberOfRestrictions P1
 		raise("DotNet Error: NumberOfRestrictions is a read-only property")
 
 	Func getOrderByColumnsInSelect
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:OrderByColumnsInSelect","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:OrderByColumnsInSelect")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:OrderByColumnsInSelect",[]) ok
+		return dn_x
 
 	Func setOrderByColumnsInSelect P1
 		raise("DotNet Error: OrderByColumnsInSelect is a read-only property")
 
 	Func getParameterMarkerFormat
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:ParameterMarkerFormat","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:ParameterMarkerFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s21:ParameterMarkerFormat",[]) ok
+		return dn_x
 
 	Func setParameterMarkerFormat P1
 		raise("DotNet Error: ParameterMarkerFormat is a read-only property")
 
 	Func getParameterMarkerPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterMarkerPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterMarkerPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterMarkerPattern",[]) ok
+		return dn_x
 
 	Func setParameterMarkerPattern P1
 		raise("DotNet Error: ParameterMarkerPattern is a read-only property")
 
 	Func getParameterNameMaxLength
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterNameMaxLength","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterNameMaxLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:ParameterNameMaxLength",[]) ok
+		return dn_x
 
 	Func setParameterNameMaxLength P1
 		raise("DotNet Error: ParameterNameMaxLength is a read-only property")
 
 	Func getParameterNamePattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:ParameterNamePattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:ParameterNamePattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:ParameterNamePattern",[]) ok
+		return dn_x
 
 	Func setParameterNamePattern P1
 		raise("DotNet Error: ParameterNamePattern is a read-only property")
 
 	Func getProviderDbType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:ProviderDbType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:ProviderDbType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s14:ProviderDbType",[]) ok
+		return dn_x
 
 	Func setProviderDbType P1
 		raise("DotNet Error: ProviderDbType is a read-only property")
 
 	Func getQuotedIdentifierCase
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:QuotedIdentifierCase","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:QuotedIdentifierCase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:QuotedIdentifierCase",[]) ok
+		return dn_x
 
 	Func setQuotedIdentifierCase P1
 		raise("DotNet Error: QuotedIdentifierCase is a read-only property")
 
 	Func getQuotedIdentifierPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:QuotedIdentifierPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:QuotedIdentifierPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s23:QuotedIdentifierPattern",[]) ok
+		return dn_x
 
 	Func setQuotedIdentifierPattern P1
 		raise("DotNet Error: QuotedIdentifierPattern is a read-only property")
 
 	Func getReservedWord
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:ReservedWord","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:ReservedWord")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s12:ReservedWord",[]) ok
+		return dn_x
 
 	Func setReservedWord P1
 		raise("DotNet Error: ReservedWord is a read-only property")
 
 	Func getStatementSeparatorPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s25:StatementSeparatorPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s25:StatementSeparatorPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s25:StatementSeparatorPattern",[]) ok
+		return dn_x
 
 	Func setStatementSeparatorPattern P1
 		raise("DotNet Error: StatementSeparatorPattern is a read-only property")
 
 	Func getStringLiteralPattern
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:StringLiteralPattern","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:StringLiteralPattern")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s20:StringLiteralPattern",[]) ok
+		return dn_x
 
 	Func setStringLiteralPattern P1
 		raise("DotNet Error: StringLiteralPattern is a read-only property")
 
 	Func getSupportedJoinOperators
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:SupportedJoinOperators","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:SupportedJoinOperators")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s22:SupportedJoinOperators",[]) ok
+		return dn_x
 
 	Func setSupportedJoinOperators P1
 		raise("DotNet Error: SupportedJoinOperators is a read-only property")
 
 	Func getTypeName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:TypeName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:TypeName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"s8:TypeName",[]) ok
+		return dn_x
 
 
 Class DbParameter from MarshalByRefObject
@@ -2395,84 +2843,111 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func ResetDbType 
-		dnSend("s4:call",nHandle,"s11:ResetDbType","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:ResetDbType")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ResetDbType","") ok
+
 		return self
 
 	Func getDbType
 		return dnSend("s3:get",nHandle,"s6:DbType","")
 
 	Func setDbType P1
-		dnSend("s3:set",nHandle,"s6:DbType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:DbType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:DbType",dnPackItem(P1)) ok
 		return self
 
 	Func getDirection
 		return dnSend("s3:get",nHandle,"s9:Direction","")
 
 	Func setDirection P1
-		dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsNullable
-		return dnSend("s3:get",nHandle,"s10:IsNullable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNullable",[]) ok
+		return dn_x
 
 	Func setIsNullable P1
-		dnSend("s3:set",nHandle,"s10:IsNullable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsNullable",dnPackItem(P1)) ok
 		return self
 
 	Func getParameterName
-		return dnSend("s3:get",nHandle,"s13:ParameterName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ParameterName",[]) ok
+		return dn_x
 
 	Func setParameterName P1
-		dnSend("s3:set",nHandle,"s13:ParameterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ParameterName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ParameterName",dnPackItem(P1)) ok
 		return self
 
 	Func getPrecision
-		return dnSend("s3:get",nHandle,"s9:Precision","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Precision")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Precision",[]) ok
+		return dn_x
 
 	Func setPrecision P1
-		dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Precision",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1)) ok
 		return self
 
 	Func getScale
-		return dnSend("s3:get",nHandle,"s5:Scale","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Scale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Scale",[]) ok
+		return dn_x
 
 	Func setScale P1
-		dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
-		return dnSend("s3:get",nHandle,"s4:Size","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Size",[]) ok
+		return dn_x
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceColumn
-		return dnSend("s3:get",nHandle,"s12:SourceColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:SourceColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:SourceColumn",[]) ok
+		return dn_x
 
 	Func setSourceColumn P1
-		dnSend("s3:set",nHandle,"s12:SourceColumn",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SourceColumn",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SourceColumn",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceColumnNullMapping
-		return dnSend("s3:get",nHandle,"s23:SourceColumnNullMapping","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:SourceColumnNullMapping")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:SourceColumnNullMapping",[]) ok
+		return dn_x
 
 	Func setSourceColumnNullMapping P1
-		dnSend("s3:set",nHandle,"s23:SourceColumnNullMapping",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:SourceColumnNullMapping",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:SourceColumnNullMapping",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceVersion
 		return dnSend("s3:get",nHandle,"s13:SourceVersion","")
 
 	Func setSourceVersion P1
-		dnSend("s3:set",nHandle,"s13:SourceVersion",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:SourceVersion",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SourceVersion",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -2494,68 +2969,95 @@ Class DbParameterCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2579,7 +3081,9 @@ Class DbProviderFactories from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func TryGetFactory P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s13:TryGetFactory",dnPackItem(P1))
@@ -2594,11 +3098,15 @@ Class DbProviderFactories from Object
 		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s25:GetProviderInvariantNames","")
 
 	Func RegisterFactory P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s15:RegisterFactory",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s15:RegisterFactory",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s15:RegisterFactory",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterFactory P1
-		return dnSend("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s17:UnregisterFactory",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s17:UnregisterFactory",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Data.Common.DbProviderFactories, System.Data.Common'),"s17:UnregisterFactory",[P1]) ok
+		return dn_x
 
 
 Class DbProviderFactory from Object
@@ -2648,28 +3156,38 @@ Class DbProviderFactory from Object
 		return dnSend("s4:call",nHandle,"s16:CreateDataSource",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCanCreateBatch
-		return dnSend("s3:get",nHandle,"s14:CanCreateBatch","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CanCreateBatch",[]) ok
+		return dn_x
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
 
 	Func getCanCreateDataSourceEnumerator
-		return dnSend("s3:get",nHandle,"s29:CanCreateDataSourceEnumerator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s29:CanCreateDataSourceEnumerator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s29:CanCreateDataSourceEnumerator",[]) ok
+		return dn_x
 
 	Func setCanCreateDataSourceEnumerator P1
 		raise("DotNet Error: CanCreateDataSourceEnumerator is a read-only property")
 
 	Func getCanCreateDataAdapter
-		return dnSend("s3:get",nHandle,"s20:CanCreateDataAdapter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:CanCreateDataAdapter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:CanCreateDataAdapter",[]) ok
+		return dn_x
 
 	Func setCanCreateDataAdapter P1
 		raise("DotNet Error: CanCreateDataAdapter is a read-only property")
 
 	Func getCanCreateCommandBuilder
-		return dnSend("s3:get",nHandle,"s23:CanCreateCommandBuilder","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:CanCreateCommandBuilder")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:CanCreateCommandBuilder",[]) ok
+		return dn_x
 
 	Func setCanCreateCommandBuilder P1
 		raise("DotNet Error: CanCreateCommandBuilder is a read-only property")
@@ -2691,7 +3209,9 @@ Class DbTransaction from MarshalByRefObject
 		return self
 
 	Func Commit 
-		dnSend("s4:call",nHandle,"s6:Commit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit","") ok
+
 		return self
 
 	Func CommitAsync P1
@@ -2704,7 +3224,9 @@ Class DbTransaction from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s11:CommitAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
@@ -2716,10 +3238,14 @@ Class DbTransaction from MarshalByRefObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s8:Rollback","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1)) ok
+
 		return self
 
 	Func RollbackAsync P1
@@ -2744,7 +3270,9 @@ Class DbTransaction from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s12:ReleaseAsync",dnPackItem(P1))
 
 	Func Save P1
-		dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Save",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1)) ok
+
 		return self
 
 	Func getConnection
@@ -2760,7 +3288,9 @@ Class DbTransaction from MarshalByRefObject
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnSend("s3:get",nHandle,"s18:SupportsSavepoints","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:SupportsSavepoints",[]) ok
+		return dn_x
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -2808,7 +3338,9 @@ Class RowUpdatedEventArgs from EventArgs
 			dnSend("s9:callnamed",nHandle,"s10:CopyToRows",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s10:CopyToRows",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:CopyToRows",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:CopyToRows",dnPackItem(P1)) ok
+
 		return self
 
 	Func getCommand
@@ -2821,11 +3353,14 @@ Class RowUpdatedEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s6:Errors","")
 
 	Func setErrors P1
-		dnSend("s3:set",nHandle,"s6:Errors",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Errors",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Errors",dnPackItem(P1)) ok
 		return self
 
 	Func getRecordsAffected
-		return dnSend("s3:get",nHandle,"s15:RecordsAffected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:RecordsAffected",[]) ok
+		return dn_x
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
@@ -2837,7 +3372,9 @@ Class RowUpdatedEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getRowCount
-		return dnSend("s3:get",nHandle,"s8:RowCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:RowCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:RowCount",[]) ok
+		return dn_x
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
@@ -2852,7 +3389,8 @@ Class RowUpdatedEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
-		dnSend("s3:set",nHandle,"s6:Status",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Status",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Status",dnPackItem(P1)) ok
 		return self
 
 	Func getTableMapping
@@ -2886,14 +3424,16 @@ Class RowUpdatingEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s7:Command","")
 
 	Func setCommand P1
-		dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Command",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1)) ok
 		return self
 
 	Func getErrors
 		return dnSend("s3:get",nHandle,"s6:Errors","")
 
 	Func setErrors P1
-		dnSend("s3:set",nHandle,"s6:Errors",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Errors",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Errors",dnPackItem(P1)) ok
 		return self
 
 	Func getRow
@@ -2912,7 +3452,8 @@ Class RowUpdatingEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
-		dnSend("s3:set",nHandle,"s6:Status",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Status",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Status",dnPackItem(P1)) ok
 		return self
 
 	Func getTableMapping
@@ -2952,106 +3493,142 @@ Class SchemaTableColumn from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getColumnName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnName",[]) ok
+		return dn_x
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
 
 	Func getColumnOrdinal
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:ColumnOrdinal","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:ColumnOrdinal")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:ColumnOrdinal",[]) ok
+		return dn_x
 
 	Func setColumnOrdinal P1
 		raise("DotNet Error: ColumnOrdinal is a read-only property")
 
 	Func getColumnSize
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s10:ColumnSize",[]) ok
+		return dn_x
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getNumericPrecision
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s16:NumericPrecision","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s16:NumericPrecision")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s16:NumericPrecision",[]) ok
+		return dn_x
 
 	Func setNumericPrecision P1
 		raise("DotNet Error: NumericPrecision is a read-only property")
 
 	Func getNumericScale
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:NumericScale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:NumericScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:NumericScale",[]) ok
+		return dn_x
 
 	Func setNumericScale P1
 		raise("DotNet Error: NumericScale is a read-only property")
 
 	Func getDataType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:DataType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:DataType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:DataType",[]) ok
+		return dn_x
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getProviderType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:ProviderType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:ProviderType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:ProviderType",[]) ok
+		return dn_x
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getNonVersionedProviderType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s24:NonVersionedProviderType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s24:NonVersionedProviderType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s24:NonVersionedProviderType",[]) ok
+		return dn_x
 
 	Func setNonVersionedProviderType P1
 		raise("DotNet Error: NonVersionedProviderType is a read-only property")
 
 	Func getIsLong
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s6:IsLong","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s6:IsLong")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s6:IsLong",[]) ok
+		return dn_x
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getAllowDBNull
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s11:AllowDBNull","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s11:AllowDBNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s11:AllowDBNull",[]) ok
+		return dn_x
 
 	Func setAllowDBNull P1
 		raise("DotNet Error: AllowDBNull is a read-only property")
 
 	Func getIsAliased
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s9:IsAliased","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s9:IsAliased")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s9:IsAliased",[]) ok
+		return dn_x
 
 	Func setIsAliased P1
 		raise("DotNet Error: IsAliased is a read-only property")
 
 	Func getIsExpression
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:IsExpression","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:IsExpression")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s12:IsExpression",[]) ok
+		return dn_x
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsKey
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s5:IsKey","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s5:IsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s5:IsKey",[]) ok
+		return dn_x
 
 	Func setIsKey P1
 		raise("DotNet Error: IsKey is a read-only property")
 
 	Func getIsUnique
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:IsUnique","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:IsUnique")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s8:IsUnique",[]) ok
+		return dn_x
 
 	Func setIsUnique P1
 		raise("DotNet Error: IsUnique is a read-only property")
 
 	Func getBaseSchemaName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseSchemaName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseSchemaName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseSchemaName",[]) ok
+		return dn_x
 
 	Func setBaseSchemaName P1
 		raise("DotNet Error: BaseSchemaName is a read-only property")
 
 	Func getBaseTableName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:BaseTableName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:BaseTableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s13:BaseTableName",[]) ok
+		return dn_x
 
 	Func setBaseTableName P1
 		raise("DotNet Error: BaseTableName is a read-only property")
 
 	Func getBaseColumnName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseColumnName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseColumnName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableColumn, System.Data.Common'),"s14:BaseColumnName",[]) ok
+		return dn_x
 
 	Func setBaseColumnName P1
 		raise("DotNet Error: BaseColumnName is a read-only property")
@@ -3084,88 +3661,118 @@ Class SchemaTableOptionalColumn from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProviderSpecificDataType
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s24:ProviderSpecificDataType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s24:ProviderSpecificDataType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s24:ProviderSpecificDataType",[]) ok
+		return dn_x
 
 	Func setProviderSpecificDataType P1
 		raise("DotNet Error: ProviderSpecificDataType is a read-only property")
 
 	Func getIsAutoIncrement
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:IsAutoIncrement","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:IsAutoIncrement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:IsAutoIncrement",[]) ok
+		return dn_x
 
 	Func setIsAutoIncrement P1
 		raise("DotNet Error: IsAutoIncrement is a read-only property")
 
 	Func getIsHidden
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s8:IsHidden","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s8:IsHidden")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s8:IsHidden",[]) ok
+		return dn_x
 
 	Func setIsHidden P1
 		raise("DotNet Error: IsHidden is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsRowVersion
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:IsRowVersion","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:IsRowVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:IsRowVersion",[]) ok
+		return dn_x
 
 	Func setIsRowVersion P1
 		raise("DotNet Error: IsRowVersion is a read-only property")
 
 	Func getBaseServerName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s14:BaseServerName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s14:BaseServerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s14:BaseServerName",[]) ok
+		return dn_x
 
 	Func setBaseServerName P1
 		raise("DotNet Error: BaseServerName is a read-only property")
 
 	Func getBaseCatalogName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:BaseCatalogName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:BaseCatalogName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s15:BaseCatalogName",[]) ok
+		return dn_x
 
 	Func setBaseCatalogName P1
 		raise("DotNet Error: BaseCatalogName is a read-only property")
 
 	Func getAutoIncrementSeed
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementSeed","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementSeed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementSeed",[]) ok
+		return dn_x
 
 	Func setAutoIncrementSeed P1
 		raise("DotNet Error: AutoIncrementSeed is a read-only property")
 
 	Func getAutoIncrementStep
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementStep","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementStep")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s17:AutoIncrementStep",[]) ok
+		return dn_x
 
 	Func setAutoIncrementStep P1
 		raise("DotNet Error: AutoIncrementStep is a read-only property")
 
 	Func getDefaultValue
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:DefaultValue","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:DefaultValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s12:DefaultValue",[]) ok
+		return dn_x
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getExpression
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:Expression","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:Expression")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s10:Expression",[]) ok
+		return dn_x
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getBaseTableNamespace
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s18:BaseTableNamespace","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s18:BaseTableNamespace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s18:BaseTableNamespace",[]) ok
+		return dn_x
 
 	Func setBaseTableNamespace P1
 		raise("DotNet Error: BaseTableNamespace is a read-only property")
 
 	Func getBaseColumnNamespace
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s19:BaseColumnNamespace","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s19:BaseColumnNamespace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s19:BaseColumnNamespace",[]) ok
+		return dn_x
 
 	Func setBaseColumnNamespace P1
 		raise("DotNet Error: BaseColumnNamespace is a read-only property")
 
 	Func getColumnMapping
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s13:ColumnMapping","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s13:ColumnMapping")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"s13:ColumnMapping",[]) ok
+		return dn_x
 
 	Func setColumnMapping P1
 		raise("DotNet Error: ColumnMapping is a read-only property")
@@ -3199,51 +3806,64 @@ Class DbDataAdapter from DataAdapter
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s4:Fill",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s4:Fill",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Fill",[P1]) ok
+		return dn_x
 
 	Func Update P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Update",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Update",[P1]) ok
+		return dn_x
 
 	Func getDeleteCommand
 		return dnSend("s3:get",nHandle,"s13:DeleteCommand","")
 
 	Func setDeleteCommand P1
-		dnSend("s3:set",nHandle,"s13:DeleteCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:DeleteCommand",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:DeleteCommand",dnPackItem(P1)) ok
 		return self
 
 	Func getInsertCommand
 		return dnSend("s3:get",nHandle,"s13:InsertCommand","")
 
 	Func setInsertCommand P1
-		dnSend("s3:set",nHandle,"s13:InsertCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:InsertCommand",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:InsertCommand",dnPackItem(P1)) ok
 		return self
 
 	Func getSelectCommand
 		return dnSend("s3:get",nHandle,"s13:SelectCommand","")
 
 	Func setSelectCommand P1
-		dnSend("s3:set",nHandle,"s13:SelectCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:SelectCommand",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SelectCommand",dnPackItem(P1)) ok
 		return self
 
 	Func getUpdateBatchSize
-		return dnSend("s3:get",nHandle,"s15:UpdateBatchSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:UpdateBatchSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UpdateBatchSize",[]) ok
+		return dn_x
 
 	Func setUpdateBatchSize P1
-		dnSend("s3:set",nHandle,"s15:UpdateBatchSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:UpdateBatchSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UpdateBatchSize",dnPackItem(P1)) ok
 		return self
 
 	Func getUpdateCommand
 		return dnSend("s3:get",nHandle,"s13:UpdateCommand","")
 
 	Func setUpdateCommand P1
-		dnSend("s3:set",nHandle,"s13:UpdateCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:UpdateCommand",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:UpdateCommand",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultSourceTableName
-		return dnSend("s3:get",dnTypeHandle('System.Data.Common.DbDataAdapter, System.Data.Common'),"s22:DefaultSourceTableName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.Common.DbDataAdapter, System.Data.Common'),"s22:DefaultSourceTableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.Common.DbDataAdapter, System.Data.Common'),"s22:DefaultSourceTableName",[]) ok
+		return dn_x
 
 	Func setDefaultSourceTableName P1
 		raise("DotNet Error: DefaultSourceTableName is a read-only property")

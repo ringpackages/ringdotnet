@@ -63,19 +63,25 @@ Class IIdentity from DotNetObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		return dnSend("s3:get",nHandle,"s18:AuthenticationType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:AuthenticationType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AuthenticationType",[]) ok
+		return dn_x
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsAuthenticated",[]) ok
+		return dn_x
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -95,7 +101,9 @@ Class IPrincipal from DotNetObject
 		return self
 
 	Func IsInRole P1
-		return dnSend("s4:call",nHandle,"s8:IsInRole",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsInRole",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:IsInRole",[P1]) ok
+		return dn_x
 
 	Func getIdentity
 		return dnSend("s3:get",nHandle,"s8:Identity","")
@@ -118,16 +126,22 @@ Class IdentityReference from Object
 		return self
 
 	Func IsValidTargetType P1
-		return dnSend("s4:call",nHandle,"s17:IsValidTargetType",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsValidTargetType",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:IsValidTargetType",[P1]) ok
+		return dn_x
 
 	Func Translate P1
 		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -172,22 +186,32 @@ Class IdentityReferenceCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
@@ -199,17 +223,22 @@ Class IdentityReferenceCollection from Object
 		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -254,7 +283,9 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetCurrent P1
@@ -270,7 +301,9 @@ Class WindowsIdentity from ClaimsIdentity
 		return dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s12:GetAnonymous","")
 
 	Func RunImpersonated P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RunImpersonatedAsync P1,P2
@@ -283,19 +316,25 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getIsGuest
-		return dnSend("s3:get",nHandle,"s7:IsGuest","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsGuest")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsGuest",[]) ok
+		return dn_x
 
 	Func setIsGuest P1
 		raise("DotNet Error: IsGuest is a read-only property")
 
 	Func getIsSystem
-		return dnSend("s3:get",nHandle,"s8:IsSystem","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSystem")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSystem",[]) ok
+		return dn_x
 
 	Func setIsSystem P1
 		raise("DotNet Error: IsSystem is a read-only property")
 
 	Func getIsAnonymous
-		return dnSend("s3:get",nHandle,"s11:IsAnonymous","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAnonymous")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsAnonymous",[]) ok
+		return dn_x
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
@@ -343,7 +382,9 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: DeviceClaims is a read-only property")
 
 	Func getDefaultIssuer
-		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s13:DefaultIssuer",[]) ok
+		return dn_x
 
 
 Class WindowsPrincipal from ClaimsPrincipal
@@ -438,23 +479,35 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func IsAccountSid 
-		return dnSend("s4:call",nHandle,"s12:IsAccountSid","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsAccountSid")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsAccountSid",[]) ok
+		return dn_x
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func IsWellKnown P1
-		return dnSend("s4:call",nHandle,"s11:IsWellKnown",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:IsWellKnown",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:IsWellKnown",[P1]) ok
+		return dn_x
 
 	Func GetBinaryForm P1,P2
-		dnSend("s4:call",nHandle,"s13:GetBinaryForm",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:GetBinaryForm",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:GetBinaryForm",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func IsEqualDomainSid P1
-		return dnSend("s4:call",nHandle,"s16:IsEqualDomainSid",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsEqualDomainSid",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:IsEqualDomainSid",[P1]) ok
+		return dn_x
 
 	Func getBinaryLength
-		return dnSend("s3:get",nHandle,"s12:BinaryLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:BinaryLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:BinaryLength",[]) ok
+		return dn_x
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")
@@ -466,13 +519,17 @@ Class SecurityIdentifier from IdentityReference
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MinBinaryLength",[]) ok
+		return dn_x
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		return dnSend("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"s15:MaxBinaryLength",[]) ok
+		return dn_x
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")

@@ -98,41 +98,58 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTemplate
-		return dnSend("s3:get",nHandle,"s8:Template","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Template",[]) ok
+		return dn_x
 
 	Func setTemplate P1
-		dnSend("s3:set",nHandle,"s8:Template",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Template",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Template",dnPackItem(P1)) ok
 		return self
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
-		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getSuppressLinkGeneration
-		return dnSend("s3:get",nHandle,"s22:SuppressLinkGeneration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SuppressLinkGeneration",[]) ok
+		return dn_x
 
 	Func setSuppressLinkGeneration P1
-		dnSend("s3:set",nHandle,"s22:SuppressLinkGeneration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:SuppressLinkGeneration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:SuppressLinkGeneration",dnPackItem(P1)) ok
 		return self
 
 	Func getSuppressPathMatching
-		return dnSend("s3:get",nHandle,"s20:SuppressPathMatching","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:SuppressPathMatching")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:SuppressPathMatching",[]) ok
+		return dn_x
 
 	Func setSuppressPathMatching P1
-		dnSend("s3:set",nHandle,"s20:SuppressPathMatching",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:SuppressPathMatching",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SuppressPathMatching",dnPackItem(P1)) ok
 		return self
 
 
@@ -156,13 +173,16 @@ Class DynamicRouteValueTransformer from Object
 		return dnSend("s4:call",nHandle,"s11:FilterAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getState
 		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
-		dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:State",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1)) ok
 		return self
 
 
@@ -202,7 +222,9 @@ Class IRouteTemplateProvider from DotNetObject
 		return self
 
 	Func getTemplate
-		return dnSend("s3:get",nHandle,"s8:Template","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Template",[]) ok
+		return dn_x
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
@@ -214,7 +236,9 @@ Class IRouteTemplateProvider from DotNetObject
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -235,13 +259,17 @@ Class IRouteValueProvider from DotNetObject
 		return self
 
 	Func getRouteKey
-		return dnSend("s3:get",nHandle,"s8:RouteKey","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:RouteKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:RouteKey",[]) ok
+		return dn_x
 
 	Func setRouteKey P1
 		raise("DotNet Error: RouteKey is a read-only property")
 
 	Func getRouteValue
-		return dnSend("s3:get",nHandle,"s10:RouteValue","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:RouteValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:RouteValue",[]) ok
+		return dn_x
 
 	Func setRouteValue P1
 		raise("DotNet Error: RouteValue is a read-only property")
@@ -276,10 +304,14 @@ Class KnownRouteValueConstraint from Object
 		return self
 
 	Func Match P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s5:Match",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Match",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Match",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class UrlActionContext from Object
@@ -310,48 +342,66 @@ Class UrlActionContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAction
-		return dnSend("s3:get",nHandle,"s6:Action","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Action")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Action",[]) ok
+		return dn_x
 
 	Func setAction P1
-		dnSend("s3:set",nHandle,"s6:Action",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Action",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Action",dnPackItem(P1)) ok
 		return self
 
 	Func getController
-		return dnSend("s3:get",nHandle,"s10:Controller","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Controller")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Controller",[]) ok
+		return dn_x
 
 	Func setController P1
-		dnSend("s3:set",nHandle,"s10:Controller",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Controller",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Controller",dnPackItem(P1)) ok
 		return self
 
 	Func getValues
 		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
-		dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Values",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1)) ok
 		return self
 
 	Func getProtocol
-		return dnSend("s3:get",nHandle,"s8:Protocol","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		return dn_x
 
 	Func setProtocol P1
-		dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1)) ok
 		return self
 
 	Func getHost
-		return dnSend("s3:get",nHandle,"s4:Host","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Host",[]) ok
+		return dn_x
 
 	Func setHost P1
-		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1)) ok
 		return self
 
 	Func getFragment
-		return dnSend("s3:get",nHandle,"s8:Fragment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Fragment",[]) ok
+		return dn_x
 
 	Func setFragment P1
-		dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1)) ok
 		return self
 
 
@@ -369,22 +419,34 @@ Class UrlHelperBase from Object
 		return self
 
 	Func IsLocalUrl P1
-		return dnSend("s4:call",nHandle,"s10:IsLocalUrl",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsLocalUrl",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:IsLocalUrl",[P1]) ok
+		return dn_x
 
 	Func Content P1
-		return dnSend("s4:call",nHandle,"s7:Content",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Content",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Content",[P1]) ok
+		return dn_x
 
 	Func Link P1,P2
-		return dnSend("s4:call",nHandle,"s4:Link",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Link",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Link",[P1,P2]) ok
+		return dn_x
 
 	Func Action P1
-		return dnSend("s4:call",nHandle,"s6:Action",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Action",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Action",[P1]) ok
+		return dn_x
 
 	Func RouteUrl P1
-		return dnSend("s4:call",nHandle,"s8:RouteUrl",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:RouteUrl",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:RouteUrl",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActionContext
 		return dnSend("s3:get",nHandle,"s13:ActionContext","")
@@ -417,7 +479,9 @@ Class UrlHelperFactory from Object
 		return dnSend("s4:call",nHandle,"s12:GetUrlHelper",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class UrlRouteContext from Object
@@ -447,41 +511,56 @@ Class UrlRouteContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRouteName
-		return dnSend("s3:get",nHandle,"s9:RouteName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RouteName",[]) ok
+		return dn_x
 
 	Func setRouteName P1
-		dnSend("s3:set",nHandle,"s9:RouteName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RouteName",dnPackItem(P1)) ok
 		return self
 
 	Func getValues
 		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
-		dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Values",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1)) ok
 		return self
 
 	Func getProtocol
-		return dnSend("s3:get",nHandle,"s8:Protocol","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		return dn_x
 
 	Func setProtocol P1
-		dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1)) ok
 		return self
 
 	Func getHost
-		return dnSend("s3:get",nHandle,"s4:Host","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Host",[]) ok
+		return dn_x
 
 	Func setHost P1
-		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1)) ok
 		return self
 
 	Func getFragment
-		return dnSend("s3:get",nHandle,"s8:Fragment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Fragment",[]) ok
+		return dn_x
 
 	Func setFragment P1
-		dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1)) ok
 		return self
 
 

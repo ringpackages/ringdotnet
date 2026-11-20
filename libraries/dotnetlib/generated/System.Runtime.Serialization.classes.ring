@@ -47,7 +47,9 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 		return dnSend("s4:call",nHandle,"s21:GetCustomDataToExport",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetKnownCustomDataTypes P1
-		dnSend("s4:call",nHandle,"s23:GetKnownCustomDataTypes",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:GetKnownCustomDataTypes",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:GetKnownCustomDataTypes",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetReferencedTypeOnImport P1,P2,P3

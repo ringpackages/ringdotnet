@@ -43,19 +43,27 @@ Class TextEncoder from Object
 		return self
 
 	Func WillEncode P1
-		return dnSend("s4:call",nHandle,"s10:WillEncode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:WillEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:WillEncode",[P1]) ok
+		return dn_x
 
 	Func Encode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Encode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Encode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Encode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Encode",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMaxOutputCharactersPerInputCharacter
-		return dnSend("s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter",[]) ok
+		return dn_x
 
 	Func setMaxOutputCharactersPerInputCharacter P1
 		raise("DotNet Error: MaxOutputCharactersPerInputCharacter is a read-only property")
@@ -98,50 +106,72 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func AllowCharacter P1
-		dnSend("s4:call",nHandle,"s14:AllowCharacter",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:AllowCharacter",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:AllowCharacter",dnPackItem(P1)) ok
+
 		return self
 
 	Func AllowCharacters P1
-		dnSend("s4:call",nHandle,"s15:AllowCharacters",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AllowCharacters",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AllowCharacters",dnPackItem(P1)) ok
+
 		return self
 
 	Func AllowCodePoints P1
-		dnSend("s4:call",nHandle,"s15:AllowCodePoints",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AllowCodePoints",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AllowCodePoints",dnPackItem(P1)) ok
+
 		return self
 
 	Func AllowRange P1
-		dnSend("s4:call",nHandle,"s10:AllowRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AllowRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AllowRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func AllowRanges P1
-		dnSend("s4:call",nHandle,"s11:AllowRanges",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:AllowRanges",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AllowRanges",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func ForbidCharacter P1
-		dnSend("s4:call",nHandle,"s15:ForbidCharacter",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:ForbidCharacter",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ForbidCharacter",dnPackItem(P1)) ok
+
 		return self
 
 	Func ForbidCharacters P1
-		dnSend("s4:call",nHandle,"s16:ForbidCharacters",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ForbidCharacters",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ForbidCharacters",dnPackItem(P1)) ok
+
 		return self
 
 	Func ForbidRange P1
-		dnSend("s4:call",nHandle,"s11:ForbidRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:ForbidRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ForbidRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func ForbidRanges P1
-		dnSend("s4:call",nHandle,"s12:ForbidRanges",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:ForbidRanges",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ForbidRanges",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetAllowedCodePoints 
 		return dnSend("s4:call",nHandle,"s20:GetAllowedCodePoints","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class HtmlEncoder from TextEncoder

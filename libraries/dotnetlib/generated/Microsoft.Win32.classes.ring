@@ -30,7 +30,9 @@ Class Registry from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetValue P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s8:GetValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -97,15 +99,21 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func Flush 
-		dnSend("s4:call",nHandle,"s5:Flush","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Flush")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Flush","") ok
+
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func CreateSubKey P1
@@ -119,7 +127,9 @@ Class RegistryKey from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s12:DeleteSubKey",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s12:DeleteSubKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:DeleteSubKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:DeleteSubKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func DeleteSubKeyTree P1
@@ -127,7 +137,9 @@ Class RegistryKey from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:DeleteSubKeyTree",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1)) ok
+
 		return self
 
 	Func DeleteValue P1
@@ -135,7 +147,9 @@ Class RegistryKey from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s11:DeleteValue",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s11:DeleteValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:DeleteValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:DeleteValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func OpenSubKey P1
@@ -154,7 +168,9 @@ Class RegistryKey from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s16:GetAccessControl",dnPackItem(P1))
 
 	Func SetAccessControl P1
-		dnSend("s4:call",nHandle,"s16:SetAccessControl",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetAccessControl",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetSubKeyNames 
@@ -195,7 +211,9 @@ Class RegistryKey from MarshalByRefObject
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
 
 	Func getSubKeyCount
-		return dnSend("s3:get",nHandle,"s11:SubKeyCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:SubKeyCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:SubKeyCount",[]) ok
+		return dn_x
 
 	Func setSubKeyCount P1
 		raise("DotNet Error: SubKeyCount is a read-only property")
@@ -213,13 +231,17 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getValueCount
-		return dnSend("s3:get",nHandle,"s10:ValueCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ValueCount",[]) ok
+		return dn_x
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

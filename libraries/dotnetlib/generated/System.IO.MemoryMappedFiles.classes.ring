@@ -49,11 +49,15 @@ Class MemoryMappedFile from Object
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func OpenExisting P1
 		if dnIsNamed(P1)
@@ -101,7 +105,9 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		return self
 
 	Func Flush 
-		dnSend("s4:call",nHandle,"s5:Flush","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Flush")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Flush","") ok
+
 		return self
 
 	Func getSafeMemoryMappedViewHandle
@@ -111,7 +117,9 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		return dnSend("s3:get",nHandle,"s13:PointerOffset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PointerOffset",[]) ok
+		return dn_x
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")
@@ -138,7 +146,9 @@ Class MemoryMappedViewStream from UnmanagedMemoryStream
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		return dnSend("s3:get",nHandle,"s13:PointerOffset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PointerOffset",[]) ok
+		return dn_x
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")

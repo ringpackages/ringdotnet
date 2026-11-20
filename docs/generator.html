@@ -269,15 +269,20 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 <h2 id="how-a-wrapper-class-looks">How a wrapper class looks<a class="anchor" href="#how-a-wrapper-class-looks">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">Class</span> StringBuilder <span class="k">from</span> Object
 
+	<span class="k">Func</span> <span class="f">Contains</span> P1
+		dn_x = dotnet_call(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s8:Contains"</span>,P1)
+		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnLate</span>(dn_x,<span class="s">"s4:call"</span>,nHandle,<span class="s">"s8:Contains"</span>,[P1]) <span class="k">ok</span>
+		<span class="k">return</span> dn_x
+
 	<span class="k">Func</span> <span class="f">Append</span> P1
 		<span class="k">return</span> <span class="f">dnSend</span>(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s6:Append"</span>,<span class="f">dnPackItem</span>(P1))
 
 	<span class="k">Func</span> <span class="f">getLength</span>
-		<span class="k">return</span> <span class="f">dnSend</span>(<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>,<span class="s">""</span>)
-
-	<span class="k">Func</span> <span class="f">setLength</span> P1
-		<span class="f">dnSend</span>(<span class="s">"s3:set"</span>,nHandle,<span class="s">"s6:Length"</span>,<span class="f">dnPackItem</span>(P1))</code></pre></div>
-<p>Ring calls <code>getLength()</code> when you read <code>oSB.Length</code>, and <code>setLength(value)</code> when you assign to it. A method does not make a target object or a list for the request: it passes the handle as a number and the pieces that never change (the operation <code>call</code> and the name <code>Append</code>) as ready wire items, and <code>dnSend</code> finishes the request text. That is about twice as fast as building <code>dnRequest("call",[target,"Append",P1])</code> for each call. A property accessor does the same with the operations <code>get</code> and <code>set</code>.</p>
+		dn_x = dotnet_call(<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>)
+		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnLate</span>(dn_x,<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>,[]) <span class="k">ok</span>
+		<span class="k">return</span> dn_x</code></pre></div>
+<p>Ring calls <code>getLength()</code> when you read <code>oSB.Length</code>, and <code>setLength(value)</code> when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation <code>call</code> and the name) as ready wire items.</p>
+<ul><li>A method that returns a <strong>text, a number, a yes/no or nothing</strong> calls the C function <code>dotnet_call</code> (<code>dotnet_callv</code> for nothing). It packs the arguments (texts and numbers), calls .NET and reads the answer in C: about 2 to 3 µs for a call. When it cannot finish (an argument is an object or a list, or the answer is an object or null) it answers a list, and the Ring function <code>dnLate</code> does the rest.</li><li>Any other method (it returns an object, or has <code>out</code> parameters) uses <code>dnSend</code>, the same request made in Ring.</li><li>The calls with named arguments (<code>callnamed</code>) also use <code>dnSend</code>.</li></ul>
 <h2 id="wrapping-your-own-assembly">Wrapping your own assembly<a class="anchor" href="#wrapping-your-own-assembly">#</a></h2>
 <p><code>tools/dotnettools/wrapassembly.ring</code> uses the same generator for a single DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>

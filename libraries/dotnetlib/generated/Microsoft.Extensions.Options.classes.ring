@@ -41,7 +41,9 @@ Class IStartupValidator from DotNetObject
 		return self
 
 	Func Validate 
-		dnSend("s4:call",nHandle,"s8:Validate","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Validate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Validate","") ok
+
 		return self
 
 
@@ -59,13 +61,17 @@ Class Options from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s6:Create",dnPackItem(P1))
 
 	Func getDefaultName
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"s11:DefaultName",[]) ok
+		return dn_x
 
 	Func setDefaultName P1
 		raise("DotNet Error: DefaultName is a read-only property")
@@ -83,7 +89,9 @@ Class OptionsMonitorExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func OnChange P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options'),"s8:OnChange",dnPackItem(P1) + dnPackItem(P2))
@@ -118,31 +126,41 @@ Class ValidateOptionsResult from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Fail P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"s4:Fail",dnPackItem(P1))
 
 	Func getSucceeded
-		return dnSend("s3:get",nHandle,"s9:Succeeded","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Succeeded")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Succeeded",[]) ok
+		return dn_x
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getSkipped
-		return dnSend("s3:get",nHandle,"s7:Skipped","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Skipped")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Skipped",[]) ok
+		return dn_x
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
 
 	Func getFailed
-		return dnSend("s3:get",nHandle,"s6:Failed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Failed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Failed",[]) ok
+		return dn_x
 
 	Func setFailed P1
 		raise("DotNet Error: Failed is a read-only property")
 
 	Func getFailureMessage
-		return dnSend("s3:get",nHandle,"s14:FailureMessage","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FailureMessage",[]) ok
+		return dn_x
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -191,25 +209,35 @@ Class ValidateOptionsResultBuilder from Object
 			dnSend("s9:callnamed",nHandle,"s8:AddError",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s8:AddError",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddError",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddError",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddResult P1
-		dnSend("s4:call",nHandle,"s9:AddResult",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddResult",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddResult",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddResults P1
-		dnSend("s4:call",nHandle,"s10:AddResults",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddResults",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddResults",dnPackItem(P1)) ok
+
 		return self
 
 	Func Build 
 		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 

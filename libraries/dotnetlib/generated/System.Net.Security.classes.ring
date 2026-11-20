@@ -96,37 +96,49 @@ Class AuthenticatedStream from Stream
 		return self
 
 	Func getLeaveInnerStreamOpen
-		return dnSend("s3:get",nHandle,"s20:LeaveInnerStreamOpen","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:LeaveInnerStreamOpen")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:LeaveInnerStreamOpen",[]) ok
+		return dn_x
 
 	Func setLeaveInnerStreamOpen P1
 		raise("DotNet Error: LeaveInnerStreamOpen is a read-only property")
 
 	Func getIsAuthenticated
-		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsAuthenticated",[]) ok
+		return dn_x
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnSend("s3:get",nHandle,"s23:IsMutuallyAuthenticated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:IsMutuallyAuthenticated",[]) ok
+		return dn_x
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsEncrypted
-		return dnSend("s3:get",nHandle,"s11:IsEncrypted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsEncrypted",[]) ok
+		return dn_x
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsSigned
-		return dnSend("s3:get",nHandle,"s8:IsSigned","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSigned")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSigned",[]) ok
+		return dn_x
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsServer
-		return dnSend("s3:get",nHandle,"s8:IsServer","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsServer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsServer",[]) ok
+		return dn_x
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
@@ -148,7 +160,9 @@ Class CipherSuitesPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAllowedCipherSuites
 		return dnSend("s3:get",nHandle,"s19:AllowedCipherSuites","")
@@ -181,17 +195,23 @@ Class NegotiateAuthentication from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetOutgoingBlob P1
 		return dnSend("s4:call",nHandle,"s15:GetOutgoingBlob",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsAuthenticated
-		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsAuthenticated",[]) ok
+		return dn_x
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -203,34 +223,46 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getIsSigned
-		return dnSend("s3:get",nHandle,"s8:IsSigned","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSigned")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSigned",[]) ok
+		return dn_x
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsEncrypted
-		return dnSend("s3:get",nHandle,"s11:IsEncrypted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsEncrypted",[]) ok
+		return dn_x
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnSend("s3:get",nHandle,"s23:IsMutuallyAuthenticated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:IsMutuallyAuthenticated",[]) ok
+		return dn_x
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsServer
-		return dnSend("s3:get",nHandle,"s8:IsServer","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsServer")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsServer",[]) ok
+		return dn_x
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
 
 	Func getPackage
-		return dnSend("s3:get",nHandle,"s7:Package","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Package",[]) ok
+		return dn_x
 
 	Func getTargetName
-		return dnSend("s3:get",nHandle,"s10:TargetName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:TargetName",[]) ok
+		return dn_x
 
 	Func setTargetName P1
 		raise("DotNet Error: TargetName is a read-only property")
@@ -276,55 +308,70 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPackage
-		return dnSend("s3:get",nHandle,"s7:Package","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Package",[]) ok
+		return dn_x
 
 	Func setPackage P1
-		dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Package",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1)) ok
 		return self
 
 	Func getCredential
 		return dnSend("s3:get",nHandle,"s10:Credential","")
 
 	Func setCredential P1
-		dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Credential",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1)) ok
 		return self
 
 	Func getTargetName
-		return dnSend("s3:get",nHandle,"s10:TargetName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:TargetName",[]) ok
+		return dn_x
 
 	Func setTargetName P1
-		dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:TargetName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1)) ok
 		return self
 
 	Func getBinding
 		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Binding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1)) ok
 		return self
 
 	Func getRequiredProtectionLevel
 		return dnSend("s3:get",nHandle,"s23:RequiredProtectionLevel","")
 
 	Func setRequiredProtectionLevel P1
-		dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:RequiredProtectionLevel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1)) ok
 		return self
 
 	Func getRequireMutualAuthentication
-		return dnSend("s3:get",nHandle,"s27:RequireMutualAuthentication","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:RequireMutualAuthentication")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:RequireMutualAuthentication",[]) ok
+		return dn_x
 
 	Func setRequireMutualAuthentication P1
-		dnSend("s3:set",nHandle,"s27:RequireMutualAuthentication",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s27:RequireMutualAuthentication",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s27:RequireMutualAuthentication",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowedImpersonationLevel
 		return dnSend("s3:get",nHandle,"s25:AllowedImpersonationLevel","")
 
 	Func setAllowedImpersonationLevel P1
-		dnSend("s3:set",nHandle,"s25:AllowedImpersonationLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s25:AllowedImpersonationLevel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s25:AllowedImpersonationLevel",dnPackItem(P1)) ok
 		return self
 
 
@@ -355,48 +402,58 @@ Class NegotiateAuthenticationServerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPackage
-		return dnSend("s3:get",nHandle,"s7:Package","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Package",[]) ok
+		return dn_x
 
 	Func setPackage P1
-		dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Package",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1)) ok
 		return self
 
 	Func getCredential
 		return dnSend("s3:get",nHandle,"s10:Credential","")
 
 	Func setCredential P1
-		dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Credential",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1)) ok
 		return self
 
 	Func getBinding
 		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Binding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1)) ok
 		return self
 
 	Func getRequiredProtectionLevel
 		return dnSend("s3:get",nHandle,"s23:RequiredProtectionLevel","")
 
 	Func setRequiredProtectionLevel P1
-		dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:RequiredProtectionLevel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1)) ok
 		return self
 
 	Func getPolicy
 		return dnSend("s3:get",nHandle,"s6:Policy","")
 
 	Func setPolicy P1
-		dnSend("s3:set",nHandle,"s6:Policy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Policy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Policy",dnPackItem(P1)) ok
 		return self
 
 	Func getRequiredImpersonationLevel
 		return dnSend("s3:get",nHandle,"s26:RequiredImpersonationLevel","")
 
 	Func setRequiredImpersonationLevel P1
-		dnSend("s3:set",nHandle,"s26:RequiredImpersonationLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:RequiredImpersonationLevel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:RequiredImpersonationLevel",dnPackItem(P1)) ok
 		return self
 
 
@@ -478,7 +535,9 @@ Class SslCertificateTrust from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateForX509Store P1
 		if dnIsNamed(P1)
@@ -528,97 +587,118 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAllowRenegotiation
-		return dnSend("s3:get",nHandle,"s18:AllowRenegotiation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AllowRenegotiation",[]) ok
+		return dn_x
 
 	Func setAllowRenegotiation P1
-		dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowTlsResume
-		return dnSend("s3:get",nHandle,"s14:AllowTlsResume","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AllowTlsResume",[]) ok
+		return dn_x
 
 	Func setAllowTlsResume P1
-		dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1)) ok
 		return self
 
 	Func getLocalCertificateSelectionCallback
 		return dnSend("s3:get",nHandle,"s33:LocalCertificateSelectionCallback","")
 
 	Func setLocalCertificateSelectionCallback P1
-		dnSend("s3:set",nHandle,"s33:LocalCertificateSelectionCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s33:LocalCertificateSelectionCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s33:LocalCertificateSelectionCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getRemoteCertificateValidationCallback
 		return dnSend("s3:get",nHandle,"s35:RemoteCertificateValidationCallback","")
 
 	Func setRemoteCertificateValidationCallback P1
-		dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getApplicationProtocols
 		return dnSend("s3:get",nHandle,"s20:ApplicationProtocols","")
 
 	Func setApplicationProtocols P1
-		dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:ApplicationProtocols",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1)) ok
 		return self
 
 	Func getTargetHost
-		return dnSend("s3:get",nHandle,"s10:TargetHost","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetHost")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:TargetHost",[]) ok
+		return dn_x
 
 	Func setTargetHost P1
-		dnSend("s3:set",nHandle,"s10:TargetHost",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:TargetHost",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:TargetHost",dnPackItem(P1)) ok
 		return self
 
 	Func getClientCertificates
 		return dnSend("s3:get",nHandle,"s18:ClientCertificates","")
 
 	Func setClientCertificates P1
-		dnSend("s3:set",nHandle,"s18:ClientCertificates",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ClientCertificates",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ClientCertificates",dnPackItem(P1)) ok
 		return self
 
 	Func getClientCertificateContext
 		return dnSend("s3:get",nHandle,"s24:ClientCertificateContext","")
 
 	Func setClientCertificateContext P1
-		dnSend("s3:set",nHandle,"s24:ClientCertificateContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:ClientCertificateContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:ClientCertificateContext",dnPackItem(P1)) ok
 		return self
 
 	Func getCertificateRevocationCheckMode
 		return dnSend("s3:get",nHandle,"s30:CertificateRevocationCheckMode","")
 
 	Func setCertificateRevocationCheckMode P1
-		dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s30:CertificateRevocationCheckMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1)) ok
 		return self
 
 	Func getEncryptionPolicy
 		return dnSend("s3:get",nHandle,"s16:EncryptionPolicy","")
 
 	Func setEncryptionPolicy P1
-		dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:EncryptionPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getEnabledSslProtocols
 		return dnSend("s3:get",nHandle,"s19:EnabledSslProtocols","")
 
 	Func setEnabledSslProtocols P1
-		dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:EnabledSslProtocols",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1)) ok
 		return self
 
 	Func getCipherSuitesPolicy
 		return dnSend("s3:get",nHandle,"s18:CipherSuitesPolicy","")
 
 	Func setCipherSuitesPolicy P1
-		dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:CipherSuitesPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getCertificateChainPolicy
 		return dnSend("s3:get",nHandle,"s22:CertificateChainPolicy","")
 
 	Func setCertificateChainPolicy P1
-		dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:CertificateChainPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1)) ok
 		return self
 
 
@@ -662,7 +742,9 @@ Class SslClientHelloInfo from ValueType
 		return self
 
 	Func getServerName
-		return dnSend("s3:get",nHandle,"s10:ServerName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ServerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ServerName",[]) ok
+		return dn_x
 
 	Func setServerName P1
 		raise("DotNet Error: ServerName is a read-only property")
@@ -709,97 +791,118 @@ Class SslServerAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAllowRenegotiation
-		return dnSend("s3:get",nHandle,"s18:AllowRenegotiation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AllowRenegotiation",[]) ok
+		return dn_x
 
 	Func setAllowRenegotiation P1
-		dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowTlsResume
-		return dnSend("s3:get",nHandle,"s14:AllowTlsResume","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AllowTlsResume",[]) ok
+		return dn_x
 
 	Func setAllowTlsResume P1
-		dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1)) ok
 		return self
 
 	Func getClientCertificateRequired
-		return dnSend("s3:get",nHandle,"s25:ClientCertificateRequired","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:ClientCertificateRequired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:ClientCertificateRequired",[]) ok
+		return dn_x
 
 	Func setClientCertificateRequired P1
-		dnSend("s3:set",nHandle,"s25:ClientCertificateRequired",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s25:ClientCertificateRequired",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s25:ClientCertificateRequired",dnPackItem(P1)) ok
 		return self
 
 	Func getApplicationProtocols
 		return dnSend("s3:get",nHandle,"s20:ApplicationProtocols","")
 
 	Func setApplicationProtocols P1
-		dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:ApplicationProtocols",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1)) ok
 		return self
 
 	Func getRemoteCertificateValidationCallback
 		return dnSend("s3:get",nHandle,"s35:RemoteCertificateValidationCallback","")
 
 	Func setRemoteCertificateValidationCallback P1
-		dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getServerCertificateSelectionCallback
 		return dnSend("s3:get",nHandle,"s34:ServerCertificateSelectionCallback","")
 
 	Func setServerCertificateSelectionCallback P1
-		dnSend("s3:set",nHandle,"s34:ServerCertificateSelectionCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s34:ServerCertificateSelectionCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s34:ServerCertificateSelectionCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getServerCertificate
 		return dnSend("s3:get",nHandle,"s17:ServerCertificate","")
 
 	Func setServerCertificate P1
-		dnSend("s3:set",nHandle,"s17:ServerCertificate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ServerCertificate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ServerCertificate",dnPackItem(P1)) ok
 		return self
 
 	Func getServerCertificateContext
 		return dnSend("s3:get",nHandle,"s24:ServerCertificateContext","")
 
 	Func setServerCertificateContext P1
-		dnSend("s3:set",nHandle,"s24:ServerCertificateContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:ServerCertificateContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:ServerCertificateContext",dnPackItem(P1)) ok
 		return self
 
 	Func getEnabledSslProtocols
 		return dnSend("s3:get",nHandle,"s19:EnabledSslProtocols","")
 
 	Func setEnabledSslProtocols P1
-		dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:EnabledSslProtocols",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1)) ok
 		return self
 
 	Func getCertificateRevocationCheckMode
 		return dnSend("s3:get",nHandle,"s30:CertificateRevocationCheckMode","")
 
 	Func setCertificateRevocationCheckMode P1
-		dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s30:CertificateRevocationCheckMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1)) ok
 		return self
 
 	Func getEncryptionPolicy
 		return dnSend("s3:get",nHandle,"s16:EncryptionPolicy","")
 
 	Func setEncryptionPolicy P1
-		dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:EncryptionPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getCipherSuitesPolicy
 		return dnSend("s3:get",nHandle,"s18:CipherSuitesPolicy","")
 
 	Func setCipherSuitesPolicy P1
-		dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:CipherSuitesPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getCertificateChainPolicy
 		return dnSend("s3:get",nHandle,"s22:CertificateChainPolicy","")
 
 	Func setCertificateChainPolicy P1
-		dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:CertificateChainPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1)) ok
 		return self
 
 
@@ -818,7 +921,9 @@ Class SslStreamCertificateContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -877,7 +982,9 @@ Class NegotiateStream from AuthenticatedStream
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:EndAuthenticateAsClient",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1)) ok
+
 		return self
 
 	Func AuthenticateAsServer P1
@@ -886,10 +993,14 @@ Class NegotiateStream from AuthenticatedStream
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s20:AuthenticateAsServer","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AuthenticateAsServer","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginAuthenticateAsServer P1
@@ -899,7 +1010,9 @@ Class NegotiateStream from AuthenticatedStream
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:EndAuthenticateAsServer",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1)) ok
+
 		return self
 
 	Func AuthenticateAsClient P1
@@ -908,7 +1021,9 @@ Class NegotiateStream from AuthenticatedStream
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s20:AuthenticateAsClient","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsClient")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AuthenticateAsClient","") ok
+
 		return self
 		ok
 		raise("DotNet Error: AuthenticateAsClient does not take one argument: use named arguments, AuthenticateAsClient([ :parameter = value, ... ])")
@@ -994,7 +1109,9 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:EndAuthenticateAsClient",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginAuthenticateAsServer P1
@@ -1004,7 +1121,9 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:EndAuthenticateAsServer",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1)) ok
+
 		return self
 
 	Func AuthenticateAsClient P1
@@ -1012,7 +1131,9 @@ Class SslStream from AuthenticatedStream
 			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsClient",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1)) ok
+
 		return self
 
 	Func AuthenticateAsServer P1
@@ -1020,7 +1141,9 @@ Class SslStream from AuthenticatedStream
 			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1)) ok
+
 		return self
 
 	Func AuthenticateAsClientAsync P1
@@ -1052,7 +1175,9 @@ Class SslStream from AuthenticatedStream
 			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Write",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1)) ok
+
 		return self
 
 	Func getTransportContext
@@ -1068,7 +1193,9 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		return dnSend("s3:get",nHandle,"s25:CheckCertRevocationStatus","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:CheckCertRevocationStatus")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:CheckCertRevocationStatus",[]) ok
+		return dn_x
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
@@ -1104,7 +1231,9 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		return dnSend("s3:get",nHandle,"s14:CipherStrength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:CipherStrength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CipherStrength",[]) ok
+		return dn_x
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
@@ -1116,7 +1245,9 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		return dnSend("s3:get",nHandle,"s12:HashStrength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:HashStrength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:HashStrength",[]) ok
+		return dn_x
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
@@ -1128,13 +1259,17 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		return dnSend("s3:get",nHandle,"s19:KeyExchangeStrength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:KeyExchangeStrength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:KeyExchangeStrength",[]) ok
+		return dn_x
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		return dnSend("s3:get",nHandle,"s14:TargetHostName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:TargetHostName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:TargetHostName",[]) ok
+		return dn_x
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")

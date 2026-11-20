@@ -82,17 +82,25 @@ The generator names the methods of a class like this:
 ```ring
 Class StringBuilder from Object
 
+	Func Contains P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
+
 	Func Append P1
 		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
-
-	Func setLength P1
-		dnSend("s3:set",nHandle,"s6:Length",dnPackItem(P1))
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method does not make a target object or a list for the request: it passes the handle as a number and the pieces that never change (the operation `call` and the name `Append`) as ready wire items, and `dnSend` finishes the request text. That is about twice as fast as building `dnRequest("call",[target,"Append",P1])` for each call. A property accessor does the same with the operations `get` and `set`.
+Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items.
+
+- A method that returns a **text, a number, a yes/no or nothing** calls the C function `dotnet_call` (`dotnet_callv` for nothing). It packs the arguments (texts and numbers), calls .NET and reads the answer in C: about 2 to 3 µs for a call. When it cannot finish (an argument is an object or a list, or the answer is an object or null) it answers a list, and the Ring function `dnLate` does the rest.
+- Any other method (it returns an object, or has `out` parameters) uses `dnSend`, the same request made in Ring.
+- The calls with named arguments (`callnamed`) also use `dnSend`.
 
 ## Wrapping your own assembly
 

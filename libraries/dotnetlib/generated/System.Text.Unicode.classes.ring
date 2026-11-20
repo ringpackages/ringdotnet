@@ -34,19 +34,25 @@ Class UnicodeRange from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getFirstCodePoint
-		return dnSend("s3:get",nHandle,"s14:FirstCodePoint","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:FirstCodePoint")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FirstCodePoint",[]) ok
+		return dn_x
 
 	Func setFirstCodePoint P1
 		raise("DotNet Error: FirstCodePoint is a read-only property")
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -227,7 +233,9 @@ Class UnicodeRanges from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNone
 		return dnSend("s3:get",dnTypeHandle('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"s4:None","")
@@ -1214,6 +1222,8 @@ Class Utf8 from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 

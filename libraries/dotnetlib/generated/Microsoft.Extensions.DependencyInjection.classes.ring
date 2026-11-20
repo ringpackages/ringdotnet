@@ -617,7 +617,9 @@ Class ActivatorUtilities from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
@@ -650,7 +652,9 @@ Class AntiforgeryServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAntiforgery P1
 		if dnIsNamed(P1)
@@ -671,18 +675,24 @@ Class ApplicationModelConventionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func RemoveType P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
+
 		return self
 
 	Func Add P1,P2
-		dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s3:Add",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -725,7 +735,9 @@ Class AsyncServiceScope from ValueType
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
@@ -750,7 +762,9 @@ Class AuthenticationCoreServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAuthenticationCore P1
 		if dnIsNamed(P1)
@@ -771,7 +785,9 @@ Class AuthenticationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAuthentication P1
 		if dnIsNamed(P1)
@@ -792,7 +808,9 @@ Class AuthorizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAuthorizationCore P1
 		if dnIsNamed(P1)
@@ -813,7 +831,9 @@ Class BearerTokenExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddBearerToken P1
 		if dnIsNamed(P1)
@@ -834,7 +854,9 @@ Class CascadingAuthenticationStateServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCascadingAuthenticationState P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.CascadingAuthenticationStateServiceCollectionExtensions, Microsoft.AspNetCore.Components.Authorization'),"s31:AddCascadingAuthenticationState",dnPackItem(P1))
@@ -852,7 +874,9 @@ Class CascadingValueServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCascadingValue P1
 		if dnIsNamed(P1)
@@ -880,7 +904,9 @@ Class CertificateForwardingServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCertificateForwarding P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.CertificateForwardingServiceExtensions, Microsoft.AspNetCore.HttpOverrides'),"s24:AddCertificateForwarding",dnPackItem(P1) + dnPackItem(P2))
@@ -898,7 +924,9 @@ Class ComponentServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddServerSideBlazor P1
 		if dnIsNamed(P1)
@@ -919,7 +947,9 @@ Class ConnectionsDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddConnections P1
 		if dnIsNamed(P1)
@@ -940,7 +970,9 @@ Class CookieExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCookie P1
 		if dnIsNamed(P1)
@@ -961,7 +993,9 @@ Class CookiePolicyServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCookiePolicy P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy'),"s15:AddCookiePolicy",dnPackItem(P1) + dnPackItem(P2))
@@ -979,7 +1013,9 @@ Class CorsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCors P1
 		if dnIsNamed(P1)
@@ -1000,7 +1036,9 @@ Class DataProtectionServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddDataProtection P1
 		if dnIsNamed(P1)
@@ -1052,7 +1090,9 @@ Class DefaultServiceProviderFactory from Object
 		return dnSend("s4:call",nHandle,"s21:CreateServiceProvider",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DirectoryBrowserServiceExtensions from Object
@@ -1067,7 +1107,9 @@ Class DirectoryBrowserServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddDirectoryBrowser P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles'),"s19:AddDirectoryBrowser",dnPackItem(P1))
@@ -1085,7 +1127,9 @@ Class EncoderServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddWebEncoders P1
 		if dnIsNamed(P1)
@@ -1106,7 +1150,9 @@ Class EndpointMetadataApiExplorerServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddEndpointsApiExplorer P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.EndpointMetadataApiExplorerServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer'),"s23:AddEndpointsApiExplorer",dnPackItem(P1))
@@ -1124,7 +1170,9 @@ Class ExceptionHandlerServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddExceptionHandler P1
 		if dnIsNamed(P1)
@@ -1145,7 +1193,9 @@ Class HealthCheckServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHealthChecks P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"s15:AddHealthChecks",dnPackItem(P1))
@@ -1163,7 +1213,9 @@ Class HealthChecksBuilderAddCheckExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCheck P1
 		if dnIsNamed(P1)
@@ -1190,7 +1242,9 @@ Class HealthChecksBuilderDelegateExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCheck P1
 		if dnIsNamed(P1)
@@ -1217,7 +1271,9 @@ Class HttpClientBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ConfigureHttpClient P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"s19:ConfigureHttpClient",dnPackItem(P1) + dnPackItem(P2))
@@ -1292,7 +1348,9 @@ Class HttpClientFactoryServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHttpClient P1
 		if dnIsNamed(P1)
@@ -1316,7 +1374,9 @@ Class HttpJsonServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ConfigureHttpJsonOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.HttpJsonServiceExtensions, Microsoft.AspNetCore.Http.Extensions'),"s24:ConfigureHttpJsonOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -1334,7 +1394,9 @@ Class HttpLoggingServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHttpLogging P1
 		if dnIsNamed(P1)
@@ -1361,7 +1423,9 @@ Class HttpServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHttpContextAccessor P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"s22:AddHttpContextAccessor",dnPackItem(P1))
@@ -1405,7 +1469,9 @@ Class IHttpClientBuilder from DotNetObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1553,7 +1619,9 @@ Class IServiceProviderIsKeyedService from DotNetObject
 		return self
 
 	Func IsKeyedService P1,P2
-		return dnSend("s4:call",nHandle,"s14:IsKeyedService",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsKeyedService",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsKeyedService",[P1,P2]) ok
+		return dn_x
 
 
 Class IServiceProviderIsService from DotNetObject
@@ -1568,7 +1636,9 @@ Class IServiceProviderIsService from DotNetObject
 		return self
 
 	Func IsService P1
-		return dnSend("s4:call",nHandle,"s9:IsService",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsService",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsService",[P1]) ok
+		return dn_x
 
 
 Class IServiceScope from DotNetObject
@@ -1621,7 +1691,9 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1660,7 +1732,9 @@ Class IdentityServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddIdentity P1
 		if dnIsNamed(P1)
@@ -1693,7 +1767,9 @@ Class JsonProtocolDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddJsonProtocol P1
 		if dnIsNamed(P1)
@@ -1716,7 +1792,9 @@ Class KeyedService from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAnyKey
 		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.DependencyInjection.KeyedService, Microsoft.Extensions.DependencyInjection.Abstractions'),"s6:AnyKey","")
@@ -1737,7 +1815,9 @@ Class LocalizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddLocalization P1
 		if dnIsNamed(P1)
@@ -1758,7 +1838,9 @@ Class LoggingServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddLogging P1
 		if dnIsNamed(P1)
@@ -1779,7 +1861,9 @@ Class MemoryCacheServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMemoryCache P1
 		if dnIsNamed(P1)
@@ -1806,7 +1890,9 @@ Class MetricsServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMetrics P1
 		if dnIsNamed(P1)
@@ -1827,7 +1913,9 @@ Class MvcApiExplorerMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddApiExplorer P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcApiExplorerMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer'),"s14:AddApiExplorer",dnPackItem(P1))
@@ -1845,7 +1933,9 @@ Class MvcCoreMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMvcOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s13:AddMvcOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -1884,7 +1974,9 @@ Class MvcCoreMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMvcOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s13:AddMvcOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -1932,7 +2024,9 @@ Class MvcCoreServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMvcCore P1
 		if dnIsNamed(P1)
@@ -1953,7 +2047,9 @@ Class MvcCorsMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCors P1
 		if dnIsNamed(P1)
@@ -1977,7 +2073,9 @@ Class MvcDataAnnotationsMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddDataAnnotationsLocalization P1
 		if dnIsNamed(P1)
@@ -1998,7 +2096,9 @@ Class MvcDataAnnotationsMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddDataAnnotations P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"s18:AddDataAnnotations",dnPackItem(P1))
@@ -2022,7 +2122,9 @@ Class MvcLocalizationMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddViewLocalization P1
 		if dnIsNamed(P1)
@@ -2049,7 +2151,9 @@ Class MvcLocalizationMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddViewLocalization P1
 		if dnIsNamed(P1)
@@ -2076,7 +2180,9 @@ Class MvcRazorMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRazorOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"s15:AddRazorOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2100,7 +2206,9 @@ Class MvcRazorMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRazorViewEngine P1
 		if dnIsNamed(P1)
@@ -2127,7 +2235,9 @@ Class MvcRazorPagesMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRazorPagesOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s20:AddRazorPagesOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2151,7 +2261,9 @@ Class MvcRazorPagesMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRazorPages P1
 		if dnIsNamed(P1)
@@ -2175,7 +2287,9 @@ Class MvcServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddMvc P1
 		if dnIsNamed(P1)
@@ -2214,7 +2328,9 @@ Class MvcViewFeaturesMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddViewOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s14:AddViewOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2244,7 +2360,9 @@ Class MvcViewFeaturesMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddViews P1
 		if dnIsNamed(P1)
@@ -2274,7 +2392,9 @@ Class MvcXmlMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddXmlOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"s13:AddXmlOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2304,7 +2424,9 @@ Class MvcXmlMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddXmlOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"s13:AddXmlOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2334,7 +2456,9 @@ Class OAuthExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddOAuth P1
 		if dnIsNamed(P1)
@@ -2355,7 +2479,9 @@ Class OptionsBuilderConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Bind P1
 		if dnIsNamed(P1)
@@ -2382,7 +2508,9 @@ Class OptionsBuilderDataAnnotationsExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ValidateDataAnnotations P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations'),"s23:ValidateDataAnnotations",dnPackItem(P1))
@@ -2400,7 +2528,9 @@ Class OptionsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ValidateOnStart P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions, Microsoft.Extensions.Options'),"s15:ValidateOnStart",dnPackItem(P1))
@@ -2418,7 +2548,9 @@ Class OptionsConfigurationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Configure P1
 		if dnIsNamed(P1)
@@ -2439,7 +2571,9 @@ Class OptionsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddOptions P1
 		if dnIsNamed(P1)
@@ -2490,7 +2624,9 @@ Class OutputCacheConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CacheOutput P1
 		if dnIsNamed(P1)
@@ -2511,7 +2647,9 @@ Class OutputCacheServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddOutputCache P1
 		if dnIsNamed(P1)
@@ -2532,7 +2670,9 @@ Class PageConventionCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ConfigureFilter P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s15:ConfigureFilter",dnPackItem(P1) + dnPackItem(P2))
@@ -2595,7 +2735,9 @@ Class PolicyServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAuthorizationBuilder P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"s23:AddAuthorizationBuilder",dnPackItem(P1))
@@ -2622,7 +2764,9 @@ Class ProblemDetailsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddProblemDetails P1
 		if dnIsNamed(P1)
@@ -2643,7 +2787,9 @@ Class RazorComponentsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRazorComponents P1
 		if dnIsNamed(P1)
@@ -2664,7 +2810,9 @@ Class RequestDecompressionServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRequestDecompression P1
 		if dnIsNamed(P1)
@@ -2685,7 +2833,9 @@ Class RequestLocalizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRequestLocalization P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization'),"s22:AddRequestLocalization",dnPackItem(P1) + dnPackItem(P2))
@@ -2703,7 +2853,9 @@ Class RequestTimeoutsIServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRequestTimeouts P1
 		if dnIsNamed(P1)
@@ -2724,7 +2876,9 @@ Class ResponseCachingServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddResponseCaching P1
 		if dnIsNamed(P1)
@@ -2745,7 +2899,9 @@ Class RoutingServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddRouting P1
 		if dnIsNamed(P1)
@@ -2769,7 +2925,9 @@ Class ServerRazorComponentsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddInteractiveServerComponents P1
 		if dnIsNamed(P1)
@@ -2790,7 +2948,9 @@ Class ServerSideBlazorBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCircuitOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"s17:AddCircuitOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -2823,55 +2983,78 @@ Class ServiceCollection from Object
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func MakeReadOnly 
-		dnSend("s4:call",nHandle,"s12:MakeReadOnly","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:MakeReadOnly","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2889,7 +3072,9 @@ Class ServiceCollectionContainerBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func BuildServiceProvider P1
 		if dnIsNamed(P1)
@@ -2910,7 +3095,9 @@ Class ServiceCollectionHostedServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHostedService P1
 		if dnIsNamed(P1)
@@ -2931,7 +3118,9 @@ Class ServiceCollectionServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddTransient P1
 		if dnIsNamed(P1)
@@ -3010,7 +3199,9 @@ Class ServiceDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Transient P1
 		if dnIsNamed(P1)
@@ -3118,7 +3309,9 @@ Class ServiceDescriptor from Object
 		raise("DotNet Error: KeyedImplementationFactory is a read-only property")
 
 	Func getIsKeyedService
-		return dnSend("s3:get",nHandle,"s14:IsKeyedService","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsKeyedService")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsKeyedService",[]) ok
+		return dn_x
 
 	Func setIsKeyedService P1
 		raise("DotNet Error: IsKeyedService is a read-only property")
@@ -3145,14 +3338,18 @@ Class ServiceProvider from Object
 		return dnSend("s4:call",nHandle,"s23:GetRequiredKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ServiceProviderKeyedServiceExtensions from Object
@@ -3167,7 +3364,9 @@ Class ServiceProviderKeyedServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetKeyedService P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"s15:GetKeyedService",dnPackItem(P1) + dnPackItem(P2))
@@ -3209,20 +3408,28 @@ Class ServiceProviderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValidateScopes
-		return dnSend("s3:get",nHandle,"s14:ValidateScopes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ValidateScopes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ValidateScopes",[]) ok
+		return dn_x
 
 	Func setValidateScopes P1
-		dnSend("s3:set",nHandle,"s14:ValidateScopes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ValidateScopes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ValidateScopes",dnPackItem(P1)) ok
 		return self
 
 	Func getValidateOnBuild
-		return dnSend("s3:get",nHandle,"s15:ValidateOnBuild","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ValidateOnBuild")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ValidateOnBuild",[]) ok
+		return dn_x
 
 	Func setValidateOnBuild P1
-		dnSend("s3:set",nHandle,"s15:ValidateOnBuild",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValidateOnBuild",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValidateOnBuild",dnPackItem(P1)) ok
 		return self
 
 
@@ -3238,7 +3445,9 @@ Class ServiceProviderServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetService P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"s10:GetService",dnPackItem(P1))
@@ -3274,7 +3483,9 @@ Class SessionServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddSession P1
 		if dnIsNamed(P1)
@@ -3295,7 +3506,9 @@ Class SignalRDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddHubOptions P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR'),"s13:AddHubOptions",dnPackItem(P1) + dnPackItem(P2))
@@ -3319,7 +3532,9 @@ Class SocketsHttpHandlerBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Configure P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http'),"s9:Configure",dnPackItem(P1) + dnPackItem(P2))
@@ -3337,7 +3552,9 @@ Class TagHelperServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCacheTagHelper P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"s17:AddCacheTagHelper",dnPackItem(P1))

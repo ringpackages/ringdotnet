@@ -64,7 +64,9 @@ Class DefaultFilesMiddleware from Object
 		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DirectoryBrowserMiddleware from Object
@@ -99,7 +101,9 @@ Class DirectoryBrowserMiddleware from Object
 		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class FileExtensionContentTypeProvider from Object
@@ -144,7 +148,9 @@ Class FileExtensionContentTypeProvider from Object
 		return dnSend("s4:call",nHandle,"s17:TryGetContentType",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMappings
 		return dnSend("s3:get",nHandle,"s8:Mappings","")
@@ -170,7 +176,9 @@ Class HtmlDirectoryFormatter from Object
 		return dnSend("s4:call",nHandle,"s20:GenerateContentAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class IContentTypeProvider from DotNetObject
@@ -220,7 +228,9 @@ Class StaticFileMiddleware from Object
 		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class StaticFileResponseContext from Object
@@ -240,7 +250,9 @@ Class StaticFileResponseContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getContext
 		return dnSend("s3:get",nHandle,"s7:Context","")

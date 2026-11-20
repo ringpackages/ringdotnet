@@ -608,7 +608,9 @@ Class CoreTypeMapping from Object
 		return dnSend("s4:call",nHandle,"s19:GenerateCodeLiteral",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getClrType
 		return dnSend("s3:get",nHandle,"s7:ClrType","")
@@ -671,7 +673,9 @@ Class Database from Object
 		return self
 
 	Func SaveChanges P1
-		return dnSend("s4:call",nHandle,"s11:SaveChanges",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:SaveChanges",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:SaveChanges",[P1]) ok
+		return dn_x
 
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
@@ -686,7 +690,9 @@ Class Database from Object
 		return dnSend("s4:call",nHandle,"s22:CompileQueryExpression",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DatabaseDependencies from Object
@@ -707,20 +713,24 @@ Class DatabaseDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getQueryCompilationContextFactory
 		return dnSend("s3:get",nHandle,"s30:QueryCompilationContextFactory","")
 
 	Func setQueryCompilationContextFactory P1
-		dnSend("s3:set",nHandle,"s30:QueryCompilationContextFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s30:QueryCompilationContextFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s30:QueryCompilationContextFactory",dnPackItem(P1)) ok
 		return self
 
 	Func getUpdateAdapterFactory
 		return dnSend("s3:get",nHandle,"s20:UpdateAdapterFactory","")
 
 	Func setUpdateAdapterFactory P1
-		dnSend("s3:set",nHandle,"s20:UpdateAdapterFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:UpdateAdapterFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:UpdateAdapterFactory",dnPackItem(P1)) ok
 		return self
 
 	Func getLogger
@@ -751,7 +761,9 @@ Class DatabaseProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DbContextTransactionExtensions from Object
@@ -766,7 +778,9 @@ Class DbContextTransactionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetDbTransaction P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:GetDbTransaction",dnPackItem(P1))
@@ -798,13 +812,17 @@ Class ExecutionStrategy from Object
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CallOnWrappedException P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"s22:CallOnWrappedException",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxRetryCount
-		return dnSend("s3:get",nHandle,"s13:MaxRetryCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:MaxRetryCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:MaxRetryCount",[]) ok
+		return dn_x
 
 	Func setMaxRetryCount P1
 		raise("DotNet Error: MaxRetryCount is a read-only property")
@@ -816,7 +834,9 @@ Class ExecutionStrategy from Object
 		raise("DotNet Error: MaxRetryDelay is a read-only property")
 
 	Func getRetriesOnFailure
-		return dnSend("s3:get",nHandle,"s16:RetriesOnFailure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:RetriesOnFailure",[]) ok
+		return dn_x
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -846,27 +866,32 @@ Class ExecutionStrategyDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getOptions
 		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
-		dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Options",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentContext
 		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
 	Func getLogger
 		return dnSend("s3:get",nHandle,"s6:Logger","")
 
 	Func setLogger P1
-		dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1)) ok
 		return self
 
 
@@ -882,7 +907,9 @@ Class IDatabase from DotNetObject
 		return self
 
 	Func SaveChanges P1
-		return dnSend("s4:call",nHandle,"s11:SaveChanges",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:SaveChanges",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:SaveChanges",[P1]) ok
+		return dn_x
 
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
@@ -909,7 +936,9 @@ Class IDatabaseCreator from DotNetObject
 		return self
 
 	Func EnsureDeleted 
-		return dnSend("s4:call",nHandle,"s13:EnsureDeleted","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureDeleted")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:EnsureDeleted",[]) ok
+		return dn_x
 
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
@@ -921,7 +950,9 @@ Class IDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s18:EnsureDeletedAsync",dnPackItem(P1))
 
 	Func EnsureCreated 
-		return dnSend("s4:call",nHandle,"s13:EnsureCreated","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureCreated")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:EnsureCreated",[]) ok
+		return dn_x
 
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
@@ -933,7 +964,9 @@ Class IDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s18:EnsureCreatedAsync",dnPackItem(P1))
 
 	Func CanConnect 
-		return dnSend("s4:call",nHandle,"s10:CanConnect","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:CanConnect")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:CanConnect",[]) ok
+		return dn_x
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
@@ -1077,16 +1110,22 @@ Class IDatabaseProvider from DotNetObject
 		return self
 
 	Func IsConfigured P1
-		return dnSend("s4:call",nHandle,"s12:IsConfigured",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsConfigured",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsConfigured",[P1]) ok
+		return dn_x
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		return dn_x
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -1107,7 +1146,9 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func Commit 
-		dnSend("s4:call",nHandle,"s6:Commit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit","") ok
+
 		return self
 
 	Func CommitAsync P1
@@ -1120,7 +1161,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:CommitAsync",dnPackItem(P1))
 
 	Func Rollback 
-		dnSend("s4:call",nHandle,"s8:Rollback","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback","") ok
+
 		return self
 
 	Func RollbackAsync P1
@@ -1133,7 +1176,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnSend("s4:call",nHandle,"s13:RollbackAsync",dnPackItem(P1))
 
 	Func CreateSavepoint P1
-		dnSend("s4:call",nHandle,"s15:CreateSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:CreateSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CreateSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func CreateSavepointAsync P1
@@ -1143,7 +1188,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnSend("s4:call",nHandle,"s20:CreateSavepointAsync",dnPackItem(P1))
 
 	Func RollbackToSavepoint P1
-		dnSend("s4:call",nHandle,"s19:RollbackToSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:RollbackToSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:RollbackToSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func RollbackToSavepointAsync P1
@@ -1153,7 +1200,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnSend("s4:call",nHandle,"s24:RollbackToSavepointAsync",dnPackItem(P1))
 
 	Func ReleaseSavepoint P1
-		dnSend("s4:call",nHandle,"s16:ReleaseSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ReleaseSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ReleaseSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func ReleaseSavepointAsync P1
@@ -1169,7 +1218,9 @@ Class IDbContextTransaction from DotNetObject
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnSend("s3:get",nHandle,"s18:SupportsSavepoints","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:SupportsSavepoints",[]) ok
+		return dn_x
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -1201,7 +1252,9 @@ Class IDbContextTransactionManager from DotNetObject
 		return dnSend("s4:call",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
 
 	Func CommitTransaction 
-		dnSend("s4:call",nHandle,"s17:CommitTransaction","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:CommitTransaction")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:CommitTransaction","") ok
+
 		return self
 
 	Func CommitTransactionAsync P1
@@ -1214,7 +1267,9 @@ Class IDbContextTransactionManager from DotNetObject
 		return dnSend("s4:call",nHandle,"s22:CommitTransactionAsync",dnPackItem(P1))
 
 	Func RollbackTransaction 
-		dnSend("s4:call",nHandle,"s19:RollbackTransaction","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:RollbackTransaction")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:RollbackTransaction","") ok
+
 		return self
 
 	Func RollbackTransactionAsync P1
@@ -1248,7 +1303,9 @@ Class IExceptionDetector from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s14:IsCancellation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s14:IsCancellation",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsCancellation",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsCancellation",[P1]) ok
+		return dn_x
 
 
 Class IExecutionStrategy from DotNetObject
@@ -1274,7 +1331,9 @@ Class IExecutionStrategy from DotNetObject
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
-		return dnSend("s3:get",nHandle,"s16:RetriesOnFailure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:RetriesOnFailure",[]) ok
+		return dn_x
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -1340,7 +1399,9 @@ Class IRelationalCommand from DotNetObject
 		return self
 
 	Func ExecuteNonQuery P1
-		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ExecuteNonQuery",[P1]) ok
+		return dn_x
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -1367,7 +1428,9 @@ Class IRelationalCommand from DotNetObject
 		return dnSend("s4:call",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
 
 	Func PopulateFrom P1
-		dnSend("s4:call",nHandle,"s12:PopulateFrom",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:PopulateFrom",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:PopulateFrom",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -1420,7 +1483,9 @@ Class IRelationalCommandBuilder from DotNetObject
 		raise("DotNet Error: TypeMappingSource is a read-only property")
 
 	Func getCommandTextLength
-		return dnSend("s3:get",nHandle,"s17:CommandTextLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CommandTextLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CommandTextLength",[]) ok
+		return dn_x
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")
@@ -1459,7 +1524,9 @@ Class IRelationalCommandTemplate from DotNetObject
 		return dnSend("s4:call",nHandle,"s15:CreateDbCommand",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getCommandText
-		return dnSend("s3:get",nHandle,"s11:CommandText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CommandText",[]) ok
+		return dn_x
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1490,7 +1557,9 @@ Class IRelationalConnection from DotNetObject
 		return self
 
 	Func SetDbConnection_ P1,P2
-		dnSend("s4:call",nHandle,"s15:SetDbConnection",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetDbConnection",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetDbConnection",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Open P1
@@ -1498,9 +1567,13 @@ Class IRelationalConnection from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s4:Open",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s4:Open","")
+			dn_x = dotnet_call("s4:call",nHandle,"s4:Open")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Open",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s4:Open",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Open",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Open",[P1]) ok
+		return dn_x
 
 	Func OpenAsync P1
 		if dnIsNamed(P1)
@@ -1509,7 +1582,9 @@ Class IRelationalConnection from DotNetObject
 		return dnSend("s4:call",nHandle,"s9:OpenAsync",dnPackItem(P1))
 
 	Func Close 
-		return dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Close",[]) ok
+		return dn_x
 
 	Func CloseAsync 
 		return dnSend("s4:call",nHandle,"s10:CloseAsync","")
@@ -1518,21 +1593,27 @@ Class IRelationalConnection from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:RentCommand","")
 
 	Func ReturnCommand P1
-		dnSend("s4:call",nHandle,"s13:ReturnCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ReturnCommand",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ReturnCommand",dnPackItem(P1)) ok
+
 		return self
 
 	Func getConnectionString
-		return dnSend("s3:get",nHandle,"s16:ConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		return dn_x
 
 	Func setConnectionString P1
-		dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1)) ok
 		return self
 
 	Func getDbConnection
 		return dnSend("s3:get",nHandle,"s12:DbConnection","")
 
 	Func setDbConnection P1
-		dnSend("s3:set",nHandle,"s12:DbConnection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DbConnection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DbConnection",dnPackItem(P1)) ok
 		return self
 
 	Func getContext
@@ -1551,7 +1632,8 @@ Class IRelationalConnection from DotNetObject
 		return dnSend("s3:get",nHandle,"s14:CommandTimeout","")
 
 	Func setCommandTimeout P1
-		dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CommandTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentTransaction
@@ -1573,7 +1655,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return self
 
 	Func Exists 
-		return dnSend("s4:call",nHandle,"s6:Exists","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Exists",[]) ok
+		return dn_x
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
@@ -1585,7 +1669,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func HasTables 
-		return dnSend("s4:call",nHandle,"s9:HasTables","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:HasTables")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:HasTables",[]) ok
+		return dn_x
 
 	Func HasTablesAsync P1
 		if dnIsNamed(P1)
@@ -1597,7 +1683,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s14:HasTablesAsync",dnPackItem(P1))
 
 	Func Create 
-		dnSend("s4:call",nHandle,"s6:Create","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Create")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Create","") ok
+
 		return self
 
 	Func CreateAsync P1
@@ -1610,7 +1698,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:CreateAsync",dnPackItem(P1))
 
 	Func Delete 
-		dnSend("s4:call",nHandle,"s6:Delete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Delete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Delete","") ok
+
 		return self
 
 	Func DeleteAsync P1
@@ -1623,7 +1713,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:DeleteAsync",dnPackItem(P1))
 
 	Func CreateTables 
-		dnSend("s4:call",nHandle,"s12:CreateTables","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:CreateTables")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:CreateTables","") ok
+
 		return self
 
 	Func CreateTablesAsync P1
@@ -1636,7 +1728,9 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnSend("s4:call",nHandle,"s17:CreateTablesAsync",dnPackItem(P1))
 
 	Func GenerateCreateScript 
-		return dnSend("s4:call",nHandle,"s20:GenerateCreateScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GenerateCreateScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:GenerateCreateScript",[]) ok
+		return dn_x
 
 
 Class IRelationalDatabaseFacadeDependencies from DotNetObject
@@ -1687,11 +1781,15 @@ Class IRelationalParameter from DotNetObject
 		return self
 
 	Func AddDbParameter P1,P2
-		dnSend("s4:call",nHandle,"s14:AddDbParameter",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:AddDbParameter",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:AddDbParameter",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getInvariantName
-		return dnSend("s3:get",nHandle,"s13:InvariantName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:InvariantName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:InvariantName",[]) ok
+		return dn_x
 
 	Func setInvariantName P1
 		raise("DotNet Error: InvariantName is a read-only property")
@@ -1799,61 +1897,87 @@ Class ISqlGenerationHelper from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s21:GenerateParameterName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:GenerateParameterName",[P1]) ok
+		return dn_x
 
 	Func GenerateParameterNamePlaceholder P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",[P1]) ok
+		return dn_x
 
 	Func DelimitIdentifier P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:DelimitIdentifier",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:DelimitIdentifier",[P1]) ok
+		return dn_x
 
 	Func DelimitJsonPathElement P1
-		return dnSend("s4:call",nHandle,"s22:DelimitJsonPathElement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:DelimitJsonPathElement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:DelimitJsonPathElement",[P1]) ok
+		return dn_x
 
 	Func GenerateComment P1
-		return dnSend("s4:call",nHandle,"s15:GenerateComment",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateComment",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GenerateComment",[P1]) ok
+		return dn_x
 
 	Func GenerateCreateSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s32:GenerateCreateSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateCreateSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s32:GenerateCreateSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func GenerateRollbackToSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func GenerateReleaseSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func getStatementTerminator
-		return dnSend("s3:get",nHandle,"s19:StatementTerminator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:StatementTerminator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:StatementTerminator",[]) ok
+		return dn_x
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnSend("s3:get",nHandle,"s15:BatchTerminator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:BatchTerminator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BatchTerminator",[]) ok
+		return dn_x
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnSend("s3:get",nHandle,"s25:StartTransactionStatement","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:StartTransactionStatement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:StartTransactionStatement",[]) ok
+		return dn_x
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnSend("s3:get",nHandle,"s26:CommitTransactionStatement","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CommitTransactionStatement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CommitTransactionStatement",[]) ok
+		return dn_x
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnSend("s3:get",nHandle,"s22:SingleLineCommentToken","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:SingleLineCommentToken")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SingleLineCommentToken",[]) ok
+		return dn_x
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -1874,7 +1998,9 @@ Class ITransactionEnlistmentManager from DotNetObject
 		return self
 
 	Func EnlistTransaction P1
-		dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:EnlistTransaction",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1)) ok
+
 		return self
 
 	Func getCurrentAmbientTransaction
@@ -2007,10 +2133,14 @@ Class NonRetryingExecutionStrategy from Object
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRetriesOnFailure
-		return dnSend("s3:get",nHandle,"s16:RetriesOnFailure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:RetriesOnFailure",[]) ok
+		return dn_x
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -2037,14 +2167,20 @@ Class ParameterNameGenerator from Object
 		return self
 
 	Func GenerateNext 
-		return dnSend("s4:call",nHandle,"s12:GenerateNext","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GenerateNext")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GenerateNext",[]) ok
+		return dn_x
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ParameterNameGeneratorDependencies from Object
@@ -2068,7 +2204,9 @@ Class ParameterNameGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ParameterNameGeneratorFactory from Object
@@ -2088,7 +2226,9 @@ Class ParameterNameGeneratorFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Create","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RawSqlCommand from Object
@@ -2108,7 +2248,9 @@ Class RawSqlCommand from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRelationalCommand
 		return dnSend("s3:get",nHandle,"s17:RelationalCommand","")
@@ -2144,7 +2286,9 @@ Class ReaderColumn from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1,P2,P3,P4,P5
 		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
@@ -2159,13 +2303,17 @@ Class ReaderColumn from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getIsNullable
-		return dnSend("s3:get",nHandle,"s10:IsNullable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNullable",[]) ok
+		return dn_x
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2200,7 +2348,9 @@ Class RelationalCommand from Object
 		return self
 
 	Func ExecuteNonQuery P1
-		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ExecuteNonQuery",[P1]) ok
+		return dn_x
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -2230,14 +2380,20 @@ Class RelationalCommand from Object
 		return dnSend("s4:call",nHandle,"s15:CreateDbCommand",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PopulateFrom P1
-		dnSend("s4:call",nHandle,"s12:PopulateFrom",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:PopulateFrom",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:PopulateFrom",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCommandText
-		return dnSend("s3:get",nHandle,"s11:CommandText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CommandText",[]) ok
+		return dn_x
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -2288,7 +2444,9 @@ Class RelationalCommandBuilder from Object
 		return dnSend("s4:call",nHandle,"s15:DecrementIndent","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTypeMappingSource
 		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
@@ -2303,7 +2461,9 @@ Class RelationalCommandBuilder from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCommandTextLength
-		return dnSend("s3:get",nHandle,"s17:CommandTextLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CommandTextLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CommandTextLength",[]) ok
+		return dn_x
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")
@@ -2326,20 +2486,24 @@ Class RelationalCommandBuilderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getExceptionDetector
 		return dnSend("s3:get",nHandle,"s17:ExceptionDetector","")
 
 	Func setExceptionDetector P1
-		dnSend("s3:set",nHandle,"s17:ExceptionDetector",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ExceptionDetector",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ExceptionDetector",dnPackItem(P1)) ok
 		return self
 
 	Func getTypeMappingSource
 		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
 
 	Func setTypeMappingSource P1
-		dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
 		return self
 
 
@@ -2355,7 +2519,9 @@ Class RelationalCommandBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AppendLine P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s10:AppendLine",dnPackItem(P1) + dnPackItem(P2))
@@ -2399,7 +2565,9 @@ Class RelationalCommandBuilderFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Create","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RelationalCommandParameterObject from ValueType
@@ -2477,7 +2645,9 @@ Class RelationalCommandParameterObject from ValueType
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDetailedErrorsEnabled
-		return dnSend("s3:get",nHandle,"s21:DetailedErrorsEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:DetailedErrorsEnabled",[]) ok
+		return dn_x
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
@@ -2510,18 +2680,24 @@ Class RelationalConnection from Object
 		return self
 
 	Func SetDbConnection_ P1,P2
-		dnSend("s4:call",nHandle,"s15:SetDbConnection",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetDbConnection",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetDbConnection",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func EnlistTransaction P1
-		dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:EnlistTransaction",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:EnlistTransaction",dnPackItem(P1)) ok
+
 		return self
 
 	Func RentCommand 
 		return dnSend("s4:call",nHandle,"s11:RentCommand","")
 
 	Func ReturnCommand P1
-		dnSend("s4:call",nHandle,"s13:ReturnCommand",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ReturnCommand",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ReturnCommand",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginTransaction P1
@@ -2555,7 +2731,9 @@ Class RelationalConnection from Object
 		return dnSend("s4:call",nHandle,"s19:UseTransactionAsync",dnPackItem(P1))
 
 	Func CommitTransaction 
-		dnSend("s4:call",nHandle,"s17:CommitTransaction","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:CommitTransaction")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:CommitTransaction","") ok
+
 		return self
 
 	Func CommitTransactionAsync P1
@@ -2568,7 +2746,9 @@ Class RelationalConnection from Object
 		return dnSend("s4:call",nHandle,"s22:CommitTransactionAsync",dnPackItem(P1))
 
 	Func RollbackTransaction 
-		dnSend("s4:call",nHandle,"s19:RollbackTransaction","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:RollbackTransaction")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:RollbackTransaction","") ok
+
 		return self
 
 	Func RollbackTransactionAsync P1
@@ -2585,9 +2765,13 @@ Class RelationalConnection from Object
 			return dnSend("s9:callnamed",nHandle,"s4:Open",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s4:Open","")
+			dn_x = dotnet_call("s4:call",nHandle,"s4:Open")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Open",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s4:Open",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Open",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Open",[P1]) ok
+		return dn_x
 
 	Func OpenAsync P1
 		if dnIsNamed(P1)
@@ -2596,20 +2780,26 @@ Class RelationalConnection from Object
 		return dnSend("s4:call",nHandle,"s9:OpenAsync",dnPackItem(P1))
 
 	Func Close 
-		return dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Close",[]) ok
+		return dn_x
 
 	Func CloseAsync 
 		return dnSend("s4:call",nHandle,"s10:CloseAsync","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConnectionId
 		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
@@ -2624,17 +2814,21 @@ Class RelationalConnection from Object
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getConnectionString
-		return dnSend("s3:get",nHandle,"s16:ConnectionString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		return dn_x
 
 	Func setConnectionString P1
-		dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ConnectionString",dnPackItem(P1)) ok
 		return self
 
 	Func getDbConnection
 		return dnSend("s3:get",nHandle,"s12:DbConnection","")
 
 	Func setDbConnection P1
-		dnSend("s3:set",nHandle,"s12:DbConnection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DbConnection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DbConnection",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentAmbientTransaction
@@ -2659,7 +2853,8 @@ Class RelationalConnection from Object
 		return dnSend("s3:get",nHandle,"s14:CommandTimeout","")
 
 	Func setCommandTimeout P1
-		dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CommandTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CommandTimeout",dnPackItem(P1)) ok
 		return self
 
 
@@ -2685,55 +2880,64 @@ Class RelationalConnectionDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getContextOptions
 		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
 
 	Func setContextOptions P1
-		dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1)) ok
 		return self
 
 	Func getTransactionLogger
 		return dnSend("s3:get",nHandle,"s17:TransactionLogger","")
 
 	Func setTransactionLogger P1
-		dnSend("s3:set",nHandle,"s17:TransactionLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:TransactionLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TransactionLogger",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectionLogger
 		return dnSend("s3:get",nHandle,"s16:ConnectionLogger","")
 
 	Func setConnectionLogger P1
-		dnSend("s3:set",nHandle,"s16:ConnectionLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ConnectionLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ConnectionLogger",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectionStringResolver
 		return dnSend("s3:get",nHandle,"s24:ConnectionStringResolver","")
 
 	Func setConnectionStringResolver P1
-		dnSend("s3:set",nHandle,"s24:ConnectionStringResolver",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:ConnectionStringResolver",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:ConnectionStringResolver",dnPackItem(P1)) ok
 		return self
 
 	Func getRelationalTransactionFactory
 		return dnSend("s3:get",nHandle,"s28:RelationalTransactionFactory","")
 
 	Func setRelationalTransactionFactory P1
-		dnSend("s3:set",nHandle,"s28:RelationalTransactionFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s28:RelationalTransactionFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s28:RelationalTransactionFactory",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentContext
 		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
 	Func getRelationalCommandBuilderFactory
 		return dnSend("s3:get",nHandle,"s31:RelationalCommandBuilderFactory","")
 
 	Func setRelationalCommandBuilderFactory P1
-		dnSend("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",dnPackItem(P1)) ok
 		return self
 
 
@@ -2763,11 +2967,15 @@ Class RelationalDataReader from Object
 		return self
 
 	Func Initialize P1,P2,P3,P4,P5
-		dnSend("s4:call",nHandle,"s10:Initialize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize",P1,P2,P3,P4,P5)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+
 		return self
 
 	Func Read 
-		return dnSend("s4:call",nHandle,"s4:Read","")
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Read")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Read",[]) ok
+		return dn_x
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
@@ -2779,11 +2987,15 @@ Class RelationalDataReader from Object
 		return dnSend("s4:call",nHandle,"s9:ReadAsync",dnPackItem(P1))
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func CloseAsync 
@@ -2793,7 +3005,9 @@ Class RelationalDataReader from Object
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRelationalConnection
 		return dnSend("s3:get",nHandle,"s20:RelationalConnection","")
@@ -2832,7 +3046,9 @@ Class RelationalDatabaseCreator from Object
 		return self
 
 	Func Exists 
-		return dnSend("s4:call",nHandle,"s6:Exists","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Exists",[]) ok
+		return dn_x
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
@@ -2844,7 +3060,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func Create 
-		dnSend("s4:call",nHandle,"s6:Create","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Create")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Create","") ok
+
 		return self
 
 	Func CreateAsync P1
@@ -2857,7 +3075,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s11:CreateAsync",dnPackItem(P1))
 
 	Func Delete 
-		dnSend("s4:call",nHandle,"s6:Delete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Delete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Delete","") ok
+
 		return self
 
 	Func DeleteAsync P1
@@ -2870,7 +3090,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s11:DeleteAsync",dnPackItem(P1))
 
 	Func CreateTables 
-		dnSend("s4:call",nHandle,"s12:CreateTables","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:CreateTables")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:CreateTables","") ok
+
 		return self
 
 	Func CreateTablesAsync P1
@@ -2883,7 +3105,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s17:CreateTablesAsync",dnPackItem(P1))
 
 	Func HasTables 
-		return dnSend("s4:call",nHandle,"s9:HasTables","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:HasTables")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:HasTables",[]) ok
+		return dn_x
 
 	Func HasTablesAsync P1
 		if dnIsNamed(P1)
@@ -2895,7 +3119,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s14:HasTablesAsync",dnPackItem(P1))
 
 	Func EnsureDeleted 
-		return dnSend("s4:call",nHandle,"s13:EnsureDeleted","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureDeleted")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:EnsureDeleted",[]) ok
+		return dn_x
 
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
@@ -2907,7 +3133,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s18:EnsureDeletedAsync",dnPackItem(P1))
 
 	Func EnsureCreated 
-		return dnSend("s4:call",nHandle,"s13:EnsureCreated","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureCreated")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:EnsureCreated",[]) ok
+		return dn_x
 
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
@@ -2919,10 +3147,14 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s18:EnsureCreatedAsync",dnPackItem(P1))
 
 	Func GenerateCreateScript 
-		return dnSend("s4:call",nHandle,"s20:GenerateCreateScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GenerateCreateScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:GenerateCreateScript",[]) ok
+		return dn_x
 
 	Func CanConnect 
-		return dnSend("s4:call",nHandle,"s10:CanConnect","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:CanConnect")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:CanConnect",[]) ok
+		return dn_x
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
@@ -2934,7 +3166,9 @@ Class RelationalDatabaseCreator from Object
 		return dnSend("s4:call",nHandle,"s15:CanConnectAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RelationalDatabaseCreatorDependencies from Object
@@ -2961,41 +3195,48 @@ Class RelationalDatabaseCreatorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getModelDiffer
 		return dnSend("s3:get",nHandle,"s11:ModelDiffer","")
 
 	Func setModelDiffer P1
-		dnSend("s3:set",nHandle,"s11:ModelDiffer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ModelDiffer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ModelDiffer",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationsSqlGenerator
 		return dnSend("s3:get",nHandle,"s22:MigrationsSqlGenerator","")
 
 	Func setMigrationsSqlGenerator P1
-		dnSend("s3:set",nHandle,"s22:MigrationsSqlGenerator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:MigrationsSqlGenerator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:MigrationsSqlGenerator",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
 		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationCommandExecutor
 		return dnSend("s3:get",nHandle,"s24:MigrationCommandExecutor","")
 
 	Func setMigrationCommandExecutor P1
-		dnSend("s3:set",nHandle,"s24:MigrationCommandExecutor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:MigrationCommandExecutor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:MigrationCommandExecutor",dnPackItem(P1)) ok
 		return self
 
 	Func getSqlGenerationHelper
 		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1)) ok
 		return self
 
 	Func getExecutionStrategy
@@ -3008,21 +3249,24 @@ Class RelationalDatabaseCreatorDependencies from Object
 		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
 
 	Func setCommandLogger P1
-		dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:CommandLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1)) ok
 		return self
 
 	Func getContextOptions
 		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
 
 	Func setContextOptions P1
-		dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentContext
 		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
 
@@ -3044,27 +3288,32 @@ Class RelationalDatabaseDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBatchPreparer
 		return dnSend("s3:get",nHandle,"s13:BatchPreparer","")
 
 	Func setBatchPreparer P1
-		dnSend("s3:set",nHandle,"s13:BatchPreparer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:BatchPreparer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:BatchPreparer",dnPackItem(P1)) ok
 		return self
 
 	Func getBatchExecutor
 		return dnSend("s3:get",nHandle,"s13:BatchExecutor","")
 
 	Func setBatchExecutor P1
-		dnSend("s3:set",nHandle,"s13:BatchExecutor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:BatchExecutor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:BatchExecutor",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
 		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1)) ok
 		return self
 
 
@@ -3080,7 +3329,9 @@ Class RelationalExecutionStrategyExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ExecuteInTransaction P1
 		if dnIsNamed(P1)
@@ -3112,7 +3363,9 @@ Class RelationalExecutionStrategyFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Create","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RelationalSqlGenerationHelper from Object
@@ -3138,73 +3391,105 @@ Class RelationalSqlGenerationHelper from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s21:GenerateParameterName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:GenerateParameterName",[P1]) ok
+		return dn_x
 
 	Func GenerateParameterNamePlaceholder P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",[P1]) ok
+		return dn_x
 
 	Func EscapeIdentifier P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s16:EscapeIdentifier",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s16:EscapeIdentifier",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:EscapeIdentifier",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:EscapeIdentifier",[P1]) ok
+		return dn_x
 
 	Func DelimitIdentifier P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:DelimitIdentifier",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:DelimitIdentifier",[P1]) ok
+		return dn_x
 
 	Func EscapeJsonPathElement P1
-		return dnSend("s4:call",nHandle,"s21:EscapeJsonPathElement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s21:EscapeJsonPathElement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:EscapeJsonPathElement",[P1]) ok
+		return dn_x
 
 	Func DelimitJsonPathElement P1
-		return dnSend("s4:call",nHandle,"s22:DelimitJsonPathElement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:DelimitJsonPathElement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:DelimitJsonPathElement",[P1]) ok
+		return dn_x
 
 	Func GenerateComment P1
-		return dnSend("s4:call",nHandle,"s15:GenerateComment",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateComment",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GenerateComment",[P1]) ok
+		return dn_x
 
 	Func GenerateCreateSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s32:GenerateCreateSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateCreateSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s32:GenerateCreateSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func GenerateRollbackToSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s36:GenerateRollbackToSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func GenerateReleaseSavepointStatement P1
-		return dnSend("s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s33:GenerateReleaseSavepointStatement",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getStatementTerminator
-		return dnSend("s3:get",nHandle,"s19:StatementTerminator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:StatementTerminator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:StatementTerminator",[]) ok
+		return dn_x
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnSend("s3:get",nHandle,"s15:BatchTerminator","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:BatchTerminator")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BatchTerminator",[]) ok
+		return dn_x
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnSend("s3:get",nHandle,"s25:StartTransactionStatement","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:StartTransactionStatement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:StartTransactionStatement",[]) ok
+		return dn_x
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnSend("s3:get",nHandle,"s26:CommitTransactionStatement","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CommitTransactionStatement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CommitTransactionStatement",[]) ok
+		return dn_x
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnSend("s3:get",nHandle,"s22:SingleLineCommentToken","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:SingleLineCommentToken")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SingleLineCommentToken",[]) ok
+		return dn_x
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -3231,7 +3516,9 @@ Class RelationalSqlGenerationHelperDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RelationalTransaction from Object
@@ -3251,11 +3538,15 @@ Class RelationalTransaction from Object
 		return self
 
 	Func Commit 
-		dnSend("s4:call",nHandle,"s6:Commit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit","") ok
+
 		return self
 
 	Func Rollback 
-		dnSend("s4:call",nHandle,"s8:Rollback","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback","") ok
+
 		return self
 
 	Func CommitAsync P1
@@ -3277,7 +3568,9 @@ Class RelationalTransaction from Object
 		return dnSend("s4:call",nHandle,"s13:RollbackAsync",dnPackItem(P1))
 
 	Func CreateSavepoint P1
-		dnSend("s4:call",nHandle,"s15:CreateSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:CreateSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CreateSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func CreateSavepointAsync P1
@@ -3287,7 +3580,9 @@ Class RelationalTransaction from Object
 		return dnSend("s4:call",nHandle,"s20:CreateSavepointAsync",dnPackItem(P1))
 
 	Func RollbackToSavepoint P1
-		dnSend("s4:call",nHandle,"s19:RollbackToSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:RollbackToSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:RollbackToSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func RollbackToSavepointAsync P1
@@ -3297,7 +3592,9 @@ Class RelationalTransaction from Object
 		return dnSend("s4:call",nHandle,"s24:RollbackToSavepointAsync",dnPackItem(P1))
 
 	Func ReleaseSavepoint P1
-		dnSend("s4:call",nHandle,"s16:ReleaseSavepoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ReleaseSavepoint",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ReleaseSavepoint",dnPackItem(P1)) ok
+
 		return self
 
 	Func ReleaseSavepointAsync P1
@@ -3307,14 +3604,18 @@ Class RelationalTransaction from Object
 		return dnSend("s4:call",nHandle,"s21:ReleaseSavepointAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
 		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTransactionId
 		return dnSend("s3:get",nHandle,"s13:TransactionId","")
@@ -3323,7 +3624,9 @@ Class RelationalTransaction from Object
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnSend("s3:get",nHandle,"s18:SupportsSavepoints","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:SupportsSavepoints",[]) ok
+		return dn_x
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -3346,7 +3649,9 @@ Class RelationalTransactionFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RelationalTransactionFactoryDependencies from Object
@@ -3365,13 +3670,16 @@ Class RelationalTransactionFactoryDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSqlGenerationHelper
 		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1)) ok
 		return self
 
 
@@ -3437,101 +3745,123 @@ Class RelationalTypeMappingInfo from ValueType
 		raise("DotNet Error: CoreTypeMappingInfo is a read-only property")
 
 	Func getStoreTypeName
-		return dnSend("s3:get",nHandle,"s13:StoreTypeName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:StoreTypeName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:StoreTypeName",[]) ok
+		return dn_x
 
 	Func setStoreTypeName P1
-		dnSend("s3:set",nHandle,"s13:StoreTypeName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:StoreTypeName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:StoreTypeName",dnPackItem(P1)) ok
 		return self
 
 	Func getStoreTypeNameBase
-		return dnSend("s3:get",nHandle,"s17:StoreTypeNameBase","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:StoreTypeNameBase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:StoreTypeNameBase",[]) ok
+		return dn_x
 
 	Func setStoreTypeNameBase P1
-		dnSend("s3:set",nHandle,"s17:StoreTypeNameBase",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:StoreTypeNameBase",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:StoreTypeNameBase",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 	Func getPrecision
 		return dnSend("s3:get",nHandle,"s9:Precision","")
 
 	Func setPrecision P1
-		dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Precision",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1)) ok
 		return self
 
 	Func getScale
 		return dnSend("s3:get",nHandle,"s5:Scale","")
 
 	Func setScale P1
-		dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1)) ok
 		return self
 
 	Func getIsFixedLength
 		return dnSend("s3:get",nHandle,"s13:IsFixedLength","")
 
 	Func setIsFixedLength P1
-		dnSend("s3:set",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:IsFixedLength",dnPackItem(P1)) ok
 		return self
 
 	Func getDbType
 		return dnSend("s3:get",nHandle,"s6:DbType","")
 
 	Func setDbType P1
-		dnSend("s3:set",nHandle,"s6:DbType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:DbType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:DbType",dnPackItem(P1)) ok
 		return self
 
 	Func getIsKey
-		return dnSend("s3:get",nHandle,"s5:IsKey","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:IsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsKey",[]) ok
+		return dn_x
 
 	Func setIsKey P1
-		dnSend("s3:set",nHandle,"s5:IsKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:IsKey",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:IsKey",dnPackItem(P1)) ok
 		return self
 
 	Func getIsKeyOrIndex
-		return dnSend("s3:get",nHandle,"s12:IsKeyOrIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsKeyOrIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsKeyOrIndex",[]) ok
+		return dn_x
 
 	Func setIsKeyOrIndex P1
-		dnSend("s3:set",nHandle,"s12:IsKeyOrIndex",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsKeyOrIndex",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsKeyOrIndex",dnPackItem(P1)) ok
 		return self
 
 	Func getIsUnicode
 		return dnSend("s3:get",nHandle,"s9:IsUnicode","")
 
 	Func setIsUnicode P1
-		dnSend("s3:set",nHandle,"s9:IsUnicode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsUnicode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsUnicode",dnPackItem(P1)) ok
 		return self
 
 	Func getIsRowVersion
 		return dnSend("s3:get",nHandle,"s12:IsRowVersion","")
 
 	Func setIsRowVersion P1
-		dnSend("s3:set",nHandle,"s12:IsRowVersion",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsRowVersion",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsRowVersion",dnPackItem(P1)) ok
 		return self
 
 	Func getClrType
 		return dnSend("s3:get",nHandle,"s7:ClrType","")
 
 	Func setClrType P1
-		dnSend("s3:set",nHandle,"s7:ClrType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:ClrType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:ClrType",dnPackItem(P1)) ok
 		return self
 
 	Func getJsonValueReaderWriter
 		return dnSend("s3:get",nHandle,"s21:JsonValueReaderWriter","")
 
 	Func setJsonValueReaderWriter P1
-		dnSend("s3:set",nHandle,"s21:JsonValueReaderWriter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:JsonValueReaderWriter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:JsonValueReaderWriter",dnPackItem(P1)) ok
 		return self
 
 	Func getElementTypeMapping
 		return dnSend("s3:get",nHandle,"s18:ElementTypeMapping","")
 
 	Func setElementTypeMapping P1
-		dnSend("s3:set",nHandle,"s18:ElementTypeMapping",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ElementTypeMapping",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ElementTypeMapping",dnPackItem(P1)) ok
 		return self
 
 
@@ -3551,13 +3881,16 @@ Class RelationalTypeMappingSourceDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPlugins
 		return dnSend("s3:get",nHandle,"s7:Plugins","")
 
 	Func setPlugins P1
-		dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
 		return self
 
 
@@ -3573,7 +3906,9 @@ Class RelationalTypeMappingSourceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetMappingForValue P1
 		if dnIsNamed(P1)
@@ -3642,70 +3977,84 @@ Class TypeMappingInfo from ValueType
 		return dnSend("s3:get",nHandle,"s18:ElementTypeMapping","")
 
 	Func setElementTypeMapping P1
-		dnSend("s3:set",nHandle,"s18:ElementTypeMapping",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ElementTypeMapping",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ElementTypeMapping",dnPackItem(P1)) ok
 		return self
 
 	Func getIsKey
-		return dnSend("s3:get",nHandle,"s5:IsKey","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:IsKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsKey",[]) ok
+		return dn_x
 
 	Func setIsKey P1
-		dnSend("s3:set",nHandle,"s5:IsKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:IsKey",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:IsKey",dnPackItem(P1)) ok
 		return self
 
 	Func getIsKeyOrIndex
-		return dnSend("s3:get",nHandle,"s12:IsKeyOrIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsKeyOrIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsKeyOrIndex",[]) ok
+		return dn_x
 
 	Func setIsKeyOrIndex P1
-		dnSend("s3:set",nHandle,"s12:IsKeyOrIndex",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsKeyOrIndex",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsKeyOrIndex",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 	Func getIsUnicode
 		return dnSend("s3:get",nHandle,"s9:IsUnicode","")
 
 	Func setIsUnicode P1
-		dnSend("s3:set",nHandle,"s9:IsUnicode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsUnicode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsUnicode",dnPackItem(P1)) ok
 		return self
 
 	Func getIsRowVersion
 		return dnSend("s3:get",nHandle,"s12:IsRowVersion","")
 
 	Func setIsRowVersion P1
-		dnSend("s3:set",nHandle,"s12:IsRowVersion",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsRowVersion",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsRowVersion",dnPackItem(P1)) ok
 		return self
 
 	Func getPrecision
 		return dnSend("s3:get",nHandle,"s9:Precision","")
 
 	Func setPrecision P1
-		dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Precision",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Precision",dnPackItem(P1)) ok
 		return self
 
 	Func getScale
 		return dnSend("s3:get",nHandle,"s5:Scale","")
 
 	Func setScale P1
-		dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Scale",dnPackItem(P1)) ok
 		return self
 
 	Func getClrType
 		return dnSend("s3:get",nHandle,"s7:ClrType","")
 
 	Func setClrType P1
-		dnSend("s3:set",nHandle,"s7:ClrType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:ClrType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:ClrType",dnPackItem(P1)) ok
 		return self
 
 	Func getJsonValueReaderWriter
 		return dnSend("s3:get",nHandle,"s21:JsonValueReaderWriter","")
 
 	Func setJsonValueReaderWriter P1
-		dnSend("s3:set",nHandle,"s21:JsonValueReaderWriter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:JsonValueReaderWriter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:JsonValueReaderWriter",dnPackItem(P1)) ok
 		return self
 
 
@@ -3727,7 +4076,9 @@ Class TypeMappingSourceBase from Object
 		return dnSend("s4:call",nHandle,"s11:FindMapping",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class TypeMappingSourceDependencies from Object
@@ -3748,13 +4099,16 @@ Class TypeMappingSourceDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValueConverterSelector
 		return dnSend("s3:get",nHandle,"s22:ValueConverterSelector","")
 
 	Func setValueConverterSelector P1
-		dnSend("s3:set",nHandle,"s22:ValueConverterSelector",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:ValueConverterSelector",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:ValueConverterSelector",dnPackItem(P1)) ok
 		return self
 
 	Func getJsonValueReaderWriterSource
@@ -3767,7 +4121,8 @@ Class TypeMappingSourceDependencies from Object
 		return dnSend("s3:get",nHandle,"s7:Plugins","")
 
 	Func setPlugins P1
-		dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
 		return self
 
 
@@ -3806,7 +4161,9 @@ Class TypeMaterializationInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProviderClrType
 		return dnSend("s3:get",nHandle,"s15:ProviderClrType","")
@@ -3883,17 +4240,22 @@ Class ValueBuffer from ValueType
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -3957,10 +4319,14 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: CreateParameter does not take one argument: use named arguments, CreateParameter([ :parameter = value, ... ])")
 
 	Func GenerateSqlLiteral P1
-		return dnSend("s4:call",nHandle,"s18:GenerateSqlLiteral",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GenerateSqlLiteral",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:GenerateSqlLiteral",[P1]) ok
+		return dn_x
 
 	Func GenerateProviderValueSqlLiteral P1
-		return dnSend("s4:call",nHandle,"s31:GenerateProviderValueSqlLiteral",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s31:GenerateProviderValueSqlLiteral",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s31:GenerateProviderValueSqlLiteral",[P1]) ok
+		return dn_x
 
 	Func GetDataReaderMethod P1
 		if dnIsNamed(P1)
@@ -3984,13 +4350,17 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: StoreTypePostfix is a read-only property")
 
 	Func getStoreType
-		return dnSend("s3:get",nHandle,"s9:StoreType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:StoreType",[]) ok
+		return dn_x
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getStoreTypeNameBase
-		return dnSend("s3:get",nHandle,"s17:StoreTypeNameBase","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:StoreTypeNameBase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:StoreTypeNameBase",[]) ok
+		return dn_x
 
 	Func setStoreTypeNameBase P1
 		raise("DotNet Error: StoreTypeNameBase is a read-only property")
@@ -4002,7 +4372,9 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: DbType is a read-only property")
 
 	Func getIsUnicode
-		return dnSend("s3:get",nHandle,"s9:IsUnicode","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsUnicode")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsUnicode",[]) ok
+		return dn_x
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
@@ -4026,7 +4398,9 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getIsFixedLength
-		return dnSend("s3:get",nHandle,"s13:IsFixedLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsFixedLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsFixedLength",[]) ok
+		return dn_x
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")

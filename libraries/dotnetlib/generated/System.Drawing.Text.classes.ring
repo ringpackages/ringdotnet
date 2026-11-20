@@ -31,11 +31,15 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFamilies
 		return dnSend("s3:get",nHandle,"s8:Families","")
@@ -86,11 +90,15 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dnSend("s4:call",nHandle,"s11:AddFontFile",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:AddFontFile",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AddFontFile",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddMemoryFont P1,P2
-		dnSend("s4:call",nHandle,"s13:AddMemoryFont",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:AddMemoryFont",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:AddMemoryFont",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 

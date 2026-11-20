@@ -238,15 +238,65 @@ func paraList nCount
 # Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject)
 func returnCode cRequest, cReturnType, nByRef
 	if nByRef = 0 and cReturnType = "System.Void"
-		return sendCall(cRequest) + nl + "		return self" + nl
+		return nativeCall(cRequest,true) + nl + "		return self" + nl
+	ok
+	if nByRef = 0 and isPrimitiveType(cReturnType)
+		return nativeCall(cRequest,false)
 	ok
 	return "return " + sendCall(cRequest) + nl
+
+# Types whose answers the extension reads itself (a text, a number or a yes/no): dotnet_call returns them as Ring values
+func isPrimitiveType cType
+	return find(["System.String","System.Boolean","System.Byte","System.SByte","System.Int16","System.UInt16","System.Int32","System.UInt32","System.Int64","System.UInt64","System.Single","System.Double","System.Decimal"],cType) > 0
+
+# The same request with the native function: dotnet_call(operation, handle, name, arguments...) packs the request and reads the answer in C.
+# It answers a list when it could not finish: dnLate then does the rest (see functions.ring).
+#   "call",[new DotNetObject(nHandle),"Contains",P1]  -->  dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1) ... 
+func nativeCall cRequest, lVoid
+	aParts = requestParts(cRequest)
+	cPieces = aParts[1] + "," + aParts[2] + "," + aParts[3]
+	cNative = cPieces
+	cList = ""
+	for cArg in aParts[4]
+		cNative += "," + cArg
+		if len(cList) > 0
+			cList += ","
+		ok
+		cList += cArg
+	next
+	cFunction = "dotnet_call"
+	if lVoid
+		cFunction = "dotnet_callv"
+	ok
+	cCode = "dn_x = " + cFunction + "(" + cNative + ")" + nl
+	if lVoid
+		cCode += "		if islist(dn_x) " + sendCall(cRequest) + " ok" + nl
+		return cCode
+	ok
+	cCode += "		if islist(dn_x) return dnLate(dn_x," + cPieces + ",[" + cList + "]) ok" + nl
+	cCode += "		return dn_x" + nl
+	return cCode
 
 # The code of a request for a member of an object. The generated method does not make the target object and the list of the request:
 # it passes the handle as a number and the pieces that never change (the operation and the name) as ready wire items, so that the
 # request is one text that dnSend finishes. Written for the request text of this generator:  "call",[TARGET,"Name",P1,P2]
 #   "call",[new DotNetObject(nHandle),"Append",P1]   -->   dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 func sendCall cRequest
+	aParts = requestParts(cRequest)
+	cArgs = '""'
+	if len(aParts[4]) > 0
+		cArgs = ""
+		for cArg in aParts[4]
+			if len(cArgs) > 0
+				cArgs += " + "
+			ok
+			cArgs += "dnPackItem(" + cArg + ")"
+		next
+	ok
+	return "dnSend(" + aParts[1] + "," + aParts[2] + "," + aParts[3] + "," + cArgs + ")"
+
+# The pieces of a request text:  [operation item, handle expression, name item, [argument names]]
+func requestParts cRequest
 	nOpEnd = substr(cRequest,'",[')
 	cOperation = substr(cRequest,2,nOpEnd - 2)
 	cRest = right(cRequest,len(cRequest) - nOpEnd - 2)
@@ -261,18 +311,11 @@ func sendCall cRequest
 	if left(cTarget,13) = "dnTypeCached("
 		cHandle = "dnTypeHandle(" + right(cTarget,len(cTarget) - 13)          # dnTypeCached('X')  -->  dnTypeHandle('X')
 	ok
-	cArgs = '""'
+	aArgs = []
 	if len(cTail) > 0
 		aArgs = str2list(substr(right(cTail,len(cTail) - 1),",",nl))
-		cArgs = ""
-		for cArg in aArgs
-			if len(cArgs) > 0
-				cArgs += " + "
-			ok
-			cArgs += "dnPackItem(" + cArg + ")"
-		next
 	ok
-	return 'dnSend("s' + len(cOperation) + ":" + cOperation + '",' + cHandle + ',"s' + len(cName) + ":" + cName + '",' + cArgs + ")"
+	return ['"s' + len(cOperation) + ":" + cOperation + '"',cHandle,'"s' + len(cName) + ":" + cName + '"',aArgs]
 
 # The plan of a type: everything the generated class needs, as text blocks keyed by Ring method name.
 # [aInfo, qualified type name, init parameters, can init create, constructors text, [attribute lower, attribute], blocks, base type, attribute names]
@@ -637,7 +680,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 		if aIndexer[3] and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
-			cB += "		" + sendCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]') + nl
+			cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',true)
 			cB += "		return self" + nl + nl
 			aBlocks + ["setitem",cB]
 		ok
@@ -685,7 +728,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
 			aNames + lower("set" + cName)
 			cB = "	Func set" + cName + " P1" + nl
-			cB += "		" + sendCall('"set",[' + cTarget + ',"' + cName + '",P1]') + nl
+			cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',true)
 			cB += "		return self" + nl + nl
 			aBlocks + [lower("set" + cName),cB]
 		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)

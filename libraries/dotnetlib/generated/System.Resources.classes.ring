@@ -35,7 +35,9 @@ Class IResourceReader from DotNetObject
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func GetEnumerator 
@@ -77,7 +79,9 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dnSend("s4:call",nHandle,"s19:ReleaseAllResources","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseAllResources")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseAllResources","") ok
+
 		return self
 
 	Func GetResourceSet P1,P2,P3
@@ -87,7 +91,9 @@ Class ResourceManager from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		return dn_x
 
 	Func GetObject P1
 		if dnIsNamed(P1)
@@ -102,22 +108,29 @@ Class ResourceManager from Object
 		return dnSend("s4:call",nHandle,"s9:GetStream",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateFileBasedResourceManager P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s30:CreateFileBasedResourceManager",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getBaseName
-		return dnSend("s3:get",nHandle,"s8:BaseName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:BaseName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:BaseName",[]) ok
+		return dn_x
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		return dnSend("s3:get",nHandle,"s10:IgnoreCase","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IgnoreCase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IgnoreCase",[]) ok
+		return dn_x
 
 	Func setIgnoreCase P1
-		dnSend("s3:set",nHandle,"s10:IgnoreCase",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IgnoreCase",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IgnoreCase",dnPackItem(P1)) ok
 		return self
 
 	Func getResourceSetType
@@ -127,13 +140,17 @@ Class ResourceManager from Object
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		return dnSend("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s11:MagicNumber",[]) ok
+		return dn_x
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		return dnSend("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s19:HeaderVersionNumber",[]) ok
+		return dn_x
 
 	Func setHeaderVersionNumber P1
 		raise("DotNet Error: HeaderVersionNumber is a read-only property")
@@ -156,18 +173,24 @@ Class ResourceReader from Object
 		return dnSend("s4:call",nHandle,"s15:GetResourceData",dnPackItem(P1))
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ResourceSet from Object
@@ -184,11 +207,15 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetDefaultReader 
@@ -204,7 +231,9 @@ Class ResourceSet from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		return dn_x
 
 	Func GetObject P1
 		if dnIsNamed(P1)
@@ -213,6 +242,8 @@ Class ResourceSet from Object
 		return dnSend("s4:call",nHandle,"s9:GetObject",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 

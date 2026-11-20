@@ -104,7 +104,10 @@ func dnSend  cOperation, nHandle, cName, cArgs
 
 # Send a request text to the bridge and read the answer
 func dnExchange  cRequest
-	dn_cResponse = dotnet_invoke(cRequest)
+	return dnFinish(dotnet_invoke(cRequest))
+
+# The answer of the bridge (one item, or a list of items) as a Ring value
+func dnFinish  dn_cResponse
 	dn_cTag = left(dn_cResponse,1)
 	dn_nColon = substr(dn_cResponse,":")
 	if dn_nColon > 0 and (dn_cTag = C_DOTNET_STRING or dn_cTag = C_DOTNET_NUMBER or dn_cTag = C_DOTNET_BOOL or dn_cTag = C_DOTNET_OBJECT)
@@ -205,6 +208,14 @@ func dnTypeCached  cTypeName
 # Create a .NET object and return its handle (used by the generated classes)
 func dnCreate  cTypeName, aParameters
 	return dnNewHandle("s9:newhandle",cTypeName,dnPack(aParameters))
+
+# The rest of a call that the extension (dotnet_call, dotnet_callv) did not finish: it answers a list [1, answer] when the answer is not a
+# text, a number or a yes/no (an object, null...), and [0] when it did not send the request because an argument is not a text or a number
+func dnLate  aMarker, cOperation, nHandle, cName, aArgs
+	if aMarker[1] = 0
+		return dnSend(cOperation,nHandle,cName,dnPack(aArgs))
+	ok
+	return dnFinish(aMarker[2])
 
 # The handle of the type object of a type name, made once (the generated static methods pass it as a number: returning the cached
 # type object itself would copy it at every call)

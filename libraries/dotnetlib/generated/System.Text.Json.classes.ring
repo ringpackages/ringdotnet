@@ -85,15 +85,21 @@ Class JsonDocument from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func WriteTo P1
-		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -142,21 +148,28 @@ Class JsonDocumentOptions from ValueType
 		return dnSend("s3:get",nHandle,"s15:CommentHandling","")
 
 	Func setCommentHandling P1
-		dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:CommentHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxDepth
-		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxDepth",[]) ok
+		return dn_x
 
 	Func setMaxDepth P1
-		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowTrailingCommas
-		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AllowTrailingCommas",[]) ok
+		return dn_x
 
 	Func setAllowTrailingCommas P1
-		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1)) ok
 		return self
 
 
@@ -183,10 +196,14 @@ Class JsonElement from ValueType
 		return self
 
 	Func GetArrayLength 
-		return dnSend("s4:call",nHandle,"s14:GetArrayLength","")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetArrayLength")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetArrayLength",[]) ok
+		return dn_x
 
 	Func GetPropertyCount 
-		return dnSend("s4:call",nHandle,"s16:GetPropertyCount","")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetPropertyCount")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:GetPropertyCount",[]) ok
+		return dn_x
 
 	Func GetProperty P1
 		return dnSend("s4:call",nHandle,"s11:GetProperty",dnPackItem(P1))
@@ -195,10 +212,14 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s14:TryGetProperty",dnPackItem(P1))
 
 	Func GetBoolean 
-		return dnSend("s4:call",nHandle,"s10:GetBoolean","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetBoolean",[]) ok
+		return dn_x
 
 	Func GetString 
-		return dnSend("s4:call",nHandle,"s9:GetString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[]) ok
+		return dn_x
 
 	Func TryGetBytesFromBase64 
 		return dnSend("s4:call",nHandle,"s21:TryGetBytesFromBase64","")
@@ -210,67 +231,89 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s11:TryGetSByte","")
 
 	Func GetSByte 
-		return dnSend("s4:call",nHandle,"s8:GetSByte","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetSByte")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetSByte",[]) ok
+		return dn_x
 
 	Func TryGetByte 
 		return dnSend("s4:call",nHandle,"s10:TryGetByte","")
 
 	Func GetByte 
-		return dnSend("s4:call",nHandle,"s7:GetByte","")
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetByte",[]) ok
+		return dn_x
 
 	Func TryGetInt16 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt16","")
 
 	Func GetInt16 
-		return dnSend("s4:call",nHandle,"s8:GetInt16","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt16",[]) ok
+		return dn_x
 
 	Func TryGetUInt16 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt16","")
 
 	Func GetUInt16 
-		return dnSend("s4:call",nHandle,"s9:GetUInt16","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt16")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetUInt16",[]) ok
+		return dn_x
 
 	Func TryGetInt32 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt32","")
 
 	Func GetInt32 
-		return dnSend("s4:call",nHandle,"s8:GetInt32","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt32",[]) ok
+		return dn_x
 
 	Func TryGetUInt32 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt32","")
 
 	Func GetUInt32 
-		return dnSend("s4:call",nHandle,"s9:GetUInt32","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt32")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetUInt32",[]) ok
+		return dn_x
 
 	Func TryGetInt64 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt64","")
 
 	Func GetInt64 
-		return dnSend("s4:call",nHandle,"s8:GetInt64","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetInt64",[]) ok
+		return dn_x
 
 	Func TryGetUInt64 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt64","")
 
 	Func GetUInt64 
-		return dnSend("s4:call",nHandle,"s9:GetUInt64","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt64")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetUInt64",[]) ok
+		return dn_x
 
 	Func TryGetDouble 
 		return dnSend("s4:call",nHandle,"s12:TryGetDouble","")
 
 	Func GetDouble 
-		return dnSend("s4:call",nHandle,"s9:GetDouble","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetDouble",[]) ok
+		return dn_x
 
 	Func TryGetSingle 
 		return dnSend("s4:call",nHandle,"s12:TryGetSingle","")
 
 	Func GetSingle 
-		return dnSend("s4:call",nHandle,"s9:GetSingle","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSingle")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetSingle",[]) ok
+		return dn_x
 
 	Func TryGetDecimal 
 		return dnSend("s4:call",nHandle,"s13:TryGetDecimal","")
 
 	Func GetDecimal 
-		return dnSend("s4:call",nHandle,"s10:GetDecimal","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetDecimal",[]) ok
+		return dn_x
 
 	Func TryGetDateTime 
 		return dnSend("s4:call",nHandle,"s14:TryGetDateTime","")
@@ -291,13 +334,19 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s7:GetGuid","")
 
 	Func GetRawText 
-		return dnSend("s4:call",nHandle,"s10:GetRawText","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetRawText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetRawText",[]) ok
+		return dn_x
 
 	Func ValueEquals P1
-		return dnSend("s4:call",nHandle,"s11:ValueEquals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ValueEquals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ValueEquals",[P1]) ok
+		return dn_x
 
 	Func WriteTo P1
-		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+
 		return self
 
 	Func EnumerateArray 
@@ -310,7 +359,9 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func DeepEquals P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.JsonElement, System.Text.Json'),"s10:DeepEquals",[P1,P2]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
@@ -358,7 +409,9 @@ Class JsonEncodedText from ValueType
 		raise("DotNet Error: EncodedUtf8Bytes is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -382,10 +435,14 @@ Class JsonNamingPolicy from Object
 		return self
 
 	Func ConvertName P1
-		return dnSend("s4:call",nHandle,"s11:ConvertName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ConvertName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ConvertName",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCamelCase
 		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"s9:CamelCase","")
@@ -442,10 +499,14 @@ Class JsonProperty from ValueType
 		return self
 
 	Func NameEquals P1
-		return dnSend("s4:call",nHandle,"s10:NameEquals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:NameEquals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:NameEquals",[P1]) ok
+		return dn_x
 
 	Func WriteTo P1
-		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+
 		return self
 
 	Func getValue
@@ -455,7 +516,9 @@ Class JsonProperty from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -490,28 +553,38 @@ Class JsonReaderOptions from ValueType
 		return dnSend("s3:get",nHandle,"s15:CommentHandling","")
 
 	Func setCommentHandling P1
-		dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:CommentHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxDepth
-		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxDepth",[]) ok
+		return dn_x
 
 	Func setMaxDepth P1
-		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowTrailingCommas
-		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AllowTrailingCommas",[]) ok
+		return dn_x
 
 	Func setAllowTrailingCommas P1
-		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowMultipleValues
-		return dnSend("s3:get",nHandle,"s19:AllowMultipleValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowMultipleValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AllowMultipleValues",[]) ok
+		return dn_x
 
 	Func setAllowMultipleValues P1
-		dnSend("s3:set",nHandle,"s19:AllowMultipleValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AllowMultipleValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AllowMultipleValues",dnPackItem(P1)) ok
 		return self
 
 
@@ -574,7 +647,9 @@ Class JsonSerializer from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Deserialize P1
 		if dnIsNamed(P1)
@@ -628,10 +703,14 @@ Class JsonSerializer from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",[P1]) ok
+		return dn_x
 
 	Func getIsReflectionEnabledByDefault
-		return dnSend("s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s28:IsReflectionEnabledByDefault",[]) ok
+		return dn_x
 
 	Func setIsReflectionEnabledByDefault P1
 		raise("DotNet Error: IsReflectionEnabledByDefault is a read-only property")
@@ -715,7 +794,9 @@ Class JsonSerializerOptions from Object
 		return dnSend("s4:call",nHandle,"s12:GetConverter",dnPackItem(P1))
 
 	Func AddContext 
-		dnSend("s4:call",nHandle,"s10:AddContext","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddContext")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddContext","") ok
+
 		return self
 
 	Func MakeReadOnly P1
@@ -724,14 +805,20 @@ Class JsonSerializerOptions from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s12:MakeReadOnly","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:MakeReadOnly","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s12:MakeReadOnly",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:MakeReadOnly",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConverters
 		return dnSend("s3:get",nHandle,"s10:Converters","")
@@ -743,7 +830,8 @@ Class JsonSerializerOptions from Object
 		return dnSend("s3:get",nHandle,"s16:TypeInfoResolver","")
 
 	Func setTypeInfoResolver P1
-		dnSend("s3:set",nHandle,"s16:TypeInfoResolver",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:TypeInfoResolver",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:TypeInfoResolver",dnPackItem(P1)) ok
 		return self
 
 	Func getTypeInfoResolverChain
@@ -753,182 +841,237 @@ Class JsonSerializerOptions from Object
 		raise("DotNet Error: TypeInfoResolverChain is a read-only property")
 
 	Func getAllowOutOfOrderMetadataProperties
-		return dnSend("s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties",[]) ok
+		return dn_x
 
 	Func setAllowOutOfOrderMetadataProperties P1
-		dnSend("s3:set",nHandle,"s33:AllowOutOfOrderMetadataProperties",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s33:AllowOutOfOrderMetadataProperties",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s33:AllowOutOfOrderMetadataProperties",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowTrailingCommas
-		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AllowTrailingCommas",[]) ok
+		return dn_x
 
 	Func setAllowTrailingCommas P1
-		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultBufferSize
-		return dnSend("s3:get",nHandle,"s17:DefaultBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:DefaultBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DefaultBufferSize",[]) ok
+		return dn_x
 
 	Func setDefaultBufferSize P1
-		dnSend("s3:set",nHandle,"s17:DefaultBufferSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:DefaultBufferSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DefaultBufferSize",dnPackItem(P1)) ok
 		return self
 
 	Func getEncoder
 		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Encoder",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1)) ok
 		return self
 
 	Func getDictionaryKeyPolicy
 		return dnSend("s3:get",nHandle,"s19:DictionaryKeyPolicy","")
 
 	Func setDictionaryKeyPolicy P1
-		dnSend("s3:set",nHandle,"s19:DictionaryKeyPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DictionaryKeyPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DictionaryKeyPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getIgnoreNullValues
-		return dnSend("s3:get",nHandle,"s16:IgnoreNullValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IgnoreNullValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IgnoreNullValues",[]) ok
+		return dn_x
 
 	Func setIgnoreNullValues P1
-		dnSend("s3:set",nHandle,"s16:IgnoreNullValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:IgnoreNullValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:IgnoreNullValues",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultIgnoreCondition
 		return dnSend("s3:get",nHandle,"s22:DefaultIgnoreCondition","")
 
 	Func setDefaultIgnoreCondition P1
-		dnSend("s3:set",nHandle,"s22:DefaultIgnoreCondition",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:DefaultIgnoreCondition",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:DefaultIgnoreCondition",dnPackItem(P1)) ok
 		return self
 
 	Func getNumberHandling
 		return dnSend("s3:get",nHandle,"s14:NumberHandling","")
 
 	Func setNumberHandling P1
-		dnSend("s3:set",nHandle,"s14:NumberHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:NumberHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:NumberHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getPreferredObjectCreationHandling
 		return dnSend("s3:get",nHandle,"s31:PreferredObjectCreationHandling","")
 
 	Func setPreferredObjectCreationHandling P1
-		dnSend("s3:set",nHandle,"s31:PreferredObjectCreationHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s31:PreferredObjectCreationHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s31:PreferredObjectCreationHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getIgnoreReadOnlyProperties
-		return dnSend("s3:get",nHandle,"s24:IgnoreReadOnlyProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s24:IgnoreReadOnlyProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:IgnoreReadOnlyProperties",[]) ok
+		return dn_x
 
 	Func setIgnoreReadOnlyProperties P1
-		dnSend("s3:set",nHandle,"s24:IgnoreReadOnlyProperties",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:IgnoreReadOnlyProperties",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:IgnoreReadOnlyProperties",dnPackItem(P1)) ok
 		return self
 
 	Func getIgnoreReadOnlyFields
-		return dnSend("s3:get",nHandle,"s20:IgnoreReadOnlyFields","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IgnoreReadOnlyFields")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IgnoreReadOnlyFields",[]) ok
+		return dn_x
 
 	Func setIgnoreReadOnlyFields P1
-		dnSend("s3:set",nHandle,"s20:IgnoreReadOnlyFields",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:IgnoreReadOnlyFields",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:IgnoreReadOnlyFields",dnPackItem(P1)) ok
 		return self
 
 	Func getIncludeFields
-		return dnSend("s3:get",nHandle,"s13:IncludeFields","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IncludeFields")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IncludeFields",[]) ok
+		return dn_x
 
 	Func setIncludeFields P1
-		dnSend("s3:set",nHandle,"s13:IncludeFields",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:IncludeFields",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:IncludeFields",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxDepth
-		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxDepth",[]) ok
+		return dn_x
 
 	Func setMaxDepth P1
-		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getPropertyNamingPolicy
 		return dnSend("s3:get",nHandle,"s20:PropertyNamingPolicy","")
 
 	Func setPropertyNamingPolicy P1
-		dnSend("s3:set",nHandle,"s20:PropertyNamingPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:PropertyNamingPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:PropertyNamingPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnSend("s3:get",nHandle,"s27:PropertyNameCaseInsensitive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:PropertyNameCaseInsensitive",[]) ok
+		return dn_x
 
 	Func setPropertyNameCaseInsensitive P1
-		dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1)) ok
 		return self
 
 	Func getReadCommentHandling
 		return dnSend("s3:get",nHandle,"s19:ReadCommentHandling","")
 
 	Func setReadCommentHandling P1
-		dnSend("s3:set",nHandle,"s19:ReadCommentHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ReadCommentHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ReadCommentHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getUnknownTypeHandling
 		return dnSend("s3:get",nHandle,"s19:UnknownTypeHandling","")
 
 	Func setUnknownTypeHandling P1
-		dnSend("s3:set",nHandle,"s19:UnknownTypeHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:UnknownTypeHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UnknownTypeHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getUnmappedMemberHandling
 		return dnSend("s3:get",nHandle,"s22:UnmappedMemberHandling","")
 
 	Func setUnmappedMemberHandling P1
-		dnSend("s3:set",nHandle,"s22:UnmappedMemberHandling",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:UnmappedMemberHandling",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:UnmappedMemberHandling",dnPackItem(P1)) ok
 		return self
 
 	Func getWriteIndented
-		return dnSend("s3:get",nHandle,"s13:WriteIndented","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:WriteIndented")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:WriteIndented",[]) ok
+		return dn_x
 
 	Func setWriteIndented P1
-		dnSend("s3:set",nHandle,"s13:WriteIndented",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:WriteIndented",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:WriteIndented",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentCharacter
 		return dnSend("s3:get",nHandle,"s15:IndentCharacter","")
 
 	Func setIndentCharacter P1
-		dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:IndentCharacter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentSize
-		return dnSend("s3:get",nHandle,"s10:IndentSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IndentSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IndentSize",[]) ok
+		return dn_x
 
 	Func setIndentSize P1
-		dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IndentSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1)) ok
 		return self
 
 	Func getReferenceHandler
 		return dnSend("s3:get",nHandle,"s16:ReferenceHandler","")
 
 	Func setReferenceHandler P1
-		dnSend("s3:set",nHandle,"s16:ReferenceHandler",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ReferenceHandler",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ReferenceHandler",dnPackItem(P1)) ok
 		return self
 
 	Func getNewLine
-		return dnSend("s3:get",nHandle,"s7:NewLine","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NewLine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NewLine",[]) ok
+		return dn_x
 
 	Func setNewLine P1
-		dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NewLine",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1)) ok
 		return self
 
 	Func getRespectNullableAnnotations
-		return dnSend("s3:get",nHandle,"s26:RespectNullableAnnotations","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:RespectNullableAnnotations")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:RespectNullableAnnotations",[]) ok
+		return dn_x
 
 	Func setRespectNullableAnnotations P1
-		dnSend("s3:set",nHandle,"s26:RespectNullableAnnotations",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:RespectNullableAnnotations",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:RespectNullableAnnotations",dnPackItem(P1)) ok
 		return self
 
 	Func getRespectRequiredConstructorParameters
-		return dnSend("s3:get",nHandle,"s36:RespectRequiredConstructorParameters","")
+		dn_x = dotnet_call("s3:get",nHandle,"s36:RespectRequiredConstructorParameters")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s36:RespectRequiredConstructorParameters",[]) ok
+		return dn_x
 
 	Func setRespectRequiredConstructorParameters P1
-		dnSend("s3:set",nHandle,"s36:RespectRequiredConstructorParameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s36:RespectRequiredConstructorParameters",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s36:RespectRequiredConstructorParameters",dnPackItem(P1)) ok
 		return self
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -978,49 +1121,66 @@ Class JsonWriterOptions from ValueType
 		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Encoder",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1)) ok
 		return self
 
 	Func getIndented
-		return dnSend("s3:get",nHandle,"s8:Indented","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Indented")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Indented",[]) ok
+		return dn_x
 
 	Func setIndented P1
-		dnSend("s3:set",nHandle,"s8:Indented",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Indented",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Indented",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentCharacter
 		return dnSend("s3:get",nHandle,"s15:IndentCharacter","")
 
 	Func setIndentCharacter P1
-		dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:IndentCharacter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1)) ok
 		return self
 
 	Func getIndentSize
-		return dnSend("s3:get",nHandle,"s10:IndentSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IndentSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IndentSize",[]) ok
+		return dn_x
 
 	Func setIndentSize P1
-		dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IndentSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxDepth
-		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxDepth",[]) ok
+		return dn_x
 
 	Func setMaxDepth P1
-		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1)) ok
 		return self
 
 	Func getSkipValidation
-		return dnSend("s3:get",nHandle,"s14:SkipValidation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:SkipValidation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:SkipValidation",[]) ok
+		return dn_x
 
 	Func setSkipValidation P1
-		dnSend("s3:set",nHandle,"s14:SkipValidation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:SkipValidation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SkipValidation",dnPackItem(P1)) ok
 		return self
 
 	Func getNewLine
-		return dnSend("s3:get",nHandle,"s7:NewLine","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NewLine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NewLine",[]) ok
+		return dn_x
 
 	Func setNewLine P1
-		dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NewLine",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1)) ok
 		return self
 
 
@@ -1063,18 +1223,26 @@ Class Utf8JsonWriter from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Reset","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Reset",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset",dnPackItem(P1)) ok
+
 		return self
 
 	Func Flush 
-		dnSend("s4:call",nHandle,"s5:Flush","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Flush")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Flush","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
@@ -1095,10 +1263,14 @@ Class Utf8JsonWriter from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s15:WriteStartArray","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s15:WriteStartArray")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:WriteStartArray","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s15:WriteStartArray",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:WriteStartArray",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:WriteStartArray",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteStartObject P1
@@ -1107,58 +1279,86 @@ Class Utf8JsonWriter from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s16:WriteStartObject","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s16:WriteStartObject")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:WriteStartObject","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s16:WriteStartObject",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:WriteStartObject",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:WriteStartObject",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteEndArray 
-		dnSend("s4:call",nHandle,"s13:WriteEndArray","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:WriteEndArray")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:WriteEndArray","") ok
+
 		return self
 
 	Func WriteEndObject 
-		dnSend("s4:call",nHandle,"s14:WriteEndObject","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:WriteEndObject")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:WriteEndObject","") ok
+
 		return self
 
 	Func WriteString P1,P2
-		dnSend("s4:call",nHandle,"s11:WriteString",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:WriteString",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:WriteString",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func WriteNumber P1,P2
-		dnSend("s4:call",nHandle,"s11:WriteNumber",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:WriteNumber",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:WriteNumber",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func WriteNull P1
-		dnSend("s4:call",nHandle,"s9:WriteNull",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:WriteNull",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:WriteNull",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteBoolean P1,P2
-		dnSend("s4:call",nHandle,"s12:WriteBoolean",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:WriteBoolean",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:WriteBoolean",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func WritePropertyName P1
-		dnSend("s4:call",nHandle,"s17:WritePropertyName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:WritePropertyName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:WritePropertyName",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteCommentValue P1
-		dnSend("s4:call",nHandle,"s17:WriteCommentValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:WriteCommentValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:WriteCommentValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteStringValue P1
-		dnSend("s4:call",nHandle,"s16:WriteStringValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:WriteStringValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:WriteStringValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteNumberValue P1
-		dnSend("s4:call",nHandle,"s16:WriteNumberValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:WriteNumberValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:WriteNumberValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteNullValue 
-		dnSend("s4:call",nHandle,"s14:WriteNullValue","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:WriteNullValue")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:WriteNullValue","") ok
+
 		return self
 
 	Func WriteBooleanValue P1
-		dnSend("s4:call",nHandle,"s17:WriteBooleanValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:WriteBooleanValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:WriteBooleanValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteRawValue P1
@@ -1166,20 +1366,28 @@ Class Utf8JsonWriter from Object
 			dnSend("s9:callnamed",nHandle,"s13:WriteRawValue",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s13:WriteRawValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:WriteRawValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:WriteRawValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBytesPending
-		return dnSend("s3:get",nHandle,"s12:BytesPending","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:BytesPending")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:BytesPending",[]) ok
+		return dn_x
 
 	Func setBytesPending P1
 		raise("DotNet Error: BytesPending is a read-only property")
 
 	Func getBytesCommitted
-		return dnSend("s3:get",nHandle,"s14:BytesCommitted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:BytesCommitted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:BytesCommitted",[]) ok
+		return dn_x
 
 	Func setBytesCommitted P1
 		raise("DotNet Error: BytesCommitted is a read-only property")
@@ -1191,7 +1399,9 @@ Class Utf8JsonWriter from Object
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getCurrentDepth
-		return dnSend("s3:get",nHandle,"s12:CurrentDepth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:CurrentDepth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:CurrentDepth",[]) ok
+		return dn_x
 
 	Func setCurrentDepth P1
 		raise("DotNet Error: CurrentDepth is a read-only property")

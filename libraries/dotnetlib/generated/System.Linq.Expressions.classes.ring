@@ -253,7 +253,9 @@ Class CatchBlock from Object
 		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getVariable
 		return dnSend("s3:get",nHandle,"s8:Variable","")
@@ -302,7 +304,9 @@ Class ElementInit from Object
 		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAddMethod
 		return dnSend("s3:get",nHandle,"s9:AddMethod","")
@@ -317,7 +321,9 @@ Class ElementInit from Object
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -351,7 +357,9 @@ Class ExpressionsExpression from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Assign P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Assign",dnPackItem(P1) + dnPackItem(P2))
@@ -960,7 +968,9 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getCanReduce
-		return dnSend("s3:get",nHandle,"s9:CanReduce","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:CanReduce")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:CanReduce",[]) ok
+		return dn_x
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")
@@ -990,7 +1000,9 @@ Class ExpressionVisitor from Object
 		return dnSend("s4:call",nHandle,"s15:VisitAndConvert",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class IArgumentProvider from DotNetObject
@@ -1010,7 +1022,9 @@ Class IArgumentProvider from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -1060,10 +1074,14 @@ Class LabelTarget from Object
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1090,7 +1108,9 @@ Class MemberBinding from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBindingType
 		return dnSend("s3:get",nHandle,"s11:BindingType","")
@@ -1123,7 +1143,9 @@ Class SwitchCase from Object
 		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTestValues
 		return dnSend("s3:get",nHandle,"s10:TestValues","")
@@ -1155,10 +1177,14 @@ Class SymbolDocumentInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFileName
-		return dnSend("s3:get",nHandle,"s8:FileName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FileName",[]) ok
+		return dn_x
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -1228,13 +1254,17 @@ Class BinaryExpression from ExpressionsExpression
 		raise("DotNet Error: Conversion is a read-only property")
 
 	Func getIsLifted
-		return dnSend("s3:get",nHandle,"s8:IsLifted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLifted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLifted",[]) ok
+		return dn_x
 
 	Func setIsLifted P1
 		raise("DotNet Error: IsLifted is a read-only property")
 
 	Func getIsLiftedToNull
-		return dnSend("s3:get",nHandle,"s14:IsLiftedToNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsLiftedToNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsLiftedToNull",[]) ok
+		return dn_x
 
 	Func setIsLiftedToNull P1
 		raise("DotNet Error: IsLiftedToNull is a read-only property")
@@ -1353,25 +1383,33 @@ Class DebugInfoExpression from ExpressionsExpression
 		return self
 
 	Func getStartLine
-		return dnSend("s3:get",nHandle,"s9:StartLine","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:StartLine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:StartLine",[]) ok
+		return dn_x
 
 	Func setStartLine P1
 		raise("DotNet Error: StartLine is a read-only property")
 
 	Func getStartColumn
-		return dnSend("s3:get",nHandle,"s11:StartColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:StartColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:StartColumn",[]) ok
+		return dn_x
 
 	Func setStartColumn P1
 		raise("DotNet Error: StartColumn is a read-only property")
 
 	Func getEndLine
-		return dnSend("s3:get",nHandle,"s7:EndLine","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:EndLine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:EndLine",[]) ok
+		return dn_x
 
 	Func setEndLine P1
 		raise("DotNet Error: EndLine is a read-only property")
 
 	Func getEndColumn
-		return dnSend("s3:get",nHandle,"s9:EndColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:EndColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:EndColumn",[]) ok
+		return dn_x
 
 	Func setEndColumn P1
 		raise("DotNet Error: EndColumn is a read-only property")
@@ -1383,7 +1421,9 @@ Class DebugInfoExpression from ExpressionsExpression
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getIsClear
-		return dnSend("s3:get",nHandle,"s7:IsClear","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsClear")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsClear",[]) ok
+		return dn_x
 
 	Func setIsClear P1
 		raise("DotNet Error: IsClear is a read-only property")
@@ -1552,7 +1592,9 @@ Class IndexExpression from ExpressionsExpression
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -1592,7 +1634,9 @@ Class InvocationExpression from ExpressionsExpression
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -1663,7 +1707,9 @@ Class LambdaExpression from ExpressionsExpression
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1681,19 +1727,25 @@ Class LambdaExpression from ExpressionsExpression
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getTailCall
-		return dnSend("s3:get",nHandle,"s8:TailCall","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:TailCall")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:TailCall",[]) ok
+		return dn_x
 
 	Func setTailCall P1
 		raise("DotNet Error: TailCall is a read-only property")
 
 	Func getCanCompileToIL
-		return dnSend("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s14:CanCompileToIL","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s14:CanCompileToIL")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s14:CanCompileToIL",[]) ok
+		return dn_x
 
 	Func setCanCompileToIL P1
 		raise("DotNet Error: CanCompileToIL is a read-only property")
 
 	Func getCanInterpret
-		return dnSend("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s12:CanInterpret","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s12:CanInterpret")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions'),"s12:CanInterpret",[]) ok
+		return dn_x
 
 	Func setCanInterpret P1
 		raise("DotNet Error: CanInterpret is a read-only property")
@@ -1936,7 +1988,9 @@ Class MethodCallExpression from ExpressionsExpression
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -2000,7 +2054,9 @@ Class NewExpression from ExpressionsExpression
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
-		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -2027,13 +2083,17 @@ Class ParameterExpression from ExpressionsExpression
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsByRef
-		return dnSend("s3:get",nHandle,"s7:IsByRef","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsByRef")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsByRef",[]) ok
+		return dn_x
 
 	Func setIsByRef P1
 		raise("DotNet Error: IsByRef is a read-only property")
@@ -2212,13 +2272,17 @@ Class UnaryExpression from ExpressionsExpression
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getIsLifted
-		return dnSend("s3:get",nHandle,"s8:IsLifted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLifted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLifted",[]) ok
+		return dn_x
 
 	Func setIsLifted P1
 		raise("DotNet Error: IsLifted is a read-only property")
 
 	Func getIsLiftedToNull
-		return dnSend("s3:get",nHandle,"s14:IsLiftedToNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsLiftedToNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsLiftedToNull",[]) ok
+		return dn_x
 
 	Func setIsLiftedToNull P1
 		raise("DotNet Error: IsLiftedToNull is a read-only property")

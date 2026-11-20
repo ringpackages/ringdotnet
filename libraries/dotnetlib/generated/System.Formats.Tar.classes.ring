@@ -84,7 +84,9 @@ Class TarEntry from Object
 		return self
 
 	Func ExtractToFile P1,P2
-		dnSend("s4:call",nHandle,"s13:ExtractToFile",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ExtractToFile",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ExtractToFile",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ExtractToFileAsync P1
@@ -94,10 +96,14 @@ Class TarEntry from Object
 		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getChecksum
-		return dnSend("s3:get",nHandle,"s8:Checksum","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Checksum")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Checksum",[]) ok
+		return dn_x
 
 	Func setChecksum P1
 		raise("DotNet Error: Checksum is a read-only property")
@@ -115,62 +121,81 @@ Class TarEntry from Object
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getGid
-		return dnSend("s3:get",nHandle,"s3:Gid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Gid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Gid",[]) ok
+		return dn_x
 
 	Func setGid P1
-		dnSend("s3:set",nHandle,"s3:Gid",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Gid",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Gid",dnPackItem(P1)) ok
 		return self
 
 	Func getModificationTime
 		return dnSend("s3:get",nHandle,"s16:ModificationTime","")
 
 	Func setModificationTime P1
-		dnSend("s3:set",nHandle,"s16:ModificationTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ModificationTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ModificationTime",dnPackItem(P1)) ok
 		return self
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		return dnSend("s3:get",nHandle,"s8:LinkName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:LinkName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:LinkName",[]) ok
+		return dn_x
 
 	Func setLinkName P1
-		dnSend("s3:set",nHandle,"s8:LinkName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:LinkName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:LinkName",dnPackItem(P1)) ok
 		return self
 
 	Func getMode
 		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getUid
-		return dnSend("s3:get",nHandle,"s3:Uid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Uid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Uid",[]) ok
+		return dn_x
 
 	Func setUid P1
-		dnSend("s3:set",nHandle,"s3:Uid",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Uid",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Uid",dnPackItem(P1)) ok
 		return self
 
 	Func getDataStream
 		return dnSend("s3:get",nHandle,"s10:DataStream","")
 
 	Func setDataStream P1
-		dnSend("s3:set",nHandle,"s10:DataStream",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:DataStream",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:DataStream",dnPackItem(P1)) ok
 		return self
 
 	Func getDataOffset
-		return dnSend("s3:get",nHandle,"s10:DataOffset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:DataOffset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:DataOffset",[]) ok
+		return dn_x
 
 	Func setDataOffset P1
 		raise("DotNet Error: DataOffset is a read-only property")
@@ -188,10 +213,14 @@ Class TarFile from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateFromDirectory P1,P2,P3
-		dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 	Func CreateFromDirectoryAsync P1
@@ -201,7 +230,9 @@ Class TarFile from Object
 		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1,P2,P3
-		dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 	Func ExtractToDirectoryAsync P1
@@ -240,7 +271,9 @@ Class TarReader from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
@@ -265,7 +298,9 @@ Class TarReader from Object
 		return dnSend("s4:call",nHandle,"s17:GetNextEntryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class TarWriter from Object
@@ -299,7 +334,9 @@ Class TarWriter from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func DisposeAsync 
@@ -310,7 +347,9 @@ Class TarWriter from Object
 			dnSend("s9:callnamed",nHandle,"s10:WriteEntry",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s10:WriteEntry",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:WriteEntry",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:WriteEntry",dnPackItem(P1)) ok
+
 		return self
 
 	Func WriteEntryAsync P1
@@ -320,7 +359,9 @@ Class TarWriter from Object
 		return dnSend("s4:call",nHandle,"s15:WriteEntryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFormat
 		return dnSend("s3:get",nHandle,"s6:Format","")
@@ -346,31 +387,43 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getDeviceMajor
-		return dnSend("s3:get",nHandle,"s11:DeviceMajor","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:DeviceMajor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DeviceMajor",[]) ok
+		return dn_x
 
 	Func setDeviceMajor P1
-		dnSend("s3:set",nHandle,"s11:DeviceMajor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DeviceMajor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DeviceMajor",dnPackItem(P1)) ok
 		return self
 
 	Func getDeviceMinor
-		return dnSend("s3:get",nHandle,"s11:DeviceMinor","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:DeviceMinor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DeviceMinor",[]) ok
+		return dn_x
 
 	Func setDeviceMinor P1
-		dnSend("s3:set",nHandle,"s11:DeviceMinor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DeviceMinor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DeviceMinor",dnPackItem(P1)) ok
 		return self
 
 	Func getGroupName
-		return dnSend("s3:get",nHandle,"s9:GroupName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:GroupName",[]) ok
+		return dn_x
 
 	Func setGroupName P1
-		dnSend("s3:set",nHandle,"s9:GroupName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:GroupName",dnPackItem(P1)) ok
 		return self
 
 	Func getUserName
-		return dnSend("s3:get",nHandle,"s8:UserName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:UserName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:UserName",[]) ok
+		return dn_x
 
 	Func setUserName P1
-		dnSend("s3:set",nHandle,"s8:UserName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:UserName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:UserName",dnPackItem(P1)) ok
 		return self
 
 
@@ -438,14 +491,16 @@ Class GnuTarEntry from PosixTarEntry
 		return dnSend("s3:get",nHandle,"s10:AccessTime","")
 
 	Func setAccessTime P1
-		dnSend("s3:set",nHandle,"s10:AccessTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:AccessTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:AccessTime",dnPackItem(P1)) ok
 		return self
 
 	Func getChangeTime
 		return dnSend("s3:get",nHandle,"s10:ChangeTime","")
 
 	Func setChangeTime P1
-		dnSend("s3:set",nHandle,"s10:ChangeTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:ChangeTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ChangeTime",dnPackItem(P1)) ok
 		return self
 
 

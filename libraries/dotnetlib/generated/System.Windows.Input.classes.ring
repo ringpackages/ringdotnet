@@ -698,13 +698,17 @@ Class AccessKeyEventArgs from EventArgs
 		return self
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getIsMultiple
-		return dnSend("s3:get",nHandle,"s10:IsMultiple","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsMultiple")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsMultiple",[]) ok
+		return dn_x
 
 	Func setIsMultiple P1
 		raise("DotNet Error: IsMultiple is a read-only property")
@@ -724,28 +728,42 @@ Class AccessKeyManager from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Register P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s8:Register",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s8:Register",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s8:Register",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Unregister P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:Unregister",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:Unregister",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:Unregister",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func IsKeyRegistered P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s15:IsKeyRegistered",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s15:IsKeyRegistered",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s15:IsKeyRegistered",[P1,P2]) ok
+		return dn_x
 
 	Func ProcessKey P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:ProcessKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:ProcessKey",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s10:ProcessKey",[P1,P2,P3]) ok
+		return dn_x
 
 	Func AddAccessKeyPressedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s26:AddAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s26:AddAccessKeyPressedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s26:AddAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveAccessKeyPressedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s29:RemoveAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s29:RemoveAccessKeyPressedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.AccessKeyManager, PresentationCore'),"s29:RemoveAccessKeyPressedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getAccessKeyPressedEvent
@@ -799,18 +817,22 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 		return dnSend("s3:get",nHandle,"s5:Scope","")
 
 	Func setScope P1
-		dnSend("s3:set",nHandle,"s5:Scope",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Scope",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Scope",dnPackItem(P1)) ok
 		return self
 
 	Func getTarget
 		return dnSend("s3:get",nHandle,"s6:Target","")
 
 	Func setTarget P1
-		dnSend("s3:set",nHandle,"s6:Target",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Target",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Target",dnPackItem(P1)) ok
 		return self
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -851,7 +873,9 @@ Class ApplicationCommands from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCut
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ApplicationCommands, PresentationCore'),"s3:Cut","")
@@ -1001,11 +1025,15 @@ Class CanExecuteChangedEventManager from WeakEventManager
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s10:AddHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CanExecuteChangedEventManager, PresentationCore'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -1038,17 +1066,23 @@ Class CanExecuteRoutedEventArgs from RoutedEventArgs
 		raise("DotNet Error: Parameter is a read-only property")
 
 	Func getCanExecute
-		return dnSend("s3:get",nHandle,"s10:CanExecute","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:CanExecute")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:CanExecute",[]) ok
+		return dn_x
 
 	Func setCanExecute P1
-		dnSend("s3:set",nHandle,"s10:CanExecute",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:CanExecute",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:CanExecute",dnPackItem(P1)) ok
 		return self
 
 	Func getContinueRouting
-		return dnSend("s3:get",nHandle,"s15:ContinueRouting","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ContinueRouting")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ContinueRouting",[]) ok
+		return dn_x
 
 	Func setContinueRouting P1
-		dnSend("s3:set",nHandle,"s15:ContinueRouting",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ContinueRouting",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ContinueRouting",dnPackItem(P1)) ok
 		return self
 
 
@@ -1091,7 +1125,9 @@ Class CommandBinding from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setPreviewExecutedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PreviewExecuted",dnCallback(P1)])
@@ -1129,7 +1165,8 @@ Class CommandBinding from Object
 		return dnSend("s3:get",nHandle,"s7:Command","")
 
 	Func setCommand P1
-		dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Command",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1)) ok
 		return self
 
 
@@ -1176,59 +1213,84 @@ Class CommandBindingCollection from Object
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1240,13 +1302,17 @@ Class CommandBindingCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1290,50 +1356,74 @@ Class CommandManager from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddPreviewExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:AddPreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:AddPreviewExecutedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:AddPreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s28:RemovePreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s28:RemovePreviewExecutedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s28:RemovePreviewExecutedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s18:AddExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s18:AddExecutedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s18:AddExecutedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveExecutedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s21:RemoveExecutedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s21:RemoveExecutedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s21:RemoveExecutedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:AddPreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:AddPreviewCanExecuteHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:AddPreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s30:RemovePreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s30:RemovePreviewCanExecuteHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s30:RemovePreviewCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s20:AddCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s20:AddCanExecuteHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s20:AddCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveCanExecuteHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s23:RemoveCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s23:RemoveCanExecuteHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s23:RemoveCanExecuteHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RegisterClassInputBinding P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:RegisterClassInputBinding",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:RegisterClassInputBinding",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s25:RegisterClassInputBinding",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RegisterClassCommandBinding P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:RegisterClassCommandBinding",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:RegisterClassCommandBinding",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s27:RegisterClassCommandBinding",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func InvalidateRequerySuggested 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s26:InvalidateRequerySuggested","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s26:InvalidateRequerySuggested")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.CommandManager, PresentationCore'),"s26:InvalidateRequerySuggested","") ok
+
 		return self
 
 	Func setRequerySuggestedEvent P1
@@ -1409,7 +1499,9 @@ Class ComponentCommands from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getScrollPageUp
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.ComponentCommands, PresentationCore'),"s12:ScrollPageUp","")
@@ -1603,11 +1695,15 @@ Class WpfCursor from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class WpfCursorConverter from TypeConverter
@@ -1672,7 +1768,9 @@ Class WpfCursors from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNone
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Cursors, PresentationCore'),"s4:None","")
@@ -1887,37 +1985,53 @@ Class FocusManager from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddGotFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s18:AddGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s18:AddGotFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s18:AddGotFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveGotFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s21:RemoveGotFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s21:RemoveGotFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s21:RemoveGotFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddLostFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s19:AddLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s19:AddLostFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s19:AddLostFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveLostFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s22:RemoveLostFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s22:RemoveLostFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s22:RemoveLostFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetFocusedElement P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:GetFocusedElement",dnPackItem(P1))
 
 	Func SetFocusedElement P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:SetFocusedElement",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:SetFocusedElement",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s17:SetFocusedElement",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetIsFocusScope P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:SetIsFocusScope",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:SetIsFocusScope",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:SetIsFocusScope",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsFocusScope P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:GetIsFocusScope",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:GetIsFocusScope",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s15:GetIsFocusScope",[P1]) ok
+		return dn_x
 
 	Func GetFocusScope P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.FocusManager, PresentationCore'),"s13:GetFocusScope",dnPackItem(P1))
@@ -1996,18 +2110,23 @@ Class IInputLanguageSource from DotNetObject
 		return self
 
 	Func Initialize 
-		dnSend("s4:call",nHandle,"s10:Initialize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize","") ok
+
 		return self
 
 	Func Uninitialize 
-		dnSend("s4:call",nHandle,"s12:Uninitialize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:Uninitialize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:Uninitialize","") ok
+
 		return self
 
 	Func getCurrentInputLanguage
 		return dnSend("s3:get",nHandle,"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dnSend("s3:set",nHandle,"s20:CurrentInputLanguage",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:CurrentInputLanguage",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:CurrentInputLanguage",dnPackItem(P1)) ok
 		return self
 
 	Func getInputLanguageList
@@ -2034,7 +2153,9 @@ Class IManipulator from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:GetPosition",dnPackItem(P1))
 
 	Func ManipulationEnded P1
-		dnSend("s4:call",nHandle,"s17:ManipulationEnded",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:ManipulationEnded",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:ManipulationEnded",dnPackItem(P1)) ok
+
 		return self
 
 	Func setUpdatedEvent P1
@@ -2046,7 +2167,9 @@ Class IManipulator from DotNetObject
 		return self
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -2078,34 +2201,44 @@ Class InertiaExpansionBehavior from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInitialVelocity
 		return dnSend("s3:get",nHandle,"s15:InitialVelocity","")
 
 	Func setInitialVelocity P1
-		dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:InitialVelocity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredDeceleration
-		return dnSend("s3:get",nHandle,"s19:DesiredDeceleration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DesiredDeceleration",[]) ok
+		return dn_x
 
 	Func setDesiredDeceleration P1
-		dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredExpansion
 		return dnSend("s3:get",nHandle,"s16:DesiredExpansion","")
 
 	Func setDesiredExpansion P1
-		dnSend("s3:set",nHandle,"s16:DesiredExpansion",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:DesiredExpansion",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:DesiredExpansion",dnPackItem(P1)) ok
 		return self
 
 	Func getInitialRadius
-		return dnSend("s3:get",nHandle,"s13:InitialRadius","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:InitialRadius")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:InitialRadius",[]) ok
+		return dn_x
 
 	Func setInitialRadius P1
-		dnSend("s3:set",nHandle,"s13:InitialRadius",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:InitialRadius",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:InitialRadius",dnPackItem(P1)) ok
 		return self
 
 
@@ -2134,27 +2267,38 @@ Class InertiaRotationBehavior from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInitialVelocity
-		return dnSend("s3:get",nHandle,"s15:InitialVelocity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:InitialVelocity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:InitialVelocity",[]) ok
+		return dn_x
 
 	Func setInitialVelocity P1
-		dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:InitialVelocity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredDeceleration
-		return dnSend("s3:get",nHandle,"s19:DesiredDeceleration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DesiredDeceleration",[]) ok
+		return dn_x
 
 	Func setDesiredDeceleration P1
-		dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredRotation
-		return dnSend("s3:get",nHandle,"s15:DesiredRotation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:DesiredRotation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:DesiredRotation",[]) ok
+		return dn_x
 
 	Func setDesiredRotation P1
-		dnSend("s3:set",nHandle,"s15:DesiredRotation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:DesiredRotation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DesiredRotation",dnPackItem(P1)) ok
 		return self
 
 
@@ -2183,27 +2327,36 @@ Class InertiaTranslationBehavior from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInitialVelocity
 		return dnSend("s3:get",nHandle,"s15:InitialVelocity","")
 
 	Func setInitialVelocity P1
-		dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:InitialVelocity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:InitialVelocity",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredDeceleration
-		return dnSend("s3:get",nHandle,"s19:DesiredDeceleration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DesiredDeceleration",[]) ok
+		return dn_x
 
 	Func setDesiredDeceleration P1
-		dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DesiredDeceleration",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredDisplacement
-		return dnSend("s3:get",nHandle,"s19:DesiredDisplacement","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDisplacement")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DesiredDisplacement",[]) ok
+		return dn_x
 
 	Func setDesiredDisplacement P1
-		dnSend("s3:set",nHandle,"s19:DesiredDisplacement",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DesiredDisplacement",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DesiredDisplacement",dnPackItem(P1)) ok
 		return self
 
 
@@ -2232,28 +2385,32 @@ Class InputBinding from Freezable
 		return dnSend("s3:get",nHandle,"s7:Command","")
 
 	Func setCommand P1
-		dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Command",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Command",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandParameter
 		return dnSend("s3:get",nHandle,"s16:CommandParameter","")
 
 	Func setCommandParameter P1
-		dnSend("s3:set",nHandle,"s16:CommandParameter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:CommandParameter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:CommandParameter",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandTarget
 		return dnSend("s3:get",nHandle,"s13:CommandTarget","")
 
 	Func setCommandTarget P1
-		dnSend("s3:set",nHandle,"s13:CommandTarget",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:CommandTarget",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CommandTarget",dnPackItem(P1)) ok
 		return self
 
 	Func getGesture
 		return dnSend("s3:get",nHandle,"s7:Gesture","")
 
 	Func setGesture P1
-		dnSend("s3:set",nHandle,"s7:Gesture",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Gesture",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Gesture",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandProperty
@@ -2318,65 +2475,92 @@ Class InputBindingCollection from Object
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2388,7 +2572,9 @@ Class InputBindingCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2444,7 +2630,9 @@ Class InputEventArgs from RoutedEventArgs
 		raise("DotNet Error: Device is a read-only property")
 
 	Func getTimestamp
-		return dnSend("s3:get",nHandle,"s9:Timestamp","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Timestamp")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Timestamp",[]) ok
+		return dn_x
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
@@ -2462,10 +2650,14 @@ Class InputGesture from Object
 		return self
 
 	Func Matches P1,P2
-		return dnSend("s4:call",nHandle,"s7:Matches",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Matches",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Matches",[P1,P2]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class InputGestureCollection from Object
@@ -2514,54 +2706,79 @@ Class InputGestureCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func AddRange P1
-		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1)) ok
+
 		return self
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Seal 
-		dnSend("s4:call",nHandle,"s4:Seal","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seal")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seal","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2573,19 +2790,25 @@ Class InputGestureCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2636,29 +2859,41 @@ Class InputLanguageManager from DispatcherObject
 		return self
 
 	Func RegisterInputLanguageSource P1
-		dnSend("s4:call",nHandle,"s27:RegisterInputLanguageSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s27:RegisterInputLanguageSource",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s27:RegisterInputLanguageSource",dnPackItem(P1)) ok
+
 		return self
 
 	Func ReportInputLanguageChanged P1,P2
-		dnSend("s4:call",nHandle,"s26:ReportInputLanguageChanged",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s26:ReportInputLanguageChanged",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s26:ReportInputLanguageChanged",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ReportInputLanguageChanging P1,P2
-		return dnSend("s4:call",nHandle,"s27:ReportInputLanguageChanging",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s27:ReportInputLanguageChanging",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s27:ReportInputLanguageChanging",[P1,P2]) ok
+		return dn_x
 
 	Func SetInputLanguage P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:SetInputLanguage",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:SetInputLanguage",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:SetInputLanguage",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetInputLanguage P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s16:GetInputLanguage",dnPackItem(P1))
 
 	Func SetRestoreInputLanguage P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:SetRestoreInputLanguage",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:SetRestoreInputLanguage",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:SetRestoreInputLanguage",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetRestoreInputLanguage P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:GetRestoreInputLanguage",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:GetRestoreInputLanguage",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.InputLanguageManager, PresentationCore'),"s23:GetRestoreInputLanguage",[P1]) ok
+		return dn_x
 
 	Func setInputLanguageChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"InputLanguageChanged",dnCallback(P1)])
@@ -2680,7 +2915,8 @@ Class InputLanguageManager from DispatcherObject
 		return dnSend("s3:get",nHandle,"s20:CurrentInputLanguage","")
 
 	Func setCurrentInputLanguage P1
-		dnSend("s3:set",nHandle,"s20:CurrentInputLanguage",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:CurrentInputLanguage",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:CurrentInputLanguage",dnPackItem(P1)) ok
 		return self
 
 	Func getAvailableInputLanguages
@@ -2727,15 +2963,21 @@ Class InputManager from DispatcherObject
 		return self
 
 	Func PushMenuMode P1
-		dnSend("s4:call",nHandle,"s12:PushMenuMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:PushMenuMode",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:PushMenuMode",dnPackItem(P1)) ok
+
 		return self
 
 	Func PopMenuMode P1
-		dnSend("s4:call",nHandle,"s11:PopMenuMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:PopMenuMode",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:PopMenuMode",dnPackItem(P1)) ok
+
 		return self
 
 	Func ProcessInput P1
-		return dnSend("s4:call",nHandle,"s12:ProcessInput",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ProcessInput",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ProcessInput",[P1]) ok
+		return dn_x
 
 	Func setPreProcessInputEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PreProcessInput",dnCallback(P1)])
@@ -2818,7 +3060,9 @@ Class InputManager from DispatcherObject
 		raise("DotNet Error: MostRecentInputDevice is a read-only property")
 
 	Func getIsInMenuMode
-		return dnSend("s3:get",nHandle,"s12:IsInMenuMode","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsInMenuMode")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsInMenuMode",[]) ok
+		return dn_x
 
 	Func setIsInMenuMode P1
 		raise("DotNet Error: IsInMenuMode is a read-only property")
@@ -2863,10 +3107,14 @@ Class InputMethod from DispatcherObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s15:ShowConfigureUI","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s15:ShowConfigureUI")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ShowConfigureUI","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s15:ShowConfigureUI",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:ShowConfigureUI",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ShowConfigureUI",dnPackItem(P1)) ok
+
 		return self
 
 	Func ShowRegisterWordUI P1
@@ -2875,49 +3123,69 @@ Class InputMethod from DispatcherObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s18:ShowRegisterWordUI","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s18:ShowRegisterWordUI")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ShowRegisterWordUI","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s18:ShowRegisterWordUI",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:ShowRegisterWordUI",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ShowRegisterWordUI",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetIsInputMethodEnabled P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:SetIsInputMethodEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:SetIsInputMethodEnabled",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:SetIsInputMethodEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsInputMethodEnabled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:GetIsInputMethodEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:GetIsInputMethodEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s23:GetIsInputMethodEnabled",[P1]) ok
+		return dn_x
 
 	Func SetIsInputMethodSuspended P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:SetIsInputMethodSuspended",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:SetIsInputMethodSuspended",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:SetIsInputMethodSuspended",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsInputMethodSuspended P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:GetIsInputMethodSuspended",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:GetIsInputMethodSuspended",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s25:GetIsInputMethodSuspended",[P1]) ok
+		return dn_x
 
 	Func SetPreferredImeState P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:SetPreferredImeState",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:SetPreferredImeState",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:SetPreferredImeState",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetPreferredImeState P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s20:GetPreferredImeState",dnPackItem(P1))
 
 	Func SetPreferredImeConversionMode P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:SetPreferredImeConversionMode",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:SetPreferredImeConversionMode",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:SetPreferredImeConversionMode",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetPreferredImeConversionMode P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s29:GetPreferredImeConversionMode",dnPackItem(P1))
 
 	Func SetPreferredImeSentenceMode P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:SetPreferredImeSentenceMode",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:SetPreferredImeSentenceMode",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:SetPreferredImeSentenceMode",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetPreferredImeSentenceMode P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s27:GetPreferredImeSentenceMode",dnPackItem(P1))
 
 	Func SetInputScope P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s13:SetInputScope",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s13:SetInputScope",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.InputMethod, PresentationCore'),"s13:SetInputScope",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetInputScope P1
@@ -2935,52 +3203,62 @@ Class InputMethod from DispatcherObject
 		return dnSend("s3:get",nHandle,"s8:ImeState","")
 
 	Func setImeState P1
-		dnSend("s3:set",nHandle,"s8:ImeState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:ImeState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:ImeState",dnPackItem(P1)) ok
 		return self
 
 	Func getMicrophoneState
 		return dnSend("s3:get",nHandle,"s15:MicrophoneState","")
 
 	Func setMicrophoneState P1
-		dnSend("s3:set",nHandle,"s15:MicrophoneState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:MicrophoneState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:MicrophoneState",dnPackItem(P1)) ok
 		return self
 
 	Func getHandwritingState
 		return dnSend("s3:get",nHandle,"s16:HandwritingState","")
 
 	Func setHandwritingState P1
-		dnSend("s3:set",nHandle,"s16:HandwritingState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:HandwritingState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:HandwritingState",dnPackItem(P1)) ok
 		return self
 
 	Func getSpeechMode
 		return dnSend("s3:get",nHandle,"s10:SpeechMode","")
 
 	Func setSpeechMode P1
-		dnSend("s3:set",nHandle,"s10:SpeechMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SpeechMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SpeechMode",dnPackItem(P1)) ok
 		return self
 
 	Func getImeConversionMode
 		return dnSend("s3:get",nHandle,"s17:ImeConversionMode","")
 
 	Func setImeConversionMode P1
-		dnSend("s3:set",nHandle,"s17:ImeConversionMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ImeConversionMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ImeConversionMode",dnPackItem(P1)) ok
 		return self
 
 	Func getImeSentenceMode
 		return dnSend("s3:get",nHandle,"s15:ImeSentenceMode","")
 
 	Func setImeSentenceMode P1
-		dnSend("s3:set",nHandle,"s15:ImeSentenceMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ImeSentenceMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ImeSentenceMode",dnPackItem(P1)) ok
 		return self
 
 	Func getCanShowConfigurationUI
-		return dnSend("s3:get",nHandle,"s22:CanShowConfigurationUI","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:CanShowConfigurationUI")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:CanShowConfigurationUI",[]) ok
+		return dn_x
 
 	Func setCanShowConfigurationUI P1
 		raise("DotNet Error: CanShowConfigurationUI is a read-only property")
 
 	Func getCanShowRegisterWordUI
-		return dnSend("s3:get",nHandle,"s21:CanShowRegisterWordUI","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:CanShowRegisterWordUI")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:CanShowRegisterWordUI",[]) ok
+		return dn_x
 
 	Func setCanShowRegisterWordUI P1
 		raise("DotNet Error: CanShowRegisterWordUI is a read-only property")
@@ -3047,37 +3325,49 @@ Class InputMethodStateChangedEventArgs from EventArgs
 		return self
 
 	Func getIsImeStateChanged
-		return dnSend("s3:get",nHandle,"s17:IsImeStateChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsImeStateChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsImeStateChanged",[]) ok
+		return dn_x
 
 	Func setIsImeStateChanged P1
 		raise("DotNet Error: IsImeStateChanged is a read-only property")
 
 	Func getIsMicrophoneStateChanged
-		return dnSend("s3:get",nHandle,"s24:IsMicrophoneStateChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s24:IsMicrophoneStateChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:IsMicrophoneStateChanged",[]) ok
+		return dn_x
 
 	Func setIsMicrophoneStateChanged P1
 		raise("DotNet Error: IsMicrophoneStateChanged is a read-only property")
 
 	Func getIsHandwritingStateChanged
-		return dnSend("s3:get",nHandle,"s25:IsHandwritingStateChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:IsHandwritingStateChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:IsHandwritingStateChanged",[]) ok
+		return dn_x
 
 	Func setIsHandwritingStateChanged P1
 		raise("DotNet Error: IsHandwritingStateChanged is a read-only property")
 
 	Func getIsSpeechModeChanged
-		return dnSend("s3:get",nHandle,"s19:IsSpeechModeChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsSpeechModeChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsSpeechModeChanged",[]) ok
+		return dn_x
 
 	Func setIsSpeechModeChanged P1
 		raise("DotNet Error: IsSpeechModeChanged is a read-only property")
 
 	Func getIsImeConversionModeChanged
-		return dnSend("s3:get",nHandle,"s26:IsImeConversionModeChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:IsImeConversionModeChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:IsImeConversionModeChanged",[]) ok
+		return dn_x
 
 	Func setIsImeConversionModeChanged P1
 		raise("DotNet Error: IsImeConversionModeChanged is a read-only property")
 
 	Func getIsImeSentenceModeChanged
-		return dnSend("s3:get",nHandle,"s24:IsImeSentenceModeChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s24:IsImeSentenceModeChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:IsImeSentenceModeChanged",[]) ok
+		return dn_x
 
 	Func setIsImeSentenceModeChanged P1
 		raise("DotNet Error: IsImeSentenceModeChanged is a read-only property")
@@ -3109,7 +3399,9 @@ Class InputScope from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNames
 		return dnSend("s3:get",nHandle,"s5:Names","")
@@ -3118,17 +3410,23 @@ Class InputScope from Object
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getSrgsMarkup
-		return dnSend("s3:get",nHandle,"s10:SrgsMarkup","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SrgsMarkup")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SrgsMarkup",[]) ok
+		return dn_x
 
 	Func setSrgsMarkup P1
-		dnSend("s3:set",nHandle,"s10:SrgsMarkup",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SrgsMarkup",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SrgsMarkup",dnPackItem(P1)) ok
 		return self
 
 	Func getRegularExpression
-		return dnSend("s3:get",nHandle,"s17:RegularExpression","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:RegularExpression")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:RegularExpression",[]) ok
+		return dn_x
 
 	Func setRegularExpression P1
-		dnSend("s3:set",nHandle,"s17:RegularExpression",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:RegularExpression",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:RegularExpression",dnPackItem(P1)) ok
 		return self
 
 	Func getPhraseList
@@ -3198,21 +3496,28 @@ Class InputScopeName from Object
 		return self
 
 	Func AddChild P1
-		dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddText P1
-		dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNameValue
 		return dnSend("s3:get",nHandle,"s9:NameValue","")
 
 	Func setNameValue P1
-		dnSend("s3:set",nHandle,"s9:NameValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:NameValue",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:NameValue",dnPackItem(P1)) ok
 		return self
 
 
@@ -3276,21 +3581,30 @@ Class InputScopePhrase from Object
 		return self
 
 	Func AddChild P1
-		dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddText P1
-		dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 
@@ -3369,13 +3683,17 @@ Class KeyInterop from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func KeyFromVirtualKey P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:KeyFromVirtualKey",dnPackItem(P1))
 
 	Func VirtualKeyFromKey P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:VirtualKeyFromKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:VirtualKeyFromKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.KeyInterop, WindowsBase'),"s17:VirtualKeyFromKey",[P1]) ok
+		return dn_x
 
 
 Class KeyValueSerializer from ValueSerializer
@@ -3426,103 +3744,153 @@ Class Keyboard from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddPreviewKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s24:AddPreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s24:AddPreviewKeyDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s24:AddPreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:RemovePreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:RemovePreviewKeyDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:RemovePreviewKeyDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s17:AddKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s17:AddKeyDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s17:AddKeyDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveKeyDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s20:RemoveKeyDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s20:RemoveKeyDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s20:RemoveKeyDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s22:AddPreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s22:AddPreviewKeyUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s22:AddPreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s25:RemovePreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s25:RemovePreviewKeyUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s25:RemovePreviewKeyUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s15:AddKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s15:AddKeyUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s15:AddKeyUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveKeyUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s18:RemoveKeyUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s18:RemoveKeyUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s18:RemoveKeyUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s33:AddPreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s33:AddPreviewGotKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s33:AddPreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s36:RemovePreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s36:RemovePreviewGotKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s36:RemovePreviewGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s50:AddPreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s50:AddPreviewKeyboardInputProviderAcquireFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s50:AddPreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s53:RemovePreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s53:RemovePreviewKeyboardInputProviderAcquireFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s53:RemovePreviewKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s43:AddKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s43:AddKeyboardInputProviderAcquireFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s43:AddKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveKeyboardInputProviderAcquireFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s46:RemoveKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s46:RemoveKeyboardInputProviderAcquireFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s46:RemoveKeyboardInputProviderAcquireFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s26:AddGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s26:AddGotKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s26:AddGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveGotKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s29:RemoveGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s29:RemoveGotKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s29:RemoveGotKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s34:AddPreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s34:AddPreviewLostKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s34:AddPreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s37:RemovePreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s37:RemovePreviewLostKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s37:RemovePreviewLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:AddLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:AddLostKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s27:AddLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveLostKeyboardFocusHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s30:RemoveLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s30:RemoveLostKeyboardFocusHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s30:RemoveLostKeyboardFocusHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ClearFocus 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s10:ClearFocus","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s10:ClearFocus")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s10:ClearFocus","") ok
+
 		return self
 
 	Func Focus P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s5:Focus",dnPackItem(P1))
 
 	Func IsKeyDown P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s9:IsKeyDown",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s9:IsKeyDown",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s9:IsKeyDown",[P1]) ok
+		return dn_x
 
 	Func IsKeyUp P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s7:IsKeyUp",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s7:IsKeyUp",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s7:IsKeyUp",[P1]) ok
+		return dn_x
 
 	Func IsKeyToggled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:IsKeyToggled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:IsKeyToggled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:IsKeyToggled",[P1]) ok
+		return dn_x
 
 	Func GetKeyStates P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s12:GetKeyStates",dnPackItem(P1))
@@ -3537,7 +3905,8 @@ Class Keyboard from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode","")
 
 	Func setDefaultRestoreFocusMode P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Input.Keyboard, PresentationCore'),"s23:DefaultRestoreFocusMode",dnPackItem(P1)) ok
 		return self
 
 	Func getModifiers
@@ -3632,49 +4001,69 @@ Class KeyboardNavigation from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetTabIndex P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:SetTabIndex",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:SetTabIndex",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:SetTabIndex",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetTabIndex P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:GetTabIndex",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:GetTabIndex",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s11:GetTabIndex",[P1]) ok
+		return dn_x
 
 	Func SetIsTabStop P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:SetIsTabStop",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:SetIsTabStop",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:SetIsTabStop",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsTabStop P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:GetIsTabStop",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:GetIsTabStop",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s12:GetIsTabStop",[P1]) ok
+		return dn_x
 
 	Func SetTabNavigation P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetTabNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetTabNavigation",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetTabNavigation",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetTabNavigation P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetTabNavigation",dnPackItem(P1))
 
 	Func SetControlTabNavigation P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:SetControlTabNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:SetControlTabNavigation",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:SetControlTabNavigation",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetControlTabNavigation P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s23:GetControlTabNavigation",dnPackItem(P1))
 
 	Func SetDirectionalNavigation P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:SetDirectionalNavigation",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:SetDirectionalNavigation",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:SetDirectionalNavigation",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetDirectionalNavigation P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s24:GetDirectionalNavigation",dnPackItem(P1))
 
 	Func SetAcceptsReturn P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetAcceptsReturn",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetAcceptsReturn",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:SetAcceptsReturn",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetAcceptsReturn P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetAcceptsReturn",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetAcceptsReturn",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:GetAcceptsReturn",[P1]) ok
+		return dn_x
 
 	Func getTabIndexProperty
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"s16:TabIndexProperty","")
@@ -3725,50 +4114,70 @@ Class Manipulation from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func IsManipulationActive P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:IsManipulationActive",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:IsManipulationActive",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:IsManipulationActive",[P1]) ok
+		return dn_x
 
 	Func StartInertia P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s12:StartInertia",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s12:StartInertia",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s12:StartInertia",dnPackItem(P1)) ok
+
 		return self
 
 	Func CompleteManipulation P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:CompleteManipulation",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:CompleteManipulation",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:CompleteManipulation",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetManipulationMode P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:SetManipulationMode",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:SetManipulationMode",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:SetManipulationMode",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetManipulationMode P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s19:GetManipulationMode",dnPackItem(P1))
 
 	Func SetManipulationContainer P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationContainer",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationContainer",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationContainer",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetManipulationContainer P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:GetManipulationContainer",dnPackItem(P1))
 
 	Func SetManipulationPivot P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:SetManipulationPivot",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:SetManipulationPivot",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:SetManipulationPivot",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetManipulationPivot P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s20:GetManipulationPivot",dnPackItem(P1))
 
 	Func AddManipulator P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s14:AddManipulator",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s14:AddManipulator",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s14:AddManipulator",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveManipulator P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s17:RemoveManipulator",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s17:RemoveManipulator",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s17:RemoveManipulator",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetManipulationParameter P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationParameter",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationParameter",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Manipulation, PresentationCore'),"s24:SetManipulationParameter",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -3791,7 +4200,9 @@ Class ManipulationDelta from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTranslation
 		return dnSend("s3:get",nHandle,"s11:Translation","")
@@ -3800,7 +4211,9 @@ Class ManipulationDelta from Object
 		raise("DotNet Error: Translation is a read-only property")
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Rotation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Rotation",[]) ok
+		return dn_x
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -3858,20 +4271,26 @@ Class ManipulationPivot from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCenter
 		return dnSend("s3:get",nHandle,"s6:Center","")
 
 	Func setCenter P1
-		dnSend("s3:set",nHandle,"s6:Center",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Center",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Center",dnPackItem(P1)) ok
 		return self
 
 	Func getRadius
-		return dnSend("s3:get",nHandle,"s6:Radius","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Radius",[]) ok
+		return dn_x
 
 	Func setRadius P1
-		dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Radius",dnPackItem(P1)) ok
 		return self
 
 
@@ -3893,7 +4312,9 @@ Class ManipulationVelocities from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getLinearVelocity
 		return dnSend("s3:get",nHandle,"s14:LinearVelocity","")
@@ -3902,7 +4323,9 @@ Class ManipulationVelocities from Object
 		raise("DotNet Error: LinearVelocity is a read-only property")
 
 	Func getAngularVelocity
-		return dnSend("s3:get",nHandle,"s15:AngularVelocity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:AngularVelocity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:AngularVelocity",[]) ok
+		return dn_x
 
 	Func setAngularVelocity P1
 		raise("DotNet Error: AngularVelocity is a read-only property")
@@ -3951,7 +4374,9 @@ Class MediaCommands from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPlay
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.MediaCommands, PresentationCore'),"s4:Play","")
@@ -4119,7 +4544,9 @@ Class ModifierKeysConverter from TypeConverter
 		return self
 
 	Func IsDefinedModifierKeys P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.ModifierKeysConverter, WindowsBase'),"s21:IsDefinedModifierKeys",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.ModifierKeysConverter, WindowsBase'),"s21:IsDefinedModifierKeys",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.ModifierKeysConverter, WindowsBase'),"s21:IsDefinedModifierKeys",[P1]) ok
+		return dn_x
 
 
 Class ModifierKeysValueSerializer from ValueSerializer
@@ -4181,149 +4608,221 @@ Class Mouse from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddPreviewMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewMouseDownOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s48:AddPreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s48:AddPreviewMouseDownOutsideCapturedElementHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s48:AddPreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseDownOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s51:RemovePreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s51:RemovePreviewMouseDownOutsideCapturedElementHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s51:RemovePreviewMouseDownOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewMouseUpOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s46:AddPreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s46:AddPreviewMouseUpOutsideCapturedElementHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s46:AddPreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseUpOutsideCapturedElementHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s49:RemovePreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s49:RemovePreviewMouseUpOutsideCapturedElementHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s49:RemovePreviewMouseUpOutsideCapturedElementHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddPreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemovePreviewMouseDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s19:AddMouseDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s22:RemoveMouseDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:AddPreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:AddPreviewMouseUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:AddPreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:RemovePreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:RemovePreviewMouseUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:RemovePreviewMouseUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s17:AddMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s17:AddMouseUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s17:AddMouseUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:RemoveMouseUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:RemoveMouseUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:RemoveMouseUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:AddPreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:AddPreviewMouseWheelHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s27:AddPreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s30:RemovePreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s30:RemovePreviewMouseWheelHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s30:RemovePreviewMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseWheelHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseWheelHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseWheelHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseWheelHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddMouseLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s20:AddMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveMouseLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s23:RemoveMouseLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddGotMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:AddGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:AddGotMouseCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:AddGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveGotMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s28:RemoveGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s28:RemoveGotMouseCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s28:RemoveGotMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddLostMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddLostMouseCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s26:AddLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveLostMouseCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemoveLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemoveLostMouseCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s29:RemoveLostMouseCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddQueryCursorHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:AddQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:AddQueryCursorHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:AddQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveQueryCursorHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:RemoveQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:RemoveQueryCursorHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s24:RemoveQueryCursorHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Capture P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",[P1]) ok
+		return dn_x
 
 	Func GetIntermediatePoints P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:GetIntermediatePoints",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:GetIntermediatePoints",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s21:GetIntermediatePoints",[P1,P2]) ok
+		return dn_x
 
 	Func SetCursor P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s9:SetCursor",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s9:SetCursor",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s9:SetCursor",[P1]) ok
+		return dn_x
 
 	Func GetPosition P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:GetPosition",dnPackItem(P1))
 
 	Func Synchronize 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:Synchronize","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:Synchronize")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s11:Synchronize","") ok
+
 		return self
 
 	Func UpdateCursor 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:UpdateCursor","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:UpdateCursor")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s12:UpdateCursor","") ok
+
 		return self
 
 	Func getDirectlyOver
@@ -4342,7 +4841,8 @@ Class Mouse from Object
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor","")
 
 	Func setOverrideCursor P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s14:OverrideCursor",dnPackItem(P1)) ok
 		return self
 
 	Func getLeftButton
@@ -4472,7 +4972,9 @@ Class Mouse from Object
 		raise("DotNet Error: QueryCursorEvent is a read-only property")
 
 	Func getMouseWheelDeltaForOneLine
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:MouseWheelDeltaForOneLine","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:MouseWheelDeltaForOneLine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s25:MouseWheelDeltaForOneLine",[]) ok
+		return dn_x
 
 	Func setMouseWheelDeltaForOneLine P1
 		raise("DotNet Error: MouseWheelDeltaForOneLine is a read-only property")
@@ -4591,7 +5093,9 @@ Class NavigationCommands from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBrowseBack
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.NavigationCommands, PresentationCore'),"s10:BrowseBack","")
@@ -4758,14 +5262,20 @@ Class RoutedCommand from Object
 		return self
 
 	Func Execute P1,P2
-		dnSend("s4:call",nHandle,"s7:Execute",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Execute",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Execute",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func CanExecute P1,P2
-		return dnSend("s4:call",nHandle,"s10:CanExecute",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:CanExecute",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:CanExecute",[P1,P2]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setCanExecuteChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CanExecuteChanged",dnCallback(P1)])
@@ -4776,7 +5286,9 @@ Class RoutedCommand from Object
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4811,11 +5323,15 @@ Class StagingAreaInputItem from Object
 		return dnSend("s4:call",nHandle,"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetData",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInput
 		return dnSend("s3:get",nHandle,"s5:Input","")
@@ -4866,220 +5382,330 @@ Class Stylus from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddPreviewStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddPreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddPreviewStylusUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddPreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemovePreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemovePreviewStylusUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemovePreviewStylusUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:AddStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:AddStylusUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:AddStylusUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:RemoveStylusUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:RemoveStylusUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:RemoveStylusUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddPreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemovePreviewStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s20:AddStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:RemoveStylusMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:AddPreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:AddPreviewStylusInAirMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:AddPreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s35:RemovePreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s35:RemovePreviewStylusInAirMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s35:RemovePreviewStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddStylusInAirMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:AddStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusInAirMoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemoveStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemoveStylusInAirMoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s28:RemoveStylusInAirMoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s21:AddStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:RemoveStylusLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:AddPreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:AddPreviewStylusInRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:AddPreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:RemovePreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:RemovePreviewStylusInRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:RemovePreviewStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:AddStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:AddStylusInRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:AddStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusInRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:RemoveStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:RemoveStylusInRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:RemoveStylusInRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusOutOfRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusOutOfRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusOutOfRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusOutOfRangeHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusOutOfRangeHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusOutOfRangeHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:AddPreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:AddPreviewStylusSystemGestureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:AddPreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s39:RemovePreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s39:RemovePreviewStylusSystemGestureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s39:RemovePreviewStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:AddStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:AddStylusSystemGestureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:AddStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusSystemGestureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:RemoveStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:RemoveStylusSystemGestureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s32:RemoveStylusSystemGestureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddGotStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddGotStylusCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveGotStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveGotStylusCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveGotStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddLostStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddLostStylusCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:AddLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveLostStylusCaptureHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemoveLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemoveLostStylusCaptureHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s30:RemoveLostStylusCaptureHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusButtonDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s26:AddStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusButtonDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s29:RemoveStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:AddStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:AddStylusButtonUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:AddStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:RemoveStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:RemoveStylusButtonUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s27:RemoveStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusButtonDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s33:AddPreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusButtonDownHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusButtonDownHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s36:RemovePreviewStylusButtonDownHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s31:AddPreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s31:AddPreviewStylusButtonUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s31:AddPreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewStylusButtonUpHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s34:RemovePreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s34:RemovePreviewStylusButtonUpHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s34:RemovePreviewStylusButtonUpHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsPressAndHoldEnabled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:GetIsPressAndHoldEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:GetIsPressAndHoldEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:GetIsPressAndHoldEnabled",[P1]) ok
+		return dn_x
 
 	Func SetIsPressAndHoldEnabled P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:SetIsPressAndHoldEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:SetIsPressAndHoldEnabled",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s24:SetIsPressAndHoldEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsFlicksEnabled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:GetIsFlicksEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:GetIsFlicksEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:GetIsFlicksEnabled",[P1]) ok
+		return dn_x
 
 	Func SetIsFlicksEnabled P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:SetIsFlicksEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:SetIsFlicksEnabled",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s18:SetIsFlicksEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsTapFeedbackEnabled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:GetIsTapFeedbackEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:GetIsTapFeedbackEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:GetIsTapFeedbackEnabled",[P1]) ok
+		return dn_x
 
 	Func SetIsTapFeedbackEnabled P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:SetIsTapFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:SetIsTapFeedbackEnabled",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s23:SetIsTapFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetIsTouchFeedbackEnabled P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:GetIsTouchFeedbackEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:GetIsTouchFeedbackEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:GetIsTouchFeedbackEnabled",[P1]) ok
+		return dn_x
 
 	Func SetIsTouchFeedbackEnabled P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:SetIsTouchFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:SetIsTouchFeedbackEnabled",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s25:SetIsTouchFeedbackEnabled",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Capture P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",[P1]) ok
+		return dn_x
 
 	Func Synchronize 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s11:Synchronize","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s11:Synchronize")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s11:Synchronize","") ok
+
 		return self
 
 	Func getDirectlyOver
@@ -5274,7 +5900,9 @@ Class StylusButton from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGuid
 		return dnSend("s3:get",nHandle,"s4:Guid","")
@@ -5289,7 +5917,9 @@ Class StylusButton from Object
 		raise("DotNet Error: StylusButtonState is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5318,35 +5948,49 @@ Class StylusButtonCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s21:GetStylusButtonByGuid",dnPackItem(P1))
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5366,35 +6010,49 @@ Class StylusDeviceCollection from DotNetObject
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5444,13 +6102,19 @@ Class StylusPoint from ValueType
 		return self
 
 	Func HasProperty P1
-		return dnSend("s4:call",nHandle,"s11:HasProperty",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:HasProperty",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:HasProperty",[P1]) ok
+		return dn_x
 
 	Func GetPropertyValue P1
-		return dnSend("s4:call",nHandle,"s16:GetPropertyValue",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetPropertyValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:GetPropertyValue",[P1]) ok
+		return dn_x
 
 	Func SetPropertyValue P1,P2
-		dnSend("s4:call",nHandle,"s16:SetPropertyValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetPropertyValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetPropertyValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ToPoint 
@@ -5463,27 +6127,38 @@ Class StylusPoint from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getX
-		return dnSend("s3:get",nHandle,"s1:X","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		return dn_x
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
-		return dnSend("s3:get",nHandle,"s1:Y","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		return dn_x
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 	Func getPressureFactor
-		return dnSend("s3:get",nHandle,"s14:PressureFactor","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:PressureFactor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:PressureFactor",[]) ok
+		return dn_x
 
 	Func setPressureFactor P1
-		dnSend("s3:set",nHandle,"s14:PressureFactor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:PressureFactor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:PressureFactor",dnPackItem(P1)) ok
 		return self
 
 	Func getDescription
@@ -5493,13 +6168,17 @@ Class StylusPoint from ValueType
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getMaxXY
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MaxXY","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MaxXY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MaxXY",[]) ok
+		return dn_x
 
 	Func setMaxXY P1
 		raise("DotNet Error: MaxXY is a read-only property")
 
 	Func getMinXY
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MinXY","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MinXY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s5:MinXY",[]) ok
+		return dn_x
 
 	Func setMinXY P1
 		raise("DotNet Error: MinXY is a read-only property")
@@ -5545,7 +6224,9 @@ Class StylusPointCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clone 
@@ -5558,50 +6239,71 @@ Class StylusPointCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s15:ToHiMetricArray","")
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func setChangedEvent P1
@@ -5619,7 +6321,9 @@ Class StylusPointCollection from DotNetObject
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5664,7 +6368,9 @@ Class StylusPointDescription from Object
 		return self
 
 	Func HasProperty P1
-		return dnSend("s4:call",nHandle,"s11:HasProperty",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:HasProperty",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:HasProperty",[P1]) ok
+		return dn_x
 
 	Func GetPropertyInfo P1
 		return dnSend("s4:call",nHandle,"s15:GetPropertyInfo",dnPackItem(P1))
@@ -5673,19 +6379,27 @@ Class StylusPointDescription from Object
 		return dnSend("s4:call",nHandle,"s24:GetStylusPointProperties","")
 
 	Func IsSubsetOf P1
-		return dnSend("s4:call",nHandle,"s10:IsSubsetOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:IsSubsetOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:IsSubsetOf",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AreCompatible P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s13:AreCompatible",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s13:AreCompatible",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s13:AreCompatible",[P1,P2]) ok
+		return dn_x
 
 	Func GetCommonDescription P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.StylusPointDescription, PresentationCore'),"s20:GetCommonDescription",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getPropertyCount
-		return dnSend("s3:get",nHandle,"s13:PropertyCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:PropertyCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PropertyCount",[]) ok
+		return dn_x
 
 	Func setPropertyCount P1
 		raise("DotNet Error: PropertyCount is a read-only property")
@@ -5726,7 +6440,9 @@ Class StylusPointProperties from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getX
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.StylusPointProperties, PresentationCore'),"s1:X","")
@@ -5878,7 +6594,9 @@ Class StylusPointProperty from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getId
 		return dnSend("s3:get",nHandle,"s2:Id","")
@@ -5887,7 +6605,9 @@ Class StylusPointProperty from Object
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsButton
-		return dnSend("s3:get",nHandle,"s8:IsButton","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsButton")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsButton",[]) ok
+		return dn_x
 
 	Func setIsButton P1
 		raise("DotNet Error: IsButton is a read-only property")
@@ -5908,7 +6628,9 @@ Class Tablet from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCurrentTabletDevice
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.Tablet, PresentationCore'),"s19:CurrentTabletDevice","")
@@ -5948,17 +6670,23 @@ Class TabletDeviceCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5970,7 +6698,9 @@ Class TabletDeviceCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -6012,35 +6742,47 @@ Class TextComposition from DispatcherObject
 		return self
 
 	Func Complete 
-		dnSend("s4:call",nHandle,"s8:Complete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+
 		return self
 
 	Func getText
-		return dnSend("s3:get",nHandle,"s4:Text","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getCompositionText
-		return dnSend("s3:get",nHandle,"s15:CompositionText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:CompositionText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:CompositionText",[]) ok
+		return dn_x
 
 	Func setCompositionText P1
 		raise("DotNet Error: CompositionText is a read-only property")
 
 	Func getSystemText
-		return dnSend("s3:get",nHandle,"s10:SystemText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SystemText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SystemText",[]) ok
+		return dn_x
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnSend("s3:get",nHandle,"s11:ControlText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ControlText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ControlText",[]) ok
+		return dn_x
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getSystemCompositionText
-		return dnSend("s3:get",nHandle,"s21:SystemCompositionText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:SystemCompositionText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:SystemCompositionText",[]) ok
+		return dn_x
 
 	Func setSystemCompositionText P1
 		raise("DotNet Error: SystemCompositionText is a read-only property")
@@ -6071,61 +6813,91 @@ Class TextCompositionManager from DispatcherObject
 		return self
 
 	Func AddPreviewTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s31:AddPreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s31:AddPreviewTextInputStartHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s31:AddPreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s34:RemovePreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s34:RemovePreviewTextInputStartHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s34:RemovePreviewTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s24:AddTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s24:AddTextInputStartHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s24:AddTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveTextInputStartHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s27:RemoveTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s27:RemoveTextInputStartHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s27:RemoveTextInputStartHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s32:AddPreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s32:AddPreviewTextInputUpdateHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s32:AddPreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s35:RemovePreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s35:RemovePreviewTextInputUpdateHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s35:RemovePreviewTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s25:AddTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s25:AddTextInputUpdateHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s25:AddTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveTextInputUpdateHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s28:RemoveTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s28:RemoveTextInputUpdateHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s28:RemoveTextInputUpdateHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:AddPreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:AddPreviewTextInputHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:AddPreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s29:RemovePreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s29:RemovePreviewTextInputHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s29:RemovePreviewTextInputHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:AddTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:AddTextInputHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:AddTextInputHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveTextInputHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s22:RemoveTextInputHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s22:RemoveTextInputHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s22:RemoveTextInputHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func StartComposition P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s16:StartComposition",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s16:StartComposition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s16:StartComposition",[P1]) ok
+		return dn_x
 
 	Func UpdateComposition P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s17:UpdateComposition",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s17:UpdateComposition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s17:UpdateComposition",[P1]) ok
+		return dn_x
 
 	Func CompleteComposition P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:CompleteComposition",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:CompleteComposition",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s19:CompleteComposition",[P1]) ok
+		return dn_x
 
 	Func getPreviewTextInputStartEvent
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Input.TextCompositionManager, PresentationCore'),"s26:PreviewTextInputStartEvent","")
@@ -6176,7 +6948,9 @@ Class Touch from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setFrameReportedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Input.Touch, PresentationCore'),"FrameReported",dnCallback(P1)])
@@ -6207,11 +6981,15 @@ Class TouchFrameEventArgs from EventArgs
 		return dnSend("s4:call",nHandle,"s20:GetPrimaryTouchPoint",dnPackItem(P1))
 
 	Func SuspendMousePromotionUntilTouchUp 
-		dnSend("s4:call",nHandle,"s33:SuspendMousePromotionUntilTouchUp","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s33:SuspendMousePromotionUntilTouchUp")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s33:SuspendMousePromotionUntilTouchUp","") ok
+
 		return self
 
 	Func getTimestamp
-		return dnSend("s3:get",nHandle,"s9:Timestamp","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Timestamp")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Timestamp",[]) ok
+		return dn_x
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
@@ -6237,7 +7015,9 @@ Class TouchPoint from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTouchDevice
 		return dnSend("s3:get",nHandle,"s11:TouchDevice","")
@@ -6293,58 +7073,83 @@ Class TouchPointCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6367,13 +7172,18 @@ Class TraversalRequest from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getWrapped
-		return dnSend("s3:get",nHandle,"s7:Wrapped","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Wrapped")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Wrapped",[]) ok
+		return dn_x
 
 	Func setWrapped P1
-		dnSend("s3:set",nHandle,"s7:Wrapped",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Wrapped",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Wrapped",dnPackItem(P1)) ok
 		return self
 
 	Func getFocusNavigationDirection
@@ -6413,10 +7223,13 @@ Class WpfInputLanguageChangingEventArgs from InputLanguageEventArgs
 		return self
 
 	Func getRejected
-		return dnSend("s3:get",nHandle,"s8:Rejected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Rejected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Rejected",[]) ok
+		return dn_x
 
 	Func setRejected P1
-		dnSend("s3:set",nHandle,"s8:Rejected",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Rejected",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Rejected",dnPackItem(P1)) ok
 		return self
 
 
@@ -6465,14 +7278,16 @@ Class KeyBinding from InputBinding
 		return dnSend("s3:get",nHandle,"s9:Modifiers","")
 
 	Func setModifiers P1
-		dnSend("s3:set",nHandle,"s9:Modifiers",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Modifiers",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Modifiers",dnPackItem(P1)) ok
 		return self
 
 	Func getKey
 		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
-		dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1)) ok
 		return self
 
 	Func getModifiersProperty
@@ -6521,7 +7336,9 @@ Class KeyGesture from InputGesture
 		return self
 
 	Func GetDisplayStringForCulture P1
-		return dnSend("s4:call",nHandle,"s26:GetDisplayStringForCulture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetDisplayStringForCulture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:GetDisplayStringForCulture",[P1]) ok
+		return dn_x
 
 	Func getModifiers
 		return dnSend("s3:get",nHandle,"s9:Modifiers","")
@@ -6536,7 +7353,9 @@ Class KeyGesture from InputGesture
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getDisplayString
-		return dnSend("s3:get",nHandle,"s13:DisplayString","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:DisplayString")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DisplayString",[]) ok
+		return dn_x
 
 	Func setDisplayString P1
 		raise("DotNet Error: DisplayString is a read-only property")
@@ -6558,20 +7377,28 @@ Class KeyboardDevice from InputDevice
 		return self
 
 	Func ClearFocus 
-		dnSend("s4:call",nHandle,"s10:ClearFocus","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:ClearFocus")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:ClearFocus","") ok
+
 		return self
 
 	Func Focus P1
 		return dnSend("s4:call",nHandle,"s5:Focus",dnPackItem(P1))
 
 	Func IsKeyDown P1
-		return dnSend("s4:call",nHandle,"s9:IsKeyDown",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsKeyDown",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsKeyDown",[P1]) ok
+		return dn_x
 
 	Func IsKeyUp P1
-		return dnSend("s4:call",nHandle,"s7:IsKeyUp",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsKeyUp",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IsKeyUp",[P1]) ok
+		return dn_x
 
 	Func IsKeyToggled P1
-		return dnSend("s4:call",nHandle,"s12:IsKeyToggled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsKeyToggled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsKeyToggled",[P1]) ok
+		return dn_x
 
 	Func GetKeyStates P1
 		return dnSend("s4:call",nHandle,"s12:GetKeyStates",dnPackItem(P1))
@@ -6580,7 +7407,8 @@ Class KeyboardDevice from InputDevice
 		return dnSend("s3:get",nHandle,"s23:DefaultRestoreFocusMode","")
 
 	Func setDefaultRestoreFocusMode P1
-		dnSend("s3:set",nHandle,"s23:DefaultRestoreFocusMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:DefaultRestoreFocusMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:DefaultRestoreFocusMode",dnPackItem(P1)) ok
 		return self
 
 	Func getFocusedElement
@@ -6671,10 +7499,14 @@ Class ManipulationCompletedEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		return dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func getIsInertial
-		return dnSend("s3:get",nHandle,"s10:IsInertial","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsInertial")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsInertial",[]) ok
+		return dn_x
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
@@ -6730,22 +7562,32 @@ Class ManipulationDeltaEventArgs from InputEventArgs
 		return self
 
 	Func ReportBoundaryFeedback P1
-		dnSend("s4:call",nHandle,"s22:ReportBoundaryFeedback",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s22:ReportBoundaryFeedback",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s22:ReportBoundaryFeedback",dnPackItem(P1)) ok
+
 		return self
 
 	Func Complete 
-		dnSend("s4:call",nHandle,"s8:Complete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+
 		return self
 
 	Func StartInertia 
-		dnSend("s4:call",nHandle,"s12:StartInertia","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:StartInertia")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:StartInertia","") ok
+
 		return self
 
 	Func Cancel 
-		return dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func getIsInertial
-		return dnSend("s3:get",nHandle,"s10:IsInertial","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsInertial")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsInertial",[]) ok
+		return dn_x
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
@@ -6807,10 +7649,14 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		return dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func SetInertiaParameter P1
-		dnSend("s4:call",nHandle,"s19:SetInertiaParameter",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:SetInertiaParameter",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:SetInertiaParameter",dnPackItem(P1)) ok
+
 		return self
 
 	Func getManipulationContainer
@@ -6823,7 +7669,8 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		return dnSend("s3:get",nHandle,"s18:ManipulationOrigin","")
 
 	Func setManipulationOrigin P1
-		dnSend("s3:set",nHandle,"s18:ManipulationOrigin",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ManipulationOrigin",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ManipulationOrigin",dnPackItem(P1)) ok
 		return self
 
 	Func getInitialVelocities
@@ -6836,21 +7683,24 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		return dnSend("s3:get",nHandle,"s19:TranslationBehavior","")
 
 	Func setTranslationBehavior P1
-		dnSend("s3:set",nHandle,"s19:TranslationBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:TranslationBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:TranslationBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getRotationBehavior
 		return dnSend("s3:get",nHandle,"s16:RotationBehavior","")
 
 	Func setRotationBehavior P1
-		dnSend("s3:set",nHandle,"s16:RotationBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:RotationBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:RotationBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getExpansionBehavior
 		return dnSend("s3:get",nHandle,"s17:ExpansionBehavior","")
 
 	Func setExpansionBehavior P1
-		dnSend("s3:set",nHandle,"s17:ExpansionBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ExpansionBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ExpansionBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getManipulators
@@ -6876,11 +7726,15 @@ Class ManipulationStartedEventArgs from InputEventArgs
 		return self
 
 	Func Complete 
-		dnSend("s4:call",nHandle,"s8:Complete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+
 		return self
 
 	Func Cancel 
-		return dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func getManipulationContainer
 		return dnSend("s3:get",nHandle,"s21:ManipulationContainer","")
@@ -6919,38 +7773,48 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		return dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func SetManipulationParameter P1
-		dnSend("s4:call",nHandle,"s24:SetManipulationParameter",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s24:SetManipulationParameter",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s24:SetManipulationParameter",dnPackItem(P1)) ok
+
 		return self
 
 	Func getMode
 		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1)) ok
 		return self
 
 	Func getManipulationContainer
 		return dnSend("s3:get",nHandle,"s21:ManipulationContainer","")
 
 	Func setManipulationContainer P1
-		dnSend("s3:set",nHandle,"s21:ManipulationContainer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ManipulationContainer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ManipulationContainer",dnPackItem(P1)) ok
 		return self
 
 	Func getPivot
 		return dnSend("s3:get",nHandle,"s5:Pivot","")
 
 	Func setPivot P1
-		dnSend("s3:set",nHandle,"s5:Pivot",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Pivot",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Pivot",dnPackItem(P1)) ok
 		return self
 
 	Func getIsSingleTouchEnabled
-		return dnSend("s3:get",nHandle,"s20:IsSingleTouchEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsSingleTouchEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsSingleTouchEnabled",[]) ok
+		return dn_x
 
 	Func setIsSingleTouchEnabled P1
-		dnSend("s3:set",nHandle,"s20:IsSingleTouchEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:IsSingleTouchEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:IsSingleTouchEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getManipulators
@@ -7003,7 +7867,8 @@ Class MouseBinding from InputBinding
 		return dnSend("s3:get",nHandle,"s11:MouseAction","")
 
 	Func setMouseAction P1
-		dnSend("s3:set",nHandle,"s11:MouseAction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:MouseAction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MouseAction",dnPackItem(P1)) ok
 		return self
 
 	Func getMouseActionProperty
@@ -7037,20 +7902,28 @@ Class MouseDevice from InputDevice
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Capture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Capture",[P1]) ok
+		return dn_x
 
 	Func SetCursor P1
-		return dnSend("s4:call",nHandle,"s9:SetCursor",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:SetCursor",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:SetCursor",[P1]) ok
+		return dn_x
 
 	Func GetPosition P1
 		return dnSend("s4:call",nHandle,"s11:GetPosition",dnPackItem(P1))
 
 	Func Synchronize 
-		dnSend("s4:call",nHandle,"s11:Synchronize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:Synchronize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:Synchronize","") ok
+
 		return self
 
 	Func UpdateCursor 
-		dnSend("s4:call",nHandle,"s12:UpdateCursor","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:UpdateCursor")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:UpdateCursor","") ok
+
 		return self
 
 	Func getDirectlyOver
@@ -7069,7 +7942,8 @@ Class MouseDevice from InputDevice
 		return dnSend("s3:get",nHandle,"s14:OverrideCursor","")
 
 	Func setOverrideCursor P1
-		dnSend("s3:set",nHandle,"s14:OverrideCursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:OverrideCursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:OverrideCursor",dnPackItem(P1)) ok
 		return self
 
 	Func getLeftButton
@@ -7228,14 +8102,16 @@ Class MouseGesture from InputGesture
 		return dnSend("s3:get",nHandle,"s11:MouseAction","")
 
 	Func setMouseAction P1
-		dnSend("s3:set",nHandle,"s11:MouseAction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:MouseAction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MouseAction",dnPackItem(P1)) ok
 		return self
 
 	Func getModifiers
 		return dnSend("s3:get",nHandle,"s9:Modifiers","")
 
 	Func setModifiers P1
-		dnSend("s3:set",nHandle,"s9:Modifiers",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Modifiers",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Modifiers",dnPackItem(P1)) ok
 		return self
 
 
@@ -7302,10 +8178,13 @@ Class RoutedUICommand from RoutedCommand
 		return self
 
 	Func getText
-		return dnSend("s3:get",nHandle,"s4:Text","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
-		dnSend("s3:set",nHandle,"s4:Text",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Text",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Text",dnPackItem(P1)) ok
 		return self
 
 
@@ -7335,10 +8214,14 @@ Class StylusDevice from InputDevice
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Capture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Capture",[P1]) ok
+		return dn_x
 
 	Func Synchronize 
-		dnSend("s4:call",nHandle,"s11:Synchronize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:Synchronize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:Synchronize","") ok
+
 		return self
 
 	Func GetStylusPoints P1
@@ -7351,7 +8234,9 @@ Class StylusDevice from InputDevice
 		return dnSend("s4:call",nHandle,"s11:GetPosition",dnPackItem(P1))
 
 	Func getIsValid
-		return dnSend("s3:get",nHandle,"s7:IsValid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsValid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsValid",[]) ok
+		return dn_x
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
@@ -7375,13 +8260,17 @@ Class StylusDevice from InputDevice
 		raise("DotNet Error: TabletDevice is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -7393,19 +8282,25 @@ Class StylusDevice from InputDevice
 		raise("DotNet Error: StylusButtons is a read-only property")
 
 	Func getInAir
-		return dnSend("s3:get",nHandle,"s5:InAir","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:InAir")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:InAir",[]) ok
+		return dn_x
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		return dnSend("s3:get",nHandle,"s8:Inverted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Inverted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Inverted",[]) ok
+		return dn_x
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")
 
 	Func getInRange
-		return dnSend("s3:get",nHandle,"s7:InRange","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:InRange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:InRange",[]) ok
+		return dn_x
 
 	Func setInRange P1
 		raise("DotNet Error: InRange is a read-only property")
@@ -7444,13 +8339,17 @@ Class StylusEventArgs from InputEventArgs
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 	Func getInAir
-		return dnSend("s3:get",nHandle,"s5:InAir","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:InAir")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:InAir",[]) ok
+		return dn_x
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		return dnSend("s3:get",nHandle,"s8:Inverted","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Inverted")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Inverted",[]) ok
+		return dn_x
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")
@@ -7490,19 +8389,25 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		return self
 
 	Func getMinimum
-		return dnSend("s3:get",nHandle,"s7:Minimum","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Minimum")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Minimum",[]) ok
+		return dn_x
 
 	Func setMinimum P1
 		raise("DotNet Error: Minimum is a read-only property")
 
 	Func getMaximum
-		return dnSend("s3:get",nHandle,"s7:Maximum","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Maximum")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Maximum",[]) ok
+		return dn_x
 
 	Func setMaximum P1
 		raise("DotNet Error: Maximum is a read-only property")
 
 	Func getResolution
-		return dnSend("s3:get",nHandle,"s10:Resolution","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Resolution")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Resolution",[]) ok
+		return dn_x
 
 	Func setResolution P1
 		raise("DotNet Error: Resolution is a read-only property")
@@ -7537,19 +8442,25 @@ Class TabletDevice from InputDevice
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProductId
-		return dnSend("s3:get",nHandle,"s9:ProductId","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ProductId")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ProductId",[]) ok
+		return dn_x
 
 	Func setProductId P1
 		raise("DotNet Error: ProductId is a read-only property")
@@ -7604,19 +8515,25 @@ Class TextCompositionEventArgs from InputEventArgs
 		raise("DotNet Error: TextComposition is a read-only property")
 
 	Func getText
-		return dnSend("s3:get",nHandle,"s4:Text","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getSystemText
-		return dnSend("s3:get",nHandle,"s10:SystemText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SystemText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SystemText",[]) ok
+		return dn_x
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnSend("s3:get",nHandle,"s11:ControlText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ControlText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ControlText",[]) ok
+		return dn_x
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
@@ -7649,10 +8566,14 @@ Class TouchDevice from InputDevice
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Capture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Capture",[P1]) ok
+		return dn_x
 
 	Func Synchronize 
-		dnSend("s4:call",nHandle,"s11:Synchronize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:Synchronize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:Synchronize","") ok
+
 		return self
 
 	Func setActivatedEvent P1
@@ -7680,13 +8601,17 @@ Class TouchDevice from InputDevice
 		return self
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsActive
-		return dnSend("s3:get",nHandle,"s8:IsActive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsActive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsActive",[]) ok
+		return dn_x
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
@@ -7799,25 +8724,33 @@ Class WpfKeyEventArgs from KeyboardEventArgs
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getIsRepeat
-		return dnSend("s3:get",nHandle,"s8:IsRepeat","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsRepeat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsRepeat",[]) ok
+		return dn_x
 
 	Func setIsRepeat P1
 		raise("DotNet Error: IsRepeat is a read-only property")
 
 	Func getIsDown
-		return dnSend("s3:get",nHandle,"s6:IsDown","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsDown")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsDown",[]) ok
+		return dn_x
 
 	Func setIsDown P1
 		raise("DotNet Error: IsDown is a read-only property")
 
 	Func getIsUp
-		return dnSend("s3:get",nHandle,"s4:IsUp","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:IsUp")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:IsUp",[]) ok
+		return dn_x
 
 	Func setIsUp P1
 		raise("DotNet Error: IsUp is a read-only property")
 
 	Func getIsToggled
-		return dnSend("s3:get",nHandle,"s9:IsToggled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsToggled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsToggled",[]) ok
+		return dn_x
 
 	Func setIsToggled P1
 		raise("DotNet Error: IsToggled is a read-only property")
@@ -7868,7 +8801,9 @@ Class KeyboardInputProviderAcquireFocusEventArgs from KeyboardEventArgs
 		return self
 
 	Func getFocusAcquired
-		return dnSend("s3:get",nHandle,"s13:FocusAcquired","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:FocusAcquired")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:FocusAcquired",[]) ok
+		return dn_x
 
 	Func setFocusAcquired P1
 		raise("DotNet Error: FocusAcquired is a read-only property")
@@ -7919,7 +8854,9 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		raise("DotNet Error: ButtonState is a read-only property")
 
 	Func getClickCount
-		return dnSend("s3:get",nHandle,"s10:ClickCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ClickCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ClickCount",[]) ok
+		return dn_x
 
 	Func setClickCount P1
 		raise("DotNet Error: ClickCount is a read-only property")
@@ -7941,7 +8878,9 @@ Class MouseWheelEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getDelta
-		return dnSend("s3:get",nHandle,"s5:Delta","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Delta")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Delta",[]) ok
+		return dn_x
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")
@@ -7961,11 +8900,15 @@ Class PreProcessInputEventArgs from ProcessInputEventArgs
 		return self
 
 	Func Cancel 
-		dnSend("s4:call",nHandle,"s6:Cancel","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Cancel")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Cancel","") ok
+
 		return self
 
 	Func getCanceled
-		return dnSend("s3:get",nHandle,"s8:Canceled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Canceled",[]) ok
+		return dn_x
 
 	Func setCanceled P1
 		raise("DotNet Error: Canceled is a read-only property")
@@ -8005,7 +8948,8 @@ Class QueryCursorEventArgs from WpfMouseEventArgs
 		return dnSend("s3:get",nHandle,"s6:Cursor","")
 
 	Func setCursor P1
-		dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Cursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1)) ok
 		return self
 
 
@@ -8047,7 +8991,9 @@ Class StylusDownEventArgs from StylusEventArgs
 		return self
 
 	Func getTapCount
-		return dnSend("s3:get",nHandle,"s8:TapCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:TapCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:TapCount",[]) ok
+		return dn_x
 
 	Func setTapCount P1
 		raise("DotNet Error: TapCount is a read-only property")

@@ -137,7 +137,9 @@ Class IPPacketInformation from ValueType
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getInterface
-		return dnSend("s3:get",nHandle,"s9:Interface","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Interface")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Interface",[]) ok
+		return dn_x
 
 	Func setInterface P1
 		raise("DotNet Error: Interface is a read-only property")
@@ -175,20 +177,26 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGroup
 		return dnSend("s3:get",nHandle,"s5:Group","")
 
 	Func setGroup P1
-		dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Group",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1)) ok
 		return self
 
 	Func getInterfaceIndex
-		return dnSend("s3:get",nHandle,"s14:InterfaceIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InterfaceIndex",[]) ok
+		return dn_x
 
 	Func setInterfaceIndex P1
-		dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:InterfaceIndex",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1)) ok
 		return self
 
 
@@ -209,20 +217,28 @@ Class LingerOption from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEnabled
-		return dnSend("s3:get",nHandle,"s7:Enabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Enabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Enabled",[]) ok
+		return dn_x
 
 	Func setEnabled P1
-		dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1)) ok
 		return self
 
 	Func getLingerTime
-		return dnSend("s3:get",nHandle,"s10:LingerTime","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:LingerTime")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:LingerTime",[]) ok
+		return dn_x
 
 	Func setLingerTime P1
-		dnSend("s3:set",nHandle,"s10:LingerTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:LingerTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:LingerTime",dnPackItem(P1)) ok
 		return self
 
 
@@ -259,27 +275,34 @@ Class MulticastOption from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getGroup
 		return dnSend("s3:get",nHandle,"s5:Group","")
 
 	Func setGroup P1
-		dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Group",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1)) ok
 		return self
 
 	Func getLocalAddress
 		return dnSend("s3:get",nHandle,"s12:LocalAddress","")
 
 	Func setLocalAddress P1
-		dnSend("s3:set",nHandle,"s12:LocalAddress",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:LocalAddress",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:LocalAddress",dnPackItem(P1)) ok
 		return self
 
 	Func getInterfaceIndex
-		return dnSend("s3:get",nHandle,"s14:InterfaceIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InterfaceIndex",[]) ok
+		return dn_x
 
 	Func setInterfaceIndex P1
-		dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:InterfaceIndex",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1)) ok
 		return self
 
 
@@ -320,10 +343,14 @@ Class NetworkStream from Stream
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Close","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1)) ok
+
 		return self
 
 	Func getSocket
@@ -333,7 +360,9 @@ Class NetworkStream from Stream
 		raise("DotNet Error: Socket is a read-only property")
 
 	Func getDataAvailable
-		return dnSend("s3:get",nHandle,"s13:DataAvailable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:DataAvailable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DataAvailable",[]) ok
+		return dn_x
 
 	Func setDataAvailable P1
 		raise("DotNet Error: DataAvailable is a read-only property")
@@ -382,44 +411,62 @@ Class SafeSocketHandle from DotNetObject
 		return dnSend("s4:call",nHandle,"s18:DangerousGetHandle","")
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func SetHandleAsInvalid 
-		dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","") ok
+
 		return self
 
 	Func DangerousAddRef P1
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dnSend("s4:call",nHandle,"s16:DangerousRelease","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DangerousRelease","") ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func getIsInvalid
-		return dnSend("s3:get",nHandle,"s9:IsInvalid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsInvalid",[]) ok
+		return dn_x
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
 
 	Func getIsClosed
-		return dnSend("s3:get",nHandle,"s8:IsClosed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsClosed",[]) ok
+		return dn_x
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
@@ -463,10 +510,14 @@ Class SendPacketsElement from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFilePath
-		return dnSend("s3:get",nHandle,"s8:FilePath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:FilePath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FilePath",[]) ok
+		return dn_x
 
 	Func setFilePath P1
 		raise("DotNet Error: FilePath is a read-only property")
@@ -484,7 +535,9 @@ Class SendPacketsElement from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -496,19 +549,25 @@ Class SendPacketsElement from Object
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnSend("s3:get",nHandle,"s6:Offset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Offset",[]) ok
+		return dn_x
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getOffsetLong
-		return dnSend("s3:get",nHandle,"s10:OffsetLong","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:OffsetLong")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:OffsetLong",[]) ok
+		return dn_x
 
 	Func setOffsetLong P1
 		raise("DotNet Error: OffsetLong is a read-only property")
 
 	Func getEndOfPacket
-		return dnSend("s3:get",nHandle,"s11:EndOfPacket","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:EndOfPacket")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:EndOfPacket",[]) ok
+		return dn_x
 
 	Func setEndOfPacket P1
 		raise("DotNet Error: EndOfPacket is a read-only property")
@@ -573,7 +632,9 @@ Class Socket from Object
 		return self
 
 	Func Bind P1
-		dnSend("s4:call",nHandle,"s4:Bind",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Bind",dnPackItem(P1)) ok
+
 		return self
 
 	Func Connect P1
@@ -581,7 +642,9 @@ Class Socket from Object
 			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1)) ok
+
 		return self
 
 	Func Close P1
@@ -590,10 +653,14 @@ Class Socket from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Close","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1)) ok
+
 		return self
 
 	Func Listen P1
@@ -602,10 +669,14 @@ Class Socket from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s6:Listen","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s6:Listen")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Listen","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s6:Listen",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Listen",dnPackItem(P1)) ok
+
 		return self
 
 	Func Accept 
@@ -615,14 +686,18 @@ Class Socket from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s4:Send",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Send",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Send",[P1]) ok
+		return dn_x
 
 	Func SendFile P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s8:SendFile",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s8:SendFile",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SendFile",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SendFile",dnPackItem(P1)) ok
+
 		return self
 
 	Func SendTo P1
@@ -635,7 +710,9 @@ Class Socket from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:Receive",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Receive",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Receive",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Receive",[P1]) ok
+		return dn_x
 
 	Func ReceiveMessageFrom P1,P2,P3,P4,P5
 		return dnSend("s4:call",nHandle,"s18:ReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
@@ -647,10 +724,14 @@ Class Socket from Object
 		raise("DotNet Error: ReceiveFrom does not take one argument: use named arguments, ReceiveFrom([ :parameter = value, ... ])")
 
 	Func IOControl P1,P2,P3
-		return dnSend("s4:call",nHandle,"s9:IOControl",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IOControl",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IOControl",[P1,P2,P3]) ok
+		return dn_x
 
 	Func SetSocketOption P1,P2,P3
-		dnSend("s4:call",nHandle,"s15:SetSocketOption",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetSocketOption",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetSocketOption",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 	Func GetSocketOption P1
@@ -660,11 +741,15 @@ Class Socket from Object
 		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
 
 	Func SetIPProtectionLevel P1
-		dnSend("s4:call",nHandle,"s20:SetIPProtectionLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:SetIPProtectionLevel",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:SetIPProtectionLevel",dnPackItem(P1)) ok
+
 		return self
 
 	Func Poll P1,P2
-		return dnSend("s4:call",nHandle,"s4:Poll",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Poll",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Poll",[P1,P2]) ok
+		return dn_x
 
 	Func BeginConnect P1
 		if dnIsNamed(P1)
@@ -673,18 +758,24 @@ Class Socket from Object
 		raise("DotNet Error: BeginConnect does not take one argument: use named arguments, BeginConnect([ :parameter = value, ... ])")
 
 	Func EndConnect P1
-		dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:EndConnect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginDisconnect P1,P2,P3
 		return dnSend("s4:call",nHandle,"s15:BeginDisconnect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Disconnect P1
-		dnSend("s4:call",nHandle,"s10:Disconnect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:Disconnect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Disconnect",dnPackItem(P1)) ok
+
 		return self
 
 	Func EndDisconnect P1
-		dnSend("s4:call",nHandle,"s13:EndDisconnect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:EndDisconnect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:EndDisconnect",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginSend P1
@@ -694,7 +785,9 @@ Class Socket from Object
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		return dnSend("s4:call",nHandle,"s7:EndSend",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:EndSend",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:EndSend",[P1]) ok
+		return dn_x
 
 	Func BeginSendFile P1
 		if dnIsNamed(P1)
@@ -703,14 +796,18 @@ Class Socket from Object
 		raise("DotNet Error: BeginSendFile does not take one argument: use named arguments, BeginSendFile([ :parameter = value, ... ])")
 
 	Func EndSendFile P1
-		dnSend("s4:call",nHandle,"s11:EndSendFile",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:EndSendFile",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:EndSendFile",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginSendTo P1,P2,P3,P4,P5,P6,P7
 		return dnSend("s4:call",nHandle,"s11:BeginSendTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func EndSendTo P1
-		return dnSend("s4:call",nHandle,"s9:EndSendTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:EndSendTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:EndSendTo",[P1]) ok
+		return dn_x
 
 	Func BeginReceive P1
 		if dnIsNamed(P1)
@@ -719,7 +816,9 @@ Class Socket from Object
 		raise("DotNet Error: BeginReceive does not take one argument: use named arguments, BeginReceive([ :parameter = value, ... ])")
 
 	Func EndReceive P1
-		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:EndReceive",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:EndReceive",[P1]) ok
+		return dn_x
 
 	Func BeginReceiveMessageFrom P1,P2,P3,P4,P5,P6,P7
 		return dnSend("s4:call",nHandle,"s23:BeginReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
@@ -743,7 +842,9 @@ Class Socket from Object
 		return dnSend("s4:call",nHandle,"s9:EndAccept",dnPackItem(P1))
 
 	Func Shutdown P1
-		dnSend("s4:call",nHandle,"s8:Shutdown",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Shutdown",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Shutdown",dnPackItem(P1)) ok
+
 		return self
 
 	Func AcceptAsync P1
@@ -753,7 +854,9 @@ Class Socket from Object
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s11:AcceptAsync","")
 		ok
-		return dnSend("s4:call",nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:AcceptAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:AcceptAsync",[P1]) ok
+		return dn_x
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
@@ -762,49 +865,67 @@ Class Socket from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:ConnectAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ConnectAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ConnectAsync",[P1]) ok
+		return dn_x
 
 	Func DisconnectAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s15:DisconnectAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s15:DisconnectAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:DisconnectAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:DisconnectAsync",[P1]) ok
+		return dn_x
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ReceiveAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ReceiveAsync",[P1]) ok
+		return dn_x
 
 	Func ReceiveFromAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s16:ReceiveFromAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s16:ReceiveFromAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:ReceiveFromAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:ReceiveFromAsync",[P1]) ok
+		return dn_x
 
 	Func ReceiveMessageFromAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s23:ReceiveMessageFromAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:ReceiveMessageFromAsync",[P1]) ok
+		return dn_x
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:SendAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:SendAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:SendAsync",[P1]) ok
+		return dn_x
 
 	Func SendPacketsAsync P1
-		return dnSend("s4:call",nHandle,"s16:SendPacketsAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:SendPacketsAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:SendPacketsAsync",[P1]) ok
+		return dn_x
 
 	Func SendToAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:SendToAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:SendToAsync",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:SendToAsync",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:SendToAsync",[P1]) ok
+		return dn_x
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func SendFileAsync P1
@@ -817,18 +938,26 @@ Class Socket from Object
 		return dnSend("s4:call",nHandle,"s17:DuplicateAndClose",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Select P1,P2,P3,P4
-		dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",P1,P2,P3,P4)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+
 		return self
 
 	Func CancelConnectAsync P1
-		dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s18:CancelConnectAsync",dnPackItem(P1)) ok
+
 		return self
 
 	Func getAvailable
-		return dnSend("s3:get",nHandle,"s9:Available","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Available",[]) ok
+		return dn_x
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -858,21 +987,29 @@ Class Socket from Object
 		raise("DotNet Error: SafeHandle is a read-only property")
 
 	Func getBlocking
-		return dnSend("s3:get",nHandle,"s8:Blocking","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Blocking")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Blocking",[]) ok
+		return dn_x
 
 	Func setBlocking P1
-		dnSend("s3:set",nHandle,"s8:Blocking",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Blocking",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Blocking",dnPackItem(P1)) ok
 		return self
 
 	Func getUseOnlyOverlappedIO
-		return dnSend("s3:get",nHandle,"s19:UseOnlyOverlappedIO","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:UseOnlyOverlappedIO")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:UseOnlyOverlappedIO",[]) ok
+		return dn_x
 
 	Func setUseOnlyOverlappedIO P1
-		dnSend("s3:set",nHandle,"s19:UseOnlyOverlappedIO",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:UseOnlyOverlappedIO",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UseOnlyOverlappedIO",dnPackItem(P1)) ok
 		return self
 
 	Func getConnected
-		return dnSend("s3:get",nHandle,"s9:Connected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Connected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Connected",[]) ok
+		return dn_x
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
@@ -896,121 +1033,167 @@ Class Socket from Object
 		raise("DotNet Error: ProtocolType is a read-only property")
 
 	Func getIsBound
-		return dnSend("s3:get",nHandle,"s7:IsBound","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsBound")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsBound",[]) ok
+		return dn_x
 
 	Func setIsBound P1
 		raise("DotNet Error: IsBound is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ExclusiveAddressUse",[]) ok
+		return dn_x
 
 	Func setExclusiveAddressUse P1
-		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1)) ok
 		return self
 
 	Func getReceiveBufferSize
-		return dnSend("s3:get",nHandle,"s17:ReceiveBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ReceiveBufferSize",[]) ok
+		return dn_x
 
 	Func setReceiveBufferSize P1
-		dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1)) ok
 		return self
 
 	Func getSendBufferSize
-		return dnSend("s3:get",nHandle,"s14:SendBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:SendBufferSize",[]) ok
+		return dn_x
 
 	Func setSendBufferSize P1
-		dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:SendBufferSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1)) ok
 		return self
 
 	Func getReceiveTimeout
-		return dnSend("s3:get",nHandle,"s14:ReceiveTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ReceiveTimeout",[]) ok
+		return dn_x
 
 	Func setReceiveTimeout P1
-		dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ReceiveTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getSendTimeout
-		return dnSend("s3:get",nHandle,"s11:SendTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:SendTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:SendTimeout",[]) ok
+		return dn_x
 
 	Func setSendTimeout P1
-		dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SendTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getLingerState
 		return dnSend("s3:get",nHandle,"s11:LingerState","")
 
 	Func setLingerState P1
-		dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:LingerState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1)) ok
 		return self
 
 	Func getNoDelay
-		return dnSend("s3:get",nHandle,"s7:NoDelay","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NoDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NoDelay",[]) ok
+		return dn_x
 
 	Func setNoDelay P1
-		dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NoDelay",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1)) ok
 		return self
 
 	Func getTtl
-		return dnSend("s3:get",nHandle,"s3:Ttl","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Ttl",[]) ok
+		return dn_x
 
 	Func setTtl P1
-		dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1)) ok
 		return self
 
 	Func getDontFragment
-		return dnSend("s3:get",nHandle,"s12:DontFragment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DontFragment",[]) ok
+		return dn_x
 
 	Func setDontFragment P1
-		dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1)) ok
 		return self
 
 	Func getMulticastLoopback
-		return dnSend("s3:get",nHandle,"s17:MulticastLoopback","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:MulticastLoopback",[]) ok
+		return dn_x
 
 	Func setMulticastLoopback P1
-		dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:MulticastLoopback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1)) ok
 		return self
 
 	Func getEnableBroadcast
-		return dnSend("s3:get",nHandle,"s15:EnableBroadcast","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EnableBroadcast",[]) ok
+		return dn_x
 
 	Func setEnableBroadcast P1
-		dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:EnableBroadcast",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1)) ok
 		return self
 
 	Func getDualMode
-		return dnSend("s3:get",nHandle,"s8:DualMode","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:DualMode")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:DualMode",[]) ok
+		return dn_x
 
 	Func setDualMode P1
-		dnSend("s3:set",nHandle,"s8:DualMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:DualMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:DualMode",dnPackItem(P1)) ok
 		return self
 
 	Func getSupportsIPv4
-		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv4",[]) ok
+		return dn_x
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:SupportsIPv6",[]) ok
+		return dn_x
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv4",[]) ok
+		return dn_x
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s14:OSSupportsIPv6",[]) ok
+		return dn_x
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		return dnSend("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s27:OSSupportsUnixDomainSockets",[]) ok
+		return dn_x
 
 	Func setOSSupportsUnixDomainSockets P1
 		raise("DotNet Error: OSSupportsUnixDomainSockets is a read-only property")
@@ -1077,11 +1260,15 @@ Class SocketAsyncEventArgs from EventArgs
 			dnSend("s9:callnamed",nHandle,"s9:SetBuffer",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s9:SetBuffer",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:SetBuffer",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:SetBuffer",dnPackItem(P1)) ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func setCompletedEvent P1
@@ -1096,7 +1283,8 @@ Class SocketAsyncEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s12:AcceptSocket","")
 
 	Func setAcceptSocket P1
-		dnSend("s3:set",nHandle,"s12:AcceptSocket",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:AcceptSocket",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AcceptSocket",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectSocket
@@ -1115,13 +1303,17 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnSend("s3:get",nHandle,"s6:Offset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Offset",[]) ok
+		return dn_x
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1130,27 +1322,34 @@ Class SocketAsyncEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s16:SendPacketsFlags","")
 
 	Func setSendPacketsFlags P1
-		dnSend("s3:set",nHandle,"s16:SendPacketsFlags",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:SendPacketsFlags",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:SendPacketsFlags",dnPackItem(P1)) ok
 		return self
 
 	Func getBufferList
 		return dnSend("s3:get",nHandle,"s10:BufferList","")
 
 	Func setBufferList P1
-		dnSend("s3:set",nHandle,"s10:BufferList",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:BufferList",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BufferList",dnPackItem(P1)) ok
 		return self
 
 	Func getBytesTransferred
-		return dnSend("s3:get",nHandle,"s16:BytesTransferred","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:BytesTransferred")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:BytesTransferred",[]) ok
+		return dn_x
 
 	Func setBytesTransferred P1
 		raise("DotNet Error: BytesTransferred is a read-only property")
 
 	Func getDisconnectReuseSocket
-		return dnSend("s3:get",nHandle,"s21:DisconnectReuseSocket","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:DisconnectReuseSocket")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:DisconnectReuseSocket",[]) ok
+		return dn_x
 
 	Func setDisconnectReuseSocket P1
-		dnSend("s3:set",nHandle,"s21:DisconnectReuseSocket",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:DisconnectReuseSocket",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:DisconnectReuseSocket",dnPackItem(P1)) ok
 		return self
 
 	Func getLastOperation
@@ -1169,28 +1368,34 @@ Class SocketAsyncEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:RemoteEndPoint",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1)) ok
 		return self
 
 	Func getSendPacketsElements
 		return dnSend("s3:get",nHandle,"s19:SendPacketsElements","")
 
 	Func setSendPacketsElements P1
-		dnSend("s3:set",nHandle,"s19:SendPacketsElements",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SendPacketsElements",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SendPacketsElements",dnPackItem(P1)) ok
 		return self
 
 	Func getSendPacketsSendSize
-		return dnSend("s3:get",nHandle,"s19:SendPacketsSendSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SendPacketsSendSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:SendPacketsSendSize",[]) ok
+		return dn_x
 
 	Func setSendPacketsSendSize P1
-		dnSend("s3:set",nHandle,"s19:SendPacketsSendSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SendPacketsSendSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SendPacketsSendSize",dnPackItem(P1)) ok
 		return self
 
 	Func getSocketError
 		return dnSend("s3:get",nHandle,"s11:SocketError","")
 
 	Func setSocketError P1
-		dnSend("s3:set",nHandle,"s11:SocketError",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SocketError",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SocketError",dnPackItem(P1)) ok
 		return self
 
 	Func getConnectByNameError
@@ -1203,14 +1408,16 @@ Class SocketAsyncEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s11:SocketFlags","")
 
 	Func setSocketFlags P1
-		dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SocketFlags",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1)) ok
 		return self
 
 	Func getUserToken
 		return dnSend("s3:get",nHandle,"s9:UserToken","")
 
 	Func setUserToken P1
-		dnSend("s3:set",nHandle,"s9:UserToken",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:UserToken",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:UserToken",dnPackItem(P1)) ok
 		return self
 
 
@@ -1241,14 +1448,16 @@ Class SocketInformation from ValueType
 		return dnSend("s3:get",nHandle,"s19:ProtocolInformation","")
 
 	Func setProtocolInformation P1
-		dnSend("s3:set",nHandle,"s19:ProtocolInformation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ProtocolInformation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ProtocolInformation",dnPackItem(P1)) ok
 		return self
 
 	Func getOptions
 		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
-		dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Options",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1)) ok
 		return self
 
 
@@ -1276,17 +1485,21 @@ Class SocketReceiveFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnSend("s3:get",nHandle,"s13:ReceivedBytes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ReceivedBytes",[]) ok
+		return dn_x
 
 	Func setReceivedBytes P1
-		dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ReceivedBytes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1)) ok
 		return self
 
 	Func getRemoteEndPoint
 		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:RemoteEndPoint",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1)) ok
 		return self
 
 
@@ -1316,31 +1529,37 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnSend("s3:get",nHandle,"s13:ReceivedBytes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ReceivedBytes",[]) ok
+		return dn_x
 
 	Func setReceivedBytes P1
-		dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ReceivedBytes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1)) ok
 		return self
 
 	Func getSocketFlags
 		return dnSend("s3:get",nHandle,"s11:SocketFlags","")
 
 	Func setSocketFlags P1
-		dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SocketFlags",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1)) ok
 		return self
 
 	Func getRemoteEndPoint
 		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:RemoteEndPoint",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1)) ok
 		return self
 
 	Func getPacketInformation
 		return dnSend("s3:get",nHandle,"s17:PacketInformation","")
 
 	Func setPacketInformation P1
-		dnSend("s3:set",nHandle,"s17:PacketInformation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:PacketInformation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:PacketInformation",dnPackItem(P1)) ok
 		return self
 
 
@@ -1356,7 +1575,9 @@ Class SocketTaskExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
@@ -1444,7 +1665,9 @@ Class TcpClient from Object
 			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1)) ok
+
 		return self
 
 	Func ConnectAsync P1
@@ -1457,25 +1680,35 @@ Class TcpClient from Object
 		return dnSend("s4:call",nHandle,"s12:BeginConnect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func EndConnect P1
-		dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:EndConnect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetStream 
 		return dnSend("s4:call",nHandle,"s9:GetStream","")
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAvailable
-		return dnSend("s3:get",nHandle,"s9:Available","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Available",[]) ok
+		return dn_x
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1484,62 +1717,84 @@ Class TcpClient from Object
 		return dnSend("s3:get",nHandle,"s6:Client","")
 
 	Func setClient P1
-		dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Client",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1)) ok
 		return self
 
 	Func getConnected
-		return dnSend("s3:get",nHandle,"s9:Connected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Connected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Connected",[]) ok
+		return dn_x
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ExclusiveAddressUse",[]) ok
+		return dn_x
 
 	Func setExclusiveAddressUse P1
-		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1)) ok
 		return self
 
 	Func getReceiveBufferSize
-		return dnSend("s3:get",nHandle,"s17:ReceiveBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ReceiveBufferSize",[]) ok
+		return dn_x
 
 	Func setReceiveBufferSize P1
-		dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1)) ok
 		return self
 
 	Func getSendBufferSize
-		return dnSend("s3:get",nHandle,"s14:SendBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:SendBufferSize",[]) ok
+		return dn_x
 
 	Func setSendBufferSize P1
-		dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:SendBufferSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1)) ok
 		return self
 
 	Func getReceiveTimeout
-		return dnSend("s3:get",nHandle,"s14:ReceiveTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ReceiveTimeout",[]) ok
+		return dn_x
 
 	Func setReceiveTimeout P1
-		dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ReceiveTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getSendTimeout
-		return dnSend("s3:get",nHandle,"s11:SendTimeout","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:SendTimeout")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:SendTimeout",[]) ok
+		return dn_x
 
 	Func setSendTimeout P1
-		dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:SendTimeout",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1)) ok
 		return self
 
 	Func getLingerState
 		return dnSend("s3:get",nHandle,"s11:LingerState","")
 
 	Func setLingerState P1
-		dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:LingerState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1)) ok
 		return self
 
 	Func getNoDelay
-		return dnSend("s3:get",nHandle,"s7:NoDelay","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:NoDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:NoDelay",[]) ok
+		return dn_x
 
 	Func setNoDelay P1
-		dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:NoDelay",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1)) ok
 		return self
 
 
@@ -1576,7 +1831,9 @@ Class TcpListener from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:AllowNatTraversal",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1)) ok
+
 		return self
 
 	Func Start P1
@@ -1585,22 +1842,32 @@ Class TcpListener from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Start","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Start")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Start",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Start",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start",dnPackItem(P1)) ok
+
 		return self
 
 	Func Stop 
-		dnSend("s4:call",nHandle,"s4:Stop","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Pending 
-		return dnSend("s4:call",nHandle,"s7:Pending","")
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Pending")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Pending",[]) ok
+		return dn_x
 
 	Func AcceptSocket 
 		return dnSend("s4:call",nHandle,"s12:AcceptSocket","")
@@ -1639,7 +1906,9 @@ Class TcpListener from Object
 		return dnSend("s4:call",nHandle,"s20:AcceptTcpClientAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.Sockets.TcpListener, System.Net.Sockets'),"s6:Create",dnPackItem(P1))
@@ -1657,10 +1926,13 @@ Class TcpListener from Object
 		raise("DotNet Error: LocalEndpoint is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ExclusiveAddressUse",[]) ok
+		return dn_x
 
 	Func setExclusiveAddressUse P1
-		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1)) ok
 		return self
 
 
@@ -1709,11 +1981,15 @@ Class UdpClient from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:AllowNatTraversal",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1)) ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func BeginSend P1
@@ -1723,7 +1999,9 @@ Class UdpClient from Object
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		return dnSend("s4:call",nHandle,"s7:EndSend",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:EndSend",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:EndSend",[P1]) ok
+		return dn_x
 
 	Func BeginReceive P1,P2
 		return dnSend("s4:call",nHandle,"s12:BeginReceive",dnPackItem(P1) + dnPackItem(P2))
@@ -1736,7 +2014,9 @@ Class UdpClient from Object
 			dnSend("s9:callnamed",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:JoinMulticastGroup",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1)) ok
+
 		return self
 
 	Func DropMulticastGroup P1
@@ -1744,7 +2024,9 @@ Class UdpClient from Object
 			dnSend("s9:callnamed",nHandle,"s18:DropMulticastGroup",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s18:DropMulticastGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:DropMulticastGroup",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:DropMulticastGroup",dnPackItem(P1)) ok
+
 		return self
 
 	Func SendAsync P1
@@ -1763,7 +2045,9 @@ Class UdpClient from Object
 		return dnSend("s4:call",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func Connect P1
@@ -1771,7 +2055,9 @@ Class UdpClient from Object
 			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1)) ok
+
 		return self
 
 	Func Receive P1
@@ -1784,10 +2070,14 @@ Class UdpClient from Object
 		raise("DotNet Error: Send does not take one argument: use named arguments, Send([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAvailable
-		return dnSend("s3:get",nHandle,"s9:Available","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Available",[]) ok
+		return dn_x
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1796,42 +2086,58 @@ Class UdpClient from Object
 		return dnSend("s3:get",nHandle,"s6:Client","")
 
 	Func setClient P1
-		dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Client",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1)) ok
 		return self
 
 	Func getTtl
-		return dnSend("s3:get",nHandle,"s3:Ttl","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Ttl",[]) ok
+		return dn_x
 
 	Func setTtl P1
-		dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1)) ok
 		return self
 
 	Func getDontFragment
-		return dnSend("s3:get",nHandle,"s12:DontFragment","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DontFragment",[]) ok
+		return dn_x
 
 	Func setDontFragment P1
-		dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1)) ok
 		return self
 
 	Func getMulticastLoopback
-		return dnSend("s3:get",nHandle,"s17:MulticastLoopback","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:MulticastLoopback",[]) ok
+		return dn_x
 
 	Func setMulticastLoopback P1
-		dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:MulticastLoopback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1)) ok
 		return self
 
 	Func getEnableBroadcast
-		return dnSend("s3:get",nHandle,"s15:EnableBroadcast","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EnableBroadcast",[]) ok
+		return dn_x
 
 	Func setEnableBroadcast P1
-		dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:EnableBroadcast",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1)) ok
 		return self
 
 	Func getExclusiveAddressUse
-		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ExclusiveAddressUse",[]) ok
+		return dn_x
 
 	Func setExclusiveAddressUse P1
-		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1)) ok
 		return self
 
 

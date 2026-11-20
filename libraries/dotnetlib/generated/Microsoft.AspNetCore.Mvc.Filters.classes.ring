@@ -256,54 +256,77 @@ Class FilterCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s10:AddService",dnPackItem(P1))
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -323,7 +346,9 @@ Class FilterContext from ActionContext
 		return self
 
 	Func IsEffectivePolicy P1
-		return dnSend("s4:call",nHandle,"s17:IsEffectivePolicy",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:IsEffectivePolicy",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:IsEffectivePolicy",[P1]) ok
+		return dn_x
 
 	Func FindEffectivePolicy 
 		return dnSend("s4:call",nHandle,"s19:FindEffectivePolicy","")
@@ -353,7 +378,9 @@ Class FilterDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFilter
 		return dnSend("s3:get",nHandle,"s6:Filter","")
@@ -362,14 +389,19 @@ Class FilterDescriptor from Object
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
-		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1)) ok
 		return self
 
 	Func getScope
-		return dnSend("s3:get",nHandle,"s5:Scope","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Scope")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Scope",[]) ok
+		return dn_x
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")
@@ -408,7 +440,9 @@ Class FilterItem from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDescriptor
 		return dnSend("s3:get",nHandle,"s10:Descriptor","")
@@ -420,14 +454,18 @@ Class FilterItem from Object
 		return dnSend("s3:get",nHandle,"s6:Filter","")
 
 	Func setFilter P1
-		dnSend("s3:set",nHandle,"s6:Filter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Filter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Filter",dnPackItem(P1)) ok
 		return self
 
 	Func getIsReusable
-		return dnSend("s3:get",nHandle,"s10:IsReusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReusable",[]) ok
+		return dn_x
 
 	Func setIsReusable P1
-		dnSend("s3:set",nHandle,"s10:IsReusable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsReusable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsReusable",dnPackItem(P1)) ok
 		return self
 
 
@@ -448,20 +486,24 @@ Class FilterProviderContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActionContext
 		return dnSend("s3:get",nHandle,"s13:ActionContext","")
 
 	Func setActionContext P1
-		dnSend("s3:set",nHandle,"s13:ActionContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ActionContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ActionContext",dnPackItem(P1)) ok
 		return self
 
 	Func getResults
 		return dnSend("s3:get",nHandle,"s7:Results","")
 
 	Func setResults P1
-		dnSend("s3:set",nHandle,"s7:Results",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Results",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Results",dnPackItem(P1)) ok
 		return self
 
 
@@ -483,34 +525,46 @@ Class FilterScope from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFirst
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s5:First",[]) ok
+		return dn_x
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Global",[]) ok
+		return dn_x
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s10:Controller",[]) ok
+		return dn_x
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",[]) ok
+		return dn_x
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"s4:Last",[]) ok
+		return dn_x
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -528,11 +582,15 @@ Class IActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecuting P1
-		dnSend("s4:call",nHandle,"s17:OnActionExecuting",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:OnActionExecuting",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:OnActionExecuting",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnActionExecuted P1
-		dnSend("s4:call",nHandle,"s16:OnActionExecuted",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:OnActionExecuted",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:OnActionExecuted",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -665,7 +723,9 @@ Class IAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorization P1
-		dnSend("s4:call",nHandle,"s15:OnAuthorization",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:OnAuthorization",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:OnAuthorization",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -681,7 +741,9 @@ Class IExceptionFilter from DotNetObject
 		return self
 
 	Func OnException P1
-		dnSend("s4:call",nHandle,"s11:OnException",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:OnException",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:OnException",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -702,7 +764,8 @@ Class IFilterContainer from DotNetObject
 		return dnSend("s3:get",nHandle,"s16:FilterDefinition","")
 
 	Func setFilterDefinition P1
-		dnSend("s3:set",nHandle,"s16:FilterDefinition",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:FilterDefinition",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:FilterDefinition",dnPackItem(P1)) ok
 		return self
 
 
@@ -723,7 +786,9 @@ Class IFilterFactory from DotNetObject
 		return dnSend("s4:call",nHandle,"s14:CreateInstance",dnPackItem(P1))
 
 	Func getIsReusable
-		return dnSend("s3:get",nHandle,"s10:IsReusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReusable",[]) ok
+		return dn_x
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -755,15 +820,21 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func OnProvidersExecuting P1
-		dnSend("s4:call",nHandle,"s20:OnProvidersExecuting",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:OnProvidersExecuting",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:OnProvidersExecuting",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnProvidersExecuted P1
-		dnSend("s4:call",nHandle,"s19:OnProvidersExecuted",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:OnProvidersExecuted",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:OnProvidersExecuted",dnPackItem(P1)) ok
+
 		return self
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -783,7 +854,9 @@ Class IOrderedFilter from DotNetObject
 		return self
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -801,15 +874,21 @@ Class IPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelected P1
-		dnSend("s4:call",nHandle,"s21:OnPageHandlerSelected",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s21:OnPageHandlerSelected",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s21:OnPageHandlerSelected",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnPageHandlerExecuting P1
-		dnSend("s4:call",nHandle,"s22:OnPageHandlerExecuting",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s22:OnPageHandlerExecuting",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s22:OnPageHandlerExecuting",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnPageHandlerExecuted P1
-		dnSend("s4:call",nHandle,"s21:OnPageHandlerExecuted",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s21:OnPageHandlerExecuted",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s21:OnPageHandlerExecuted",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -825,11 +904,15 @@ Class IResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecuting P1
-		dnSend("s4:call",nHandle,"s19:OnResourceExecuting",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:OnResourceExecuting",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:OnResourceExecuting",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnResourceExecuted P1
-		dnSend("s4:call",nHandle,"s18:OnResourceExecuted",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:OnResourceExecuted",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:OnResourceExecuted",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -845,11 +928,15 @@ Class IResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecuting P1
-		dnSend("s4:call",nHandle,"s17:OnResultExecuting",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:OnResultExecuting",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:OnResultExecuting",dnPackItem(P1)) ok
+
 		return self
 
 	Func OnResultExecuted P1
-		dnSend("s4:call",nHandle,"s16:OnResultExecuted",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:OnResultExecuted",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:OnResultExecuted",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -874,10 +961,13 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnSend("s3:get",nHandle,"s8:Canceled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Canceled",[]) ok
+		return dn_x
 
 	Func setCanceled P1
-		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1)) ok
 		return self
 
 	Func getController
@@ -890,28 +980,34 @@ Class ActionExecutedContext from FilterContext
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionDispatchInfo
 		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ExceptionDispatchInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionHandled
-		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ExceptionHandled",[]) ok
+		return dn_x
 
 	Func setExceptionHandled P1
-		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1)) ok
 		return self
 
 	Func getResult
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 
@@ -936,7 +1032,8 @@ Class ActionExecutingContext from FilterContext
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 	Func getActionArguments
@@ -971,7 +1068,8 @@ Class AuthorizationFilterContext from FilterContext
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 
@@ -997,28 +1095,34 @@ Class ExceptionContext from FilterContext
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionDispatchInfo
 		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ExceptionDispatchInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionHandled
-		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ExceptionHandled",[]) ok
+		return dn_x
 
 	Func setExceptionHandled P1
-		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1)) ok
 		return self
 
 	Func getResult
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 
@@ -1047,10 +1151,13 @@ Class PageHandlerExecutedContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getCanceled
-		return dnSend("s3:get",nHandle,"s8:Canceled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Canceled",[]) ok
+		return dn_x
 
 	Func setCanceled P1
-		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1)) ok
 		return self
 
 	Func getHandlerInstance
@@ -1069,28 +1176,34 @@ Class PageHandlerExecutedContext from FilterContext
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionDispatchInfo
 		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ExceptionDispatchInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionHandled
-		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ExceptionHandled",[]) ok
+		return dn_x
 
 	Func setExceptionHandled P1
-		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1)) ok
 		return self
 
 	Func getResult
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 
@@ -1119,7 +1232,8 @@ Class PageHandlerExecutingContext from FilterContext
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 	Func getHandlerArguments
@@ -1164,7 +1278,8 @@ Class PageHandlerSelectedContext from FilterContext
 		return dnSend("s3:get",nHandle,"s13:HandlerMethod","")
 
 	Func setHandlerMethod P1
-		dnSend("s3:set",nHandle,"s13:HandlerMethod",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:HandlerMethod",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:HandlerMethod",dnPackItem(P1)) ok
 		return self
 
 	Func getHandlerInstance
@@ -1194,38 +1309,47 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnSend("s3:get",nHandle,"s8:Canceled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Canceled",[]) ok
+		return dn_x
 
 	Func setCanceled P1
-		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1)) ok
 		return self
 
 	Func getException
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionDispatchInfo
 		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ExceptionDispatchInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionHandled
-		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ExceptionHandled",[]) ok
+		return dn_x
 
 	Func setExceptionHandled P1
-		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1)) ok
 		return self
 
 	Func getResult
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 
@@ -1249,7 +1373,8 @@ Class ResourceExecutingContext from FilterContext
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 	Func getValueProviderFactories
@@ -1280,10 +1405,13 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnSend("s3:get",nHandle,"s8:Canceled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Canceled",[]) ok
+		return dn_x
 
 	Func setCanceled P1
-		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1)) ok
 		return self
 
 	Func getController
@@ -1296,21 +1424,26 @@ Class ResultExecutedContext from FilterContext
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionDispatchInfo
 		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:ExceptionDispatchInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getExceptionHandled
-		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ExceptionHandled",[]) ok
+		return dn_x
 
 	Func setExceptionHandled P1
-		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1)) ok
 		return self
 
 	Func getResult
@@ -1347,14 +1480,18 @@ Class ResultExecutingContext from FilterContext
 		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
 		return self
 
 	Func getCancel
-		return dnSend("s3:get",nHandle,"s6:Cancel","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Cancel")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Cancel",[]) ok
+		return dn_x
 
 	Func setCancel P1
-		dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1)) ok
 		return self
 
 

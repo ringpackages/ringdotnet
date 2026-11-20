@@ -1368,10 +1368,14 @@ Class Animatable from Freezable
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeStoredWeakReference P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Animation.Animatable, PresentationCore'),"s34:ShouldSerializeStoredWeakReference",[P1]) ok
+		return dn_x
 
 	Func getHasAnimatedProperties
-		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:HasAnimatedProperties",[]) ok
+		return dn_x
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -1406,21 +1410,26 @@ Class BeginStoryboard from TriggerAction
 		return dnSend("s3:get",nHandle,"s10:Storyboard","")
 
 	Func setStoryboard P1
-		dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Storyboard",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1)) ok
 		return self
 
 	Func getHandoffBehavior
 		return dnSend("s3:get",nHandle,"s15:HandoffBehavior","")
 
 	Func setHandoffBehavior P1
-		dnSend("s3:set",nHandle,"s15:HandoffBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:HandoffBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:HandoffBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getStoryboardProperty
@@ -1447,27 +1456,35 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -1514,49 +1531,70 @@ Class BooleanKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1568,13 +1606,17 @@ Class BooleanKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1603,27 +1645,35 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -1670,49 +1720,70 @@ Class ByteKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1724,13 +1795,17 @@ Class ByteKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1765,21 +1840,25 @@ Class CharKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -1826,49 +1905,70 @@ Class CharKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1880,13 +1980,17 @@ Class CharKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1998,13 +2102,17 @@ Class Clock from DispatcherObject
 		raise("DotNet Error: CurrentTime is a read-only property")
 
 	Func getHasControllableRoot
-		return dnSend("s3:get",nHandle,"s19:HasControllableRoot","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:HasControllableRoot")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:HasControllableRoot",[]) ok
+		return dn_x
 
 	Func setHasControllableRoot P1
 		raise("DotNet Error: HasControllableRoot is a read-only property")
 
 	Func getIsPaused
-		return dnSend("s3:get",nHandle,"s8:IsPaused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsPaused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsPaused",[]) ok
+		return dn_x
 
 	Func setIsPaused P1
 		raise("DotNet Error: IsPaused is a read-only property")
@@ -2043,21 +2151,31 @@ Class ClockCollection from Object
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
@@ -2067,19 +2185,25 @@ Class ClockCollection from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2100,35 +2224,51 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Begin 
-		dnSend("s4:call",nHandle,"s5:Begin","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Begin")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Begin","") ok
+
 		return self
 
 	Func SkipToFill 
-		dnSend("s4:call",nHandle,"s10:SkipToFill","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:SkipToFill")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SkipToFill","") ok
+
 		return self
 
 	Func Pause 
-		dnSend("s4:call",nHandle,"s5:Pause","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Pause")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Pause","") ok
+
 		return self
 
 	Func Resume 
-		dnSend("s4:call",nHandle,"s6:Resume","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Resume")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Resume","") ok
+
 		return self
 
 	Func Seek P1,P2
-		dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seek",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SeekAlignedToLastTick P1,P2
-		dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s21:SeekAlignedToLastTick",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Stop 
-		dnSend("s4:call",nHandle,"s4:Stop","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+
 		return self
 
 	Func Remove 
-		dnSend("s4:call",nHandle,"s6:Remove","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove","") ok
+
 		return self
 
 	Func getClock
@@ -2138,10 +2278,13 @@ Class ClockController from DispatcherObject
 		raise("DotNet Error: Clock is a read-only property")
 
 	Func getSpeedRatio
-		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SpeedRatio",[]) ok
+		return dn_x
 
 	Func setSpeedRatio P1
-		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1)) ok
 		return self
 
 
@@ -2168,21 +2311,25 @@ Class ColorKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -2229,49 +2376,70 @@ Class ColorKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2283,13 +2451,17 @@ Class ColorKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2315,10 +2487,13 @@ Class ControllableStoryboardAction from TriggerAction
 		return self
 
 	Func getBeginStoryboardName
-		return dnSend("s3:get",nHandle,"s19:BeginStoryboardName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:BeginStoryboardName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:BeginStoryboardName",[]) ok
+		return dn_x
 
 	Func setBeginStoryboardName P1
-		dnSend("s3:set",nHandle,"s19:BeginStoryboardName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:BeginStoryboardName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:BeginStoryboardName",dnPackItem(P1)) ok
 		return self
 
 
@@ -2339,27 +2514,35 @@ Class DecimalKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -2406,49 +2589,70 @@ Class DecimalKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2460,13 +2664,17 @@ Class DecimalKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2495,27 +2703,35 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -2562,49 +2778,70 @@ Class DoubleKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2616,13 +2853,17 @@ Class DoubleKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2649,13 +2890,16 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func Ease P1
-		return dnSend("s4:call",nHandle,"s4:Ease",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Ease",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Ease",[P1]) ok
+		return dn_x
 
 	Func getEasingMode
 		return dnSend("s3:get",nHandle,"s10:EasingMode","")
 
 	Func setEasingMode P1
-		dnSend("s3:set",nHandle,"s10:EasingMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:EasingMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:EasingMode",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingModeProperty
@@ -2696,7 +2940,9 @@ Class IAnimatable from DotNetObject
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func getHasAnimatedProperties
-		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:HasAnimatedProperties",[]) ok
+		return dn_x
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -2729,7 +2975,9 @@ Class IEasingFunction from DotNetObject
 		return self
 
 	Func Ease P1
-		return dnSend("s4:call",nHandle,"s4:Ease",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Ease",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Ease",[P1]) ok
+		return dn_x
 
 
 Class IKeyFrame from DotNetObject
@@ -2750,14 +2998,16 @@ Class IKeyFrame from DotNetObject
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -2778,7 +3028,8 @@ Class IKeyFrameAnimation from DotNetObject
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -2799,27 +3050,35 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -2866,49 +3125,70 @@ Class Int16KeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2920,13 +3200,17 @@ Class Int16KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2955,27 +3239,35 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3022,49 +3314,70 @@ Class Int32KeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3076,13 +3389,17 @@ Class Int32KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3111,27 +3428,35 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3178,49 +3503,70 @@ Class Int64KeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3232,13 +3578,17 @@ Class Int64KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3290,26 +3640,32 @@ Class KeySpline from Freezable
 		return self
 
 	Func GetSplineProgress P1
-		return dnSend("s4:call",nHandle,"s17:GetSplineProgress",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetSplineProgress",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:GetSplineProgress",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func getControlPoint1
 		return dnSend("s3:get",nHandle,"s13:ControlPoint1","")
 
 	Func setControlPoint1 P1
-		dnSend("s3:set",nHandle,"s13:ControlPoint1",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ControlPoint1",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ControlPoint1",dnPackItem(P1)) ok
 		return self
 
 	Func getControlPoint2
 		return dnSend("s3:get",nHandle,"s13:ControlPoint2","")
 
 	Func setControlPoint2 P1
-		dnSend("s3:set",nHandle,"s13:ControlPoint2",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ControlPoint2",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ControlPoint2",dnPackItem(P1)) ok
 		return self
 
 
@@ -3346,7 +3702,9 @@ Class KeyTime from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetType_ 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
@@ -3364,7 +3722,9 @@ Class KeyTime from ValueType
 		raise("DotNet Error: TimeSpan is a read-only property")
 
 	Func getPercent
-		return dnSend("s3:get",nHandle,"s7:Percent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Percent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Percent",[]) ok
+		return dn_x
 
 	Func setPercent P1
 		raise("DotNet Error: Percent is a read-only property")
@@ -3411,21 +3771,25 @@ Class MatrixKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3472,49 +3836,70 @@ Class MatrixKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3526,13 +3911,17 @@ Class MatrixKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3567,21 +3956,25 @@ Class ObjectKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3628,49 +4021,70 @@ Class ObjectKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3682,13 +4096,17 @@ Class ObjectKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3723,21 +4141,25 @@ Class Point3DKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3784,49 +4206,70 @@ Class Point3DKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3838,13 +4281,17 @@ Class Point3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3879,21 +4326,25 @@ Class PointKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -3940,49 +4391,70 @@ Class PointKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3994,13 +4466,17 @@ Class PointKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4035,21 +4511,25 @@ Class QuaternionKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4096,49 +4576,70 @@ Class QuaternionKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4150,13 +4651,17 @@ Class QuaternionKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4191,21 +4696,25 @@ Class RectKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4252,49 +4761,70 @@ Class RectKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4306,13 +4836,17 @@ Class RectKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4373,28 +4907,38 @@ Class RepeatBehavior from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func getHasCount
-		return dnSend("s3:get",nHandle,"s8:HasCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HasCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HasCount",[]) ok
+		return dn_x
 
 	Func setHasCount P1
 		raise("DotNet Error: HasCount is a read-only property")
 
 	Func getHasDuration
-		return dnSend("s3:get",nHandle,"s11:HasDuration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:HasDuration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:HasDuration",[]) ok
+		return dn_x
 
 	Func setHasDuration P1
 		raise("DotNet Error: HasDuration is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4456,21 +5000,25 @@ Class Rotation3DKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4517,49 +5065,70 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4571,13 +5140,17 @@ Class Rotation3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4606,27 +5179,35 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4673,49 +5254,70 @@ Class SingleKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4727,13 +5329,17 @@ Class SingleKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4768,21 +5374,25 @@ Class SizeKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4829,49 +5439,70 @@ Class SizeKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4883,13 +5514,17 @@ Class SizeKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4918,27 +5553,35 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:InterpolateValue",[P1,P2]) ok
+		return dn_x
 
 	Func GetValue_ P1
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -4985,49 +5628,70 @@ Class StringKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5039,13 +5703,17 @@ Class StringKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5080,21 +5748,25 @@ Class ThicknessKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -5141,49 +5813,70 @@ Class ThicknessKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5195,13 +5888,17 @@ Class ThicknessKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5236,21 +5933,25 @@ Class Vector3DKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -5297,49 +5998,70 @@ Class Vector3DKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5351,13 +6073,17 @@ Class Vector3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5392,21 +6118,25 @@ Class VectorKeyFrame from Freezable
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getKeyTime
 		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeyTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyTimeProperty
@@ -5453,49 +6183,70 @@ Class VectorKeyFrameCollection from Freezable
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5507,13 +6258,17 @@ Class VectorKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5564,10 +6319,13 @@ Class BackEase from EasingFunctionBase
 		return self
 
 	Func getAmplitude
-		return dnSend("s3:get",nHandle,"s9:Amplitude","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Amplitude")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Amplitude",[]) ok
+		return dn_x
 
 	Func setAmplitude P1
-		dnSend("s3:set",nHandle,"s9:Amplitude",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Amplitude",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Amplitude",dnPackItem(P1)) ok
 		return self
 
 	Func getAmplitudeProperty
@@ -5603,17 +6361,23 @@ Class BounceEase from EasingFunctionBase
 		return self
 
 	Func getBounces
-		return dnSend("s3:get",nHandle,"s7:Bounces","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Bounces")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Bounces",[]) ok
+		return dn_x
 
 	Func setBounces P1
-		dnSend("s3:set",nHandle,"s7:Bounces",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Bounces",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Bounces",dnPackItem(P1)) ok
 		return self
 
 	Func getBounciness
-		return dnSend("s3:get",nHandle,"s10:Bounciness","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Bounciness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Bounciness",[]) ok
+		return dn_x
 
 	Func setBounciness P1
-		dnSend("s3:set",nHandle,"s10:Bounciness",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Bounciness",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Bounciness",dnPackItem(P1)) ok
 		return self
 
 	Func getBouncesProperty
@@ -6548,7 +7312,8 @@ Class EasingByteKeyFrame from ByteKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6601,7 +7366,8 @@ Class EasingColorKeyFrame from ColorKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6654,7 +7420,8 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6707,7 +7474,8 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6760,7 +7528,8 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6813,7 +7582,8 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6866,7 +7636,8 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6919,7 +7690,8 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -6972,7 +7744,8 @@ Class EasingPointKeyFrame from PointKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7024,17 +7797,21 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseShortestPath",[]) ok
+		return dn_x
 
 	Func setUseShortestPath P1
-		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getUseShortestPathProperty
@@ -7093,7 +7870,8 @@ Class EasingRectKeyFrame from RectKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7146,7 +7924,8 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7199,7 +7978,8 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7252,7 +8032,8 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7305,7 +8086,8 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7358,7 +8140,8 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7411,7 +8194,8 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunctionProperty
@@ -7447,17 +8231,23 @@ Class ElasticEase from EasingFunctionBase
 		return self
 
 	Func getOscillations
-		return dnSend("s3:get",nHandle,"s12:Oscillations","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:Oscillations")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:Oscillations",[]) ok
+		return dn_x
 
 	Func setOscillations P1
-		dnSend("s3:set",nHandle,"s12:Oscillations",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:Oscillations",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:Oscillations",dnPackItem(P1)) ok
 		return self
 
 	Func getSpringiness
-		return dnSend("s3:get",nHandle,"s11:Springiness","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:Springiness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Springiness",[]) ok
+		return dn_x
 
 	Func setSpringiness P1
-		dnSend("s3:set",nHandle,"s11:Springiness",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:Springiness",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Springiness",dnPackItem(P1)) ok
 		return self
 
 	Func getOscillationsProperty
@@ -7497,10 +8287,13 @@ Class ExponentialEase from EasingFunctionBase
 		return self
 
 	Func getExponent
-		return dnSend("s3:get",nHandle,"s8:Exponent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Exponent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Exponent",[]) ok
+		return dn_x
 
 	Func setExponent P1
-		dnSend("s3:set",nHandle,"s8:Exponent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Exponent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Exponent",dnPackItem(P1)) ok
 		return self
 
 	Func getExponentProperty
@@ -7883,10 +8676,13 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseShortestPath",[]) ok
+		return dn_x
 
 	Func setUseShortestPath P1
-		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1)) ok
 		return self
 
 	Func getUseShortestPathProperty
@@ -8200,10 +8996,13 @@ Class PowerEase from EasingFunctionBase
 		return self
 
 	Func getPower
-		return dnSend("s3:get",nHandle,"s5:Power","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Power")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Power",[]) ok
+		return dn_x
 
 	Func setPower P1
-		dnSend("s3:set",nHandle,"s5:Power",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Power",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Power",dnPackItem(P1)) ok
 		return self
 
 	Func getPowerProperty
@@ -8342,20 +9141,24 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func ShouldSerializeOffset 
-		return dnSend("s4:call",nHandle,"s21:ShouldSerializeOffset","")
+		dn_x = dotnet_call("s4:call",nHandle,"s21:ShouldSerializeOffset")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:ShouldSerializeOffset",[]) ok
+		return dn_x
 
 	Func getOffset
 		return dnSend("s3:get",nHandle,"s6:Offset","")
 
 	Func setOffset P1
-		dnSend("s3:set",nHandle,"s6:Offset",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Offset",dnPackItem(P1)) ok
 		return self
 
 	Func getOrigin
 		return dnSend("s3:get",nHandle,"s6:Origin","")
 
 	Func setOrigin P1
-		dnSend("s3:set",nHandle,"s6:Origin",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Origin",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Origin",dnPackItem(P1)) ok
 		return self
 
 
@@ -8382,10 +9185,13 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 		return self
 
 	Func getSpeedRatio
-		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SpeedRatio",[]) ok
+		return dn_x
 
 	Func setSpeedRatio P1
-		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1)) ok
 		return self
 
 
@@ -8474,7 +9280,8 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8527,7 +9334,8 @@ Class SplineColorKeyFrame from ColorKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8580,7 +9388,8 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8633,7 +9442,8 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8686,7 +9496,8 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8739,7 +9550,8 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8792,7 +9604,8 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8845,7 +9658,8 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8898,7 +9712,8 @@ Class SplinePointKeyFrame from PointKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -8950,17 +9765,21 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseShortestPath",[]) ok
+		return dn_x
 
 	Func setUseShortestPath P1
-		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySpline
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getUseShortestPathProperty
@@ -9019,7 +9838,8 @@ Class SplineRectKeyFrame from RectKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9072,7 +9892,8 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9125,7 +9946,8 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9178,7 +10000,8 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9231,7 +10054,8 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9284,7 +10108,8 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9337,7 +10162,8 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeySpline",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySplineProperty
@@ -9412,7 +10238,9 @@ Class Timeline from Animatable
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:GetDesiredFrameRate",dnPackItem(P1))
 
 	Func SetDesiredFrameRate P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Timeline, PresentationCore'),"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
@@ -9456,66 +10284,85 @@ Class Timeline from Animatable
 		return self
 
 	Func getAccelerationRatio
-		return dnSend("s3:get",nHandle,"s17:AccelerationRatio","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:AccelerationRatio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:AccelerationRatio",[]) ok
+		return dn_x
 
 	Func setAccelerationRatio P1
-		dnSend("s3:set",nHandle,"s17:AccelerationRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:AccelerationRatio",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:AccelerationRatio",dnPackItem(P1)) ok
 		return self
 
 	Func getAutoReverse
-		return dnSend("s3:get",nHandle,"s11:AutoReverse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:AutoReverse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:AutoReverse",[]) ok
+		return dn_x
 
 	Func setAutoReverse P1
-		dnSend("s3:set",nHandle,"s11:AutoReverse",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:AutoReverse",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:AutoReverse",dnPackItem(P1)) ok
 		return self
 
 	Func getBeginTime
 		return dnSend("s3:get",nHandle,"s9:BeginTime","")
 
 	Func setBeginTime P1
-		dnSend("s3:set",nHandle,"s9:BeginTime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:BeginTime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:BeginTime",dnPackItem(P1)) ok
 		return self
 
 	Func getDecelerationRatio
-		return dnSend("s3:get",nHandle,"s17:DecelerationRatio","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:DecelerationRatio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DecelerationRatio",[]) ok
+		return dn_x
 
 	Func setDecelerationRatio P1
-		dnSend("s3:set",nHandle,"s17:DecelerationRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:DecelerationRatio",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DecelerationRatio",dnPackItem(P1)) ok
 		return self
 
 	Func getDuration
 		return dnSend("s3:get",nHandle,"s8:Duration","")
 
 	Func setDuration P1
-		dnSend("s3:set",nHandle,"s8:Duration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Duration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Duration",dnPackItem(P1)) ok
 		return self
 
 	Func getFillBehavior
 		return dnSend("s3:get",nHandle,"s12:FillBehavior","")
 
 	Func setFillBehavior P1
-		dnSend("s3:set",nHandle,"s12:FillBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:FillBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FillBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getRepeatBehavior
 		return dnSend("s3:get",nHandle,"s14:RepeatBehavior","")
 
 	Func setRepeatBehavior P1
-		dnSend("s3:set",nHandle,"s14:RepeatBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:RepeatBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RepeatBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getSpeedRatio
-		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SpeedRatio",[]) ok
+		return dn_x
 
 	Func setSpeedRatio P1
-		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1)) ok
 		return self
 
 	Func getAccelerationRatioProperty
@@ -9618,32 +10465,48 @@ Class TimelineCollection from Animatable
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
@@ -9653,11 +10516,14 @@ Class TimelineCollection from Animatable
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -9689,7 +10555,9 @@ Class AnimationTimeline from Timeline
 		raise("DotNet Error: TargetPropertyType is a read-only property")
 
 	Func getIsDestinationDefault
-		return dnSend("s3:get",nHandle,"s20:IsDestinationDefault","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsDestinationDefault")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsDestinationDefault",[]) ok
+		return dn_x
 
 	Func setIsDestinationDefault P1
 		raise("DotNet Error: IsDestinationDefault is a read-only property")
@@ -9725,7 +10593,8 @@ Class TimelineGroup from Timeline
 		return dnSend("s3:get",nHandle,"s8:Children","")
 
 	Func setChildren P1
-		dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
 		return self
 
 	Func getChildrenProperty
@@ -9910,7 +10779,8 @@ Class ParallelTimeline from TimelineGroup
 		return dnSend("s3:get",nHandle,"s12:SlipBehavior","")
 
 	Func setSlipBehavior P1
-		dnSend("s3:set",nHandle,"s12:SlipBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SlipBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SlipBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getSlipBehaviorProperty
@@ -10075,13 +10945,16 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -10136,42 +11009,52 @@ Class ByteAnimation from ByteAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -10224,27 +11107,36 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -10271,13 +11163,16 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -10332,42 +11227,52 @@ Class ColorAnimation from ColorAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -10420,27 +11325,36 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -10495,42 +11409,52 @@ Class DecimalAnimation from DecimalAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -10583,27 +11507,36 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -10658,42 +11591,52 @@ Class DoubleAnimation from DoubleAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -10746,27 +11689,36 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -10801,28 +11753,36 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:PathGeometry",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1)) ok
 		return self
 
 	Func getSource
 		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getPathGeometryProperty
@@ -10889,42 +11849,52 @@ Class Int16Animation from Int16AnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -10977,27 +11947,36 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -11052,42 +12031,52 @@ Class Int32Animation from Int32AnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -11140,27 +12129,36 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -11215,42 +12213,52 @@ Class Int64Animation from Int64AnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -11303,27 +12311,36 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -11350,13 +12367,16 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -11391,38 +12411,51 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		return self
 
 	Func getDoesRotateWithTangent
-		return dnSend("s3:get",nHandle,"s21:DoesRotateWithTangent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:DoesRotateWithTangent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:DoesRotateWithTangent",[]) ok
+		return dn_x
 
 	Func setDoesRotateWithTangent P1
-		dnSend("s3:set",nHandle,"s21:DoesRotateWithTangent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:DoesRotateWithTangent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:DoesRotateWithTangent",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAngleCumulative
-		return dnSend("s3:get",nHandle,"s17:IsAngleCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsAngleCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsAngleCumulative",[]) ok
+		return dn_x
 
 	Func setIsAngleCumulative P1
-		dnSend("s3:set",nHandle,"s17:IsAngleCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:IsAngleCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:IsAngleCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getIsOffsetCumulative
-		return dnSend("s3:get",nHandle,"s18:IsOffsetCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:IsOffsetCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:IsOffsetCumulative",[]) ok
+		return dn_x
 
 	Func setIsOffsetCumulative P1
-		dnSend("s3:set",nHandle,"s18:IsOffsetCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:IsOffsetCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:IsOffsetCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getPathGeometry
 		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:PathGeometry",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1)) ok
 		return self
 
 	Func getDoesRotateWithTangentProperty
@@ -11473,13 +12506,16 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -11534,42 +12570,52 @@ Class Point3DAnimation from Point3DAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -11622,27 +12668,36 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -11697,42 +12752,52 @@ Class PointAnimation from PointAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -11785,27 +12850,36 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -11838,21 +12912,28 @@ Class PointAnimationUsingPath from PointAnimationBase
 		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:PathGeometry",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getPathGeometryProperty
@@ -11912,52 +12993,65 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		return self
 
 	Func getUseShortestPath
-		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseShortestPath",[]) ok
+		return dn_x
 
 	Func setUseShortestPath P1
-		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1)) ok
 		return self
 
 	Func getFrom
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getUseShortestPathProperty
@@ -12016,27 +13110,36 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -12091,42 +13194,52 @@ Class RectAnimation from RectAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -12179,27 +13292,36 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -12254,42 +13376,52 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -12342,27 +13474,36 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -12417,42 +13558,52 @@ Class SingleAnimation from SingleAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -12505,27 +13656,36 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -12580,42 +13740,52 @@ Class SizeAnimation from SizeAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -12668,27 +13838,36 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -12722,10 +13901,14 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Begin","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Begin")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Begin","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Begin",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Begin",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Begin",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetCurrentGlobalSpeed P1
@@ -12733,7 +13916,9 @@ Class Storyboard from ParallelTimeline
 			return dnSend("s9:callnamed",nHandle,"s21:GetCurrentGlobalSpeed",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s21:GetCurrentGlobalSpeed","")
+			dn_x = dotnet_call("s4:call",nHandle,"s21:GetCurrentGlobalSpeed")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:GetCurrentGlobalSpeed",[]) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",nHandle,"s21:GetCurrentGlobalSpeed",dnPackItem(P1))
 
@@ -12742,7 +13927,9 @@ Class Storyboard from ParallelTimeline
 			return dnSend("s9:callnamed",nHandle,"s19:GetCurrentIteration",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s19:GetCurrentIteration","")
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetCurrentIteration")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:GetCurrentIteration",[]) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",nHandle,"s19:GetCurrentIteration",dnPackItem(P1))
 
@@ -12751,7 +13938,9 @@ Class Storyboard from ParallelTimeline
 			return dnSend("s9:callnamed",nHandle,"s18:GetCurrentProgress",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s18:GetCurrentProgress","")
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetCurrentProgress")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:GetCurrentProgress",[]) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",nHandle,"s18:GetCurrentProgress",dnPackItem(P1))
 
@@ -12778,9 +13967,13 @@ Class Storyboard from ParallelTimeline
 			return dnSend("s9:callnamed",nHandle,"s11:GetIsPaused",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:GetIsPaused","")
+			dn_x = dotnet_call("s4:call",nHandle,"s11:GetIsPaused")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetIsPaused",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s11:GetIsPaused",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetIsPaused",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetIsPaused",[P1]) ok
+		return dn_x
 
 	Func Pause P1
 		if dnIsNamed(P1)
@@ -12788,10 +13981,14 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s5:Pause","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s5:Pause")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Pause","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s5:Pause",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Pause",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Pause",dnPackItem(P1)) ok
+
 		return self
 
 	Func Remove P1
@@ -12800,10 +13997,14 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s6:Remove","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func Resume P1
@@ -12812,10 +14013,14 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s6:Resume","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s6:Resume")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Resume","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s6:Resume",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Resume",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Resume",dnPackItem(P1)) ok
+
 		return self
 
 	Func Seek P1
@@ -12823,7 +14028,9 @@ Class Storyboard from ParallelTimeline
 			dnSend("s9:callnamed",nHandle,"s4:Seek",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seek",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1)) ok
+
 		return self
 
 	Func SeekAlignedToLastTick P1
@@ -12831,7 +14038,9 @@ Class Storyboard from ParallelTimeline
 			dnSend("s9:callnamed",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s21:SeekAlignedToLastTick",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetSpeedRatio_ P1
@@ -12839,7 +14048,9 @@ Class Storyboard from ParallelTimeline
 			dnSend("s9:callnamed",nHandle,"s13:SetSpeedRatio",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s13:SetSpeedRatio",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetSpeedRatio",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetSpeedRatio",dnPackItem(P1)) ok
+
 		return self
 
 	Func SkipToFill P1
@@ -12848,10 +14059,14 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s10:SkipToFill","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s10:SkipToFill")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SkipToFill","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s10:SkipToFill",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:SkipToFill",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SkipToFill",dnPackItem(P1)) ok
+
 		return self
 
 	Func Stop P1
@@ -12860,28 +14075,40 @@ Class Storyboard from ParallelTimeline
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s4:Stop","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Stop",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetTarget P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetTarget P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s9:GetTarget",dnPackItem(P1))
 
 	Func SetTargetName P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetTargetName P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s13:GetTargetName",[P1]) ok
+		return dn_x
 
 	Func SetTargetProperty P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetTargetProperty_ P1
@@ -12926,13 +14153,16 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 
@@ -12987,42 +14217,52 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -13075,27 +14315,36 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -13150,42 +14399,52 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -13238,27 +14497,36 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 
@@ -13313,42 +14581,52 @@ Class VectorAnimation from VectorAnimationBase
 		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
 		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getBy
 		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:By",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1)) ok
 		return self
 
 	Func getEasingFunction
 		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:EasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 	Func getFromProperty
@@ -13401,27 +14679,36 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeKeyFrames",[]) ok
+		return dn_x
 
 	Func getKeyFrames
 		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyFrames",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1)) ok
 		return self
 
 	Func getIsAdditive
-		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAdditive",[]) ok
+		return dn_x
 
 	Func setIsAdditive P1
-		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1)) ok
 		return self
 
 	Func getIsCumulative
-		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCumulative",[]) ok
+		return dn_x
 
 	Func setIsCumulative P1
-		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1)) ok
 		return self
 
 

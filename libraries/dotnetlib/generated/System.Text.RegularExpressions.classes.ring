@@ -70,22 +70,30 @@ Class Capture from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIndex
-		return dnSend("s3:get",nHandle,"s5:Index","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Index")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Index",[]) ok
+		return dn_x
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -117,29 +125,39 @@ Class CaptureCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -173,35 +191,47 @@ Class GroupCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func ContainsKey P1
-		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -245,29 +275,39 @@ Class MatchCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -320,10 +360,14 @@ Class Regex from Object
 		return dnSend("s4:call",nHandle,"s15:GetGroupNumbers","")
 
 	Func GroupNameFromNumber P1
-		return dnSend("s4:call",nHandle,"s19:GroupNameFromNumber",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GroupNameFromNumber",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:GroupNameFromNumber",[P1]) ok
+		return dn_x
 
 	Func GroupNumberFromName P1
-		return dnSend("s4:call",nHandle,"s19:GroupNumberFromName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GroupNumberFromName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:GroupNumberFromName",[P1]) ok
+		return dn_x
 
 	Func Count P1
 		if dnIsNamed(P1)
@@ -332,7 +376,9 @@ Class Regex from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Count",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s5:Count",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Count",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Count",[P1]) ok
+		return dn_x
 
 	Func IsMatch P1
 		if dnIsNamed(P1)
@@ -341,7 +387,9 @@ Class Regex from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:IsMatch",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:IsMatch",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IsMatch",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IsMatch",[P1]) ok
+		return dn_x
 
 	Func Match P1
 		if dnIsNamed(P1)
@@ -380,7 +428,9 @@ Class Regex from Object
 		return dnSend("s4:call",nHandle,"s5:Split",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CompileToAssembly P1
 		if dnIsNamed(P1)
@@ -390,10 +440,14 @@ Class Regex from Object
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s6:Escape",[P1]) ok
+		return dn_x
 
 	Func Unescape P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s8:Unescape",[P1]) ok
+		return dn_x
 
 	Func getOptions
 		return dnSend("s3:get",nHandle,"s7:Options","")
@@ -402,7 +456,9 @@ Class Regex from Object
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getRightToLeft
-		return dnSend("s3:get",nHandle,"s11:RightToLeft","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:RightToLeft")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:RightToLeft",[]) ok
+		return dn_x
 
 	Func setRightToLeft P1
 		raise("DotNet Error: RightToLeft is a read-only property")
@@ -414,10 +470,13 @@ Class Regex from Object
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getCacheSize
-		return dnSend("s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",[]) ok
+		return dn_x
 
 	Func setCacheSize P1
-		dnSend("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s9:CacheSize",dnPackItem(P1)) ok
 		return self
 
 	Func getInfiniteMatchTimeout
@@ -439,10 +498,14 @@ Class RegexRunner from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CharInClass P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"s11:CharInClass",[P1,P2]) ok
+		return dn_x
 
 
 Class RegexRunnerFactory from Object
@@ -457,7 +520,9 @@ Class RegexRunnerFactory from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class Group from Capture
@@ -479,13 +544,17 @@ Class Group from Capture
 		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Group, System.Text.RegularExpressions'),"s12:Synchronized",dnPackItem(P1))
 
 	Func getSuccess
-		return dnSend("s3:get",nHandle,"s7:Success","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Success")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Success",[]) ok
+		return dn_x
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -515,7 +584,9 @@ Class Match from Group
 		return dnSend("s4:call",nHandle,"s9:NextMatch","")
 
 	Func Result P1
-		return dnSend("s4:call",nHandle,"s6:Result",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Result",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Result",[P1]) ok
+		return dn_x
 
 	Func Synchronized P1
 		return dnSend("s4:call",dnTypeHandle('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"s12:Synchronized",dnPackItem(P1))

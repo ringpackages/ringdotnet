@@ -77,7 +77,9 @@ Class CacheEntryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetPriority P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
@@ -119,7 +121,9 @@ Class CacheExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Get_ P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s3:Get",dnPackItem(P1) + dnPackItem(P2))
@@ -177,28 +181,32 @@ Class ICacheEntry from DotNetObject
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getAbsoluteExpiration
 		return dnSend("s3:get",nHandle,"s18:AbsoluteExpiration","")
 
 	Func setAbsoluteExpiration P1
-		dnSend("s3:set",nHandle,"s18:AbsoluteExpiration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:AbsoluteExpiration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AbsoluteExpiration",dnPackItem(P1)) ok
 		return self
 
 	Func getAbsoluteExpirationRelativeToNow
 		return dnSend("s3:get",nHandle,"s31:AbsoluteExpirationRelativeToNow","")
 
 	Func setAbsoluteExpirationRelativeToNow P1
-		dnSend("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",dnPackItem(P1)) ok
 		return self
 
 	Func getSlidingExpiration
 		return dnSend("s3:get",nHandle,"s17:SlidingExpiration","")
 
 	Func setSlidingExpiration P1
-		dnSend("s3:set",nHandle,"s17:SlidingExpiration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:SlidingExpiration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:SlidingExpiration",dnPackItem(P1)) ok
 		return self
 
 	Func getExpirationTokens
@@ -217,14 +225,16 @@ Class ICacheEntry from DotNetObject
 		return dnSend("s3:get",nHandle,"s8:Priority","")
 
 	Func setPriority P1
-		dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 
@@ -246,7 +256,9 @@ Class IMemoryCache from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:CreateEntry",dnPackItem(P1))
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetCurrentStatistics 
@@ -291,29 +303,41 @@ Class MemoryCache from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func GetCurrentStatistics 
 		return dnSend("s4:call",nHandle,"s20:GetCurrentStatistics","")
 
 	Func Compact P1
-		dnSend("s4:call",nHandle,"s7:Compact",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Compact",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Compact",dnPackItem(P1)) ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -337,7 +361,9 @@ Class MemoryCacheEntryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetPriority P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:SetPriority",dnPackItem(P1) + dnPackItem(P2))
@@ -390,27 +416,32 @@ Class MemoryCacheEntryOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAbsoluteExpiration
 		return dnSend("s3:get",nHandle,"s18:AbsoluteExpiration","")
 
 	Func setAbsoluteExpiration P1
-		dnSend("s3:set",nHandle,"s18:AbsoluteExpiration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:AbsoluteExpiration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AbsoluteExpiration",dnPackItem(P1)) ok
 		return self
 
 	Func getAbsoluteExpirationRelativeToNow
 		return dnSend("s3:get",nHandle,"s31:AbsoluteExpirationRelativeToNow","")
 
 	Func setAbsoluteExpirationRelativeToNow P1
-		dnSend("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s31:AbsoluteExpirationRelativeToNow",dnPackItem(P1)) ok
 		return self
 
 	Func getSlidingExpiration
 		return dnSend("s3:get",nHandle,"s17:SlidingExpiration","")
 
 	Func setSlidingExpiration P1
-		dnSend("s3:set",nHandle,"s17:SlidingExpiration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:SlidingExpiration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:SlidingExpiration",dnPackItem(P1)) ok
 		return self
 
 	Func getExpirationTokens
@@ -429,14 +460,16 @@ Class MemoryCacheEntryOptions from Object
 		return dnSend("s3:get",nHandle,"s8:Priority","")
 
 	Func setPriority P1
-		dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 
@@ -469,55 +502,72 @@ Class MemoryCacheOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getClock
 		return dnSend("s3:get",nHandle,"s5:Clock","")
 
 	Func setClock P1
-		dnSend("s3:set",nHandle,"s5:Clock",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Clock",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Clock",dnPackItem(P1)) ok
 		return self
 
 	Func getExpirationScanFrequency
 		return dnSend("s3:get",nHandle,"s23:ExpirationScanFrequency","")
 
 	Func setExpirationScanFrequency P1
-		dnSend("s3:set",nHandle,"s23:ExpirationScanFrequency",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:ExpirationScanFrequency",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ExpirationScanFrequency",dnPackItem(P1)) ok
 		return self
 
 	Func getSizeLimit
 		return dnSend("s3:get",nHandle,"s9:SizeLimit","")
 
 	Func setSizeLimit P1
-		dnSend("s3:set",nHandle,"s9:SizeLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:SizeLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:SizeLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getCompactOnMemoryPressure
-		return dnSend("s3:get",nHandle,"s23:CompactOnMemoryPressure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:CompactOnMemoryPressure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:CompactOnMemoryPressure",[]) ok
+		return dn_x
 
 	Func setCompactOnMemoryPressure P1
-		dnSend("s3:set",nHandle,"s23:CompactOnMemoryPressure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:CompactOnMemoryPressure",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:CompactOnMemoryPressure",dnPackItem(P1)) ok
 		return self
 
 	Func getCompactionPercentage
-		return dnSend("s3:get",nHandle,"s20:CompactionPercentage","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:CompactionPercentage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:CompactionPercentage",[]) ok
+		return dn_x
 
 	Func setCompactionPercentage P1
-		dnSend("s3:set",nHandle,"s20:CompactionPercentage",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:CompactionPercentage",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:CompactionPercentage",dnPackItem(P1)) ok
 		return self
 
 	Func getTrackLinkedCacheEntries
-		return dnSend("s3:get",nHandle,"s23:TrackLinkedCacheEntries","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:TrackLinkedCacheEntries")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:TrackLinkedCacheEntries",[]) ok
+		return dn_x
 
 	Func setTrackLinkedCacheEntries P1
-		dnSend("s3:set",nHandle,"s23:TrackLinkedCacheEntries",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:TrackLinkedCacheEntries",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:TrackLinkedCacheEntries",dnPackItem(P1)) ok
 		return self
 
 	Func getTrackStatistics
-		return dnSend("s3:get",nHandle,"s15:TrackStatistics","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:TrackStatistics")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:TrackStatistics",[]) ok
+		return dn_x
 
 	Func setTrackStatistics P1
-		dnSend("s3:set",nHandle,"s15:TrackStatistics",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:TrackStatistics",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TrackStatistics",dnPackItem(P1)) ok
 		return self
 
 
@@ -547,34 +597,46 @@ Class MemoryCacheStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCurrentEntryCount
-		return dnSend("s3:get",nHandle,"s17:CurrentEntryCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CurrentEntryCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CurrentEntryCount",[]) ok
+		return dn_x
 
 	Func setCurrentEntryCount P1
-		dnSend("s3:set",nHandle,"s17:CurrentEntryCount",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:CurrentEntryCount",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:CurrentEntryCount",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentEstimatedSize
 		return dnSend("s3:get",nHandle,"s20:CurrentEstimatedSize","")
 
 	Func setCurrentEstimatedSize P1
-		dnSend("s3:set",nHandle,"s20:CurrentEstimatedSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:CurrentEstimatedSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:CurrentEstimatedSize",dnPackItem(P1)) ok
 		return self
 
 	Func getTotalMisses
-		return dnSend("s3:get",nHandle,"s11:TotalMisses","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:TotalMisses")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:TotalMisses",[]) ok
+		return dn_x
 
 	Func setTotalMisses P1
-		dnSend("s3:set",nHandle,"s11:TotalMisses",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:TotalMisses",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:TotalMisses",dnPackItem(P1)) ok
 		return self
 
 	Func getTotalHits
-		return dnSend("s3:get",nHandle,"s9:TotalHits","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:TotalHits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:TotalHits",[]) ok
+		return dn_x
 
 	Func setTotalHits P1
-		dnSend("s3:set",nHandle,"s9:TotalHits",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:TotalHits",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:TotalHits",dnPackItem(P1)) ok
 		return self
 
 
@@ -602,20 +664,24 @@ Class PostEvictionCallbackRegistration from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEvictionCallback
 		return dnSend("s3:get",nHandle,"s16:EvictionCallback","")
 
 	Func setEvictionCallback P1
-		dnSend("s3:set",nHandle,"s16:EvictionCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:EvictionCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:EvictionCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getState
 		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
-		dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:State",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1)) ok
 		return self
 
 

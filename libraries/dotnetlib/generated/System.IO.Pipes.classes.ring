@@ -77,7 +77,9 @@ Class AnonymousPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1,P2,P3,P4
 		return dnSend("s4:call",dnTypeHandle('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes'),"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
@@ -95,7 +97,9 @@ Class NamedPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -128,13 +132,19 @@ Class PipeAccessRule from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func getPipeAccessRights
 		return dnSend("s3:get",nHandle,"s16:PipeAccessRights","")
@@ -155,7 +165,9 @@ Class PipeAccessRule from DotNetObject
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnSend("s3:get",nHandle,"s11:IsInherited","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsInherited")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsInherited",[]) ok
+		return dn_x
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
@@ -197,13 +209,19 @@ Class PipeAuditRule from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func getPipeAccessRights
 		return dnSend("s3:get",nHandle,"s16:PipeAccessRights","")
@@ -224,7 +242,9 @@ Class PipeAuditRule from DotNetObject
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnSend("s3:get",nHandle,"s11:IsInherited","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsInherited")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsInherited",[]) ok
+		return dn_x
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
@@ -271,41 +291,61 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func AddAccessRule P1
-		dnSend("s4:call",nHandle,"s13:AddAccessRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:AddAccessRule",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:AddAccessRule",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetAccessRule P1
-		dnSend("s4:call",nHandle,"s13:SetAccessRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetAccessRule",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetAccessRule",dnPackItem(P1)) ok
+
 		return self
 
 	Func ResetAccessRule P1
-		dnSend("s4:call",nHandle,"s15:ResetAccessRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:ResetAccessRule",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ResetAccessRule",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAccessRule P1
-		return dnSend("s4:call",nHandle,"s16:RemoveAccessRule",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:RemoveAccessRule",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:RemoveAccessRule",[P1]) ok
+		return dn_x
 
 	Func RemoveAccessRuleSpecific P1
-		dnSend("s4:call",nHandle,"s24:RemoveAccessRuleSpecific",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s24:RemoveAccessRuleSpecific",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s24:RemoveAccessRuleSpecific",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddAuditRule P1
-		dnSend("s4:call",nHandle,"s12:AddAuditRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:AddAuditRule",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:AddAuditRule",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetAuditRule P1
-		dnSend("s4:call",nHandle,"s12:SetAuditRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:SetAuditRule",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:SetAuditRule",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAuditRule P1
-		return dnSend("s4:call",nHandle,"s15:RemoveAuditRule",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:RemoveAuditRule",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:RemoveAuditRule",[P1]) ok
+		return dn_x
 
 	Func RemoveAuditRuleAll P1
-		dnSend("s4:call",nHandle,"s18:RemoveAuditRuleAll",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:RemoveAuditRuleAll",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:RemoveAuditRuleAll",dnPackItem(P1)) ok
+
 		return self
 
 	Func RemoveAuditRuleSpecific P1
-		dnSend("s4:call",nHandle,"s23:RemoveAuditRuleSpecific",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:RemoveAuditRuleSpecific",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:RemoveAuditRuleSpecific",dnPackItem(P1)) ok
+
 		return self
 
 	Func AccessRuleFactory P1,P2,P3,P4,P5,P6
@@ -324,41 +364,57 @@ Class PipeSecurity from DotNetObject
 		return dnSend("s4:call",nHandle,"s8:GetOwner",dnPackItem(P1))
 
 	Func SetOwner P1
-		dnSend("s4:call",nHandle,"s8:SetOwner",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetOwner",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetOwner",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetGroup P1
 		return dnSend("s4:call",nHandle,"s8:GetGroup",dnPackItem(P1))
 
 	Func SetGroup P1
-		dnSend("s4:call",nHandle,"s8:SetGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetGroup",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetGroup",dnPackItem(P1)) ok
+
 		return self
 
 	Func PurgeAccessRules P1
-		dnSend("s4:call",nHandle,"s16:PurgeAccessRules",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:PurgeAccessRules",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:PurgeAccessRules",dnPackItem(P1)) ok
+
 		return self
 
 	Func PurgeAuditRules P1
-		dnSend("s4:call",nHandle,"s15:PurgeAuditRules",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:PurgeAuditRules",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:PurgeAuditRules",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetAccessRuleProtection P1,P2
-		dnSend("s4:call",nHandle,"s23:SetAccessRuleProtection",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:SetAccessRuleProtection",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:SetAccessRuleProtection",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetAuditRuleProtection P1,P2
-		dnSend("s4:call",nHandle,"s22:SetAuditRuleProtection",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s22:SetAuditRuleProtection",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s22:SetAuditRuleProtection",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetSecurityDescriptorSddlForm P1
-		return dnSend("s4:call",nHandle,"s29:GetSecurityDescriptorSddlForm",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s29:GetSecurityDescriptorSddlForm",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s29:GetSecurityDescriptorSddlForm",[P1]) ok
+		return dn_x
 
 	Func SetSecurityDescriptorSddlForm P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
@@ -369,7 +425,9 @@ Class PipeSecurity from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1)) ok
+
 		return self
 
 	Func ModifyAccessRule P1,P2
@@ -382,13 +440,19 @@ Class PipeSecurity from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func getAccessRightType
 		return dnSend("s3:get",nHandle,"s15:AccessRightType","")
@@ -409,25 +473,33 @@ Class PipeSecurity from DotNetObject
 		raise("DotNet Error: AuditRuleType is a read-only property")
 
 	Func getAreAccessRulesProtected
-		return dnSend("s3:get",nHandle,"s23:AreAccessRulesProtected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:AreAccessRulesProtected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:AreAccessRulesProtected",[]) ok
+		return dn_x
 
 	Func setAreAccessRulesProtected P1
 		raise("DotNet Error: AreAccessRulesProtected is a read-only property")
 
 	Func getAreAuditRulesProtected
-		return dnSend("s3:get",nHandle,"s22:AreAuditRulesProtected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:AreAuditRulesProtected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:AreAuditRulesProtected",[]) ok
+		return dn_x
 
 	Func setAreAuditRulesProtected P1
 		raise("DotNet Error: AreAuditRulesProtected is a read-only property")
 
 	Func getAreAccessRulesCanonical
-		return dnSend("s3:get",nHandle,"s23:AreAccessRulesCanonical","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:AreAccessRulesCanonical")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:AreAccessRulesCanonical",[]) ok
+		return dn_x
 
 	Func setAreAccessRulesCanonical P1
 		raise("DotNet Error: AreAccessRulesCanonical is a read-only property")
 
 	Func getAreAuditRulesCanonical
-		return dnSend("s3:get",nHandle,"s22:AreAuditRulesCanonical","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:AreAuditRulesCanonical")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:AreAuditRulesCanonical",[]) ok
+		return dn_x
 
 	Func setAreAuditRulesCanonical P1
 		raise("DotNet Error: AreAuditRulesCanonical is a read-only property")
@@ -454,23 +526,31 @@ Class PipeStream from Stream
 		return self
 
 	Func WaitForPipeDrain 
-		dnSend("s4:call",nHandle,"s16:WaitForPipeDrain","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:WaitForPipeDrain")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:WaitForPipeDrain","") ok
+
 		return self
 
 	Func getIsConnected
-		return dnSend("s3:get",nHandle,"s11:IsConnected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsConnected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsConnected",[]) ok
+		return dn_x
 
 	Func setIsConnected P1
 		raise("DotNet Error: IsConnected is a read-only property")
 
 	Func getIsAsync
-		return dnSend("s3:get",nHandle,"s7:IsAsync","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getIsMessageComplete
-		return dnSend("s3:get",nHandle,"s17:IsMessageComplete","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsMessageComplete")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsMessageComplete",[]) ok
+		return dn_x
 
 	Func setIsMessageComplete P1
 		raise("DotNet Error: IsMessageComplete is a read-only property")
@@ -488,13 +568,17 @@ Class PipeStream from Stream
 		raise("DotNet Error: TransmissionMode is a read-only property")
 
 	Func getInBufferSize
-		return dnSend("s3:get",nHandle,"s12:InBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:InBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:InBufferSize",[]) ok
+		return dn_x
 
 	Func setInBufferSize P1
 		raise("DotNet Error: InBufferSize is a read-only property")
 
 	Func getOutBufferSize
-		return dnSend("s3:get",nHandle,"s13:OutBufferSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:OutBufferSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:OutBufferSize",[]) ok
+		return dn_x
 
 	Func setOutBufferSize P1
 		raise("DotNet Error: OutBufferSize is a read-only property")
@@ -503,7 +587,8 @@ Class PipeStream from Stream
 		return dnSend("s3:get",nHandle,"s8:ReadMode","")
 
 	Func setReadMode P1
-		dnSend("s3:set",nHandle,"s8:ReadMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:ReadMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:ReadMode",dnPackItem(P1)) ok
 		return self
 
 
@@ -519,13 +604,17 @@ Class PipesAclExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetAccessControl P1
 		return dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:GetAccessControl",dnPackItem(P1))
 
 	Func SetAccessControl P1,P2
-		dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -597,10 +686,14 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		return dnSend("s4:call",nHandle,"s23:GetClientHandleAsString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s23:GetClientHandleAsString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:GetClientHandleAsString",[]) ok
+		return dn_x
 
 	Func DisposeLocalCopyOfClientHandle 
-		dnSend("s4:call",nHandle,"s30:DisposeLocalCopyOfClientHandle","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s30:DisposeLocalCopyOfClientHandle")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s30:DisposeLocalCopyOfClientHandle","") ok
+
 		return self
 
 	Func getClientSafePipeHandle
@@ -646,10 +739,14 @@ Class NamedPipeClientStream from PipeStream
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s7:Connect","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1)) ok
+
 		return self
 
 	Func ConnectAsync P1
@@ -662,7 +759,9 @@ Class NamedPipeClientStream from PipeStream
 		return dnSend("s4:call",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 
 	Func getNumberOfServerInstances
-		return dnSend("s3:get",nHandle,"s23:NumberOfServerInstances","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:NumberOfServerInstances")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:NumberOfServerInstances",[]) ok
+		return dn_x
 
 	Func setNumberOfServerInstances P1
 		raise("DotNet Error: NumberOfServerInstances is a read-only property")
@@ -711,26 +810,38 @@ Class NamedPipeServerStream from PipeStream
 		return dnSend("s4:call",nHandle,"s22:BeginWaitForConnection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndWaitForConnection P1
-		dnSend("s4:call",nHandle,"s20:EndWaitForConnection",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:EndWaitForConnection",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:EndWaitForConnection",dnPackItem(P1)) ok
+
 		return self
 
 	Func WaitForConnection 
-		dnSend("s4:call",nHandle,"s17:WaitForConnection","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:WaitForConnection")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:WaitForConnection","") ok
+
 		return self
 
 	Func Disconnect 
-		dnSend("s4:call",nHandle,"s10:Disconnect","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:Disconnect")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Disconnect","") ok
+
 		return self
 
 	Func GetImpersonationUserName 
-		return dnSend("s4:call",nHandle,"s24:GetImpersonationUserName","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetImpersonationUserName")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:GetImpersonationUserName",[]) ok
+		return dn_x
 
 	Func RunAsClient P1
-		dnSend("s4:call",nHandle,"s11:RunAsClient",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:RunAsClient",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:RunAsClient",dnPackItem(P1)) ok
+
 		return self
 
 	Func getMaxAllowedServerInstances
-		return dnSend("s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"s25:MaxAllowedServerInstances",[]) ok
+		return dn_x
 
 	Func setMaxAllowedServerInstances P1
 		raise("DotNet Error: MaxAllowedServerInstances is a read-only property")

@@ -180,16 +180,22 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[P1]) ok
+		return dn_x
 
 	Func Snapshot P1
 		return dnSend("s4:call",nHandle,"s8:Snapshot",dnPackItem(P1))
@@ -207,7 +213,9 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func getObjectEqualsExpression
 		return dnSend("s3:get",nHandle,"s22:ObjectEqualsExpression","")
@@ -271,14 +279,20 @@ Class ChangeTracker from Object
 		return dnSend("s4:call",nHandle,"s7:Entries","")
 
 	Func HasChanges 
-		return dnSend("s4:call",nHandle,"s10:HasChanges","")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:HasChanges",[]) ok
+		return dn_x
 
 	Func DetectChanges 
-		dnSend("s4:call",nHandle,"s13:DetectChanges","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:DetectChanges")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:DetectChanges","") ok
+
 		return self
 
 	Func AcceptAllChanges 
-		dnSend("s4:call",nHandle,"s16:AcceptAllChanges","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:AcceptAllChanges")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:AcceptAllChanges","") ok
+
 		return self
 
 	Func TrackGraph P1
@@ -289,15 +303,21 @@ Class ChangeTracker from Object
 		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
 
 	Func CascadeChanges 
-		dnSend("s4:call",nHandle,"s14:CascadeChanges","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:CascadeChanges")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:CascadeChanges","") ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setTrackingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Tracking",dnCallback(P1)])
@@ -364,38 +384,47 @@ Class ChangeTracker from Object
 		return self
 
 	Func getAutoDetectChangesEnabled
-		return dnSend("s3:get",nHandle,"s24:AutoDetectChangesEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s24:AutoDetectChangesEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:AutoDetectChangesEnabled",[]) ok
+		return dn_x
 
 	Func setAutoDetectChangesEnabled P1
-		dnSend("s3:set",nHandle,"s24:AutoDetectChangesEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:AutoDetectChangesEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:AutoDetectChangesEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getLazyLoadingEnabled
-		return dnSend("s3:get",nHandle,"s18:LazyLoadingEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:LazyLoadingEnabled",[]) ok
+		return dn_x
 
 	Func setLazyLoadingEnabled P1
-		dnSend("s3:set",nHandle,"s18:LazyLoadingEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:LazyLoadingEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LazyLoadingEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getQueryTrackingBehavior
 		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
 
 	Func setQueryTrackingBehavior P1
-		dnSend("s3:set",nHandle,"s21:QueryTrackingBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:QueryTrackingBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:QueryTrackingBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getDeleteOrphansTiming
 		return dnSend("s3:get",nHandle,"s19:DeleteOrphansTiming","")
 
 	Func setDeleteOrphansTiming P1
-		dnSend("s3:set",nHandle,"s19:DeleteOrphansTiming",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:DeleteOrphansTiming",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DeleteOrphansTiming",dnPackItem(P1)) ok
 		return self
 
 	Func getCascadeDeleteTiming
 		return dnSend("s3:get",nHandle,"s19:CascadeDeleteTiming","")
 
 	Func setCascadeDeleteTiming P1
-		dnSend("s3:set",nHandle,"s19:CascadeDeleteTiming",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:CascadeDeleteTiming",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:CascadeDeleteTiming",dnPackItem(P1)) ok
 		return self
 
 	Func getContext
@@ -448,7 +477,9 @@ Class DetectedChangesEventArgs from EventArgs
 		return self
 
 	Func getChangesFound
-		return dnSend("s3:get",nHandle,"s12:ChangesFound","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ChangesFound")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ChangesFound",[]) ok
+		return dn_x
 
 	Func setChangesFound P1
 		raise("DotNet Error: ChangesFound is a read-only property")
@@ -483,7 +514,9 @@ Class EntityEntry from Object
 		return self
 
 	Func DetectChanges 
-		dnSend("s4:call",nHandle,"s13:DetectChanges","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:DetectChanges")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:DetectChanges","") ok
+
 		return self
 
 	Func Member P1
@@ -517,7 +550,9 @@ Class EntityEntry from Object
 		return dnSend("s4:call",nHandle,"s22:GetDatabaseValuesAsync",dnPackItem(P1))
 
 	Func Reload 
-		dnSend("s4:call",nHandle,"s6:Reload","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Reload")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Reload","") ok
+
 		return self
 
 	Func ReloadAsync P1
@@ -530,7 +565,9 @@ Class EntityEntry from Object
 		return dnSend("s4:call",nHandle,"s11:ReloadAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEntity
 		return dnSend("s3:get",nHandle,"s6:Entity","")
@@ -542,7 +579,8 @@ Class EntityEntry from Object
 		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
-		dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:State",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1)) ok
 		return self
 
 	Func getContext
@@ -594,7 +632,9 @@ Class EntityEntry from Object
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		return dnSend("s3:get",nHandle,"s8:IsKeySet","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsKeySet")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsKeySet",[]) ok
+		return dn_x
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
@@ -661,7 +701,9 @@ Class EntityEntryGraphNode from Object
 		return dnSend("s4:call",nHandle,"s10:CreateNode",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSourceEntry
 		return dnSend("s3:get",nHandle,"s11:SourceEntry","")
@@ -718,7 +760,9 @@ Class IEntityEntryGraphIterator from DotNetObject
 		return self
 
 	Func TraverseGraph P1,P2
-		dnSend("s4:call",nHandle,"s13:TraverseGraph",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:TraverseGraph",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:TraverseGraph",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func TraverseGraphAsync P1
@@ -763,13 +807,18 @@ Class MemberEntry from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsModified
-		return dnSend("s3:get",nHandle,"s10:IsModified","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsModified")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsModified",[]) ok
+		return dn_x
 
 	Func setIsModified P1
-		dnSend("s3:set",nHandle,"s10:IsModified",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsModified",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsModified",dnPackItem(P1)) ok
 		return self
 
 	Func getMetadata
@@ -782,7 +831,8 @@ Class MemberEntry from Object
 		return dnSend("s3:get",nHandle,"s12:CurrentValue","")
 
 	Func setCurrentValue P1
-		dnSend("s3:set",nHandle,"s12:CurrentValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:CurrentValue",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CurrentValue",dnPackItem(P1)) ok
 		return self
 
 	Func getEntityEntry
@@ -810,7 +860,9 @@ Class PropertyValues from Object
 		return dnSend("s4:call",nHandle,"s8:ToObject","")
 
 	Func SetValues P1
-		dnSend("s4:call",nHandle,"s9:SetValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:SetValues",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:SetValues",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clone 
@@ -823,13 +875,16 @@ Class PropertyValues from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getProperties
@@ -867,16 +922,22 @@ Class ValueComparer from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[P1]) ok
+		return dn_x
 
 	Func Snapshot P1
 		return dnSend("s4:call",nHandle,"s8:Snapshot",dnPackItem(P1))
@@ -954,10 +1015,14 @@ Class ValueComparerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func IsDefault P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"s9:IsDefault",[P1]) ok
+		return dn_x
 
 
 Class ComplexPropertyEntry from MemberEntry
@@ -1113,7 +1178,9 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getFromQuery
-		return dnSend("s3:get",nHandle,"s9:FromQuery","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:FromQuery")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:FromQuery",[]) ok
+		return dn_x
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1142,7 +1209,9 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		raise("DotNet Error: State is a read-only property")
 
 	Func getFromQuery
-		return dnSend("s3:get",nHandle,"s9:FromQuery","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:FromQuery")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:FromQuery",[]) ok
+		return dn_x
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1167,10 +1236,14 @@ Class NavigationEntry from MemberEntry
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s4:Load","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1)) ok
+
 		return self
 
 	Func LoadAsync P1
@@ -1186,10 +1259,13 @@ Class NavigationEntry from MemberEntry
 		return dnSend("s4:call",nHandle,"s5:Query","")
 
 	Func getIsLoaded
-		return dnSend("s3:get",nHandle,"s8:IsLoaded","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLoaded",[]) ok
+		return dn_x
 
 	Func setIsLoaded P1
-		dnSend("s3:set",nHandle,"s8:IsLoaded",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:IsLoaded",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:IsLoaded",dnPackItem(P1)) ok
 		return self
 
 
@@ -1210,17 +1286,21 @@ Class PropertyEntry from MemberEntry
 		return self
 
 	Func getIsTemporary
-		return dnSend("s3:get",nHandle,"s11:IsTemporary","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsTemporary")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsTemporary",[]) ok
+		return dn_x
 
 	Func setIsTemporary P1
-		dnSend("s3:set",nHandle,"s11:IsTemporary",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:IsTemporary",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:IsTemporary",dnPackItem(P1)) ok
 		return self
 
 	Func getOriginalValue
 		return dnSend("s3:get",nHandle,"s13:OriginalValue","")
 
 	Func setOriginalValue P1
-		dnSend("s3:set",nHandle,"s13:OriginalValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:OriginalValue",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:OriginalValue",dnPackItem(P1)) ok
 		return self
 
 

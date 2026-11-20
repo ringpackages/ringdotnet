@@ -703,11 +703,15 @@ Class AesCcm from Object
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNonceByteSizes
 		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s14:NonceByteSizes","")
@@ -722,7 +726,9 @@ Class AesCcm from Object
 		raise("DotNet Error: TagByteSizes is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -776,11 +782,15 @@ Class AesGcm from Object
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTagSizeInBytes
 		return dnSend("s3:get",nHandle,"s14:TagSizeInBytes","")
@@ -795,7 +805,9 @@ Class AesGcm from Object
 		raise("DotNet Error: NonceByteSizes is a read-only property")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.AesGcm, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -839,27 +851,35 @@ Class AsnEncodedData from Object
 		return self
 
 	Func CopyFrom P1
-		dnSend("s4:call",nHandle,"s8:CopyFrom",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:CopyFrom",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:CopyFrom",dnPackItem(P1)) ok
+
 		return self
 
 	Func Format P1
-		return dnSend("s4:call",nHandle,"s6:Format",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Format",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Format",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getOid
 		return dnSend("s3:get",nHandle,"s3:Oid","")
 
 	Func setOid P1
-		dnSend("s3:set",nHandle,"s3:Oid",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Oid",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Oid",dnPackItem(P1)) ok
 		return self
 
 	Func getRawData
 		return dnSend("s3:get",nHandle,"s7:RawData","")
 
 	Func setRawData P1
-		dnSend("s3:set",nHandle,"s7:RawData",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:RawData",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RawData",dnPackItem(P1)) ok
 		return self
 
 
@@ -904,33 +924,45 @@ Class AsnEncodedDataCollection from Object
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -956,14 +988,20 @@ Class AsnEncodedDataEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnSend("s4:call",nHandle,"s8:MoveNext","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		return dn_x
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCurrent
 		return dnSend("s3:get",nHandle,"s7:Current","")
@@ -989,18 +1027,26 @@ Class AsymmetricAlgorithm from Object
 		return self
 
 	Func FromXmlString P1
-		dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:FromXmlString",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1)) ok
+
 		return self
 
 	Func ToXmlString P1
-		return dnSend("s4:call",nHandle,"s11:ToXmlString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ToXmlString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ToXmlString",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func ExportPkcs8PrivateKey 
@@ -1010,13 +1056,19 @@ Class AsymmetricAlgorithm from Object
 		return dnSend("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo","")
 
 	Func ExportPkcs8PrivateKeyPem 
-		return dnSend("s4:call",nHandle,"s24:ExportPkcs8PrivateKeyPem","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ExportPkcs8PrivateKeyPem")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ExportPkcs8PrivateKeyPem",[]) ok
+		return dn_x
 
 	Func ExportSubjectPublicKeyInfoPem 
-		return dnSend("s4:call",nHandle,"s29:ExportSubjectPublicKeyInfoPem","")
+		dn_x = dotnet_call("s4:call",nHandle,"s29:ExportSubjectPublicKeyInfoPem")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s29:ExportSubjectPublicKeyInfoPem",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -1028,10 +1080,13 @@ Class AsymmetricAlgorithm from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getKeySize
-		return dnSend("s3:get",nHandle,"s7:KeySize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:KeySize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:KeySize",[]) ok
+		return dn_x
 
 	Func setKeySize P1
-		dnSend("s3:set",nHandle,"s7:KeySize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeySize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeySize",dnPackItem(P1)) ok
 		return self
 
 	Func getLegalKeySizes
@@ -1041,13 +1096,17 @@ Class AsymmetricAlgorithm from Object
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getSignatureAlgorithm
-		return dnSend("s3:get",nHandle,"s18:SignatureAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:SignatureAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:SignatureAlgorithm",[]) ok
+		return dn_x
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnSend("s3:get",nHandle,"s20:KeyExchangeAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:KeyExchangeAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:KeyExchangeAlgorithm",[]) ok
+		return dn_x
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
@@ -1067,20 +1126,27 @@ Class AsymmetricKeyExchangeDeformatter from Object
 		return self
 
 	Func SetKey P1
-		dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:SetKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func DecryptKeyExchange P1
 		return dnSend("s4:call",nHandle,"s18:DecryptKeyExchange",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getParameters
-		return dnSend("s3:get",nHandle,"s10:Parameters","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Parameters")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Parameters",[]) ok
+		return dn_x
 
 	Func setParameters P1
-		dnSend("s3:set",nHandle,"s10:Parameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Parameters",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Parameters",dnPackItem(P1)) ok
 		return self
 
 
@@ -1098,7 +1164,9 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return self
 
 	Func SetKey P1
-		dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:SetKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func CreateKeyExchange P1
@@ -1108,10 +1176,14 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return dnSend("s4:call",nHandle,"s17:CreateKeyExchange",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getParameters
-		return dnSend("s3:get",nHandle,"s10:Parameters","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Parameters")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Parameters",[]) ok
+		return dn_x
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
@@ -1129,18 +1201,26 @@ Class AsymmetricSignatureDeformatter from Object
 		return self
 
 	Func SetKey P1
-		dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:SetKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetHashAlgorithm P1
-		dnSend("s4:call",nHandle,"s16:SetHashAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetHashAlgorithm",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetHashAlgorithm",dnPackItem(P1)) ok
+
 		return self
 
 	Func VerifySignature P1,P2
-		return dnSend("s4:call",nHandle,"s15:VerifySignature",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:VerifySignature",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:VerifySignature",[P1,P2]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class AsymmetricSignatureFormatter from Object
@@ -1155,18 +1235,24 @@ Class AsymmetricSignatureFormatter from Object
 		return self
 
 	Func SetKey P1
-		dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:SetKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:SetKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetHashAlgorithm P1
-		dnSend("s4:call",nHandle,"s16:SetHashAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetHashAlgorithm",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetHashAlgorithm",dnPackItem(P1)) ok
+
 		return self
 
 	Func CreateSignature P1
 		return dnSend("s4:call",nHandle,"s15:CreateSignature",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ChaCha20Poly1305 from Object
@@ -1199,14 +1285,20 @@ Class ChaCha20Poly1305 from Object
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -1242,10 +1334,14 @@ Class CngAlgorithm from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAlgorithm
-		return dnSend("s3:get",nHandle,"s9:Algorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Algorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Algorithm",[]) ok
+		return dn_x
 
 	Func setAlgorithm P1
 		raise("DotNet Error: Algorithm is a read-only property")
@@ -1356,10 +1452,14 @@ Class CngAlgorithmGroup from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAlgorithmGroup
-		return dnSend("s3:get",nHandle,"s14:AlgorithmGroup","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:AlgorithmGroup")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AlgorithmGroup",[]) ok
+		return dn_x
 
 	Func setAlgorithmGroup P1
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
@@ -1422,11 +1522,15 @@ Class CngKey from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Delete 
-		dnSend("s4:call",nHandle,"s6:Delete","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Delete")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Delete","") ok
+
 		return self
 
 	Func Export P1
@@ -1436,14 +1540,20 @@ Class CngKey from Object
 		return dnSend("s4:call",nHandle,"s11:GetProperty",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasProperty P1,P2
-		return dnSend("s4:call",nHandle,"s11:HasProperty",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:HasProperty",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:HasProperty",[P1,P2]) ok
+		return dn_x
 
 	Func SetProperty P1
-		dnSend("s4:call",nHandle,"s11:SetProperty",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetProperty",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetProperty",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -1455,7 +1565,9 @@ Class CngKey from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",[P1]) ok
+		return dn_x
 
 	Func Import_ P1
 		if dnIsNamed(P1)
@@ -1494,25 +1606,33 @@ Class CngKey from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIsEphemeral
-		return dnSend("s3:get",nHandle,"s11:IsEphemeral","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEphemeral")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsEphemeral",[]) ok
+		return dn_x
 
 	Func setIsEphemeral P1
 		raise("DotNet Error: IsEphemeral is a read-only property")
 
 	Func getIsMachineKey
-		return dnSend("s3:get",nHandle,"s12:IsMachineKey","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsMachineKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsMachineKey",[]) ok
+		return dn_x
 
 	Func setIsMachineKey P1
 		raise("DotNet Error: IsMachineKey is a read-only property")
 
 	Func getKeyName
-		return dnSend("s3:get",nHandle,"s7:KeyName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:KeyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:KeyName",[]) ok
+		return dn_x
 
 	Func setKeyName P1
 		raise("DotNet Error: KeyName is a read-only property")
 
 	Func getKeySize
-		return dnSend("s3:get",nHandle,"s7:KeySize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:KeySize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:KeySize",[]) ok
+		return dn_x
 
 	Func setKeySize P1
 		raise("DotNet Error: KeySize is a read-only property")
@@ -1527,7 +1647,8 @@ Class CngKey from Object
 		return dnSend("s3:get",nHandle,"s18:ParentWindowHandle","")
 
 	Func setParentWindowHandle P1
-		dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ParentWindowHandle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1)) ok
 		return self
 
 	Func getProvider
@@ -1549,7 +1670,9 @@ Class CngKey from Object
 		raise("DotNet Error: UIPolicy is a read-only property")
 
 	Func getUniqueName
-		return dnSend("s3:get",nHandle,"s10:UniqueName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:UniqueName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:UniqueName",[]) ok
+		return dn_x
 
 	Func setUniqueName P1
 		raise("DotNet Error: UniqueName is a read-only property")
@@ -1579,10 +1702,14 @@ Class CngKeyBlobFormat from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFormat
-		return dnSend("s3:get",nHandle,"s6:Format","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Format",[]) ok
+		return dn_x
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -1665,27 +1792,32 @@ Class CngKeyCreationParameters from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getExportPolicy
 		return dnSend("s3:get",nHandle,"s12:ExportPolicy","")
 
 	Func setExportPolicy P1
-		dnSend("s3:set",nHandle,"s12:ExportPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ExportPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ExportPolicy",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyCreationOptions
 		return dnSend("s3:get",nHandle,"s18:KeyCreationOptions","")
 
 	Func setKeyCreationOptions P1
-		dnSend("s3:set",nHandle,"s18:KeyCreationOptions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:KeyCreationOptions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:KeyCreationOptions",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyUsage
 		return dnSend("s3:get",nHandle,"s8:KeyUsage","")
 
 	Func setKeyUsage P1
-		dnSend("s3:set",nHandle,"s8:KeyUsage",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:KeyUsage",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:KeyUsage",dnPackItem(P1)) ok
 		return self
 
 	Func getParameters
@@ -1698,21 +1830,24 @@ Class CngKeyCreationParameters from Object
 		return dnSend("s3:get",nHandle,"s18:ParentWindowHandle","")
 
 	Func setParentWindowHandle P1
-		dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ParentWindowHandle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1)) ok
 		return self
 
 	Func getProvider
 		return dnSend("s3:get",nHandle,"s8:Provider","")
 
 	Func setProvider P1
-		dnSend("s3:set",nHandle,"s8:Provider",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Provider",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Provider",dnPackItem(P1)) ok
 		return self
 
 	Func getUIPolicy
 		return dnSend("s3:get",nHandle,"s8:UIPolicy","")
 
 	Func setUIPolicy P1
-		dnSend("s3:set",nHandle,"s8:UIPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:UIPolicy",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:UIPolicy",dnPackItem(P1)) ok
 		return self
 
 
@@ -1759,7 +1894,9 @@ Class CngProperty from ValueType
 		return dnSend("s4:call",nHandle,"s8:GetValue","")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1794,58 +1931,83 @@ Class CngPropertyCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1870,10 +2032,14 @@ Class CngProvider from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProvider
-		return dnSend("s3:get",nHandle,"s8:Provider","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Provider")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Provider",[]) ok
+		return dn_x
 
 	Func setProvider P1
 		raise("DotNet Error: Provider is a read-only property")
@@ -1932,7 +2098,9 @@ Class CngUIPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProtectionLevel
 		return dnSend("s3:get",nHandle,"s15:ProtectionLevel","")
@@ -1941,25 +2109,33 @@ Class CngUIPolicy from Object
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getFriendlyName
-		return dnSend("s3:get",nHandle,"s12:FriendlyName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:FriendlyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FriendlyName",[]) ok
+		return dn_x
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDescription
-		return dnSend("s3:get",nHandle,"s11:Description","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Description",[]) ok
+		return dn_x
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getUseContext
-		return dnSend("s3:get",nHandle,"s10:UseContext","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:UseContext")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:UseContext",[]) ok
+		return dn_x
 
 	Func setUseContext P1
 		raise("DotNet Error: UseContext is a read-only property")
 
 	Func getCreationTitle
-		return dnSend("s3:get",nHandle,"s13:CreationTitle","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:CreationTitle")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:CreationTitle",[]) ok
+		return dn_x
 
 	Func setCreationTitle P1
 		raise("DotNet Error: CreationTitle is a read-only property")
@@ -1988,10 +2164,14 @@ Class CryptoConfig from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddAlgorithm P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:AddAlgorithm",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func CreateFromName P1
@@ -2001,17 +2181,23 @@ Class CryptoConfig from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s14:CreateFromName",dnPackItem(P1))
 
 	Func AddOID P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s6:AddOID",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func MapNameToOID P1
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s12:MapNameToOID",[P1]) ok
+		return dn_x
 
 	Func EncodeOID P1
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s9:EncodeOID",dnPackItem(P1))
 
 	Func getAllowOnlyFipsAlgorithms
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s23:AllowOnlyFipsAlgorithms",[]) ok
+		return dn_x
 
 	Func setAllowOnlyFipsAlgorithms P1
 		raise("DotNet Error: AllowOnlyFipsAlgorithms is a read-only property")
@@ -2048,7 +2234,9 @@ Class CryptoStream from Stream
 		return self
 
 	Func FlushFinalBlock 
-		dnSend("s4:call",nHandle,"s15:FlushFinalBlock","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:FlushFinalBlock")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:FlushFinalBlock","") ok
+
 		return self
 
 	Func FlushFinalBlockAsync P1
@@ -2061,11 +2249,15 @@ Class CryptoStream from Stream
 		return dnSend("s4:call",nHandle,"s20:FlushFinalBlockAsync",dnPackItem(P1))
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func getHasFlushedFinalBlock
-		return dnSend("s3:get",nHandle,"s20:HasFlushedFinalBlock","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:HasFlushedFinalBlock")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:HasFlushedFinalBlock",[]) ok
+		return dn_x
 
 	Func setHasFlushedFinalBlock P1
 		raise("DotNet Error: HasFlushedFinalBlock is a read-only property")
@@ -2083,7 +2275,9 @@ Class CryptographicOperations from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
@@ -2131,28 +2325,38 @@ Class CspKeyContainerInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAccessible
-		return dnSend("s3:get",nHandle,"s10:Accessible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Accessible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Accessible",[]) ok
+		return dn_x
 
 	Func setAccessible P1
 		raise("DotNet Error: Accessible is a read-only property")
 
 	Func getExportable
-		return dnSend("s3:get",nHandle,"s10:Exportable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:Exportable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Exportable",[]) ok
+		return dn_x
 
 	Func setExportable P1
 		raise("DotNet Error: Exportable is a read-only property")
 
 	Func getHardwareDevice
-		return dnSend("s3:get",nHandle,"s14:HardwareDevice","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:HardwareDevice")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:HardwareDevice",[]) ok
+		return dn_x
 
 	Func setHardwareDevice P1
 		raise("DotNet Error: HardwareDevice is a read-only property")
 
 	Func getKeyContainerName
-		return dnSend("s3:get",nHandle,"s16:KeyContainerName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyContainerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:KeyContainerName",[]) ok
+		return dn_x
 
 	Func setKeyContainerName P1
 		raise("DotNet Error: KeyContainerName is a read-only property")
@@ -2164,43 +2368,57 @@ Class CspKeyContainerInfo from Object
 		raise("DotNet Error: KeyNumber is a read-only property")
 
 	Func getMachineKeyStore
-		return dnSend("s3:get",nHandle,"s15:MachineKeyStore","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:MachineKeyStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MachineKeyStore",[]) ok
+		return dn_x
 
 	Func setMachineKeyStore P1
 		raise("DotNet Error: MachineKeyStore is a read-only property")
 
 	Func getProtected
-		return dnSend("s3:get",nHandle,"s9:Protected","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Protected")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Protected",[]) ok
+		return dn_x
 
 	Func setProtected P1
 		raise("DotNet Error: Protected is a read-only property")
 
 	Func getProviderName
-		return dnSend("s3:get",nHandle,"s12:ProviderName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProviderName",[]) ok
+		return dn_x
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getProviderType
-		return dnSend("s3:get",nHandle,"s12:ProviderType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProviderType",[]) ok
+		return dn_x
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getRandomlyGenerated
-		return dnSend("s3:get",nHandle,"s17:RandomlyGenerated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:RandomlyGenerated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:RandomlyGenerated",[]) ok
+		return dn_x
 
 	Func setRandomlyGenerated P1
 		raise("DotNet Error: RandomlyGenerated is a read-only property")
 
 	Func getRemovable
-		return dnSend("s3:get",nHandle,"s9:Removable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Removable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Removable",[]) ok
+		return dn_x
 
 	Func setRemovable P1
 		raise("DotNet Error: Removable is a read-only property")
 
 	Func getUniqueKeyContainerName
-		return dnSend("s3:get",nHandle,"s22:UniqueKeyContainerName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:UniqueKeyContainerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:UniqueKeyContainerName",[]) ok
+		return dn_x
 
 	Func setUniqueKeyContainerName P1
 		raise("DotNet Error: UniqueKeyContainerName is a read-only property")
@@ -2251,55 +2469,72 @@ Class CspParameters from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFlags
 		return dnSend("s3:get",nHandle,"s5:Flags","")
 
 	Func setFlags P1
-		dnSend("s3:set",nHandle,"s5:Flags",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Flags",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Flags",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyPassword
 		return dnSend("s3:get",nHandle,"s11:KeyPassword","")
 
 	Func setKeyPassword P1
-		dnSend("s3:set",nHandle,"s11:KeyPassword",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:KeyPassword",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:KeyPassword",dnPackItem(P1)) ok
 		return self
 
 	Func getParentWindowHandle
 		return dnSend("s3:get",nHandle,"s18:ParentWindowHandle","")
 
 	Func setParentWindowHandle P1
-		dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ParentWindowHandle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ParentWindowHandle",dnPackItem(P1)) ok
 		return self
 
 	Func getProviderType
-		return dnSend("s3:get",nHandle,"s12:ProviderType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProviderType",[]) ok
+		return dn_x
 
 	Func setProviderType P1
-		dnSend("s3:set",nHandle,"s12:ProviderType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ProviderType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ProviderType",dnPackItem(P1)) ok
 		return self
 
 	Func getProviderName
-		return dnSend("s3:get",nHandle,"s12:ProviderName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProviderName",[]) ok
+		return dn_x
 
 	Func setProviderName P1
-		dnSend("s3:set",nHandle,"s12:ProviderName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ProviderName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ProviderName",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyContainerName
-		return dnSend("s3:get",nHandle,"s16:KeyContainerName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyContainerName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:KeyContainerName",[]) ok
+		return dn_x
 
 	Func setKeyContainerName P1
-		dnSend("s3:set",nHandle,"s16:KeyContainerName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:KeyContainerName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:KeyContainerName",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyNumber
-		return dnSend("s3:get",nHandle,"s9:KeyNumber","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:KeyNumber")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:KeyNumber",[]) ok
+		return dn_x
 
 	Func setKeyNumber P1
-		dnSend("s3:set",nHandle,"s9:KeyNumber",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:KeyNumber",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:KeyNumber",dnPackItem(P1)) ok
 		return self
 
 
@@ -2336,56 +2571,66 @@ Class DSAParameters from ValueType
 		return dnSend("s3:get",nHandle,"s1:P","")
 
 	Func setP P1
-		dnSend("s3:set",nHandle,"s1:P",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:P",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:P",dnPackItem(P1)) ok
 		return self
 
 	Func getQ
 		return dnSend("s3:get",nHandle,"s1:Q","")
 
 	Func setQ P1
-		dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Q",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1)) ok
 		return self
 
 	Func getG
 		return dnSend("s3:get",nHandle,"s1:G","")
 
 	Func setG P1
-		dnSend("s3:set",nHandle,"s1:G",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:G",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:G",dnPackItem(P1)) ok
 		return self
 
 	Func getY
 		return dnSend("s3:get",nHandle,"s1:Y","")
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 	Func getJ
 		return dnSend("s3:get",nHandle,"s1:J","")
 
 	Func setJ P1
-		dnSend("s3:set",nHandle,"s1:J",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:J",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:J",dnPackItem(P1)) ok
 		return self
 
 	Func getX
 		return dnSend("s3:get",nHandle,"s1:X","")
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getSeed
 		return dnSend("s3:get",nHandle,"s4:Seed","")
 
 	Func setSeed P1
-		dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Seed",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1)) ok
 		return self
 
 	Func getCounter
-		return dnSend("s3:get",nHandle,"s7:Counter","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Counter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Counter",[]) ok
+		return dn_x
 
 	Func setCounter P1
-		dnSend("s3:set",nHandle,"s7:Counter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Counter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Counter",dnPackItem(P1)) ok
 		return self
 
 
@@ -2404,15 +2649,21 @@ Class DeriveBytes from Object
 		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1))
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ECCurve from ValueType
@@ -2452,7 +2703,9 @@ Class ECCurve from ValueType
 		return self
 
 	Func Validate 
-		dnSend("s4:call",nHandle,"s8:Validate","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Validate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Validate","") ok
+
 		return self
 
 	Func CreateFromOid P1
@@ -2471,25 +2724,33 @@ Class ECCurve from ValueType
 		raise("DotNet Error: Oid is a read-only property")
 
 	Func getIsPrime
-		return dnSend("s3:get",nHandle,"s7:IsPrime","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsPrime")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsPrime",[]) ok
+		return dn_x
 
 	Func setIsPrime P1
 		raise("DotNet Error: IsPrime is a read-only property")
 
 	Func getIsCharacteristic2
-		return dnSend("s3:get",nHandle,"s17:IsCharacteristic2","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsCharacteristic2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsCharacteristic2",[]) ok
+		return dn_x
 
 	Func setIsCharacteristic2 P1
 		raise("DotNet Error: IsCharacteristic2 is a read-only property")
 
 	Func getIsExplicit
-		return dnSend("s3:get",nHandle,"s10:IsExplicit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsExplicit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsExplicit",[]) ok
+		return dn_x
 
 	Func setIsExplicit P1
 		raise("DotNet Error: IsExplicit is a read-only property")
 
 	Func getIsNamed
-		return dnSend("s3:get",nHandle,"s7:IsNamed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsNamed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsNamed",[]) ok
+		return dn_x
 
 	Func setIsNamed P1
 		raise("DotNet Error: IsNamed is a read-only property")
@@ -2498,70 +2759,80 @@ Class ECCurve from ValueType
 		return dnSend("s3:get",nHandle,"s1:A","")
 
 	Func setA P1
-		dnSend("s3:set",nHandle,"s1:A",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:A",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:A",dnPackItem(P1)) ok
 		return self
 
 	Func getB
 		return dnSend("s3:get",nHandle,"s1:B","")
 
 	Func setB P1
-		dnSend("s3:set",nHandle,"s1:B",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:B",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:B",dnPackItem(P1)) ok
 		return self
 
 	Func getG
 		return dnSend("s3:get",nHandle,"s1:G","")
 
 	Func setG P1
-		dnSend("s3:set",nHandle,"s1:G",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:G",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:G",dnPackItem(P1)) ok
 		return self
 
 	Func getOrder
 		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
-		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1)) ok
 		return self
 
 	Func getCofactor
 		return dnSend("s3:get",nHandle,"s8:Cofactor","")
 
 	Func setCofactor P1
-		dnSend("s3:set",nHandle,"s8:Cofactor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Cofactor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Cofactor",dnPackItem(P1)) ok
 		return self
 
 	Func getSeed
 		return dnSend("s3:get",nHandle,"s4:Seed","")
 
 	Func setSeed P1
-		dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Seed",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1)) ok
 		return self
 
 	Func getCurveType
 		return dnSend("s3:get",nHandle,"s9:CurveType","")
 
 	Func setCurveType P1
-		dnSend("s3:set",nHandle,"s9:CurveType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:CurveType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:CurveType",dnPackItem(P1)) ok
 		return self
 
 	Func getHash
 		return dnSend("s3:get",nHandle,"s4:Hash","")
 
 	Func setHash P1
-		dnSend("s3:set",nHandle,"s4:Hash",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Hash",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Hash",dnPackItem(P1)) ok
 		return self
 
 	Func getPolynomial
 		return dnSend("s3:get",nHandle,"s10:Polynomial","")
 
 	Func setPolynomial P1
-		dnSend("s3:set",nHandle,"s10:Polynomial",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Polynomial",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Polynomial",dnPackItem(P1)) ok
 		return self
 
 	Func getPrime
 		return dnSend("s3:get",nHandle,"s5:Prime","")
 
 	Func setPrime P1
-		dnSend("s3:set",nHandle,"s5:Prime",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Prime",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Prime",dnPackItem(P1)) ok
 		return self
 
 
@@ -2577,14 +2848,18 @@ Class ECDiffieHellmanPublicKey from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func ToByteArray 
 		return dnSend("s4:call",nHandle,"s11:ToByteArray","")
 
 	Func ToXmlString 
-		return dnSend("s4:call",nHandle,"s11:ToXmlString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ToXmlString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ToXmlString",[]) ok
+		return dn_x
 
 	Func ExportParameters 
 		return dnSend("s4:call",nHandle,"s16:ExportParameters","")
@@ -2596,7 +2871,9 @@ Class ECDiffieHellmanPublicKey from Object
 		return dnSend("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ECParameters from ValueType
@@ -2624,28 +2901,33 @@ Class ECParameters from ValueType
 		return self
 
 	Func Validate 
-		dnSend("s4:call",nHandle,"s8:Validate","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Validate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Validate","") ok
+
 		return self
 
 	Func getQ
 		return dnSend("s3:get",nHandle,"s1:Q","")
 
 	Func setQ P1
-		dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Q",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1)) ok
 		return self
 
 	Func getD
 		return dnSend("s3:get",nHandle,"s1:D","")
 
 	Func setD P1
-		dnSend("s3:set",nHandle,"s1:D",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:D",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:D",dnPackItem(P1)) ok
 		return self
 
 	Func getCurve
 		return dnSend("s3:get",nHandle,"s5:Curve","")
 
 	Func setCurve P1
-		dnSend("s3:set",nHandle,"s5:Curve",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Curve",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Curve",dnPackItem(P1)) ok
 		return self
 
 
@@ -2676,14 +2958,16 @@ Class ECPoint from ValueType
 		return dnSend("s3:get",nHandle,"s1:X","")
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
 		return dnSend("s3:get",nHandle,"s1:Y","")
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 
@@ -2729,42 +3013,58 @@ Class FromBase64Transform from Object
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s14:TransformBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:TransformBlock",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TransformBlock",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
 		return dnSend("s4:call",nHandle,"s19:TransformFinalBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInputBlockSize
-		return dnSend("s3:get",nHandle,"s14:InputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InputBlockSize",[]) ok
+		return dn_x
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnSend("s3:get",nHandle,"s15:OutputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:OutputBlockSize",[]) ok
+		return dn_x
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnSend("s3:get",nHandle,"s26:CanTransformMultipleBlocks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CanTransformMultipleBlocks",[]) ok
+		return dn_x
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnSend("s3:get",nHandle,"s17:CanReuseTransform","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CanReuseTransform",[]) ok
+		return dn_x
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -2782,7 +3082,9 @@ Class HKDF from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Extract P1
 		if dnIsNamed(P1)
@@ -2834,25 +3136,35 @@ Class HashAlgorithm from Object
 		return dnSend("s4:call",nHandle,"s16:ComputeHashAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s14:TransformBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:TransformBlock",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TransformBlock",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
 		return dnSend("s4:call",nHandle,"s19:TransformFinalBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Initialize 
-		dnSend("s4:call",nHandle,"s10:Initialize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -2864,7 +3176,9 @@ Class HashAlgorithm from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getHashSize
-		return dnSend("s3:get",nHandle,"s8:HashSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HashSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HashSize",[]) ok
+		return dn_x
 
 	Func setHashSize P1
 		raise("DotNet Error: HashSize is a read-only property")
@@ -2876,25 +3190,33 @@ Class HashAlgorithm from Object
 		raise("DotNet Error: Hash is a read-only property")
 
 	Func getInputBlockSize
-		return dnSend("s3:get",nHandle,"s14:InputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InputBlockSize",[]) ok
+		return dn_x
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnSend("s3:get",nHandle,"s15:OutputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:OutputBlockSize",[]) ok
+		return dn_x
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnSend("s3:get",nHandle,"s26:CanTransformMultipleBlocks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CanTransformMultipleBlocks",[]) ok
+		return dn_x
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnSend("s3:get",nHandle,"s17:CanReuseTransform","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CanReuseTransform",[]) ok
+		return dn_x
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -2953,7 +3275,9 @@ Class HashAlgorithmName from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s7:FromOid",dnPackItem(P1))
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3024,31 +3348,41 @@ Class ICryptoTransform from DotNetObject
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s14:TransformBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:TransformBlock",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TransformBlock",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
 		return dnSend("s4:call",nHandle,"s19:TransformFinalBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getInputBlockSize
-		return dnSend("s3:get",nHandle,"s14:InputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InputBlockSize",[]) ok
+		return dn_x
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnSend("s3:get",nHandle,"s15:OutputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:OutputBlockSize",[]) ok
+		return dn_x
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnSend("s3:get",nHandle,"s26:CanTransformMultipleBlocks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CanTransformMultipleBlocks",[]) ok
+		return dn_x
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnSend("s3:get",nHandle,"s17:CanReuseTransform","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CanReuseTransform",[]) ok
+		return dn_x
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -3071,7 +3405,9 @@ Class ICspAsymmetricAlgorithm from DotNetObject
 		return dnSend("s4:call",nHandle,"s13:ExportCspBlob",dnPackItem(P1))
 
 	Func ImportCspBlob P1
-		dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1)) ok
+
 		return self
 
 	Func getCspKeyContainerInfo
@@ -3100,7 +3436,9 @@ Class IncrementalHash from Object
 			dnSend("s9:callnamed",nHandle,"s10:AppendData",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset 
@@ -3113,11 +3451,15 @@ Class IncrementalHash from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateHash P1
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"s10:CreateHash",dnPackItem(P1))
@@ -3126,7 +3468,9 @@ Class IncrementalHash from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"s10:CreateHMAC",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getHashLengthInBytes
-		return dnSend("s3:get",nHandle,"s17:HashLengthInBytes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:HashLengthInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:HashLengthInBytes",[]) ok
+		return dn_x
 
 	Func setHashLengthInBytes P1
 		raise("DotNet Error: HashLengthInBytes is a read-only property")
@@ -3156,22 +3500,30 @@ Class KeySizes from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMinSize
-		return dnSend("s3:get",nHandle,"s7:MinSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:MinSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:MinSize",[]) ok
+		return dn_x
 
 	Func setMinSize P1
 		raise("DotNet Error: MinSize is a read-only property")
 
 	Func getMaxSize
-		return dnSend("s3:get",nHandle,"s7:MaxSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:MaxSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:MaxSize",[]) ok
+		return dn_x
 
 	Func setMaxSize P1
 		raise("DotNet Error: MaxSize is a read-only property")
 
 	Func getSkipSize
-		return dnSend("s3:get",nHandle,"s8:SkipSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:SkipSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:SkipSize",[]) ok
+		return dn_x
 
 	Func setSkipSize P1
 		raise("DotNet Error: SkipSize is a read-only property")
@@ -3208,7 +3560,9 @@ Class Kmac128 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -3221,11 +3575,15 @@ Class Kmac128 from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1
 		if dnIsNamed(P1)
@@ -3240,7 +3598,9 @@ Class Kmac128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3277,7 +3637,9 @@ Class Kmac256 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -3290,11 +3652,15 @@ Class Kmac256 from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1
 		if dnIsNamed(P1)
@@ -3309,7 +3675,9 @@ Class Kmac256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3346,7 +3714,9 @@ Class KmacXof128 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -3359,11 +3729,15 @@ Class KmacXof128 from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1
 		if dnIsNamed(P1)
@@ -3378,7 +3752,9 @@ Class KmacXof128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3415,7 +3791,9 @@ Class KmacXof256 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -3428,11 +3806,15 @@ Class KmacXof256 from Object
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1
 		if dnIsNamed(P1)
@@ -3447,7 +3829,9 @@ Class KmacXof256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3468,7 +3852,9 @@ Class MaskGenerationMethod from Object
 		return dnSend("s4:call",nHandle,"s12:GenerateMask",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class Oid from Object
@@ -3511,7 +3897,9 @@ Class Oid from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func FromFriendlyName P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Oid, System.Security.Cryptography'),"s16:FromFriendlyName",dnPackItem(P1) + dnPackItem(P2))
@@ -3520,17 +3908,23 @@ Class Oid from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Oid, System.Security.Cryptography'),"s12:FromOidValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getFriendlyName
-		return dnSend("s3:get",nHandle,"s12:FriendlyName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:FriendlyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FriendlyName",[]) ok
+		return dn_x
 
 	Func setFriendlyName P1
-		dnSend("s3:set",nHandle,"s12:FriendlyName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:FriendlyName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FriendlyName",dnPackItem(P1)) ok
 		return self
 
 
@@ -3559,29 +3953,39 @@ Class OidCollection from Object
 		return self
 
 	Func Add P1
-		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3607,14 +4011,20 @@ Class OidEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnSend("s4:call",nHandle,"s8:MoveNext","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		return dn_x
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCurrent
 		return dnSend("s3:get",nHandle,"s7:Current","")
@@ -3641,7 +4051,9 @@ Class PbeParameters from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEncryptionAlgorithm
 		return dnSend("s3:get",nHandle,"s19:EncryptionAlgorithm","")
@@ -3656,7 +4068,9 @@ Class PbeParameters from Object
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dnSend("s3:get",nHandle,"s14:IterationCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IterationCount",[]) ok
+		return dn_x
 
 	Func setIterationCount P1
 		raise("DotNet Error: IterationCount is a read-only property")
@@ -3674,10 +4088,14 @@ Class PemEncoding from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetEncodedSize P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s14:GetEncodedSize",[P1,P2]) ok
+		return dn_x
 
 
 Class PemFields from ValueType
@@ -3724,7 +4142,9 @@ Class PemFields from ValueType
 		raise("DotNet Error: Base64Data is a read-only property")
 
 	Func getDecodedDataLength
-		return dnSend("s3:get",nHandle,"s17:DecodedDataLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:DecodedDataLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DecodedDataLength",[]) ok
+		return dn_x
 
 	Func setDecodedDataLength P1
 		raise("DotNet Error: DecodedDataLength is a read-only property")
@@ -3753,7 +4173,9 @@ Class RSAEncryptionPadding from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateOaep P1
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"s10:CreateOaep",dnPackItem(P1))
@@ -3852,56 +4274,64 @@ Class RSAParameters from ValueType
 		return dnSend("s3:get",nHandle,"s1:D","")
 
 	Func setD P1
-		dnSend("s3:set",nHandle,"s1:D",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:D",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:D",dnPackItem(P1)) ok
 		return self
 
 	Func getDP
 		return dnSend("s3:get",nHandle,"s2:DP","")
 
 	Func setDP P1
-		dnSend("s3:set",nHandle,"s2:DP",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:DP",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:DP",dnPackItem(P1)) ok
 		return self
 
 	Func getDQ
 		return dnSend("s3:get",nHandle,"s2:DQ","")
 
 	Func setDQ P1
-		dnSend("s3:set",nHandle,"s2:DQ",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:DQ",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:DQ",dnPackItem(P1)) ok
 		return self
 
 	Func getExponent
 		return dnSend("s3:get",nHandle,"s8:Exponent","")
 
 	Func setExponent P1
-		dnSend("s3:set",nHandle,"s8:Exponent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Exponent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Exponent",dnPackItem(P1)) ok
 		return self
 
 	Func getInverseQ
 		return dnSend("s3:get",nHandle,"s8:InverseQ","")
 
 	Func setInverseQ P1
-		dnSend("s3:set",nHandle,"s8:InverseQ",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:InverseQ",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:InverseQ",dnPackItem(P1)) ok
 		return self
 
 	Func getModulus
 		return dnSend("s3:get",nHandle,"s7:Modulus","")
 
 	Func setModulus P1
-		dnSend("s3:set",nHandle,"s7:Modulus",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Modulus",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Modulus",dnPackItem(P1)) ok
 		return self
 
 	Func getP
 		return dnSend("s3:get",nHandle,"s1:P","")
 
 	Func setP P1
-		dnSend("s3:set",nHandle,"s1:P",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:P",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:P",dnPackItem(P1)) ok
 		return self
 
 	Func getQ
 		return dnSend("s3:get",nHandle,"s1:Q","")
 
 	Func setQ P1
-		dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Q",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Q",dnPackItem(P1)) ok
 		return self
 
 
@@ -3921,7 +4351,9 @@ Class RSASignaturePadding from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMode
 		return dnSend("s3:get",nHandle,"s4:Mode","")
@@ -3954,7 +4386,9 @@ Class RandomNumberGenerator from Object
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func GetBytes P1
@@ -3967,15 +4401,21 @@ Class RandomNumberGenerator from Object
 		if nHandle = 0
 			return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetBytes",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:GetBytes",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetNonZeroBytes P1
-		dnSend("s4:call",nHandle,"s15:GetNonZeroBytes",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:GetNonZeroBytes",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:GetNonZeroBytes",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -3990,13 +4430,17 @@ Class RandomNumberGenerator from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",[P1]) ok
+		return dn_x
 
 	Func GetHexString P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",[P1]) ok
+		return dn_x
 
 
 Class SP800108HmacCounterKdf from Object
@@ -4016,11 +4460,15 @@ Class SP800108HmacCounterKdf from Object
 		return dnSend("s4:call",nHandle,"s9:DeriveKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func DeriveBytes P1,P2,P3,P4,P5
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SP800108HmacCounterKdf, System.Security.Cryptography'),"s11:DeriveBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
@@ -4077,7 +4525,9 @@ Class SafeEvpPKeyHandle from SafeHandle
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s19:OpenKeyFromProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOpenSslVersion
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"s14:OpenSslVersion",[]) ok
+		return dn_x
 
 	Func setOpenSslVersion P1
 		raise("DotNet Error: OpenSslVersion is a read-only property")
@@ -4106,7 +4556,9 @@ Class Shake128 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -4119,18 +4571,24 @@ Class Shake128 from Object
 		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Clone 
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
@@ -4142,7 +4600,9 @@ Class Shake128 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -4171,7 +4631,9 @@ Class Shake256 from Object
 		return self
 
 	Func AppendData P1
-		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetHashAndReset P1
@@ -4184,18 +4646,24 @@ Class Shake256 from Object
 		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func Clone 
 		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func HashData P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1) + dnPackItem(P2))
@@ -4207,7 +4675,9 @@ Class Shake256 from Object
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -4264,34 +4734,48 @@ Class SignatureDescription from Object
 		return dnSend("s4:call",nHandle,"s12:CreateDigest","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getKeyAlgorithm
-		return dnSend("s3:get",nHandle,"s12:KeyAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:KeyAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:KeyAlgorithm",[]) ok
+		return dn_x
 
 	Func setKeyAlgorithm P1
-		dnSend("s3:set",nHandle,"s12:KeyAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:KeyAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:KeyAlgorithm",dnPackItem(P1)) ok
 		return self
 
 	Func getDigestAlgorithm
-		return dnSend("s3:get",nHandle,"s15:DigestAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:DigestAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:DigestAlgorithm",[]) ok
+		return dn_x
 
 	Func setDigestAlgorithm P1
-		dnSend("s3:set",nHandle,"s15:DigestAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:DigestAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DigestAlgorithm",dnPackItem(P1)) ok
 		return self
 
 	Func getFormatterAlgorithm
-		return dnSend("s3:get",nHandle,"s18:FormatterAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:FormatterAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:FormatterAlgorithm",[]) ok
+		return dn_x
 
 	Func setFormatterAlgorithm P1
-		dnSend("s3:set",nHandle,"s18:FormatterAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:FormatterAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:FormatterAlgorithm",dnPackItem(P1)) ok
 		return self
 
 	Func getDeformatterAlgorithm
-		return dnSend("s3:get",nHandle,"s20:DeformatterAlgorithm","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:DeformatterAlgorithm")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:DeformatterAlgorithm",[]) ok
+		return dn_x
 
 	Func setDeformatterAlgorithm P1
-		dnSend("s3:set",nHandle,"s20:DeformatterAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:DeformatterAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:DeformatterAlgorithm",dnPackItem(P1)) ok
 		return self
 
 
@@ -4335,38 +4819,54 @@ Class SymmetricAlgorithm from Object
 		raise("DotNet Error: CreateEncryptor does not take one argument: use named arguments, CreateEncryptor([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func GenerateIV 
-		dnSend("s4:call",nHandle,"s10:GenerateIV","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:GenerateIV")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:GenerateIV","") ok
+
 		return self
 
 	Func GenerateKey 
-		dnSend("s4:call",nHandle,"s11:GenerateKey","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:GenerateKey")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:GenerateKey","") ok
+
 		return self
 
 	Func ValidKeySize P1
-		return dnSend("s4:call",nHandle,"s12:ValidKeySize",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ValidKeySize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ValidKeySize",[P1]) ok
+		return dn_x
 
 	Func GetCiphertextLengthEcb P1,P2
-		return dnSend("s4:call",nHandle,"s22:GetCiphertextLengthEcb",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetCiphertextLengthEcb",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GetCiphertextLengthEcb",[P1,P2]) ok
+		return dn_x
 
 	Func GetCiphertextLengthCbc P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s22:GetCiphertextLengthCbc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s22:GetCiphertextLengthCbc",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetCiphertextLengthCbc",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GetCiphertextLengthCbc",[P1]) ok
+		return dn_x
 
 	Func GetCiphertextLengthCfb P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s22:GetCiphertextLengthCfb",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s22:GetCiphertextLengthCfb",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetCiphertextLengthCfb",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GetCiphertextLengthCfb",[P1]) ok
+		return dn_x
 
 	Func DecryptEcb P1,P2
 		return dnSend("s4:call",nHandle,"s10:DecryptEcb",dnPackItem(P1) + dnPackItem(P2))
@@ -4399,7 +4899,9 @@ Class SymmetricAlgorithm from Object
 		raise("DotNet Error: EncryptCfb does not take one argument: use named arguments, EncryptCfb([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -4411,38 +4913,49 @@ Class SymmetricAlgorithm from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getFeedbackSize
-		return dnSend("s3:get",nHandle,"s12:FeedbackSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:FeedbackSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FeedbackSize",[]) ok
+		return dn_x
 
 	Func setFeedbackSize P1
-		dnSend("s3:set",nHandle,"s12:FeedbackSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:FeedbackSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FeedbackSize",dnPackItem(P1)) ok
 		return self
 
 	Func getBlockSize
-		return dnSend("s3:get",nHandle,"s9:BlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:BlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:BlockSize",[]) ok
+		return dn_x
 
 	Func setBlockSize P1
-		dnSend("s3:set",nHandle,"s9:BlockSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:BlockSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:BlockSize",dnPackItem(P1)) ok
 		return self
 
 	Func getIV
 		return dnSend("s3:get",nHandle,"s2:IV","")
 
 	Func setIV P1
-		dnSend("s3:set",nHandle,"s2:IV",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:IV",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:IV",dnPackItem(P1)) ok
 		return self
 
 	Func getKey
 		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
-		dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1)) ok
 		return self
 
 	Func getKeySize
-		return dnSend("s3:get",nHandle,"s7:KeySize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:KeySize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:KeySize",[]) ok
+		return dn_x
 
 	Func setKeySize P1
-		dnSend("s3:set",nHandle,"s7:KeySize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:KeySize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:KeySize",dnPackItem(P1)) ok
 		return self
 
 	Func getLegalBlockSizes
@@ -4461,14 +4974,16 @@ Class SymmetricAlgorithm from Object
 		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1)) ok
 		return self
 
 	Func getPadding
 		return dnSend("s3:get",nHandle,"s7:Padding","")
 
 	Func setPadding P1
-		dnSend("s3:set",nHandle,"s7:Padding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Padding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Padding",dnPackItem(P1)) ok
 		return self
 
 
@@ -4498,42 +5013,58 @@ Class ToBase64Transform from Object
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s14:TransformBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:TransformBlock",P1,P2,P3,P4,P5)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TransformBlock",[P1,P2,P3,P4,P5]) ok
+		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
 		return dnSend("s4:call",nHandle,"s19:TransformFinalBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInputBlockSize
-		return dnSend("s3:get",nHandle,"s14:InputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InputBlockSize",[]) ok
+		return dn_x
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnSend("s3:get",nHandle,"s15:OutputBlockSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:OutputBlockSize",[]) ok
+		return dn_x
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnSend("s3:get",nHandle,"s26:CanTransformMultipleBlocks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:CanTransformMultipleBlocks",[]) ok
+		return dn_x
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnSend("s3:get",nHandle,"s17:CanReuseTransform","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:CanReuseTransform",[]) ok
+		return dn_x
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -4581,10 +5112,14 @@ Class DES from SymmetricAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s9:IsWeakKey",[P1]) ok
+		return dn_x
 
 	Func IsSemiWeakKey P1
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s13:IsSemiWeakKey",[P1]) ok
+		return dn_x
 
 
 Class DSA from AsymmetricAlgorithm
@@ -4602,7 +5137,9 @@ Class DSA from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s16:ExportParameters",dnPackItem(P1))
 
 	Func ImportParameters P1
-		dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1)) ok
+
 		return self
 
 	Func CreateSignature P1
@@ -4630,7 +5167,9 @@ Class DSA from AsymmetricAlgorithm
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
 	Func GetMaxSignatureSize P1
-		return dnSend("s4:call",nHandle,"s19:GetMaxSignatureSize",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetMaxSignatureSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:GetMaxSignatureSize",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -4734,18 +5273,24 @@ Class ECAlgorithm from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s24:ExportExplicitParameters",dnPackItem(P1))
 
 	Func ImportParameters P1
-		dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1)) ok
+
 		return self
 
 	Func GenerateKey P1
-		dnSend("s4:call",nHandle,"s11:GenerateKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:GenerateKey",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:GenerateKey",dnPackItem(P1)) ok
+
 		return self
 
 	Func ExportECPrivateKey 
 		return dnSend("s4:call",nHandle,"s18:ExportECPrivateKey","")
 
 	Func ExportECPrivateKeyPem 
-		return dnSend("s4:call",nHandle,"s21:ExportECPrivateKeyPem","")
+		dn_x = dotnet_call("s4:call",nHandle,"s21:ExportECPrivateKeyPem")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:ExportECPrivateKeyPem",[]) ok
+		return dn_x
 
 
 Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
@@ -4803,7 +5348,8 @@ Class KeyedHashAlgorithm from HashAlgorithm
 		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
-		dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1)) ok
 		return self
 
 
@@ -4840,13 +5386,17 @@ Class MD5 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -4875,10 +5425,13 @@ Class PKCS1MaskGenerationMethod from MaskGenerationMethod
 		return self
 
 	Func getHashName
-		return dnSend("s3:get",nHandle,"s8:HashName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HashName",[]) ok
+		return dn_x
 
 	Func setHashName P1
-		dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1)) ok
 		return self
 
 
@@ -4918,24 +5471,31 @@ Class PasswordDeriveBytes from DeriveBytes
 		return dnSend("s4:call",nHandle,"s14:CryptDeriveKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getHashName
-		return dnSend("s3:get",nHandle,"s8:HashName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HashName",[]) ok
+		return dn_x
 
 	Func setHashName P1
-		dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1)) ok
 		return self
 
 	Func getIterationCount
-		return dnSend("s3:get",nHandle,"s14:IterationCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IterationCount",[]) ok
+		return dn_x
 
 	Func setIterationCount P1
-		dnSend("s3:set",nHandle,"s14:IterationCount",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:IterationCount",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:IterationCount",dnPackItem(P1)) ok
 		return self
 
 	Func getSalt
 		return dnSend("s3:get",nHandle,"s4:Salt","")
 
 	Func setSalt P1
-		dnSend("s3:set",nHandle,"s4:Salt",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Salt",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Salt",dnPackItem(P1)) ok
 		return self
 
 
@@ -4962,10 +5522,13 @@ Class RC2 from SymmetricAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RC2, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getEffectiveKeySize
-		return dnSend("s3:get",nHandle,"s16:EffectiveKeySize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:EffectiveKeySize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:EffectiveKeySize",[]) ok
+		return dn_x
 
 	Func setEffectiveKeySize P1
-		dnSend("s3:set",nHandle,"s16:EffectiveKeySize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:EffectiveKeySize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:EffectiveKeySize",dnPackItem(P1)) ok
 		return self
 
 
@@ -4981,13 +5544,17 @@ Class RSA from AsymmetricAlgorithm
 		return self
 
 	Func GetMaxOutputSize 
-		return dnSend("s4:call",nHandle,"s16:GetMaxOutputSize","")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetMaxOutputSize")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:GetMaxOutputSize",[]) ok
+		return dn_x
 
 	Func ExportParameters P1
 		return dnSend("s4:call",nHandle,"s16:ExportParameters",dnPackItem(P1))
 
 	Func ImportParameters P1
-		dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ImportParameters",dnPackItem(P1)) ok
+
 		return self
 
 	Func Encrypt P1,P2
@@ -5000,7 +5567,9 @@ Class RSA from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s8:SignHash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func VerifyHash P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s10:VerifyHash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:VerifyHash",P1,P2,P3,P4)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:VerifyHash",[P1,P2,P3,P4]) ok
+		return dn_x
 
 	Func DecryptValue P1
 		return dnSend("s4:call",nHandle,"s12:DecryptValue",dnPackItem(P1))
@@ -5027,10 +5596,14 @@ Class RSA from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s18:ExportRSAPublicKey","")
 
 	Func ExportRSAPrivateKeyPem 
-		return dnSend("s4:call",nHandle,"s22:ExportRSAPrivateKeyPem","")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:ExportRSAPrivateKeyPem")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:ExportRSAPrivateKeyPem",[]) ok
+		return dn_x
 
 	Func ExportRSAPublicKeyPem 
-		return dnSend("s4:call",nHandle,"s21:ExportRSAPublicKeyPem","")
+		dn_x = dotnet_call("s4:call",nHandle,"s21:ExportRSAPublicKeyPem")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:ExportRSAPublicKeyPem",[]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -5122,14 +5695,16 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		return dnSend("s3:get",nHandle,"s9:Parameter","")
 
 	Func setParameter P1
-		dnSend("s3:set",nHandle,"s9:Parameter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Parameter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Parameter",dnPackItem(P1)) ok
 		return self
 
 	Func getRng
 		return dnSend("s3:get",nHandle,"s3:Rng","")
 
 	Func setRng P1
-		dnSend("s3:set",nHandle,"s3:Rng",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Rng",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Rng",dnPackItem(P1)) ok
 		return self
 
 
@@ -5175,7 +5750,8 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		return dnSend("s3:get",nHandle,"s3:RNG","")
 
 	Func setRNG P1
-		dnSend("s3:set",nHandle,"s3:RNG",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:RNG",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:RNG",dnPackItem(P1)) ok
 		return self
 
 
@@ -5221,7 +5797,8 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		return dnSend("s3:get",nHandle,"s3:Rng","")
 
 	Func setRng P1
-		dnSend("s3:set",nHandle,"s3:Rng",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Rng",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Rng",dnPackItem(P1)) ok
 		return self
 
 
@@ -5344,17 +5921,21 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dnSend("s3:get",nHandle,"s14:IterationCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IterationCount",[]) ok
+		return dn_x
 
 	Func setIterationCount P1
-		dnSend("s3:set",nHandle,"s14:IterationCount",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:IterationCount",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:IterationCount",dnPackItem(P1)) ok
 		return self
 
 	Func getSalt
 		return dnSend("s3:get",nHandle,"s4:Salt","")
 
 	Func setSalt P1
-		dnSend("s3:set",nHandle,"s4:Salt",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Salt",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Salt",dnPackItem(P1)) ok
 		return self
 
 
@@ -5391,13 +5972,17 @@ Class SHA1 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5436,13 +6021,17 @@ Class SHA256 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5481,13 +6070,17 @@ Class SHA384 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5521,19 +6114,25 @@ Class SHA3_256 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5567,19 +6166,25 @@ Class SHA3_384 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5613,19 +6218,25 @@ Class SHA3_512 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5664,13 +6275,17 @@ Class SHA512 from HashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -5697,7 +6312,9 @@ Class TripleDES from SymmetricAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func IsWeakKey P1
-		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s9:IsWeakKey",[P1]) ok
+		return dn_x
 
 
 Class AesCng from Aes
@@ -5827,7 +6444,9 @@ Class DSACryptoServiceProvider from DSA
 		return dnSend("s4:call",nHandle,"s13:ExportCspBlob",dnPackItem(P1))
 
 	Func ImportCspBlob P1
-		dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1)) ok
+
 		return self
 
 	Func SignData P1
@@ -5840,7 +6459,9 @@ Class DSACryptoServiceProvider from DSA
 		return dnSend("s4:call",nHandle,"s8:SignHash",dnPackItem(P1) + dnPackItem(P2))
 
 	Func VerifyHash P1,P2,P3
-		return dnSend("s4:call",nHandle,"s10:VerifyHash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:VerifyHash",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:VerifyHash",[P1,P2,P3]) ok
+		return dn_x
 
 	Func getCspKeyContainerInfo
 		return dnSend("s3:get",nHandle,"s19:CspKeyContainerInfo","")
@@ -5852,23 +6473,31 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dnSend("s3:get",nHandle,"s15:PersistKeyInCsp","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:PersistKeyInCsp")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:PersistKeyInCsp",[]) ok
+		return dn_x
 
 	Func setPersistKeyInCsp P1
-		dnSend("s3:set",nHandle,"s15:PersistKeyInCsp",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:PersistKeyInCsp",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:PersistKeyInCsp",dnPackItem(P1)) ok
 		return self
 
 	Func getPublicOnly
-		return dnSend("s3:get",nHandle,"s10:PublicOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:PublicOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:PublicOnly",[]) ok
+		return dn_x
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",[]) ok
+		return dn_x
 
 	Func setUseMachineKeyStore P1
-		dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1)) ok
 		return self
 
 
@@ -5998,7 +6627,9 @@ Class ECDsa from ECAlgorithm
 		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
 
 	Func GetMaxSignatureSize P1
-		return dnSend("s4:call",nHandle,"s19:GetMaxSignatureSize",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetMaxSignatureSize",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:GetMaxSignatureSize",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -6033,10 +6664,13 @@ Class HMAC from KeyedHashAlgorithm
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
 
 	Func getHashName
-		return dnSend("s3:get",nHandle,"s8:HashName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HashName",[]) ok
+		return dn_x
 
 	Func setHashName P1
-		dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:HashName",dnPackItem(P1)) ok
 		return self
 
 
@@ -6130,7 +6764,9 @@ Class RSACryptoServiceProvider from RSA
 		return dnSend("s4:call",nHandle,"s13:ExportCspBlob",dnPackItem(P1))
 
 	Func ImportCspBlob P1
-		dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ImportCspBlob",dnPackItem(P1)) ok
+
 		return self
 
 	Func SignHash P1
@@ -6155,23 +6791,31 @@ Class RSACryptoServiceProvider from RSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dnSend("s3:get",nHandle,"s15:PersistKeyInCsp","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:PersistKeyInCsp")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:PersistKeyInCsp",[]) ok
+		return dn_x
 
 	Func setPersistKeyInCsp P1
-		dnSend("s3:set",nHandle,"s15:PersistKeyInCsp",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:PersistKeyInCsp",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:PersistKeyInCsp",dnPackItem(P1)) ok
 		return self
 
 	Func getPublicOnly
-		return dnSend("s3:get",nHandle,"s10:PublicOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:PublicOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:PublicOnly",[]) ok
+		return dn_x
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")
 
 	Func getUseMachineKeyStore
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",[]) ok
+		return dn_x
 
 	Func setUseMachineKeyStore P1
-		dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography'),"s18:UseMachineKeyStore",dnPackItem(P1)) ok
 		return self
 
 
@@ -6306,60 +6950,71 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 			dnSend("s9:callnamed",nHandle,"s13:FromXmlString",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:FromXmlString",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1)) ok
+
 		return self
 
 	Func getHashAlgorithm
 		return dnSend("s3:get",nHandle,"s13:HashAlgorithm","")
 
 	Func setHashAlgorithm P1
-		dnSend("s3:set",nHandle,"s13:HashAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:HashAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:HashAlgorithm",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyDerivationFunction
 		return dnSend("s3:get",nHandle,"s21:KeyDerivationFunction","")
 
 	Func setKeyDerivationFunction P1
-		dnSend("s3:set",nHandle,"s21:KeyDerivationFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:KeyDerivationFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:KeyDerivationFunction",dnPackItem(P1)) ok
 		return self
 
 	Func getHmacKey
 		return dnSend("s3:get",nHandle,"s7:HmacKey","")
 
 	Func setHmacKey P1
-		dnSend("s3:set",nHandle,"s7:HmacKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:HmacKey",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:HmacKey",dnPackItem(P1)) ok
 		return self
 
 	Func getLabel
 		return dnSend("s3:get",nHandle,"s5:Label","")
 
 	Func setLabel P1
-		dnSend("s3:set",nHandle,"s5:Label",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Label",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Label",dnPackItem(P1)) ok
 		return self
 
 	Func getSecretAppend
 		return dnSend("s3:get",nHandle,"s12:SecretAppend","")
 
 	Func setSecretAppend P1
-		dnSend("s3:set",nHandle,"s12:SecretAppend",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:SecretAppend",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:SecretAppend",dnPackItem(P1)) ok
 		return self
 
 	Func getSecretPrepend
 		return dnSend("s3:get",nHandle,"s13:SecretPrepend","")
 
 	Func setSecretPrepend P1
-		dnSend("s3:set",nHandle,"s13:SecretPrepend",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:SecretPrepend",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SecretPrepend",dnPackItem(P1)) ok
 		return self
 
 	Func getSeed
 		return dnSend("s3:get",nHandle,"s4:Seed","")
 
 	Func setSeed P1
-		dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Seed",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Seed",dnPackItem(P1)) ok
 		return self
 
 	Func getUseSecretAgreementAsHmacKey
-		return dnSend("s3:get",nHandle,"s27:UseSecretAgreementAsHmacKey","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:UseSecretAgreementAsHmacKey")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:UseSecretAgreementAsHmacKey",[]) ok
+		return dn_x
 
 	Func setUseSecretAgreementAsHmacKey P1
 		raise("DotNet Error: UseSecretAgreementAsHmacKey is a read-only property")
@@ -6455,7 +7110,9 @@ Class ECDsaCng from ECDsa
 			dnSend("s9:callnamed",nHandle,"s13:FromXmlString",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:FromXmlString",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:FromXmlString",dnPackItem(P1)) ok
+
 		return self
 
 	Func SignData P1
@@ -6468,7 +7125,8 @@ Class ECDsaCng from ECDsa
 		return dnSend("s3:get",nHandle,"s13:HashAlgorithm","")
 
 	Func setHashAlgorithm P1
-		dnSend("s3:set",nHandle,"s13:HashAlgorithm",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:HashAlgorithm",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:HashAlgorithm",dnPackItem(P1)) ok
 		return self
 
 	Func getKey
@@ -6567,13 +7225,17 @@ Class HMACMD5 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6628,13 +7290,17 @@ Class HMACSHA1 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6689,13 +7355,17 @@ Class HMACSHA256 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6751,20 +7421,27 @@ Class HMACSHA384 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
-		return dnSend("s3:get",nHandle,"s23:ProduceLegacyHmacValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:ProduceLegacyHmacValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:ProduceLegacyHmacValues",[]) ok
+		return dn_x
 
 	Func setProduceLegacyHmacValues P1
-		dnSend("s3:set",nHandle,"s23:ProduceLegacyHmacValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:ProduceLegacyHmacValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ProduceLegacyHmacValues",dnPackItem(P1)) ok
 		return self
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6820,19 +7497,25 @@ Class HMACSHA3_256 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6888,19 +7571,25 @@ Class HMACSHA3_384 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -6956,19 +7645,25 @@ Class HMACSHA3_512 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:IsSupported",[]) ok
+		return dn_x
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")
@@ -7024,20 +7719,27 @@ Class HMACSHA512 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
-		return dnSend("s3:get",nHandle,"s23:ProduceLegacyHmacValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:ProduceLegacyHmacValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:ProduceLegacyHmacValues",[]) ok
+		return dn_x
 
 	Func setProduceLegacyHmacValues P1
-		dnSend("s3:set",nHandle,"s23:ProduceLegacyHmacValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:ProduceLegacyHmacValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ProduceLegacyHmacValues",dnPackItem(P1)) ok
 		return self
 
 	Func getHashSizeInBits
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s14:HashSizeInBits",[]) ok
+		return dn_x
 
 	Func setHashSizeInBits P1
 		raise("DotNet Error: HashSizeInBits is a read-only property")
 
 	Func getHashSizeInBytes
-		return dnSend("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s15:HashSizeInBytes",[]) ok
+		return dn_x
 
 	Func setHashSizeInBytes P1
 		raise("DotNet Error: HashSizeInBytes is a read-only property")

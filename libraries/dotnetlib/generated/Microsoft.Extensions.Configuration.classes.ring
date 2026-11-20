@@ -245,20 +245,28 @@ Class BinderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getBindNonPublicProperties
-		return dnSend("s3:get",nHandle,"s23:BindNonPublicProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s23:BindNonPublicProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:BindNonPublicProperties",[]) ok
+		return dn_x
 
 	Func setBindNonPublicProperties P1
-		dnSend("s3:set",nHandle,"s23:BindNonPublicProperties",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:BindNonPublicProperties",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:BindNonPublicProperties",dnPackItem(P1)) ok
 		return self
 
 	Func getErrorOnUnknownConfiguration
-		return dnSend("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:ErrorOnUnknownConfiguration",[]) ok
+		return dn_x
 
 	Func setErrorOnUnknownConfiguration P1
-		dnSend("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",dnPackItem(P1)) ok
 		return self
 
 
@@ -274,7 +282,9 @@ Class ChainedBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddConfiguration P1
 		if dnIsNamed(P1)
@@ -302,25 +312,33 @@ Class ChainedConfigurationProvider from Object
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetReloadToken 
 		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Load_ 
-		dnSend("s4:call",nHandle,"s4:Load","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 
 	Func GetChildKeys P1,P2
 		return dnSend("s4:call",nHandle,"s12:GetChildKeys",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConfiguration
 		return dnSend("s3:get",nHandle,"s13:Configuration","")
@@ -356,20 +374,26 @@ Class ChainedConfigurationSource from Object
 		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConfiguration
 		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
-		dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:Configuration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1)) ok
 		return self
 
 	Func getShouldDisposeConfiguration
-		return dnSend("s3:get",nHandle,"s26:ShouldDisposeConfiguration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s26:ShouldDisposeConfiguration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:ShouldDisposeConfiguration",[]) ok
+		return dn_x
 
 	Func setShouldDisposeConfiguration P1
-		dnSend("s3:set",nHandle,"s26:ShouldDisposeConfiguration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:ShouldDisposeConfiguration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:ShouldDisposeConfiguration",dnPackItem(P1)) ok
 		return self
 
 
@@ -385,7 +409,9 @@ Class CommandLineConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCommandLine P1
 		if dnIsNamed(P1)
@@ -406,7 +432,9 @@ Class ConfigurationBinder from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Get_ P1
 		if dnIsNamed(P1)
@@ -458,7 +486,9 @@ Class ConfigurationBuilder from Object
 		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSources
 		return dnSend("s3:get",nHandle,"s7:Sources","")
@@ -515,19 +545,25 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		return dn_x
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -551,13 +587,17 @@ Class ConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Add P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetConnectionString P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s19:GetConnectionString",[P1,P2]) ok
+		return dn_x
 
 	Func AsEnumerable P1
 		if dnIsNamed(P1)
@@ -566,7 +606,9 @@ Class ConfigurationExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:AsEnumerable",dnPackItem(P1))
 
 	Func Exists P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s6:Exists",[P1]) ok
+		return dn_x
 
 	Func GetRequiredSection P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s18:GetRequiredSection",dnPackItem(P1) + dnPackItem(P2))
@@ -595,10 +637,14 @@ Class ConfigurationKeyComparer from Object
 		return self
 
 	Func Compare P1,P2
-		return dnSend("s4:call",nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:Compare",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Compare",[P1,P2]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getInstance
 		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration'),"s8:Instance","")
@@ -636,17 +682,24 @@ Class ConfigurationManager from Object
 		return dnSend("s4:call",nHandle,"s11:GetChildren","")
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getSources
@@ -670,19 +723,29 @@ Class ConfigurationPath from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Combine P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s7:Combine",[P1]) ok
+		return dn_x
 
 	Func GetSectionKey P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetSectionKey",[P1]) ok
+		return dn_x
 
 	Func GetParentPath P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s13:GetParentPath",[P1]) ok
+		return dn_x
 
 	Func getKeyDelimiter
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"s12:KeyDelimiter",[]) ok
+		return dn_x
 
 	Func setKeyDelimiter P1
 		raise("DotNet Error: KeyDelimiter is a read-only property")
@@ -703,11 +766,15 @@ Class ConfigurationProvider from Object
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Load_ 
-		dnSend("s4:call",nHandle,"s4:Load","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 
 	Func GetChildKeys P1,P2
@@ -717,7 +784,9 @@ Class ConfigurationProvider from Object
 		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ConfigurationReloadToken from Object
@@ -747,20 +816,28 @@ Class ConfigurationReloadToken from Object
 		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OnReload 
-		dnSend("s4:call",nHandle,"s8:OnReload","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:OnReload")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:OnReload","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActiveChangeCallbacks
-		return dnSend("s3:get",nHandle,"s21:ActiveChangeCallbacks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ActiveChangeCallbacks",[]) ok
+		return dn_x
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		return dnSend("s3:get",nHandle,"s10:HasChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasChanged",[]) ok
+		return dn_x
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
@@ -791,21 +868,30 @@ Class ConfigurationRoot from Object
 		return dnSend("s4:call",nHandle,"s10:GetSection",dnPackItem(P1))
 
 	Func Reload 
-		dnSend("s4:call",nHandle,"s6:Reload","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Reload")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Reload","") ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getProviders
@@ -827,13 +913,17 @@ Class ConfigurationRootExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetDebugView P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",[P1]) ok
+		return dn_x
 
 
 Class ConfigurationSection from Object
@@ -863,32 +953,44 @@ Class ConfigurationSection from Object
 		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		return dn_x
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -904,7 +1006,9 @@ Class EnvironmentVariablesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddEnvironmentVariables P1
 		if dnIsNamed(P1)
@@ -925,7 +1029,9 @@ Class FileConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetFileProvider P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"s15:SetFileProvider",dnPackItem(P1) + dnPackItem(P2))
@@ -965,56 +1071,76 @@ Class FileConfigurationSource from Object
 		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func EnsureDefaults P1
-		dnSend("s4:call",nHandle,"s14:EnsureDefaults",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:EnsureDefaults",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:EnsureDefaults",dnPackItem(P1)) ok
+
 		return self
 
 	Func ResolveFileProvider 
-		dnSend("s4:call",nHandle,"s19:ResolveFileProvider","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ResolveFileProvider")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ResolveFileProvider","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getFileProvider
 		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:FileProvider",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1)) ok
 		return self
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		return dn_x
 
 	Func setPath P1
-		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1)) ok
 		return self
 
 	Func getOptional
-		return dnSend("s3:get",nHandle,"s8:Optional","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Optional")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Optional",[]) ok
+		return dn_x
 
 	Func setOptional P1
-		dnSend("s3:set",nHandle,"s8:Optional",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Optional",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Optional",dnPackItem(P1)) ok
 		return self
 
 	Func getReloadOnChange
-		return dnSend("s3:get",nHandle,"s14:ReloadOnChange","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ReloadOnChange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ReloadOnChange",[]) ok
+		return dn_x
 
 	Func setReloadOnChange P1
-		dnSend("s3:set",nHandle,"s14:ReloadOnChange",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ReloadOnChange",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ReloadOnChange",dnPackItem(P1)) ok
 		return self
 
 	Func getReloadDelay
-		return dnSend("s3:get",nHandle,"s11:ReloadDelay","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ReloadDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ReloadDelay",[]) ok
+		return dn_x
 
 	Func setReloadDelay P1
-		dnSend("s3:set",nHandle,"s11:ReloadDelay",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ReloadDelay",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ReloadDelay",dnPackItem(P1)) ok
 		return self
 
 	Func getOnLoadException
 		return dnSend("s3:get",nHandle,"s15:OnLoadException","")
 
 	Func setOnLoadException P1
-		dnSend("s3:set",nHandle,"s15:OnLoadException",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:OnLoadException",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:OnLoadException",dnPackItem(P1)) ok
 		return self
 
 
@@ -1043,27 +1169,34 @@ Class FileLoadExceptionContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProvider
 		return dnSend("s3:get",nHandle,"s8:Provider","")
 
 	Func setProvider P1
-		dnSend("s3:set",nHandle,"s8:Provider",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Provider",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Provider",dnPackItem(P1)) ok
 		return self
 
 	Func getException
 		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Exception",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1)) ok
 		return self
 
 	Func getIgnore
-		return dnSend("s3:get",nHandle,"s6:Ignore","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Ignore")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Ignore",[]) ok
+		return dn_x
 
 	Func setIgnore P1
-		dnSend("s3:set",nHandle,"s6:Ignore",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Ignore",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Ignore",dnPackItem(P1)) ok
 		return self
 
 
@@ -1088,10 +1221,13 @@ Class IConfiguration from DotNetObject
 		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 
@@ -1155,14 +1291,18 @@ Class IConfigurationProvider from DotNetObject
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetReloadToken 
 		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Load_ 
-		dnSend("s4:call",nHandle,"s4:Load","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 
 	Func GetChildKeys P1,P2
@@ -1183,7 +1323,9 @@ Class IConfigurationRoot from DotNetObject
 		return self
 
 	Func Reload 
-		dnSend("s4:call",nHandle,"s6:Reload","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Reload")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Reload","") ok
+
 		return self
 
 	Func getProviders
@@ -1209,22 +1351,29 @@ Class IConfigurationSection from DotNetObject
 		return self
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Key",[]) ok
+		return dn_x
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		return dn_x
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 
@@ -1255,7 +1404,9 @@ Class IniConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddIniFile P1
 		if dnIsNamed(P1)
@@ -1279,7 +1430,9 @@ Class JsonConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddJsonFile P1
 		if dnIsNamed(P1)
@@ -1303,7 +1456,9 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddKeyPerFile P1
 		if dnIsNamed(P1)
@@ -1324,7 +1479,9 @@ Class MemoryConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddInMemoryCollection P1
 		if dnIsNamed(P1)
@@ -1350,13 +1507,16 @@ Class StreamConfigurationSource from Object
 		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getStream
 		return dnSend("s3:get",nHandle,"s6:Stream","")
 
 	Func setStream P1
-		dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Stream",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1)) ok
 		return self
 
 
@@ -1372,7 +1532,9 @@ Class UserSecretsConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddUserSecrets P1
 		if dnIsNamed(P1)
@@ -1393,7 +1555,9 @@ Class XmlConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddXmlFile P1
 		if dnIsNamed(P1)
@@ -1424,14 +1588,20 @@ Class FileConfigurationProvider from ConfigurationProvider
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s4:Load","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1)) ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func getSource
@@ -1460,10 +1630,14 @@ Class StreamConfigurationProvider from ConfigurationProvider
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s4:Load","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s4:Load")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Load",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1)) ok
+
 		return self
 
 	Func getSource

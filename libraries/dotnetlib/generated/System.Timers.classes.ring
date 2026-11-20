@@ -75,23 +75,33 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dnSend("s4:call",nHandle,"s9:BeginInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func EndInit 
-		dnSend("s4:call",nHandle,"s7:EndInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+
 		return self
 
 	Func Start 
-		dnSend("s4:call",nHandle,"s5:Start","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Start")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start","") ok
+
 		return self
 
 	Func Stop 
-		dnSend("s4:call",nHandle,"s4:Stop","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+
 		return self
 
 	Func setElapsedEvent P1
@@ -103,31 +113,41 @@ Class TimersTimer from Component
 		return self
 
 	Func getAutoReset
-		return dnSend("s3:get",nHandle,"s9:AutoReset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:AutoReset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:AutoReset",[]) ok
+		return dn_x
 
 	Func setAutoReset P1
-		dnSend("s3:set",nHandle,"s9:AutoReset",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:AutoReset",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:AutoReset",dnPackItem(P1)) ok
 		return self
 
 	Func getEnabled
-		return dnSend("s3:get",nHandle,"s7:Enabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Enabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Enabled",[]) ok
+		return dn_x
 
 	Func setEnabled P1
-		dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1)) ok
 		return self
 
 	Func getInterval
-		return dnSend("s3:get",nHandle,"s8:Interval","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Interval")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Interval",[]) ok
+		return dn_x
 
 	Func setInterval P1
-		dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1)) ok
 		return self
 
 	Func getSynchronizingObject
 		return dnSend("s3:get",nHandle,"s19:SynchronizingObject","")
 
 	Func setSynchronizingObject P1
-		dnSend("s3:set",nHandle,"s19:SynchronizingObject",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SynchronizingObject",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SynchronizingObject",dnPackItem(P1)) ok
 		return self
 
 

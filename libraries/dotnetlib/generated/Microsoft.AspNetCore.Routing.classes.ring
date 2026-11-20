@@ -430,16 +430,22 @@ Class ContentEncodingMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getQuality
-		return dnSend("s3:get",nHandle,"s7:Quality","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Quality")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Quality",[]) ok
+		return dn_x
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")
@@ -457,7 +463,9 @@ Class ControllerLinkGeneratorExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetPathByAction P1
 		if dnIsNamed(P1)
@@ -488,7 +496,9 @@ Class DataTokensMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDataTokens
 		return dnSend("s3:get",nHandle,"s10:DataTokens","")
@@ -514,7 +524,9 @@ Class DefaultInlineConstraintResolver from Object
 		return dnSend("s4:call",nHandle,"s17:ResolveConstraint",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class EndpointDataSource from Object
@@ -537,7 +549,9 @@ Class EndpointDataSource from Object
 		return dnSend("s4:call",nHandle,"s19:GetGroupedEndpoints",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEndpoints
 		return dnSend("s3:get",nHandle,"s9:Endpoints","")
@@ -562,10 +576,14 @@ Class EndpointNameMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getEndpointName
-		return dnSend("s3:get",nHandle,"s12:EndpointName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:EndpointName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:EndpointName",[]) ok
+		return dn_x
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -603,13 +621,18 @@ Class HttpMethodMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAcceptCorsPreflight
-		return dnSend("s3:get",nHandle,"s19:AcceptCorsPreflight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AcceptCorsPreflight",[]) ok
+		return dn_x
 
 	Func setAcceptCorsPreflight P1
-		dnSend("s3:set",nHandle,"s19:AcceptCorsPreflight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AcceptCorsPreflight",dnPackItem(P1)) ok
 		return self
 
 	Func getHttpMethods
@@ -653,7 +676,9 @@ Class IDynamicEndpointMetadata from DotNetObject
 		return self
 
 	Func getIsDynamic
-		return dnSend("s3:get",nHandle,"s9:IsDynamic","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDynamic")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsDynamic",[]) ok
+		return dn_x
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
@@ -673,7 +698,9 @@ Class IEndpointGroupNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointGroupName
-		return dnSend("s3:get",nHandle,"s17:EndpointGroupName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:EndpointGroupName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:EndpointGroupName",[]) ok
+		return dn_x
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -693,7 +720,9 @@ Class IEndpointNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointName
-		return dnSend("s3:get",nHandle,"s12:EndpointName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:EndpointName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:EndpointName",[]) ok
+		return dn_x
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -743,7 +772,9 @@ Class IExcludeFromDescriptionMetadata from DotNetObject
 		return self
 
 	Func getExcludeFromDescription
-		return dnSend("s3:get",nHandle,"s22:ExcludeFromDescription","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:ExcludeFromDescription",[]) ok
+		return dn_x
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")
@@ -784,10 +815,13 @@ Class IHttpMethodMetadata from DotNetObject
 		return self
 
 	Func getAcceptCorsPreflight
-		return dnSend("s3:get",nHandle,"s19:AcceptCorsPreflight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:AcceptCorsPreflight",[]) ok
+		return dn_x
 
 	Func setAcceptCorsPreflight P1
-		dnSend("s3:set",nHandle,"s19:AcceptCorsPreflight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AcceptCorsPreflight",dnPackItem(P1)) ok
 		return self
 
 	Func getHttpMethods
@@ -826,7 +860,9 @@ Class INamedRouter from DotNetObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -844,7 +880,9 @@ Class IOutboundParameterTransformer from DotNetObject
 		return self
 
 	Func TransformOutbound P1
-		return dnSend("s4:call",nHandle,"s17:TransformOutbound",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s17:TransformOutbound",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:TransformOutbound",[P1]) ok
+		return dn_x
 
 
 Class IParameterPolicy from DotNetObject
@@ -888,7 +926,8 @@ Class IRouteBuilder from DotNetObject
 		return dnSend("s3:get",nHandle,"s14:DefaultHandler","")
 
 	Func setDefaultHandler P1
-		dnSend("s3:set",nHandle,"s14:DefaultHandler",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:DefaultHandler",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:DefaultHandler",dnPackItem(P1)) ok
 		return self
 
 	Func getServiceProvider
@@ -916,7 +955,9 @@ Class IRouteCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -932,7 +973,9 @@ Class IRouteConstraint from DotNetObject
 		return self
 
 	Func Match P1,P2
-		return dnSend("s4:call",nHandle,"s5:Match",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Match",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Match",[P1,P2]) ok
+		return dn_x
 
 
 Class IRouteHandler from DotNetObject
@@ -964,7 +1007,9 @@ Class IRouteNameMetadata from DotNetObject
 		return self
 
 	Func getRouteName
-		return dnSend("s3:get",nHandle,"s9:RouteName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RouteName",[]) ok
+		return dn_x
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -1005,7 +1050,8 @@ Class IRoutingFeature from DotNetObject
 		return dnSend("s3:get",nHandle,"s9:RouteData","")
 
 	Func setRouteData P1
-		dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:RouteData",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1)) ok
 		return self
 
 
@@ -1023,7 +1069,9 @@ Class ISuppressLinkGenerationMetadata from DotNetObject
 		return self
 
 	Func getSuppressLinkGeneration
-		return dnSend("s3:get",nHandle,"s22:SuppressLinkGeneration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SuppressLinkGeneration",[]) ok
+		return dn_x
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -1043,7 +1091,9 @@ Class ISuppressMatchingMetadata from DotNetObject
 		return self
 
 	Func getSuppressMatching
-		return dnSend("s3:get",nHandle,"s16:SuppressMatching","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SuppressMatching",[]) ok
+		return dn_x
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")
@@ -1061,7 +1111,9 @@ Class IdentityApiEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func MapIdentityApi P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity'),"s14:MapIdentityApi",dnPackItem(P1))
@@ -1079,7 +1131,9 @@ Class InlineRouteParameterParser from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ParseRouteParameter P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.InlineRouteParameterParser, Microsoft.AspNetCore.Routing'),"s19:ParseRouteParameter",dnPackItem(P1))
@@ -1109,7 +1163,9 @@ Class LinkGenerator from Object
 		raise("DotNet Error: GetUriByAddress does not take one argument: use named arguments, GetUriByAddress([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class LinkGeneratorEndpointNameAddressExtensions from Object
@@ -1124,7 +1180,9 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetPathByName P1
 		if dnIsNamed(P1)
@@ -1151,7 +1209,9 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetPathByRouteValues P1
 		if dnIsNamed(P1)
@@ -1191,27 +1251,32 @@ Class LinkOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getLowercaseUrls
 		return dnSend("s3:get",nHandle,"s13:LowercaseUrls","")
 
 	Func setLowercaseUrls P1
-		dnSend("s3:set",nHandle,"s13:LowercaseUrls",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:LowercaseUrls",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:LowercaseUrls",dnPackItem(P1)) ok
 		return self
 
 	Func getLowercaseQueryStrings
 		return dnSend("s3:get",nHandle,"s21:LowercaseQueryStrings","")
 
 	Func setLowercaseQueryStrings P1
-		dnSend("s3:set",nHandle,"s21:LowercaseQueryStrings",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:LowercaseQueryStrings",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LowercaseQueryStrings",dnPackItem(P1)) ok
 		return self
 
 	Func getAppendTrailingSlash
 		return dnSend("s3:get",nHandle,"s19:AppendTrailingSlash","")
 
 	Func setAppendTrailingSlash P1
-		dnSend("s3:set",nHandle,"s19:AppendTrailingSlash",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:AppendTrailingSlash",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AppendTrailingSlash",dnPackItem(P1)) ok
 		return self
 
 
@@ -1230,7 +1295,9 @@ Class LinkParser from Object
 		return dnSend("s4:call",nHandle,"s18:ParsePathByAddress",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class LinkParserEndpointNameAddressExtensions from Object
@@ -1245,7 +1312,9 @@ Class LinkParserEndpointNameAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ParsePathByEndpointName P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s23:ParsePathByEndpointName",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1265,10 +1334,14 @@ Class MatcherPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -1286,7 +1359,9 @@ Class PageLinkGeneratorExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetPathByPage P1
 		if dnIsNamed(P1)
@@ -1316,7 +1391,9 @@ Class ParameterPolicyFactory from Object
 		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RequestDelegateRouteBuilderExtensions from Object
@@ -1331,7 +1408,9 @@ Class RequestDelegateRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func MapRoute P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:MapRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1394,7 +1473,9 @@ Class RouteBase from Object
 		return dnSend("s4:call",nHandle,"s14:GetVirtualPath",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConstraints
 		return dnSend("s3:get",nHandle,"s11:Constraints","")
@@ -1415,7 +1496,9 @@ Class RouteBase from Object
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1464,7 +1547,9 @@ Class RouteBuilder from Object
 		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getApplicationBuilder
 		return dnSend("s3:get",nHandle,"s18:ApplicationBuilder","")
@@ -1476,7 +1561,8 @@ Class RouteBuilder from Object
 		return dnSend("s3:get",nHandle,"s14:DefaultHandler","")
 
 	Func setDefaultHandler P1
-		dnSend("s3:set",nHandle,"s14:DefaultHandler",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:DefaultHandler",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:DefaultHandler",dnPackItem(P1)) ok
 		return self
 
 	Func getServiceProvider
@@ -1515,7 +1601,9 @@ Class RouteCollection from Object
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func RouteAsync P1
@@ -1525,13 +1613,17 @@ Class RouteCollection from Object
 		return dnSend("s4:call",nHandle,"s14:GetVirtualPath",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1554,15 +1646,21 @@ Class RouteConstraintBuilder from Object
 		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func AddResolvedConstraint P1,P2
-		dnSend("s4:call",nHandle,"s21:AddResolvedConstraint",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s21:AddResolvedConstraint",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s21:AddResolvedConstraint",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetOptional P1
-		dnSend("s4:call",nHandle,"s11:SetOptional",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetOptional",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetOptional",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RouteConstraintMatcher from Object
@@ -1577,10 +1675,14 @@ Class RouteConstraintMatcher from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Match P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"s5:Match",[P1,P2]) ok
+		return dn_x
 
 
 Class RouteContext from Object
@@ -1601,13 +1703,16 @@ Class RouteContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getHandler
 		return dnSend("s3:get",nHandle,"s7:Handler","")
 
 	Func setHandler P1
-		dnSend("s3:set",nHandle,"s7:Handler",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Handler",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Handler",dnPackItem(P1)) ok
 		return self
 
 	Func getHttpContext
@@ -1620,7 +1725,8 @@ Class RouteContext from Object
 		return dnSend("s3:get",nHandle,"s9:RouteData","")
 
 	Func setRouteData P1
-		dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:RouteData",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1)) ok
 		return self
 
 
@@ -1668,7 +1774,9 @@ Class RouteData from Object
 		return dnSend("s4:call",nHandle,"s9:PushState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDataTokens
 		return dnSend("s3:get",nHandle,"s10:DataTokens","")
@@ -1706,7 +1814,9 @@ Class RouteEndpoint from AspEndpoint
 		return self
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -1738,14 +1848,18 @@ Class RouteEndpointBuilder from EndpointBuilder
 		return dnSend("s3:get",nHandle,"s12:RoutePattern","")
 
 	Func setRoutePattern P1
-		dnSend("s3:set",nHandle,"s12:RoutePattern",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:RoutePattern",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:RoutePattern",dnPackItem(P1)) ok
 		return self
 
 	Func getOrder
-		return dnSend("s3:get",nHandle,"s5:Order","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		return dn_x
 
 	Func setOrder P1
-		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1)) ok
 		return self
 
 
@@ -1761,7 +1875,9 @@ Class RouteGroupBuilder from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RouteGroupContext from Object
@@ -1790,34 +1906,40 @@ Class RouteGroupContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPrefix
 		return dnSend("s3:get",nHandle,"s6:Prefix","")
 
 	Func setPrefix P1
-		dnSend("s3:set",nHandle,"s6:Prefix",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Prefix",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Prefix",dnPackItem(P1)) ok
 		return self
 
 	Func getConventions
 		return dnSend("s3:get",nHandle,"s11:Conventions","")
 
 	Func setConventions P1
-		dnSend("s3:set",nHandle,"s11:Conventions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:Conventions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Conventions",dnPackItem(P1)) ok
 		return self
 
 	Func getFinallyConventions
 		return dnSend("s3:get",nHandle,"s18:FinallyConventions","")
 
 	Func setFinallyConventions P1
-		dnSend("s3:set",nHandle,"s18:FinallyConventions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:FinallyConventions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:FinallyConventions",dnPackItem(P1)) ok
 		return self
 
 	Func getApplicationServices
 		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
-		dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ApplicationServices",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1)) ok
 		return self
 
 
@@ -1844,7 +1966,9 @@ Class RouteHandler from Object
 		return dnSend("s4:call",nHandle,"s10:RouteAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class RouteHandlerOptions from Object
@@ -1870,13 +1994,18 @@ Class RouteHandlerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getThrowOnBadRequest
-		return dnSend("s3:get",nHandle,"s17:ThrowOnBadRequest","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ThrowOnBadRequest",[]) ok
+		return dn_x
 
 	Func setThrowOnBadRequest P1
-		dnSend("s3:set",nHandle,"s17:ThrowOnBadRequest",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ThrowOnBadRequest",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ThrowOnBadRequest",dnPackItem(P1)) ok
 		return self
 
 
@@ -1892,7 +2021,9 @@ Class RouteHandlerServices from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Map P1
 		if dnIsNamed(P1)
@@ -1917,10 +2048,14 @@ Class RouteNameMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRouteName
-		return dnSend("s3:get",nHandle,"s9:RouteName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RouteName",[]) ok
+		return dn_x
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -1953,17 +2088,22 @@ Class RouteOptions from Object
 			dnSend("s9:callnamed",nHandle,"s18:SetParameterPolicy",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s18:SetParameterPolicy",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetParameterPolicy",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetParameterPolicy",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getConstraintMap
 		return dnSend("s3:get",nHandle,"s13:ConstraintMap","")
 
 	Func setConstraintMap P1
-		dnSend("s3:set",nHandle,"s13:ConstraintMap",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ConstraintMap",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ConstraintMap",dnPackItem(P1)) ok
 		return self
 
 
@@ -1979,7 +2119,9 @@ Class RouteShortCircuitEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func MapShortCircuit P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:MapShortCircuit",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -2027,30 +2169,42 @@ Class RouteValueDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func ContainsKey P1
-		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func TryAdd P1,P2
-		return dnSend("s4:call",nHandle,"s6:TryAdd",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:TryAdd",[P1,P2]) ok
+		return dn_x
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func FromArray P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions'),"s9:FromArray",dnPackItem(P1))
@@ -2059,7 +2213,8 @@ Class RouteValueDictionary from Object
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getComparer
@@ -2069,7 +2224,9 @@ Class RouteValueDictionary from Object
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2113,16 +2270,22 @@ Class RouteValueEqualityComparer from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[P1]) ok
+		return dn_x
 
 	Func getDefault
 		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components'),"s7:Default","")
@@ -2156,27 +2319,34 @@ Class RouteValuesAddress from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRouteName
-		return dnSend("s3:get",nHandle,"s9:RouteName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RouteName",[]) ok
+		return dn_x
 
 	Func setRouteName P1
-		dnSend("s3:set",nHandle,"s9:RouteName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RouteName",dnPackItem(P1)) ok
 		return self
 
 	Func getExplicitValues
 		return dnSend("s3:get",nHandle,"s14:ExplicitValues","")
 
 	Func setExplicitValues P1
-		dnSend("s3:set",nHandle,"s14:ExplicitValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ExplicitValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ExplicitValues",dnPackItem(P1)) ok
 		return self
 
 	Func getAmbientValues
 		return dnSend("s3:get",nHandle,"s13:AmbientValues","")
 
 	Func setAmbientValues P1
-		dnSend("s3:set",nHandle,"s13:AmbientValues",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:AmbientValues",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:AmbientValues",dnPackItem(P1)) ok
 		return self
 
 
@@ -2203,13 +2373,16 @@ Class RoutingFeature from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getRouteData
 		return dnSend("s3:get",nHandle,"s9:RouteData","")
 
 	Func setRouteData P1
-		dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:RouteData",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RouteData",dnPackItem(P1)) ok
 		return self
 
 
@@ -2225,7 +2398,9 @@ Class RoutingHttpContextExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetRouteData P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions'),"s12:GetRouteData",dnPackItem(P1))
@@ -2257,10 +2432,14 @@ Class SuppressLinkGenerationMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSuppressLinkGeneration
-		return dnSend("s3:get",nHandle,"s22:SuppressLinkGeneration","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SuppressLinkGeneration",[]) ok
+		return dn_x
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -2289,10 +2468,14 @@ Class SuppressMatchingMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSuppressMatching
-		return dnSend("s3:get",nHandle,"s16:SuppressMatching","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SuppressMatching",[]) ok
+		return dn_x
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")
@@ -2332,7 +2515,9 @@ Class VirtualPathContext from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAmbientValues
 		return dnSend("s3:get",nHandle,"s13:AmbientValues","")
@@ -2347,7 +2532,9 @@ Class VirtualPathContext from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRouteName
-		return dnSend("s3:get",nHandle,"s9:RouteName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RouteName",[]) ok
+		return dn_x
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -2356,7 +2543,8 @@ Class VirtualPathContext from Object
 		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
-		dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Values",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1)) ok
 		return self
 
 
@@ -2393,7 +2581,9 @@ Class VirtualPathData from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDataTokens
 		return dnSend("s3:get",nHandle,"s10:DataTokens","")
@@ -2405,14 +2595,18 @@ Class VirtualPathData from Object
 		return dnSend("s3:get",nHandle,"s6:Router","")
 
 	Func setRouter P1
-		dnSend("s3:set",nHandle,"s6:Router",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Router",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Router",dnPackItem(P1)) ok
 		return self
 
 	Func getVirtualPath
-		return dnSend("s3:get",nHandle,"s11:VirtualPath","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:VirtualPath")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:VirtualPath",[]) ok
+		return dn_x
 
 	Func setVirtualPath P1
-		dnSend("s3:set",nHandle,"s11:VirtualPath",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:VirtualPath",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:VirtualPath",dnPackItem(P1)) ok
 		return self
 
 
@@ -2432,7 +2626,9 @@ Class CompositeEndpointDataSource from EndpointDataSource
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func getDataSources
@@ -2487,7 +2683,9 @@ Class Route from RouteBase
 		return self
 
 	Func getRouteTemplate
-		return dnSend("s3:get",nHandle,"s13:RouteTemplate","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:RouteTemplate")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:RouteTemplate",[]) ok
+		return dn_x
 
 	Func setRouteTemplate P1
 		raise("DotNet Error: RouteTemplate is a read-only property")

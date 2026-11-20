@@ -149,7 +149,9 @@ Class ConsoleLoggerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddConsole P1
 		if dnIsNamed(P1)
@@ -194,7 +196,9 @@ Class DebugLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddDebug P1
 		if dnIsNamed(P1)
@@ -243,13 +247,17 @@ Class EventId from ValueType
 		return self
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -267,7 +275,9 @@ Class EventLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddEventLog P1
 		if dnIsNamed(P1)
@@ -288,7 +298,9 @@ Class EventSourceLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddEventSourceLogger P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource'),"s20:AddEventSourceLogger",dnPackItem(P1))
@@ -306,7 +318,9 @@ Class FilterLoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddFilter P1
 		if dnIsNamed(P1)
@@ -327,7 +341,9 @@ Class IExternalScopeProvider from DotNetObject
 		return self
 
 	Func ForEachScope P1,P2
-		dnSend("s4:call",nHandle,"s12:ForEachScope",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:ForEachScope",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ForEachScope",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Push P1
@@ -346,11 +362,15 @@ Class ILogger from DotNetObject
 		return self
 
 	Func Log P1,P2,P3,P4,P5
-		dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+
 		return self
 
 	Func IsEnabled P1
-		return dnSend("s4:call",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsEnabled",[P1]) ok
+		return dn_x
 
 	Func BeginScope P1
 		return dnSend("s4:call",nHandle,"s10:BeginScope",dnPackItem(P1))
@@ -371,7 +391,9 @@ Class ILoggerFactory from DotNetObject
 		return dnSend("s4:call",nHandle,"s12:CreateLogger",dnPackItem(P1))
 
 	Func AddProvider P1
-		dnSend("s4:call",nHandle,"s11:AddProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:AddProvider",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AddProvider",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -422,7 +444,9 @@ Class ISupportExternalScope from DotNetObject
 		return self
 
 	Func SetScopeProvider P1
-		dnSend("s4:call",nHandle,"s16:SetScopeProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetScopeProvider",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetScopeProvider",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -449,13 +473,18 @@ Class LogDefineOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSkipEnabledCheck
-		return dnSend("s3:get",nHandle,"s16:SkipEnabledCheck","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:SkipEnabledCheck")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SkipEnabledCheck",[]) ok
+		return dn_x
 
 	Func setSkipEnabledCheck P1
-		dnSend("s3:set",nHandle,"s16:SkipEnabledCheck",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:SkipEnabledCheck",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:SkipEnabledCheck",dnPackItem(P1)) ok
 		return self
 
 
@@ -471,7 +500,9 @@ Class LoggerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func LogDebug P1
 		if dnIsNamed(P1)
@@ -547,14 +578,18 @@ Class LoggerExternalScopeProvider from Object
 		return self
 
 	Func ForEachScope P1,P2
-		dnSend("s4:call",nHandle,"s12:ForEachScope",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:ForEachScope",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ForEachScope",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Push P1
 		return dnSend("s4:call",nHandle,"s4:Push",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class LoggerFactory from Object
@@ -597,15 +632,21 @@ Class LoggerFactory from Object
 		return dnSend("s4:call",nHandle,"s12:CreateLogger",dnPackItem(P1))
 
 	Func AddProvider P1
-		dnSend("s4:call",nHandle,"s11:AddProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:AddProvider",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AddProvider",dnPackItem(P1)) ok
+
 		return self
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Create P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging'),"s6:Create",dnPackItem(P1))
@@ -623,7 +664,9 @@ Class LoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CreateLogger P1
 		if dnIsNamed(P1)
@@ -655,13 +698,16 @@ Class LoggerFactoryOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActivityTrackingOptions
 		return dnSend("s3:get",nHandle,"s23:ActivityTrackingOptions","")
 
 	Func setActivityTrackingOptions P1
-		dnSend("s3:set",nHandle,"s23:ActivityTrackingOptions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:ActivityTrackingOptions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ActivityTrackingOptions",dnPackItem(P1)) ok
 		return self
 
 
@@ -690,20 +736,26 @@ Class LoggerFilterOptions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCaptureScopes
-		return dnSend("s3:get",nHandle,"s13:CaptureScopes","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:CaptureScopes")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:CaptureScopes",[]) ok
+		return dn_x
 
 	Func setCaptureScopes P1
-		dnSend("s3:set",nHandle,"s13:CaptureScopes",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:CaptureScopes",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CaptureScopes",dnPackItem(P1)) ok
 		return self
 
 	Func getMinLevel
 		return dnSend("s3:get",nHandle,"s8:MinLevel","")
 
 	Func setMinLevel P1
-		dnSend("s3:set",nHandle,"s8:MinLevel",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MinLevel",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MinLevel",dnPackItem(P1)) ok
 		return self
 
 	Func getRules
@@ -732,16 +784,22 @@ Class LoggerFilterRule from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getProviderName
-		return dnSend("s3:get",nHandle,"s12:ProviderName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ProviderName",[]) ok
+		return dn_x
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getCategoryName
-		return dnSend("s3:get",nHandle,"s12:CategoryName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:CategoryName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:CategoryName",[]) ok
+		return dn_x
 
 	Func setCategoryName P1
 		raise("DotNet Error: CategoryName is a read-only property")
@@ -771,7 +829,9 @@ Class LoggerMessage from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func DefineScope P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"s11:DefineScope",dnPackItem(P1))
@@ -795,7 +855,9 @@ Class LoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetMinimumLevel P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging'),"s15:SetMinimumLevel",dnPackItem(P1) + dnPackItem(P2))
@@ -822,7 +884,9 @@ Class TraceSourceFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddTraceSource P1
 		if dnIsNamed(P1)

@@ -17,7 +17,9 @@ Class Enumerable from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Aggregate P1
 		if dnIsNamed(P1)
@@ -29,10 +31,14 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Any",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Any",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Any",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Any",[P1]) ok
+		return dn_x
 
 	Func All P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:All",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:All",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:All",[P1,P2]) ok
+		return dn_x
 
 	Func Append P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Append",dnPackItem(P1) + dnPackItem(P2))
@@ -44,7 +50,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Average",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Average",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Average",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Average",[P1]) ok
+		return dn_x
 
 	Func Cast P1
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Cast",dnPackItem(P1))
@@ -77,7 +85,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Count",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Count",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Count",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Count",[P1]) ok
+		return dn_x
 
 	Func TryGetNonEnumeratedCount P1
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s24:TryGetNonEnumeratedCount",dnPackItem(P1))
@@ -86,7 +96,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:LongCount",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:LongCount",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:LongCount",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:LongCount",[P1]) ok
+		return dn_x
 
 	Func DefaultIfEmpty P1
 		if dnIsNamed(P1)
@@ -197,7 +209,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Max",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Max",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Max",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Max",[P1]) ok
+		return dn_x
 
 	Func MaxBy P1
 		if dnIsNamed(P1)
@@ -209,7 +223,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Min",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Min",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Min",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Min",[P1]) ok
+		return dn_x
 
 	Func MinBy P1
 		if dnIsNamed(P1)
@@ -305,7 +321,9 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Sum",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Sum",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Sum",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Sum",[P1]) ok
+		return dn_x
 
 	Func Take P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Take",dnPackItem(P1) + dnPackItem(P2))

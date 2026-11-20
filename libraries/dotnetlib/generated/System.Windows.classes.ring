@@ -1012,9 +1012,13 @@ Class WpfApplication from DispatcherObject
 			return dnSend("s9:callnamed",nHandle,"s3:Run",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s3:Run","")
+			dn_x = dotnet_call("s4:call",nHandle,"s3:Run")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Run",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s3:Run",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Run",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Run",[P1]) ok
+		return dn_x
 
 	Func Shutdown P1
 		if dnIsNamed(P1)
@@ -1022,10 +1026,14 @@ Class WpfApplication from DispatcherObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s8:Shutdown","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s8:Shutdown")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Shutdown","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s8:Shutdown",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:Shutdown",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Shutdown",dnPackItem(P1)) ok
+
 		return self
 
 	Func FindResource P1
@@ -1050,10 +1058,14 @@ Class WpfApplication from DispatcherObject
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s15:GetRemoteStream",dnPackItem(P1))
 
 	Func GetCookie P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:GetCookie",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:GetCookie",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:GetCookie",[P1]) ok
+		return dn_x
 
 	Func SetCookie P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:SetCookie",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:SetCookie",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s9:SetCookie",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func setStartupEvent P1
@@ -1170,35 +1182,40 @@ Class WpfApplication from DispatcherObject
 		return dnSend("s3:get",nHandle,"s10:MainWindow","")
 
 	Func setMainWindow P1
-		dnSend("s3:set",nHandle,"s10:MainWindow",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:MainWindow",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:MainWindow",dnPackItem(P1)) ok
 		return self
 
 	Func getShutdownMode
 		return dnSend("s3:get",nHandle,"s12:ShutdownMode","")
 
 	Func setShutdownMode P1
-		dnSend("s3:set",nHandle,"s12:ShutdownMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ShutdownMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ShutdownMode",dnPackItem(P1)) ok
 		return self
 
 	Func getResources
 		return dnSend("s3:get",nHandle,"s9:Resources","")
 
 	Func setResources P1
-		dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Resources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1)) ok
 		return self
 
 	Func getThemeMode
 		return dnSend("s3:get",nHandle,"s9:ThemeMode","")
 
 	Func setThemeMode P1
-		dnSend("s3:set",nHandle,"s9:ThemeMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:ThemeMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:ThemeMode",dnPackItem(P1)) ok
 		return self
 
 	Func getStartupUri
 		return dnSend("s3:get",nHandle,"s10:StartupUri","")
 
 	Func setStartupUri P1
-		dnSend("s3:set",nHandle,"s10:StartupUri",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:StartupUri",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:StartupUri",dnPackItem(P1)) ok
 		return self
 
 	Func getProperties
@@ -1217,7 +1234,8 @@ Class WpfApplication from DispatcherObject
 		return dnSend("s3:get",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly","")
 
 	Func setResourceAssembly P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s16:ResourceAssembly",dnPackItem(P1)) ok
 		return self
 
 
@@ -1260,34 +1278,46 @@ Class BaseCompatibilityPreferences from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getReuseDispatcherSynchronizationContextInstance
-		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance",[]) ok
+		return dn_x
 
 	Func setReuseDispatcherSynchronizationContextInstance P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s45:ReuseDispatcherSynchronizationContextInstance",dnPackItem(P1)) ok
 		return self
 
 	Func getFlowDispatcherSynchronizationContextPriority
-		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority",[]) ok
+		return dn_x
 
 	Func setFlowDispatcherSynchronizationContextPriority P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s44:FlowDispatcherSynchronizationContextPriority",dnPackItem(P1)) ok
 		return self
 
 	Func getInlineDispatcherSynchronizationContextSend
-		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend",[]) ok
+		return dn_x
 
 	Func setInlineDispatcherSynchronizationContextSend P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s42:InlineDispatcherSynchronizationContextSend",dnPackItem(P1)) ok
 		return self
 
 	Func getHandleDispatcherRequestProcessingFailure
 		return dnSend("s3:get",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure","")
 
 	Func setHandleDispatcherRequestProcessingFailure P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.BaseCompatibilityPreferences, WindowsBase'),"s40:HandleDispatcherRequestProcessingFailure",dnPackItem(P1)) ok
 		return self
 
 
@@ -1303,35 +1333,53 @@ Class WpfClipboard from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Clear 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Clear","") ok
+
 		return self
 
 	Func ContainsAudio 
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsAudio","")
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsAudio")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsAudio",[]) ok
+		return dn_x
 
 	Func ContainsData P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsData",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsData",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsData",[P1]) ok
+		return dn_x
 
 	Func ContainsFileDropList 
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s20:ContainsFileDropList","")
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s20:ContainsFileDropList")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s20:ContainsFileDropList",[]) ok
+		return dn_x
 
 	Func ContainsImage 
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsImage","")
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsImage")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:ContainsImage",[]) ok
+		return dn_x
 
 	Func ContainsText P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText","")
+			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",[P1]) ok
+		return dn_x
 
 	Func Flush 
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Flush","")
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Flush")
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s5:Flush","") ok
+
 		return self
 
 	Func GetAudioStream 
@@ -1351,24 +1399,36 @@ Class WpfClipboard from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText","")
+			dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",[P1]) ok
+		return dn_x
 
 	Func SetAudio P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetAudio",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetAudio",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetAudio",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetData P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetData",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetData",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetFileDropList P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s15:SetFileDropList",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s15:SetFileDropList",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s15:SetFileDropList",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetImage P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetImage",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetImage",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s8:SetImage",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetText P1
@@ -1376,21 +1436,27 @@ Class WpfClipboard from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetDataObject 
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:GetDataObject","")
 
 	Func IsCurrent P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s9:IsCurrent",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s9:IsCurrent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s9:IsCurrent",[P1]) ok
+		return dn_x
 
 	Func SetDataObject P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -1473,42 +1539,54 @@ Class Condition from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s22:ReceiveMarkupExtension",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s20:ReceiveTypeConverter",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Condition, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getProperty
 		return dnSend("s3:get",nHandle,"s8:Property","")
 
 	Func setProperty P1
-		dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Property",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1)) ok
 		return self
 
 	Func getBinding
 		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Binding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceName
-		return dnSend("s3:get",nHandle,"s10:SourceName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SourceName",[]) ok
+		return dn_x
 
 	Func setSourceName P1
-		dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1)) ok
 		return self
 
 
@@ -1536,64 +1614,91 @@ Class ConditionCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1611,13 +1716,17 @@ Class ContentOperations from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetParent P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:GetParent",dnPackItem(P1))
 
 	Func SetParent P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:SetParent",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:SetParent",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.ContentOperations, PresentationCore'),"s9:SetParent",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -1636,20 +1745,26 @@ Class CoreCompatibilityPreferences from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsAltKeyRequiredInAccessKeyDefaultScope
-		return dnSend("s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope",[]) ok
+		return dn_x
 
 	Func setIsAltKeyRequiredInAccessKeyDefaultScope P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s39:IsAltKeyRequiredInAccessKeyDefaultScope",dnPackItem(P1)) ok
 		return self
 
 	Func getEnableMultiMonitorDisplayClipping
 		return dnSend("s3:get",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping","")
 
 	Func setEnableMultiMonitorDisplayClipping P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.CoreCompatibilityPreferences, PresentationCore'),"s33:EnableMultiMonitorDisplayClipping",dnPackItem(P1)) ok
 		return self
 
 
@@ -1687,31 +1802,43 @@ Class CornerRadius from ValueType
 		return self
 
 	Func getTopLeft
-		return dnSend("s3:get",nHandle,"s7:TopLeft","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:TopLeft")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:TopLeft",[]) ok
+		return dn_x
 
 	Func setTopLeft P1
-		dnSend("s3:set",nHandle,"s7:TopLeft",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:TopLeft",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:TopLeft",dnPackItem(P1)) ok
 		return self
 
 	Func getTopRight
-		return dnSend("s3:get",nHandle,"s8:TopRight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:TopRight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:TopRight",[]) ok
+		return dn_x
 
 	Func setTopRight P1
-		dnSend("s3:set",nHandle,"s8:TopRight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:TopRight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:TopRight",dnPackItem(P1)) ok
 		return self
 
 	Func getBottomRight
-		return dnSend("s3:get",nHandle,"s11:BottomRight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:BottomRight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:BottomRight",[]) ok
+		return dn_x
 
 	Func setBottomRight P1
-		dnSend("s3:set",nHandle,"s11:BottomRight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:BottomRight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:BottomRight",dnPackItem(P1)) ok
 		return self
 
 	Func getBottomLeft
-		return dnSend("s3:get",nHandle,"s10:BottomLeft","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:BottomLeft")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:BottomLeft",[]) ok
+		return dn_x
 
 	Func setBottomLeft P1
-		dnSend("s3:set",nHandle,"s10:BottomLeft",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:BottomLeft",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BottomLeft",dnPackItem(P1)) ok
 		return self
 
 
@@ -1774,16 +1901,22 @@ Class DataFormat from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -1825,145 +1958,193 @@ Class WpfDataFormats from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetDataFormat P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s13:GetDataFormat",dnPackItem(P1))
 
 	Func getText
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Text","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:UnicodeText","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:UnicodeText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:UnicodeText",[]) ok
+		return dn_x
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dib","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dib")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dib",[]) ok
+		return dn_x
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Bitmap","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Bitmap")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Bitmap",[]) ok
+		return dn_x
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s16:EnhancedMetafile","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s16:EnhancedMetafile")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s16:EnhancedMetafile",[]) ok
+		return dn_x
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePicture
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s15:MetafilePicture","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s15:MetafilePicture")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s15:MetafilePicture",[]) ok
+		return dn_x
 
 	Func setMetafilePicture P1
 		raise("DotNet Error: MetafilePicture is a read-only property")
 
 	Func getSymbolicLink
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:SymbolicLink","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:SymbolicLink")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:SymbolicLink",[]) ok
+		return dn_x
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dif","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dif")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Dif",[]) ok
+		return dn_x
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Tiff","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Tiff")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Tiff",[]) ok
+		return dn_x
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:OemText","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:OemText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:OemText",[]) ok
+		return dn_x
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:Palette","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:Palette")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:Palette",[]) ok
+		return dn_x
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:PenData","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:PenData")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s7:PenData",[]) ok
+		return dn_x
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Riff","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Riff")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Riff",[]) ok
+		return dn_x
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s9:WaveAudio","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s9:WaveAudio")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s9:WaveAudio",[]) ok
+		return dn_x
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s8:FileDrop","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s8:FileDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s8:FileDrop",[]) ok
+		return dn_x
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Locale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Locale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s6:Locale",[]) ok
+		return dn_x
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Html","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Html")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Html",[]) ok
+		return dn_x
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Rtf","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Rtf")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s3:Rtf",[]) ok
+		return dn_x
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s19:CommaSeparatedValue","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s19:CommaSeparatedValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s19:CommaSeparatedValue",[]) ok
+		return dn_x
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:StringFormat","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:StringFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:StringFormat",[]) ok
+		return dn_x
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:Serializable","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:Serializable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s12:Serializable",[]) ok
+		return dn_x
 
 	Func setSerializable P1
 		raise("DotNet Error: Serializable is a read-only property")
 
 	Func getXaml
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Xaml","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Xaml")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s4:Xaml",[]) ok
+		return dn_x
 
 	Func setXaml P1
 		raise("DotNet Error: Xaml is a read-only property")
 
 	Func getXamlPackage
-		return dnSend("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:XamlPackage","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:XamlPackage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.DataFormats, PresentationCore'),"s11:XamlPackage",[]) ok
+		return dn_x
 
 	Func setXamlPackage P1
 		raise("DotNet Error: XamlPackage is a read-only property")
@@ -2019,7 +2200,9 @@ Class WpfDataObject from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetDataPresent",[P1]) ok
+		return dn_x
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -2035,26 +2218,38 @@ Class WpfDataObject from Object
 			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1)) ok
+
 		return self
 
 	Func ContainsAudio 
-		return dnSend("s4:call",nHandle,"s13:ContainsAudio","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsAudio")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:ContainsAudio",[]) ok
+		return dn_x
 
 	Func ContainsFileDropList 
-		return dnSend("s4:call",nHandle,"s20:ContainsFileDropList","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsFileDropList")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ContainsFileDropList",[]) ok
+		return dn_x
 
 	Func ContainsImage 
-		return dnSend("s4:call",nHandle,"s13:ContainsImage","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsImage")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:ContainsImage",[]) ok
+		return dn_x
 
 	Func ContainsText P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:ContainsText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s12:ContainsText","")
+			dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ContainsText",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s12:ContainsText",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:ContainsText",[P1]) ok
+		return dn_x
 
 	Func GetAudioStream 
 		return dnSend("s4:call",nHandle,"s14:GetAudioStream","")
@@ -2070,20 +2265,30 @@ Class WpfDataObject from Object
 			return dnSend("s9:callnamed",nHandle,"s7:GetText",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s7:GetText","")
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetText")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetText",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s7:GetText",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetText",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetText",[P1]) ok
+		return dn_x
 
 	Func SetAudio P1
-		dnSend("s4:call",nHandle,"s8:SetAudio",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetAudio",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetAudio",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetFileDropList P1
-		dnSend("s4:call",nHandle,"s15:SetFileDropList",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetFileDropList",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetFileDropList",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetImage P1
-		dnSend("s4:call",nHandle,"s8:SetImage",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetImage",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetImage",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetText P1
@@ -2091,34 +2296,50 @@ Class WpfDataObject from Object
 			dnSend("s9:callnamed",nHandle,"s7:SetText",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:SetText",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetText",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetText",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddCopyingHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddCopyingHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddCopyingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveCopyingHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemoveCopyingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemoveCopyingHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemoveCopyingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPastingHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddPastingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddPastingHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s17:AddPastingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePastingHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemovePastingHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemovePastingHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s20:RemovePastingHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddSettingDataHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s21:AddSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s21:AddSettingDataHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s21:AddSettingDataHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveSettingDataHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s24:RemoveSettingDataHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s24:RemoveSettingDataHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataObject, PresentationCore'),"s24:RemoveSettingDataHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getCopyingEvent
@@ -2152,7 +2373,9 @@ Class DeferrableContent from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class DeferrableContentConverter from TypeConverter
@@ -2203,23 +2426,33 @@ Class DependencyObject from DispatcherObject
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetCurrentValue P1,P2
-		dnSend("s4:call",nHandle,"s15:SetCurrentValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetCurrentValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetCurrentValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ClearValue P1
-		dnSend("s4:call",nHandle,"s10:ClearValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:ClearValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:ClearValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func CoerceValue P1
-		dnSend("s4:call",nHandle,"s11:CoerceValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:CoerceValue",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:CoerceValue",dnPackItem(P1)) ok
+
 		return self
 
 	Func InvalidateProperty P1
-		dnSend("s4:call",nHandle,"s18:InvalidateProperty",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:InvalidateProperty",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:InvalidateProperty",dnPackItem(P1)) ok
+
 		return self
 
 	Func ReadLocalValue P1
@@ -2235,7 +2468,9 @@ Class DependencyObject from DispatcherObject
 		raise("DotNet Error: DependencyObjectType is a read-only property")
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -2258,19 +2493,27 @@ Class DependencyObjectType from Object
 		return self
 
 	Func IsInstanceOfType P1
-		return dnSend("s4:call",nHandle,"s16:IsInstanceOfType",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsInstanceOfType",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:IsInstanceOfType",[P1]) ok
+		return dn_x
 
 	Func IsSubclassOf P1
-		return dnSend("s4:call",nHandle,"s12:IsSubclassOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsSubclassOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsSubclassOf",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func FromSystemType P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyObjectType, WindowsBase'),"s14:FromSystemType",dnPackItem(P1))
 
 	Func getId
-		return dnSend("s3:get",nHandle,"s2:Id","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -2288,7 +2531,9 @@ Class DependencyObjectType from Object
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2331,13 +2576,19 @@ Class DependencyProperty from Object
 		return dnSend("s4:call",nHandle,"s8:AddOwner",dnPackItem(P1))
 
 	Func IsValidType P1
-		return dnSend("s4:call",nHandle,"s11:IsValidType",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:IsValidType",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:IsValidType",[P1]) ok
+		return dn_x
 
 	Func IsValidValue P1
-		return dnSend("s4:call",nHandle,"s12:IsValidValue",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsValidValue",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsValidValue",[P1]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Register P1
 		if dnIsNamed(P1)
@@ -2364,7 +2615,9 @@ Class DependencyProperty from Object
 		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2394,13 +2647,17 @@ Class DependencyProperty from Object
 		raise("DotNet Error: ValidateValueCallback is a read-only property")
 
 	Func getGlobalIndex
-		return dnSend("s3:get",nHandle,"s11:GlobalIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:GlobalIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:GlobalIndex",[]) ok
+		return dn_x
 
 	Func setGlobalIndex P1
 		raise("DotNet Error: GlobalIndex is a read-only property")
 
 	Func getReadOnly
-		return dnSend("s3:get",nHandle,"s8:ReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:ReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:ReadOnly",[]) ok
+		return dn_x
 
 	Func setReadOnly P1
 		raise("DotNet Error: ReadOnly is a read-only property")
@@ -2483,13 +2740,17 @@ Class DependencyPropertyHelper from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetValueSource P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s14:GetValueSource",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsTemplatedValueDynamic P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s23:IsTemplatedValueDynamic",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s23:IsTemplatedValueDynamic",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.DependencyPropertyHelper, PresentationFramework'),"s23:IsTemplatedValueDynamic",[P1,P2]) ok
+		return dn_x
 
 
 Class DependencyPropertyKey from Object
@@ -2506,11 +2767,15 @@ Class DependencyPropertyKey from Object
 		return self
 
 	Func OverrideMetadata P1,P2
-		dnSend("s4:call",nHandle,"s16:OverrideMetadata",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:OverrideMetadata",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:OverrideMetadata",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDependencyProperty
 		return dnSend("s3:get",nHandle,"s18:DependencyProperty","")
@@ -2583,31 +2848,41 @@ Class DpiScale from ValueType
 		return self
 
 	Func getDpiScaleX
-		return dnSend("s3:get",nHandle,"s9:DpiScaleX","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:DpiScaleX")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:DpiScaleX",[]) ok
+		return dn_x
 
 	Func setDpiScaleX P1
 		raise("DotNet Error: DpiScaleX is a read-only property")
 
 	Func getDpiScaleY
-		return dnSend("s3:get",nHandle,"s9:DpiScaleY","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:DpiScaleY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:DpiScaleY",[]) ok
+		return dn_x
 
 	Func setDpiScaleY P1
 		raise("DotNet Error: DpiScaleY is a read-only property")
 
 	Func getPixelsPerDip
-		return dnSend("s3:get",nHandle,"s12:PixelsPerDip","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:PixelsPerDip")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PixelsPerDip",[]) ok
+		return dn_x
 
 	Func setPixelsPerDip P1
 		raise("DotNet Error: PixelsPerDip is a read-only property")
 
 	Func getPixelsPerInchX
-		return dnSend("s3:get",nHandle,"s14:PixelsPerInchX","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:PixelsPerInchX")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:PixelsPerInchX",[]) ok
+		return dn_x
 
 	Func setPixelsPerInchX P1
 		raise("DotNet Error: PixelsPerInchX is a read-only property")
 
 	Func getPixelsPerInchY
-		return dnSend("s3:get",nHandle,"s14:PixelsPerInchY","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:PixelsPerInchY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:PixelsPerInchY",[]) ok
+		return dn_x
 
 	Func setPixelsPerInchY P1
 		raise("DotNet Error: PixelsPerInchY is a read-only property")
@@ -2638,102 +2913,152 @@ Class DragDrop from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddPreviewQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s34:AddPreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s34:AddPreviewQueryContinueDragHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s34:AddPreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s37:RemovePreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s37:RemovePreviewQueryContinueDragHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s37:RemovePreviewQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s27:AddQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s27:AddQueryContinueDragHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s27:AddQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveQueryContinueDragHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s30:RemoveQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s30:RemoveQueryContinueDragHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s30:RemoveQueryContinueDragHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:AddPreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:AddPreviewGiveFeedbackHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:AddPreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s32:RemovePreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s32:RemovePreviewGiveFeedbackHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s32:RemovePreviewGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:AddGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:AddGiveFeedbackHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:AddGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveGiveFeedbackHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:RemoveGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:RemoveGiveFeedbackHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:RemoveGiveFeedbackHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveDragEnterHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragEnterHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragEnterHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragEnterHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:AddPreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:AddPreviewDragOverHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s25:AddPreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s28:RemovePreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s28:RemovePreviewDragOverHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s28:RemovePreviewDragOverHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s18:AddDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s18:AddDragOverHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s18:AddDragOverHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveDragOverHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:RemoveDragOverHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:RemoveDragOverHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:RemoveDragOverHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s26:AddPreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s29:RemovePreviewDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s19:AddDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveDragLeaveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragLeaveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s22:RemoveDragLeaveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddPreviewDropHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:AddPreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:AddPreviewDropHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s21:AddPreviewDropHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemovePreviewDropHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s24:RemovePreviewDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s24:RemovePreviewDropHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s24:RemovePreviewDropHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddDropHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:AddDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:AddDropHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s14:AddDropHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveDropHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s17:RemoveDropHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s17:RemoveDropHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DragDrop, PresentationCore'),"s17:RemoveDropHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func DoDragDrop P1,P2,P3
@@ -2863,19 +3188,25 @@ Class Duration from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Subtract P1
 		return dnSend("s4:call",nHandle,"s8:Subtract",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s7:Compare",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s7:Compare",[P1,P2]) ok
+		return dn_x
 
 	Func Plus P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s4:Plus",dnPackItem(P1))
 
 	Func getHasTimeSpan
-		return dnSend("s3:get",nHandle,"s11:HasTimeSpan","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:HasTimeSpan")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:HasTimeSpan",[]) ok
+		return dn_x
 
 	Func setHasTimeSpan P1
 		raise("DotNet Error: HasTimeSpan is a read-only property")
@@ -2962,7 +3293,8 @@ Class DynamicResourceExtension from MarkupExtension
 		return dnSend("s3:get",nHandle,"s11:ResourceKey","")
 
 	Func setResourceKey P1
-		dnSend("s3:set",nHandle,"s11:ResourceKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ResourceKey",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ResourceKey",dnPackItem(P1)) ok
 		return self
 
 
@@ -2999,7 +3331,9 @@ Class EventManager from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func RegisterRoutedEvent P1,P2,P3,P4
 		return dnSend("s4:call",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s19:RegisterRoutedEvent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
@@ -3039,7 +3373,9 @@ Class EventPrivateKey from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class EventRoute from Object
@@ -3056,11 +3392,15 @@ Class EventRoute from Object
 		return self
 
 	Func Add P1,P2,P3
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 	Func PushBranchNode P1,P2
-		dnSend("s4:call",nHandle,"s14:PushBranchNode",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:PushBranchNode",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:PushBranchNode",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func PopBranchNode 
@@ -3073,7 +3413,9 @@ Class EventRoute from Object
 		return dnSend("s4:call",nHandle,"s16:PeekBranchSource","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ExitEventArgs from EventArgs
@@ -3090,10 +3432,13 @@ Class ExitEventArgs from EventArgs
 		return self
 
 	Func getApplicationExitCode
-		return dnSend("s3:get",nHandle,"s19:ApplicationExitCode","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:ApplicationExitCode")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ApplicationExitCode",[]) ok
+		return dn_x
 
 	Func setApplicationExitCode P1
-		dnSend("s3:set",nHandle,"s19:ApplicationExitCode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:ApplicationExitCode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ApplicationExitCode",dnPackItem(P1)) ok
 		return self
 
 
@@ -3109,7 +3454,9 @@ Class Expression from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class ExpressionConverter from TypeConverter
@@ -3178,37 +3525,49 @@ Class FigureLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dnSend("s3:get",nHandle,"s10:IsAbsolute","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbsolute")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAbsolute",[]) ok
+		return dn_x
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dnSend("s3:get",nHandle,"s6:IsAuto","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsAuto")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsAuto",[]) ok
+		return dn_x
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsColumn
-		return dnSend("s3:get",nHandle,"s8:IsColumn","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsColumn")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsColumn",[]) ok
+		return dn_x
 
 	Func setIsColumn P1
 		raise("DotNet Error: IsColumn is a read-only property")
 
 	Func getIsContent
-		return dnSend("s3:get",nHandle,"s9:IsContent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsContent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsContent",[]) ok
+		return dn_x
 
 	Func setIsContent P1
 		raise("DotNet Error: IsContent is a read-only property")
 
 	Func getIsPage
-		return dnSend("s3:get",nHandle,"s6:IsPage","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsPage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsPage",[]) ok
+		return dn_x
 
 	Func setIsPage P1
 		raise("DotNet Error: IsPage is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3283,13 +3642,17 @@ Class FontStretch from ValueType
 		return self
 
 	Func ToOpenTypeStretch 
-		return dnSend("s4:call",nHandle,"s17:ToOpenTypeStretch","")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:ToOpenTypeStretch")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:ToOpenTypeStretch",[]) ok
+		return dn_x
 
 	Func FromOpenTypeStretch P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s19:FromOpenTypeStretch",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s7:Compare",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.FontStretch, PresentationCore'),"s7:Compare",[P1,P2]) ok
+		return dn_x
 
 
 Class FontStretchConverter from TypeConverter
@@ -3336,7 +3699,9 @@ Class FontStretches from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getUltraCondensed
 		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStretches, PresentationCore'),"s14:UltraCondensed","")
@@ -3457,7 +3822,9 @@ Class FontStyles from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getNormal
 		return dnSend("s3:get",dnTypeHandle('System.Windows.FontStyles, PresentationCore'),"s6:Normal","")
@@ -3499,13 +3866,17 @@ Class FontWeight from ValueType
 		return self
 
 	Func ToOpenTypeWeight 
-		return dnSend("s4:call",nHandle,"s16:ToOpenTypeWeight","")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:ToOpenTypeWeight")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:ToOpenTypeWeight",[]) ok
+		return dn_x
 
 	Func FromOpenTypeWeight P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s18:FromOpenTypeWeight",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s7:Compare",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.FontWeight, PresentationCore'),"s7:Compare",[P1,P2]) ok
+		return dn_x
 
 
 Class FontWeightConverter from TypeConverter
@@ -3558,7 +3929,9 @@ Class FontWeights from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getThin
 		return dnSend("s3:get",dnTypeHandle('System.Windows.FontWeights, PresentationCore'),"s4:Thin","")
@@ -3673,27 +4046,38 @@ Class FrameworkCompatibilityPreferences from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getAreInactiveSelectionHighlightBrushKeysSupported
-		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported",[]) ok
+		return dn_x
 
 	Func setAreInactiveSelectionHighlightBrushKeysSupported P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s47:AreInactiveSelectionHighlightBrushKeysSupported",dnPackItem(P1)) ok
 		return self
 
 	Func getKeepTextBoxDisplaySynchronizedWithTextProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",[]) ok
+		return dn_x
 
 	Func setKeepTextBoxDisplaySynchronizedWithTextProperty P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",dnPackItem(P1)) ok
 		return self
 
 	Func getShouldThrowOnCopyOrCutFailure
-		return dnSend("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure",[]) ok
+		return dn_x
 
 	Func setShouldThrowOnCopyOrCutFailure P1
-		dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure",P1)
+		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework'),"s29:ShouldThrowOnCopyOrCutFailure",dnPackItem(P1)) ok
 		return self
 
 
@@ -3742,19 +4126,27 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func AppendChild P1
-		dnSend("s4:call",nHandle,"s11:AppendChild",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s11:AppendChild",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AppendChild",dnPackItem(P1)) ok
+
 		return self
 
 	Func SetValue P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetBinding P1,P2
-		dnSend("s4:call",nHandle,"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:SetBinding",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func SetResourceReference P1,P2
-		dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddHandler P1
@@ -3765,38 +4157,51 @@ Class FrameworkElementFactory from Object
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetType_ 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getType
 		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
-		dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
 		return self
 
 	Func getText
-		return dnSend("s3:get",nHandle,"s4:Text","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		return dn_x
 
 	Func setText P1
-		dnSend("s3:set",nHandle,"s4:Text",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Text",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Text",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -3838,31 +4243,43 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func ShouldSerializeVisualTree 
-		return dnSend("s4:call",nHandle,"s25:ShouldSerializeVisualTree","")
+		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeVisualTree")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:ShouldSerializeVisualTree",[]) ok
+		return dn_x
 
 	Func FindName P1,P2
 		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func Seal 
-		dnSend("s4:call",nHandle,"s4:Seal","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seal")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seal","") ok
+
 		return self
 
 	Func LoadContent 
 		return dnSend("s4:call",nHandle,"s11:LoadContent","")
 
 	Func ShouldSerializeResources P1
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeResources",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeResources",[P1]) ok
+		return dn_x
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -3871,25 +4288,30 @@ Class FrameworkTemplate from DispatcherObject
 		return dnSend("s3:get",nHandle,"s10:VisualTree","")
 
 	Func setVisualTree P1
-		dnSend("s3:set",nHandle,"s10:VisualTree",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:VisualTree",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:VisualTree",dnPackItem(P1)) ok
 		return self
 
 	Func getTemplate
 		return dnSend("s3:get",nHandle,"s8:Template","")
 
 	Func setTemplate P1
-		dnSend("s3:set",nHandle,"s8:Template",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Template",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Template",dnPackItem(P1)) ok
 		return self
 
 	Func getResources
 		return dnSend("s3:get",nHandle,"s9:Resources","")
 
 	Func setResources P1
-		dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Resources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1)) ok
 		return self
 
 	Func getHasContent
-		return dnSend("s3:get",nHandle,"s10:HasContent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:HasContent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasContent",[]) ok
+		return dn_x
 
 	Func setHasContent P1
 		raise("DotNet Error: HasContent is a read-only property")
@@ -3931,25 +4353,33 @@ Class GridLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dnSend("s3:get",nHandle,"s10:IsAbsolute","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbsolute")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAbsolute",[]) ok
+		return dn_x
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dnSend("s3:get",nHandle,"s6:IsAuto","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsAuto")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsAuto",[]) ok
+		return dn_x
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsStar
-		return dnSend("s3:get",nHandle,"s6:IsStar","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsStar")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsStar",[]) ok
+		return dn_x
 
 	Func setIsStar P1
 		raise("DotNet Error: IsStar is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4042,7 +4472,9 @@ Class IContentHost from DotNetObject
 		return dnSend("s4:call",nHandle,"s13:GetRectangles",dnPackItem(P1))
 
 	Func OnChildDesiredSizeChanged P1
-		dnSend("s4:call",nHandle,"s25:OnChildDesiredSizeChanged",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s25:OnChildDesiredSizeChanged",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s25:OnChildDesiredSizeChanged",dnPackItem(P1)) ok
+
 		return self
 
 	Func getHostedElements
@@ -4073,7 +4505,9 @@ Class WpfIDataObject from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetDataPresent",[P1]) ok
+		return dn_x
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -4089,7 +4523,9 @@ Class WpfIDataObject from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -4107,10 +4543,13 @@ Class IFrameworkInputElement from DotNetObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 
@@ -4137,33 +4576,49 @@ Class IInputElement from DotNetObject
 		return self
 
 	Func RaiseEvent P1
-		dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func CaptureMouse 
-		return dnSend("s4:call",nHandle,"s12:CaptureMouse","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureMouse",[]) ok
+		return dn_x
 
 	Func ReleaseMouseCapture 
-		dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","") ok
+
 		return self
 
 	Func CaptureStylus 
-		return dnSend("s4:call",nHandle,"s13:CaptureStylus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:CaptureStylus",[]) ok
+		return dn_x
 
 	Func ReleaseStylusCapture 
-		dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","") ok
+
 		return self
 
 	Func Focus 
-		return dnSend("s4:call",nHandle,"s5:Focus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Focus",[]) ok
+		return dn_x
 
 	Func setPreviewMouseLeftButtonDownEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PreviewMouseLeftButtonDown",dnCallback(P1)])
@@ -4550,64 +5005,85 @@ Class IInputElement from DotNetObject
 		return self
 
 	Func getIsMouseOver
-		return dnSend("s3:get",nHandle,"s11:IsMouseOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsMouseOver",[]) ok
+		return dn_x
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dnSend("s3:get",nHandle,"s19:IsMouseDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsMouseDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnSend("s3:get",nHandle,"s15:IsMouseCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsMouseCaptured",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsStylusOver
-		return dnSend("s3:get",nHandle,"s12:IsStylusOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsStylusOver",[]) ok
+		return dn_x
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnSend("s3:get",nHandle,"s20:IsStylusDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsStylusDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnSend("s3:get",nHandle,"s16:IsStylusCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsStylusCaptured",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnSend("s3:get",nHandle,"s21:IsKeyboardFocusWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsKeyboardFocusWithin",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnSend("s3:get",nHandle,"s17:IsKeyboardFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsKeyboardFocused",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnSend("s3:get",nHandle,"s9:IsEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsEnabled",[]) ok
+		return dn_x
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")
 
 	Func getFocusable
-		return dnSend("s3:get",nHandle,"s9:Focusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Focusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Focusable",[]) ok
+		return dn_x
 
 	Func setFocusable P1
-		dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1)) ok
 		return self
 
 
@@ -4623,7 +5099,9 @@ Class IWeakEventListener from DotNetObject
 		return self
 
 	Func ReceiveWeakEvent P1,P2,P3
-		return dnSend("s4:call",nHandle,"s16:ReceiveWeakEvent",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",nHandle,"s16:ReceiveWeakEvent",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:ReceiveWeakEvent",[P1,P2,P3]) ok
+		return dn_x
 
 
 Class Int32Rect from ValueType
@@ -4677,53 +5155,73 @@ Class Int32Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Int32Rect, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getX
-		return dnSend("s3:get",nHandle,"s1:X","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		return dn_x
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
-		return dnSend("s3:get",nHandle,"s1:Y","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		return dn_x
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getIsEmpty
-		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getHasArea
-		return dnSend("s3:get",nHandle,"s7:HasArea","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:HasArea")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:HasArea",[]) ok
+		return dn_x
 
 	Func setHasArea P1
 		raise("DotNet Error: HasArea is a read-only property")
@@ -4879,10 +5377,14 @@ Class LocalValueEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		return dnSend("s4:call",nHandle,"s8:MoveNext","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		return dn_x
 
 	Func Reset 
-		dnSend("s4:call",nHandle,"s5:Reset","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+
 		return self
 
 	Func getCurrent
@@ -4892,7 +5394,9 @@ Class LocalValueEnumerator from ValueType
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4913,20 +5417,30 @@ Class Localization from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetComments P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:GetComments",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:GetComments",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:GetComments",[P1]) ok
+		return dn_x
 
 	Func SetComments P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:SetComments",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:SetComments",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s11:SetComments",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetAttributes P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:GetAttributes",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:GetAttributes",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:GetAttributes",[P1]) ok
+		return dn_x
 
 	Func SetAttributes P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:SetAttributes",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Localization, PresentationFramework'),"s13:SetAttributes",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getCommentsProperty
@@ -4954,7 +5468,9 @@ Class LogicalTreeHelper from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func FindLogicalNode P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s15:FindLogicalNode",dnPackItem(P1) + dnPackItem(P2))
@@ -4966,7 +5482,9 @@ Class LogicalTreeHelper from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s11:GetChildren",dnPackItem(P1))
 
 	Func BringIntoView P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s13:BringIntoView",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s13:BringIntoView",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.LogicalTreeHelper, PresentationFramework'),"s13:BringIntoView",dnPackItem(P1)) ok
+
 		return self
 
 
@@ -4982,7 +5500,9 @@ Class WpfMessageBox from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Show P1
 		if dnIsNamed(P1)
@@ -5018,49 +5538,69 @@ Class NameScope from Object
 		return self
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func FindName P1
 		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1))
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func Add P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func ContainsKey P1
-		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		return dn_x
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func SetNameScope P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s12:SetNameScope",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s12:SetNameScope",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.NameScope, WindowsBase'),"s12:SetNameScope",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetNameScope P1
@@ -5070,17 +5610,22 @@ Class NameScope from Object
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5148,16 +5693,22 @@ Class WpfPoint from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func Offset P1,P2
-		dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Parse P1
@@ -5173,17 +5724,23 @@ Class WpfPoint from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Point, WindowsBase'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getX
-		return dnSend("s3:get",nHandle,"s1:X","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		return dn_x
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
-		return dnSend("s3:get",nHandle,"s1:Y","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		return dn_x
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 
@@ -5231,11 +5788,15 @@ Class PresentationSource from DispatcherObject
 		return dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s20:FromDependencyObject",dnPackItem(P1))
 
 	Func AddSourceChangedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s23:AddSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s23:AddSourceChangedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s23:AddSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveSourceChangedHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s26:RemoveSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s26:RemoveSourceChangedHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.PresentationSource, PresentationCore'),"s26:RemoveSourceChangedHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func setContentRenderedEvent P1
@@ -5256,11 +5817,14 @@ Class PresentationSource from DispatcherObject
 		return dnSend("s3:get",nHandle,"s10:RootVisual","")
 
 	Func setRootVisual P1
-		dnSend("s3:set",nHandle,"s10:RootVisual",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:RootVisual",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:RootVisual",dnPackItem(P1)) ok
 		return self
 
 	Func getIsDisposed
-		return dnSend("s3:get",nHandle,"s10:IsDisposed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsDisposed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsDisposed",[]) ok
+		return dn_x
 
 	Func setIsDisposed P1
 		raise("DotNet Error: IsDisposed is a read-only property")
@@ -5313,27 +5877,32 @@ Class PropertyMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDefaultValue
 		return dnSend("s3:get",nHandle,"s12:DefaultValue","")
 
 	Func setDefaultValue P1
-		dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DefaultValue",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1)) ok
 		return self
 
 	Func getPropertyChangedCallback
 		return dnSend("s3:get",nHandle,"s23:PropertyChangedCallback","")
 
 	Func setPropertyChangedCallback P1
-		dnSend("s3:set",nHandle,"s23:PropertyChangedCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:PropertyChangedCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:PropertyChangedCallback",dnPackItem(P1)) ok
 		return self
 
 	Func getCoerceValueCallback
 		return dnSend("s3:get",nHandle,"s19:CoerceValueCallback","")
 
 	Func setCoerceValueCallback P1
-		dnSend("s3:set",nHandle,"s19:CoerceValueCallback",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:CoerceValueCallback",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:CoerceValueCallback",dnPackItem(P1)) ok
 		return self
 
 
@@ -5369,13 +5938,18 @@ Class PropertyPath from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		return dn_x
 
 	Func setPath P1
-		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1)) ok
 		return self
 
 	Func getPathParameters
@@ -5458,22 +6032,30 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func Contains P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IntersectsWith P1
-		return dnSend("s4:call",nHandle,"s14:IntersectsWith",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IntersectsWith",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IntersectsWith",[P1]) ok
+		return dn_x
 
 	Func Intersect P1
 		if dnIsNamed(P1)
@@ -5482,7 +6064,9 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s9:Intersect",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:Intersect",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Intersect",dnPackItem(P1)) ok
+
 		return self
 
 	Func Union P1
@@ -5492,7 +6076,9 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s5:Union",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Union",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Union",dnPackItem(P1)) ok
+
 		return self
 
 	Func Offset P1
@@ -5502,7 +6088,9 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1)) ok
+
 		return self
 
 	Func Inflate P1
@@ -5512,7 +6100,9 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s7:Inflate",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s7:Inflate",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Inflate",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Inflate",dnPackItem(P1)) ok
+
 		return self
 
 	Func Transform P1
@@ -5522,18 +6112,24 @@ Class Rect from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
 		ok
-		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:Transform",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1)) ok
+
 		return self
 
 	Func Scale P1,P2
-		dnSend("s4:call",nHandle,"s5:Scale",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Scale",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Scale",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
-		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -5542,64 +6138,86 @@ Class Rect from ValueType
 		return dnSend("s3:get",nHandle,"s8:Location","")
 
 	Func setLocation P1
-		dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1)) ok
 		return self
 
 	Func getSize
 		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
 		return self
 
 	Func getX
-		return dnSend("s3:get",nHandle,"s1:X","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		return dn_x
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
-		return dnSend("s3:get",nHandle,"s1:Y","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		return dn_x
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Left")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Left",[]) ok
+		return dn_x
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getTop
-		return dnSend("s3:get",nHandle,"s3:Top","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Top")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Top",[]) ok
+		return dn_x
 
 	Func setTop P1
 		raise("DotNet Error: Top is a read-only property")
 
 	Func getRight
-		return dnSend("s3:get",nHandle,"s5:Right","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Right")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Right",[]) ok
+		return dn_x
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getBottom
-		return dnSend("s3:get",nHandle,"s6:Bottom","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Bottom")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Bottom",[]) ok
+		return dn_x
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
@@ -5687,54 +6305,75 @@ Class ResourceDictionary from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func FindName P1
 		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1))
 
 	Func Add P1,P2
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginInit 
-		dnSend("s4:call",nHandle,"s9:BeginInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+
 		return self
 
 	Func EndInit 
-		dnSend("s4:call",nHandle,"s7:EndInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getMergedDictionaries
@@ -5747,33 +6386,42 @@ Class ResourceDictionary from Object
 		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
 		return self
 
 	Func getIsFixedSize
-		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInvalidatesImplicitDataTemplateResources
-		return dnSend("s3:get",nHandle,"s40:InvalidatesImplicitDataTemplateResources","")
+		dn_x = dotnet_call("s3:get",nHandle,"s40:InvalidatesImplicitDataTemplateResources")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s40:InvalidatesImplicitDataTemplateResources",[]) ok
+		return dn_x
 
 	Func setInvalidatesImplicitDataTemplateResources P1
-		dnSend("s3:set",nHandle,"s40:InvalidatesImplicitDataTemplateResources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s40:InvalidatesImplicitDataTemplateResources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s40:InvalidatesImplicitDataTemplateResources",dnPackItem(P1)) ok
 		return self
 
 	Func getDeferrableContent
 		return dnSend("s3:get",nHandle,"s17:DeferrableContent","")
 
 	Func setDeferrableContent P1
-		dnSend("s3:set",nHandle,"s17:DeferrableContent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:DeferrableContent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DeferrableContent",dnPackItem(P1)) ok
 		return self
 
 	Func getKeys
@@ -5789,7 +6437,9 @@ Class ResourceDictionary from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5835,10 +6485,14 @@ Class RoutedEvent from Object
 		return dnSend("s4:call",nHandle,"s8:AddOwner",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5907,21 +6561,26 @@ Class RoutedEventArgs from EventArgs
 		return dnSend("s3:get",nHandle,"s11:RoutedEvent","")
 
 	Func setRoutedEvent P1
-		dnSend("s3:set",nHandle,"s11:RoutedEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:RoutedEvent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:RoutedEvent",dnPackItem(P1)) ok
 		return self
 
 	Func getHandled
-		return dnSend("s3:get",nHandle,"s7:Handled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Handled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Handled",[]) ok
+		return dn_x
 
 	Func setHandled P1
-		dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1)) ok
 		return self
 
 	Func getSource
 		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
 		return self
 
 	Func getOriginalSource
@@ -5961,7 +6620,9 @@ Class RoutedEventHandlerInfo from ValueType
 		raise("DotNet Error: Handler is a read-only property")
 
 	Func getInvokeHandledEventsToo
-		return dnSend("s3:get",nHandle,"s22:InvokeHandledEventsToo","")
+		dn_x = dotnet_call("s3:get",nHandle,"s22:InvokeHandledEventsToo")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:InvokeHandledEventsToo",[]) ok
+		return dn_x
 
 	Func setInvokeHandledEventsToo P1
 		raise("DotNet Error: InvokeHandledEventsToo is a read-only property")
@@ -6001,10 +6662,14 @@ Class SetterBase from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -6034,64 +6699,91 @@ Class SetterBaseCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6122,35 +6814,47 @@ Class WpfSize from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Size, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func getIsEmpty
-		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getEmpty
@@ -6179,7 +6883,9 @@ Class SizeChangedInfo from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getPreviousSize
 		return dnSend("s3:get",nHandle,"s12:PreviousSize","")
@@ -6194,13 +6900,17 @@ Class SizeChangedInfo from Object
 		raise("DotNet Error: NewSize is a read-only property")
 
 	Func getWidthChanged
-		return dnSend("s3:get",nHandle,"s12:WidthChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:WidthChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:WidthChanged",[]) ok
+		return dn_x
 
 	Func setWidthChanged P1
 		raise("DotNet Error: WidthChanged is a read-only property")
 
 	Func getHeightChanged
-		return dnSend("s3:get",nHandle,"s13:HeightChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:HeightChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:HeightChanged",[]) ok
+		return dn_x
 
 	Func setHeightChanged P1
 		raise("DotNet Error: HeightChanged is a read-only property")
@@ -6260,15 +6970,21 @@ Class SplashScreen from Object
 			dnSend("s9:callnamed",nHandle,"s4:Show",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s4:Show",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Show",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Show",dnPackItem(P1)) ok
+
 		return self
 
 	Func Close P1
-		dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class StartupEventArgs from EventArgs
@@ -6333,7 +7049,8 @@ Class StaticResourceExtension from MarkupExtension
 		return dnSend("s3:get",nHandle,"s11:ResourceKey","")
 
 	Func setResourceKey P1
-		dnSend("s3:set",nHandle,"s11:ResourceKey",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ResourceKey",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ResourceKey",dnPackItem(P1)) ok
 		return self
 
 
@@ -6402,19 +7119,27 @@ Class Style from DispatcherObject
 		return self
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func Seal 
-		dnSend("s4:call",nHandle,"s4:Seal","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seal")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seal","") ok
+
 		return self
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -6423,14 +7148,16 @@ Class Style from DispatcherObject
 		return dnSend("s3:get",nHandle,"s10:TargetType","")
 
 	Func setTargetType P1
-		dnSend("s3:set",nHandle,"s10:TargetType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:TargetType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:TargetType",dnPackItem(P1)) ok
 		return self
 
 	Func getBasedOn
 		return dnSend("s3:get",nHandle,"s7:BasedOn","")
 
 	Func setBasedOn P1
-		dnSend("s3:set",nHandle,"s7:BasedOn",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:BasedOn",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BasedOn",dnPackItem(P1)) ok
 		return self
 
 	Func getTriggers
@@ -6449,7 +7176,8 @@ Class Style from DispatcherObject
 		return dnSend("s3:get",nHandle,"s9:Resources","")
 
 	Func setResources P1
-		dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Resources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1)) ok
 		return self
 
 
@@ -6618,7 +7346,9 @@ Class WpfSystemColors from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActiveBorderColor
 		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemColors, PresentationFramework'),"s17:ActiveBorderColor","")
@@ -7551,26 +8281,38 @@ Class SystemCommands from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func CloseWindow P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s11:CloseWindow",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s11:CloseWindow",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s11:CloseWindow",dnPackItem(P1)) ok
+
 		return self
 
 	Func MaximizeWindow P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MaximizeWindow",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MaximizeWindow",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MaximizeWindow",dnPackItem(P1)) ok
+
 		return self
 
 	Func MinimizeWindow P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MinimizeWindow",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MinimizeWindow",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:MinimizeWindow",dnPackItem(P1)) ok
+
 		return self
 
 	Func RestoreWindow P1
-		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s13:RestoreWindow",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s13:RestoreWindow",P1)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s13:RestoreWindow",dnPackItem(P1)) ok
+
 		return self
 
 	Func ShowSystemMenu P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:ShowSystemMenu",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:ShowSystemMenu",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.SystemCommands, PresentationFramework'),"s14:ShowSystemMenu",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getCloseWindowCommand
@@ -7677,10 +8419,14 @@ Class WpfSystemFonts from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getIconFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:IconFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:IconFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:IconFontSize",[]) ok
+		return dn_x
 
 	Func setIconFontSize P1
 		raise("DotNet Error: IconFontSize is a read-only property")
@@ -7710,7 +8456,9 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: IconFontTextDecorations is a read-only property")
 
 	Func getCaptionFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:CaptionFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:CaptionFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:CaptionFontSize",[]) ok
+		return dn_x
 
 	Func setCaptionFontSize P1
 		raise("DotNet Error: CaptionFontSize is a read-only property")
@@ -7740,7 +8488,9 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: CaptionFontTextDecorations is a read-only property")
 
 	Func getSmallCaptionFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:SmallCaptionFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:SmallCaptionFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s20:SmallCaptionFontSize",[]) ok
+		return dn_x
 
 	Func setSmallCaptionFontSize P1
 		raise("DotNet Error: SmallCaptionFontSize is a read-only property")
@@ -7770,7 +8520,9 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: SmallCaptionFontTextDecorations is a read-only property")
 
 	Func getMenuFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:MenuFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:MenuFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s12:MenuFontSize",[]) ok
+		return dn_x
 
 	Func setMenuFontSize P1
 		raise("DotNet Error: MenuFontSize is a read-only property")
@@ -7800,7 +8552,9 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: MenuFontTextDecorations is a read-only property")
 
 	Func getStatusFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:StatusFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:StatusFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s14:StatusFontSize",[]) ok
+		return dn_x
 
 	Func setStatusFontSize P1
 		raise("DotNet Error: StatusFontSize is a read-only property")
@@ -7830,7 +8584,9 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: StatusFontTextDecorations is a read-only property")
 
 	Func getMessageFontSize
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:MessageFontSize","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:MessageFontSize")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemFonts, PresentationFramework'),"s15:MessageFontSize",[]) ok
+		return dn_x
 
 	Func setMessageFontSize P1
 		raise("DotNet Error: MessageFontSize is a read-only property")
@@ -8304,7 +9060,9 @@ Class SystemParameters from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func setStaticPropertyChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.SystemParameters, PresentationFramework'),"StaticPropertyChanged",dnCallback(P1)])
@@ -8315,19 +9073,25 @@ Class SystemParameters from Object
 		return self
 
 	Func getFocusBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:FocusBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:FocusBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:FocusBorderWidth",[]) ok
+		return dn_x
 
 	Func setFocusBorderWidth P1
 		raise("DotNet Error: FocusBorderWidth is a read-only property")
 
 	Func getFocusBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:FocusBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:FocusBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:FocusBorderHeight",[]) ok
+		return dn_x
 
 	Func setFocusBorderHeight P1
 		raise("DotNet Error: FocusBorderHeight is a read-only property")
 
 	Func getHighContrast
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:HighContrast","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:HighContrast")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:HighContrast",[]) ok
+		return dn_x
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
@@ -8351,13 +9115,17 @@ Class SystemParameters from Object
 		raise("DotNet Error: HighContrastKey is a read-only property")
 
 	Func getDropShadow
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:DropShadow","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:DropShadow")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:DropShadow",[]) ok
+		return dn_x
 
 	Func setDropShadow P1
 		raise("DotNet Error: DropShadow is a read-only property")
 
 	Func getFlatMenu
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:FlatMenu","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:FlatMenu")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:FlatMenu",[]) ok
+		return dn_x
 
 	Func setFlatMenu P1
 		raise("DotNet Error: FlatMenu is a read-only property")
@@ -8387,19 +9155,25 @@ Class SystemParameters from Object
 		raise("DotNet Error: WorkAreaKey is a read-only property")
 
 	Func getIconHorizontalSpacing
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:IconHorizontalSpacing","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:IconHorizontalSpacing")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:IconHorizontalSpacing",[]) ok
+		return dn_x
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IconVerticalSpacing","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IconVerticalSpacing")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IconVerticalSpacing",[]) ok
+		return dn_x
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIconTitleWrap
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconTitleWrap","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconTitleWrap")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconTitleWrap",[]) ok
+		return dn_x
 
 	Func setIconTitleWrap P1
 		raise("DotNet Error: IconTitleWrap is a read-only property")
@@ -8423,37 +9197,49 @@ Class SystemParameters from Object
 		raise("DotNet Error: IconTitleWrapKey is a read-only property")
 
 	Func getKeyboardCues
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:KeyboardCues","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:KeyboardCues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:KeyboardCues",[]) ok
+		return dn_x
 
 	Func setKeyboardCues P1
 		raise("DotNet Error: KeyboardCues is a read-only property")
 
 	Func getKeyboardDelay
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardDelay","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardDelay",[]) ok
+		return dn_x
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getKeyboardPreference
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:KeyboardPreference","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:KeyboardPreference")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:KeyboardPreference",[]) ok
+		return dn_x
 
 	Func setKeyboardPreference P1
 		raise("DotNet Error: KeyboardPreference is a read-only property")
 
 	Func getKeyboardSpeed
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardSpeed","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardSpeed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:KeyboardSpeed",[]) ok
+		return dn_x
 
 	Func setKeyboardSpeed P1
 		raise("DotNet Error: KeyboardSpeed is a read-only property")
 
 	Func getSnapToDefaultButton
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:SnapToDefaultButton","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:SnapToDefaultButton")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:SnapToDefaultButton",[]) ok
+		return dn_x
 
 	Func setSnapToDefaultButton P1
 		raise("DotNet Error: SnapToDefaultButton is a read-only property")
 
 	Func getWheelScrollLines
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WheelScrollLines","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WheelScrollLines")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:WheelScrollLines",[]) ok
+		return dn_x
 
 	Func setWheelScrollLines P1
 		raise("DotNet Error: WheelScrollLines is a read-only property")
@@ -8465,13 +9251,17 @@ Class SystemParameters from Object
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseHoverHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MouseHoverHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MouseHoverHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MouseHoverHeight",[]) ok
+		return dn_x
 
 	Func setMouseHoverHeight P1
 		raise("DotNet Error: MouseHoverHeight is a read-only property")
 
 	Func getMouseHoverWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MouseHoverWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MouseHoverWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MouseHoverWidth",[]) ok
+		return dn_x
 
 	Func setMouseHoverWidth P1
 		raise("DotNet Error: MouseHoverWidth is a read-only property")
@@ -8531,19 +9321,25 @@ Class SystemParameters from Object
 		raise("DotNet Error: MouseHoverWidthKey is a read-only property")
 
 	Func getMenuDropAlignment
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MenuDropAlignment","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MenuDropAlignment")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MenuDropAlignment",[]) ok
+		return dn_x
 
 	Func setMenuDropAlignment P1
 		raise("DotNet Error: MenuDropAlignment is a read-only property")
 
 	Func getMenuFade
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:MenuFade","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:MenuFade")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s8:MenuFade",[]) ok
+		return dn_x
 
 	Func setMenuFade P1
 		raise("DotNet Error: MenuFade is a read-only property")
 
 	Func getMenuShowDelay
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuShowDelay","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuShowDelay")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuShowDelay",[]) ok
+		return dn_x
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
@@ -8573,37 +9369,49 @@ Class SystemParameters from Object
 		raise("DotNet Error: ComboBoxPopupAnimation is a read-only property")
 
 	Func getComboBoxAnimation
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:ComboBoxAnimation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:ComboBoxAnimation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:ComboBoxAnimation",[]) ok
+		return dn_x
 
 	Func setComboBoxAnimation P1
 		raise("DotNet Error: ComboBoxAnimation is a read-only property")
 
 	Func getClientAreaAnimation
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:ClientAreaAnimation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:ClientAreaAnimation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:ClientAreaAnimation",[]) ok
+		return dn_x
 
 	Func setClientAreaAnimation P1
 		raise("DotNet Error: ClientAreaAnimation is a read-only property")
 
 	Func getCursorShadow
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorShadow","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorShadow")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorShadow",[]) ok
+		return dn_x
 
 	Func setCursorShadow P1
 		raise("DotNet Error: CursorShadow is a read-only property")
 
 	Func getGradientCaptions
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:GradientCaptions","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:GradientCaptions")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:GradientCaptions",[]) ok
+		return dn_x
 
 	Func setGradientCaptions P1
 		raise("DotNet Error: GradientCaptions is a read-only property")
 
 	Func getHotTracking
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:HotTracking","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:HotTracking")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:HotTracking",[]) ok
+		return dn_x
 
 	Func setHotTracking P1
 		raise("DotNet Error: HotTracking is a read-only property")
 
 	Func getListBoxSmoothScrolling
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ListBoxSmoothScrolling","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ListBoxSmoothScrolling")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:ListBoxSmoothScrolling",[]) ok
+		return dn_x
 
 	Func setListBoxSmoothScrolling P1
 		raise("DotNet Error: ListBoxSmoothScrolling is a read-only property")
@@ -8615,19 +9423,25 @@ Class SystemParameters from Object
 		raise("DotNet Error: MenuPopupAnimation is a read-only property")
 
 	Func getMenuAnimation
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuAnimation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuAnimation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuAnimation",[]) ok
+		return dn_x
 
 	Func setMenuAnimation P1
 		raise("DotNet Error: MenuAnimation is a read-only property")
 
 	Func getSelectionFade
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:SelectionFade","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:SelectionFade")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:SelectionFade",[]) ok
+		return dn_x
 
 	Func setSelectionFade P1
 		raise("DotNet Error: SelectionFade is a read-only property")
 
 	Func getStylusHotTracking
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:StylusHotTracking","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:StylusHotTracking")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:StylusHotTracking",[]) ok
+		return dn_x
 
 	Func setStylusHotTracking P1
 		raise("DotNet Error: StylusHotTracking is a read-only property")
@@ -8639,19 +9453,25 @@ Class SystemParameters from Object
 		raise("DotNet Error: ToolTipPopupAnimation is a read-only property")
 
 	Func getToolTipAnimation
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:ToolTipAnimation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:ToolTipAnimation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:ToolTipAnimation",[]) ok
+		return dn_x
 
 	Func setToolTipAnimation P1
 		raise("DotNet Error: ToolTipAnimation is a read-only property")
 
 	Func getToolTipFade
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ToolTipFade","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ToolTipFade")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ToolTipFade",[]) ok
+		return dn_x
 
 	Func setToolTipFade P1
 		raise("DotNet Error: ToolTipFade is a read-only property")
 
 	Func getUIEffects
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:UIEffects","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:UIEffects")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:UIEffects",[]) ok
+		return dn_x
 
 	Func setUIEffects P1
 		raise("DotNet Error: UIEffects is a read-only property")
@@ -8747,85 +9567,113 @@ Class SystemParameters from Object
 		raise("DotNet Error: ToolTipPopupAnimationKey is a read-only property")
 
 	Func getMinimizeAnimation
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MinimizeAnimation","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MinimizeAnimation")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:MinimizeAnimation",[]) ok
+		return dn_x
 
 	Func setMinimizeAnimation P1
 		raise("DotNet Error: MinimizeAnimation is a read-only property")
 
 	Func getBorder
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s6:Border","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s6:Border")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s6:Border",[]) ok
+		return dn_x
 
 	Func setBorder P1
 		raise("DotNet Error: Border is a read-only property")
 
 	Func getCaretWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:CaretWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:CaretWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:CaretWidth",[]) ok
+		return dn_x
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getDragFullWindows
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:DragFullWindows","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:DragFullWindows")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:DragFullWindows",[]) ok
+		return dn_x
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getForegroundFlashCount
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:ForegroundFlashCount","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:ForegroundFlashCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:ForegroundFlashCount",[]) ok
+		return dn_x
 
 	Func setForegroundFlashCount P1
 		raise("DotNet Error: ForegroundFlashCount is a read-only property")
 
 	Func getBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:BorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:BorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:BorderWidth",[]) ok
+		return dn_x
 
 	Func setBorderWidth P1
 		raise("DotNet Error: BorderWidth is a read-only property")
 
 	Func getScrollWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ScrollWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ScrollWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:ScrollWidth",[]) ok
+		return dn_x
 
 	Func setScrollWidth P1
 		raise("DotNet Error: ScrollWidth is a read-only property")
 
 	Func getScrollHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:ScrollHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:ScrollHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:ScrollHeight",[]) ok
+		return dn_x
 
 	Func setScrollHeight P1
 		raise("DotNet Error: ScrollHeight is a read-only property")
 
 	Func getCaptionWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CaptionWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CaptionWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CaptionWidth",[]) ok
+		return dn_x
 
 	Func setCaptionWidth P1
 		raise("DotNet Error: CaptionWidth is a read-only property")
 
 	Func getCaptionHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:CaptionHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:CaptionHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:CaptionHeight",[]) ok
+		return dn_x
 
 	Func setCaptionHeight P1
 		raise("DotNet Error: CaptionHeight is a read-only property")
 
 	Func getSmallCaptionWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:SmallCaptionWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:SmallCaptionWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:SmallCaptionWidth",[]) ok
+		return dn_x
 
 	Func setSmallCaptionWidth P1
 		raise("DotNet Error: SmallCaptionWidth is a read-only property")
 
 	Func getSmallCaptionHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:SmallCaptionHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:SmallCaptionHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:SmallCaptionHeight",[]) ok
+		return dn_x
 
 	Func setSmallCaptionHeight P1
 		raise("DotNet Error: SmallCaptionHeight is a read-only property")
 
 	Func getMenuWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:MenuWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:MenuWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:MenuWidth",[]) ok
+		return dn_x
 
 	Func setMenuWidth P1
 		raise("DotNet Error: MenuWidth is a read-only property")
 
 	Func getMenuHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:MenuHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:MenuHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:MenuHeight",[]) ok
+		return dn_x
 
 	Func setMenuHeight P1
 		raise("DotNet Error: MenuHeight is a read-only property")
@@ -8909,421 +9757,561 @@ Class SystemParameters from Object
 		raise("DotNet Error: MenuHeightKey is a read-only property")
 
 	Func getThinHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:ThinHorizontalBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:ThinHorizontalBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s26:ThinHorizontalBorderHeight",[]) ok
+		return dn_x
 
 	Func setThinHorizontalBorderHeight P1
 		raise("DotNet Error: ThinHorizontalBorderHeight is a read-only property")
 
 	Func getThinVerticalBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:ThinVerticalBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:ThinVerticalBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:ThinVerticalBorderWidth",[]) ok
+		return dn_x
 
 	Func setThinVerticalBorderWidth P1
 		raise("DotNet Error: ThinVerticalBorderWidth is a read-only property")
 
 	Func getCursorWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:CursorWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:CursorWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:CursorWidth",[]) ok
+		return dn_x
 
 	Func setCursorWidth P1
 		raise("DotNet Error: CursorWidth is a read-only property")
 
 	Func getCursorHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:CursorHeight",[]) ok
+		return dn_x
 
 	Func setCursorHeight P1
 		raise("DotNet Error: CursorHeight is a read-only property")
 
 	Func getThickHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:ThickHorizontalBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:ThickHorizontalBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:ThickHorizontalBorderHeight",[]) ok
+		return dn_x
 
 	Func setThickHorizontalBorderHeight P1
 		raise("DotNet Error: ThickHorizontalBorderHeight is a read-only property")
 
 	Func getThickVerticalBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:ThickVerticalBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:ThickVerticalBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:ThickVerticalBorderWidth",[]) ok
+		return dn_x
 
 	Func setThickVerticalBorderWidth P1
 		raise("DotNet Error: ThickVerticalBorderWidth is a read-only property")
 
 	Func getMinimumHorizontalDragDistance
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:MinimumHorizontalDragDistance","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:MinimumHorizontalDragDistance")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:MinimumHorizontalDragDistance",[]) ok
+		return dn_x
 
 	Func setMinimumHorizontalDragDistance P1
 		raise("DotNet Error: MinimumHorizontalDragDistance is a read-only property")
 
 	Func getMinimumVerticalDragDistance
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MinimumVerticalDragDistance","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MinimumVerticalDragDistance")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MinimumVerticalDragDistance",[]) ok
+		return dn_x
 
 	Func setMinimumVerticalDragDistance P1
 		raise("DotNet Error: MinimumVerticalDragDistance is a read-only property")
 
 	Func getFixedFrameHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:FixedFrameHorizontalBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:FixedFrameHorizontalBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s32:FixedFrameHorizontalBorderHeight",[]) ok
+		return dn_x
 
 	Func setFixedFrameHorizontalBorderHeight P1
 		raise("DotNet Error: FixedFrameHorizontalBorderHeight is a read-only property")
 
 	Func getFixedFrameVerticalBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:FixedFrameVerticalBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:FixedFrameVerticalBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:FixedFrameVerticalBorderWidth",[]) ok
+		return dn_x
 
 	Func setFixedFrameVerticalBorderWidth P1
 		raise("DotNet Error: FixedFrameVerticalBorderWidth is a read-only property")
 
 	Func getFocusHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:FocusHorizontalBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:FocusHorizontalBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:FocusHorizontalBorderHeight",[]) ok
+		return dn_x
 
 	Func setFocusHorizontalBorderHeight P1
 		raise("DotNet Error: FocusHorizontalBorderHeight is a read-only property")
 
 	Func getFocusVerticalBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:FocusVerticalBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:FocusVerticalBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:FocusVerticalBorderWidth",[]) ok
+		return dn_x
 
 	Func setFocusVerticalBorderWidth P1
 		raise("DotNet Error: FocusVerticalBorderWidth is a read-only property")
 
 	Func getFullPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:FullPrimaryScreenWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:FullPrimaryScreenWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:FullPrimaryScreenWidth",[]) ok
+		return dn_x
 
 	Func setFullPrimaryScreenWidth P1
 		raise("DotNet Error: FullPrimaryScreenWidth is a read-only property")
 
 	Func getFullPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:FullPrimaryScreenHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:FullPrimaryScreenHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:FullPrimaryScreenHeight",[]) ok
+		return dn_x
 
 	Func setFullPrimaryScreenHeight P1
 		raise("DotNet Error: FullPrimaryScreenHeight is a read-only property")
 
 	Func getHorizontalScrollBarButtonWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:HorizontalScrollBarButtonWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:HorizontalScrollBarButtonWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:HorizontalScrollBarButtonWidth",[]) ok
+		return dn_x
 
 	Func setHorizontalScrollBarButtonWidth P1
 		raise("DotNet Error: HorizontalScrollBarButtonWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:HorizontalScrollBarHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:HorizontalScrollBarHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:HorizontalScrollBarHeight",[]) ok
+		return dn_x
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:HorizontalScrollBarThumbWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:HorizontalScrollBarThumbWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:HorizontalScrollBarThumbWidth",[]) ok
+		return dn_x
 
 	Func setHorizontalScrollBarThumbWidth P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidth is a read-only property")
 
 	Func getIconWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:IconWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:IconWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s9:IconWidth",[]) ok
+		return dn_x
 
 	Func setIconWidth P1
 		raise("DotNet Error: IconWidth is a read-only property")
 
 	Func getIconHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IconHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IconHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IconHeight",[]) ok
+		return dn_x
 
 	Func setIconHeight P1
 		raise("DotNet Error: IconHeight is a read-only property")
 
 	Func getIconGridWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconGridWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconGridWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IconGridWidth",[]) ok
+		return dn_x
 
 	Func setIconGridWidth P1
 		raise("DotNet Error: IconGridWidth is a read-only property")
 
 	Func getIconGridHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IconGridHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IconGridHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IconGridHeight",[]) ok
+		return dn_x
 
 	Func setIconGridHeight P1
 		raise("DotNet Error: IconGridHeight is a read-only property")
 
 	Func getMaximizedPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MaximizedPrimaryScreenWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MaximizedPrimaryScreenWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s27:MaximizedPrimaryScreenWidth",[]) ok
+		return dn_x
 
 	Func setMaximizedPrimaryScreenWidth P1
 		raise("DotNet Error: MaximizedPrimaryScreenWidth is a read-only property")
 
 	Func getMaximizedPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:MaximizedPrimaryScreenHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:MaximizedPrimaryScreenHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:MaximizedPrimaryScreenHeight",[]) ok
+		return dn_x
 
 	Func setMaximizedPrimaryScreenHeight P1
 		raise("DotNet Error: MaximizedPrimaryScreenHeight is a read-only property")
 
 	Func getMaximumWindowTrackWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MaximumWindowTrackWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MaximumWindowTrackWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MaximumWindowTrackWidth",[]) ok
+		return dn_x
 
 	Func setMaximumWindowTrackWidth P1
 		raise("DotNet Error: MaximumWindowTrackWidth is a read-only property")
 
 	Func getMaximumWindowTrackHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MaximumWindowTrackHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MaximumWindowTrackHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MaximumWindowTrackHeight",[]) ok
+		return dn_x
 
 	Func setMaximumWindowTrackHeight P1
 		raise("DotNet Error: MaximumWindowTrackHeight is a read-only property")
 
 	Func getMenuCheckmarkWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuCheckmarkWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuCheckmarkWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MenuCheckmarkWidth",[]) ok
+		return dn_x
 
 	Func setMenuCheckmarkWidth P1
 		raise("DotNet Error: MenuCheckmarkWidth is a read-only property")
 
 	Func getMenuCheckmarkHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MenuCheckmarkHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MenuCheckmarkHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MenuCheckmarkHeight",[]) ok
+		return dn_x
 
 	Func setMenuCheckmarkHeight P1
 		raise("DotNet Error: MenuCheckmarkHeight is a read-only property")
 
 	Func getMenuButtonWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MenuButtonWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MenuButtonWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:MenuButtonWidth",[]) ok
+		return dn_x
 
 	Func setMenuButtonWidth P1
 		raise("DotNet Error: MenuButtonWidth is a read-only property")
 
 	Func getMenuButtonHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuButtonHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuButtonHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:MenuButtonHeight",[]) ok
+		return dn_x
 
 	Func setMenuButtonHeight P1
 		raise("DotNet Error: MenuButtonHeight is a read-only property")
 
 	Func getMinimumWindowWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimumWindowWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimumWindowWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimumWindowWidth",[]) ok
+		return dn_x
 
 	Func setMinimumWindowWidth P1
 		raise("DotNet Error: MinimumWindowWidth is a read-only property")
 
 	Func getMinimumWindowHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimumWindowHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimumWindowHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimumWindowHeight",[]) ok
+		return dn_x
 
 	Func setMinimumWindowHeight P1
 		raise("DotNet Error: MinimumWindowHeight is a read-only property")
 
 	Func getMinimizedWindowWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MinimizedWindowWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MinimizedWindowWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:MinimizedWindowWidth",[]) ok
+		return dn_x
 
 	Func setMinimizedWindowWidth P1
 		raise("DotNet Error: MinimizedWindowWidth is a read-only property")
 
 	Func getMinimizedWindowHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimizedWindowHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimizedWindowHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s21:MinimizedWindowHeight",[]) ok
+		return dn_x
 
 	Func setMinimizedWindowHeight P1
 		raise("DotNet Error: MinimizedWindowHeight is a read-only property")
 
 	Func getMinimizedGridWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimizedGridWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimizedGridWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:MinimizedGridWidth",[]) ok
+		return dn_x
 
 	Func setMinimizedGridWidth P1
 		raise("DotNet Error: MinimizedGridWidth is a read-only property")
 
 	Func getMinimizedGridHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimizedGridHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimizedGridHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:MinimizedGridHeight",[]) ok
+		return dn_x
 
 	Func setMinimizedGridHeight P1
 		raise("DotNet Error: MinimizedGridHeight is a read-only property")
 
 	Func getMinimumWindowTrackWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MinimumWindowTrackWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MinimumWindowTrackWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s23:MinimumWindowTrackWidth",[]) ok
+		return dn_x
 
 	Func setMinimumWindowTrackWidth P1
 		raise("DotNet Error: MinimumWindowTrackWidth is a read-only property")
 
 	Func getMinimumWindowTrackHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MinimumWindowTrackHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MinimumWindowTrackHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:MinimumWindowTrackHeight",[]) ok
+		return dn_x
 
 	Func setMinimumWindowTrackHeight P1
 		raise("DotNet Error: MinimumWindowTrackHeight is a read-only property")
 
 	Func getPrimaryScreenWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:PrimaryScreenWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:PrimaryScreenWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:PrimaryScreenWidth",[]) ok
+		return dn_x
 
 	Func setPrimaryScreenWidth P1
 		raise("DotNet Error: PrimaryScreenWidth is a read-only property")
 
 	Func getPrimaryScreenHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:PrimaryScreenHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:PrimaryScreenHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:PrimaryScreenHeight",[]) ok
+		return dn_x
 
 	Func setPrimaryScreenHeight P1
 		raise("DotNet Error: PrimaryScreenHeight is a read-only property")
 
 	Func getWindowCaptionButtonWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:WindowCaptionButtonWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:WindowCaptionButtonWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s24:WindowCaptionButtonWidth",[]) ok
+		return dn_x
 
 	Func setWindowCaptionButtonWidth P1
 		raise("DotNet Error: WindowCaptionButtonWidth is a read-only property")
 
 	Func getWindowCaptionButtonHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:WindowCaptionButtonHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:WindowCaptionButtonHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s25:WindowCaptionButtonHeight",[]) ok
+		return dn_x
 
 	Func setWindowCaptionButtonHeight P1
 		raise("DotNet Error: WindowCaptionButtonHeight is a read-only property")
 
 	Func getResizeFrameHorizontalBorderHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:ResizeFrameHorizontalBorderHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:ResizeFrameHorizontalBorderHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s33:ResizeFrameHorizontalBorderHeight",[]) ok
+		return dn_x
 
 	Func setResizeFrameHorizontalBorderHeight P1
 		raise("DotNet Error: ResizeFrameHorizontalBorderHeight is a read-only property")
 
 	Func getResizeFrameVerticalBorderWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:ResizeFrameVerticalBorderWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:ResizeFrameVerticalBorderWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:ResizeFrameVerticalBorderWidth",[]) ok
+		return dn_x
 
 	Func setResizeFrameVerticalBorderWidth P1
 		raise("DotNet Error: ResizeFrameVerticalBorderWidth is a read-only property")
 
 	Func getSmallIconWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:SmallIconWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:SmallIconWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:SmallIconWidth",[]) ok
+		return dn_x
 
 	Func setSmallIconWidth P1
 		raise("DotNet Error: SmallIconWidth is a read-only property")
 
 	Func getSmallIconHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:SmallIconHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:SmallIconHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:SmallIconHeight",[]) ok
+		return dn_x
 
 	Func setSmallIconHeight P1
 		raise("DotNet Error: SmallIconHeight is a read-only property")
 
 	Func getSmallWindowCaptionButtonWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:SmallWindowCaptionButtonWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:SmallWindowCaptionButtonWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:SmallWindowCaptionButtonWidth",[]) ok
+		return dn_x
 
 	Func setSmallWindowCaptionButtonWidth P1
 		raise("DotNet Error: SmallWindowCaptionButtonWidth is a read-only property")
 
 	Func getSmallWindowCaptionButtonHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:SmallWindowCaptionButtonHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:SmallWindowCaptionButtonHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s30:SmallWindowCaptionButtonHeight",[]) ok
+		return dn_x
 
 	Func setSmallWindowCaptionButtonHeight P1
 		raise("DotNet Error: SmallWindowCaptionButtonHeight is a read-only property")
 
 	Func getVirtualScreenWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:VirtualScreenWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:VirtualScreenWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s18:VirtualScreenWidth",[]) ok
+		return dn_x
 
 	Func setVirtualScreenWidth P1
 		raise("DotNet Error: VirtualScreenWidth is a read-only property")
 
 	Func getVirtualScreenHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:VirtualScreenHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:VirtualScreenHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:VirtualScreenHeight",[]) ok
+		return dn_x
 
 	Func setVirtualScreenHeight P1
 		raise("DotNet Error: VirtualScreenHeight is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:VerticalScrollBarWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:VerticalScrollBarWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:VerticalScrollBarWidth",[]) ok
+		return dn_x
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getVerticalScrollBarButtonHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:VerticalScrollBarButtonHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:VerticalScrollBarButtonHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s29:VerticalScrollBarButtonHeight",[]) ok
+		return dn_x
 
 	Func setVerticalScrollBarButtonHeight P1
 		raise("DotNet Error: VerticalScrollBarButtonHeight is a read-only property")
 
 	Func getWindowCaptionHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:WindowCaptionHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:WindowCaptionHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:WindowCaptionHeight",[]) ok
+		return dn_x
 
 	Func setWindowCaptionHeight P1
 		raise("DotNet Error: WindowCaptionHeight is a read-only property")
 
 	Func getKanjiWindowHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:KanjiWindowHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:KanjiWindowHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:KanjiWindowHeight",[]) ok
+		return dn_x
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMenuBarHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuBarHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuBarHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:MenuBarHeight",[]) ok
+		return dn_x
 
 	Func setMenuBarHeight P1
 		raise("DotNet Error: MenuBarHeight is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:VerticalScrollBarThumbHeight","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:VerticalScrollBarThumbHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s28:VerticalScrollBarThumbHeight",[]) ok
+		return dn_x
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getIsImmEnabled
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsImmEnabled","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsImmEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsImmEnabled",[]) ok
+		return dn_x
 
 	Func setIsImmEnabled P1
 		raise("DotNet Error: IsImmEnabled is a read-only property")
 
 	Func getIsMediaCenter
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsMediaCenter","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsMediaCenter")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsMediaCenter",[]) ok
+		return dn_x
 
 	Func setIsMediaCenter P1
 		raise("DotNet Error: IsMediaCenter is a read-only property")
 
 	Func getIsMenuDropRightAligned
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMenuDropRightAligned","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMenuDropRightAligned")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s22:IsMenuDropRightAligned",[]) ok
+		return dn_x
 
 	Func setIsMenuDropRightAligned P1
 		raise("DotNet Error: IsMenuDropRightAligned is a read-only property")
 
 	Func getIsMiddleEastEnabled
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMiddleEastEnabled","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMiddleEastEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMiddleEastEnabled",[]) ok
+		return dn_x
 
 	Func setIsMiddleEastEnabled P1
 		raise("DotNet Error: IsMiddleEastEnabled is a read-only property")
 
 	Func getIsMousePresent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsMousePresent","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsMousePresent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsMousePresent",[]) ok
+		return dn_x
 
 	Func setIsMousePresent P1
 		raise("DotNet Error: IsMousePresent is a read-only property")
 
 	Func getIsMouseWheelPresent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMouseWheelPresent","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMouseWheelPresent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s19:IsMouseWheelPresent",[]) ok
+		return dn_x
 
 	Func setIsMouseWheelPresent P1
 		raise("DotNet Error: IsMouseWheelPresent is a read-only property")
 
 	Func getIsPenWindows
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsPenWindows","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsPenWindows")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:IsPenWindows",[]) ok
+		return dn_x
 
 	Func setIsPenWindows P1
 		raise("DotNet Error: IsPenWindows is a read-only property")
 
 	Func getIsRemotelyControlled
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:IsRemotelyControlled","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:IsRemotelyControlled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s20:IsRemotelyControlled",[]) ok
+		return dn_x
 
 	Func setIsRemotelyControlled P1
 		raise("DotNet Error: IsRemotelyControlled is a read-only property")
 
 	Func getIsRemoteSession
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsRemoteSession","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsRemoteSession")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s15:IsRemoteSession",[]) ok
+		return dn_x
 
 	Func setIsRemoteSession P1
 		raise("DotNet Error: IsRemoteSession is a read-only property")
 
 	Func getShowSounds
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:ShowSounds","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:ShowSounds")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:ShowSounds",[]) ok
+		return dn_x
 
 	Func setShowSounds P1
 		raise("DotNet Error: ShowSounds is a read-only property")
 
 	Func getIsSlowMachine
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsSlowMachine","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsSlowMachine")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s13:IsSlowMachine",[]) ok
+		return dn_x
 
 	Func setIsSlowMachine P1
 		raise("DotNet Error: IsSlowMachine is a read-only property")
 
 	Func getSwapButtons
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:SwapButtons","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:SwapButtons")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:SwapButtons",[]) ok
+		return dn_x
 
 	Func setSwapButtons P1
 		raise("DotNet Error: SwapButtons is a read-only property")
 
 	Func getIsTabletPC
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IsTabletPC","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IsTabletPC")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s10:IsTabletPC",[]) ok
+		return dn_x
 
 	Func setIsTabletPC P1
 		raise("DotNet Error: IsTabletPC is a read-only property")
 
 	Func getVirtualScreenLeft
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:VirtualScreenLeft","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:VirtualScreenLeft")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s17:VirtualScreenLeft",[]) ok
+		return dn_x
 
 	Func setVirtualScreenLeft P1
 		raise("DotNet Error: VirtualScreenLeft is a read-only property")
 
 	Func getVirtualScreenTop
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:VirtualScreenTop","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:VirtualScreenTop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s16:VirtualScreenTop",[]) ok
+		return dn_x
 
 	Func setVirtualScreenTop P1
 		raise("DotNet Error: VirtualScreenTop is a read-only property")
@@ -9773,19 +10761,25 @@ Class SystemParameters from Object
 		raise("DotNet Error: PowerLineStatusKey is a read-only property")
 
 	Func getIsGlassEnabled
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsGlassEnabled","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsGlassEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s14:IsGlassEnabled",[]) ok
+		return dn_x
 
 	Func setIsGlassEnabled P1
 		raise("DotNet Error: IsGlassEnabled is a read-only property")
 
 	Func getUxThemeName
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:UxThemeName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:UxThemeName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s11:UxThemeName",[]) ok
+		return dn_x
 
 	Func setUxThemeName P1
 		raise("DotNet Error: UxThemeName is a read-only property")
 
 	Func getUxThemeColor
-		return dnSend("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:UxThemeColor","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:UxThemeColor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Windows.SystemParameters, PresentationFramework'),"s12:UxThemeColor",[]) ok
+		return dn_x
 
 	Func setUxThemeColor P1
 		raise("DotNet Error: UxThemeColor is a read-only property")
@@ -9886,21 +10880,24 @@ Class TemplateBindingExtension from MarkupExtension
 		return dnSend("s3:get",nHandle,"s8:Property","")
 
 	Func setProperty P1
-		dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Property",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1)) ok
 		return self
 
 	Func getConverter
 		return dnSend("s3:get",nHandle,"s9:Converter","")
 
 	Func setConverter P1
-		dnSend("s3:set",nHandle,"s9:Converter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Converter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Converter",dnPackItem(P1)) ok
 		return self
 
 	Func getConverterParameter
 		return dnSend("s3:get",nHandle,"s18:ConverterParameter","")
 
 	Func setConverterParameter P1
-		dnSend("s3:set",nHandle,"s18:ConverterParameter",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ConverterParameter",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ConverterParameter",dnPackItem(P1)) ok
 		return self
 
 
@@ -9937,7 +10934,9 @@ Class TemplateContent from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class TemplateContentLoader from DotNetObject
@@ -9970,13 +10969,19 @@ Class TemplateContentLoader from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 
 Class TextDecoration from Animatable
@@ -10030,35 +11035,42 @@ Class TextDecoration from Animatable
 		return dnSend("s3:get",nHandle,"s3:Pen","")
 
 	Func setPen P1
-		dnSend("s3:set",nHandle,"s3:Pen",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Pen",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Pen",dnPackItem(P1)) ok
 		return self
 
 	Func getPenOffset
-		return dnSend("s3:get",nHandle,"s9:PenOffset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:PenOffset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:PenOffset",[]) ok
+		return dn_x
 
 	Func setPenOffset P1
-		dnSend("s3:set",nHandle,"s9:PenOffset",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:PenOffset",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:PenOffset",dnPackItem(P1)) ok
 		return self
 
 	Func getPenOffsetUnit
 		return dnSend("s3:get",nHandle,"s13:PenOffsetUnit","")
 
 	Func setPenOffsetUnit P1
-		dnSend("s3:set",nHandle,"s13:PenOffsetUnit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:PenOffsetUnit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:PenOffsetUnit",dnPackItem(P1)) ok
 		return self
 
 	Func getPenThicknessUnit
 		return dnSend("s3:get",nHandle,"s16:PenThicknessUnit","")
 
 	Func setPenThicknessUnit P1
-		dnSend("s3:set",nHandle,"s16:PenThicknessUnit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:PenThicknessUnit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:PenThicknessUnit",dnPackItem(P1)) ok
 		return self
 
 	Func getLocation
 		return dnSend("s3:get",nHandle,"s8:Location","")
 
 	Func setLocation P1
-		dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1)) ok
 		return self
 
 	Func getPenProperty
@@ -10131,32 +11143,48 @@ Class TextDecorationCollection from Animatable
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetEnumerator 
@@ -10169,11 +11197,14 @@ Class TextDecorationCollection from Animatable
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -10229,7 +11260,9 @@ Class TextDecorations from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getUnderline
 		return dnSend("s3:get",dnTypeHandle('System.Windows.TextDecorations, PresentationCore'),"s9:Underline","")
@@ -10295,10 +11328,13 @@ Class ThemeDictionaryExtension from MarkupExtension
 		return self
 
 	Func getAssemblyName
-		return dnSend("s3:get",nHandle,"s12:AssemblyName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:AssemblyName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:AssemblyName",[]) ok
+		return dn_x
 
 	Func setAssemblyName P1
-		dnSend("s3:set",nHandle,"s12:AssemblyName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AssemblyName",dnPackItem(P1)) ok
 		return self
 
 
@@ -10345,7 +11381,9 @@ Class ThemeMode from ValueType
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -10430,31 +11468,43 @@ Class Thickness from ValueType
 		return self
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Left")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Left",[]) ok
+		return dn_x
 
 	Func setLeft P1
-		dnSend("s3:set",nHandle,"s4:Left",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Left",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Left",dnPackItem(P1)) ok
 		return self
 
 	Func getTop
-		return dnSend("s3:get",nHandle,"s3:Top","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Top")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Top",[]) ok
+		return dn_x
 
 	Func setTop P1
-		dnSend("s3:set",nHandle,"s3:Top",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Top",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Top",dnPackItem(P1)) ok
 		return self
 
 	Func getRight
-		return dnSend("s3:get",nHandle,"s5:Right","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Right")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Right",[]) ok
+		return dn_x
 
 	Func setRight P1
-		dnSend("s3:set",nHandle,"s5:Right",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Right",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Right",dnPackItem(P1)) ok
 		return self
 
 	Func getBottom
-		return dnSend("s3:get",nHandle,"s6:Bottom","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Bottom")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Bottom",[]) ok
+		return dn_x
 
 	Func setBottom P1
-		dnSend("s3:set",nHandle,"s6:Bottom",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Bottom",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Bottom",dnPackItem(P1)) ok
 		return self
 
 
@@ -10519,55 +11569,78 @@ Class TriggerActionCollection from Object
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -10588,64 +11661,91 @@ Class TriggerCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+
 		return self
 
 	Func Clear 
-		dnSend("s4:call",nHandle,"s5:Clear","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+
 		return self
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Contains P1
-		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		return dn_x
 
 	Func GetEnumerator 
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		return dn_x
 
 	Func Insert P1,P2
-		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		return dn_x
 
 	Func RemoveAt P1
-		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetType 
 		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnSend("s4:call",nHandle,"s8:ToString","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetHashCode 
-		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsSealed
-		return dnSend("s3:get",nHandle,"s8:IsSealed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsSealed",[]) ok
+		return dn_x
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -10854,13 +11954,19 @@ Class UIElement from Visual
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeInputBindings 
-		return dnSend("s4:call",nHandle,"s28:ShouldSerializeInputBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s28:ShouldSerializeInputBindings",[]) ok
+		return dn_x
 
 	Func ShouldSerializeCommandBindings 
-		return dnSend("s4:call",nHandle,"s30:ShouldSerializeCommandBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s30:ShouldSerializeCommandBindings",[]) ok
+		return dn_x
 
 	Func RaiseEvent P1
-		dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddHandler P1
@@ -10871,35 +11977,51 @@ Class UIElement from Visual
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddToEventRoute P1,P2
-		dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddToEventRoute",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func InvalidateMeasure 
-		dnSend("s4:call",nHandle,"s17:InvalidateMeasure","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:InvalidateMeasure")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:InvalidateMeasure","") ok
+
 		return self
 
 	Func InvalidateArrange 
-		dnSend("s4:call",nHandle,"s17:InvalidateArrange","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s17:InvalidateArrange")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s17:InvalidateArrange","") ok
+
 		return self
 
 	Func InvalidateVisual 
-		dnSend("s4:call",nHandle,"s16:InvalidateVisual","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s16:InvalidateVisual")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s16:InvalidateVisual","") ok
+
 		return self
 
 	Func Measure P1
-		dnSend("s4:call",nHandle,"s7:Measure",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Measure",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Measure",dnPackItem(P1)) ok
+
 		return self
 
 	Func Arrange P1
-		dnSend("s4:call",nHandle,"s7:Arrange",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Arrange",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Arrange",dnPackItem(P1)) ok
+
 		return self
 
 	Func UpdateLayout 
-		dnSend("s4:call",nHandle,"s12:UpdateLayout","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:UpdateLayout")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:UpdateLayout","") ok
+
 		return self
 
 	Func TranslatePoint P1,P2
@@ -10909,36 +12031,54 @@ Class UIElement from Visual
 		return dnSend("s4:call",nHandle,"s12:InputHitTest",dnPackItem(P1))
 
 	Func CaptureMouse 
-		return dnSend("s4:call",nHandle,"s12:CaptureMouse","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureMouse",[]) ok
+		return dn_x
 
 	Func ReleaseMouseCapture 
-		dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","") ok
+
 		return self
 
 	Func CaptureStylus 
-		return dnSend("s4:call",nHandle,"s13:CaptureStylus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:CaptureStylus",[]) ok
+		return dn_x
 
 	Func ReleaseStylusCapture 
-		dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","") ok
+
 		return self
 
 	Func Focus 
-		return dnSend("s4:call",nHandle,"s5:Focus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Focus",[]) ok
+		return dn_x
 
 	Func MoveFocus P1
-		return dnSend("s4:call",nHandle,"s9:MoveFocus",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:MoveFocus",[P1]) ok
+		return dn_x
 
 	Func PredictFocus P1
 		return dnSend("s4:call",nHandle,"s12:PredictFocus",dnPackItem(P1))
 
 	Func CaptureTouch P1
-		return dnSend("s4:call",nHandle,"s12:CaptureTouch",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureTouch",[P1]) ok
+		return dn_x
 
 	Func ReleaseTouchCapture P1
-		return dnSend("s4:call",nHandle,"s19:ReleaseTouchCapture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:ReleaseTouchCapture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:ReleaseTouchCapture",[P1]) ok
+		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","") ok
+
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -11710,7 +12850,9 @@ Class UIElement from Visual
 		return self
 
 	Func getHasAnimatedProperties
-		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:HasAnimatedProperties",[]) ok
+		return dn_x
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -11728,10 +12870,13 @@ Class UIElement from Visual
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getAllowDrop
-		return dnSend("s3:get",nHandle,"s9:AllowDrop","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:AllowDrop",[]) ok
+		return dn_x
 
 	Func setAllowDrop P1
-		dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1)) ok
 		return self
 
 	Func getDesiredSize
@@ -11741,13 +12886,17 @@ Class UIElement from Visual
 		raise("DotNet Error: DesiredSize is a read-only property")
 
 	Func getIsMeasureValid
-		return dnSend("s3:get",nHandle,"s14:IsMeasureValid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsMeasureValid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsMeasureValid",[]) ok
+		return dn_x
 
 	Func setIsMeasureValid P1
 		raise("DotNet Error: IsMeasureValid is a read-only property")
 
 	Func getIsArrangeValid
-		return dnSend("s3:get",nHandle,"s14:IsArrangeValid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsArrangeValid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsArrangeValid",[]) ok
+		return dn_x
 
 	Func setIsArrangeValid P1
 		raise("DotNet Error: IsArrangeValid is a read-only property")
@@ -11756,232 +12905,302 @@ Class UIElement from Visual
 		return dnSend("s3:get",nHandle,"s10:RenderSize","")
 
 	Func setRenderSize P1
-		dnSend("s3:set",nHandle,"s10:RenderSize",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:RenderSize",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:RenderSize",dnPackItem(P1)) ok
 		return self
 
 	Func getRenderTransform
 		return dnSend("s3:get",nHandle,"s15:RenderTransform","")
 
 	Func setRenderTransform P1
-		dnSend("s3:set",nHandle,"s15:RenderTransform",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:RenderTransform",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RenderTransform",dnPackItem(P1)) ok
 		return self
 
 	Func getRenderTransformOrigin
 		return dnSend("s3:get",nHandle,"s21:RenderTransformOrigin","")
 
 	Func setRenderTransformOrigin P1
-		dnSend("s3:set",nHandle,"s21:RenderTransformOrigin",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:RenderTransformOrigin",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:RenderTransformOrigin",dnPackItem(P1)) ok
 		return self
 
 	Func getIsMouseDirectlyOver
-		return dnSend("s3:get",nHandle,"s19:IsMouseDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsMouseDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dnSend("s3:get",nHandle,"s11:IsMouseOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsMouseOver",[]) ok
+		return dn_x
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dnSend("s3:get",nHandle,"s12:IsStylusOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsStylusOver",[]) ok
+		return dn_x
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnSend("s3:get",nHandle,"s21:IsKeyboardFocusWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsKeyboardFocusWithin",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnSend("s3:get",nHandle,"s15:IsMouseCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsMouseCaptured",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dnSend("s3:get",nHandle,"s20:IsMouseCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsMouseCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnSend("s3:get",nHandle,"s20:IsStylusDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsStylusDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnSend("s3:get",nHandle,"s16:IsStylusCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsStylusCaptured",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dnSend("s3:get",nHandle,"s21:IsStylusCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsStylusCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnSend("s3:get",nHandle,"s17:IsKeyboardFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsKeyboardFocused",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsInputMethodEnabled
-		return dnSend("s3:get",nHandle,"s20:IsInputMethodEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsInputMethodEnabled",[]) ok
+		return dn_x
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getOpacity
-		return dnSend("s3:get",nHandle,"s7:Opacity","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Opacity",[]) ok
+		return dn_x
 
 	Func setOpacity P1
-		dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1)) ok
 		return self
 
 	Func getOpacityMask
 		return dnSend("s3:get",nHandle,"s11:OpacityMask","")
 
 	Func setOpacityMask P1
-		dnSend("s3:set",nHandle,"s11:OpacityMask",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:OpacityMask",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:OpacityMask",dnPackItem(P1)) ok
 		return self
 
 	Func getBitmapEffect
 		return dnSend("s3:get",nHandle,"s12:BitmapEffect","")
 
 	Func setBitmapEffect P1
-		dnSend("s3:set",nHandle,"s12:BitmapEffect",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:BitmapEffect",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BitmapEffect",dnPackItem(P1)) ok
 		return self
 
 	Func getEffect
 		return dnSend("s3:get",nHandle,"s6:Effect","")
 
 	Func setEffect P1
-		dnSend("s3:set",nHandle,"s6:Effect",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Effect",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Effect",dnPackItem(P1)) ok
 		return self
 
 	Func getBitmapEffectInput
 		return dnSend("s3:get",nHandle,"s17:BitmapEffectInput","")
 
 	Func setBitmapEffectInput P1
-		dnSend("s3:set",nHandle,"s17:BitmapEffectInput",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:BitmapEffectInput",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:BitmapEffectInput",dnPackItem(P1)) ok
 		return self
 
 	Func getCacheMode
 		return dnSend("s3:get",nHandle,"s9:CacheMode","")
 
 	Func setCacheMode P1
-		dnSend("s3:set",nHandle,"s9:CacheMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:CacheMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:CacheMode",dnPackItem(P1)) ok
 		return self
 
 	Func getUid
-		return dnSend("s3:get",nHandle,"s3:Uid","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Uid")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Uid",[]) ok
+		return dn_x
 
 	Func setUid P1
-		dnSend("s3:set",nHandle,"s3:Uid",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Uid",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Uid",dnPackItem(P1)) ok
 		return self
 
 	Func getVisibility
 		return dnSend("s3:get",nHandle,"s10:Visibility","")
 
 	Func setVisibility P1
-		dnSend("s3:set",nHandle,"s10:Visibility",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Visibility",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Visibility",dnPackItem(P1)) ok
 		return self
 
 	Func getClipToBounds
-		return dnSend("s3:get",nHandle,"s12:ClipToBounds","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ClipToBounds")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ClipToBounds",[]) ok
+		return dn_x
 
 	Func setClipToBounds P1
-		dnSend("s3:set",nHandle,"s12:ClipToBounds",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ClipToBounds",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ClipToBounds",dnPackItem(P1)) ok
 		return self
 
 	Func getClip
 		return dnSend("s3:get",nHandle,"s4:Clip","")
 
 	Func setClip P1
-		dnSend("s3:set",nHandle,"s4:Clip",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Clip",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Clip",dnPackItem(P1)) ok
 		return self
 
 	Func getSnapsToDevicePixels
-		return dnSend("s3:get",nHandle,"s19:SnapsToDevicePixels","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:SnapsToDevicePixels")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:SnapsToDevicePixels",[]) ok
+		return dn_x
 
 	Func setSnapsToDevicePixels P1
-		dnSend("s3:set",nHandle,"s19:SnapsToDevicePixels",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SnapsToDevicePixels",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SnapsToDevicePixels",dnPackItem(P1)) ok
 		return self
 
 	Func getIsFocused
-		return dnSend("s3:get",nHandle,"s9:IsFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsFocused",[]) ok
+		return dn_x
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnSend("s3:get",nHandle,"s9:IsEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsEnabled",[]) ok
+		return dn_x
 
 	Func setIsEnabled P1
-		dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getIsHitTestVisible
-		return dnSend("s3:get",nHandle,"s16:IsHitTestVisible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsHitTestVisible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsHitTestVisible",[]) ok
+		return dn_x
 
 	Func setIsHitTestVisible P1
-		dnSend("s3:set",nHandle,"s16:IsHitTestVisible",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:IsHitTestVisible",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:IsHitTestVisible",dnPackItem(P1)) ok
 		return self
 
 	Func getIsVisible
-		return dnSend("s3:get",nHandle,"s9:IsVisible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsVisible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsVisible",[]) ok
+		return dn_x
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getFocusable
-		return dnSend("s3:get",nHandle,"s9:Focusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Focusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Focusable",[]) ok
+		return dn_x
 
 	Func setFocusable P1
-		dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1)) ok
 		return self
 
 	Func getPersistId
-		return dnSend("s3:get",nHandle,"s9:PersistId","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:PersistId")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:PersistId",[]) ok
+		return dn_x
 
 	Func setPersistId P1
 		raise("DotNet Error: PersistId is a read-only property")
 
 	Func getIsManipulationEnabled
-		return dnSend("s3:get",nHandle,"s21:IsManipulationEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsManipulationEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsManipulationEnabled",[]) ok
+		return dn_x
 
 	Func setIsManipulationEnabled P1
-		dnSend("s3:set",nHandle,"s21:IsManipulationEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:IsManipulationEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:IsManipulationEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getAreAnyTouchesOver
-		return dnSend("s3:get",nHandle,"s17:AreAnyTouchesOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:AreAnyTouchesOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dnSend("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dnSend("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dnSend("s3:get",nHandle,"s21:AreAnyTouchesCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AreAnyTouchesCaptured",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -12603,13 +13822,19 @@ Class UIElement3D from Visual3D
 		return self
 
 	Func ShouldSerializeInputBindings 
-		return dnSend("s4:call",nHandle,"s28:ShouldSerializeInputBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s28:ShouldSerializeInputBindings",[]) ok
+		return dn_x
 
 	Func ShouldSerializeCommandBindings 
-		return dnSend("s4:call",nHandle,"s30:ShouldSerializeCommandBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s30:ShouldSerializeCommandBindings",[]) ok
+		return dn_x
 
 	Func RaiseEvent P1
-		dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddHandler P1
@@ -12620,48 +13845,72 @@ Class UIElement3D from Visual3D
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddToEventRoute P1,P2
-		dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddToEventRoute",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func InvalidateModel 
-		dnSend("s4:call",nHandle,"s15:InvalidateModel","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:InvalidateModel")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:InvalidateModel","") ok
+
 		return self
 
 	Func CaptureMouse 
-		return dnSend("s4:call",nHandle,"s12:CaptureMouse","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureMouse",[]) ok
+		return dn_x
 
 	Func ReleaseMouseCapture 
-		dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","") ok
+
 		return self
 
 	Func CaptureStylus 
-		return dnSend("s4:call",nHandle,"s13:CaptureStylus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:CaptureStylus",[]) ok
+		return dn_x
 
 	Func ReleaseStylusCapture 
-		dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","") ok
+
 		return self
 
 	Func Focus 
-		return dnSend("s4:call",nHandle,"s5:Focus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Focus",[]) ok
+		return dn_x
 
 	Func MoveFocus P1
-		return dnSend("s4:call",nHandle,"s9:MoveFocus",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:MoveFocus",[P1]) ok
+		return dn_x
 
 	Func PredictFocus P1
 		return dnSend("s4:call",nHandle,"s12:PredictFocus",dnPackItem(P1))
 
 	Func CaptureTouch P1
-		return dnSend("s4:call",nHandle,"s12:CaptureTouch",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureTouch",[P1]) ok
+		return dn_x
 
 	Func ReleaseTouchCapture P1
-		return dnSend("s4:call",nHandle,"s19:ReleaseTouchCapture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:ReleaseTouchCapture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:ReleaseTouchCapture",[P1]) ok
+		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","") ok
+
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -13389,74 +14638,99 @@ Class UIElement3D from Visual3D
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getAllowDrop
-		return dnSend("s3:get",nHandle,"s9:AllowDrop","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:AllowDrop",[]) ok
+		return dn_x
 
 	Func setAllowDrop P1
-		dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1)) ok
 		return self
 
 	Func getIsMouseDirectlyOver
-		return dnSend("s3:get",nHandle,"s19:IsMouseDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsMouseDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dnSend("s3:get",nHandle,"s11:IsMouseOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsMouseOver",[]) ok
+		return dn_x
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dnSend("s3:get",nHandle,"s12:IsStylusOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsStylusOver",[]) ok
+		return dn_x
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnSend("s3:get",nHandle,"s21:IsKeyboardFocusWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsKeyboardFocusWithin",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnSend("s3:get",nHandle,"s15:IsMouseCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsMouseCaptured",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dnSend("s3:get",nHandle,"s20:IsMouseCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsMouseCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnSend("s3:get",nHandle,"s20:IsStylusDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsStylusDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnSend("s3:get",nHandle,"s16:IsStylusCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsStylusCaptured",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dnSend("s3:get",nHandle,"s21:IsStylusCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsStylusCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnSend("s3:get",nHandle,"s17:IsKeyboardFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsKeyboardFocused",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsInputMethodEnabled
-		return dnSend("s3:get",nHandle,"s20:IsInputMethodEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsInputMethodEnabled",[]) ok
+		return dn_x
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
@@ -13465,62 +14739,84 @@ Class UIElement3D from Visual3D
 		return dnSend("s3:get",nHandle,"s10:Visibility","")
 
 	Func setVisibility P1
-		dnSend("s3:set",nHandle,"s10:Visibility",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Visibility",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Visibility",dnPackItem(P1)) ok
 		return self
 
 	Func getIsFocused
-		return dnSend("s3:get",nHandle,"s9:IsFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsFocused",[]) ok
+		return dn_x
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnSend("s3:get",nHandle,"s9:IsEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsEnabled",[]) ok
+		return dn_x
 
 	Func setIsEnabled P1
-		dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getIsHitTestVisible
-		return dnSend("s3:get",nHandle,"s16:IsHitTestVisible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsHitTestVisible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsHitTestVisible",[]) ok
+		return dn_x
 
 	Func setIsHitTestVisible P1
-		dnSend("s3:set",nHandle,"s16:IsHitTestVisible",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:IsHitTestVisible",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:IsHitTestVisible",dnPackItem(P1)) ok
 		return self
 
 	Func getIsVisible
-		return dnSend("s3:get",nHandle,"s9:IsVisible","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsVisible")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsVisible",[]) ok
+		return dn_x
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getFocusable
-		return dnSend("s3:get",nHandle,"s9:Focusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Focusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Focusable",[]) ok
+		return dn_x
 
 	Func setFocusable P1
-		dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1)) ok
 		return self
 
 	Func getAreAnyTouchesOver
-		return dnSend("s3:get",nHandle,"s17:AreAnyTouchesOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:AreAnyTouchesOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dnSend("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dnSend("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dnSend("s3:get",nHandle,"s21:AreAnyTouchesCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AreAnyTouchesCaptured",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -13940,25 +15236,33 @@ Class ValueSource from ValueType
 		raise("DotNet Error: BaseValueSource is a read-only property")
 
 	Func getIsExpression
-		return dnSend("s3:get",nHandle,"s12:IsExpression","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsExpression")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsExpression",[]) ok
+		return dn_x
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsAnimated
-		return dnSend("s3:get",nHandle,"s10:IsAnimated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAnimated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAnimated",[]) ok
+		return dn_x
 
 	Func setIsAnimated P1
 		raise("DotNet Error: IsAnimated is a read-only property")
 
 	Func getIsCoerced
-		return dnSend("s3:get",nHandle,"s9:IsCoerced","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsCoerced")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsCoerced",[]) ok
+		return dn_x
 
 	Func setIsCoerced P1
 		raise("DotNet Error: IsCoerced is a read-only property")
 
 	Func getIsCurrent
-		return dnSend("s3:get",nHandle,"s9:IsCurrent","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsCurrent")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsCurrent",[]) ok
+		return dn_x
 
 	Func setIsCurrent P1
 		raise("DotNet Error: IsCurrent is a read-only property")
@@ -13989,30 +15293,42 @@ Class WpfVector from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		return dn_x
 
 	Func Normalize 
-		dnSend("s4:call",nHandle,"s9:Normalize","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:Normalize")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Normalize","") ok
+
 		return self
 
 	Func Negate 
-		dnSend("s4:call",nHandle,"s6:Negate","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Negate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Negate","") ok
+
 		return self
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s5:Parse",dnPackItem(P1))
 
 	Func CrossProduct P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:CrossProduct",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:CrossProduct",[P1,P2]) ok
+		return dn_x
 
 	Func AngleBetween P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:AngleBetween",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:AngleBetween",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s12:AngleBetween",[P1,P2]) ok
+		return dn_x
 
 	Func Add P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
@@ -14027,30 +15343,42 @@ Class WpfVector from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Determinant P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s11:Determinant",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s11:Determinant",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s11:Determinant",[P1,P2]) ok
+		return dn_x
 
 	Func getX
-		return dnSend("s3:get",nHandle,"s1:X","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		return dn_x
 
 	Func setX P1
-		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
 		return self
 
 	Func getY
-		return dnSend("s3:get",nHandle,"s1:Y","")
+		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		return dn_x
 
 	Func setY P1
-		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
 		return self
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLengthSquared
-		return dnSend("s3:get",nHandle,"s13:LengthSquared","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:LengthSquared")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:LengthSquared",[]) ok
+		return dn_x
 
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")
@@ -14187,26 +15515,36 @@ Class Window from ContentControl
 		return self
 
 	Func Show 
-		dnSend("s4:call",nHandle,"s4:Show","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Show")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Show","") ok
+
 		return self
 
 	Func Hide 
-		dnSend("s4:call",nHandle,"s4:Hide","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s4:Hide")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Hide","") ok
+
 		return self
 
 	Func Close 
-		dnSend("s4:call",nHandle,"s5:Close","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+
 		return self
 
 	Func DragMove 
-		dnSend("s4:call",nHandle,"s8:DragMove","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:DragMove")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:DragMove","") ok
+
 		return self
 
 	Func ShowDialog 
 		return dnSend("s4:call",nHandle,"s10:ShowDialog","")
 
 	Func Activate 
-		return dnSend("s4:call",nHandle,"s8:Activate","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:Activate")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Activate",[]) ok
+		return dn_x
 
 	Func GetWindow P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Window, PresentationFramework'),"s9:GetWindow",dnPackItem(P1))
@@ -14287,56 +15625,72 @@ Class Window from ContentControl
 		return dnSend("s3:get",nHandle,"s9:ThemeMode","")
 
 	Func setThemeMode P1
-		dnSend("s3:set",nHandle,"s9:ThemeMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:ThemeMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:ThemeMode",dnPackItem(P1)) ok
 		return self
 
 	Func getTaskbarItemInfo
 		return dnSend("s3:get",nHandle,"s15:TaskbarItemInfo","")
 
 	Func setTaskbarItemInfo P1
-		dnSend("s3:set",nHandle,"s15:TaskbarItemInfo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:TaskbarItemInfo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TaskbarItemInfo",dnPackItem(P1)) ok
 		return self
 
 	Func getAllowsTransparency
-		return dnSend("s3:get",nHandle,"s18:AllowsTransparency","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowsTransparency")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AllowsTransparency",[]) ok
+		return dn_x
 
 	Func setAllowsTransparency P1
-		dnSend("s3:set",nHandle,"s18:AllowsTransparency",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:AllowsTransparency",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AllowsTransparency",dnPackItem(P1)) ok
 		return self
 
 	Func getTitle
-		return dnSend("s3:get",nHandle,"s5:Title","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Title")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Title",[]) ok
+		return dn_x
 
 	Func setTitle P1
-		dnSend("s3:set",nHandle,"s5:Title",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Title",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Title",dnPackItem(P1)) ok
 		return self
 
 	Func getIcon
 		return dnSend("s3:get",nHandle,"s4:Icon","")
 
 	Func setIcon P1
-		dnSend("s3:set",nHandle,"s4:Icon",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Icon",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Icon",dnPackItem(P1)) ok
 		return self
 
 	Func getSizeToContent
 		return dnSend("s3:get",nHandle,"s13:SizeToContent","")
 
 	Func setSizeToContent P1
-		dnSend("s3:set",nHandle,"s13:SizeToContent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:SizeToContent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SizeToContent",dnPackItem(P1)) ok
 		return self
 
 	Func getTop
-		return dnSend("s3:get",nHandle,"s3:Top","")
+		dn_x = dotnet_call("s3:get",nHandle,"s3:Top")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Top",[]) ok
+		return dn_x
 
 	Func setTop P1
-		dnSend("s3:set",nHandle,"s3:Top",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Top",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Top",dnPackItem(P1)) ok
 		return self
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Left")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Left",[]) ok
+		return dn_x
 
 	Func setLeft P1
-		dnSend("s3:set",nHandle,"s4:Left",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Left",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Left",dnPackItem(P1)) ok
 		return self
 
 	Func getRestoreBounds
@@ -14349,18 +15703,24 @@ Class Window from ContentControl
 		return dnSend("s3:get",nHandle,"s21:WindowStartupLocation","")
 
 	Func setWindowStartupLocation P1
-		dnSend("s3:set",nHandle,"s21:WindowStartupLocation",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:WindowStartupLocation",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:WindowStartupLocation",dnPackItem(P1)) ok
 		return self
 
 	Func getShowInTaskbar
-		return dnSend("s3:get",nHandle,"s13:ShowInTaskbar","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ShowInTaskbar")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ShowInTaskbar",[]) ok
+		return dn_x
 
 	Func setShowInTaskbar P1
-		dnSend("s3:set",nHandle,"s13:ShowInTaskbar",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ShowInTaskbar",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ShowInTaskbar",dnPackItem(P1)) ok
 		return self
 
 	Func getIsActive
-		return dnSend("s3:get",nHandle,"s8:IsActive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsActive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsActive",[]) ok
+		return dn_x
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
@@ -14369,7 +15729,8 @@ Class Window from ContentControl
 		return dnSend("s3:get",nHandle,"s5:Owner","")
 
 	Func setOwner P1
-		dnSend("s3:set",nHandle,"s5:Owner",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Owner",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Owner",dnPackItem(P1)) ok
 		return self
 
 	Func getOwnedWindows
@@ -14382,42 +15743,52 @@ Class Window from ContentControl
 		return dnSend("s3:get",nHandle,"s12:DialogResult","")
 
 	Func setDialogResult P1
-		dnSend("s3:set",nHandle,"s12:DialogResult",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DialogResult",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DialogResult",dnPackItem(P1)) ok
 		return self
 
 	Func getWindowStyle
 		return dnSend("s3:get",nHandle,"s11:WindowStyle","")
 
 	Func setWindowStyle P1
-		dnSend("s3:set",nHandle,"s11:WindowStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:WindowStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:WindowStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getWindowState
 		return dnSend("s3:get",nHandle,"s11:WindowState","")
 
 	Func setWindowState P1
-		dnSend("s3:set",nHandle,"s11:WindowState",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:WindowState",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:WindowState",dnPackItem(P1)) ok
 		return self
 
 	Func getResizeMode
 		return dnSend("s3:get",nHandle,"s10:ResizeMode","")
 
 	Func setResizeMode P1
-		dnSend("s3:set",nHandle,"s10:ResizeMode",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:ResizeMode",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ResizeMode",dnPackItem(P1)) ok
 		return self
 
 	Func getTopmost
-		return dnSend("s3:get",nHandle,"s7:Topmost","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Topmost")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Topmost",[]) ok
+		return dn_x
 
 	Func setTopmost P1
-		dnSend("s3:set",nHandle,"s7:Topmost",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Topmost",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Topmost",dnPackItem(P1)) ok
 		return self
 
 	Func getShowActivated
-		return dnSend("s3:get",nHandle,"s13:ShowActivated","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ShowActivated")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ShowActivated",[]) ok
+		return dn_x
 
 	Func setShowActivated P1
-		dnSend("s3:set",nHandle,"s13:ShowActivated",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:ShowActivated",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ShowActivated",dnPackItem(P1)) ok
 		return self
 
 	Func getTaskbarItemInfoProperty
@@ -14536,23 +15907,31 @@ Class WindowCollection from Object
 		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Item P1
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnSend("s3:get",nHandle,"s5:Count","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -14607,14 +15986,16 @@ Class ComponentResourceKey from ResourceKey
 		return dnSend("s3:get",nHandle,"s20:TypeInTargetAssembly","")
 
 	Func setTypeInTargetAssembly P1
-		dnSend("s3:set",nHandle,"s20:TypeInTargetAssembly",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:TypeInTargetAssembly",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:TypeInTargetAssembly",dnPackItem(P1)) ok
 		return self
 
 	Func getResourceId
 		return dnSend("s3:get",nHandle,"s10:ResourceId","")
 
 	Func setResourceId P1
-		dnSend("s3:set",nHandle,"s10:ResourceId",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:ResourceId",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ResourceId",dnPackItem(P1)) ok
 		return self
 
 
@@ -14778,13 +16159,19 @@ Class ContentElement from DependencyObject
 		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeInputBindings 
-		return dnSend("s4:call",nHandle,"s28:ShouldSerializeInputBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s28:ShouldSerializeInputBindings",[]) ok
+		return dn_x
 
 	Func ShouldSerializeCommandBindings 
-		return dnSend("s4:call",nHandle,"s30:ShouldSerializeCommandBindings","")
+		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s30:ShouldSerializeCommandBindings",[]) ok
+		return dn_x
 
 	Func RaiseEvent P1
-		dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s10:RaiseEvent",dnPackItem(P1)) ok
+
 		return self
 
 	Func AddHandler P1
@@ -14795,44 +16182,66 @@ Class ContentElement from DependencyObject
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddToEventRoute P1,P2
-		dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:AddToEventRoute",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AddToEventRoute",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func CaptureMouse 
-		return dnSend("s4:call",nHandle,"s12:CaptureMouse","")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureMouse",[]) ok
+		return dn_x
 
 	Func ReleaseMouseCapture 
-		dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseMouseCapture","") ok
+
 		return self
 
 	Func CaptureStylus 
-		return dnSend("s4:call",nHandle,"s13:CaptureStylus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:CaptureStylus",[]) ok
+		return dn_x
 
 	Func ReleaseStylusCapture 
-		dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ReleaseStylusCapture","") ok
+
 		return self
 
 	Func Focus 
-		return dnSend("s4:call",nHandle,"s5:Focus","")
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Focus",[]) ok
+		return dn_x
 
 	Func MoveFocus P1
-		return dnSend("s4:call",nHandle,"s9:MoveFocus",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:MoveFocus",[P1]) ok
+		return dn_x
 
 	Func PredictFocus P1
 		return dnSend("s4:call",nHandle,"s12:PredictFocus",dnPackItem(P1))
 
 	Func CaptureTouch P1
-		return dnSend("s4:call",nHandle,"s12:CaptureTouch",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:CaptureTouch",[P1]) ok
+		return dn_x
 
 	Func ReleaseTouchCapture P1
-		return dnSend("s4:call",nHandle,"s19:ReleaseTouchCapture",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s19:ReleaseTouchCapture",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:ReleaseTouchCapture",[P1]) ok
+		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s23:ReleaseAllTouchCaptures","") ok
+
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -15532,7 +16941,9 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func getHasAnimatedProperties
-		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:HasAnimatedProperties",[]) ok
+		return dn_x
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -15550,118 +16961,159 @@ Class ContentElement from DependencyObject
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dnSend("s3:get",nHandle,"s19:IsMouseDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsMouseDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dnSend("s3:get",nHandle,"s11:IsMouseOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsMouseOver",[]) ok
+		return dn_x
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dnSend("s3:get",nHandle,"s12:IsStylusOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsStylusOver",[]) ok
+		return dn_x
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnSend("s3:get",nHandle,"s21:IsKeyboardFocusWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsKeyboardFocusWithin",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnSend("s3:get",nHandle,"s15:IsMouseCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsMouseCaptured",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dnSend("s3:get",nHandle,"s20:IsMouseCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsMouseCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnSend("s3:get",nHandle,"s20:IsStylusDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsStylusDirectlyOver",[]) ok
+		return dn_x
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnSend("s3:get",nHandle,"s16:IsStylusCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsStylusCaptured",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dnSend("s3:get",nHandle,"s21:IsStylusCaptureWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsStylusCaptureWithin",[]) ok
+		return dn_x
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnSend("s3:get",nHandle,"s17:IsKeyboardFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsKeyboardFocused",[]) ok
+		return dn_x
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsFocused
-		return dnSend("s3:get",nHandle,"s9:IsFocused","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsFocused",[]) ok
+		return dn_x
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnSend("s3:get",nHandle,"s9:IsEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsEnabled",[]) ok
+		return dn_x
 
 	Func setIsEnabled P1
-		dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1)) ok
 		return self
 
 	Func getFocusable
-		return dnSend("s3:get",nHandle,"s9:Focusable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Focusable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Focusable",[]) ok
+		return dn_x
 
 	Func setFocusable P1
-		dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Focusable",dnPackItem(P1)) ok
 		return self
 
 	Func getIsInputMethodEnabled
-		return dnSend("s3:get",nHandle,"s20:IsInputMethodEnabled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsInputMethodEnabled",[]) ok
+		return dn_x
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getAllowDrop
-		return dnSend("s3:get",nHandle,"s9:AllowDrop","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:AllowDrop",[]) ok
+		return dn_x
 
 	Func setAllowDrop P1
-		dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:AllowDrop",dnPackItem(P1)) ok
 		return self
 
 	Func getAreAnyTouchesOver
-		return dnSend("s3:get",nHandle,"s17:AreAnyTouchesOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:AreAnyTouchesOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dnSend("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dnSend("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin","")
+		dn_x = dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dnSend("s3:get",nHandle,"s21:AreAnyTouchesCaptured","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AreAnyTouchesCaptured",[]) ok
+		return dn_x
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -16045,17 +17497,23 @@ Class DataObjectEventArgs from RoutedEventArgs
 		return self
 
 	Func CancelCommand 
-		dnSend("s4:call",nHandle,"s13:CancelCommand","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:CancelCommand")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:CancelCommand","") ok
+
 		return self
 
 	Func getIsDragDrop
-		return dnSend("s3:get",nHandle,"s10:IsDragDrop","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsDragDrop")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsDragDrop",[]) ok
+		return dn_x
 
 	Func setIsDragDrop P1
 		raise("DotNet Error: IsDragDrop is a read-only property")
 
 	Func getCommandCancelled
-		return dnSend("s3:get",nHandle,"s16:CommandCancelled","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:CommandCancelled")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:CommandCancelled",[]) ok
+		return dn_x
 
 	Func setCommandCancelled P1
 		raise("DotNet Error: CommandCancelled is a read-only property")
@@ -16105,7 +17563,8 @@ Class DataTemplate from FrameworkTemplate
 		return dnSend("s3:get",nHandle,"s8:DataType","")
 
 	Func setDataType P1
-		dnSend("s3:set",nHandle,"s8:DataType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:DataType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:DataType",dnPackItem(P1)) ok
 		return self
 
 	Func getTriggers
@@ -16189,7 +17648,8 @@ Class WpfDragEventArgs from RoutedEventArgs
 		return dnSend("s3:get",nHandle,"s7:Effects","")
 
 	Func setEffects P1
-		dnSend("s3:set",nHandle,"s7:Effects",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Effects",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Effects",dnPackItem(P1)) ok
 		return self
 
 
@@ -16237,21 +17697,26 @@ Class EventSetter from SetterBase
 		return dnSend("s3:get",nHandle,"s5:Event","")
 
 	Func setEvent P1
-		dnSend("s3:set",nHandle,"s5:Event",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Event",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Event",dnPackItem(P1)) ok
 		return self
 
 	Func getHandler
 		return dnSend("s3:get",nHandle,"s7:Handler","")
 
 	Func setHandler P1
-		dnSend("s3:set",nHandle,"s7:Handler",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Handler",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Handler",dnPackItem(P1)) ok
 		return self
 
 	Func getHandledEventsToo
-		return dnSend("s3:get",nHandle,"s16:HandledEventsToo","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:HandledEventsToo")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:HandledEventsToo",[]) ok
+		return dn_x
 
 	Func setHandledEventsToo P1
-		dnSend("s3:set",nHandle,"s16:HandledEventsToo",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:HandledEventsToo",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:HandledEventsToo",dnPackItem(P1)) ok
 		return self
 
 
@@ -16365,13 +17830,19 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func ShouldSerializeStyle 
-		return dnSend("s4:call",nHandle,"s20:ShouldSerializeStyle","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeStyle")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ShouldSerializeStyle",[]) ok
+		return dn_x
 
 	Func ApplyTemplate 
-		return dnSend("s4:call",nHandle,"s13:ApplyTemplate","")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ApplyTemplate")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:ApplyTemplate",[]) ok
+		return dn_x
 
 	Func OnApplyTemplate 
-		dnSend("s4:call",nHandle,"s15:OnApplyTemplate","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:OnApplyTemplate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:OnApplyTemplate","") ok
+
 		return self
 
 	Func BeginStoryboard P1
@@ -16379,14 +17850,20 @@ Class FrameworkElement from UIElement
 			dnSend("s9:callnamed",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:BeginStoryboard",dnPackItem(P1)) ok
+
 		return self
 
 	Func ShouldSerializeTriggers 
-		return dnSend("s4:call",nHandle,"s23:ShouldSerializeTriggers","")
+		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeTriggers")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:ShouldSerializeTriggers",[]) ok
+		return dn_x
 
 	Func ShouldSerializeResources 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeResources","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeResources",[]) ok
+		return dn_x
 
 	Func FindResource P1
 		return dnSend("s4:call",nHandle,"s12:FindResource",dnPackItem(P1))
@@ -16395,7 +17872,9 @@ Class FrameworkElement from UIElement
 		return dnSend("s4:call",nHandle,"s15:TryFindResource",dnPackItem(P1))
 
 	Func SetResourceReference P1,P2
-		dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetBindingExpression P1
@@ -16410,40 +17889,56 @@ Class FrameworkElement from UIElement
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s13:BringIntoView","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s13:BringIntoView")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:BringIntoView","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s13:BringIntoView",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:BringIntoView",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:BringIntoView",dnPackItem(P1)) ok
+
 		return self
 
 	Func BeginInit 
-		dnSend("s4:call",nHandle,"s9:BeginInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+
 		return self
 
 	Func EndInit 
-		dnSend("s4:call",nHandle,"s7:EndInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+
 		return self
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func FindName P1
 		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1))
 
 	Func UpdateDefaultStyle 
-		dnSend("s4:call",nHandle,"s18:UpdateDefaultStyle","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:UpdateDefaultStyle")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:UpdateDefaultStyle","") ok
+
 		return self
 
 	Func GetFlowDirection_ P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:GetFlowDirection",dnPackItem(P1))
 
 	Func SetFlowDirection_ P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:SetFlowDirection",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:SetFlowDirection",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.FrameworkElement, PresentationFramework'),"s16:SetFlowDirection",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func setTargetUpdatedEvent P1
@@ -16546,21 +18041,28 @@ Class FrameworkElement from UIElement
 		return dnSend("s3:get",nHandle,"s5:Style","")
 
 	Func setStyle P1
-		dnSend("s3:set",nHandle,"s5:Style",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Style",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Style",dnPackItem(P1)) ok
 		return self
 
 	Func getOverridesDefaultStyle
-		return dnSend("s3:get",nHandle,"s21:OverridesDefaultStyle","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:OverridesDefaultStyle")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:OverridesDefaultStyle",[]) ok
+		return dn_x
 
 	Func setOverridesDefaultStyle P1
-		dnSend("s3:set",nHandle,"s21:OverridesDefaultStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:OverridesDefaultStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:OverridesDefaultStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getUseLayoutRounding
-		return dnSend("s3:get",nHandle,"s17:UseLayoutRounding","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:UseLayoutRounding")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:UseLayoutRounding",[]) ok
+		return dn_x
 
 	Func setUseLayoutRounding P1
-		dnSend("s3:set",nHandle,"s17:UseLayoutRounding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:UseLayoutRounding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:UseLayoutRounding",dnPackItem(P1)) ok
 		return self
 
 	Func getTriggers
@@ -16579,59 +18081,72 @@ Class FrameworkElement from UIElement
 		return dnSend("s3:get",nHandle,"s9:Resources","")
 
 	Func setResources P1
-		dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Resources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1)) ok
 		return self
 
 	Func getDataContext
 		return dnSend("s3:get",nHandle,"s11:DataContext","")
 
 	Func setDataContext P1
-		dnSend("s3:set",nHandle,"s11:DataContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DataContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DataContext",dnPackItem(P1)) ok
 		return self
 
 	Func getBindingGroup
 		return dnSend("s3:get",nHandle,"s12:BindingGroup","")
 
 	Func setBindingGroup P1
-		dnSend("s3:set",nHandle,"s12:BindingGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:BindingGroup",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BindingGroup",dnPackItem(P1)) ok
 		return self
 
 	Func getLanguage
 		return dnSend("s3:get",nHandle,"s8:Language","")
 
 	Func setLanguage P1
-		dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Language",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getTag
 		return dnSend("s3:get",nHandle,"s3:Tag","")
 
 	Func setTag P1
-		dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Tag",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1)) ok
 		return self
 
 	Func getInputScope
 		return dnSend("s3:get",nHandle,"s10:InputScope","")
 
 	Func setInputScope P1
-		dnSend("s3:set",nHandle,"s10:InputScope",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:InputScope",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:InputScope",dnPackItem(P1)) ok
 		return self
 
 	Func getActualWidth
-		return dnSend("s3:get",nHandle,"s11:ActualWidth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ActualWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ActualWidth",[]) ok
+		return dn_x
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")
 
 	Func getActualHeight
-		return dnSend("s3:get",nHandle,"s12:ActualHeight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ActualHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ActualHeight",[]) ok
+		return dn_x
 
 	Func setActualHeight P1
 		raise("DotNet Error: ActualHeight is a read-only property")
@@ -16640,108 +18155,140 @@ Class FrameworkElement from UIElement
 		return dnSend("s3:get",nHandle,"s15:LayoutTransform","")
 
 	Func setLayoutTransform P1
-		dnSend("s3:set",nHandle,"s15:LayoutTransform",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:LayoutTransform",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:LayoutTransform",dnPackItem(P1)) ok
 		return self
 
 	Func getWidth
-		return dnSend("s3:get",nHandle,"s5:Width","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		return dn_x
 
 	Func setWidth P1
-		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
 		return self
 
 	Func getMinWidth
-		return dnSend("s3:get",nHandle,"s8:MinWidth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MinWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MinWidth",[]) ok
+		return dn_x
 
 	Func setMinWidth P1
-		dnSend("s3:set",nHandle,"s8:MinWidth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MinWidth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MinWidth",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxWidth
-		return dnSend("s3:get",nHandle,"s8:MaxWidth","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:MaxWidth",[]) ok
+		return dn_x
 
 	Func setMaxWidth P1
-		dnSend("s3:set",nHandle,"s8:MaxWidth",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:MaxWidth",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:MaxWidth",dnPackItem(P1)) ok
 		return self
 
 	Func getHeight
-		return dnSend("s3:get",nHandle,"s6:Height","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		return dn_x
 
 	Func setHeight P1
-		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
 		return self
 
 	Func getMinHeight
-		return dnSend("s3:get",nHandle,"s9:MinHeight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MinHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MinHeight",[]) ok
+		return dn_x
 
 	Func setMinHeight P1
-		dnSend("s3:set",nHandle,"s9:MinHeight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:MinHeight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MinHeight",dnPackItem(P1)) ok
 		return self
 
 	Func getMaxHeight
-		return dnSend("s3:get",nHandle,"s9:MaxHeight","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxHeight")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MaxHeight",[]) ok
+		return dn_x
 
 	Func setMaxHeight P1
-		dnSend("s3:set",nHandle,"s9:MaxHeight",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:MaxHeight",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MaxHeight",dnPackItem(P1)) ok
 		return self
 
 	Func getFlowDirection
 		return dnSend("s3:get",nHandle,"s13:FlowDirection","")
 
 	Func setFlowDirection P1
-		dnSend("s3:set",nHandle,"s13:FlowDirection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:FlowDirection",dnPackItem(P1)) ok
 		return self
 
 	Func getMargin
 		return dnSend("s3:get",nHandle,"s6:Margin","")
 
 	Func setMargin P1
-		dnSend("s3:set",nHandle,"s6:Margin",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Margin",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Margin",dnPackItem(P1)) ok
 		return self
 
 	Func getHorizontalAlignment
 		return dnSend("s3:get",nHandle,"s19:HorizontalAlignment","")
 
 	Func setHorizontalAlignment P1
-		dnSend("s3:set",nHandle,"s19:HorizontalAlignment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:HorizontalAlignment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:HorizontalAlignment",dnPackItem(P1)) ok
 		return self
 
 	Func getVerticalAlignment
 		return dnSend("s3:get",nHandle,"s17:VerticalAlignment","")
 
 	Func setVerticalAlignment P1
-		dnSend("s3:set",nHandle,"s17:VerticalAlignment",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:VerticalAlignment",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:VerticalAlignment",dnPackItem(P1)) ok
 		return self
 
 	Func getFocusVisualStyle
 		return dnSend("s3:get",nHandle,"s16:FocusVisualStyle","")
 
 	Func setFocusVisualStyle P1
-		dnSend("s3:set",nHandle,"s16:FocusVisualStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:FocusVisualStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:FocusVisualStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getCursor
 		return dnSend("s3:get",nHandle,"s6:Cursor","")
 
 	Func setCursor P1
-		dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Cursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1)) ok
 		return self
 
 	Func getForceCursor
-		return dnSend("s3:get",nHandle,"s11:ForceCursor","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ForceCursor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ForceCursor",[]) ok
+		return dn_x
 
 	Func setForceCursor P1
-		dnSend("s3:set",nHandle,"s11:ForceCursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ForceCursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ForceCursor",dnPackItem(P1)) ok
 		return self
 
 	Func getIsInitialized
-		return dnSend("s3:get",nHandle,"s13:IsInitialized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsInitialized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsInitialized",[]) ok
+		return dn_x
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dnSend("s3:get",nHandle,"s8:IsLoaded","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLoaded",[]) ok
+		return dn_x
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
@@ -16750,14 +18297,16 @@ Class FrameworkElement from UIElement
 		return dnSend("s3:get",nHandle,"s7:ToolTip","")
 
 	Func setToolTip P1
-		dnSend("s3:set",nHandle,"s7:ToolTip",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:ToolTip",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:ToolTip",dnPackItem(P1)) ok
 		return self
 
 	Func getContextMenu
 		return dnSend("s3:get",nHandle,"s11:ContextMenu","")
 
 	Func setContextMenu P1
-		dnSend("s3:set",nHandle,"s11:ContextMenu",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ContextMenu",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ContextMenu",dnPackItem(P1)) ok
 		return self
 
 	Func getParent
@@ -16980,7 +18529,9 @@ Class Freezable from DependencyObject
 		return dnSend("s4:call",nHandle,"s23:GetCurrentValueAsFrozen","")
 
 	Func Freeze 
-		dnSend("s4:call",nHandle,"s6:Freeze","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Freeze")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Freeze","") ok
+
 		return self
 
 	Func setChangedEvent P1
@@ -16992,13 +18543,17 @@ Class Freezable from DependencyObject
 		return self
 
 	Func getCanFreeze
-		return dnSend("s3:get",nHandle,"s9:CanFreeze","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:CanFreeze")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:CanFreeze",[]) ok
+		return dn_x
 
 	Func setCanFreeze P1
 		raise("DotNet Error: CanFreeze is a read-only property")
 
 	Func getIsFrozen
-		return dnSend("s3:get",nHandle,"s8:IsFrozen","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsFrozen")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsFrozen",[]) ok
+		return dn_x
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")
@@ -17025,10 +18580,13 @@ Class WpfGiveFeedbackEventArgs from RoutedEventArgs
 		raise("DotNet Error: Effects is a read-only property")
 
 	Func getUseDefaultCursors
-		return dnSend("s3:get",nHandle,"s17:UseDefaultCursors","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:UseDefaultCursors")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:UseDefaultCursors",[]) ok
+		return dn_x
 
 	Func setUseDefaultCursors P1
-		dnSend("s3:set",nHandle,"s17:UseDefaultCursors",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:UseDefaultCursors",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:UseDefaultCursors",dnPackItem(P1)) ok
 		return self
 
 
@@ -17044,19 +18602,27 @@ Class LostFocusEventManager from WeakEventManager
 		return self
 
 	Func AddListener P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s11:AddListener",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s11:AddListener",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveListener P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s14:RemoveListener",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func AddHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s10:AddHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func RemoveHandler P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s13:RemoveHandler",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.LostFocusEventManager, PresentationFramework'),"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 
@@ -17075,13 +18641,17 @@ Class MediaScriptCommandRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getParameterType
-		return dnSend("s3:get",nHandle,"s13:ParameterType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ParameterType",[]) ok
+		return dn_x
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		return dnSend("s3:get",nHandle,"s14:ParameterValue","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ParameterValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ParameterValue",[]) ok
+		return dn_x
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")
@@ -17103,7 +18673,9 @@ Class WpfQueryContinueDragEventArgs from RoutedEventArgs
 		return self
 
 	Func getEscapePressed
-		return dnSend("s3:get",nHandle,"s13:EscapePressed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:EscapePressed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:EscapePressed",[]) ok
+		return dn_x
 
 	Func setEscapePressed P1
 		raise("DotNet Error: EscapePressed is a read-only property")
@@ -17118,7 +18690,8 @@ Class WpfQueryContinueDragEventArgs from RoutedEventArgs
 		return dnSend("s3:get",nHandle,"s6:Action","")
 
 	Func setAction P1
-		dnSend("s3:set",nHandle,"s6:Action",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Action",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Action",dnPackItem(P1)) ok
 		return self
 
 
@@ -17190,32 +18763,41 @@ Class Setter from SetterBase
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s22:ReceiveMarkupExtension",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s20:ReceiveTypeConverter",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Setter, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getProperty
 		return dnSend("s3:get",nHandle,"s8:Property","")
 
 	Func setProperty P1
-		dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Property",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getTargetName
-		return dnSend("s3:get",nHandle,"s10:TargetName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:TargetName",[]) ok
+		return dn_x
 
 	Func setTargetName P1
-		dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:TargetName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1)) ok
 		return self
 
 
@@ -17248,13 +18830,17 @@ Class SizeChangedEventArgs from RoutedEventArgs
 		raise("DotNet Error: NewSize is a read-only property")
 
 	Func getWidthChanged
-		return dnSend("s3:get",nHandle,"s12:WidthChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:WidthChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:WidthChanged",[]) ok
+		return dn_x
 
 	Func setWidthChanged P1
 		raise("DotNet Error: WidthChanged is a read-only property")
 
 	Func getHeightChanged
-		return dnSend("s3:get",nHandle,"s13:HeightChanged","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:HeightChanged")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:HeightChanged",[]) ok
+		return dn_x
 
 	Func setHeightChanged P1
 		raise("DotNet Error: HeightChanged is a read-only property")
@@ -17355,7 +18941,8 @@ Class TemplateKey from ResourceKey
 		return dnSend("s3:get",nHandle,"s8:DataType","")
 
 	Func setDataType P1
-		dnSend("s3:set",nHandle,"s8:DataType",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:DataType",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:DataType",dnPackItem(P1)) ok
 		return self
 
 
@@ -17437,10 +19024,13 @@ Class UIPropertyMetadata from PropertyMetadata
 		return self
 
 	Func getIsAnimationProhibited
-		return dnSend("s3:get",nHandle,"s21:IsAnimationProhibited","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:IsAnimationProhibited")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsAnimationProhibited",[]) ok
+		return dn_x
 
 	Func setIsAnimationProhibited P1
-		dnSend("s3:set",nHandle,"s21:IsAnimationProhibited",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:IsAnimationProhibited",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:IsAnimationProhibited",dnPackItem(P1)) ok
 		return self
 
 
@@ -17468,17 +19058,21 @@ Class VisualState from DependencyObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getStoryboard
 		return dnSend("s3:get",nHandle,"s10:Storyboard","")
 
 	Func setStoryboard P1
-		dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Storyboard",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1)) ok
 		return self
 
 
@@ -17524,10 +19118,13 @@ Class VisualStateGroup from DependencyObject
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getStates
@@ -17573,16 +19170,22 @@ Class VisualStateManager from DependencyObject
 		return self
 
 	Func GoToState P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s9:GoToState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s9:GoToState",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s9:GoToState",[P1,P2,P3]) ok
+		return dn_x
 
 	Func GoToElementState P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s16:GoToElementState",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s16:GoToElementState",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s16:GoToElementState",[P1,P2,P3]) ok
+		return dn_x
 
 	Func GetCustomVisualStateManager P1
 		return dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:GetCustomVisualStateManager",dnPackItem(P1))
 
 	Func SetCustomVisualStateManager P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:SetCustomVisualStateManager",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:SetCustomVisualStateManager",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.VisualStateManager, PresentationFramework'),"s27:SetCustomVisualStateManager",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetVisualStateGroups P1
@@ -17628,38 +19231,47 @@ Class VisualTransition from DependencyObject
 		return self
 
 	Func getFrom
-		return dnSend("s3:get",nHandle,"s4:From","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:From")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:From",[]) ok
+		return dn_x
 
 	Func setFrom P1
-		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1)) ok
 		return self
 
 	Func getTo
-		return dnSend("s3:get",nHandle,"s2:To","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:To")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:To",[]) ok
+		return dn_x
 
 	Func setTo P1
-		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1)) ok
 		return self
 
 	Func getStoryboard
 		return dnSend("s3:get",nHandle,"s10:Storyboard","")
 
 	Func setStoryboard P1
-		dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Storyboard",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1)) ok
 		return self
 
 	Func getGeneratedDuration
 		return dnSend("s3:get",nHandle,"s17:GeneratedDuration","")
 
 	Func setGeneratedDuration P1
-		dnSend("s3:set",nHandle,"s17:GeneratedDuration",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:GeneratedDuration",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:GeneratedDuration",dnPackItem(P1)) ok
 		return self
 
 	Func getGeneratedEasingFunction
 		return dnSend("s3:get",nHandle,"s23:GeneratedEasingFunction","")
 
 	Func setGeneratedEasingFunction P1
-		dnSend("s3:set",nHandle,"s23:GeneratedEasingFunction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:GeneratedEasingFunction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:GeneratedEasingFunction",dnPackItem(P1)) ok
 		return self
 
 
@@ -17712,14 +19324,18 @@ Class DataObjectPastingEventArgs from DataObjectEventArgs
 		return dnSend("s3:get",nHandle,"s10:DataObject","")
 
 	Func setDataObject P1
-		dnSend("s3:set",nHandle,"s10:DataObject",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:DataObject",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:DataObject",dnPackItem(P1)) ok
 		return self
 
 	Func getFormatToApply
-		return dnSend("s3:get",nHandle,"s13:FormatToApply","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:FormatToApply")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:FormatToApply",[]) ok
+		return dn_x
 
 	Func setFormatToApply P1
-		dnSend("s3:set",nHandle,"s13:FormatToApply",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:FormatToApply",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:FormatToApply",dnPackItem(P1)) ok
 		return self
 
 
@@ -17746,7 +19362,9 @@ Class DataObjectSettingDataEventArgs from DataObjectEventArgs
 		raise("DotNet Error: DataObject is a read-only property")
 
 	Func getFormat
-		return dnSend("s3:get",nHandle,"s6:Format","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Format",[]) ok
+		return dn_x
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -17817,25 +19435,31 @@ Class DataTrigger from TriggerBase
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.DataTrigger, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.DataTrigger, PresentationFramework'),"s22:ReceiveMarkupExtension",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.DataTrigger, PresentationFramework'),"s22:ReceiveMarkupExtension",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getBinding
 		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Binding",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getSetters
@@ -17886,20 +19510,26 @@ Class EventTrigger from TriggerBase
 		return self
 
 	Func ShouldSerializeActions 
-		return dnSend("s4:call",nHandle,"s22:ShouldSerializeActions","")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldSerializeActions")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:ShouldSerializeActions",[]) ok
+		return dn_x
 
 	Func getRoutedEvent
 		return dnSend("s3:get",nHandle,"s11:RoutedEvent","")
 
 	Func setRoutedEvent P1
-		dnSend("s3:set",nHandle,"s11:RoutedEvent",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:RoutedEvent",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:RoutedEvent",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceName
-		return dnSend("s3:get",nHandle,"s10:SourceName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SourceName",[]) ok
+		return dn_x
 
 	Func setSourceName P1
-		dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1)) ok
 		return self
 
 	Func getActions
@@ -17968,10 +19598,14 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func ShouldSerializeStyle 
-		return dnSend("s4:call",nHandle,"s20:ShouldSerializeStyle","")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeStyle")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:ShouldSerializeStyle",[]) ok
+		return dn_x
 
 	Func ShouldSerializeResources 
-		return dnSend("s4:call",nHandle,"s24:ShouldSerializeResources","")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldSerializeResources",[]) ok
+		return dn_x
 
 	Func FindResource P1
 		return dnSend("s4:call",nHandle,"s12:FindResource",dnPackItem(P1))
@@ -17980,7 +19614,9 @@ Class FrameworkContentElement from ContentElement
 		return dnSend("s4:call",nHandle,"s15:TryFindResource",dnPackItem(P1))
 
 	Func SetResourceReference P1,P2
-		dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s20:SetResourceReference",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func BeginStoryboard P1
@@ -17988,11 +19624,15 @@ Class FrameworkContentElement from ContentElement
 			dnSend("s9:callnamed",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
 			return self
 		ok
-		dnSend("s4:call",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s15:BeginStoryboard",dnPackItem(P1)) ok
+
 		return self
 
 	Func BringIntoView 
-		dnSend("s4:call",nHandle,"s13:BringIntoView","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s13:BringIntoView")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s13:BringIntoView","") ok
+
 		return self
 
 	Func GetBindingExpression P1
@@ -18002,26 +19642,36 @@ Class FrameworkContentElement from ContentElement
 		return dnSend("s4:call",nHandle,"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BeginInit 
-		dnSend("s4:call",nHandle,"s9:BeginInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+
 		return self
 
 	Func EndInit 
-		dnSend("s4:call",nHandle,"s7:EndInit","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+
 		return self
 
 	Func RegisterName P1,P2
-		dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func UnregisterName P1
-		dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+
 		return self
 
 	Func FindName P1
 		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1))
 
 	Func UpdateDefaultStyle 
-		dnSend("s4:call",nHandle,"s18:UpdateDefaultStyle","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s18:UpdateDefaultStyle")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s18:UpdateDefaultStyle","") ok
+
 		return self
 
 	Func setTargetUpdatedEvent P1
@@ -18108,14 +19758,18 @@ Class FrameworkContentElement from ContentElement
 		return dnSend("s3:get",nHandle,"s5:Style","")
 
 	Func setStyle P1
-		dnSend("s3:set",nHandle,"s5:Style",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Style",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Style",dnPackItem(P1)) ok
 		return self
 
 	Func getOverridesDefaultStyle
-		return dnSend("s3:get",nHandle,"s21:OverridesDefaultStyle","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:OverridesDefaultStyle")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:OverridesDefaultStyle",[]) ok
+		return dn_x
 
 	Func setOverridesDefaultStyle P1
-		dnSend("s3:set",nHandle,"s21:OverridesDefaultStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:OverridesDefaultStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:OverridesDefaultStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getTemplatedParent
@@ -18128,80 +19782,98 @@ Class FrameworkContentElement from ContentElement
 		return dnSend("s3:get",nHandle,"s9:Resources","")
 
 	Func setResources P1
-		dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s9:Resources",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Resources",dnPackItem(P1)) ok
 		return self
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
-		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
 		return self
 
 	Func getTag
 		return dnSend("s3:get",nHandle,"s3:Tag","")
 
 	Func setTag P1
-		dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s3:Tag",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1)) ok
 		return self
 
 	Func getLanguage
 		return dnSend("s3:get",nHandle,"s8:Language","")
 
 	Func setLanguage P1
-		dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Language",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1)) ok
 		return self
 
 	Func getFocusVisualStyle
 		return dnSend("s3:get",nHandle,"s16:FocusVisualStyle","")
 
 	Func setFocusVisualStyle P1
-		dnSend("s3:set",nHandle,"s16:FocusVisualStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:FocusVisualStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:FocusVisualStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getCursor
 		return dnSend("s3:get",nHandle,"s6:Cursor","")
 
 	Func setCursor P1
-		dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Cursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Cursor",dnPackItem(P1)) ok
 		return self
 
 	Func getForceCursor
-		return dnSend("s3:get",nHandle,"s11:ForceCursor","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ForceCursor")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ForceCursor",[]) ok
+		return dn_x
 
 	Func setForceCursor P1
-		dnSend("s3:set",nHandle,"s11:ForceCursor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ForceCursor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ForceCursor",dnPackItem(P1)) ok
 		return self
 
 	Func getInputScope
 		return dnSend("s3:get",nHandle,"s10:InputScope","")
 
 	Func setInputScope P1
-		dnSend("s3:set",nHandle,"s10:InputScope",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:InputScope",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:InputScope",dnPackItem(P1)) ok
 		return self
 
 	Func getDataContext
 		return dnSend("s3:get",nHandle,"s11:DataContext","")
 
 	Func setDataContext P1
-		dnSend("s3:set",nHandle,"s11:DataContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DataContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DataContext",dnPackItem(P1)) ok
 		return self
 
 	Func getBindingGroup
 		return dnSend("s3:get",nHandle,"s12:BindingGroup","")
 
 	Func setBindingGroup P1
-		dnSend("s3:set",nHandle,"s12:BindingGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:BindingGroup",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BindingGroup",dnPackItem(P1)) ok
 		return self
 
 	Func getIsInitialized
-		return dnSend("s3:get",nHandle,"s13:IsInitialized","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:IsInitialized")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsInitialized",[]) ok
+		return dn_x
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dnSend("s3:get",nHandle,"s8:IsLoaded","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLoaded",[]) ok
+		return dn_x
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
@@ -18210,14 +19882,16 @@ Class FrameworkContentElement from ContentElement
 		return dnSend("s3:get",nHandle,"s7:ToolTip","")
 
 	Func setToolTip P1
-		dnSend("s3:set",nHandle,"s7:ToolTip",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:ToolTip",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:ToolTip",dnPackItem(P1)) ok
 		return self
 
 	Func getContextMenu
 		return dnSend("s3:get",nHandle,"s11:ContextMenu","")
 
 	Func setContextMenu P1
-		dnSend("s3:set",nHandle,"s11:ContextMenu",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ContextMenu",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ContextMenu",dnPackItem(P1)) ok
 		return self
 
 	Func getParent
@@ -18374,91 +20048,127 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		return self
 
 	Func getAffectsMeasure
-		return dnSend("s3:get",nHandle,"s14:AffectsMeasure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:AffectsMeasure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AffectsMeasure",[]) ok
+		return dn_x
 
 	Func setAffectsMeasure P1
-		dnSend("s3:set",nHandle,"s14:AffectsMeasure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:AffectsMeasure",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AffectsMeasure",dnPackItem(P1)) ok
 		return self
 
 	Func getAffectsArrange
-		return dnSend("s3:get",nHandle,"s14:AffectsArrange","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:AffectsArrange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AffectsArrange",[]) ok
+		return dn_x
 
 	Func setAffectsArrange P1
-		dnSend("s3:set",nHandle,"s14:AffectsArrange",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:AffectsArrange",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AffectsArrange",dnPackItem(P1)) ok
 		return self
 
 	Func getAffectsParentMeasure
-		return dnSend("s3:get",nHandle,"s20:AffectsParentMeasure","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:AffectsParentMeasure")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:AffectsParentMeasure",[]) ok
+		return dn_x
 
 	Func setAffectsParentMeasure P1
-		dnSend("s3:set",nHandle,"s20:AffectsParentMeasure",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:AffectsParentMeasure",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:AffectsParentMeasure",dnPackItem(P1)) ok
 		return self
 
 	Func getAffectsParentArrange
-		return dnSend("s3:get",nHandle,"s20:AffectsParentArrange","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:AffectsParentArrange")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:AffectsParentArrange",[]) ok
+		return dn_x
 
 	Func setAffectsParentArrange P1
-		dnSend("s3:set",nHandle,"s20:AffectsParentArrange",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:AffectsParentArrange",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:AffectsParentArrange",dnPackItem(P1)) ok
 		return self
 
 	Func getAffectsRender
-		return dnSend("s3:get",nHandle,"s13:AffectsRender","")
+		dn_x = dotnet_call("s3:get",nHandle,"s13:AffectsRender")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:AffectsRender",[]) ok
+		return dn_x
 
 	Func setAffectsRender P1
-		dnSend("s3:set",nHandle,"s13:AffectsRender",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:AffectsRender",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:AffectsRender",dnPackItem(P1)) ok
 		return self
 
 	Func getInherits
-		return dnSend("s3:get",nHandle,"s8:Inherits","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:Inherits")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Inherits",[]) ok
+		return dn_x
 
 	Func setInherits P1
-		dnSend("s3:set",nHandle,"s8:Inherits",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Inherits",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Inherits",dnPackItem(P1)) ok
 		return self
 
 	Func getOverridesInheritanceBehavior
-		return dnSend("s3:get",nHandle,"s28:OverridesInheritanceBehavior","")
+		dn_x = dotnet_call("s3:get",nHandle,"s28:OverridesInheritanceBehavior")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:OverridesInheritanceBehavior",[]) ok
+		return dn_x
 
 	Func setOverridesInheritanceBehavior P1
-		dnSend("s3:set",nHandle,"s28:OverridesInheritanceBehavior",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s28:OverridesInheritanceBehavior",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s28:OverridesInheritanceBehavior",dnPackItem(P1)) ok
 		return self
 
 	Func getIsNotDataBindable
-		return dnSend("s3:get",nHandle,"s17:IsNotDataBindable","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:IsNotDataBindable")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsNotDataBindable",[]) ok
+		return dn_x
 
 	Func setIsNotDataBindable P1
-		dnSend("s3:set",nHandle,"s17:IsNotDataBindable",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:IsNotDataBindable",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:IsNotDataBindable",dnPackItem(P1)) ok
 		return self
 
 	Func getBindsTwoWayByDefault
-		return dnSend("s3:get",nHandle,"s20:BindsTwoWayByDefault","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:BindsTwoWayByDefault")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:BindsTwoWayByDefault",[]) ok
+		return dn_x
 
 	Func setBindsTwoWayByDefault P1
-		dnSend("s3:set",nHandle,"s20:BindsTwoWayByDefault",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:BindsTwoWayByDefault",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:BindsTwoWayByDefault",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultUpdateSourceTrigger
 		return dnSend("s3:get",nHandle,"s26:DefaultUpdateSourceTrigger","")
 
 	Func setDefaultUpdateSourceTrigger P1
-		dnSend("s3:set",nHandle,"s26:DefaultUpdateSourceTrigger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:DefaultUpdateSourceTrigger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:DefaultUpdateSourceTrigger",dnPackItem(P1)) ok
 		return self
 
 	Func getJournal
-		return dnSend("s3:get",nHandle,"s7:Journal","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:Journal")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Journal",[]) ok
+		return dn_x
 
 	Func setJournal P1
-		dnSend("s3:set",nHandle,"s7:Journal",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Journal",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Journal",dnPackItem(P1)) ok
 		return self
 
 	Func getSubPropertiesDoNotAffectRender
-		return dnSend("s3:get",nHandle,"s30:SubPropertiesDoNotAffectRender","")
+		dn_x = dotnet_call("s3:get",nHandle,"s30:SubPropertiesDoNotAffectRender")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:SubPropertiesDoNotAffectRender",[]) ok
+		return dn_x
 
 	Func setSubPropertiesDoNotAffectRender P1
-		dnSend("s3:set",nHandle,"s30:SubPropertiesDoNotAffectRender",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s30:SubPropertiesDoNotAffectRender",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s30:SubPropertiesDoNotAffectRender",dnPackItem(P1)) ok
 		return self
 
 	Func getIsDataBindingAllowed
-		return dnSend("s3:get",nHandle,"s20:IsDataBindingAllowed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s20:IsDataBindingAllowed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:IsDataBindingAllowed",[]) ok
+		return dn_x
 
 	Func setIsDataBindingAllowed P1
 		raise("DotNet Error: IsDataBindingAllowed is a read-only property")
@@ -18513,56 +20223,68 @@ Class HierarchicalDataTemplate from DataTemplate
 		return dnSend("s3:get",nHandle,"s11:ItemsSource","")
 
 	Func setItemsSource P1
-		dnSend("s3:set",nHandle,"s11:ItemsSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ItemsSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ItemsSource",dnPackItem(P1)) ok
 		return self
 
 	Func getItemTemplate
 		return dnSend("s3:get",nHandle,"s12:ItemTemplate","")
 
 	Func setItemTemplate P1
-		dnSend("s3:set",nHandle,"s12:ItemTemplate",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ItemTemplate",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ItemTemplate",dnPackItem(P1)) ok
 		return self
 
 	Func getItemTemplateSelector
 		return dnSend("s3:get",nHandle,"s20:ItemTemplateSelector","")
 
 	Func setItemTemplateSelector P1
-		dnSend("s3:set",nHandle,"s20:ItemTemplateSelector",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:ItemTemplateSelector",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:ItemTemplateSelector",dnPackItem(P1)) ok
 		return self
 
 	Func getItemContainerStyle
 		return dnSend("s3:get",nHandle,"s18:ItemContainerStyle","")
 
 	Func setItemContainerStyle P1
-		dnSend("s3:set",nHandle,"s18:ItemContainerStyle",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:ItemContainerStyle",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ItemContainerStyle",dnPackItem(P1)) ok
 		return self
 
 	Func getItemContainerStyleSelector
 		return dnSend("s3:get",nHandle,"s26:ItemContainerStyleSelector","")
 
 	Func setItemContainerStyleSelector P1
-		dnSend("s3:set",nHandle,"s26:ItemContainerStyleSelector",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:ItemContainerStyleSelector",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:ItemContainerStyleSelector",dnPackItem(P1)) ok
 		return self
 
 	Func getItemStringFormat
-		return dnSend("s3:get",nHandle,"s16:ItemStringFormat","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ItemStringFormat")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ItemStringFormat",[]) ok
+		return dn_x
 
 	Func setItemStringFormat P1
-		dnSend("s3:set",nHandle,"s16:ItemStringFormat",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ItemStringFormat",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ItemStringFormat",dnPackItem(P1)) ok
 		return self
 
 	Func getAlternationCount
-		return dnSend("s3:get",nHandle,"s16:AlternationCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:AlternationCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:AlternationCount",[]) ok
+		return dn_x
 
 	Func setAlternationCount P1
-		dnSend("s3:set",nHandle,"s16:AlternationCount",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:AlternationCount",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:AlternationCount",dnPackItem(P1)) ok
 		return self
 
 	Func getItemBindingGroup
 		return dnSend("s3:get",nHandle,"s16:ItemBindingGroup","")
 
 	Func setItemBindingGroup P1
-		dnSend("s3:set",nHandle,"s16:ItemBindingGroup",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ItemBindingGroup",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ItemBindingGroup",dnPackItem(P1)) ok
 		return self
 
 
@@ -18667,32 +20389,41 @@ Class Trigger from TriggerBase
 		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ReceiveTypeConverter P1,P2
-		dnSend("s4:call",dnTypeHandle('System.Windows.Trigger, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.Windows.Trigger, PresentationFramework'),"s20:ReceiveTypeConverter",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Trigger, PresentationFramework'),"s20:ReceiveTypeConverter",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func getProperty
 		return dnSend("s3:get",nHandle,"s8:Property","")
 
 	Func setProperty P1
-		dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:Property",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Property",dnPackItem(P1)) ok
 		return self
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
 		return self
 
 	Func getSourceName
-		return dnSend("s3:get",nHandle,"s10:SourceName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SourceName",[]) ok
+		return dn_x
 
 	Func setSourceName P1
-		dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1)) ok
 		return self
 
 	Func getSetters

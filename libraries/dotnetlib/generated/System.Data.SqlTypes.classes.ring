@@ -113,7 +113,9 @@ Class INullable from DotNetObject
 		return self
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 
 Class SqlBinary from ValueType
@@ -160,7 +162,9 @@ Class SqlBinary from ValueType
 		return dnSend("s4:call",nHandle,"s9:ToSqlGuid","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -169,7 +173,9 @@ Class SqlBinary from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Add P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
@@ -199,10 +205,14 @@ Class SqlBinary from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"s9:WrapBytes",dnPackItem(P1))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -211,7 +221,9 @@ Class SqlBinary from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -297,7 +309,9 @@ Class SqlBoolean from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -306,7 +320,9 @@ Class SqlBoolean from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -342,28 +358,38 @@ Class SqlBoolean from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsTrue
-		return dnSend("s3:get",nHandle,"s6:IsTrue","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsTrue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsTrue",[]) ok
+		return dn_x
 
 	Func setIsTrue P1
 		raise("DotNet Error: IsTrue is a read-only property")
 
 	Func getIsFalse
-		return dnSend("s3:get",nHandle,"s7:IsFalse","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:IsFalse")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsFalse",[]) ok
+		return dn_x
 
 	Func setIsFalse P1
 		raise("DotNet Error: IsFalse is a read-only property")
 
 	Func getByteValue
-		return dnSend("s3:get",nHandle,"s9:ByteValue","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:ByteValue")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ByteValue",[]) ok
+		return dn_x
 
 	Func setByteValue P1
 		raise("DotNet Error: ByteValue is a read-only property")
@@ -469,7 +495,9 @@ Class SqlByte from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -478,7 +506,9 @@ Class SqlByte from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlByte, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -532,10 +562,14 @@ Class SqlByte from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlByte, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -610,38 +644,53 @@ Class SqlBytes from Object
 		return self
 
 	Func SetNull 
-		dnSend("s4:call",nHandle,"s7:SetNull","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetNull")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetNull","") ok
+
 		return self
 
 	Func SetLength P1
-		dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:SetLength",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1)) ok
+
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Read",P1,P2,P3,P4)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Read",[P1,P2,P3,P4]) ok
+		return dn_x
 
 	Func Write P1,P2,P3,P4
-		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2,P3,P4)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+
 		return self
 
 	Func ToSqlBinary 
 		return dnSend("s4:call",nHandle,"s11:ToSqlBinary","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetXsdType P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlBytes, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		return dn_x
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getBuffer
 		return dnSend("s3:get",nHandle,"s6:Buffer","")
@@ -650,10 +699,14 @@ Class SqlBytes from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func getMaxLength
-		return dnSend("s3:get",nHandle,"s9:MaxLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MaxLength",[]) ok
+		return dn_x
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -674,7 +727,8 @@ Class SqlBytes from Object
 		return dnSend("s3:get",nHandle,"s6:Stream","")
 
 	Func setStream P1
-		dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Stream",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1)) ok
 		return self
 
 	Func getNull
@@ -725,25 +779,35 @@ Class SqlChars from Object
 		return self
 
 	Func SetNull 
-		dnSend("s4:call",nHandle,"s7:SetNull","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:SetNull")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:SetNull","") ok
+
 		return self
 
 	Func SetLength P1
-		dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s9:SetLength",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1)) ok
+
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Read",P1,P2,P3,P4)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Read",[P1,P2,P3,P4]) ok
+		return dn_x
 
 	Func Write P1,P2,P3,P4
-		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2,P3,P4)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+
 		return self
 
 	Func ToSqlString 
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetXsdType P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlChars, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
@@ -752,11 +816,14 @@ Class SqlChars from Object
 		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
 		return self
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getBuffer
 		return dnSend("s3:get",nHandle,"s6:Buffer","")
@@ -765,10 +832,14 @@ Class SqlChars from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dnSend("s3:get",nHandle,"s6:Length","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		return dn_x
 
 	Func getMaxLength
-		return dnSend("s3:get",nHandle,"s9:MaxLength","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxLength")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MaxLength",[]) ok
+		return dn_x
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -839,7 +910,9 @@ Class SqlDateTime from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -848,7 +921,9 @@ Class SqlDateTime from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -878,7 +953,9 @@ Class SqlDateTime from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -887,31 +964,41 @@ Class SqlDateTime from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDayTicks
-		return dnSend("s3:get",nHandle,"s8:DayTicks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:DayTicks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:DayTicks",[]) ok
+		return dn_x
 
 	Func setDayTicks P1
 		raise("DotNet Error: DayTicks is a read-only property")
 
 	Func getTimeTicks
-		return dnSend("s3:get",nHandle,"s9:TimeTicks","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:TimeTicks")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:TimeTicks",[]) ok
+		return dn_x
 
 	Func setTimeTicks P1
 		raise("DotNet Error: TimeTicks is a read-only property")
 
 	Func getSQLTicksPerSecond
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerSecond","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerSecond")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerSecond",[]) ok
+		return dn_x
 
 	Func setSQLTicksPerSecond P1
 		raise("DotNet Error: SQLTicksPerSecond is a read-only property")
 
 	Func getSQLTicksPerMinute
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerMinute","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerMinute")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s17:SQLTicksPerMinute",[]) ok
+		return dn_x
 
 	Func setSQLTicksPerMinute P1
 		raise("DotNet Error: SQLTicksPerMinute is a read-only property")
 
 	Func getSQLTicksPerHour
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s15:SQLTicksPerHour","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s15:SQLTicksPerHour")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s15:SQLTicksPerHour",[]) ok
+		return dn_x
 
 	Func setSQLTicksPerHour P1
 		raise("DotNet Error: SQLTicksPerHour is a read-only property")
@@ -984,7 +1071,9 @@ Class SqlDecimal from ValueType
 		return self
 
 	Func ToDouble 
-		return dnSend("s4:call",nHandle,"s8:ToDouble","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToDouble")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToDouble",[]) ok
+		return dn_x
 
 	Func ToSqlBoolean 
 		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
@@ -1014,7 +1103,9 @@ Class SqlDecimal from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1023,7 +1114,9 @@ Class SqlDecimal from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1086,28 +1179,38 @@ Class SqlDecimal from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsPositive
-		return dnSend("s3:get",nHandle,"s10:IsPositive","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:IsPositive")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsPositive",[]) ok
+		return dn_x
 
 	Func setIsPositive P1
 		raise("DotNet Error: IsPositive is a read-only property")
 
 	Func getPrecision
-		return dnSend("s3:get",nHandle,"s9:Precision","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:Precision")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Precision",[]) ok
+		return dn_x
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnSend("s3:get",nHandle,"s5:Scale","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Scale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Scale",[]) ok
+		return dn_x
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
@@ -1125,13 +1228,17 @@ Class SqlDecimal from ValueType
 		raise("DotNet Error: BinData is a read-only property")
 
 	Func getMaxPrecision
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s12:MaxPrecision","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s12:MaxPrecision")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s12:MaxPrecision",[]) ok
+		return dn_x
 
 	Func setMaxPrecision P1
 		raise("DotNet Error: MaxPrecision is a read-only property")
 
 	Func getMaxScale
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s8:MaxScale","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s8:MaxScale")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s8:MaxScale",[]) ok
+		return dn_x
 
 	Func setMaxScale P1
 		raise("DotNet Error: MaxScale is a read-only property")
@@ -1225,7 +1332,9 @@ Class SqlDouble from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1234,7 +1343,9 @@ Class SqlDouble from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1270,10 +1381,14 @@ Class SqlDouble from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1352,7 +1467,9 @@ Class SqlGuid from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlBinary","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1361,7 +1478,9 @@ Class SqlGuid from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1385,7 +1504,9 @@ Class SqlGuid from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
 		return dnSend("s3:get",nHandle,"s5:Value","")
@@ -1470,7 +1591,9 @@ Class SqlInt16 from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1479,7 +1602,9 @@ Class SqlInt16 from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1533,10 +1658,14 @@ Class SqlInt16 from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1636,7 +1765,9 @@ Class SqlInt32 from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1645,7 +1776,9 @@ Class SqlInt32 from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1699,10 +1832,14 @@ Class SqlInt32 from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1802,7 +1939,9 @@ Class SqlInt64 from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1811,7 +1950,9 @@ Class SqlInt64 from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -1865,10 +2006,14 @@ Class SqlInt64 from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1941,19 +2086,29 @@ Class SqlMoney from ValueType
 		return self
 
 	Func ToDecimal 
-		return dnSend("s4:call",nHandle,"s9:ToDecimal","")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ToDecimal")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:ToDecimal",[]) ok
+		return dn_x
 
 	Func ToInt64 
-		return dnSend("s4:call",nHandle,"s7:ToInt64","")
+		dn_x = dotnet_call("s4:call",nHandle,"s7:ToInt64")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:ToInt64",[]) ok
+		return dn_x
 
 	Func ToInt32 
-		return dnSend("s4:call",nHandle,"s7:ToInt32","")
+		dn_x = dotnet_call("s4:call",nHandle,"s7:ToInt32")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:ToInt32",[]) ok
+		return dn_x
 
 	Func ToDouble 
-		return dnSend("s4:call",nHandle,"s8:ToDouble","")
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ToDouble")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToDouble",[]) ok
+		return dn_x
 
 	Func GetTdsValue 
-		return dnSend("s4:call",nHandle,"s11:GetTdsValue","")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetTdsValue")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetTdsValue",[]) ok
+		return dn_x
 
 	Func ToSqlBoolean 
 		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
@@ -1983,7 +2138,9 @@ Class SqlMoney from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -1992,7 +2149,9 @@ Class SqlMoney from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -2031,10 +2190,14 @@ Class SqlMoney from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2134,7 +2297,9 @@ Class SqlSingle from ValueType
 		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -2143,7 +2308,9 @@ Class SqlSingle from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Parse P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"s5:Parse",dnPackItem(P1))
@@ -2179,10 +2346,14 @@ Class SqlSingle from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2304,7 +2475,9 @@ Class SqlString from ValueType
 		return dnSend("s4:call",nHandle,"s9:ToSqlGuid","")
 
 	Func CompareTo P1
-		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		return dn_x
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -2313,7 +2486,9 @@ Class SqlString from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Concat P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
@@ -2343,16 +2518,22 @@ Class SqlString from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLCID
-		return dnSend("s3:get",nHandle,"s4:LCID","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:LCID",[]) ok
+		return dn_x
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
@@ -2382,37 +2563,49 @@ Class SqlString from ValueType
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getIgnoreCase
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:IgnoreCase","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:IgnoreCase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:IgnoreCase",[]) ok
+		return dn_x
 
 	Func setIgnoreCase P1
 		raise("DotNet Error: IgnoreCase is a read-only property")
 
 	Func getIgnoreWidth
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:IgnoreWidth","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:IgnoreWidth")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:IgnoreWidth",[]) ok
+		return dn_x
 
 	Func setIgnoreWidth P1
 		raise("DotNet Error: IgnoreWidth is a read-only property")
 
 	Func getIgnoreNonSpace
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreNonSpace","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreNonSpace")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreNonSpace",[]) ok
+		return dn_x
 
 	Func setIgnoreNonSpace P1
 		raise("DotNet Error: IgnoreNonSpace is a read-only property")
 
 	Func getIgnoreKanaType
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreKanaType","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreKanaType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s14:IgnoreKanaType",[]) ok
+		return dn_x
 
 	Func setIgnoreKanaType P1
 		raise("DotNet Error: IgnoreKanaType is a read-only property")
 
 	Func getBinarySort
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:BinarySort","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:BinarySort")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s10:BinarySort",[]) ok
+		return dn_x
 
 	Func setBinarySort P1
 		raise("DotNet Error: BinarySort is a read-only property")
 
 	Func getBinarySort2
-		return dnSend("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:BinarySort2","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:BinarySort2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s11:BinarySort2",[]) ok
+		return dn_x
 
 	Func setBinarySort2 P1
 		raise("DotNet Error: BinarySort2 is a read-only property")
@@ -2461,16 +2654,22 @@ Class SqlXml from Object
 		return dnSend("s4:call",nHandle,"s12:CreateReader","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetXsdType P1
 		return dnSend("s4:call",dnTypeHandle('System.Data.SqlTypes.SqlXml, System.Data.Common'),"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnSend("s3:get",nHandle,"s6:IsNull","")
+		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNull")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNull",[]) ok
+		return dn_x
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

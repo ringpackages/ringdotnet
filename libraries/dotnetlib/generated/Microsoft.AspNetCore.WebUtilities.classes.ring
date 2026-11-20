@@ -131,10 +131,14 @@ Class AspBase64UrlTextEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Encode P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Encode",[P1]) ok
+		return dn_x
 
 	Func Decode P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"s6:Decode",dnPackItem(P1))
@@ -187,9 +191,13 @@ Class BufferedReadStream from Stream
 			return dnSend("s9:callnamed",nHandle,"s14:EnsureBuffered",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s14:EnsureBuffered","")
+			dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureBuffered")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:EnsureBuffered",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s14:EnsureBuffered",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureBuffered",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:EnsureBuffered",[P1]) ok
+		return dn_x
 
 	Func EnsureBufferedAsync P1
 		if dnIsNamed(P1)
@@ -198,7 +206,9 @@ Class BufferedReadStream from Stream
 		return dnSend("s4:call",nHandle,"s19:EnsureBufferedAsync",dnPackItem(P1))
 
 	Func ReadLine P1
-		return dnSend("s4:call",nHandle,"s8:ReadLine",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadLine",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ReadLine",[P1]) ok
+		return dn_x
 
 	Func ReadLineAsync P1,P2
 		return dnSend("s4:call",nHandle,"s13:ReadLineAsync",dnPackItem(P1) + dnPackItem(P2))
@@ -249,19 +259,25 @@ Class FileBufferingReadStream from Stream
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getMemoryThreshold
-		return dnSend("s3:get",nHandle,"s15:MemoryThreshold","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MemoryThreshold",[]) ok
+		return dn_x
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
 
 	Func getInMemory
-		return dnSend("s3:get",nHandle,"s8:InMemory","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:InMemory")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:InMemory",[]) ok
+		return dn_x
 
 	Func setInMemory P1
 		raise("DotNet Error: InMemory is a read-only property")
 
 	Func getTempFileName
-		return dnSend("s3:get",nHandle,"s12:TempFileName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:TempFileName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:TempFileName",[]) ok
+		return dn_x
 
 	Func setTempFileName P1
 		raise("DotNet Error: TempFileName is a read-only property")
@@ -318,7 +334,9 @@ Class FileBufferingWriteStream from Stream
 		return dnSend("s4:call",nHandle,"s16:DrainBufferAsync",dnPackItem(P1))
 
 	Func getMemoryThreshold
-		return dnSend("s3:get",nHandle,"s15:MemoryThreshold","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MemoryThreshold",[]) ok
+		return dn_x
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
@@ -358,7 +376,9 @@ Class FileMultipartSection from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSection
 		return dnSend("s3:get",nHandle,"s7:Section","")
@@ -373,13 +393,17 @@ Class FileMultipartSection from Object
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnSend("s3:get",nHandle,"s8:FileName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FileName",[]) ok
+		return dn_x
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -426,7 +450,9 @@ Class FormMultipartSection from Object
 		return dnSend("s4:call",nHandle,"s13:GetValueAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getSection
 		return dnSend("s3:get",nHandle,"s7:Section","")
@@ -435,7 +461,9 @@ Class FormMultipartSection from Object
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnSend("s3:get",nHandle,"s4:Name","")
+		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -483,27 +511,38 @@ Class FormPipeReader from Object
 		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValueCountLimit
-		return dnSend("s3:get",nHandle,"s15:ValueCountLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ValueCountLimit",[]) ok
+		return dn_x
 
 	Func setValueCountLimit P1
-		dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyLengthLimit
-		return dnSend("s3:get",nHandle,"s14:KeyLengthLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:KeyLengthLimit",[]) ok
+		return dn_x
 
 	Func setKeyLengthLimit P1
-		dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getValueLengthLimit
-		return dnSend("s3:get",nHandle,"s16:ValueLengthLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ValueLengthLimit",[]) ok
+		return dn_x
 
 	Func setValueLengthLimit P1
-		dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1)) ok
 		return self
 
 
@@ -567,47 +606,66 @@ Class FormReader from Object
 		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnSend("s4:call",nHandle,"s7:Dispose","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getValueCountLimit
-		return dnSend("s3:get",nHandle,"s15:ValueCountLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ValueCountLimit",[]) ok
+		return dn_x
 
 	Func setValueCountLimit P1
-		dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getKeyLengthLimit
-		return dnSend("s3:get",nHandle,"s14:KeyLengthLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:KeyLengthLimit",[]) ok
+		return dn_x
 
 	Func setKeyLengthLimit P1
-		dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getValueLengthLimit
-		return dnSend("s3:get",nHandle,"s16:ValueLengthLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ValueLengthLimit",[]) ok
+		return dn_x
 
 	Func setValueLengthLimit P1
-		dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultValueCountLimit
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s22:DefaultValueCountLimit",[]) ok
+		return dn_x
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s21:DefaultKeyLengthLimit",[]) ok
+		return dn_x
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"s23:DefaultValueLengthLimit",[]) ok
+		return dn_x
 
 	Func setDefaultValueLengthLimit P1
 		raise("DotNet Error: DefaultValueLengthLimit is a read-only property")
@@ -696,26 +754,34 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func Append P1,P2
-		dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Append",P1,P2)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func GetResults 
 		return dnSend("s4:call",nHandle,"s10:GetResults","")
 
 	Func getHasValues
-		return dnSend("s3:get",nHandle,"s9:HasValues","")
+		dn_x = dotnet_call("s3:get",nHandle,"s9:HasValues")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:HasValues",[]) ok
+		return dn_x
 
 	Func setHasValues P1
 		raise("DotNet Error: HasValues is a read-only property")
 
 	Func getKeyCount
-		return dnSend("s3:get",nHandle,"s8:KeyCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s8:KeyCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:KeyCount",[]) ok
+		return dn_x
 
 	Func setKeyCount P1
 		raise("DotNet Error: KeyCount is a read-only property")
 
 	Func getValueCount
-		return dnSend("s3:get",nHandle,"s10:ValueCount","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueCount")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ValueCount",[]) ok
+		return dn_x
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
@@ -765,37 +831,50 @@ Class MultipartReader from Object
 		return dnSend("s4:call",nHandle,"s20:ReadNextSectionAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getHeadersCountLimit
-		return dnSend("s3:get",nHandle,"s17:HeadersCountLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s17:HeadersCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:HeadersCountLimit",[]) ok
+		return dn_x
 
 	Func setHeadersCountLimit P1
-		dnSend("s3:set",nHandle,"s17:HeadersCountLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:HeadersCountLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:HeadersCountLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getHeadersLengthLimit
-		return dnSend("s3:get",nHandle,"s18:HeadersLengthLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:HeadersLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:HeadersLengthLimit",[]) ok
+		return dn_x
 
 	Func setHeadersLengthLimit P1
-		dnSend("s3:set",nHandle,"s18:HeadersLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:HeadersLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:HeadersLengthLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getBodyLengthLimit
 		return dnSend("s3:get",nHandle,"s15:BodyLengthLimit","")
 
 	Func setBodyLengthLimit P1
-		dnSend("s3:set",nHandle,"s15:BodyLengthLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:BodyLengthLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:BodyLengthLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getDefaultHeadersCountLimit
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s24:DefaultHeadersCountLimit",[]) ok
+		return dn_x
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"s25:DefaultHeadersLengthLimit",[]) ok
+		return dn_x
 
 	Func setDefaultHeadersLengthLimit P1
 		raise("DotNet Error: DefaultHeadersLengthLimit is a read-only property")
@@ -828,16 +907,22 @@ Class MultipartSection from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getContentType
-		return dnSend("s3:get",nHandle,"s11:ContentType","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ContentType",[]) ok
+		return dn_x
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		return dnSend("s3:get",nHandle,"s18:ContentDisposition","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:ContentDisposition")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:ContentDisposition",[]) ok
+		return dn_x
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
@@ -846,21 +931,24 @@ Class MultipartSection from Object
 		return dnSend("s3:get",nHandle,"s7:Headers","")
 
 	Func setHeaders P1
-		dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1)) ok
 		return self
 
 	Func getBody
 		return dnSend("s3:get",nHandle,"s4:Body","")
 
 	Func setBody P1
-		dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Body",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1)) ok
 		return self
 
 	Func getBaseStreamOffset
 		return dnSend("s3:get",nHandle,"s16:BaseStreamOffset","")
 
 	Func setBaseStreamOffset P1
-		dnSend("s3:set",nHandle,"s16:BaseStreamOffset",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:BaseStreamOffset",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:BaseStreamOffset",dnPackItem(P1)) ok
 		return self
 
 
@@ -876,7 +964,9 @@ Class MultipartSectionConverterExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AsFileSection P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"s13:AsFileSection",dnPackItem(P1))
@@ -900,7 +990,9 @@ Class MultipartSectionStreamExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func ReadAsStringAsync P1
 		if dnIsNamed(P1)
@@ -921,7 +1013,9 @@ Class QueryHelpers from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func AddQueryString P1
 		if dnIsNamed(P1)
@@ -988,10 +1082,14 @@ Class ReasonPhrases from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetReasonPhrase P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"s15:GetReasonPhrase",[P1]) ok
+		return dn_x
 
 
 Class StreamHelperExtensions from Object
@@ -1006,7 +1104,9 @@ Class StreamHelperExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func DrainAsync P1
 		if dnIsNamed(P1)
@@ -1027,7 +1127,9 @@ Class WebEncoders from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func Base64UrlDecode P1
 		if dnIsNamed(P1)
@@ -1036,15 +1138,21 @@ Class WebEncoders from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlDecode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToDecode P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToDecode",[P1]) ok
+		return dn_x
 
 	Func Base64UrlEncode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",[P1]) ok
+		return dn_x
 
 	Func GetArraySizeRequiredToEncode P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s28:GetArraySizeRequiredToEncode",[P1]) ok
+		return dn_x
 
 

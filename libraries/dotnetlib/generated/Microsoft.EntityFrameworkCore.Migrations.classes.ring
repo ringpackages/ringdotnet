@@ -158,7 +158,9 @@ Class HistoryRepository from Object
 		return self
 
 	Func Exists 
-		return dnSend("s4:call",nHandle,"s6:Exists","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Exists",[]) ok
+		return dn_x
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
@@ -170,13 +172,19 @@ Class HistoryRepository from Object
 		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func GetCreateIfNotExistsScript 
-		return dnSend("s4:call",nHandle,"s26:GetCreateIfNotExistsScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetCreateIfNotExistsScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:GetCreateIfNotExistsScript",[]) ok
+		return dn_x
 
 	Func GetCreateScript 
-		return dnSend("s4:call",nHandle,"s15:GetCreateScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetCreateScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetCreateScript",[]) ok
+		return dn_x
 
 	Func Create 
-		dnSend("s4:call",nHandle,"s6:Create","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Create")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Create","") ok
+
 		return self
 
 	Func CreateAsync P1
@@ -213,22 +221,34 @@ Class HistoryRepository from Object
 		return dnSend("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
 
 	Func GetInsertScript P1
-		return dnSend("s4:call",nHandle,"s15:GetInsertScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetInsertScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetInsertScript",[P1]) ok
+		return dn_x
 
 	Func GetDeleteScript P1
-		return dnSend("s4:call",nHandle,"s15:GetDeleteScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDeleteScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetDeleteScript",[P1]) ok
+		return dn_x
 
 	Func GetBeginIfNotExistsScript P1
-		return dnSend("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:GetBeginIfNotExistsScript",[P1]) ok
+		return dn_x
 
 	Func GetBeginIfExistsScript P1
-		return dnSend("s4:call",nHandle,"s22:GetBeginIfExistsScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetBeginIfExistsScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GetBeginIfExistsScript",[P1]) ok
+		return dn_x
 
 	Func GetEndIfScript 
-		return dnSend("s4:call",nHandle,"s14:GetEndIfScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetEndIfScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetEndIfScript",[]) ok
+		return dn_x
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getLockReleaseBehavior
 		return dnSend("s3:get",nHandle,"s19:LockReleaseBehavior","")
@@ -237,7 +257,9 @@ Class HistoryRepository from Object
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
 
 	Func getDefaultTableName
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"s16:DefaultTableName",[]) ok
+		return dn_x
 
 	Func setDefaultTableName P1
 		raise("DotNet Error: DefaultTableName is a read-only property")
@@ -273,111 +295,128 @@ Class HistoryRepositoryDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getDatabaseCreator
 		return dnSend("s3:get",nHandle,"s15:DatabaseCreator","")
 
 	Func setDatabaseCreator P1
-		dnSend("s3:set",nHandle,"s15:DatabaseCreator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:DatabaseCreator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DatabaseCreator",dnPackItem(P1)) ok
 		return self
 
 	Func getRawSqlCommandBuilder
 		return dnSend("s3:get",nHandle,"s20:RawSqlCommandBuilder","")
 
 	Func setRawSqlCommandBuilder P1
-		dnSend("s3:set",nHandle,"s20:RawSqlCommandBuilder",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:RawSqlCommandBuilder",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:RawSqlCommandBuilder",dnPackItem(P1)) ok
 		return self
 
 	Func getConnection
 		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1)) ok
 		return self
 
 	Func getOptions
 		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
-		dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Options",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1)) ok
 		return self
 
 	Func getModelDiffer
 		return dnSend("s3:get",nHandle,"s11:ModelDiffer","")
 
 	Func setModelDiffer P1
-		dnSend("s3:set",nHandle,"s11:ModelDiffer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:ModelDiffer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ModelDiffer",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationsSqlGenerator
 		return dnSend("s3:get",nHandle,"s22:MigrationsSqlGenerator","")
 
 	Func setMigrationsSqlGenerator P1
-		dnSend("s3:set",nHandle,"s22:MigrationsSqlGenerator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s22:MigrationsSqlGenerator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s22:MigrationsSqlGenerator",dnPackItem(P1)) ok
 		return self
 
 	Func getSqlGenerationHelper
 		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationCommandExecutor
 		return dnSend("s3:get",nHandle,"s24:MigrationCommandExecutor","")
 
 	Func setMigrationCommandExecutor P1
-		dnSend("s3:set",nHandle,"s24:MigrationCommandExecutor",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s24:MigrationCommandExecutor",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s24:MigrationCommandExecutor",dnPackItem(P1)) ok
 		return self
 
 	Func getConventionSetBuilder
 		return dnSend("s3:get",nHandle,"s20:ConventionSetBuilder","")
 
 	Func setConventionSetBuilder P1
-		dnSend("s3:set",nHandle,"s20:ConventionSetBuilder",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s20:ConventionSetBuilder",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s20:ConventionSetBuilder",dnPackItem(P1)) ok
 		return self
 
 	Func getModelDependencies
 		return dnSend("s3:get",nHandle,"s17:ModelDependencies","")
 
 	Func setModelDependencies P1
-		dnSend("s3:set",nHandle,"s17:ModelDependencies",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:ModelDependencies",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ModelDependencies",dnPackItem(P1)) ok
 		return self
 
 	Func getTypeMappingSource
 		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
 
 	Func setTypeMappingSource P1
-		dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentContext
 		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
 	Func getModelRuntimeInitializer
 		return dnSend("s3:get",nHandle,"s23:ModelRuntimeInitializer","")
 
 	Func setModelRuntimeInitializer P1
-		dnSend("s3:set",nHandle,"s23:ModelRuntimeInitializer",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s23:ModelRuntimeInitializer",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ModelRuntimeInitializer",dnPackItem(P1)) ok
 		return self
 
 	Func getCommandLogger
 		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
 
 	Func setCommandLogger P1
-		dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:CommandLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationsLogger
 		return dnSend("s3:get",nHandle,"s16:MigrationsLogger","")
 
 	Func setMigrationsLogger P1
-		dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:MigrationsLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1)) ok
 		return self
 
 
@@ -398,16 +437,22 @@ Class HistoryRow from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMigrationId
-		return dnSend("s3:get",nHandle,"s11:MigrationId","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:MigrationId")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:MigrationId",[]) ok
+		return dn_x
 
 	Func setMigrationId P1
 		raise("DotNet Error: MigrationId is a read-only property")
 
 	Func getProductVersion
-		return dnSend("s3:get",nHandle,"s14:ProductVersion","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ProductVersion")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ProductVersion",[]) ok
+		return dn_x
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
@@ -427,7 +472,9 @@ Class IHistoryRepository from DotNetObject
 		return self
 
 	Func Exists 
-		return dnSend("s4:call",nHandle,"s6:Exists","")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Exists",[]) ok
+		return dn_x
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
@@ -439,7 +486,9 @@ Class IHistoryRepository from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func Create 
-		dnSend("s4:call",nHandle,"s6:Create","")
+		dn_x = dotnet_callv("s4:call",nHandle,"s6:Create")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Create","") ok
+
 		return self
 
 	Func CreateAsync P1
@@ -452,7 +501,9 @@ Class IHistoryRepository from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:CreateAsync",dnPackItem(P1))
 
 	Func CreateIfNotExists 
-		return dnSend("s4:call",nHandle,"s17:CreateIfNotExists","")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:CreateIfNotExists")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:CreateIfNotExists",[]) ok
+		return dn_x
 
 	Func CreateIfNotExistsAsync P1
 		if dnIsNamed(P1)
@@ -488,25 +539,39 @@ Class IHistoryRepository from DotNetObject
 		return dnSend("s4:call",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
 
 	Func GetCreateScript 
-		return dnSend("s4:call",nHandle,"s15:GetCreateScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetCreateScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetCreateScript",[]) ok
+		return dn_x
 
 	Func GetCreateIfNotExistsScript 
-		return dnSend("s4:call",nHandle,"s26:GetCreateIfNotExistsScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetCreateIfNotExistsScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:GetCreateIfNotExistsScript",[]) ok
+		return dn_x
 
 	Func GetInsertScript P1
-		return dnSend("s4:call",nHandle,"s15:GetInsertScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetInsertScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetInsertScript",[P1]) ok
+		return dn_x
 
 	Func GetDeleteScript P1
-		return dnSend("s4:call",nHandle,"s15:GetDeleteScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDeleteScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetDeleteScript",[P1]) ok
+		return dn_x
 
 	Func GetBeginIfNotExistsScript P1
-		return dnSend("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:GetBeginIfNotExistsScript",[P1]) ok
+		return dn_x
 
 	Func GetBeginIfExistsScript P1
-		return dnSend("s4:call",nHandle,"s22:GetBeginIfExistsScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetBeginIfExistsScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GetBeginIfExistsScript",[P1]) ok
+		return dn_x
 
 	Func GetEndIfScript 
-		return dnSend("s4:call",nHandle,"s14:GetEndIfScript","")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetEndIfScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetEndIfScript",[]) ok
+		return dn_x
 
 	Func getLockReleaseBehavior
 		return dnSend("s3:get",nHandle,"s19:LockReleaseBehavior","")
@@ -573,7 +638,9 @@ Class IMigrationsAssembly from DotNetObject
 		return self
 
 	Func FindMigrationId P1
-		return dnSend("s4:call",nHandle,"s15:FindMigrationId",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:FindMigrationId",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:FindMigrationId",[P1]) ok
+		return dn_x
 
 	Func CreateMigration P1,P2
 		return dnSend("s4:call",nHandle,"s15:CreateMigration",dnPackItem(P1) + dnPackItem(P2))
@@ -630,13 +697,19 @@ Class IMigrationsIdGenerator from DotNetObject
 		return self
 
 	Func GenerateId P1
-		return dnSend("s4:call",nHandle,"s10:GenerateId",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GenerateId",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GenerateId",[P1]) ok
+		return dn_x
 
 	Func GetName P1
-		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetName",[P1]) ok
+		return dn_x
 
 	Func IsValidId P1
-		return dnSend("s4:call",nHandle,"s9:IsValidId",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsValidId",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsValidId",[P1]) ok
+		return dn_x
 
 
 Class IMigrationsModelDiffer from DotNetObject
@@ -651,7 +724,9 @@ Class IMigrationsModelDiffer from DotNetObject
 		return self
 
 	Func HasDifferences P1,P2
-		return dnSend("s4:call",nHandle,"s14:HasDifferences",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:HasDifferences",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:HasDifferences",[P1,P2]) ok
+		return dn_x
 
 	Func GetDifferences P1,P2
 		return dnSend("s4:call",nHandle,"s14:GetDifferences",dnPackItem(P1) + dnPackItem(P2))
@@ -692,10 +767,14 @@ Class IMigrator from DotNetObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnSend("s4:call",nHandle,"s7:Migrate","")
+			dn_x = dotnet_callv("s4:call",nHandle,"s7:Migrate")
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Migrate","") ok
+
 		return self
 		ok
-		dnSend("s4:call",nHandle,"s7:Migrate",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s7:Migrate",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Migrate",dnPackItem(P1)) ok
+
 		return self
 
 	Func MigrateAsync P1
@@ -712,12 +791,18 @@ Class IMigrator from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s14:GenerateScript",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s14:GenerateScript","")
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GenerateScript")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GenerateScript",[]) ok
+		return dn_x
 		ok
-		return dnSend("s4:call",nHandle,"s14:GenerateScript",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GenerateScript",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GenerateScript",[P1]) ok
+		return dn_x
 
 	Func HasPendingModelChanges 
-		return dnSend("s4:call",nHandle,"s22:HasPendingModelChanges","")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:HasPendingModelChanges")
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:HasPendingModelChanges",[]) ok
+		return dn_x
 
 
 Class Migration from Object
@@ -738,7 +823,9 @@ Class Migration from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTargetModel
 		return dnSend("s3:get",nHandle,"s11:TargetModel","")
@@ -759,14 +846,19 @@ Class Migration from Object
 		raise("DotNet Error: DownOperations is a read-only property")
 
 	Func getActiveProvider
-		return dnSend("s3:get",nHandle,"s14:ActiveProvider","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ActiveProvider")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ActiveProvider",[]) ok
+		return dn_x
 
 	Func setActiveProvider P1
-		dnSend("s3:set",nHandle,"s14:ActiveProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:ActiveProvider",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ActiveProvider",dnPackItem(P1)) ok
 		return self
 
 	Func getInitialDatabase
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase","")
+		dn_x = dotnet_call("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"s15:InitialDatabase",[]) ok
+		return dn_x
 
 	Func setInitialDatabase P1
 		raise("DotNet Error: InitialDatabase is a read-only property")
@@ -978,10 +1070,14 @@ Class MigrationBuilder from Object
 		raise("DotNet Error: UpdateData does not take one argument: use named arguments, UpdateData([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getActiveProvider
-		return dnSend("s3:get",nHandle,"s14:ActiveProvider","")
+		dn_x = dotnet_call("s3:get",nHandle,"s14:ActiveProvider")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ActiveProvider",[]) ok
+		return dn_x
 
 	Func setActiveProvider P1
 		raise("DotNet Error: ActiveProvider is a read-only property")
@@ -1029,7 +1125,9 @@ Class MigrationCommand from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ExecuteNonQuery",[P1]) ok
+		return dn_x
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -1038,16 +1136,22 @@ Class MigrationCommand from Object
 		return dnSend("s4:call",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getTransactionSuppressed
-		return dnSend("s3:get",nHandle,"s21:TransactionSuppressed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:TransactionSuppressed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:TransactionSuppressed",[]) ok
+		return dn_x
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		return dnSend("s3:get",nHandle,"s11:CommandText","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CommandText",[]) ok
+		return dn_x
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1109,7 +1213,9 @@ Class MigrationCommandListBuilder from Object
 		return dnSend("s4:call",nHandle,"s15:DecrementIndent","")
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class MigrationExecutionState from Object
@@ -1139,41 +1245,54 @@ Class MigrationExecutionState from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getLastCommittedCommandIndex
-		return dnSend("s3:get",nHandle,"s25:LastCommittedCommandIndex","")
+		dn_x = dotnet_call("s3:get",nHandle,"s25:LastCommittedCommandIndex")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:LastCommittedCommandIndex",[]) ok
+		return dn_x
 
 	Func setLastCommittedCommandIndex P1
-		dnSend("s3:set",nHandle,"s25:LastCommittedCommandIndex",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s25:LastCommittedCommandIndex",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LastCommittedCommandIndex",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentMigrationId
-		return dnSend("s3:get",nHandle,"s18:CurrentMigrationId","")
+		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrentMigrationId")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:CurrentMigrationId",[]) ok
+		return dn_x
 
 	Func setCurrentMigrationId P1
-		dnSend("s3:set",nHandle,"s18:CurrentMigrationId",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:CurrentMigrationId",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:CurrentMigrationId",dnPackItem(P1)) ok
 		return self
 
 	Func getAnyOperationPerformed
-		return dnSend("s3:get",nHandle,"s21:AnyOperationPerformed","")
+		dn_x = dotnet_call("s3:get",nHandle,"s21:AnyOperationPerformed")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AnyOperationPerformed",[]) ok
+		return dn_x
 
 	Func setAnyOperationPerformed P1
-		dnSend("s3:set",nHandle,"s21:AnyOperationPerformed",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:AnyOperationPerformed",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AnyOperationPerformed",dnPackItem(P1)) ok
 		return self
 
 	Func getDatabaseLock
 		return dnSend("s3:get",nHandle,"s12:DatabaseLock","")
 
 	Func setDatabaseLock P1
-		dnSend("s3:set",nHandle,"s12:DatabaseLock",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:DatabaseLock",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DatabaseLock",dnPackItem(P1)) ok
 		return self
 
 	Func getTransaction
 		return dnSend("s3:get",nHandle,"s11:Transaction","")
 
 	Func setTransaction P1
-		dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:Transaction",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1)) ok
 		return self
 
 
@@ -1197,7 +1316,9 @@ Class MigrationsAnnotationProvider from Object
 		return dnSend("s4:call",nHandle,"s9:ForRename",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class MigrationsAnnotationProviderDependencies from Object
@@ -1221,7 +1342,9 @@ Class MigrationsAnnotationProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class MigrationsAssemblyExtensions from Object
@@ -1236,10 +1359,14 @@ Class MigrationsAssemblyExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func GetMigrationId P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",P1,P2)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetMigrationId",[P1,P2]) ok
+		return dn_x
 
 
 Class MigrationsSqlGenerator from Object
@@ -1262,7 +1389,9 @@ Class MigrationsSqlGenerator from Object
 		return dnSend("s4:call",nHandle,"s8:Generate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 
 Class MigrationsSqlGeneratorDependencies from Object
@@ -1289,69 +1418,80 @@ Class MigrationsSqlGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getCommandBuilderFactory
 		return dnSend("s3:get",nHandle,"s21:CommandBuilderFactory","")
 
 	Func setCommandBuilderFactory P1
-		dnSend("s3:set",nHandle,"s21:CommandBuilderFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s21:CommandBuilderFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s21:CommandBuilderFactory",dnPackItem(P1)) ok
 		return self
 
 	Func getUpdateSqlGenerator
 		return dnSend("s3:get",nHandle,"s18:UpdateSqlGenerator","")
 
 	Func setUpdateSqlGenerator P1
-		dnSend("s3:set",nHandle,"s18:UpdateSqlGenerator",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:UpdateSqlGenerator",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:UpdateSqlGenerator",dnPackItem(P1)) ok
 		return self
 
 	Func getSqlGenerationHelper
 		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1)) ok
 		return self
 
 	Func getTypeMappingSource
 		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
 
 	Func setTypeMappingSource P1
-		dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
 		return self
 
 	Func getCurrentContext
 		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
 		return self
 
 	Func getModificationCommandFactory
 		return dnSend("s3:get",nHandle,"s26:ModificationCommandFactory","")
 
 	Func setModificationCommandFactory P1
-		dnSend("s3:set",nHandle,"s26:ModificationCommandFactory",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s26:ModificationCommandFactory",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s26:ModificationCommandFactory",dnPackItem(P1)) ok
 		return self
 
 	Func getLoggingOptions
 		return dnSend("s3:get",nHandle,"s14:LoggingOptions","")
 
 	Func setLoggingOptions P1
-		dnSend("s3:set",nHandle,"s14:LoggingOptions",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:LoggingOptions",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:LoggingOptions",dnPackItem(P1)) ok
 		return self
 
 	Func getLogger
 		return dnSend("s3:get",nHandle,"s6:Logger","")
 
 	Func setLogger P1
-		dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1)) ok
 		return self
 
 	Func getMigrationsLogger
 		return dnSend("s3:get",nHandle,"s16:MigrationsLogger","")
 
 	Func setMigrationsLogger P1
-		dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:MigrationsLogger",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1)) ok
 		return self
 
 
@@ -1367,10 +1507,14 @@ Class SqliteMigrationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func IsSqlite P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"s8:IsSqlite",[P1]) ok
+		return dn_x
 
 
 Class SqliteMigrationsSqlGenerator from MigrationsSqlGenerator

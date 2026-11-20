@@ -108,14 +108,18 @@ Class ValidationContext from Object
 		return self
 
 	Func InitializeServiceProvider P1
-		dnSend("s4:call",nHandle,"s25:InitializeServiceProvider",dnPackItem(P1))
+		dn_x = dotnet_callv("s4:call",nHandle,"s25:InitializeServiceProvider",P1)
+		if islist(dn_x) dnSend("s4:call",nHandle,"s25:InitializeServiceProvider",dnPackItem(P1)) ok
+
 		return self
 
 	Func GetService P1
 		return dnSend("s4:call",nHandle,"s10:GetService",dnPackItem(P1))
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getObjectInstance
 		return dnSend("s3:get",nHandle,"s14:ObjectInstance","")
@@ -130,17 +134,23 @@ Class ValidationContext from Object
 		raise("DotNet Error: ObjectType is a read-only property")
 
 	Func getDisplayName
-		return dnSend("s3:get",nHandle,"s11:DisplayName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		return dn_x
 
 	Func setDisplayName P1
-		dnSend("s3:set",nHandle,"s11:DisplayName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DisplayName",dnPackItem(P1)) ok
 		return self
 
 	Func getMemberName
-		return dnSend("s3:get",nHandle,"s10:MemberName","")
+		dn_x = dotnet_call("s3:get",nHandle,"s10:MemberName")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:MemberName",[]) ok
+		return dn_x
 
 	Func setMemberName P1
-		dnSend("s3:set",nHandle,"s10:MemberName",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s10:MemberName",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s10:MemberName",dnPackItem(P1)) ok
 		return self
 
 	Func getItems
@@ -183,7 +193,9 @@ Class DataAnnotationsValidationResult from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func getMemberNames
 		return dnSend("s3:get",nHandle,"s11:MemberNames","")
@@ -192,10 +204,13 @@ Class DataAnnotationsValidationResult from Object
 		raise("DotNet Error: MemberNames is a read-only property")
 
 	Func getErrorMessage
-		return dnSend("s3:get",nHandle,"s12:ErrorMessage","")
+		dn_x = dotnet_call("s3:get",nHandle,"s12:ErrorMessage")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ErrorMessage",[]) ok
+		return dn_x
 
 	Func setErrorMessage P1
-		dnSend("s3:set",nHandle,"s12:ErrorMessage",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s12:ErrorMessage",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ErrorMessage",dnPackItem(P1)) ok
 		return self
 
 	Func getSuccess
@@ -217,10 +232,14 @@ Class Validator from Object
 		return self
 
 	Func Equals P1
-		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		return dn_x
 
 	Func TryValidateProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",P1,P2,P3)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s19:TryValidateProperty",[P1,P2,P3]) ok
+		return dn_x
 
 	Func TryValidateObject P1
 		if dnIsNamed(P1)
@@ -229,10 +248,14 @@ Class Validator from Object
 		raise("DotNet Error: TryValidateObject does not take one argument: use named arguments, TryValidateObject([ :parameter = value, ... ])")
 
 	Func TryValidateValue P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		dn_x = dotnet_call("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",P1,P2,P3,P4)
+		if islist(dn_x) return dnLate(dn_x,"s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:TryValidateValue",[P1,P2,P3,P4]) ok
+		return dn_x
 
 	Func ValidateProperty P1,P2
-		dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",dnPackItem(P1) + dnPackItem(P2))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",P1,P2)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s16:ValidateProperty",dnPackItem(P1) + dnPackItem(P2)) ok
+
 		return self
 
 	Func ValidateObject P1
@@ -243,7 +266,9 @@ Class Validator from Object
 		raise("DotNet Error: ValidateObject does not take one argument: use named arguments, ValidateObject([ :parameter = value, ... ])")
 
 	Func ValidateValue P1,P2,P3
-		dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		dn_x = dotnet_callv("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",P1,P2,P3)
+		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s13:ValidateValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+
 		return self
 
 

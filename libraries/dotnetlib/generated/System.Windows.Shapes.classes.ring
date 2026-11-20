@@ -81,7 +81,8 @@ Class Shape from FrameworkElement
 		return dnSend("s3:get",nHandle,"s7:Stretch","")
 
 	Func setStretch P1
-		dnSend("s3:set",nHandle,"s7:Stretch",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Stretch",dnPackItem(P1)) ok
 		return self
 
 	Func getRenderedGeometry
@@ -100,70 +101,86 @@ Class Shape from FrameworkElement
 		return dnSend("s3:get",nHandle,"s4:Fill","")
 
 	Func setFill P1
-		dnSend("s3:set",nHandle,"s4:Fill",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Fill",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Fill",dnPackItem(P1)) ok
 		return self
 
 	Func getStroke
 		return dnSend("s3:get",nHandle,"s6:Stroke","")
 
 	Func setStroke P1
-		dnSend("s3:set",nHandle,"s6:Stroke",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Stroke",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Stroke",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeThickness
-		return dnSend("s3:get",nHandle,"s15:StrokeThickness","")
+		dn_x = dotnet_call("s3:get",nHandle,"s15:StrokeThickness")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:StrokeThickness",[]) ok
+		return dn_x
 
 	Func setStrokeThickness P1
-		dnSend("s3:set",nHandle,"s15:StrokeThickness",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:StrokeThickness",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:StrokeThickness",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeStartLineCap
 		return dnSend("s3:get",nHandle,"s18:StrokeStartLineCap","")
 
 	Func setStrokeStartLineCap P1
-		dnSend("s3:set",nHandle,"s18:StrokeStartLineCap",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s18:StrokeStartLineCap",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s18:StrokeStartLineCap",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeEndLineCap
 		return dnSend("s3:get",nHandle,"s16:StrokeEndLineCap","")
 
 	Func setStrokeEndLineCap P1
-		dnSend("s3:set",nHandle,"s16:StrokeEndLineCap",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeEndLineCap",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeEndLineCap",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeDashCap
 		return dnSend("s3:get",nHandle,"s13:StrokeDashCap","")
 
 	Func setStrokeDashCap P1
-		dnSend("s3:set",nHandle,"s13:StrokeDashCap",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s13:StrokeDashCap",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s13:StrokeDashCap",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeLineJoin
 		return dnSend("s3:get",nHandle,"s14:StrokeLineJoin","")
 
 	Func setStrokeLineJoin P1
-		dnSend("s3:set",nHandle,"s14:StrokeLineJoin",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s14:StrokeLineJoin",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s14:StrokeLineJoin",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeMiterLimit
-		return dnSend("s3:get",nHandle,"s16:StrokeMiterLimit","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeMiterLimit")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:StrokeMiterLimit",[]) ok
+		return dn_x
 
 	Func setStrokeMiterLimit P1
-		dnSend("s3:set",nHandle,"s16:StrokeMiterLimit",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeMiterLimit",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeMiterLimit",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeDashOffset
-		return dnSend("s3:get",nHandle,"s16:StrokeDashOffset","")
+		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeDashOffset")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:StrokeDashOffset",[]) ok
+		return dn_x
 
 	Func setStrokeDashOffset P1
-		dnSend("s3:set",nHandle,"s16:StrokeDashOffset",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeDashOffset",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeDashOffset",dnPackItem(P1)) ok
 		return self
 
 	Func getStrokeDashArray
 		return dnSend("s3:get",nHandle,"s15:StrokeDashArray","")
 
 	Func setStrokeDashArray P1
-		dnSend("s3:set",nHandle,"s15:StrokeDashArray",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s15:StrokeDashArray",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s15:StrokeDashArray",dnPackItem(P1)) ok
 		return self
 
 	Func getStretchProperty
@@ -284,31 +301,43 @@ Class Line from Shape
 		return self
 
 	Func getX1
-		return dnSend("s3:get",nHandle,"s2:X1","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:X1")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:X1",[]) ok
+		return dn_x
 
 	Func setX1 P1
-		dnSend("s3:set",nHandle,"s2:X1",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:X1",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:X1",dnPackItem(P1)) ok
 		return self
 
 	Func getY1
-		return dnSend("s3:get",nHandle,"s2:Y1","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Y1")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Y1",[]) ok
+		return dn_x
 
 	Func setY1 P1
-		dnSend("s3:set",nHandle,"s2:Y1",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:Y1",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Y1",dnPackItem(P1)) ok
 		return self
 
 	Func getX2
-		return dnSend("s3:get",nHandle,"s2:X2","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:X2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:X2",[]) ok
+		return dn_x
 
 	Func setX2 P1
-		dnSend("s3:set",nHandle,"s2:X2",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:X2",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:X2",dnPackItem(P1)) ok
 		return self
 
 	Func getY2
-		return dnSend("s3:get",nHandle,"s2:Y2","")
+		dn_x = dotnet_call("s3:get",nHandle,"s2:Y2")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Y2",[]) ok
+		return dn_x
 
 	Func setY2 P1
-		dnSend("s3:set",nHandle,"s2:Y2",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s2:Y2",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Y2",dnPackItem(P1)) ok
 		return self
 
 	Func getX1Property
@@ -363,7 +392,8 @@ Class WpfPath from Shape
 		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
-		dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s4:Data",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1)) ok
 		return self
 
 	Func getDataProperty
@@ -402,14 +432,16 @@ Class Polygon from Shape
 		return dnSend("s3:get",nHandle,"s6:Points","")
 
 	Func setPoints P1
-		dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Points",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1)) ok
 		return self
 
 	Func getFillRule
 		return dnSend("s3:get",nHandle,"s8:FillRule","")
 
 	Func setFillRule P1
-		dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1)) ok
 		return self
 
 	Func getPointsProperty
@@ -454,14 +486,16 @@ Class Polyline from Shape
 		return dnSend("s3:get",nHandle,"s6:Points","")
 
 	Func setPoints P1
-		dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s6:Points",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1)) ok
 		return self
 
 	Func getFillRule
 		return dnSend("s3:get",nHandle,"s8:FillRule","")
 
 	Func setFillRule P1
-		dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1)) ok
 		return self
 
 	Func getPointsProperty
@@ -503,17 +537,23 @@ Class WpfRectangle from Shape
 		return self
 
 	Func getRadiusX
-		return dnSend("s3:get",nHandle,"s7:RadiusX","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusX")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:RadiusX",[]) ok
+		return dn_x
 
 	Func setRadiusX P1
-		dnSend("s3:set",nHandle,"s7:RadiusX",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RadiusX",dnPackItem(P1)) ok
 		return self
 
 	Func getRadiusY
-		return dnSend("s3:get",nHandle,"s7:RadiusY","")
+		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusY")
+		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:RadiusY",[]) ok
+		return dn_x
 
 	Func setRadiusY P1
-		dnSend("s3:set",nHandle,"s7:RadiusY",dnPackItem(P1))
+		dn_x = dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
+		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RadiusY",dnPackItem(P1)) ok
 		return self
 
 	Func getRadiusXProperty
