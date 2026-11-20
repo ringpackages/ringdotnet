@@ -33,3 +33,6 @@ samples/UsingDotNet/tutorials/Skia/classes/
 samples/UsingDotNet/tutorials/Pdf/libs/
 samples/UsingDotNet/tutorials/Pdf/bin/
 samples/UsingDotNet/tutorials/Pdf/classes/
+samples/UsingDotNet/tutorials/Speech/libs/
+samples/UsingDotNet/tutorials/Speech/bin/
+samples/UsingDotNet/tutorials/Speech/classes/

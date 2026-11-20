@@ -41,7 +41,7 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only). |
 | [WPF](#wpf) | XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only). |
 | [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only). |
-| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, the common mistakes, a NuGet package, native DLLs, sound, a QR code, more than one system, Excel files, pictures on every system, PDF files, testing, and giving your program to others. |
+| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, the common mistakes, a NuGet package, native DLLs, sound, a QR code, more than one system, Excel files, pictures on every system, PDF files, text to speech, testing, and giving your program to others. |
 
 ## Where to start
 
@@ -315,6 +315,7 @@ Giving Ring code to .NET (callbacks and events), exploring code with reflection 
 <a class="card" href="tut-167-excel.html"><div class="ic">📦</div><b>Excel files</b><span>ClosedXML from nuget.org: write a sheet with formulas and a bold header, read it back, and use a package that works with interfaces.</span></a>
 <a class="card" href="tut-168-pictures.html"><div class="ic">📦</div><b>Pictures on every system</b><span>SkiaSharp: draw a circle and text, read pixels, save and read PNG on Windows and Linux; a package with a native library.</span></a>
 <a class="card" href="tut-169-pdf.html"><div class="ic">📦</div><b>PDF files</b><span>PDFsharp from nuget.org: pages in points, text, lines and fonts, and reading the file back to check it.</span></a>
+<a class="card" href="tut-170-speech.html"><div class="ic">📦</div><b>Text to speech</b><span>System.Speech: the voices of Windows, speech written to a WAV file for a silent test, the rate, and a package with a DLL for each system.</span></a>
 <a class="card" href="tut-28-testing.html"><div class="ic">📦</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
 <a class="card" href="tut-119-distribution.html"><div class="ic">📦</div><b>Giving your program to others</b><span>Ring2EXE, what the other computer needs, a self check.</span></a>
 </div>
