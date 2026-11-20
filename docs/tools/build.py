@@ -181,6 +181,7 @@ PAGES = [
     ("tut-162-nuget", "A NuGet package", "Tutorials: Libraries, testing and release"),
     ("tut-163-native", "Native DLLs", "Tutorials: Libraries, testing and release"),
     ("tut-164-sound", "Sound", "Tutorials: Libraries, testing and release"),
+    ("tut-165-qr", "A QR code", "Tutorials: Libraries, testing and release"),
     ("tut-28-testing", "Testing", "Tutorials: Libraries, testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Libraries, testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),
