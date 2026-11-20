@@ -2,6 +2,8 @@
 
 load "dotnet.ring"
 using {
+	"System"
+	"System.Globalization"
 	"System.Windows"
 	"System.Windows.Controls"
 	"System.Windows.Controls.Primitives"
@@ -122,4 +124,4 @@ func calculate
 
 # a number as text without Ring's fixed decimals
 func uiNumberWpf nValue
-	return dnRequest("call",[dnTypeCached("System.Convert, System.Private.CoreLib"),"ToString",nValue,dnType("System.Globalization.CultureInfo").getProp("InvariantCulture")])
+	return new Convert().Format([ :value = nValue, :provider = new CultureInfo("").InvariantCulture ])

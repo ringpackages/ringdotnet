@@ -4735,6 +4735,8 @@ update()
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Globalization"</span>
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
 	<span class="s">"System.Windows.Controls.Primitives"</span>
@@ -4855,7 +4857,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 
 <span class="c"># a number as text without Ring's fixed decimals</span>
 <span class="k">func</span> <span class="f">uiNumberWpf</span> nValue
-	<span class="k">return</span> <span class="f">dnRequest</span>(<span class="s">"call"</span>,[<span class="f">dnTypeCached</span>(<span class="s">"System.Convert, System.Private.CoreLib"</span>),<span class="s">"ToString"</span>,nValue,<span class="f">dnType</span>(<span class="s">"System.Globalization.CultureInfo"</span>).<span class="f">getProp</span>(<span class="s">"InvariantCulture"</span>)])</code></pre></div></details></div></div><div class="item" id="wpf-color-mixer"><div class="pic"><img src="img/shots/app-WpfColorMixer.png" alt="Wpf Color Mixer" loading="lazy"></div><div class="info"><h3>Wpf Color Mixer</h3><p>Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</p><div class="run"><code>cd samples/UsingDotNet/applications/WpfColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = nValue, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">""</span>).InvariantCulture ])</code></pre></div></details></div></div><div class="item" id="wpf-color-mixer"><div class="pic"><img src="img/shots/app-WpfColorMixer.png" alt="Wpf Color Mixer" loading="lazy"></div><div class="info"><h3>Wpf Color Mixer</h3><p>Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</p><div class="run"><code>cd samples/UsingDotNet/applications/WpfColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
