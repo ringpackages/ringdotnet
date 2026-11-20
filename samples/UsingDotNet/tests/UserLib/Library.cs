@@ -59,4 +59,24 @@ namespace MyCompany.Tools
 	{
 		public static IBox NewBox(double side) { return new Box(side); }
 	}
+	// A class that is not public and implements a public interface explicitly (a row of Dapper is like this): the methods of the interface
+	// are called on the object although the class has no public method of that name.
+	public interface IGetter
+	{
+		string Fetch(string key);
+		string Join(string first, string second);
+		string Join(string only);
+	}
+
+	internal class Hidden : IGetter
+	{
+		string IGetter.Fetch(string key) { return key + "!"; }
+		string IGetter.Join(string first, string second) { return first + "+" + second; }
+		string IGetter.Join(string only) { return only; }
+	}
+
+	public static class Hiding
+	{
+		public static object NewGetter() { return new Hidden(); }
+	}
 }

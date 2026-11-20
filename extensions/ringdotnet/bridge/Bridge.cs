@@ -1762,11 +1762,29 @@ namespace RingDotNet
 				flags = InstanceFlags;
 			}
 			MethodInfo m = PickCached(MethodsNamed(t, name, flags), args, out object[] conv) as MethodInfo;
+			if (m == null && instance != null)
+			{
+				m = PickFromInterfaces(t, name, args, out conv);
+			}
 			if (m == null)
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
 			}
 			return InvokeResult(m, instance, conv);
+		}
+
+		/* A method that the class implements explicitly (a row of Dapper is a public IDictionary<string, object> and has no public get_Item) is
+		   found in the public interfaces of the class. */
+		private static MethodInfo PickFromInterfaces(Type t, string name, object[] args, out object[] conv)
+		{
+			conv = null;
+			foreach (Type i in t.GetInterfaces())
+			{
+				if (!i.IsVisible) continue;
+				MethodInfo m = PickCached(MethodsNamed(i, name, InstanceFlags), args, out conv) as MethodInfo;
+				if (m != null) return m;
+			}
+			return null;
 		}
 
 		/* Run a method and shape its result: methods with out/ref parameters return a list [return value (if any), out/ref values...] */
@@ -1915,7 +1933,16 @@ namespace RingDotNet
 			{
 				/* an object also gives access to the static methods of its class (Process.Start(startInfo)) */
 				m = PickNamed(MethodsNamed(t, name, StaticFlags), names, values, out conv) as MethodInfo;
-				instance = null;
+				if (m != null) instance = null;
+			}
+			if (m == null && instance != null)
+			{
+				foreach (Type i in t.GetInterfaces())
+				{
+					if (!i.IsVisible) continue;
+					m = PickNamed(MethodsNamed(i, name, InstanceFlags), names, values, out conv) as MethodInfo;
+					if (m != null) break;
+				}
 			}
 			if (m == null)
 			{
