@@ -3434,6 +3434,11 @@ Class Buffer from Object
 
 		return self
 
+	Func MemoryCopy P1,P2,P3,P4
+		dotnet_callv("s4:call",'System.Buffer, System.Private.CoreLib',"s10:MemoryCopy",P1,P2,P3,P4)
+
+		return self
+
 
 Class CharEnumerator from Object
 
@@ -13092,7 +13097,9 @@ Class IntPtr from ValueType
 		return dn_x
 
 	Func ToPointer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToPointer"))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ToPointer")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -16530,7 +16537,9 @@ Class UIntPtr from ValueType
 		return dn_x
 
 	Func ToPointer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToPointer"))
+		dn_x = dotnet_call("s4:call",nHandle,"s9:ToPointer")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)

@@ -328,7 +328,26 @@ namespace RingDotNet
 
 		/* ---------------------------------------------------------------- operations */
 
+		/* The arrays that were pinned for the pointer parameters of a request: they are valid during the call and freed after it */
+		[ThreadStatic] private static List<GCHandle> pinned;
+		[ThreadStatic] private static int requestDepth;
+
 		private static object Dispatch(List<object> items)
+		{
+			requestDepth++;
+			try { return DispatchCore(items); }
+			finally
+			{
+				/* a callback can make a request while a request runs: the pins are freed when the outer one ends */
+				if (--requestDepth == 0 && pinned != null)
+				{
+					foreach (GCHandle handle in pinned) handle.Free();
+					pinned.Clear();
+				}
+			}
+		}
+
+		private static object DispatchCore(List<object> items)
 		{
 			if (items.Count == 0 || !(items[0] is string op))
 			{
@@ -836,6 +855,7 @@ namespace RingDotNet
 
 		private static string TName(Type t)
 		{
+			if (t.IsPointer) return "System.IntPtr";          /* an address: Ring gives a number or a buffer */
 			return t.FullName ?? t.Name;
 		}
 
@@ -850,7 +870,8 @@ namespace RingDotNet
 				Type pt = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType;
 				if (m is MethodInfo && IsSpan(pt, out _, out _)) continue;          /* a Span<T> parameter: Ring gives an array (see InvokeWithSpans) */
 				if (m is MethodInfo && pt.IsByRefLike && !(p.IsOut && !p.IsIn) && RefStructFactory(pt) != null) continue;          /* a ref struct made from a value */
-				if (pt.IsPointer || pt.IsByRefLike || pt.IsByRef || (pt.IsGenericType && pt.GetGenericArguments().Any(g => g.IsByRefLike)))
+				if (pt.IsPointer && !p.ParameterType.IsByRef && !pt.GetElementType().IsByRefLike) continue;          /* an address or a buffer: see ConvertPointer */
+				if (pt.IsFunctionPointer || pt.IsPointer || pt.IsByRefLike || pt.IsByRef || (pt.IsGenericType && pt.GetGenericArguments().Any(g => g.IsByRefLike)))
 				{
 					return false;
 				}
@@ -1091,10 +1112,17 @@ namespace RingDotNet
 			return factory.GetParameters()[0].ParameterType;
 		}
 
-		private static bool HasSpanParameter(MethodBase m)
+		/* A method that is called through IL (see InvokeWithSpans): a Span or ref struct parameter, or a Span result */
+		private static bool UsesIl(MethodBase m)
 		{
 			return m.GetParameters().Any(p => { Type t = Unwrap(p.ParameterType); return IsSpan(t, out _, out _) || (t.IsByRefLike && RefStructFactory(t) != null); })
 				|| (m is MethodInfo mi && IsSpan(mi.ReturnType, out _, out _));
+		}
+
+		/* A parameter that Ring does not give as it is: the overloads with it are listed only when no other overload of the name has a plain form */
+		private static bool HasSpanParameter(MethodBase m)
+		{
+			return UsesIl(m) || m.GetParameters().Any(p => Unwrap(p.ParameterType).IsPointer);
 		}
 
 		private static readonly System.Collections.Concurrent.ConcurrentDictionary<MethodInfo, Func<object, object[], object>> SpanCalls =
@@ -1357,9 +1385,13 @@ namespace RingDotNet
 			List<object> ctors = new RingList();
 			if (!t.IsAbstract)
 			{
+				/* a constructor with a pointer parameter is listed only when the type has no other constructor that is usable (like the overloads
+				   with a Span) */
+				bool plainConstructor = t.GetConstructors(BindingFlags.Public | BindingFlags.Instance).Any(c => Usable(c, openType) && !HasSpanParameter(c));
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
 				{
 					if (!Usable(c, openType)) continue;
+					if (plainConstructor && HasSpanParameter(c)) continue;
 					List<object> types = ParamTypes(c);
 					ctors.Add(types);
 					/* optional parameters: the constructor is also available with fewer parameters */
@@ -1383,7 +1415,7 @@ namespace RingDotNet
 					if (HasSpanParameter(m) && plainNames.Contains(m.Name)) continue;
 					if (definition != null && m.IsStatic) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new RingList { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
+					methods.Add(new RingList { m.Name, m.IsStatic, m.ReturnType.IsPointer ? "System.Int64" : TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
 				}
 			}
 			List<object> members = new RingList();
@@ -1490,17 +1522,92 @@ namespace RingDotNet
 			return false;
 		}
 
+		/* A pointer parameter (byte*, char*, void*, int*): a number is the address (from Marshal.AllocHGlobal, a native library ...); a text, a byte
+		   string, a list, a ByteBuffer or null is a buffer that is pinned for the call (a text and a byte string end with a zero, for the C strings),
+		   so the address is valid during the call only; a ByteBuffer is the live array, which the called method may fill. */
+		private static unsafe bool ConvertPointer(object v, Type t, out object result, out int score)
+		{
+			result = null;
+			score = 0;
+			Type element = t.GetElementType();
+			if (element.IsByRef || element.IsByRefLike) return false;
+			if (v == null)
+			{
+				result = Pointer.Box((void*)0, t);
+				score = 2;
+				return true;
+			}
+			if (v is IntPtr intPtr) v = (double)(long)intPtr;
+			if (v is double number)
+			{
+				if (number < 0 || number != Math.Floor(number)) return false;
+				result = Pointer.Box((void*)(long)number, t);
+				score = 3;
+				return true;
+			}
+			if (element.IsPointer) return false;
+			Array array = null;
+			bool voidOrByte = element == typeof(void) || element == typeof(byte) || element == typeof(sbyte);
+			if (v is ByteBuffer buffer && voidOrByte) array = buffer.Data;
+			else if (v is string text)
+			{
+				if (element == typeof(char))
+				{
+					char[] chars = new char[text.Length + 1];
+					text.CopyTo(0, chars, 0, text.Length);
+					array = chars;
+				}
+				else if (voidOrByte)
+				{
+					byte[] bytes = new byte[Encoding.UTF8.GetByteCount(text) + 1];
+					Encoding.UTF8.GetBytes(text, 0, text.Length, bytes, 0);
+					array = bytes;
+				}
+			}
+			else if (v is byte[] raw && voidOrByte)
+			{
+				byte[] bytes = new byte[raw.Length + 1];
+				Array.Copy(raw, bytes, raw.Length);
+				array = bytes;
+			}
+			else if (v is object[])
+			{
+				/* a list: numbers of the element type (bytes for void*) */
+				if (TryConvert(v, (element == typeof(void) ? typeof(byte) : element).MakeArrayType(), out object converted, out _)) array = (Array)converted;
+			}
+			if (array == null) return false;
+			if (pinned == null) pinned = new List<GCHandle>();
+			GCHandle handle = GCHandle.Alloc(array, GCHandleType.Pinned);
+			pinned.Add(handle);
+			result = Pointer.Box((void*)handle.AddrOfPinnedObject(), t);
+			score = 1;
+			return true;
+		}
+
+		/* A pointer that a method returns is its address, as a number */
+		private static unsafe object PointerResult(object returned)
+		{
+			return returned is Pointer pointer ? (object)(double)(long)(IntPtr)Pointer.Unbox(pointer) : returned;
+		}
+
 		/* Convert a Ring value to a parameter type, score = how good the match is (higher is better) */
 		private static bool TryConvert(object v, Type t, out object result, out int score)
 		{
 			result = null;
 			score = 0;
-			if (t.IsByRef || t.IsPointer)
+			if (t.IsByRef || t.IsFunctionPointer)
 			{
 				return false;
 			}
 			v = Plain(v);
+			if (t.IsPointer) return ConvertPointer(v, t, out result, out score);
 			Type ut = Nullable.GetUnderlyingType(t) ?? t;
+			if ((ut == typeof(IntPtr) || ut == typeof(UIntPtr)) && v is double address && address >= 0 && address == Math.Floor(address))
+			{
+				result = ut == typeof(IntPtr) ? (object)new IntPtr((long)address) : new UIntPtr((ulong)address);
+				score = 5;
+				return true;
+			}
 			if (IsSpan(ut, out Type spanElement, out bool spanWritable))
 			{
 				/* a Span<T> or ReadOnlySpan<T>: an array of T (a text for char, a byte string or a list for byte ...); a number is the size of a new
@@ -2418,8 +2525,9 @@ namespace RingDotNet
 		/* Run a method and shape its result: methods with out/ref parameters return a list [return value (if any), out/ref values...] */
 		private static object InvokeResult(MethodInfo m, object instance, object[] conv)
 		{
-			bool spanCall = HasSpanParameter(m);
+			bool spanCall = UsesIl(m);
 			object returned = spanCall ? InvokeWithSpans(m, instance, conv) : m.Invoke(instance, conv);
+			if (m.ReturnType.IsPointer) returned = PointerResult(returned);
 			if (spanCall && returned is char[] returnedChars && IsSpan(m.ReturnType, out _, out _)) returned = new string(returnedChars);
 			if (ByRefCount(m) == 0)
 			{

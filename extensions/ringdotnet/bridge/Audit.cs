@@ -148,9 +148,9 @@ namespace RingDotNet
 					string where = Short(t, m.Name);
 					tally.Add("INFO method: public methods", where);
 					ParameterInfo[] ps = m.GetParameters();
-					if (ps.Any(p => IsPointer(p.ParameterType)) || ps.Any(p => IsRefLike(p.ParameterType) && !Handled(p)) || !Bridge.Usable(m, open))
+					if (ps.Any(p => IsPointer(p.ParameterType) && p.ParameterType.IsByRef) || ps.Any(p => IsRefLike(p.ParameterType) && !Handled(p)) || !Bridge.Usable(m, open))
 					{
-						string kind = ps.Any(p => IsPointer(p.ParameterType)) ? "pointer parameter" : ps.Any(p => IsRefLike(p.ParameterType)) ? "Span or other ref struct parameter" : "other";
+						string kind = ps.Any(p => IsPointer(p.ParameterType) && p.ParameterType.IsByRef) ? "pointer parameter" : ps.Any(p => IsRefLike(p.ParameterType)) ? "Span or other ref struct parameter" : "other";
 						if (callableNames.Contains(m.Name)) tally.Add("INFO method: not callable (" + kind + "), but another overload of the name is", where);
 						else tally.Add("GAP  method: not callable (" + kind + "), no other overload of the name", where);
 					}
@@ -162,9 +162,11 @@ namespace RingDotNet
 					{
 						tally.Add("OK   method: callable", where);
 						if (ps.Any(p => Bridge.IsSpan(p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType, out _, out _))) tally.Add("OK   method: Span parameter (an array in Ring: a text, a byte string, a list, or a size)", where);
+						if (ps.Any(p => IsPointer(p.ParameterType) && !p.ParameterType.IsByRef)) tally.Add("OK   method: pointer parameter (an address, or a buffer pinned for the call)", where);
 						if (ps.Any(p => { Type t = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType; return t.IsByRefLike && !Bridge.IsSpan(t, out _, out _); })) tally.Add("OK   method: ref struct parameter (made for the call from a value)", where);
 					}
-					if (IsPointer(m.ReturnType) || (IsRefLike(m.ReturnType) && !Bridge.IsSpan(m.ReturnType, out _, out _))) tally.Add("GAP  method: pointer or ref struct result", where);
+					if (IsRefLike(m.ReturnType) && !Bridge.IsSpan(m.ReturnType, out _, out _)) tally.Add("GAP  method: ref struct result", where);
+					else if (IsPointer(m.ReturnType)) tally.Add("OK   method: pointer result (an address, a number)", where);
 					else if (IsRefLike(m.ReturnType)) tally.Add("OK   method: Span result (an array in Ring)", where);
 					if (m.ReturnType.IsByRef) tally.Add("GAP  method: ref return", where);
 					if (m.IsGenericMethodDefinition)

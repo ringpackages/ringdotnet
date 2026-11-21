@@ -31,7 +31,7 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 |---|---|
 | `test_foundation.ring`, `test_runtime.ring`, `test_after_error.ring` | the bridge: types, overloads, properties, enums, errors, a call after a caught error |
 | `test_collections.ring`, `test_linq.ring` | typed collections, LINQ |
-| `test_operators.ring`, `test_span.ring`, `test_refstruct.ring`, `test_exceptions.ring` | operators and conversions of .NET types, Span parameters and results, ref structs, exception and attribute classes |
+| `test_operators.ring`, `test_span.ring`, `test_refstruct.ring`, `test_pointer.ring`, `test_exceptions.ring` | operators and conversions of .NET types, Span parameters and results, ref structs, pointers, exception and attribute classes |
 | `test_system.ring`, `test_io.ring`, `test_net.ring`, `test_services.ring` | the class library |
 | `test_access.ring` | Microsoft Access through ODBC (`System.Data.Odbc`): makes an `.accdb` file with ADOX, tables, parameters, NULL, Unicode, transactions. Windows with the 64-bit Access Database Engine only; it prints `SKIPPED` and passes anywhere else |
 | `test_desktop.ring`, `test_keyboard.ring` | Windows Forms, key handling |

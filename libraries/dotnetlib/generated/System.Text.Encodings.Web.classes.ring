@@ -42,6 +42,14 @@ Class TextEncoder from Object
 		ok
 		return self
 
+	Func TryEncodeUnicodeScalar P1,P2,P3
+		return dnSend("s4:call",nHandle,"s22:TryEncodeUnicodeScalar",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func FindFirstCharacterToEncode P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s26:FindFirstCharacterToEncode",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func WillEncode P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:WillEncode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

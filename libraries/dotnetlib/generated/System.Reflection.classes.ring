@@ -3055,8 +3055,13 @@ Class Pointer from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Box P1,P2
+		return dnObj(dotnet_callo("s4:call",'System.Reflection.Pointer, System.Private.CoreLib',"s3:Box",P1,P2))
+
 	Func Unbox P1
-		return dnObj(dotnet_callo("s4:call",'System.Reflection.Pointer, System.Private.CoreLib',"s5:Unbox",P1))
+		dn_x = dotnet_call("s4:call",'System.Reflection.Pointer, System.Private.CoreLib',"s5:Unbox",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 
 Class ReflectionContext from Object

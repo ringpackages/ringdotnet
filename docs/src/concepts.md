@@ -260,6 +260,16 @@ Exceptions and attributes have classes too: an exception that .NET gives back (`
 
 A `Span<T>` that comes back is an array (a text for `char`, a byte string for `byte`), and a span passed by reference (`ref` or `out`) is read from the array you give and answered as an array, after the result. A ref struct of a library (`MessagePackWriter`, `Utf8JsonReader`, a parser cursor) cannot be held by Ring, so the bridge makes it for the call from one value, with its public `op_Implicit` or a constructor whose first parameter takes it (a text, bytes, an object such as an `IBufferWriter`); what the method does to the struct is lost, and a ref struct that has no such value, or that is only an `out` parameter, is still out of reach.
 
+A pointer parameter (`byte*`, `char*`, `void*`, `int*`) takes an address or a buffer. A **number** is the address (from `NativeMemory.Alloc`, `Marshal.AllocHGlobal`, a native library); a **text**, a **byte string**, a **list** of numbers or a **ByteBuffer** is a buffer that is pinned for the call, so the method can read it (a text and a byte string end with a zero, for C strings) and a ByteBuffer is the live array that the method may fill. The address of a buffer is valid during the call only: a method that keeps the pointer needs memory that you allocate. A pointer that a method returns is its address, a number.
+
+```ring
+dnImport("System")
+nMemory = dnStatic("System.Runtime.InteropServices.NativeMemory","Alloc",[16])      # a void*: a number
+dnStatic("System.Buffer","MemoryCopy",["hello",nMemory,16,5])                        # the text is the source buffer
+? dnStatic("System.Runtime.InteropServices.Marshal","PtrToStringAnsi",[nMemory,5])   # hello
+dnStatic("System.Runtime.InteropServices.NativeMemory","Free",[nMemory])
+```
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

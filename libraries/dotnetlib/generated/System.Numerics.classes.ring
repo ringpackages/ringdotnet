@@ -3083,6 +3083,15 @@ Class Vector from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func @Load P1
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s4:Load",P1))
+
+	Func LoadAligned P1
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:LoadAligned",P1))
+
+	Func LoadAlignedNonTemporal P1
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s22:LoadAlignedNonTemporal",P1))
+
 	Func LoadUnsafe P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s10:LoadUnsafe",P1)
@@ -3168,6 +3177,21 @@ Class Vector from Object
 
 	Func SquareRoot P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:SquareRoot",P1))
+
+	Func Store P1,P2
+		dotnet_callv("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Store",P1,P2)
+
+		return self
+
+	Func StoreAligned P1,P2
+		dotnet_callv("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:StoreAligned",P1,P2)
+
+		return self
+
+	Func StoreAlignedNonTemporal P1,P2
+		dotnet_callv("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s23:StoreAlignedNonTemporal",P1,P2)
+
+		return self
 
 	Func StoreUnsafe P1
 		if dotnet_isnamed(P1)

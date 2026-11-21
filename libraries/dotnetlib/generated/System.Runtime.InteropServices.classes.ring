@@ -1222,6 +1222,12 @@ Class ComWrappersComInterfaceDispatch from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func GetInstance P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.ComWrappers+ComInterfaceDispatch, System.Private.CoreLib',"s11:GetInstance",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.ComWrappers+ComInterfaceDispatch, System.Private.CoreLib',"s11:GetInstance",P1))
+
 	Func getVtable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Vtable"))
 
@@ -2961,6 +2967,9 @@ Class MemoryMarshal from Object
 	Func CreateReadOnlySpan P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s18:CreateReadOnlySpan",dnPackItem(P1) + dnPackItem(P2))
 
+	Func CreateReadOnlySpanFromNullTerminated P1
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s36:CreateReadOnlySpanFromNullTerminated",P1))
+
 	Func TryGetArray P1
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s11:TryGetArray",dnPackItem(P1))
 
@@ -3537,18 +3546,63 @@ Class NativeMemory from Object
 
 	Func Alloc P1
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1))
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1))
+		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func AllocZeroed P1
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1))
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1))
+		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Clear P1,P2
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Clear",P1,P2)
+
+		return self
+
+	Func Copy P1,P2,P3
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s4:Copy",P1,P2,P3)
+
+		return self
+
+	Func Fill P1,P2,P3
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s4:Fill",P1,P2,P3)
+
+		return self
 
 	Func AlignedAlloc P1,P2
-		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s12:AlignedAlloc",P1,P2))
+		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s12:AlignedAlloc",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AlignedFree P1
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AlignedFree",P1)
+
+		return self
+
+	Func AlignedRealloc P1,P2,P3
+		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s14:AlignedRealloc",P1,P2,P3)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Free P1
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s4:Free",P1)
+
+		return self
+
+	Func Realloc P1,P2
+		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s7:Realloc",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 
 Class OSPlatform from ValueType

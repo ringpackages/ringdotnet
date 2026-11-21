@@ -1721,20 +1721,36 @@ Class Overlapped from Object
 
 	Func Pack P1
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Pack",P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Pack",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Pack",P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Pack",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func UnsafePack P1
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UnsafePack",P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:UnsafePack",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UnsafePack",P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s10:UnsafePack",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Unpack P1
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Overlapped, System.Private.CoreLib',"s6:Unpack",P1))
+
+	Func Free P1
+		dotnet_callv("s4:call",'System.Threading.Overlapped, System.Private.CoreLib',"s4:Free",P1)
+
+		return self
 
 	Func getAsyncResult
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:AsyncResult"))
@@ -2732,6 +2748,11 @@ Class ThreadPool from Object
 		ok
 		raise("DotNet Error: UnsafeQueueUserWorkItem does not take one argument: use named arguments, UnsafeQueueUserWorkItem([ :parameter = value, ... ])")
 
+	Func UnsafeQueueNativeOverlapped P1
+		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s27:UnsafeQueueNativeOverlapped",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func BindHandle P1
 		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s10:BindHandle",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2796,12 +2817,23 @@ Class ThreadPoolBoundHandle from Object
 
 	Func AllocateNativeOverlapped P1
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AllocateNativeOverlapped",P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AllocateNativeOverlapped",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AllocateNativeOverlapped",P1))
+		dn_x = dotnet_call("s4:call",nHandle,"s24:AllocateNativeOverlapped",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func UnsafeAllocateNativeOverlapped P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:UnsafeAllocateNativeOverlapped",P1,P2,P3))
+		dn_x = dotnet_call("s4:call",nHandle,"s30:UnsafeAllocateNativeOverlapped",P1,P2,P3)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FreeNativeOverlapped P1
+		dotnet_callv("s4:call",nHandle,"s20:FreeNativeOverlapped",P1)
+
+		return self
 
 	Func Dispose 
 		dotnet_callv("s4:call",nHandle,"s7:Dispose")
@@ -2815,6 +2847,9 @@ Class ThreadPoolBoundHandle from Object
 
 	Func BindHandle P1
 		return dnObj(dotnet_callo("s4:call",'System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib',"s10:BindHandle",P1))
+
+	Func GetNativeOverlappedState P1
+		return dnObj(dotnet_callo("s4:call",'System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib',"s24:GetNativeOverlappedState",P1))
 
 	Func getHandle
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
