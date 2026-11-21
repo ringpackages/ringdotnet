@@ -36,6 +36,10 @@ oCalc.setChangedEvent("nEvents++")
 oCalc.Add(1)
 dnAssert("user event",nEvents,1)
 
+# a class of the assembly with the name of a class of the library gets the prefix of its namespace, and both work in one program
+dnAssert("a class named like a class of the library is renamed",new ToolsVersion().Text,"user version")
+dnAssert("the class of the library has its own name",new Version("1.2.3").Major,1)
+
 # methods that a non-public class implements explicitly are found through its public interfaces
 oGetter = new Hiding().NewGetter()
 dnAssert("a method of an explicit interface implementation",oGetter.Fetch("key"),"key!")

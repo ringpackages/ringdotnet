@@ -79,4 +79,10 @@ namespace MyCompany.Tools
 	{
 		public static object NewGetter() { return new Hidden(); }
 	}
+	// A class with the name of a class of the library (System.Version): the generator gives it the prefix of its namespace, ToolsVersion,
+	// so that both can be defined in one program.
+	public class Version
+	{
+		public string Text { get { return "user version"; } }
+	}
 }

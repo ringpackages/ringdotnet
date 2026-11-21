@@ -23,6 +23,7 @@ lLazyUses = false
 
 aClassMap = []	# [canonical .NET name, Ring class name]
 aTaken = []	# [lowercase Ring class name, .NET name]
+aRenamed = []	# [class name, Ring class name given because of a clash]
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
@@ -102,6 +103,7 @@ func className cName, cNs
 
 # A class name that is not used by another type (keywords get "_", clashes get the namespace as a prefix)
 func uniqueClassName cRing, cCanonical, cNs
+	cOriginal = cRing
 	if find(aKeywords,lower(cRing)) > 0 or find(["dotnetobject","dotnetcallback"],lower(cRing)) > 0
 		cRing += "_"
 	ok
@@ -122,6 +124,7 @@ func uniqueClassName cRing, cCanonical, cNs
 		if nPos > 0 and aTaken[nPos][2] != cCanonical
 			cRing += "_"
 		ok
+		aRenamed + [cNs + "." + cOriginal,cRing,cOriginal]
 	ok
 	if find(aTaken,lower(cRing),1) = 0
 		aTaken + [lower(cRing),cCanonical]
