@@ -1064,14 +1064,50 @@ Class AsymmetricAlgorithm from Object
 
 		return self
 
+	Func ImportEncryptedPkcs8PrivateKey P1,P2
+		return dnSend("s4:call",nHandle,"s30:ImportEncryptedPkcs8PrivateKey",dnPackItem(P1) + dnPackItem(P2))
+
+	Func ImportPkcs8PrivateKey P1
+		return dnSend("s4:call",nHandle,"s21:ImportPkcs8PrivateKey",dnPackItem(P1))
+
+	Func ImportSubjectPublicKeyInfo P1
+		return dnSend("s4:call",nHandle,"s26:ImportSubjectPublicKeyInfo",dnPackItem(P1))
+
+	Func ExportEncryptedPkcs8PrivateKey P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:ExportEncryptedPkcs8PrivateKey",P1,P2))
+
 	Func ExportPkcs8PrivateKey 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ExportPkcs8PrivateKey"))
 
 	Func ExportSubjectPublicKeyInfo 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
 
+	Func TryExportEncryptedPkcs8PrivateKey P1,P2,P3
+		return dnSend("s4:call",nHandle,"s33:TryExportEncryptedPkcs8PrivateKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func TryExportPkcs8PrivateKey P1
+		return dnSend("s4:call",nHandle,"s24:TryExportPkcs8PrivateKey",dnPackItem(P1))
+
+	Func TryExportSubjectPublicKeyInfo P1
+		return dnSend("s4:call",nHandle,"s29:TryExportSubjectPublicKeyInfo",dnPackItem(P1))
+
+	Func ImportFromEncryptedPem P1,P2
+		dotnet_callv("s4:call",nHandle,"s22:ImportFromEncryptedPem",P1,P2)
+
+		return self
+
+	Func ImportFromPem P1
+		dotnet_callv("s4:call",nHandle,"s13:ImportFromPem",P1)
+
+		return self
+
 	Func ExportPkcs8PrivateKeyPem 
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ExportPkcs8PrivateKeyPem")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ExportEncryptedPkcs8PrivateKeyPem P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s33:ExportEncryptedPkcs8PrivateKeyPem",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -1079,6 +1115,15 @@ Class AsymmetricAlgorithm from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s29:ExportSubjectPublicKeyInfoPem")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryExportSubjectPublicKeyInfoPem P1
+		return dnSend("s4:call",nHandle,"s32:TryExportSubjectPublicKeyInfoPem",dnPackItem(P1))
+
+	Func TryExportPkcs8PrivateKeyPem P1
+		return dnSend("s4:call",nHandle,"s27:TryExportPkcs8PrivateKeyPem",dnPackItem(P1))
+
+	Func TryExportEncryptedPkcs8PrivateKeyPem P1,P2,P3
+		return dnSend("s4:call",nHandle,"s36:TryExportEncryptedPkcs8PrivateKeyPem",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2287,8 +2332,19 @@ Class CryptographicOperations from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FixedTimeEquals P1,P2
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s15:FixedTimeEquals",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ZeroMemory P1
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s10:ZeroMemory",dnPackItem(P1))
+
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s8:HashData",P1,P2))
+
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -2298,6 +2354,9 @@ Class CryptographicOperations from Object
 
 	Func HmacData P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s8:HmacData",P1,P2,P3))
+
+	Func TryHmacData P1,P2,P3,P4
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s11:TryHmacData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func HmacDataAsync P1
 		if dotnet_isnamed(P1)
@@ -2983,6 +3042,9 @@ Class ECDiffieHellmanPublicKey from Object
 	Func ExportExplicitParameters 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ExportExplicitParameters"))
 
+	Func TryExportSubjectPublicKeyInfo P1
+		return dnSend("s4:call",nHandle,"s29:TryExportSubjectPublicKeyInfo",dnPackItem(P1))
+
 	Func ExportSubjectPublicKeyInfo 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
 
@@ -3236,6 +3298,9 @@ Class HashAlgorithm from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ComputeHash",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ComputeHash",P1))
+
+	Func TryComputeHash P1,P2
+		return dnSend("s4:call",nHandle,"s14:TryComputeHash",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ComputeHashAsync P1
 		if dotnet_isnamed(P1)
@@ -3556,8 +3621,14 @@ Class IncrementalHash from Object
 	Func GetHashAndReset 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset"))
 
+	Func TryGetHashAndReset P1
+		return dnSend("s4:call",nHandle,"s18:TryGetHashAndReset",dnPackItem(P1))
+
 	Func GetCurrentHash 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash"))
+
+	Func TryGetCurrentHash P1
+		return dnSend("s4:call",nHandle,"s17:TryGetCurrentHash",dnPackItem(P1))
 
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
@@ -4211,8 +4282,25 @@ Class PemEncoding from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Find P1
+		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s4:Find",P1))
+
+	Func TryFind P1
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s7:TryFind",dnPackItem(P1))
+
 	Func GetEncodedSize P1,P2
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s14:GetEncodedSize",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func TryWrite P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s8:TryWrite",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func Write P1,P2
+		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s5:Write",P1,P2))
+
+	Func WriteString P1,P2
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s11:WriteString",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -4546,6 +4634,9 @@ Class RandomNumberGenerator from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s6:Create",P1))
 
+	Func Fill P1
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s4:Fill",dnPackItem(P1))
+
 	Func GetInt32 P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",P1)
@@ -4553,6 +4644,14 @@ Class RandomNumberGenerator from Object
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetItems P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetItems",dnPackItem(P1) + dnPackItem(P2))
+
+	Func GetString P1,P2
+		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s9:GetString",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -4565,6 +4664,9 @@ Class RandomNumberGenerator from Object
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s12:GetHexString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Shuffle P1
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s7:Shuffle",dnPackItem(P1))
 
 
 Class SP800108HmacCounterKdf from Object
@@ -4984,8 +5086,14 @@ Class SymmetricAlgorithm from Object
 	Func DecryptEcb P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DecryptEcb",P1,P2))
 
+	Func TryDecryptEcb P1,P2,P3
+		return dnSend("s4:call",nHandle,"s13:TryDecryptEcb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func EncryptEcb P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EncryptEcb",P1,P2))
+
+	Func TryEncryptEcb P1,P2,P3
+		return dnSend("s4:call",nHandle,"s13:TryEncryptEcb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DecryptCbc P1
 		if dotnet_isnamed(P1)
@@ -4993,11 +5101,27 @@ Class SymmetricAlgorithm from Object
 		ok
 		raise("DotNet Error: DecryptCbc does not take one argument: use named arguments, DecryptCbc([ :parameter = value, ... ])")
 
+	Func TryDecryptCbc P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:TryDecryptCbc",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryDecryptCbc does not take one argument: use named arguments, TryDecryptCbc([ :parameter = value, ... ])")
+
 	Func EncryptCbc P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EncryptCbc",P1))
 		ok
 		raise("DotNet Error: EncryptCbc does not take one argument: use named arguments, EncryptCbc([ :parameter = value, ... ])")
+
+	Func TryEncryptCbc P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:TryEncryptCbc",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryEncryptCbc does not take one argument: use named arguments, TryEncryptCbc([ :parameter = value, ... ])")
 
 	Func DecryptCfb P1
 		if dotnet_isnamed(P1)
@@ -5005,11 +5129,27 @@ Class SymmetricAlgorithm from Object
 		ok
 		raise("DotNet Error: DecryptCfb does not take one argument: use named arguments, DecryptCfb([ :parameter = value, ... ])")
 
+	Func TryDecryptCfb P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:TryDecryptCfb",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryDecryptCfb does not take one argument: use named arguments, TryDecryptCfb([ :parameter = value, ... ])")
+
 	Func EncryptCfb P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EncryptCfb",P1))
 		ok
 		raise("DotNet Error: EncryptCfb does not take one argument: use named arguments, EncryptCfb([ :parameter = value, ... ])")
+
+	Func TryEncryptCfb P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:TryEncryptCfb",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryEncryptCfb does not take one argument: use named arguments, TryEncryptCfb([ :parameter = value, ... ])")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5273,6 +5413,22 @@ Class DSA from AsymmetricAlgorithm
 		ok
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
+	Func TryCreateSignature P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryCreateSignature",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryCreateSignature does not take one argument: use named arguments, TryCreateSignature([ :parameter = value, ... ])")
+
+	Func TrySignData P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:TrySignData",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TrySignData does not take one argument: use named arguments, TrySignData([ :parameter = value, ... ])")
+
 	Func GetMaxSignatureSize P1
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetMaxSignatureSize",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5389,13 +5545,22 @@ Class ECAlgorithm from AsymmetricAlgorithm
 
 		return self
 
+	Func ImportECPrivateKey P1
+		return dnSend("s4:call",nHandle,"s18:ImportECPrivateKey",dnPackItem(P1))
+
 	Func ExportECPrivateKey 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExportECPrivateKey"))
+
+	Func TryExportECPrivateKey P1
+		return dnSend("s4:call",nHandle,"s21:TryExportECPrivateKey",dnPackItem(P1))
 
 	Func ExportECPrivateKeyPem 
 		dn_x = dotnet_call("s4:call",nHandle,"s21:ExportECPrivateKeyPem")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryExportECPrivateKeyPem P1
+		return dnSend("s4:call",nHandle,"s24:TryExportECPrivateKeyPem",dnPackItem(P1))
 
 
 Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
@@ -5482,6 +5647,9 @@ Class MD5 from HashAlgorithm
 
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s8:HashData",P1))
+
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -5669,6 +5837,15 @@ Class RSA from AsymmetricAlgorithm
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryDecrypt P1,P2,P3
+		return dnSend("s4:call",nHandle,"s10:TryDecrypt",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func TryEncrypt P1,P2,P3
+		return dnSend("s4:call",nHandle,"s10:TryEncrypt",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func TrySignHash P1,P2,P3,P4
+		return dnSend("s4:call",nHandle,"s11:TrySignHash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+
 	Func DecryptValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DecryptValue",P1))
 
@@ -5681,6 +5858,9 @@ Class RSA from AsymmetricAlgorithm
 		ok
 		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
+	Func TrySignData P1,P2,P3,P4
+		return dnSend("s4:call",nHandle,"s11:TrySignData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+
 	Func VerifyData P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyData",P1)
@@ -5692,8 +5872,20 @@ Class RSA from AsymmetricAlgorithm
 	Func ExportRSAPrivateKey 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExportRSAPrivateKey"))
 
+	Func TryExportRSAPrivateKey P1
+		return dnSend("s4:call",nHandle,"s22:TryExportRSAPrivateKey",dnPackItem(P1))
+
 	Func ExportRSAPublicKey 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExportRSAPublicKey"))
+
+	Func TryExportRSAPublicKey P1
+		return dnSend("s4:call",nHandle,"s21:TryExportRSAPublicKey",dnPackItem(P1))
+
+	Func ImportRSAPublicKey P1
+		return dnSend("s4:call",nHandle,"s18:ImportRSAPublicKey",dnPackItem(P1))
+
+	Func ImportRSAPrivateKey P1
+		return dnSend("s4:call",nHandle,"s19:ImportRSAPrivateKey",dnPackItem(P1))
 
 	Func ExportRSAPrivateKeyPem 
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ExportRSAPrivateKeyPem")
@@ -5704,6 +5896,12 @@ Class RSA from AsymmetricAlgorithm
 		dn_x = dotnet_call("s4:call",nHandle,"s21:ExportRSAPublicKeyPem")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryExportRSAPrivateKeyPem P1
+		return dnSend("s4:call",nHandle,"s25:TryExportRSAPrivateKeyPem",dnPackItem(P1))
+
+	Func TryExportRSAPublicKeyPem P1
+		return dnSend("s4:call",nHandle,"s24:TryExportRSAPublicKeyPem",dnPackItem(P1))
 
 	Func Create P1
 		if dotnet_isnamed(P1)
@@ -6059,6 +6257,9 @@ Class SHA1 from HashAlgorithm
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s8:HashData",P1))
 
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -6107,6 +6308,9 @@ Class SHA256 from HashAlgorithm
 
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s8:HashData",P1))
+
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -6157,6 +6361,9 @@ Class SHA384 from HashAlgorithm
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s8:HashData",P1))
 
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -6200,6 +6407,9 @@ Class SHA3_256 from HashAlgorithm
 
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s8:HashData",P1))
+
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -6253,6 +6463,9 @@ Class SHA3_384 from HashAlgorithm
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s8:HashData",P1))
 
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -6304,6 +6517,9 @@ Class SHA3_512 from HashAlgorithm
 
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s8:HashData",P1))
+
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -6361,6 +6577,9 @@ Class SHA512 from HashAlgorithm
 
 	Func HashData P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s8:HashData",P1))
+
+	Func TryHashData P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -6705,6 +6924,14 @@ Class ECDsa from ECAlgorithm
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignHash",P1))
 
+	Func TrySignData P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:TrySignData",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TrySignData does not take one argument: use named arguments, TrySignData([ :parameter = value, ... ])")
+
 	Func VerifyData P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyData",P1)
@@ -6720,6 +6947,14 @@ Class ECDsa from ECAlgorithm
 		return dn_x
 		ok
 		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
+
+	Func TrySignHash P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:TrySignHash",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TrySignHash does not take one argument: use named arguments, TrySignHash([ :parameter = value, ... ])")
 
 	Func GetMaxSignatureSize P1
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetMaxSignatureSize",P1)
@@ -7301,6 +7536,9 @@ Class HMACMD5 from HMAC
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s8:HashData",P1,P2))
 
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -7365,6 +7603,9 @@ Class HMACSHA1 from HMAC
 
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s8:HashData",P1,P2))
+
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -7431,6 +7672,9 @@ Class HMACSHA256 from HMAC
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s8:HashData",P1,P2))
 
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -7496,6 +7740,9 @@ Class HMACSHA384 from HMAC
 
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s8:HashData",P1,P2))
+
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -7572,6 +7819,9 @@ Class HMACSHA3_256 from HMAC
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s8:HashData",P1,P2))
 
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -7645,6 +7895,9 @@ Class HMACSHA3_384 from HMAC
 
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s8:HashData",P1,P2))
+
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
@@ -7720,6 +7973,9 @@ Class HMACSHA3_512 from HMAC
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s8:HashData",P1,P2))
 
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s13:HashDataAsync",P1))
@@ -7793,6 +8049,9 @@ Class HMACSHA512 from HMAC
 
 	Func HashData P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s8:HashData",P1,P2))
+
+	Func TryHashData P1,P2,P3
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s11:TryHashData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func HashDataAsync P1
 		if dotnet_isnamed(P1)

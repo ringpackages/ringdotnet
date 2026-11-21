@@ -725,6 +725,11 @@ Class Socket from Object
 
 		return self
 
+	Func SetRawSocketOption P1,P2,P3
+		dotnet_callv("s4:call",nHandle,"s18:SetRawSocketOption",P1,P2,P3)
+
+		return self
+
 	Func GetSocketOption P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetSocketOption",P1)
@@ -732,6 +737,9 @@ Class Socket from Object
 		return dn_x
 		ok
 		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
+
+	Func GetRawSocketOption P1,P2,P3
+		return dnSend("s4:call",nHandle,"s18:GetRawSocketOption",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SetIPProtectionLevel P1
 		dotnet_callv("s4:call",nHandle,"s20:SetIPProtectionLevel",P1)

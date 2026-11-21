@@ -1226,4 +1226,25 @@ Class Utf8 from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FromUtf16 P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Text.Unicode.Utf8, System.Private.CoreLib',"s9:FromUtf16",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: FromUtf16 does not take one argument: use named arguments, FromUtf16([ :parameter = value, ... ])")
+
+	Func ToUtf16 P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Text.Unicode.Utf8, System.Private.CoreLib',"s7:ToUtf16",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ToUtf16 does not take one argument: use named arguments, ToUtf16([ :parameter = value, ... ])")
+
+	Func IsValid P1
+		dn_x = dotnet_call("s4:call",'System.Text.Unicode.Utf8, System.Private.CoreLib',"s7:IsValid",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 

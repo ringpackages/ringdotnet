@@ -1098,6 +1098,9 @@ Class SqlDecimal from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func WriteTdsValue P1
+		return dnSend("s4:call",nHandle,"s13:WriteTdsValue",dnPackItem(P1))
+
 	Func ToSqlBoolean 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
 

@@ -194,6 +194,38 @@ Class Ascii from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToUpper P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
+
+	Func ToLower P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1) + dnPackItem(P2))
+
+	Func ToLowerInPlace P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s14:ToLowerInPlace",dnPackItem(P1))
+
+	Func ToUpperInPlace P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s14:ToUpperInPlace",dnPackItem(P1))
+
+	Func EqualsIgnoreCase P1,P2
+		dn_x = dotnet_call("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s16:EqualsIgnoreCase",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func ToUtf16 P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:ToUtf16",dnPackItem(P1) + dnPackItem(P2))
+
+	Func FromUtf16 P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s9:FromUtf16",dnPackItem(P1) + dnPackItem(P2))
+
+	Func Trim P1
+		return dnObj(dotnet_callo("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s4:Trim",P1))
+
+	Func TrimStart P1
+		return dnObj(dotnet_callo("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s9:TrimStart",P1))
+
+	Func TrimEnd P1
+		return dnObj(dotnet_callo("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:TrimEnd",P1))
+
 
 Class CompositeFormat from Object
 
@@ -582,6 +614,9 @@ Class Encoding from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetBytes",P1))
 
+	Func TryGetBytes P1,P2
+		return dnSend("s4:call",nHandle,"s11:TryGetBytes",dnPackItem(P1) + dnPackItem(P2))
+
 	Func GetCharCount P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetCharCount",P1)
@@ -599,6 +634,9 @@ Class Encoding from Object
 		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetChars",P1))
+
+	Func TryGetChars P1,P2
+		return dnSend("s4:call",nHandle,"s11:TryGetChars",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsAlwaysNormalized P1
 		if dotnet_isnamed(P1)
@@ -961,6 +999,30 @@ Class Rune from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func EncodeToUtf16 P1
+		return dnSend("s4:call",nHandle,"s13:EncodeToUtf16",dnPackItem(P1))
+
+	Func EncodeToUtf8 P1
+		return dnSend("s4:call",nHandle,"s12:EncodeToUtf8",dnPackItem(P1))
+
+	Func TryEncodeToUtf16 P1
+		return dnSend("s4:call",nHandle,"s16:TryEncodeToUtf16",dnPackItem(P1))
+
+	Func TryEncodeToUtf8 P1
+		return dnSend("s4:call",nHandle,"s15:TryEncodeToUtf8",dnPackItem(P1))
+
+	Func DecodeFromUtf16 P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:DecodeFromUtf16",dnPackItem(P1))
+
+	Func DecodeFromUtf8 P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s14:DecodeFromUtf8",dnPackItem(P1))
+
+	Func DecodeLastFromUtf16 P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s19:DecodeLastFromUtf16",dnPackItem(P1))
+
+	Func DecodeLastFromUtf8 P1
+		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s18:DecodeLastFromUtf8",dnPackItem(P1))
 
 	Func GetRuneAt P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:GetRuneAt",P1,P2))

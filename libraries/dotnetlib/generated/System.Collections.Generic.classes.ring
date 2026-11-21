@@ -656,6 +656,19 @@ Class CollectionExtensions from Object
 	Func AsReadOnly P1
 		return dnObj(dotnet_callo("s4:call",'System.Collections.Generic.CollectionExtensions, System.Private.CoreLib',"s10:AsReadOnly",P1))
 
+	Func AddRange P1,P2
+		dotnet_callv("s4:call",'System.Collections.Generic.CollectionExtensions, System.Private.CoreLib',"s8:AddRange",P1,P2)
+
+		return self
+
+	Func InsertRange P1,P2,P3
+		dotnet_callv("s4:call",'System.Collections.Generic.CollectionExtensions, System.Private.CoreLib',"s11:InsertRange",P1,P2,P3)
+
+		return self
+
+	Func CopyTo P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Collections.Generic.CollectionExtensions, System.Private.CoreLib'),"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
+
 
 Class Comparer1 from Object
 

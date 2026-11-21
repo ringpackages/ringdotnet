@@ -540,6 +540,12 @@ Class GraphicsPath from MarshalByRefObject
 		ok
 		raise("DotNet Error: Warp does not take one argument: use named arguments, Warp([ :parameter = value, ... ])")
 
+	Func @GetPathTypes P1
+		return dnSend("s4:call",nHandle,"s12:GetPathTypes",dnPackItem(P1))
+
+	Func @GetPathPoints P1
+		return dnSend("s4:call",nHandle,"s13:GetPathPoints",dnPackItem(P1))
+
 	Func getFillMode
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillMode"))
 

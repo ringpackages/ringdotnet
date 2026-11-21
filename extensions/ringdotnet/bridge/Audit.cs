@@ -79,6 +79,29 @@ namespace RingDotNet
 			return (t.FullName ?? t.Name) + "." + member;
 		}
 
+		/* The methods with a Span, ReadOnlySpan or Memory parameter, as text lines (to see what a wrapper has to cover) */
+		public static RingList Spans(Assembly asm)
+		{
+			RingList lines = new RingList();
+			Type[] types;
+			try { types = asm.GetExportedTypes(); }
+			catch (ReflectionTypeLoadException ex) { types = Array.FindAll(ex.Types, x => x != null); }
+			foreach (Type t in types)
+			{
+				if (t.IsGenericTypeDefinition || t.IsByRefLike) continue;
+				foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly))
+				{
+					if (m.IsSpecialName) continue;
+					ParameterInfo[] ps = m.GetParameters();
+					if (ps.Any(p => IsRefLike(p.ParameterType)) && !ps.Any(p => IsPointer(p.ParameterType)))
+					{
+						lines.Add(t.Name + "." + m.Name + "(" + string.Join(", ", ps.Select(p => (p.ParameterType.IsByRef ? "ref " : "") + p.ParameterType.Name + (p.ParameterType.IsGenericType ? "<" + string.Join(",", p.ParameterType.GetGenericArguments().Select(g => g.Name)) + ">" : ""))) + ") : " + m.ReturnType.Name);
+					}
+				}
+			}
+			return lines;
+		}
+
 		public static RingList Assembly(Assembly asm)
 		{
 			Tally tally = new Tally();
@@ -142,7 +165,7 @@ namespace RingDotNet
 					string where = Short(t, m.Name);
 					tally.Add("INFO method: public methods", where);
 					ParameterInfo[] ps = m.GetParameters();
-					if (ps.Any(p => IsPointer(p.ParameterType)) || ps.Any(p => IsRefLike(p.ParameterType)) || !Bridge.Usable(m))
+					if (ps.Any(p => IsPointer(p.ParameterType)) || ps.Any(p => IsRefLike(p.ParameterType) && !(!p.ParameterType.IsByRef && Bridge.IsSpan(p.ParameterType, out _, out _))) || !Bridge.Usable(m))
 					{
 						string kind = ps.Any(p => IsPointer(p.ParameterType)) ? "pointer parameter" : ps.Any(p => IsRefLike(p.ParameterType)) ? "Span or other ref struct parameter" : "other";
 						if (callableNames.Contains(m.Name)) tally.Add("INFO method: not callable (" + kind + "), but another overload of the name is", where);
@@ -152,7 +175,11 @@ namespace RingDotNet
 					{
 						tally.Add("OK   method: callable with :typeArguments (generic, type argument only in the result)", where);
 					}
-					else tally.Add("OK   method: callable", where);
+					else
+					{
+						tally.Add("OK   method: callable", where);
+						if (ps.Any(p => !p.ParameterType.IsByRef && Bridge.IsSpan(p.ParameterType, out _, out _))) tally.Add("OK   method: Span parameter (an array in Ring: a text, a byte string, a list, or a size)", where);
+					}
 					if (IsPointer(m.ReturnType) || IsRefLike(m.ReturnType)) tally.Add("GAP  method: pointer or ref struct result", where);
 					if (m.ReturnType.IsByRef) tally.Add("GAP  method: ref return", where);
 					if (m.IsGenericMethodDefinition)

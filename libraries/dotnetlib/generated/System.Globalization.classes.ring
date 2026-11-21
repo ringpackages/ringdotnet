@@ -531,6 +531,16 @@ Class CompareInfo from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSortKey",P1))
 
+	Func GetSortKeyLength P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:GetSortKeyLength",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetSortKeyLength",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

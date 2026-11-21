@@ -1616,6 +1616,14 @@ Class Path from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryJoin P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.IO.Path, System.Private.CoreLib',"s7:TryJoin",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryJoin does not take one argument: use named arguments, TryJoin([ :parameter = value, ... ])")
+
 	Func GetRelativePath P1,P2
 		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetRelativePath",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1879,6 +1887,14 @@ Class Stream from MarshalByRefObject
 		dotnet_callv("s4:call",nHandle,"s11:ReadExactly",P1,P2,P3)
 
 		return self
+
+	Func ReadAtLeast P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:ReadAtLeast",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ReadAtLeast does not take one argument: use named arguments, ReadAtLeast([ :parameter = value, ... ])")
 
 	Func Write P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2,P3)

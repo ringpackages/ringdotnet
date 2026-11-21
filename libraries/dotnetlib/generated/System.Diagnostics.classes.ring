@@ -1257,8 +1257,20 @@ Class ActivitySpanId from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CopyTo P1
+		return dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
+
 	Func CreateRandom 
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',"s12:CreateRandom"))
+
+	Func CreateFromBytes P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',"s15:CreateFromBytes",P1))
+
+	Func CreateFromUtf8String P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',"s20:CreateFromUtf8String",P1))
+
+	Func CreateFromString P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',"s16:CreateFromString",P1))
 
 	# the operators of System.Diagnostics.ActivitySpanId: = !=
 	Func operator cOperator, Para
@@ -1471,8 +1483,20 @@ Class ActivityTraceId from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CopyTo P1
+		return dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
+
 	Func CreateRandom 
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',"s12:CreateRandom"))
+
+	Func CreateFromBytes P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',"s15:CreateFromBytes",P1))
+
+	Func CreateFromUtf8String P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',"s20:CreateFromUtf8String",P1))
+
+	Func CreateFromString P1
+		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',"s16:CreateFromString",P1))
 
 	# the operators of System.Diagnostics.ActivityTraceId: = !=
 	Func operator cOperator, Para

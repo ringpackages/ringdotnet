@@ -337,6 +337,9 @@ Class HttpMethod from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Parse P1
+		return dnObj(dotnet_callo("s4:call",'System.Net.Http.HttpMethod, System.Net.Http',"s5:Parse",P1))
+
 	Func getMethod
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Method")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

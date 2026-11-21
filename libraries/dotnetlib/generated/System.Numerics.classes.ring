@@ -244,6 +244,14 @@ Class BigInteger from ValueType
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray",P1))
 
+	Func TryWriteBytes P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:TryWriteBytes",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:TryWriteBytes",dnPackItem(P1))
+
 	Func GetByteCount P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetByteCount",P1)
@@ -268,6 +276,14 @@ Class BigInteger from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
 	Func GetBitLength 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetBitLength")
@@ -592,6 +608,14 @@ Class Complex from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryFormat P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
+
 	Func FromPolarCoordinates P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s20:FromPolarCoordinates",P1,P2))
 
@@ -894,6 +918,12 @@ Class IBinaryInteger from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryWriteBigEndian P1
+		return dnSend("s4:call",nHandle,"s17:TryWriteBigEndian",dnPackItem(P1))
+
+	Func TryWriteLittleEndian P1
+		return dnSend("s4:call",nHandle,"s20:TryWriteLittleEndian",dnPackItem(P1))
+
 	Func WriteBigEndian P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:WriteBigEndian",P1)
@@ -923,6 +953,9 @@ Class IBinaryInteger from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1,P2,P3
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Format P1
 		if dotnet_isnamed(P1)
@@ -957,6 +990,9 @@ Class IBinaryNumber from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1,P2,P3
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Format P1
 		if dotnet_isnamed(P1)
@@ -1115,6 +1151,9 @@ Class INumberBase from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryFormat P1,P2,P3
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func Format P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
@@ -1148,6 +1187,9 @@ Class INumber from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1,P2,P3
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Format P1
 		if dotnet_isnamed(P1)
@@ -1193,6 +1235,9 @@ Class ISignedNumber from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1,P2,P3
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Format P1
 		if dotnet_isnamed(P1)
@@ -2498,6 +2543,9 @@ Class Vector2 from ValueType
 
 		return self
 
+	Func TryCopyTo P1
+		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
+
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2829,6 +2877,9 @@ Class Vector3 from ValueType
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
 
 		return self
+
+	Func TryCopyTo P1
+		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
@@ -3182,6 +3233,9 @@ Class Vector4 from ValueType
 
 		return self
 
+	Func TryCopyTo P1
+		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
+
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3517,6 +3571,9 @@ Class Vector1 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryCopyTo P1
+		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

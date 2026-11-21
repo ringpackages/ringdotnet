@@ -1536,8 +1536,22 @@ Class MemoryMarshal from Object
 	Func GetArrayDataReference P1
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s21:GetArrayDataReference",P1))
 
+	Func AsBytes P1
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s7:AsBytes",dnPackItem(P1))
+
 	Func AsMemory P1
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s8:AsMemory",P1))
+
+	Func GetReference P1
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:GetReference",dnPackItem(P1))
+
+	Func Cast P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s4:Cast",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s4:Cast",dnPackItem(P1))
 
 	Func CreateSpan P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s10:CreateSpan",dnPackItem(P1) + dnPackItem(P2))
@@ -1556,6 +1570,29 @@ Class MemoryMarshal from Object
 
 	Func TryGetString P1
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:TryGetString",dnPackItem(P1))
+
+	Func Read P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s4:Read",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s4:Read",P1))
+
+	Func TryRead P1
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s7:TryRead",dnPackItem(P1))
+
+	Func Write P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2))
+
+	Func TryWrite P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s8:TryWrite",dnPackItem(P1) + dnPackItem(P2))
+
+	Func AsRef P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s5:AsRef",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s5:AsRef",dnPackItem(P1))
 
 	Func CreateFromPinnedArray P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s21:CreateFromPinnedArray",P1,P2,P3))
@@ -1624,6 +1661,14 @@ Class NFloat from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryFormat P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
 	Func IsFinite P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:IsFinite",P1)
@@ -2375,6 +2420,9 @@ Class SafeBuffer from DotNetObject
 
 		return self
 
+	Func ReadSpan P1,P2
+		return dnSend("s4:call",nHandle,"s8:ReadSpan",dnPackItem(P1) + dnPackItem(P2))
+
 	Func Write P1,P2
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
 
@@ -2382,6 +2430,11 @@ Class SafeBuffer from DotNetObject
 
 	Func WriteArray P1,P2,P3,P4
 		dotnet_callv("s4:call",nHandle,"s10:WriteArray",P1,P2,P3,P4)
+
+		return self
+
+	Func WriteSpan P1,P2
+		dotnet_callv("s4:call",nHandle,"s9:WriteSpan",P1,P2)
 
 		return self
 

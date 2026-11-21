@@ -3071,6 +3071,9 @@ Class Graphics from MarshalByRefObject
 		ok
 		raise("DotNet Error: MeasureString does not take one argument: use named arguments, MeasureString([ :parameter = value, ... ])")
 
+	Func MeasureStringInternal P1,P2,P3,P4
+		return dnSend("s4:call",nHandle,"s21:MeasureStringInternal",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+
 	Func MeasureCharacterRanges P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MeasureCharacterRanges",P1,P2,P3,P4))
 

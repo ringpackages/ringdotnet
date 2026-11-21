@@ -2323,6 +2323,9 @@ Class IPNetwork from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryFormat P1
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Net.IPNetwork, System.Net.Primitives',"s5:Parse",P1))
 
@@ -4145,8 +4148,14 @@ Class IPAddress from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func TryWriteBytes P1
+		return dnSend("s4:call",nHandle,"s13:TryWriteBytes",dnPackItem(P1))
+
 	Func GetAddressBytes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetAddressBytes"))
+
+	Func TryFormat P1
+		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

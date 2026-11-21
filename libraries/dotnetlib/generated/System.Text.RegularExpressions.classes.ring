@@ -496,6 +496,24 @@ Class Regex from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
 
+	Func EnumerateMatches P1
+		if dotnet_isnamed(P1)
+			if nHandle = 0
+				return dnObj(dotnet_callo("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s16:EnumerateMatches",P1))
+			ok
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:EnumerateMatches",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:EnumerateMatches",P1))
+
+	Func EnumerateSplits P1
+		if dotnet_isnamed(P1)
+			if nHandle = 0
+				return dnObj(dotnet_callo("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s15:EnumerateSplits",P1))
+			ok
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:EnumerateSplits",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:EnumerateSplits",P1))
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

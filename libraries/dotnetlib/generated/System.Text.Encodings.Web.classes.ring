@@ -57,6 +57,19 @@ Class TextEncoder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func EncodeUtf8 P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:EncodeUtf8",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: EncodeUtf8 does not take one argument: use named arguments, EncodeUtf8([ :parameter = value, ... ])")
+
+	Func FindFirstCharacterToEncodeUtf8 P1
+		dn_x = dotnet_call("s4:call",nHandle,"s30:FindFirstCharacterToEncodeUtf8",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

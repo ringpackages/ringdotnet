@@ -246,6 +246,14 @@ oBig = new BigInteger().Parse("42")
 ? oBig.convertTo("System.Int64")     # the explicit conversion of BigInteger
 ```
 
+A parameter of type `Span<T>` or `ReadOnlySpan<T>` takes what Ring has for an array: a text (`char`), a byte string or a list (`byte`, numbers), or an object that is an array. A `Span<T>` that the method fills takes a number, the size of a new buffer, or a buffer you made; the filled buffer is part of the answer, after the result and the `out` values (a list of bytes is a byte string, a list of chars a text).
+
+```ring
+dnImport("System")
+aResult = dnStatic("System.Convert","TryToBase64Chars",["Ring",16])   # [done, chars, number of chars]
+? left(aResult[2],aResult[3])                                          # UmluZw==
+```
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

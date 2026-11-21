@@ -202,6 +202,25 @@ Class NegotiateAuthentication from Object
 	Func GetOutgoingBlob P1
 		return dnSend("s4:call",nHandle,"s15:GetOutgoingBlob",dnPackItem(P1))
 
+	Func Wrap P1,P2,P3
+		return dnSend("s4:call",nHandle,"s4:Wrap",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
+	Func Unwrap P1,P2
+		return dnSend("s4:call",nHandle,"s6:Unwrap",dnPackItem(P1) + dnPackItem(P2))
+
+	Func UnwrapInPlace P1
+		return dnSend("s4:call",nHandle,"s13:UnwrapInPlace",dnPackItem(P1))
+
+	Func ComputeIntegrityCheck P1,P2
+		dotnet_callv("s4:call",nHandle,"s21:ComputeIntegrityCheck",P1,P2)
+
+		return self
+
+	Func VerifyIntegrityCheck P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s20:VerifyIntegrityCheck",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

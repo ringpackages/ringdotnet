@@ -1419,6 +1419,11 @@ Class Utf8JsonWriter from Object
 
 		return self
 
+	Func WriteBase64String P1,P2
+		dotnet_callv("s4:call",nHandle,"s17:WriteBase64String",P1,P2)
+
+		return self
+
 	Func WriteString P1,P2
 		dotnet_callv("s4:call",nHandle,"s11:WriteString",P1,P2)
 
@@ -1441,6 +1446,11 @@ Class Utf8JsonWriter from Object
 
 	Func WritePropertyName P1
 		dotnet_callv("s4:call",nHandle,"s17:WritePropertyName",P1)
+
+		return self
+
+	Func WriteBase64StringValue P1
+		dotnet_callv("s4:call",nHandle,"s22:WriteBase64StringValue",P1)
 
 		return self
 

@@ -644,6 +644,9 @@ Class PublicKey from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func TryExportSubjectPublicKeyInfo P1
+		return dnSend("s4:call",nHandle,"s29:TryExportSubjectPublicKeyInfo",dnPackItem(P1))
+
 	Func ExportSubjectPublicKeyInfo 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
 
@@ -663,6 +666,9 @@ Class PublicKey from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func CreateFromSubjectPublicKeyInfo P1
+		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography'),"s30:CreateFromSubjectPublicKeyInfo",dnPackItem(P1))
 
 	Func getEncodedKeyValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:EncodedKeyValue"))
@@ -1021,6 +1027,9 @@ Class X509Certificate from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash",P1))
+
+	Func TryGetCertHash P1,P2
+		return dnSend("s4:call",nHandle,"s14:TryGetCertHash",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCertHashString P1
 		if dotnet_isnamed(P1)
@@ -2365,6 +2374,9 @@ Class X509Certificate2 from X509Certificate
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryExportCertificatePem P1
+		return dnSend("s4:call",nHandle,"s23:TryExportCertificatePem",dnPackItem(P1))
+
 	Func MatchesHostname P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:MatchesHostname",P1)
@@ -2394,6 +2406,21 @@ Class X509Certificate2 from X509Certificate
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
+
+	Func CreateFromEncryptedPemFile P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s26:CreateFromEncryptedPemFile",P1))
+		ok
+		raise("DotNet Error: CreateFromEncryptedPemFile does not take one argument: use named arguments, CreateFromEncryptedPemFile([ :parameter = value, ... ])")
+
+	Func CreateFromPem P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s13:CreateFromPem",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s13:CreateFromPem",P1))
+
+	Func CreateFromEncryptedPem P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s22:CreateFromEncryptedPem",P1,P2,P3))
 
 	Func GetDSAPublicKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography")
@@ -2595,15 +2622,26 @@ Class X509Certificate2Collection from X509CertificateCollection
 
 		return self
 
+	Func ImportFromPem P1
+		dotnet_callv("s4:call",nHandle,"s13:ImportFromPem",P1)
+
+		return self
+
 	Func ExportPkcs7Pem 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ExportPkcs7Pem")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func TryExportPkcs7Pem P1
+		return dnSend("s4:call",nHandle,"s17:TryExportPkcs7Pem",dnPackItem(P1))
+
 	Func ExportCertificatePems 
 		dn_x = dotnet_call("s4:call",nHandle,"s21:ExportCertificatePems")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryExportCertificatePems P1
+		return dnSend("s4:call",nHandle,"s24:TryExportCertificatePems",dnPackItem(P1))
 
 
 Class X509EnhancedKeyUsageExtension from X509Extension

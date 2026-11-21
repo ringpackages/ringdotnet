@@ -133,6 +133,12 @@ Class BrotliDecoder from ValueType
 
 		return self
 
+	Func Decompress P1,P2
+		return dnSend("s4:call",nHandle,"s10:Decompress",dnPackItem(P1) + dnPackItem(P2))
+
+	Func TryDecompress P1,P2
+		return dnSend("s4:call",dnTypeHandle('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli'),"s13:TryDecompress",dnPackItem(P1) + dnPackItem(P2))
+
 
 Class BrotliEncoder from ValueType
 
@@ -175,10 +181,24 @@ Class BrotliEncoder from ValueType
 
 		return self
 
+	Func Flush P1
+		return dnSend("s4:call",nHandle,"s5:Flush",dnPackItem(P1))
+
+	Func Compress P1,P2,P3
+		return dnSend("s4:call",nHandle,"s8:Compress",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+
 	Func GetMaxCompressedLength P1
 		dn_x = dotnet_call("s4:call",'System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',"s22:GetMaxCompressedLength",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func TryCompress P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',"s11:TryCompress",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: TryCompress does not take one argument: use named arguments, TryCompress([ :parameter = value, ... ])")
 
 
 Class BrotliStream from Stream
