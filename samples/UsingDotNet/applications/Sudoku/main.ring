@@ -6,7 +6,7 @@ using {
 	"System.Windows.Forms"
 }
 
-aPuzzle = "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
+cPuzzle = "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
 lLoading = false	# true while the program fills the boxes (the TextChanged events are ignored)
 aGrid = list(81)	# the digits, 0 = empty
 aFixed = list(81)	# 1 for the digits that belong to the puzzle
@@ -32,11 +32,11 @@ for nCell = 1 to 81
 	aBoxes + oBox
 next
 oInfo = uiLabel(oForm,"",12,400,396,24)
-uiButton(oForm,"New",12,430,70,32,"loadPuzzle(aPuzzle)")
+uiButton(oForm,"New",12,430,70,32,"loadPuzzle(cPuzzle)")
 uiButton(oForm,"Check",92,430,70,32,"checkBoard()")
 uiButton(oForm,"Solve",172,430,70,32,"solveBoard()")
 uiButton(oForm,"Clear",252,430,70,32,"loadPuzzle(copy('0',81))")
-loadPuzzle(aPuzzle)
+loadPuzzle(cPuzzle)
 
 uiRun(oForm)
 

@@ -73,13 +73,13 @@ func press cKey
 			ok
 		ok
 	but cKey = "%"
-		cDisplay = uiNumberWpf(number(cDisplay) / 100)
+		cDisplay = numberText(number(cDisplay) / 100)
 		lFresh = true
 	but cKey = "√"
 		if number(cDisplay) < 0
 			cDisplay = "Error"
 		else
-			cDisplay = uiNumberWpf(sqrt(number(cDisplay)))
+			cDisplay = numberText(sqrt(number(cDisplay)))
 		ok
 		lFresh = true
 	but find(["+","-","*","/"],cKey) > 0
@@ -92,7 +92,7 @@ func press cKey
 		lFresh = true
 	but cKey = "="
 		if cOperator != ""
-			oHistory.Text = uiNumberWpf(nAccumulator) + " " + cOperator + " " + cDisplay + " ="
+			oHistory.Text = numberText(nAccumulator) + " " + cOperator + " " + cDisplay + " ="
 			calculate()
 			cOperator = ""
 		ok
@@ -118,10 +118,10 @@ func calculate
 		ok
 		nResult = nAccumulator / nRight
 	off
-	cDisplay = uiNumberWpf(nResult)
+	cDisplay = numberText(nResult)
 	nAccumulator = nResult
 	lFresh = true
 
 # a number as text without Ring's fixed decimals
-func uiNumberWpf nValue
+func numberText nValue
 	return new Convert().Format([ :value = nValue, :provider = new CultureInfo("").InvariantCulture ])

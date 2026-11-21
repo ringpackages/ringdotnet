@@ -3665,7 +3665,7 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-aPuzzle = <span class="s">"530070000600195000098000060800060003400803001700020006060000280000419005000080079"</span>
+cPuzzle = <span class="s">"530070000600195000098000060800060003400803001700020006060000280000419005000080079"</span>
 lLoading = <span class="k">false</span>	<span class="c"># true while the program fills the boxes (the TextChanged events are ignored)</span>
 aGrid = list(<span class="n">81</span>)	<span class="c"># the digits, 0 = empty</span>
 aFixed = list(<span class="n">81</span>)	<span class="c"># 1 for the digits that belong to the puzzle</span>
@@ -3691,11 +3691,11 @@ oForm {
 	aBoxes + oBox
 <span class="k">next</span>
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">12</span>,<span class="n">400</span>,<span class="n">396</span>,<span class="n">24</span>)
-<span class="f">uiButton</span>(oForm,<span class="s">"New"</span>,<span class="n">12</span>,<span class="n">430</span>,<span class="n">70</span>,<span class="n">32</span>,<span class="s">"loadPuzzle(aPuzzle)"</span>)
+<span class="f">uiButton</span>(oForm,<span class="s">"New"</span>,<span class="n">12</span>,<span class="n">430</span>,<span class="n">70</span>,<span class="n">32</span>,<span class="s">"loadPuzzle(cPuzzle)"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Check"</span>,<span class="n">92</span>,<span class="n">430</span>,<span class="n">70</span>,<span class="n">32</span>,<span class="s">"checkBoard()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Solve"</span>,<span class="n">172</span>,<span class="n">430</span>,<span class="n">70</span>,<span class="n">32</span>,<span class="s">"solveBoard()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Clear"</span>,<span class="n">252</span>,<span class="n">430</span>,<span class="n">70</span>,<span class="n">32</span>,<span class="s">"loadPuzzle(copy('0',81))"</span>)
-loadPuzzle(aPuzzle)
+loadPuzzle(cPuzzle)
 
 <span class="f">uiRun</span>(oForm)
 
@@ -4818,13 +4818,13 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 			<span class="k">ok</span>
 		<span class="k">ok</span>
 	<span class="k">but</span> cKey = <span class="s">"%"</span>
-		cDisplay = <span class="f">uiNumberWpf</span>(number(cDisplay) / <span class="n">100</span>)
+		cDisplay = numberText(number(cDisplay) / <span class="n">100</span>)
 		lFresh = <span class="k">true</span>
 	<span class="k">but</span> cKey = <span class="s">"√"</span>
 		<span class="k">if</span> number(cDisplay) &lt; <span class="n">0</span>
 			cDisplay = <span class="s">"Error"</span>
 		<span class="k">else</span>
-			cDisplay = <span class="f">uiNumberWpf</span>(sqrt(number(cDisplay)))
+			cDisplay = numberText(sqrt(number(cDisplay)))
 		<span class="k">ok</span>
 		lFresh = <span class="k">true</span>
 	<span class="k">but</span> find([<span class="s">"+"</span>,<span class="s">"-"</span>,<span class="s">"*"</span>,<span class="s">"/"</span>],cKey) &gt; <span class="n">0</span>
@@ -4837,7 +4837,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 		lFresh = <span class="k">true</span>
 	<span class="k">but</span> cKey = <span class="s">"="</span>
 		<span class="k">if</span> cOperator != <span class="s">""</span>
-			oHistory.Text = <span class="f">uiNumberWpf</span>(nAccumulator) + <span class="s">" "</span> + cOperator + <span class="s">" "</span> + cDisplay + <span class="s">" ="</span>
+			oHistory.Text = numberText(nAccumulator) + <span class="s">" "</span> + cOperator + <span class="s">" "</span> + cDisplay + <span class="s">" ="</span>
 			calculate()
 			cOperator = <span class="s">""</span>
 		<span class="k">ok</span>
@@ -4863,12 +4863,12 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 		<span class="k">ok</span>
 		nResult = nAccumulator / nRight
 	<span class="k">off</span>
-	cDisplay = <span class="f">uiNumberWpf</span>(nResult)
+	cDisplay = numberText(nResult)
 	nAccumulator = nResult
 	lFresh = <span class="k">true</span>
 
 <span class="c"># a number as text without Ring's fixed decimals</span>
-<span class="k">func</span> <span class="f">uiNumberWpf</span> nValue
+<span class="k">func</span> <span class="f">numberText</span> nValue
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = nValue, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">""</span>).InvariantCulture ])</code></pre></div></details></div></div><div class="item" id="wpf-color-mixer"><div class="pic"><img src="img/shots/app-WpfColorMixer.png" alt="Wpf Color Mixer" loading="lazy"></div><div class="info"><h3>Wpf Color Mixer</h3><p>Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</p><div class="run"><code>cd samples/UsingDotNet/applications/WpfColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>

@@ -13,7 +13,6 @@ using {
 	"System.Diagnostics"
 }
 
-
 nPercent = 0
 oWindow = wpfWindow("Progress",320,120)
 oPanel = new StackPanel()
