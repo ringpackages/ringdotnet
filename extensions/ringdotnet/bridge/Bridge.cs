@@ -389,6 +389,8 @@ namespace RingDotNet
 					return null;
 				case "listtypes":
 					return ListTypes(Str(a, 0), Rest(a, 1));
+				case "extensionclasses":
+					return ExtensionClassesOf(a);
 				case "bridgefolder":
 					return Path.GetDirectoryName(typeof(Bridge).Assembly.Location);
 				case "keytokens":
@@ -753,6 +755,33 @@ namespace RingDotNet
 		}
 
 		/* Public classes and structs of a namespace that are worth wrapping in Ring */
+		/* The public static classes with extension methods of assemblies (the generator describes only these to find the extension methods) */
+		private static List<object> ExtensionClassesOf(object[] assemblyNames)
+		{
+			List<string> found = new List<string>();
+			foreach (object n in assemblyNames)
+			{
+				if (!(n is string an)) continue;
+				Assembly asm;
+				try { asm = Assembly.Load(an); } catch (Exception) { continue; }
+				Type[] types;
+				try { types = asm.GetExportedTypes(); }
+				catch (ReflectionTypeLoadException ex) { types = Array.FindAll(ex.Types, x => x != null); }
+				catch (Exception) { continue; }
+				foreach (Type t in types)
+				{
+					if (t.IsNested || !t.IsSealed || !t.IsAbstract || t.IsGenericTypeDefinition || t.FullName == null) continue;
+					try
+					{
+						if (t.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) && !found.Contains(t.FullName)) found.Add(t.FullName);
+					}
+					catch (Exception) { }
+				}
+			}
+			found.Sort(StringComparer.Ordinal);
+			return new List<object>(found);
+		}
+
 		private static List<object> ListTypes(string ns, object[] assemblyNames)
 		{
 			List<string> found = new List<string>();

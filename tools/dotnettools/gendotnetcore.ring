@@ -1041,8 +1041,26 @@ func isExoticType cType
 func findExtensions aPlan
 	aExtMap = []
 	nCount = 0
+	# only the static classes with extension methods are described: the bridge lists them for the assemblies of the manifest
+	aExtClasses = []
+	aSeen = []
+	for aEntry in aDotNetManifest
+		aEntryAssemblies = optValue(aEntry,"assemblies",["System.Private.CoreLib"])
+		for cAssemblyName in aEntryAssemblies
+			if find(aSeen,cAssemblyName) = 0
+				aSeen + cAssemblyName
+				aFound = dnRequest("extensionclasses",[cAssemblyName])
+				for cExtClass in aFound
+					aExtClasses + cExtClass
+				next
+			ok
+		next
+	next
 	for aItem in aPlan
 		for aType in aItem[2]
+			if find(aExtClasses,aType[4]) = 0
+				loop
+			ok
 			try
 				aInfo = dnDescribe(aType[1])
 			catch
@@ -1129,7 +1147,8 @@ func genAll aWanted
 	if len(aWanted) = 0
 		# wrapassembly.ring (lMergeIndex): another assembly may have been wrapped into the same folder, and its types stay in the index
 		if lMergeIndex and fexists(C_OUTDIR + "classindex.ring")
-			for cOldLine in str2list(read(C_OUTDIR + "classindex.ring"))
+			aOldLines = str2list(read(C_OUTDIR + "classindex.ring"))
+			for cOldLine in aOldLines
 				cOldLine = trim(cOldLine)
 				if left(cOldLine,17) = "aDotNetClassIndex" and not substr(cIndex,cOldLine)
 					cIndex += cOldLine + nl

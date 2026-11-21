@@ -49,33 +49,42 @@ func main
 # first: such a class gets the last part of its namespace as a prefix (CoreVersion), the way the library names its own clashes.
 # The namespaces that need Windows Forms, WPF, ASP.NET or Entity Framework are left out: they are loaded only by programs that use them.
 func reserveLibraryNames
-	aSkip = []
-	for aEntry in aLibraryManifest
-		if optValue(aEntry,"desktop",false) or optValue(aEntry,"web",false) or optValue(aEntry,"data",false)
-			aSkip + aEntry[:namespace]
+	rl_aSkip = []
+	for rl_aEntry in aLibraryManifest
+		if optValue(rl_aEntry,"desktop",false) or optValue(rl_aEntry,"web",false) or optValue(rl_aEntry,"data",false)
+			rl_aSkip + rl_aEntry[:namespace]
 		ok
 	next
-	cFolder = "../../libraries/dotnetlib/generated/"
-	for cFile in dir(cFolder)
-		cName = cFile[1]
-		if right(cName,5) = ".ring" and not substr(cName,".classes.ring")
-			cNamespace = left(cName,len(cName) - 5)
-			if find(aSkip,cNamespace) = 0
-				for cLine in str2list(read(cFolder + cName))
-					cLine = trim(cLine)
-					if left(cLine,16) = 'dnRegisterClass('
-						nMiddle = substr(cLine,'","')
-						if nMiddle > 0
-							cType = substr(left(cLine,nMiddle - 1),17)
-							cRest = substr(cLine,nMiddle + 3)
-							nEnd = substr(cRest,'"')
-							cClass = left(cRest,nEnd - 1)
-							if find(aTaken,lower(cClass),1) = 0
-								aTaken + [lower(cClass),cType]
-							ok
-						ok
+	rl_cFolder = "../../libraries/dotnetlib/generated/"
+	rl_aLines = []
+	for rl_aFile in dir(rl_cFolder)
+		rl_cName = rl_aFile[1]
+		if right(rl_cName,5) = ".ring" and not substr(rl_cName,".classes.ring")
+			if find(rl_aSkip,left(rl_cName,len(rl_cName) - 5)) = 0
+				rl_aFileLines = str2list(read(rl_cFolder + rl_cName))          # a list in a variable: for ... in function() calls the function for every item
+				for rl_cLine in rl_aFileLines
+					if left(rl_cLine,16) = 'dnRegisterClass('
+						rl_aLines + trim(rl_cLine)
 					ok
 				next
 			ok
 		ok
 	next
+	rl_aReserved = []
+	rl_aNames = []          # the reserved names alone: find on a list of texts is fast
+	for rl_cLine in rl_aLines
+		rl_nMiddle = substr(rl_cLine,'","')
+		if rl_nMiddle > 0
+			rl_cType = substr(left(rl_cLine,rl_nMiddle - 1),17)
+			rl_cRest = substr(rl_cLine,rl_nMiddle + 3)
+			rl_cClass = left(rl_cRest,substr(rl_cRest,'"') - 1)
+			if find(rl_aNames,lower(rl_cClass)) = 0
+				rl_aNames + lower(rl_cClass)
+				rl_aReserved + [lower(rl_cClass),rl_cType]
+			ok
+		ok
+	next
+	for rl_aTakenItem in aTaken
+		rl_aReserved + rl_aTakenItem
+	next
+	aTaken = rl_aReserved
