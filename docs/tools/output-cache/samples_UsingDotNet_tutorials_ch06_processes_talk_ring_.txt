@@ -1,6 +1,6 @@
 1. the parent got the lock: yes
 
-2. the pipe server is listening on 'ringdotnet_tutorial79'
+2. the pipe server is listening on 'ringdotnet_talk'
 
 3. the child connected
 

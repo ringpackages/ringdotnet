@@ -412,14 +412,14 @@ usage: wordstat FILE [--top N] [--min LENGTH]
   --help      this text
 (exit code 0)
 
-$ wordstat tutorial51.txt --top 3
+$ wordstat ringdotnet_cli.txt --top 3
 words counted: 7 different
     5  the
     3  a
     3  and
 (exit code 0)
 
-$ wordstat tutorial51.txt --top 3 --min 4
+$ wordstat ringdotnet_cli.txt --top 3 --min 4
 words counted: 2 different
     2  bird
     1  fish
@@ -429,11 +429,11 @@ $ wordstat missing.txt
 error: the file 'missing.txt' does not exist
 (exit code 2)
 
-$ wordstat tutorial51.txt --top many
+$ wordstat ringdotnet_cli.txt --top many
 error: --top needs a number
 (exit code 1)
 
-$ wordstat tutorial51.txt --colour
+$ wordstat ringdotnet_cli.txt --colour
 error: unknown option --colour
 (exit code 1)</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

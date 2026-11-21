@@ -1,4 +1,4 @@
-1. the key HKEY_CURRENT_USER\Software\RingDotNetTutorial118 was made: 1
+1. the key HKEY_CURRENT_USER\Software\RingDotNetTutorial was made: 1
 
 2. values written: 6
 

@@ -1,4 +1,4 @@
-1. status: OK, body: hello Ann, your header X-Client was: ringdotnet-tutorial
+1. status: OK, body: hello Ann, your header X-Client was: ringdotnet-http-client
    the server's header X-Server: ring
    content type: text/plain; charset=utf-8
 

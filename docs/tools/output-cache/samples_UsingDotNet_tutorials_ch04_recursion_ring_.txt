@@ -22,7 +22,7 @@
 4. the 6 orders of a, b, c: abc, acb, bac, bca, cab, cba
 
 5. the folder tree:
-   tutorial75/
+   ringdotnet_recursion/
       docs/
          old/
             v1.txt
