@@ -296,7 +296,7 @@ using {
 	oToString = <span class="k">new</span> <span class="t">StringWriter</span>
 	writeReport(oToString,<span class="s">"Ann"</span>,<span class="n">31</span>)
 	? <span class="s">"   to a string: "</span> + substr(substr(oToString.<span class="f">ToString</span>(),char(<span class="n">13</span>),<span class="s">""</span>),nl,<span class="s">" | "</span>)
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial104.txt"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_readers.txt"</span>])
 	oFileWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(cFile)
 	writeReport(oFileWriter,<span class="s">"Bob"</span>,<span class="n">28</span>)
 	oFileWriter.<span class="f">Dispose</span>()

@@ -273,19 +273,19 @@ using {
 	<span class="k">ok</span>
 
 	<span class="c"># no arguments: a demonstration. A file with some text first.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial51.txt"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_cli.txt"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"The cat and the dog. The dog and the bird! A cat, a dog, a bird and the fish."</span> ])
 	? <span class="s">"$ wordstat --help"</span>
 	showResult(run([<span class="s">"--help"</span>]))
-	? nl + <span class="s">"$ wordstat tutorial51.txt --top 3"</span>
+	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --top 3"</span>
 	showResult(run([cFile,<span class="s">"--top"</span>,<span class="s">"3"</span>]))
-	? nl + <span class="s">"$ wordstat tutorial51.txt --top 3 --min 4"</span>
+	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --top 3 --min 4"</span>
 	showResult(run([cFile,<span class="s">"--top"</span>,<span class="s">"3"</span>,<span class="s">"--min"</span>,<span class="s">"4"</span>]))
 	? nl + <span class="s">"$ wordstat missing.txt"</span>
 	showResult(run([<span class="s">"missing.txt"</span>]))
-	? nl + <span class="s">"$ wordstat tutorial51.txt --top many"</span>
+	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --top many"</span>
 	showResult(run([cFile,<span class="s">"--top"</span>,<span class="s">"many"</span>]))
-	? nl + <span class="s">"$ wordstat tutorial51.txt --colour"</span>
+	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --colour"</span>
 	showResult(run([cFile,<span class="s">"--colour"</span>]))
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 

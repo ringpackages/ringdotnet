@@ -102,7 +102,7 @@ func isoYear oDate
 	return new ISOWeek().GetYear(oDate)
 
 func daysInMonth nYear,nMonth
-	return dnStatic("System.DateTime","DaysInMonth",[ nYear, nMonth ])
+	return new DateTime(nYear,nMonth,1).DaysInMonth(nYear,nMonth)
 
 # the years between two dates, minus one when the birthday of that year has not come yet
 func ageOn oBirth,oDay

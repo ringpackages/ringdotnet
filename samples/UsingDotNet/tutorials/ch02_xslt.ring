@@ -22,7 +22,7 @@ C_HTML = '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Tr
 C_HTML += '<xsl:template match="/library"><table><xsl:for-each select="book"><tr class="{@genre}"><td><xsl:value-of select="title"/></td><td><xsl:value-of select="price"/></td></tr></xsl:for-each></table></xsl:template></xsl:stylesheet>'
 
 func main
-	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial77"])
+	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_xslt"])
 	new Directory().CreateDirectory(cFolder)
 	cInput = new Path().Combine([cFolder,"library.xml"])
 	new File().WriteAllText([ :path = cInput, :contents = C_XML ])

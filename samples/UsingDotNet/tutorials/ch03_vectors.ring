@@ -37,7 +37,7 @@ func main
 	oMatrix = new Matrix3x2().CreateRotation(3.14159265358979 / 2)       # a quarter of a turn
 	oRotated = new Vector2().Transform(oPoint,oMatrix)
 	? nl + "6. the point (1, 0) turned by 90 degrees is (" + roundNumber(oRotated.X) + ", " + roundNumber(oRotated.Y) + ")"
-	oMove = dnStatic("System.Numerics.Matrix3x2","CreateTranslation",[10,5])
+	oMove = new Matrix3x2().CreateTranslation([ :xPosition = 10, :yPosition = 5 ])
 	oMoved = new Vector2().Transform(oPoint,oMove)
 	? "   moved by (10, 5): (" + oMoved.X + ", " + oMoved.Y + ")"
 	oBoth = new Matrix3x2().Multiply(oMatrix,oMove)           # first turn, then move

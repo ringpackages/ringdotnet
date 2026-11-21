@@ -257,6 +257,7 @@
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
+	<span class="s">"System.Threading"</span>
 	<span class="s">"System.IO"</span>
 	<span class="s">"RingDotNet.Web"</span>                  <span class="c"># the Data Protection API is part of the ASP.NET Core runtime: this line starts it</span>
 }
@@ -268,7 +269,7 @@ using {
 	<span class="c"># The Data Protection API encrypts and signs small pieces of data (a cookie, a token, a "remember me" value, a link in an e-mail)</span>
 	<span class="c"># without you handling keys, algorithms or initialisation vectors. It makes keys, keeps them in a folder, renews them,</span>
 	<span class="c"># and encrypts with AES and signs with HMAC. ASP.NET Core uses it for its cookies and tokens.</span>
-	cKeys = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial113_keys"</span>])
+	cKeys = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_protection_keys"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cKeys)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cKeys, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
@@ -312,7 +313,7 @@ using {
 	oLimited = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"ToTimeLimitedDataProtector"</span>,[oProtector])
 	cShort = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"Protect"</span>,[oLimited,<span class="s">"reset:42"</span>,<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMilliseconds</span>(<span class="n">1200</span>)])
 	? nl + <span class="s">"6. a token that is valid for 1.2 seconds: now "</span> + tryUnprotectLimited(cAdvanced,oLimited,cShort)
-	<span class="f">dnStatic</span>(<span class="s">"System.Threading.Thread"</span>,<span class="s">"Sleep"</span>,[<span class="n">2000</span>])
+	<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">2000</span>)
 	? <span class="s">"   after 2 seconds: "</span> + tryUnprotectLimited(cAdvanced,oLimited,cShort)
 
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cKeys, :recursive = <span class="k">True</span> ])

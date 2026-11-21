@@ -280,10 +280,10 @@ using {
 	? nl + <span class="s">"1. len('café') = "</span> + len(cWord) + <span class="s">" (bytes), but "</span> + textElements(cWord).LengthInTextElements + <span class="s">" letters"</span>
 
 	<span class="c"># 2. Encodings: the same text, different bytes. Reading with the WRONG encoding gives garbage ("mojibake")</span>
-	aBytes = oUtf8.<span class="f">GetBytes</span>(<span class="s">"é"</span>)
-	? nl + <span class="s">"2. 'é' in UTF-8 is "</span> + len(aBytes) + <span class="s">" bytes: "</span> + ascii(aBytes[<span class="n">1</span>]) + <span class="s">" and "</span> + ascii(aBytes[<span class="n">2</span>])
-	? <span class="s">"   the same bytes read as Latin-1 give: "</span> + oLatin1.<span class="f">GetString</span>(aBytes) + <span class="s">"  (two wrong letters)"</span>
-	? <span class="s">"   read as UTF-8 again: "</span> + oUtf8.<span class="f">GetString</span>(aBytes)
+	cBytes = oUtf8.<span class="f">GetBytes</span>(<span class="s">"é"</span>)
+	? nl + <span class="s">"2. 'é' in UTF-8 is "</span> + len(cBytes) + <span class="s">" bytes: "</span> + ascii(cBytes[<span class="n">1</span>]) + <span class="s">" and "</span> + ascii(cBytes[<span class="n">2</span>])
+	? <span class="s">"   the same bytes read as Latin-1 give: "</span> + oLatin1.<span class="f">GetString</span>(cBytes) + <span class="s">"  (two wrong letters)"</span>
+	? <span class="s">"   read as UTF-8 again: "</span> + oUtf8.<span class="f">GetString</span>(cBytes)
 
 	<span class="c"># 3. A round trip: text -&gt; bytes -&gt; text, with the same encoding, gives the same text</span>
 	cArabic = <span class="s">"مرحبا بالعالم"</span>

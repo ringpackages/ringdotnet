@@ -352,8 +352,7 @@ using {
 	<span class="k">return</span> nCalls
 
 <span class="k">func</span> <span class="f">checksum</span> cFile
-	oHash = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.SHA256"</span>,<span class="s">"Create"</span>,[])
-	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(oHash.<span class="f">ComputeHash</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile)))
+	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile)))
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
 	<span class="k">if</span> lValue

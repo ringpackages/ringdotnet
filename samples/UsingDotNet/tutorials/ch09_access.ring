@@ -21,7 +21,7 @@ func main
 	dnLoad(dnRequest("bridgefolder",[]) + "/System.Data.Odbc.dll")          # System.Data.Odbc is a NuGet package, it is not part of the runtime
 
 	# 1. A new Access file. The ODBC driver opens files but can not create one, so ADOX (a COM component that comes with Access) does it.
-	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial115.accdb"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_access.accdb"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

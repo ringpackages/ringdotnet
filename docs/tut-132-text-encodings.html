@@ -269,10 +269,10 @@ using {
 	<span class="c"># A file holds BYTES. An ENCODING says which bytes mean which characters. The text "Café €" has an accent and a euro sign, which</span>
 	<span class="c"># are not in the old 7-bit ASCII table.</span>
 	cText = <span class="s">"Caf"</span> + char(<span class="n">195</span>) + char(<span class="n">169</span>) + <span class="s">" "</span> + char(<span class="n">226</span>) + char(<span class="n">130</span>) + char(<span class="n">172</span>)          <span class="c"># the UTF-8 bytes of  Café €</span>
-	oUtf8 = encoding(<span class="s">"UTF8"</span>)
-	oUtf16 = encoding(<span class="s">"Unicode"</span>)                       <span class="c"># .NET calls UTF-16 (little endian) "Unicode"</span>
-	oLatin1 = encoding(<span class="s">"Latin1"</span>)
-	oAscii = encoding(<span class="s">"ASCII"</span>)
+	oUtf8 = <span class="k">new</span> <span class="t">Encoding</span>().UTF8
+	oUtf16 = <span class="k">new</span> <span class="t">Encoding</span>().Unicode                       <span class="c"># .NET calls UTF-16 (little endian) "Unicode"</span>
+	oLatin1 = <span class="k">new</span> <span class="t">Encoding</span>().Latin1
+	oAscii = <span class="k">new</span> <span class="t">Encoding</span>().ASCII
 
 	<span class="c"># 1. The same text in four encodings: different bytes, different sizes</span>
 	? <span class="s">"1. the bytes of the text 'Cafe' with an accent, a space and the euro sign:"</span>
@@ -330,10 +330,6 @@ using {
 	? nl + <span class="s">"7. a file with mixed line endings has "</span> + len(aLines) + <span class="s">" lines: "</span> + aLines[<span class="n">1</span>] + <span class="s">", "</span> + aLines[<span class="n">2</span>] + <span class="s">", "</span> + aLines[<span class="n">3</span>]
 
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
-
-<span class="c"># an Encoding object by its name (the static properties of the class Encoding)</span>
-<span class="k">func</span> <span class="f">encoding</span> cName
-	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.Text.Encoding"</span>,<span class="s">"get_"</span> + cName,[])
 
 <span class="c"># does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)</span>
 <span class="k">func</span> <span class="f">isValidUtf8</span> cBytes
@@ -411,7 +407,7 @@ using {
    c.txt: not UTF-8: try Latin-1
 
 7. a file with mixed line endings has 3 lines: one, two, three</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnNew</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="bytes-and-encodings">Bytes and encodings<a class="anchor" href="#bytes-and-encodings">#</a></h3>
 <p>The text <code>Café €</code> has six characters. In <strong>UTF-8</strong> it has 9 bytes: the letters of English take 1 byte each, <code>é</code> takes 2 and <code>€</code> takes 3. In <strong>UTF-16</strong> (called <em>Unicode</em> by .NET) each character takes 2 bytes here: 12 bytes. <strong>Latin-1</strong> has one byte for each of 256 characters, so the text takes 6 bytes, and the euro sign, which Latin-1 does not have, becomes <code>?</code>. <strong>ASCII</strong> has only 128 characters, so <code>é</code> and <code>€</code> both become <code>?</code>. A <code>byte[]</code> is a Ring text of bytes in this package, and the function <code>toHex</code> shows each byte with <code>ascii</code> and <code>hex</code>.</p>

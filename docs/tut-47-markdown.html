@@ -281,7 +281,7 @@ using {
 	? cHtml
 
 	<span class="c"># save it as a complete page</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial47.html"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_markdown.html"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"&lt;html&gt;&lt;body&gt;"</span> + nl + cHtml + nl + <span class="s">"&lt;/body&gt;&lt;/html&gt;"</span> ])
 	? nl + <span class="s">"Saved a page of "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile)) + <span class="s">" characters"</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
@@ -335,8 +335,7 @@ using {
 	cSafe = substr(cText,<span class="s">"&amp;"</span>,<span class="s">"&amp;amp;"</span>)
 	cSafe = substr(cSafe,<span class="s">"&lt;"</span>,<span class="s">"&amp;lt;"</span>)
 	cSafe = substr(cSafe,<span class="s">"&gt;"</span>,<span class="s">"&amp;gt;"</span>)
-	<span class="c"># Each step below writes its result to a NEW variable. (x = new Regex(...).Replace(x,...) with the same variable on both</span>
-	<span class="c"># sides does not work in Ring: it assigns the new Regex object to x first.)</span>
+	<span class="c"># Each step below writes its result to a new variable, and the next step reads it.</span>
 	<span class="c"># 2. code `x`</span>
 	cCode = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"`([^`]+)`"</span>).<span class="f">Replace</span>([ :input = cSafe, :replacement = <span class="s">"&lt;code&gt;$1&lt;/code&gt;"</span> ])
 	<span class="c"># 3. bold **x** (before italic: it also uses the star)</span>
@@ -392,7 +391,7 @@ Saved a page of 304 characters</code></pre></div>
 <div class="tablewrap"><table><thead><tr><th>Pattern</th><th>Replacement</th><th>Result</th></tr></thead><tbody><tr><td>a back-quote, some text, a back-quote</td><td><code>&lt;code&gt;$1&lt;/code&gt;</code></td><td>code</td></tr><tr><td><code>\*\*(.+?)\*\*</code></td><td><code>&lt;strong&gt;$1&lt;/strong&gt;</code></td><td>bold</td></tr><tr><td><code>\*(.+?)\*</code></td><td><code>&lt;em&gt;$1&lt;/em&gt;</code></td><td>italic</td></tr><tr><td><code>\[([^\]]+)\]\(([^)]+)\)</code></td><td><code>&lt;a href='$2'&gt;$1&lt;/a&gt;</code></td><td>link</td></tr></tbody></table></div>
 <p><code>$1</code> and <code>$2</code> are the captured groups (the tutorial <a href="tut-29-regex.html">Regular expressions in depth</a>); <code>.+?</code> is lazy so that two bold parts in one line are two separate matches. <strong>Bold before italic</strong>: both use the star, and <code>**x**</code> must be taken first.</p>
 <h3 id="using-objects-during-definition">Using objects during definition<a class="anchor" href="#using-objects-during-definition">#</a></h3>
-<p>Look at how the steps are written: each result goes to a <strong>new variable</strong> (<code>cSafe</code>, <code>cCode</code>, <code>cBold</code>...). The tempting form is <code>cText = new Regex(...).Replace(cText, ...)</code>, but it fails with the error "no method matches the 2 arguments". The reason is a Ring feature, <a href="https://ring-lang.github.io/doc1.28/oop.html#using-objects-during-definition">using objects during definition</a> (Ring 1.19+): when you write <code>x = new Class()...</code>, Ring stores the new object in <code>x</code> <strong>first</strong>, so that the object can be used while the rest of the expression runs (for example by a method call or an overloaded operator), and only then stores the final result in <code>x</code>. So when <code>.Replace(cText, ...)</code> is evaluated, <code>cText</code> already holds the <code>Regex</code> object, not your text. The feature is useful in Ring code that defines objects; for plain .NET calls, just use a different variable name.</p>
+<p>Look at how the steps are written: each result goes to a <strong>new variable</strong> (<code>cSafe</code>, <code>cCode</code>, <code>cBold</code>...), and the next step reads it. A step is one regular expression, so a new rule is one more line.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>block-level and inline conversion are separate jobs,</li><li>state for lists, <code>StringBuilder</code> for output,</li><li>escape before formatting,</li><li>lazy regexes, ordering of the steps,</li><li>with <code>x = new Class().Method(x)</code> the variable already holds the new object (using objects during definition): use another variable.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

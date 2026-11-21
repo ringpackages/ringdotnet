@@ -63,10 +63,10 @@ func main
 	oOther.Set(9,True)
 	? nl + "5. bits:  " + bitText(oBits)
 	? "   other: " + bitText(oOther)
-	? "   AND:   " + bitText(dnCopyBits(oBits).@And(oOther))
-	? "   OR:    " + bitText(dnCopyBits(oBits).@Or(oOther))
+	? "   AND:   " + bitText(copyBits(oBits).@And(oOther))
+	? "   OR:    " + bitText(copyBits(oBits).@Or(oOther))
 
-func dnCopyBits oBits
+func copyBits oBits
 	return new BitArray(oBits)
 
 func bitText oBits

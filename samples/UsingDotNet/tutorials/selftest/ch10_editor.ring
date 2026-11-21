@@ -3,7 +3,7 @@
 func selfTest
 	oEditor.Text = "Hello from the test"
 	dnAssert("the text changed",lChanged,True)
-	cTemp = new Path().Combine([new Path().GetTempPath(),"tutorial13.txt"])
+	cTemp = new Path().Combine([new Path().GetTempPath(),"ringdotnet_editor.txt"])
 	cFileName = cTemp
 	saveFile()
 	dnAssert("saved",new File().ReadAllText(cTemp),"Hello from the test")

@@ -8,7 +8,7 @@ using {
 
 func main
 	oPath = new Path()
-	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial96"])
+	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tar"])
 	cSource = oPath.Combine([cBase,"source"])
 	cTar = oPath.Combine([cBase,"backup.tar"])
 	cTarget = oPath.Combine([cBase,"unpacked"])

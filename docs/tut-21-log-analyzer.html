@@ -272,7 +272,7 @@ using {
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># STEP 1. Make a sample log file (a real program would read an existing file)</span>
-	cLog = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21.log"</span>])
+	cLog = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_log_analyzer.log"</span>])
 	makeLog(cLog)
 	? <span class="s">"STEP 1: log written, "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cLog).<span class="f">toList</span>()) + <span class="s">" lines"</span>
 
@@ -314,7 +314,7 @@ using {
 	<span class="k">next</span>
 
 	<span class="c"># STEP 5. Save a JSON report and read it back</span>
-	cReport = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21-report.json"</span>])
+	cReport = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_log_analyzer-report.json"</span>])
 	aReport = [
 		[<span class="s">"lines"</span>,nLines],
 		[<span class="s">"errors"</span>,len(aErrors)],

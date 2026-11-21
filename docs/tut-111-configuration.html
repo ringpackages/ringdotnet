@@ -266,7 +266,7 @@ using {
 	<span class="c"># A program needs settings that are not in its code: a port, a name, a path, the address of a database. The configuration system of</span>
 	<span class="c"># .NET reads them from SEVERAL sources and puts them into one tree of keys. Sources added later override sources added earlier:</span>
 	<span class="c"># defaults in a file, changes for a computer in the environment, a value for one run on the command line.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial111.json"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_configuration.json"</span>])
 	cJson = <span class="s">'{ "App": { "Name": "Demo", "Port": 8080, "Debug": false, "Features": [ "search", "export" ] }, "Database": { "Host": "localhost", "Timeout": 30 } }'</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
@@ -304,12 +304,12 @@ using {
 
 	<span class="c"># 5. Environment variables. With a prefix, only the variables that start with it are read, and "__" in the name means ":" in the key.</span>
 	<span class="c">#    This is how a server or a container changes a setting without a new file.</span>
-	<span class="f">dnStatic</span>(<span class="s">"System.Environment"</span>,<span class="s">"SetEnvironmentVariable"</span>,[<span class="s">"RDN111_Database__Host"</span>,<span class="s">"db.example.com"</span>])
+	<span class="k">new</span> <span class="t">Environment</span>().<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"RDN111_Database__Host"</span>, :value = <span class="s">"db.example.com"</span> ])
 	oBuilder.<span class="f">AddEnvironmentVariables</span>([ :prefix = <span class="s">"RDN111_"</span> ])
 	oConfig3 = oBuilder.<span class="f">Build</span>()
 	? nl + <span class="s">"5. the environment variable RDN111_Database__Host changes Database:Host to: "</span> + oConfig3.<span class="f">Item</span>(<span class="s">"Database:Host"</span>)
 	? <span class="s">"   Database:Timeout is still from the file: "</span> + oConfig3.<span class="f">Item</span>(<span class="s">"Database:Timeout"</span>)
-	<span class="f">dnStatic</span>(<span class="s">"System.Environment"</span>,<span class="s">"SetEnvironmentVariable"</span>,[<span class="s">"RDN111_Database__Host"</span>,<span class="k">NULL</span>])
+	<span class="k">new</span> <span class="t">Environment</span>().<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"RDN111_Database__Host"</span>, :value = <span class="k">NULL</span> ])
 
 	<span class="c"># 6. Where the value came from does not matter to the code that reads it. The order of the sources is the only rule: the last wins.</span>
 	<span class="c">#    Secrets (passwords, keys) do not belong in a file that is kept with the code: use environment variables or a secrets store.</span>

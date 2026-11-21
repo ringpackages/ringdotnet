@@ -312,7 +312,7 @@ using {
 	? nl + <span class="s">"5. book 2 now costs "</span> + oDocument.Root.<span class="f">Elements</span>(<span class="k">NULL</span>).<span class="f">toList</span>()[<span class="n">1</span>].<span class="f">Element</span>(<span class="s">"price"</span>).Value + <span class="s">" and the first book is "</span> + oDocument.Root.<span class="f">Elements</span>(<span class="k">NULL</span>).<span class="f">toList</span>()[<span class="n">1</span>].<span class="f">Element</span>(<span class="s">"title"</span>).Value
 
 	<span class="c"># 6. Save the text and read it back: the structure survives</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial72.xml"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_xml.xml"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = oDocument.<span class="f">ToString</span>() ])
 	oAgain = <span class="k">new</span> <span class="t">XDocument</span>().<span class="f">Parse</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile))
 	? nl + <span class="s">"6. the saved file has "</span> + len(oAgain.Root.<span class="f">Elements</span>(<span class="k">NULL</span>).<span class="f">toList</span>()) + <span class="s">" books"</span>

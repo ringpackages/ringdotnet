@@ -11,7 +11,7 @@ using {
 
 func main
 	# STEP 1. Make a sample log file (a real program would read an existing file)
-	cLog = new Path().Combine([new Path().GetTempPath(),"tutorial21.log"])
+	cLog = new Path().Combine([new Path().GetTempPath(),"ringdotnet_log_analyzer.log"])
 	makeLog(cLog)
 	? "STEP 1: log written, " + len(new File().ReadAllLines(cLog).toList()) + " lines"
 
@@ -53,7 +53,7 @@ func main
 	next
 
 	# STEP 5. Save a JSON report and read it back
-	cReport = new Path().Combine([new Path().GetTempPath(),"tutorial21-report.json"])
+	cReport = new Path().Combine([new Path().GetTempPath(),"ringdotnet_log_analyzer-report.json"])
 	aReport = [
 		["lines",nLines],
 		["errors",len(aErrors)],

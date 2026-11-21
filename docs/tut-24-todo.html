@@ -272,9 +272,9 @@ lLoading = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># the tasks are saved here (a test uses a temporary file)</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-tasks.json"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo-tasks.json"</span>])
 	<span class="k">if</span> <span class="f">uiSelfTest</span>()
-		cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-test.json"</span>])
+		cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo-test.json"</span>])
 		<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 			<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 		<span class="k">ok</span>

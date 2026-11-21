@@ -31,7 +31,7 @@ func main
 		uiButton(oForm,aNames[nIndex],10 + nColumn * 62,C_HEIGHT + 44 + nRow * 32,58,28,"applyFilter('" + aNames[nIndex] + "')")
 	next
 	oInfo = uiLabel(oForm,"",10,C_HEIGHT + 112,C_WIDTH * 2 + 30,22)
-	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial63"])
+	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_filters"])
 	new Directory().CreateDirectory(cFolder)
 	makeSource()
 	applyFilter("Original")

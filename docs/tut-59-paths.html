@@ -296,14 +296,14 @@ using {
 	? <span class="s">"   the temporary folder exists? "</span> + yesNo(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(oPath.<span class="f">GetTempPath</span>()))
 
 	<span class="c"># 6. Environment variables: settings from outside (a password, a folder, a mode). Always provide a default.</span>
-	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"TUTORIAL60_MODE"</span>, :value = <span class="s">"fast"</span> ])
-	? nl + <span class="s">"6. TUTORIAL60_MODE = "</span> + oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_MODE"</span>)
-	cMissing = oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_NOT_SET"</span>)
+	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"RINGDOTNET_MODE"</span>, :value = <span class="s">"fast"</span> ])
+	? nl + <span class="s">"6. RINGDOTNET_MODE = "</span> + oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"RINGDOTNET_MODE"</span>)
+	cMissing = oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"RINGDOTNET_NOT_SET"</span>)
 	<span class="k">if</span> isobject(cMissing)                                 <span class="c"># .NET null comes to Ring as an object that IsNull()</span>
 		cMissing = <span class="s">"(default)"</span>
 	<span class="k">ok</span>
 	? <span class="s">"   a variable that is not set: "</span> + cMissing
-	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"TUTORIAL60_MODE"</span>, :value = <span class="k">NULL</span> ])
+	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"RINGDOTNET_MODE"</span>, :value = <span class="k">NULL</span> ])
 
 	<span class="c"># 7. The system: which one runs the program</span>
 	? nl + <span class="s">"7. 64-bit process? "</span> + yesNo(oEnvironment.Is64BitProcess) + <span class="s">", the new line is "</span> + len(oEnvironment.NewLine) + <span class="s">" character(s) long"</span>

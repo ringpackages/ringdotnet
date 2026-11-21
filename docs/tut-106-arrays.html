@@ -264,7 +264,7 @@ using {
 	<span class="c"># 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],</span>
 	<span class="c">#    string[] or double[] from the values of the list. An array that comes back is a DotNetObject: toList() makes a Ring list of it.</span>
 	aNumbers = [<span class="n">42</span>,<span class="n">7</span>,<span class="n">19</span>,<span class="n">3</span>,<span class="n">25</span>]
-	oSorted = <span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(aNumbers)
+	<span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(aNumbers)
 	? <span class="s">"1. a list given to Array.Sort comes back unchanged: "</span> + list2text(aNumbers) + <span class="s">"(the bridge sorted its own copy)"</span>
 
 	<span class="c"># 2. So to sort, reverse or search an array, make the array first: a List&lt;Int32&gt; filled with Add, and ToArray()</span>

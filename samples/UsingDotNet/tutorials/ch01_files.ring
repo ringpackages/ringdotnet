@@ -12,7 +12,7 @@ func main
 	oDirectory = new Directory()
 
 	# Never build paths by joining text: Path.Combine uses the right separator
-	cFolder = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial5"])
+	cFolder = oPath.Combine([oPath.GetTempPath(),"ringdotnet_files"])
 	if oDirectory.Exists(cFolder)
 		oDirectory.Delete([ :path = cFolder, :recursive = True ])
 	ok
@@ -47,12 +47,12 @@ func main
 	? "Extension          : " + oPath.GetExtension(cNotes)
 	? "File name only     : " + oPath.GetFileNameWithoutExtension(cNotes)
 
-	# Copy, move, list
+	# Copy a file and list the folder
 	oFile.Copy([ :sourceFileName = cNotes, :destFileName = oPath.Combine([cFolder,"copy.txt"]) ])
 	? "Files in the folder: " + len(oDirectory.GetFiles(cFolder).toList())
 
 	# Zip a folder and unzip it somewhere else
-	cZip = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial5.zip"])
+	cZip = oPath.Combine([oPath.GetTempPath(),"ringdotnet_files.zip"])
 	if oFile.Exists(cZip)
 		oFile.Delete(cZip)
 	ok

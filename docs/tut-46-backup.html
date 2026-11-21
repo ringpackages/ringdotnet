@@ -265,7 +265,7 @@ using {
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
 	oFile = <span class="k">new</span> <span class="t">File</span>()
-	cWork = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"tutorial46"</span>])
+	cWork = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_backup"</span>])
 	<span class="k">if</span> oDirectory.<span class="f">Exists</span>(cWork)
 		oDirectory.<span class="f">Delete</span>([ :path = cWork, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>

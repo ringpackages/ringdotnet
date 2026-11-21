@@ -6,7 +6,7 @@ using {
 }
 
 func main
-	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial52"])
+	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_logging"])
 	if new Directory().Exists(cFolder)
 		new Directory().Delete([ :path = cFolder, :recursive = True ])
 	ok

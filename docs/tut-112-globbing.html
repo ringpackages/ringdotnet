@@ -321,7 +321,7 @@ using {
 
 <span class="k">func</span> <span class="f">makeTree</span>
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
-	cBase = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial112"</span>])
+	cBase = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_globbing"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>

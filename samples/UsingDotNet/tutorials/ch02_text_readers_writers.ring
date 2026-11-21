@@ -42,7 +42,7 @@ func main
 	oToString = new StringWriter
 	writeReport(oToString,"Ann",31)
 	? "   to a string: " + substr(substr(oToString.ToString(),char(13),""),nl," | ")
-	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial104.txt"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_readers.txt"])
 	oFileWriter = new StreamWriter(cFile)
 	writeReport(oFileWriter,"Bob",28)
 	oFileWriter.Dispose()

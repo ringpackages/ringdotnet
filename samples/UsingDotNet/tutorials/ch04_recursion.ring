@@ -27,7 +27,7 @@ func main
 	? nl + "4. the " + len(aPermutations) + " orders of a, b, c: " + joinWith(aPermutations,", ")
 
 	# 5. A tree: a folder holds files and folders that hold files and folders... A recursive function walks it.
-	cRoot = new Path().Combine([new Path().GetTempPath(),"tutorial75"])
+	cRoot = new Path().Combine([new Path().GetTempPath(),"ringdotnet_recursion"])
 	makeTree(cRoot)
 	? nl + "5. the folder tree:"
 	showTree(cRoot,0)

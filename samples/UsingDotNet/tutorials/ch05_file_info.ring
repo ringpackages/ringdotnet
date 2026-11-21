@@ -44,7 +44,7 @@ func main
 	oFile.WriteAllText([ :path = cFile, :contents = "new text" ])
 	? "   after removing the flag: " + oFile.ReadAllText(cFile)
 
-	# 5. Copy and move. Copy raises an error when the target exists, unless the overwrite value is True. A copy has its own times.
+	# 5. Copy. Copy raises an error when the target exists, unless the overwrite value is True. A copy has its own times.
 	cCopy = cFolder + "/copy.txt"
 	oFile.Copy([ :sourceFileName = cFile, :destFileName = cCopy ])
 	try

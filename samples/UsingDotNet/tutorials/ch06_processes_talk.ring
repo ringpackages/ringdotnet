@@ -10,8 +10,8 @@ using {
 	"System.Threading"
 }
 
-C_PIPE = "ringdotnet_tutorial79"
-C_MUTEX = "ringdotnet_tutorial79_single_copy"
+C_PIPE = "ringdotnet_talk"
+C_MUTEX = "ringdotnet_talk_single_copy"
 
 func main
 	if find(sysargv,"--child") > 0

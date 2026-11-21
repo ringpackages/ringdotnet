@@ -26,7 +26,7 @@ func main
 	? cHtml
 
 	# save it as a complete page
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial47.html"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_markdown.html"])
 	new File().WriteAllText([ :path = cFile, :contents = "<html><body>" + nl + cHtml + nl + "</body></html>" ])
 	? nl + "Saved a page of " + len(new File().ReadAllText(cFile)) + " characters"
 	new File().Delete(cFile)
@@ -80,8 +80,7 @@ func inlineHtml cText
 	cSafe = substr(cText,"&","&amp;")
 	cSafe = substr(cSafe,"<","&lt;")
 	cSafe = substr(cSafe,">","&gt;")
-	# Each step below writes its result to a NEW variable. (x = new Regex(...).Replace(x,...) with the same variable on both
-	# sides does not work in Ring: it assigns the new Regex object to x first.)
+	# Each step below writes its result to a new variable, and the next step reads it.
 	# 2. code `x`
 	cCode = new Regex("`([^`]+)`").Replace([ :input = cSafe, :replacement = "<code>$1</code>" ])
 	# 3. bold **x** (before italic: it also uses the star)

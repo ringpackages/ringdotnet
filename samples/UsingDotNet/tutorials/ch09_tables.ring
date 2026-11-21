@@ -65,7 +65,7 @@ func main
 		oRow = oTable.Rows.Item(nIndex)
 		cOut += oRow.Item("Region") + "," + oRow.Item("Seller") + "," + oRow.Item("Amount") + nl
 	next
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial30.csv"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tables.csv"])
 	new File().WriteAllText([ :path = cFile, :contents = cOut ])
 	? nl + "STEP 6: wrote " + len(new File().ReadAllLines(cFile).toList()) + " lines to a CSV file"
 	new File().Delete(cFile)

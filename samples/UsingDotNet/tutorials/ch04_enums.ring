@@ -31,7 +31,7 @@ func main
 	done
 
 	# 4. A method that takes an enum takes the name as a text: a file can be hidden and read only at the same time
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial65.txt"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_enums.txt"])
 	new File().WriteAllText([ :path = cFile, :contents = "x" ])
 	? nl + "4. attributes of a new file: " + new File().GetAttributes(cFile)
 	new File().SetAttributes(cFile,"ReadOnly, Hidden")                       # several flags: names separated by commas

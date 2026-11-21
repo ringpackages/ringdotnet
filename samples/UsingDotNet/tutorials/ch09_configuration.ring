@@ -11,7 +11,7 @@ func main
 	# A program needs settings that are not in its code: a port, a name, a path, the address of a database. The configuration system of
 	# .NET reads them from SEVERAL sources and puts them into one tree of keys. Sources added later override sources added earlier:
 	# defaults in a file, changes for a computer in the environment, a value for one run on the command line.
-	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial111.json"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_configuration.json"])
 	cJson = '{ "App": { "Name": "Demo", "Port": 8080, "Debug": false, "Features": [ "search", "export" ] }, "Database": { "Host": "localhost", "Timeout": 30 } }'
 	new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
@@ -49,12 +49,12 @@ func main
 
 	# 5. Environment variables. With a prefix, only the variables that start with it are read, and "__" in the name means ":" in the key.
 	#    This is how a server or a container changes a setting without a new file.
-	dnStatic("System.Environment","SetEnvironmentVariable",["RDN111_Database__Host","db.example.com"])
+	new Environment().SetEnvironmentVariable([ :variable = "RDN111_Database__Host", :value = "db.example.com" ])
 	oBuilder.AddEnvironmentVariables([ :prefix = "RDN111_" ])
 	oConfig3 = oBuilder.Build()
 	? nl + "5. the environment variable RDN111_Database__Host changes Database:Host to: " + oConfig3.Item("Database:Host")
 	? "   Database:Timeout is still from the file: " + oConfig3.Item("Database:Timeout")
-	dnStatic("System.Environment","SetEnvironmentVariable",["RDN111_Database__Host",NULL])
+	new Environment().SetEnvironmentVariable([ :variable = "RDN111_Database__Host", :value = NULL ])
 
 	# 6. Where the value came from does not matter to the code that reads it. The order of the sources is the only rule: the last wins.
 	#    Secrets (passwords, keys) do not belong in a file that is kept with the code: use environment variables or a secrets store.

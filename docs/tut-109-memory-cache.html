@@ -256,6 +256,7 @@
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
+	<span class="s">"System.Threading"</span>
 	<span class="s">"Microsoft.Extensions.Caching.Memory"</span>
 }
 
@@ -312,7 +313,7 @@ nRuns = <span class="n">0</span>
 	oCache.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">sleepMs</span> nMilliseconds
-	<span class="f">dnStatic</span>(<span class="s">"System.Threading.Thread"</span>,<span class="s">"Sleep"</span>,[nMilliseconds])
+	<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(nMilliseconds)
 
 <span class="k">func</span> <span class="f">slowReport</span> aArguments
 	nRuns++                         <span class="c"># (nRuns is a global variable of the program)</span>

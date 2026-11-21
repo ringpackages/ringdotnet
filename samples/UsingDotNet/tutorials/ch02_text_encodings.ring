@@ -15,10 +15,10 @@ func main
 	# A file holds BYTES. An ENCODING says which bytes mean which characters. The text "Café €" has an accent and a euro sign, which
 	# are not in the old 7-bit ASCII table.
 	cText = "Caf" + char(195) + char(169) + " " + char(226) + char(130) + char(172)          # the UTF-8 bytes of  Café €
-	oUtf8 = encoding("UTF8")
-	oUtf16 = encoding("Unicode")                       # .NET calls UTF-16 (little endian) "Unicode"
-	oLatin1 = encoding("Latin1")
-	oAscii = encoding("ASCII")
+	oUtf8 = new Encoding().UTF8
+	oUtf16 = new Encoding().Unicode                       # .NET calls UTF-16 (little endian) "Unicode"
+	oLatin1 = new Encoding().Latin1
+	oAscii = new Encoding().ASCII
 
 	# 1. The same text in four encodings: different bytes, different sizes
 	? "1. the bytes of the text 'Cafe' with an accent, a space and the euro sign:"
@@ -76,10 +76,6 @@ func main
 	? nl + "7. a file with mixed line endings has " + len(aLines) + " lines: " + aLines[1] + ", " + aLines[2] + ", " + aLines[3]
 
 	new Directory().Delete([ :path = cFolder, :recursive = True ])
-
-# an Encoding object by its name (the static properties of the class Encoding)
-func encoding cName
-	return dnStatic("System.Text.Encoding","get_" + cName,[])
 
 # does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)
 func isValidUtf8 cBytes

@@ -7,7 +7,7 @@ using {
 }
 
 func main
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial45.dat"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_binary.dat"])
 
 	# 1. A binary file stores values as bytes, not as readable text. We invent a tiny format:
 	#      the text "RDN1" (a "magic number": it says what kind of file this is), then

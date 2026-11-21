@@ -277,16 +277,16 @@ using {
 	<span class="c">#    a culture puts "a" and "A" next to each other</span>
 	oOrdinal = <span class="k">new</span> <span class="t">StringComparer</span>().Ordinal
 	oCulture = <span class="k">new</span> <span class="t">StringComparer</span>().InvariantCulture
-	aWords = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
+	oWords = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cWord <span class="k">in</span> [<span class="s">"banana"</span>,<span class="s">"Cherry"</span>,<span class="s">"apple"</span>,<span class="s">"Banana"</span>,<span class="s">"cherry"</span>,<span class="s">"Apple"</span>]
-		aWords.<span class="f">Add</span>(cWord)
+		oWords.<span class="f">Add</span>(cWord)
 	<span class="k">next</span>
-	aWords.<span class="f">Sort</span>(oOrdinal)
-	? nl + <span class="s">"3. ordinal order:  "</span> + joinList(aWords.<span class="f">toList</span>())
-	aWords.<span class="f">Sort</span>(oCulture)
-	? <span class="s">"   culture order:  "</span> + joinList(aWords.<span class="f">toList</span>())
-	aWords.<span class="f">Sort</span>(<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase)
-	? <span class="s">"   ignore case:    "</span> + joinList(aWords.<span class="f">toList</span>()) + <span class="s">"   (equal words can come in any order)"</span>
+	oWords.<span class="f">Sort</span>(oOrdinal)
+	? nl + <span class="s">"3. ordinal order:  "</span> + joinList(oWords.<span class="f">toList</span>())
+	oWords.<span class="f">Sort</span>(oCulture)
+	? <span class="s">"   culture order:  "</span> + joinList(oWords.<span class="f">toList</span>())
+	oWords.<span class="f">Sort</span>(<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase)
+	? <span class="s">"   ignore case:    "</span> + joinList(oWords.<span class="f">toList</span>()) + <span class="s">"   (equal words can come in any order)"</span>
 
 	<span class="c"># 4. A dictionary that ignores case: the comparer is the second argument of the constructor</span>
 	oPeople = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.Dictionary"</span>,[<span class="s">"System.String"</span>,<span class="s">"System.Int32"</span>],[<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase])

@@ -21,13 +21,11 @@ The tutorial [URLs and encodings](tut-64-urls.html) used Base64 for one purpose.
 
 {{output:samples/UsingDotNet/tutorials/ch02_base64_hex.ring}}
 
-> [!NOTE] This program uses a generic function (`dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
-
 ## How it works
 
 ### Base64
 
-Base64 takes the bytes in groups of three (24 bits) and writes each group as four characters of 6 bits, taken from `A-Z`, `a-z`, `0-9`, `+` and `/`. The result is **a third longer** than the data: 11 bytes become 16 characters. `Convert.ToBase64String` and `FromBase64String` are static methods, called with `dnStatic`. A `byte[]` is a Ring text of bytes in this package, so the text goes in and comes out as it is.
+Base64 takes the bytes in groups of three (24 bits) and writes each group as four characters of 6 bits, taken from `A-Z`, `a-z`, `0-9`, `+` and `/`. The result is **a third longer** than the data: 11 bytes become 16 characters. `Convert.ToBase64String` and `FromBase64String` are static methods, called through `new Convert()`. A `byte[]` is a Ring text of bytes in this package, so the text goes in and comes out as it is.
 
 ### Padding
 

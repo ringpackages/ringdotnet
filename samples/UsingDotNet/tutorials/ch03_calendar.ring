@@ -5,7 +5,7 @@ using {
 }
 
 func main
-	# A text calendar of a month: how many days it has, and on which weekday the 1st falls
+	# 1. A text calendar of a month: how many days it has, and on which weekday the 1st falls
 	? monthCalendar(2024,2)
 
 	# 2. How old is somebody? Years, months and days between two dates

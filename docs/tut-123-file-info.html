@@ -298,7 +298,7 @@ using {
 	oFile.<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"new text"</span> ])
 	? <span class="s">"   after removing the flag: "</span> + oFile.<span class="f">ReadAllText</span>(cFile)
 
-	<span class="c"># 5. Copy and move. Copy raises an error when the target exists, unless the overwrite value is True. A copy has its own times.</span>
+	<span class="c"># 5. Copy. Copy raises an error when the target exists, unless the overwrite value is True. A copy has its own times.</span>
 	cCopy = cFolder + <span class="s">"/copy.txt"</span>
 	oFile.<span class="f">Copy</span>([ :sourceFileName = cFile, :destFileName = cCopy ])
 	<span class="k">try</span>

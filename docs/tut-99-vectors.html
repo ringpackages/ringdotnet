@@ -291,7 +291,7 @@ using {
 	oMatrix = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">CreateRotation</span>(<span class="n">3.14159265358979</span> / <span class="n">2</span>)       <span class="c"># a quarter of a turn</span>
 	oRotated = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oMatrix)
 	? nl + <span class="s">"6. the point (1, 0) turned by 90 degrees is ("</span> + roundNumber(oRotated.X) + <span class="s">", "</span> + roundNumber(oRotated.Y) + <span class="s">")"</span>
-	oMove = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Matrix3x2"</span>,<span class="s">"CreateTranslation"</span>,[<span class="n">10</span>,<span class="n">5</span>])
+	oMove = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">CreateTranslation</span>([ :xPosition = <span class="n">10</span>, :yPosition = <span class="n">5</span> ])
 	oMoved = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oMove)
 	? <span class="s">"   moved by (10, 5): ("</span> + oMoved.X + <span class="s">", "</span> + oMoved.Y + <span class="s">")"</span>
 	oBoth = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">Multiply</span>(oMatrix,oMove)           <span class="c"># first turn, then move</span>
@@ -326,7 +326,6 @@ using {
 6. the point (1, 0) turned by 90 degrees is (0, 1)
    moved by (10, 5): (11, 5)
    turned and then moved: (10, 6)</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnStatic</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="vectors">Vectors<a class="anchor" href="#vectors">#</a></h3>
 <p>A <code>Vector3</code> holds three numbers <code>X</code>, <code>Y</code>, <code>Z</code>. It can be a <strong>position</strong> (a point in space) or a <strong>direction</strong> with a length (a speed, a force). <code>Vector2</code> has two numbers and <code>Vector4</code> four. They are value types (structs): <code>new Vector3().@New([ :x = 3, :y = 4, :z = 0 ])</code> makes one by names, and <code>oV.X</code> reads a component. The numbers are <em>single-precision</em> floats (about 7 digits), so a result such as <code>0.6</code> can really be <code>0.6000000238</code>; the program rounds before printing (<code>roundNumber</code>), and so should yours when you compare.</p>

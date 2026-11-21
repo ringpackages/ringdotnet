@@ -17,9 +17,9 @@ lLoading = False
 
 func main
 	# the tasks are saved here (a test uses a temporary file)
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial24-tasks.json"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_todo-tasks.json"])
 	if uiSelfTest()
-		cFile = new Path().Combine([new Path().GetTempPath(),"tutorial24-test.json"])
+		cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_todo-test.json"])
 		if new File().Exists(cFile)
 			new File().Delete(cFile)
 		ok

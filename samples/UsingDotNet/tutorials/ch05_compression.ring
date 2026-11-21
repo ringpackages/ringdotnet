@@ -42,7 +42,7 @@ func main
 	? nl + "5. 2000 random bytes: the GZip result is larger than the original: " + (len(cNoisePacked) > 2000)
 
 	# 6. A compressed file: write a .gz file, read it back line by line with a StreamReader on top of the decompressor
-	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial88.txt.gz"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_compression.txt.gz"])
 	oFile = new FileStream(cFile,"Create")
 	oGzip = new GZipStream(oFile,"Compress")
 	oWriter = new StreamWriter(oGzip)

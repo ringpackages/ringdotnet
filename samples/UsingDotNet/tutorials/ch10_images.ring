@@ -40,7 +40,7 @@ func main
 	? "        pixel (5,5) is  " + oBitmap.GetPixel(5,5).Name + " (white, with alpha ff in front)"
 
 	# STEP 4. Save: the file type is chosen by the format
-	cPng = new Path().Combine([cFolder,"tutorial22.png"])
+	cPng = new Path().Combine([cFolder,"ringdotnet_images.png"])
 	oBitmap.Save([ :filename = cPng, :format = new ImageFormat().Png ])
 	? "STEP 4: saved " + new Path().GetFileName(cPng) + ", " + (new FileInfo(cPng).Length > 0) + " (the file has data)"
 
@@ -54,7 +54,7 @@ func main
 			oGray.SetPixel(nX,nY,new Color().FromArgb([ :red = nGray, :green = nGray, :blue = nGray ]))
 		next
 	next
-	cGray = new Path().Combine([cFolder,"tutorial22-gray.png"])
+	cGray = new Path().Combine([cFolder,"ringdotnet_images-gray.png"])
 	oGray.Save([ :filename = cGray, :format = new ImageFormat().Png ])
 	? "STEP 5: gray copy made, pixel (50,40) is now " + oGray.GetPixel(50,40).R + " in all three channels"
 
@@ -63,7 +63,7 @@ func main
 	oSmallGraphics = new Graphics().FromImage(oSmall)
 	oSmallGraphics.DrawImage([ :image = oLoaded, :rect = new Rectangle(0,0,120,80) ])
 	oSmallGraphics.Dispose()
-	cSmall = new Path().Combine([cFolder,"tutorial22-small.png"])
+	cSmall = new Path().Combine([cFolder,"ringdotnet_images-small.png"])
 	oSmall.Save([ :filename = cSmall, :format = new ImageFormat().Png ])
 	? "STEP 6: resized copy is " + oSmall.Width + " x " + oSmall.Height
 

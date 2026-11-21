@@ -296,7 +296,7 @@ using {
 	? <span class="s">"        pixel (5,5) is  "</span> + oBitmap.<span class="f">GetPixel</span>(<span class="n">5</span>,<span class="n">5</span>).Name + <span class="s">" (white, with alpha ff in front)"</span>
 
 	<span class="c"># STEP 4. Save: the file type is chosen by the format</span>
-	cPng = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22.png"</span>])
+	cPng = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"ringdotnet_images.png"</span>])
 	oBitmap.<span class="f">Save</span>([ :filename = cPng, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 4: saved "</span> + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cPng) + <span class="s">", "</span> + (<span class="k">new</span> <span class="t">FileInfo</span>(cPng).Length &gt; <span class="n">0</span>) + <span class="s">" (the file has data)"</span>
 
@@ -310,7 +310,7 @@ using {
 			oGray.<span class="f">SetPixel</span>(nX,nY,<span class="k">new</span> <span class="t">Color</span>().<span class="f">FromArgb</span>([ :red = nGray, :green = nGray, :blue = nGray ]))
 		<span class="k">next</span>
 	<span class="k">next</span>
-	cGray = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22-gray.png"</span>])
+	cGray = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"ringdotnet_images-gray.png"</span>])
 	oGray.<span class="f">Save</span>([ :filename = cGray, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 5: gray copy made, pixel (50,40) is now "</span> + oGray.<span class="f">GetPixel</span>(<span class="n">50</span>,<span class="n">40</span>).R + <span class="s">" in all three channels"</span>
 
@@ -319,7 +319,7 @@ using {
 	oSmallGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oSmall)
 	oSmallGraphics.<span class="f">DrawImage</span>([ :image = oLoaded, :rect = <span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">0</span>,<span class="n">0</span>,<span class="n">120</span>,<span class="n">80</span>) ])
 	oSmallGraphics.<span class="f">Dispose</span>()
-	cSmall = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22-small.png"</span>])
+	cSmall = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"ringdotnet_images-small.png"</span>])
 	oSmall.<span class="f">Save</span>([ :filename = cSmall, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 6: resized copy is "</span> + oSmall.Width + <span class="s">" x "</span> + oSmall.Height
 

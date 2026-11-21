@@ -266,7 +266,7 @@ using {
 	<span class="s">"System.Threading"</span>
 }
 
-C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
+C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="k">if</span> find(sysargv,<span class="s">"--child"</span>) &gt; <span class="n">0</span>
@@ -344,7 +344,7 @@ C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
 <span class="k">func</span> <span class="f">editFileInPlace</span>
 	<span class="c"># 6. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written</span>
 	<span class="c">#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial82.bin"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_shared_memory.bin"</span>])
 	oConverter = <span class="k">new</span> <span class="t">BitConverter</span>()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllBytes</span>(cFile,oConverter.<span class="f">GetBytes</span>(<span class="n">10</span>) + oConverter.<span class="f">GetBytes</span>(<span class="n">20</span>) + oConverter.<span class="f">GetBytes</span>(<span class="n">30</span>))
 	oMap = <span class="k">new</span> <span class="t">MemoryMappedFile</span>().<span class="f">CreateFromFile</span>(cFile)

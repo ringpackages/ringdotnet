@@ -296,7 +296,7 @@ using {
 	? nl + <span class="s">"5. 2000 random bytes: the GZip result is larger than the original: "</span> + (len(cNoisePacked) &gt; <span class="n">2000</span>)
 
 	<span class="c"># 6. A compressed file: write a .gz file, read it back line by line with a StreamReader on top of the decompressor</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial88.txt.gz"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_compression.txt.gz"</span>])
 	oFile = <span class="k">new</span> <span class="t">FileStream</span>(cFile,<span class="s">"Create"</span>)
 	oGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oFile,<span class="s">"Compress"</span>)
 	oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oGzip)

@@ -6,7 +6,7 @@ using {
 }
 
 func main
-	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial17.db"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_library.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

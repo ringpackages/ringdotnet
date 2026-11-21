@@ -284,7 +284,7 @@ nFile = <span class="n">0</span>
 		<span class="f">uiButton</span>(oForm,aNames[nIndex],<span class="n">10</span> + nColumn * <span class="n">62</span>,C_HEIGHT + <span class="n">44</span> + nRow * <span class="n">32</span>,<span class="n">58</span>,<span class="n">28</span>,<span class="s">"applyFilter('"</span> + aNames[nIndex] + <span class="s">"')"</span>)
 	<span class="k">next</span>
 	oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,C_HEIGHT + <span class="n">112</span>,C_WIDTH * <span class="n">2</span> + <span class="n">30</span>,<span class="n">22</span>)
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial63"</span>])
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_filters"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	makeSource()
 	applyFilter(<span class="s">"Original"</span>)

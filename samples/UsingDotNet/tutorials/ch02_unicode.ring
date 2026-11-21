@@ -24,10 +24,10 @@ func main
 	? nl + "1. len('café') = " + len(cWord) + " (bytes), but " + textElements(cWord).LengthInTextElements + " letters"
 
 	# 2. Encodings: the same text, different bytes. Reading with the WRONG encoding gives garbage ("mojibake")
-	aBytes = oUtf8.GetBytes("é")
-	? nl + "2. 'é' in UTF-8 is " + len(aBytes) + " bytes: " + ascii(aBytes[1]) + " and " + ascii(aBytes[2])
-	? "   the same bytes read as Latin-1 give: " + oLatin1.GetString(aBytes) + "  (two wrong letters)"
-	? "   read as UTF-8 again: " + oUtf8.GetString(aBytes)
+	cBytes = oUtf8.GetBytes("é")
+	? nl + "2. 'é' in UTF-8 is " + len(cBytes) + " bytes: " + ascii(cBytes[1]) + " and " + ascii(cBytes[2])
+	? "   the same bytes read as Latin-1 give: " + oLatin1.GetString(cBytes) + "  (two wrong letters)"
+	? "   read as UTF-8 again: " + oUtf8.GetString(cBytes)
 
 	# 3. A round trip: text -> bytes -> text, with the same encoding, gives the same text
 	cArabic = "مرحبا بالعالم"

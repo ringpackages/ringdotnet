@@ -66,7 +66,7 @@ func showFiles oMatcher,cBase
 
 func makeTree
 	oPath = new Path()
-	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial112"])
+	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_globbing"])
 	if new Directory().Exists(cBase)
 		new Directory().Delete([ :path = cBase, :recursive = True ])
 	ok

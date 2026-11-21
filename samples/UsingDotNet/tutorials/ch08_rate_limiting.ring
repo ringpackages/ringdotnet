@@ -2,6 +2,7 @@
 load "dotnet.ring"
 using {
 	"System"
+	"System.Threading"
 	"RingDotNet.Web"                  # System.Threading.RateLimiting is part of the ASP.NET Core runtime: this line starts it
 }
 
@@ -22,7 +23,7 @@ func main
 		oLease = oBucket.callMethod("AttemptAcquire",[1])
 		? "   request " + nRequest + ": " + answer(oLease.getProp("IsAcquired"))
 	next
-	dnStatic("System.Threading.Thread","Sleep",[300])      # more than the period of 100 ms
+	new Thread().Sleep(300)      # more than the period of 100 ms
 	? "   after the period, TryReplenish adds a token: " + oBucket.callMethod("TryReplenish",[])
 	? "   the next request: " + answer(oBucket.callMethod("AttemptAcquire",[1]).getProp("IsAcquired")) + "   (how many tokens come back depends on how long the pause was)"
 

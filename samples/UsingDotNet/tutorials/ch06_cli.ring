@@ -20,19 +20,19 @@ func main
 	ok
 
 	# no arguments: a demonstration. A file with some text first.
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial51.txt"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_cli.txt"])
 	new File().WriteAllText([ :path = cFile, :contents = "The cat and the dog. The dog and the bird! A cat, a dog, a bird and the fish." ])
 	? "$ wordstat --help"
 	showResult(run(["--help"]))
-	? nl + "$ wordstat tutorial51.txt --top 3"
+	? nl + "$ wordstat ringdotnet_cli.txt --top 3"
 	showResult(run([cFile,"--top","3"]))
-	? nl + "$ wordstat tutorial51.txt --top 3 --min 4"
+	? nl + "$ wordstat ringdotnet_cli.txt --top 3 --min 4"
 	showResult(run([cFile,"--top","3","--min","4"]))
 	? nl + "$ wordstat missing.txt"
 	showResult(run(["missing.txt"]))
-	? nl + "$ wordstat tutorial51.txt --top many"
+	? nl + "$ wordstat ringdotnet_cli.txt --top many"
 	showResult(run([cFile,"--top","many"]))
-	? nl + "$ wordstat tutorial51.txt --colour"
+	? nl + "$ wordstat ringdotnet_cli.txt --colour"
 	showResult(run([cFile,"--colour"]))
 	new File().Delete(cFile)
 

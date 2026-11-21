@@ -284,7 +284,7 @@ nMoves = <span class="n">0</span>
 	? nl + <span class="s">"4. the "</span> + len(aPermutations) + <span class="s">" orders of a, b, c: "</span> + joinWith(aPermutations,<span class="s">", "</span>)
 
 	<span class="c"># 5. A tree: a folder holds files and folders that hold files and folders... A recursive function walks it.</span>
-	cRoot = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial75"</span>])
+	cRoot = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_recursion"</span>])
 	makeTree(cRoot)
 	? nl + <span class="s">"5. the folder tree:"</span>
 	showTree(cRoot,<span class="n">0</span>)

@@ -284,7 +284,7 @@ C_HTML = <span class="s">'&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www
 C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt;xsl:for-each select="book"&gt;&lt;tr class="{@genre}"&gt;&lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="price"/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/xsl:for-each&gt;&lt;/table&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;'</span>
 
 <span class="k">func</span> <span class="f">main</span>
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial77"</span>])
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_xslt"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	cInput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"library.xml"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cInput, :contents = C_XML ])

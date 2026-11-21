@@ -19,8 +19,6 @@ The tutorial [Drawing and animation](tut-14-animation.html) moved shapes with Ri
 
 {{output:samples/UsingDotNet/tutorials/ch03_vectors.ring}}
 
-> [!NOTE] This program uses a generic function (`dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
-
 ## How it works
 
 ### Vectors

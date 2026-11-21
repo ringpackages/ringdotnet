@@ -98,8 +98,7 @@ func countCalls cFile,nBufferSize
 	return nCalls
 
 func checksum cFile
-	oHash = dnStatic("System.Security.Cryptography.SHA256","Create",[])
-	return new Convert().ToHexString(oHash.ComputeHash(new File().ReadAllBytes(cFile)))
+	return new Convert().ToHexString(new SHA256().HashData(new File().ReadAllBytes(cFile)))
 
 func yesNo lValue
 	if lValue

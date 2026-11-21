@@ -356,7 +356,7 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
 	<span class="k">return</span> <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetYear</span>(oDate)
 
 <span class="k">func</span> <span class="f">daysInMonth</span> nYear,nMonth
-	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"DaysInMonth"</span>,[ nYear, nMonth ])
+	<span class="k">return</span> <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>).<span class="f">DaysInMonth</span>(nYear,nMonth)
 
 <span class="c"># the years between two dates, minus one when the birthday of that year has not come yet</span>
 <span class="k">func</span> <span class="f">ageOn</span> oBirth,oDay
@@ -408,7 +408,6 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
    born 2000-03-10 age 29
    born 1990-12-31 age 39
    born 2030-03-09 age 0</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnStatic</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-weekend-and-the-holidays">The weekend and the holidays<a class="anchor" href="#the-weekend-and-the-holidays">#</a></h3>
 <p><code>DayOfWeek</code> gives the name of the day as a text. The function <code>isWeekend</code> compares it with <code>"Saturday"</code> and <code>"Sunday"</code>; some countries have a weekend on Friday and Saturday, and then only this function changes. The holidays are a Ring list of dates written as <em>year-month-day</em>, and <code>isHoliday</code> looks for the date in it. Real programs keep the holidays in a file or a table for each country and year (and some holidays, like Easter, move: they come from a rule, not from a fixed date).</p>

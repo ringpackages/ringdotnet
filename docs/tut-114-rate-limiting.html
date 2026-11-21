@@ -257,6 +257,7 @@
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
+	<span class="s">"System.Threading"</span>
 	<span class="s">"RingDotNet.Web"</span>                  <span class="c"># System.Threading.RateLimiting is part of the ASP.NET Core runtime: this line starts it</span>
 }
 
@@ -277,7 +278,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 		oLease = oBucket.<span class="f">callMethod</span>(<span class="s">"AttemptAcquire"</span>,[<span class="n">1</span>])
 		? <span class="s">"   request "</span> + nRequest + <span class="s">": "</span> + answer(oLease.<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>))
 	<span class="k">next</span>
-	<span class="f">dnStatic</span>(<span class="s">"System.Threading.Thread"</span>,<span class="s">"Sleep"</span>,[<span class="n">300</span>])      <span class="c"># more than the period of 100 ms</span>
+	<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">300</span>)      <span class="c"># more than the period of 100 ms</span>
 	? <span class="s">"   after the period, TryReplenish adds a token: "</span> + oBucket.<span class="f">callMethod</span>(<span class="s">"TryReplenish"</span>,[])
 	? <span class="s">"   the next request: "</span> + answer(oBucket.<span class="f">callMethod</span>(<span class="s">"AttemptAcquire"</span>,[<span class="n">1</span>]).<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>)) + <span class="s">"   (how many tokens come back depends on how long the pause was)"</span>
 
@@ -365,7 +366,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 5. two clients with 2 requests each; the first client asks 4 times, the second twice:
    10.0.0.1: allowed allowed refused refused 
    10.0.0.2: allowed allowed</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>callMethod</code>, <code>getProp</code>, <code>setProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>callMethod</code>, <code>getProp</code>, <code>setProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="yes-or-no-at-once">Yes or no at once<a class="anchor" href="#yes-or-no-at-once">#</a></h3>
 <p><code>AttemptAcquire(1)</code> asks for one <strong>permit</strong> and answers immediately with a <strong>lease</strong>; <code>IsAcquired</code> says whether the permit was given. The limiter never waits in this call: what a <em>no</em> means is the program's decision (an error to the client, a pause, a message). (<code>AcquireAsync</code> can wait in a queue; with <code>QueueLimit = 0</code>, as here, nothing waits.)</p>

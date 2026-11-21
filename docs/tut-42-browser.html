@@ -349,7 +349,7 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># a demo folder with folders and files</span>
 <span class="k">func</span> <span class="f">makeDemoFolder</span>
-	cBase = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial42"</span>])
+	cBase = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_browser"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>

@@ -9,7 +9,7 @@ using {
 
 func main
 	# STEP 1. A folder with some files: three of them have the same content, two others as well
-	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial31"])
+	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_duplicates"])
 	if new Directory().Exists(cFolder)
 		new Directory().Delete([ :path = cFolder, :recursive = True ])
 	ok

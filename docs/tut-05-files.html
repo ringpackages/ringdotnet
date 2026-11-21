@@ -267,7 +267,7 @@ using {
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
 
 	<span class="c"># Never build paths by joining text: Path.Combine uses the right separator</span>
-	cFolder = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial5"</span>])
+	cFolder = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_files"</span>])
 	<span class="k">if</span> oDirectory.<span class="f">Exists</span>(cFolder)
 		oDirectory.<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
@@ -302,12 +302,12 @@ using {
 	? <span class="s">"Extension          : "</span> + oPath.<span class="f">GetExtension</span>(cNotes)
 	? <span class="s">"File name only     : "</span> + oPath.<span class="f">GetFileNameWithoutExtension</span>(cNotes)
 
-	<span class="c"># Copy, move, list</span>
+	<span class="c"># Copy a file and list the folder</span>
 	oFile.<span class="f">Copy</span>([ :sourceFileName = cNotes, :destFileName = oPath.<span class="f">Combine</span>([cFolder,<span class="s">"copy.txt"</span>]) ])
 	? <span class="s">"Files in the folder: "</span> + len(oDirectory.<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>())
 
 	<span class="c"># Zip a folder and unzip it somewhere else</span>
-	cZip = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial5.zip"</span>])
+	cZip = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_files.zip"</span>])
 	<span class="k">if</span> oFile.<span class="f">Exists</span>(cZip)
 		oFile.<span class="f">Delete</span>(cZip)
 	<span class="k">ok</span>

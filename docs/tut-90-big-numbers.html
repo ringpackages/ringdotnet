@@ -265,9 +265,9 @@ using {
 
 	<span class="c"># 2. BigInteger keeps every digit. It is made from a text, and its result is shown as a text.</span>
 	oBig = <span class="k">new</span> <span class="t">BigInteger</span>()
-	nA = oBig.<span class="f">Parse</span>(<span class="s">"9007199254740992"</span>)
-	nB = oBig.<span class="f">Add</span>(nA,oBig.One)
-	? nl + <span class="s">"2. BigInteger: 9007199254740992 + 1 = "</span> + nB.<span class="f">ToString</span>()
+	oA = oBig.<span class="f">Parse</span>(<span class="s">"9007199254740992"</span>)
+	oB = oBig.<span class="f">Add</span>(oA,oBig.One)
+	? nl + <span class="s">"2. BigInteger: 9007199254740992 + 1 = "</span> + oB.<span class="f">ToString</span>()
 
 	<span class="c"># 3. Factorials grow fast: 30! has 33 digits. The loop multiplies with BigInteger.Multiply</span>
 	oFact = oBig.One

@@ -278,7 +278,7 @@ using {
 	<span class="f">dnLoad</span>(<span class="f">dnRequest</span>(<span class="s">"bridgefolder"</span>,[]) + <span class="s">"/System.Data.Odbc.dll"</span>)          <span class="c"># System.Data.Odbc is a NuGet package, it is not part of the runtime</span>
 
 	<span class="c"># 1. A new Access file. The ODBC driver opens files but can not create one, so ADOX (a COM component that comes with Access) does it.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial115.accdb"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_access.accdb"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	<span class="k">ok</span>

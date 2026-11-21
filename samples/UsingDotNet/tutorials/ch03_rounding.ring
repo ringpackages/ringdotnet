@@ -46,7 +46,7 @@ func main
 	# 5. Limits: Clamp keeps a number between a minimum and a maximum, Sign gives -1, 0 or 1, Abs the size without the sign
 	? nl + "5. Clamp, Sign, Abs:"
 	for nValue in [ -5, 40, 250 ]
-		? "   Clamp(" + padRight("" + nValue,4) + ", 0, 100) = " + clamp(nValue,0,100)
+		? "   Clamp(" + padRight("" + nValue,4) + ", 0, 100) = " + oMath.Clamp(nValue,0,100)
 	next
 	? "   Sign(-8) = " + oMath.Sign(-8) + ", Sign(0) = " + oMath.Sign(0) + ", Sign(8) = " + oMath.Sign(8) + ", Abs(-8) = " + oMath.Abs(-8)
 
@@ -66,26 +66,6 @@ func main
 	? "   rounded to cents with ToEven:       " + nEvenTotal + "   (the exact total is 1.25)"
 	? "   rounded to cents with AwayFromZero: " + nAwayTotal
 	? "   A shop uses ONE rule everywhere and rounds only the final amount, or the amount of each line, as the law of the country says."
-
-# Clamp with the plain comparison (one function for all numbers)
-func clamp nValue,nMin,nMax
-	if nValue < nMin
-		return nMin
-	ok
-	if nValue > nMax
-		return nMax
-	ok
-	return nValue
-
-func describeList aList
-	cText = ""
-	for item in aList
-		if cText != ""
-			cText += ", "
-		ok
-		cText += "" + item
-	next
-	return "[" + cText + "]"
 
 func padRight cText,nWidth
 	return cText + copy(" ",nWidth - len(cText))

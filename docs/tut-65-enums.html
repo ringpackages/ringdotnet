@@ -286,7 +286,7 @@ C_RUN = <span class="n">4</span>
 	<span class="k">done</span>
 
 	<span class="c"># 4. A method that takes an enum takes the name as a text: a file can be hidden and read only at the same time</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial65.txt"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_enums.txt"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"x"</span> ])
 	? nl + <span class="s">"4. attributes of a new file: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">GetAttributes</span>(cFile)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">SetAttributes</span>(cFile,<span class="s">"ReadOnly, Hidden"</span>)                       <span class="c"># several flags: names separated by commas</span>

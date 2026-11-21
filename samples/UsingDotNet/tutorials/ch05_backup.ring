@@ -10,7 +10,7 @@ func main
 	oPath = new Path()
 	oDirectory = new Directory()
 	oFile = new File()
-	cWork = oPath.Combine([oPath.GetTempPath(),"tutorial46"])
+	cWork = oPath.Combine([oPath.GetTempPath(),"ringdotnet_backup"])
 	if oDirectory.Exists(cWork)
 		oDirectory.Delete([ :path = cWork, :recursive = True ])
 	ok

@@ -277,7 +277,7 @@ oClient = <span class="s">""</span>
 	<span class="c"># One HttpClient for the whole program: it keeps connections open. DefaultRequestHeaders are sent with EVERY request.</span>
 	oClient = <span class="k">new</span> <span class="t">HttpClient</span>()
 	oClient.Timeout = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">10</span>)
-	oClient.DefaultRequestHeaders.<span class="f">Add</span>(<span class="s">"X-Client"</span>,<span class="s">"ringdotnet-tutorial"</span>)
+	oClient.DefaultRequestHeaders.<span class="f">Add</span>(<span class="s">"X-Client"</span>,<span class="s">"ringdotnet-http-client"</span>)
 	oClient.DefaultRequestHeaders.<span class="f">Add</span>(<span class="s">"Accept"</span>,<span class="s">"text/plain"</span>)
 
 	<span class="c"># 1. Headers in both directions. The client sent X-Client; the server answers with its own header X-Server and a content type.</span>
@@ -317,7 +317,7 @@ oClient = <span class="s">""</span>
 	oSource.<span class="f">Dispose</span>()
 
 	<span class="c"># 5. Save a download to a file: copy the content to a FileStream. The whole body is never held in memory.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial84.txt"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_http_client.txt"</span>])
 	oResponse = fetchPage(<span class="s">"/file"</span>)
 	oStream = <span class="k">new</span> <span class="t">File</span>().<span class="f">Create</span>(cFile)
 	oCopy = oResponse.Content.<span class="f">CopyToAsync</span>(oStream)

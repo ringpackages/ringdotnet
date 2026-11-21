@@ -15,7 +15,7 @@ func main
 	next
 
 	# For this tutorial the file is in the temp folder
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial32-settings.json"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_settings-settings.json"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

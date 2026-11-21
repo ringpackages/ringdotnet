@@ -300,8 +300,8 @@ using {
 	cBack = oBack.<span class="f">ReadToEnd</span>()
 	? <span class="s">"4. the text is the same after the round trip: "</span> + yesNo(cBack = cText)
 
-	<span class="c"># 5. Files are streams too: File.OpenRead / OpenWrite give a FileStream, with the same Read/Write methods</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial57.gz"</span>])
+	<span class="c"># 5. Files are streams too: File.Create gives a FileStream, with the same Read/Write methods</span>
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_streams.gz"</span>])
 	oFileStream = <span class="k">new</span> <span class="t">File</span>().<span class="f">Create</span>(cFile)
 	oFileGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oFileStream,<span class="s">"Compress"</span>)
 	oFileWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oFileGzip)

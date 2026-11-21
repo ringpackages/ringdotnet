@@ -10,7 +10,7 @@ func main
 	# 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],
 	#    string[] or double[] from the values of the list. An array that comes back is a DotNetObject: toList() makes a Ring list of it.
 	aNumbers = [42,7,19,3,25]
-	oSorted = new Array().Sort(aNumbers)
+	new Array().Sort(aNumbers)
 	? "1. a list given to Array.Sort comes back unchanged: " + list2text(aNumbers) + "(the bridge sorted its own copy)"
 
 	# 2. So to sort, reverse or search an array, make the array first: a List<Int32> filled with Add, and ToArray()

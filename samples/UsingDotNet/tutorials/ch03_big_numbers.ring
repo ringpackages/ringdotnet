@@ -11,9 +11,9 @@ func main
 
 	# 2. BigInteger keeps every digit. It is made from a text, and its result is shown as a text.
 	oBig = new BigInteger()
-	nA = oBig.Parse("9007199254740992")
-	nB = oBig.Add(nA,oBig.One)
-	? nl + "2. BigInteger: 9007199254740992 + 1 = " + nB.ToString()
+	oA = oBig.Parse("9007199254740992")
+	oB = oBig.Add(oA,oBig.One)
+	? nl + "2. BigInteger: 9007199254740992 + 1 = " + oB.ToString()
 
 	# 3. Factorials grow fast: 30! has 33 digits. The loop multiplies with BigInteger.Multiply
 	oFact = oBig.One

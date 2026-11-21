@@ -23,16 +23,16 @@ func main
 	#    a culture puts "a" and "A" next to each other
 	oOrdinal = new StringComparer().Ordinal
 	oCulture = new StringComparer().InvariantCulture
-	aWords = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
+	oWords = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
 	for cWord in ["banana","Cherry","apple","Banana","cherry","Apple"]
-		aWords.Add(cWord)
+		oWords.Add(cWord)
 	next
-	aWords.Sort(oOrdinal)
-	? nl + "3. ordinal order:  " + joinList(aWords.toList())
-	aWords.Sort(oCulture)
-	? "   culture order:  " + joinList(aWords.toList())
-	aWords.Sort(new StringComparer().OrdinalIgnoreCase)
-	? "   ignore case:    " + joinList(aWords.toList()) + "   (equal words can come in any order)"
+	oWords.Sort(oOrdinal)
+	? nl + "3. ordinal order:  " + joinList(oWords.toList())
+	oWords.Sort(oCulture)
+	? "   culture order:  " + joinList(oWords.toList())
+	oWords.Sort(new StringComparer().OrdinalIgnoreCase)
+	? "   ignore case:    " + joinList(oWords.toList()) + "   (equal words can come in any order)"
 
 	# 4. A dictionary that ignores case: the comparer is the second argument of the constructor
 	oPeople = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.Int32"],[new StringComparer().OrdinalIgnoreCase])

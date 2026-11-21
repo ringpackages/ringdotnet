@@ -325,7 +325,7 @@ using {
 		oRow = oTable.Rows.<span class="f">Item</span>(nIndex)
 		cOut += oRow.<span class="f">Item</span>(<span class="s">"Region"</span>) + <span class="s">","</span> + oRow.<span class="f">Item</span>(<span class="s">"Seller"</span>) + <span class="s">","</span> + oRow.<span class="f">Item</span>(<span class="s">"Amount"</span>) + nl
 	<span class="k">next</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial30.csv"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tables.csv"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cOut ])
 	? nl + <span class="s">"STEP 6: wrote "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cFile).<span class="f">toList</span>()) + <span class="s">" lines to a CSV file"</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>

@@ -2,6 +2,7 @@
 load "dotnet.ring"
 using {
 	"System"
+	"System.Threading"
 	"Microsoft.Extensions.Caching.Memory"
 }
 
@@ -58,7 +59,7 @@ func main
 	oCache.Dispose()
 
 func sleepMs nMilliseconds
-	dnStatic("System.Threading.Thread","Sleep",[nMilliseconds])
+	new Thread().Sleep(nMilliseconds)
 
 func slowReport aArguments
 	nRuns++                         # (nRuns is a global variable of the program)

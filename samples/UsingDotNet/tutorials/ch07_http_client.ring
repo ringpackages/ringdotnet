@@ -22,7 +22,7 @@ func main
 	# One HttpClient for the whole program: it keeps connections open. DefaultRequestHeaders are sent with EVERY request.
 	oClient = new HttpClient()
 	oClient.Timeout = new TimeSpan().FromSeconds(10)
-	oClient.DefaultRequestHeaders.Add("X-Client","ringdotnet-tutorial")
+	oClient.DefaultRequestHeaders.Add("X-Client","ringdotnet-http-client")
 	oClient.DefaultRequestHeaders.Add("Accept","text/plain")
 
 	# 1. Headers in both directions. The client sent X-Client; the server answers with its own header X-Server and a content type.
@@ -62,7 +62,7 @@ func main
 	oSource.Dispose()
 
 	# 5. Save a download to a file: copy the content to a FileStream. The whole body is never held in memory.
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial84.txt"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_http_client.txt"])
 	oResponse = fetchPage("/file")
 	oStream = new File().Create(cFile)
 	oCopy = oResponse.Content.CopyToAsync(oStream)

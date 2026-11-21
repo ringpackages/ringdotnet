@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rounding and the Math class · RingDotNet</title>
-<meta name="description" content="Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for Clamp-style limits, powers and logarithms, and shows how the rounding rule changes the total of a bill.">
+<meta name="description" content="Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for limits with Clamp, powers and logarithms, and shows how the rounding rule changes the total of a bill.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -247,7 +247,7 @@
 </nav>
 <main>
 <article>
-<h1>Rounding and the Math class</h1><p class="lead">Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for Clamp-style limits, powers and logarithms, and shows how the rounding rule changes the total of a bill.</p>
+<h1>Rounding and the Math class</h1><p class="lead">Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for limits with Clamp, powers and logarithms, and shows how the rounding rule changes the total of a bill.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li><code>Round</code> and its <strong>modes</strong>: <code>ToEven</code> and <code>AwayFromZero</code>,</li><li><code>Round</code> with a number of digits,</li><li><code>Floor</code>, <code>Ceiling</code> and <code>Truncate</code>, and what they do to negative numbers,</li><li>the remainder operator <code>%</code>,</li><li>keeping a number between a minimum and a maximum,</li><li><code>Sign</code>, <code>Abs</code>, <code>Pow</code>, <code>Sqrt</code>, <code>Cbrt</code> and the logarithms,</li><li>why money needs <strong>one</strong> rounding rule.</li></ul>
 <p>The tutorial <a href="tut-03-numbers-dates.html">Numbers, dates and times</a> used the basic functions and the tutorial <a href="tut-57-money.html">Money</a> showed why money needs care. This lesson is about the rules of rounding.</p>
@@ -301,7 +301,7 @@ using {
 	<span class="c"># 5. Limits: Clamp keeps a number between a minimum and a maximum, Sign gives -1, 0 or 1, Abs the size without the sign</span>
 	? nl + <span class="s">"5. Clamp, Sign, Abs:"</span>
 	<span class="k">for</span> nValue <span class="k">in</span> [ -<span class="n">5</span>, <span class="n">40</span>, <span class="n">250</span> ]
-		? <span class="s">"   Clamp("</span> + padRight(<span class="s">""</span> + nValue,<span class="n">4</span>) + <span class="s">", 0, 100) = "</span> + clamp(nValue,<span class="n">0</span>,<span class="n">100</span>)
+		? <span class="s">"   Clamp("</span> + padRight(<span class="s">""</span> + nValue,<span class="n">4</span>) + <span class="s">", 0, 100) = "</span> + oMath.<span class="f">Clamp</span>(nValue,<span class="n">0</span>,<span class="n">100</span>)
 	<span class="k">next</span>
 	? <span class="s">"   Sign(-8) = "</span> + oMath.<span class="f">Sign</span>(-<span class="n">8</span>) + <span class="s">", Sign(0) = "</span> + oMath.<span class="f">Sign</span>(<span class="n">0</span>) + <span class="s">", Sign(8) = "</span> + oMath.<span class="f">Sign</span>(<span class="n">8</span>) + <span class="s">", Abs(-8) = "</span> + oMath.<span class="f">Abs</span>(-<span class="n">8</span>)
 
@@ -321,26 +321,6 @@ using {
 	? <span class="s">"   rounded to cents with ToEven:       "</span> + nEvenTotal + <span class="s">"   (the exact total is 1.25)"</span>
 	? <span class="s">"   rounded to cents with AwayFromZero: "</span> + nAwayTotal
 	? <span class="s">"   A shop uses ONE rule everywhere and rounds only the final amount, or the amount of each line, as the law of the country says."</span>
-
-<span class="c"># Clamp with the plain comparison (one function for all numbers)</span>
-<span class="k">func</span> <span class="f">clamp</span> nValue,nMin,nMax
-	<span class="k">if</span> nValue &lt; nMin
-		<span class="k">return</span> nMin
-	<span class="k">ok</span>
-	<span class="k">if</span> nValue &gt; nMax
-		<span class="k">return</span> nMax
-	<span class="k">ok</span>
-	<span class="k">return</span> nValue
-
-<span class="k">func</span> <span class="f">describeList</span> aList
-	cText = <span class="s">""</span>
-	<span class="k">for</span> item <span class="k">in</span> aList
-		<span class="k">if</span> cText != <span class="s">""</span>
-			cText += <span class="s">", "</span>
-		<span class="k">ok</span>
-		cText += <span class="s">""</span> + item
-	<span class="k">next</span>
-	<span class="k">return</span> <span class="s">"["</span> + cText + <span class="s">"]"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
@@ -395,13 +375,13 @@ using {
 <h3 id="the-remainder">The remainder<a class="anchor" href="#the-remainder">#</a></h3>
 <p><code>17 % 5</code> is <code>2</code>. For a negative first number the remainder is negative too (<code>-17 % 5</code> is <code>-2</code>), as in C# and Java. When you need a result that is never negative (the index of a circular list, for example) add the divisor and take the remainder again: <code>((n % m) + m) % m</code>.</p>
 <h3 id="limits">Limits<a class="anchor" href="#limits">#</a></h3>
-<p><code>clamp(value, min, max)</code> keeps a value inside a range: a volume from 0 to 100, a color part from 0 to 255. The <code>Math</code> class has <code>Clamp</code>, but its versions are made for each number type, so a small Ring function that compares is simpler. <code>Sign</code> gives <code>-1</code>, <code>0</code> or <code>1</code>, and <code>Abs</code> the size without the sign.</p>
+<p><code>Clamp(value, min, max)</code> keeps a value inside a range: a volume from 0 to 100, a color part from 0 to 255. <code>Sign</code> gives <code>-1</code>, <code>0</code> or <code>1</code>, and <code>Abs</code> the size without the sign.</p>
 <h3 id="powers-and-logarithms">Powers and logarithms<a class="anchor" href="#powers-and-logarithms">#</a></h3>
 <p><code>Pow(2, 10)</code> is <code>1024</code>, <code>Sqrt(144)</code> is <code>12</code>, <code>Cbrt(27)</code> is <code>3</code> (the cube root). <code>Log10(1000)</code> is <code>3</code>, <code>Log2(1024)</code> is <code>10</code>, and <code>Log(x)</code> is the natural logarithm. The constants are <code>Math.PI</code> and <code>Math.E</code>.</p>
 <h3 id="rounding-money">Rounding money<a class="anchor" href="#rounding-money">#</a></h3>
 <p>Ten items of <code>0.125</code> cost <code>1.25</code>. Each item rounded to cents with <code>ToEven</code> is <code>0.12</code>, so the total is <code>1.20</code>; with <code>AwayFromZero</code> each is <code>0.13</code> and the total is <code>1.30</code>. The right answer depends on the rule that the shop (or the law of the country) uses, and it must be <strong>the same rule everywhere</strong> in the program: round each line, or round only the final amount, but never mix them. For exact amounts keep money in whole cents (<code>125</code> for <code>1.25</code>), as the tutorial <a href="tut-57-money.html">Money</a> does.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li><code>Round</code> with <code>ToEven</code> and <code>AwayFromZero</code>, with and without digits,</li><li><code>Floor</code>, <code>Ceiling</code> and <code>Truncate</code>,</li><li>the remainder of negative numbers,</li><li>limits with a small <code>clamp</code> function,</li><li>one rounding rule for money.</li></ul>
+<ul><li><code>Round</code> with <code>ToEven</code> and <code>AwayFromZero</code>, with and without digits,</li><li><code>Floor</code>, <code>Ceiling</code> and <code>Truncate</code>,</li><li>the remainder of negative numbers,</li><li>limits with <code>Clamp</code>,</li><li>one rounding rule for money.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Write <code>roundToStep(value, step)</code> that rounds to the nearest <code>0.05</code> (the smallest coin) and test it with <code>1.02</code> and <code>1.03</code>.</li><li>Write <code>mod(n, m)</code> that is never negative and use it for the days of a week.</li><li>Add the prices <code>19.99</code>, <code>5.49</code> and <code>0.5</code> rounded to cents with both modes.</li><li>Print <code>Log2</code> of the powers of two from 1 to 1024 in a table.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

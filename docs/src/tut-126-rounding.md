@@ -1,6 +1,6 @@
 ---
 title: "Rounding and the Math class"
-lead: Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for Clamp-style limits, powers and logarithms, and shows how the rounding rule changes the total of a bill.
+lead: Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for limits with Clamp, powers and logarithms, and shows how the rounding rule changes the total of a bill.
 ---
 
 ## What you will learn
@@ -43,7 +43,7 @@ All three give a whole number and differ only for negative numbers: `Floor` goes
 
 ### Limits
 
-`clamp(value, min, max)` keeps a value inside a range: a volume from 0 to 100, a color part from 0 to 255. The `Math` class has `Clamp`, but its versions are made for each number type, so a small Ring function that compares is simpler. `Sign` gives `-1`, `0` or `1`, and `Abs` the size without the sign.
+`Clamp(value, min, max)` keeps a value inside a range: a volume from 0 to 100, a color part from 0 to 255. `Sign` gives `-1`, `0` or `1`, and `Abs` the size without the sign.
 
 ### Powers and logarithms
 
@@ -58,7 +58,7 @@ Ten items of `0.125` cost `1.25`. Each item rounded to cents with `ToEven` is `0
 - `Round` with `ToEven` and `AwayFromZero`, with and without digits,
 - `Floor`, `Ceiling` and `Truncate`,
 - the remainder of negative numbers,
-- limits with a small `clamp` function,
+- limits with `Clamp`,
 - one rounding rule for money.
 
 ## Exercises

@@ -10,7 +10,7 @@ using {
 	"System.Threading"
 }
 
-C_NAME = "ringdotnet_tutorial82"
+C_NAME = "ringdotnet_shared_memory"
 
 func main
 	if find(sysargv,"--child") > 0
@@ -88,7 +88,7 @@ func runChild
 func editFileInPlace
 	# 6. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written
 	#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial82.bin"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_shared_memory.bin"])
 	oConverter = new BitConverter()
 	new File().WriteAllBytes(cFile,oConverter.GetBytes(10) + oConverter.GetBytes(20) + oConverter.GetBytes(30))
 	oMap = new MemoryMappedFile().CreateFromFile(cFile)

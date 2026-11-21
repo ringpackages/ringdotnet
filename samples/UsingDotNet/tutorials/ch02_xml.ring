@@ -52,7 +52,7 @@ func main
 	? nl + "5. book 2 now costs " + oDocument.Root.Elements(NULL).toList()[1].Element("price").Value + " and the first book is " + oDocument.Root.Elements(NULL).toList()[1].Element("title").Value
 
 	# 6. Save the text and read it back: the structure survives
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial72.xml"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_xml.xml"])
 	new File().WriteAllText([ :path = cFile, :contents = oDocument.ToString() ])
 	oAgain = new XDocument().Parse(new File().ReadAllText(cFile))
 	? nl + "6. the saved file has " + len(oAgain.Root.Elements(NULL).toList()) + " books"

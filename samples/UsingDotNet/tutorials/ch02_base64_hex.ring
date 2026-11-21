@@ -3,6 +3,7 @@ load "dotnet.ring"
 using {
 	"System"
 	"System.Text"
+	"System.Security.Cryptography"
 }
 
 func main
@@ -92,8 +93,7 @@ func tryHex cText
 	done
 
 func hashHex cText
-	oHash = dnStatic("System.Security.Cryptography.SHA256","Create",[])
-	return new Convert().ToHexString(oHash.ComputeHash(cText))
+	return new Convert().ToHexString(new SHA256().HashData(cText))
 
 func errorKind cMessage
 	cText = trim(cMessage)

@@ -94,7 +94,7 @@ func sizeText nBytes
 
 # a demo folder with folders and files
 func makeDemoFolder
-	cBase = new Path().Combine([new Path().GetTempPath(),"tutorial42"])
+	cBase = new Path().Combine([new Path().GetTempPath(),"ringdotnet_browser"])
 	if new Directory().Exists(cBase)
 		new Directory().Delete([ :path = cBase, :recursive = True ])
 	ok

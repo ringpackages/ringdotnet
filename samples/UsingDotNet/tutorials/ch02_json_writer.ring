@@ -64,11 +64,11 @@ func main
 
 	# 4. JsonSerializer turns .NET objects into JSON; JsonSerializerOptions choose the form. A list of numbers and a dictionary:
 	oSerializer = new JsonSerializer()
-	aNumbers = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
+	oNumbers = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 	for n in [3,1,2]
-		aNumbers.Add(n)
+		oNumbers.Add(n)
 	next
-	? nl + "4. a list: " + oSerializer.Serialize(aNumbers)
+	? nl + "4. a list: " + oSerializer.Serialize(oNumbers)
 	oScores = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.Double"],[])
 	oScores.Add("ann",9.5)
 	oScores.Add("bob",7)

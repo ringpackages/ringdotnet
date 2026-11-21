@@ -41,14 +41,14 @@ func main
 	? "   the temporary folder exists? " + yesNo(new Directory().Exists(oPath.GetTempPath()))
 
 	# 6. Environment variables: settings from outside (a password, a folder, a mode). Always provide a default.
-	oEnvironment.SetEnvironmentVariable([ :variable = "TUTORIAL60_MODE", :value = "fast" ])
-	? nl + "6. TUTORIAL60_MODE = " + oEnvironment.GetEnvironmentVariable("TUTORIAL60_MODE")
-	cMissing = oEnvironment.GetEnvironmentVariable("TUTORIAL60_NOT_SET")
+	oEnvironment.SetEnvironmentVariable([ :variable = "RINGDOTNET_MODE", :value = "fast" ])
+	? nl + "6. RINGDOTNET_MODE = " + oEnvironment.GetEnvironmentVariable("RINGDOTNET_MODE")
+	cMissing = oEnvironment.GetEnvironmentVariable("RINGDOTNET_NOT_SET")
 	if isobject(cMissing)                                 # .NET null comes to Ring as an object that IsNull()
 		cMissing = "(default)"
 	ok
 	? "   a variable that is not set: " + cMissing
-	oEnvironment.SetEnvironmentVariable([ :variable = "TUTORIAL60_MODE", :value = NULL ])
+	oEnvironment.SetEnvironmentVariable([ :variable = "RINGDOTNET_MODE", :value = NULL ])
 
 	# 7. The system: which one runs the program
 	? nl + "7. 64-bit process? " + yesNo(oEnvironment.Is64BitProcess) + ", the new line is " + len(oEnvironment.NewLine) + " character(s) long"

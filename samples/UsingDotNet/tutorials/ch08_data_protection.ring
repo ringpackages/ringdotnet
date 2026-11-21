@@ -2,6 +2,7 @@
 load "dotnet.ring"
 using {
 	"System"
+	"System.Threading"
 	"System.IO"
 	"RingDotNet.Web"                  # the Data Protection API is part of the ASP.NET Core runtime: this line starts it
 }
@@ -13,7 +14,7 @@ func main
 	# The Data Protection API encrypts and signs small pieces of data (a cookie, a token, a "remember me" value, a link in an e-mail)
 	# without you handling keys, algorithms or initialisation vectors. It makes keys, keeps them in a folder, renews them,
 	# and encrypts with AES and signs with HMAC. ASP.NET Core uses it for its cookies and tokens.
-	cKeys = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial113_keys"])
+	cKeys = new Path().Combine([new Path().GetTempPath(),"ringdotnet_protection_keys"])
 	if new Directory().Exists(cKeys)
 		new Directory().Delete([ :path = cKeys, :recursive = True ])
 	ok
@@ -57,7 +58,7 @@ func main
 	oLimited = dnStatic(cAdvanced,"ToTimeLimitedDataProtector",[oProtector])
 	cShort = dnStatic(cAdvanced,"Protect",[oLimited,"reset:42",new TimeSpan().FromMilliseconds(1200)])
 	? nl + "6. a token that is valid for 1.2 seconds: now " + tryUnprotectLimited(cAdvanced,oLimited,cShort)
-	dnStatic("System.Threading.Thread","Sleep",[2000])
+	new Thread().Sleep(2000)
 	? "   after 2 seconds: " + tryUnprotectLimited(cAdvanced,oLimited,cShort)
 
 	new Directory().Delete([ :path = cKeys, :recursive = True ])

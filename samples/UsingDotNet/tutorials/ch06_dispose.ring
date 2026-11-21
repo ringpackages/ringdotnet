@@ -6,7 +6,7 @@ using {
 }
 
 func main
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial71.txt"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_dispose.txt"])
 	new File().WriteAllText([ :path = cFile, :contents = "some text" ])
 
 	# 1. A resource is something the operating system lends to your program: a file, a socket, a database connection.

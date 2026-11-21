@@ -52,7 +52,7 @@ func main
 	# Clean up in every case: do it after the try block
 	oWriter = ""
 	try
-		cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial7.txt"])
+		cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_errors.txt"])
 		oWriter = new StreamWriter(cFile)
 		oWriter.WriteLine("some text")
 		new Int32().Parse("oops")

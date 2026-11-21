@@ -353,7 +353,7 @@ lChanged = <span class="k">False</span>
 <span class="k">func</span> <span class="f">selfTest</span>
 	oEditor.Text = <span class="s">"Hello from the test"</span>
 	<span class="f">dnAssert</span>(<span class="s">"the text changed"</span>,lChanged,<span class="k">True</span>)
-	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial13.txt"</span>])
+	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_editor.txt"</span>])
 	cFileName = cTemp
 	saveFile()
 	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cTemp),<span class="s">"Hello from the test"</span>)

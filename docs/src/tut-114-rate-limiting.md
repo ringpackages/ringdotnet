@@ -22,7 +22,7 @@ A web program (the tutorial [A web service with a database](tut-16-web-service.h
 
 {{output:samples/UsingDotNet/tutorials/ch08_rate_limiting.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `callMethod`, `getProp`, `setProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `callMethod`, `getProp`, `setProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

@@ -317,10 +317,10 @@ using {
 	oOther.<span class="f">Set</span>(<span class="n">9</span>,<span class="k">True</span>)
 	? nl + <span class="s">"5. bits:  "</span> + bitText(oBits)
 	? <span class="s">"   other: "</span> + bitText(oOther)
-	? <span class="s">"   AND:   "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).@<span class="k">And</span>(oOther))
-	? <span class="s">"   OR:    "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).@<span class="k">Or</span>(oOther))
+	? <span class="s">"   AND:   "</span> + bitText(copyBits(oBits).@<span class="k">And</span>(oOther))
+	? <span class="s">"   OR:    "</span> + bitText(copyBits(oBits).@<span class="k">Or</span>(oOther))
 
-<span class="k">func</span> <span class="f">dnCopyBits</span> oBits
+<span class="k">func</span> <span class="f">copyBits</span> oBits
 	<span class="k">return</span> <span class="k">new</span> <span class="t">BitArray</span>(oBits)
 
 <span class="k">func</span> <span class="f">bitText</span> oBits
