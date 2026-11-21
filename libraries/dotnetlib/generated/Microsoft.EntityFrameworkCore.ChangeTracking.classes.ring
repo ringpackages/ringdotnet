@@ -319,6 +319,21 @@ Class ChangeTracker from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToDebugString P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func setTrackingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Tracking",dnCallback(P1)])
 		return self
@@ -956,6 +971,11 @@ Class ValueComparer from Object
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s13:CreateDefault",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s13:CreateDefault",P1))
+
+	Func IsDefault 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsDefault")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))

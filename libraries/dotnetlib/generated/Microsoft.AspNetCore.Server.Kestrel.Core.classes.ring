@@ -480,6 +480,9 @@ Class KestrelServerOptions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func UseSystemd 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd"))
+
 	Func getAllowHostHeaderOverride
 		dn_x = dotnet_call("s3:get",nHandle,"s23:AllowHostHeaderOverride")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -609,6 +612,12 @@ Class ListenOptions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func UseConnectionLogging 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging"))
+
+	Func UseHttps 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps"))
 
 	Func getEndPoint
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:EndPoint"))

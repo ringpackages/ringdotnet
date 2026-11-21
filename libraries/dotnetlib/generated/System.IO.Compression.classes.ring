@@ -431,6 +431,14 @@ Class ZipArchive from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func CreateEntryFromFile P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateEntryFromFile",P1,P2))
+
+	Func ExtractToDirectory P1
+		dotnet_callv("s4:call",nHandle,"s18:ExtractToDirectory",P1)
+
+		return self
+
 	Func getComment
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -487,6 +495,11 @@ Class ZipArchiveEntry from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ExtractToFile P1
+		dotnet_callv("s4:call",nHandle,"s13:ExtractToFile",P1)
+
+		return self
 
 	Func getArchive
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Archive"))

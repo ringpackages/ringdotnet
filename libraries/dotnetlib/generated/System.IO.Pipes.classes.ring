@@ -514,6 +514,14 @@ Class PipeStream from Stream
 
 		return self
 
+	Func GetAccessControl 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
+
+	Func SetAccessControl P1
+		dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
+
+		return self
+
 	Func getIsConnected
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsConnected")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

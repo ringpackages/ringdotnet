@@ -357,6 +357,34 @@ Class IWebHost from DotNetObject
 
 		return self
 
+	Func WaitForShutdown 
+		dotnet_callv("s4:call",nHandle,"s15:WaitForShutdown")
+
+		return self
+
+	Func WaitForShutdownAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForShutdownAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync",P1))
+
+	Func Run 
+		dotnet_callv("s4:call",nHandle,"s3:Run")
+
+		return self
+
+	Func RunAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:RunAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
+
 	Func getServerFeatures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ServerFeatures"))
 
@@ -397,6 +425,81 @@ Class IWebHostBuilder from DotNetObject
 
 	Func UseSetting P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))
+
+	Func UseConfiguration P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseConfiguration",P1))
+
+	Func CaptureStartupErrors P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CaptureStartupErrors",P1))
+
+	Func UseStartup P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
+
+	Func UseServer P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseServer",P1))
+
+	Func UseEnvironment P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+
+	Func UseContentRoot P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+
+	Func UseWebRoot P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseWebRoot",P1))
+
+	Func UseUrls P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseUrls",P1))
+
+	Func PreferHostingUrls P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:PreferHostingUrls",P1))
+
+	Func SuppressStatusMessages P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SuppressStatusMessages",P1))
+
+	Func UseShutdownTimeout P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseShutdownTimeout",P1))
+
+	Func Start P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start",P1))
+
+	Func Configure P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func UseDefaultServiceProvider P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+
+	Func ConfigureLogging P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+
+	Func UseStaticWebAssets 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStaticWebAssets"))
+
+	Func UseHttpSys 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys"))
+
+	Func UseIIS 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseIIS"))
+
+	Func UseKestrelHttpsConfiguration 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:UseKestrelHttpsConfiguration"))
+
+	Func UseKestrel 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel"))
+
+	Func UseKestrelCore 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseKestrelCore"))
+
+	Func ConfigureKestrel P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureKestrel",P1))
+
+	Func UseNamedPipes 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes"))
+
+	Func UseQuic 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic"))
+
+	Func UseSockets 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets"))
 
 
 Class IWebHostEnvironment from DotNetObject

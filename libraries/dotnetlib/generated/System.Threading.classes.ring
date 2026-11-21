@@ -2866,6 +2866,14 @@ Class WaitHandle from MarshalByRefObject
 		ok
 		raise("DotNet Error: SignalAndWait does not take one argument: use named arguments, SignalAndWait([ :parameter = value, ... ])")
 
+	Func GetSafeWaitHandle_ 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetSafeWaitHandle"))
+
+	Func SetSafeWaitHandle_ P1
+		dotnet_callv("s4:call",nHandle,"s17:SetSafeWaitHandle",P1)
+
+		return self
+
 	Func getHandle
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 

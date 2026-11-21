@@ -111,6 +111,15 @@ Class JsonDocument from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonDocument, System.Text.Json',"s10:ParseAsync",P1))
 
+	Func Deserialize P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+
 	Func getRootElement
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RootElement"))
 
@@ -356,6 +365,15 @@ Class JsonElement from ValueType
 		dn_x = dotnet_call("s4:call",'System.Text.Json.JsonElement, System.Text.Json',"s10:DeepEquals",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Deserialize P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

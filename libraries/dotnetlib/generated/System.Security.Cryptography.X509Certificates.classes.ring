@@ -2312,6 +2312,24 @@ Class X509Certificate2 from X509Certificate
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
 
+	Func GetDSAPublicKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDSAPublicKey"))
+
+	Func GetDSAPrivateKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDSAPrivateKey"))
+
+	Func GetECDsaPublicKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetECDsaPublicKey"))
+
+	Func GetECDsaPrivateKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetECDsaPrivateKey"))
+
+	Func GetRSAPublicKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRSAPublicKey"))
+
+	Func GetRSAPrivateKey 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRSAPrivateKey"))
+
 	Func getArchived
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Archived")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

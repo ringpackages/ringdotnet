@@ -1297,6 +1297,9 @@ Class Plane from ValueType
 	Func Transform P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:Transform",P1,P2))
 
+	Func AsVector4 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+
 	Func getNormal
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Normal"))
 
@@ -1414,6 +1417,9 @@ Class Quaternion from ValueType
 
 	Func Subtract P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s8:Subtract",P1,P2))
+
+	Func AsVector4 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
@@ -2087,6 +2093,12 @@ Class Vector2 from ValueType
 	Func Truncate P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Truncate",P1))
 
+	Func AsVector4 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+
+	Func AsVector4Unsafe 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
+
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2409,6 +2421,12 @@ Class Vector3 from ValueType
 
 	Func Truncate P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Truncate",P1))
+
+	Func AsVector4 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+
+	Func AsVector4Unsafe 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
@@ -2740,6 +2758,18 @@ Class Vector4 from ValueType
 
 	Func Truncate P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Truncate",P1))
+
+	Func AsPlane 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AsPlane"))
+
+	Func AsQuaternion 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsQuaternion"))
+
+	Func AsVector2 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector2"))
+
+	Func AsVector3 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector3"))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)

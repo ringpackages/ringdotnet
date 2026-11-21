@@ -1889,6 +1889,9 @@ Class Stream from MarshalByRefObject
 	Func Synchronized P1
 		return dnObj(dotnet_callo("s4:call",'System.IO.Stream, System.Private.CoreLib',"s12:Synchronized",P1))
 
+	Func DrainAsync P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DrainAsync",P1))
+
 	Func getCanRead
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CanRead")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

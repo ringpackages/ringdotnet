@@ -3255,6 +3255,32 @@ Class StackFrame from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func HasNativeImage 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:HasNativeImage")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasMethod 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:HasMethod")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasILOffset 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:HasILOffset")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func HasSource 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:HasSource")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetNativeIP 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNativeIP"))
+
+	Func GetNativeImageBase 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetNativeImageBase"))
+
 	Func getOFFSET_UNKNOWN
 		dn_x = dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

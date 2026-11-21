@@ -1042,7 +1042,7 @@ namespace RingDotNet
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m) });
+					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0 });
 				}
 			}
 			List<object> members = new List<object>();
@@ -1766,11 +1766,83 @@ namespace RingDotNet
 			{
 				m = PickFromInterfaces(t, name, args, out conv);
 			}
+			if (m == null && instance != null)
+			{
+				MethodBase[] extensions = ExtensionsFor(t, name);
+				if (extensions.Length > 0)
+				{
+					object[] withTarget = new object[args.Length + 1];
+					withTarget[0] = instance;
+					Array.Copy(args, 0, withTarget, 1, args.Length);
+					m = PickCached(extensions, withTarget, out conv) as MethodInfo;
+					if (m != null) instance = null;
+				}
+			}
 			if (m == null)
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
 			}
 			return InvokeResult(m, instance, conv);
+		}
+
+		/* ---------------------------------------------------------------- extension methods
+		   The generated class of a type has a method for each extension method of that type (Table.AddColumn("x") is TableExtensions.AddColumn(table, "x")).
+		   A call finds the extension methods only after the methods of the object itself: the first time that is needed, the static classes with
+		   extension methods of the loaded assemblies are collected (again when an assembly was loaded since). */
+		private static readonly object ExtensionSync = new object();
+		private static readonly HashSet<Assembly> ExtensionScanned = new HashSet<Assembly>();
+		private static readonly List<MethodInfo> ExtensionMethods = new List<MethodInfo>();
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<(Type, string), MethodBase[]> ExtensionCache =
+			new System.Collections.Concurrent.ConcurrentDictionary<(Type, string), MethodBase[]>();
+
+		private static void ScanExtensions()
+		{
+			lock (ExtensionSync)
+			{
+				bool added = false;
+				foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+				{
+					if (assembly.IsDynamic || !ExtensionScanned.Add(assembly)) continue;
+					Type[] types;
+					try { types = assembly.GetExportedTypes(); } catch (Exception) { continue; }
+					foreach (Type t in types)
+					{
+						if (!t.IsSealed || !t.IsAbstract || t.IsGenericTypeDefinition) continue;
+						try
+						{
+							if (!t.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false)) continue;
+							foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Static))
+							{
+								if (m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false)) { ExtensionMethods.Add(m); added = true; }
+							}
+						}
+						catch (Exception) { }
+					}
+				}
+				if (added) ExtensionCache.Clear();
+			}
+		}
+
+		private static MethodBase[] ExtensionsFor(Type target, string name)
+		{
+			ScanExtensions();
+			return ExtensionCache.GetOrAdd((target, name), key =>
+			{
+				MethodInfo[] all;
+				lock (ExtensionSync) { all = ExtensionMethods.ToArray(); }
+				List<MethodBase> found = new List<MethodBase>();
+				foreach (StringComparison comparison in new[] { StringComparison.Ordinal, StringComparison.OrdinalIgnoreCase })
+				{
+					foreach (MethodInfo m in all)
+					{
+						if (!string.Equals(m.Name, key.Item2, comparison)) continue;
+						Type first = m.GetParameters()[0].ParameterType;
+						if (!first.ContainsGenericParameters && first.IsAssignableFrom(key.Item1)) found.Add(m);
+					}
+					if (found.Count > 0) break;
+				}
+				return found.ToArray();
+			});
 		}
 
 		/* A method that the class implements explicitly (a row of Dapper is a public IDictionary<string, object> and has no public get_Item) is
@@ -1942,6 +2014,20 @@ namespace RingDotNet
 					if (!i.IsVisible) continue;
 					m = PickNamed(MethodsNamed(i, name, InstanceFlags), names, values, out conv) as MethodInfo;
 					if (m != null) break;
+				}
+			}
+			if (m == null && instance != null)
+			{
+				foreach (MethodBase candidate in ExtensionsFor(t, name))
+				{
+					string[] namesWithTarget = new string[names.Length + 1];
+					object[] valuesWithTarget = new object[values.Length + 1];
+					namesWithTarget[0] = candidate.GetParameters()[0].Name;
+					valuesWithTarget[0] = instance;
+					Array.Copy(names, 0, namesWithTarget, 1, names.Length);
+					Array.Copy(values, 0, valuesWithTarget, 1, values.Length);
+					m = PickNamed(new[] { candidate }, namesWithTarget, valuesWithTarget, out conv) as MethodInfo;
+					if (m != null) { instance = null; break; }
 				}
 			}
 			if (m == null)

@@ -176,6 +176,30 @@ Class ICacheEntry from DotNetObject
 
 		return self
 
+	Func SetPriority_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
+
+	Func AddExpirationToken P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
+
+	Func SetAbsoluteExpiration_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
+
+	Func SetSlidingExpiration_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
+
+	Func RegisterPostEvictionCallback P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RegisterPostEvictionCallback",P1))
+
+	Func SetValue_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetValue",P1))
+
+	Func SetSize_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
+
+	Func SetOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetOptions",P1))
+
 	Func getKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
 
@@ -266,6 +290,18 @@ Class IMemoryCache from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
+
+	Func Get_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Set P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Set",P1,P2))
+
+	Func GetOrCreate P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetOrCreate",P1,P2))
+
+	Func GetOrCreateAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetOrCreateAsync",P1,P2))
 
 
 Class MemoryCache from Object
@@ -418,6 +454,24 @@ Class MemoryCacheEntryOptions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func SetPriority_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
+
+	Func SetSize_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
+
+	Func AddExpirationToken P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
+
+	Func SetAbsoluteExpiration_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
+
+	Func SetSlidingExpiration_ P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
+
+	Func RegisterPostEvictionCallback P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RegisterPostEvictionCallback",P1))
 
 	Func getAbsoluteExpiration
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:AbsoluteExpiration"))

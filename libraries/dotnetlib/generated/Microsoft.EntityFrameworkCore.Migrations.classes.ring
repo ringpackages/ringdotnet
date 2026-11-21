@@ -630,6 +630,11 @@ Class IMigrationsAssembly from DotNetObject
 	Func CreateMigration P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateMigration",P1,P2))
 
+	Func GetMigrationId P1
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetMigrationId",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getMigrations
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Migrations"))
 
@@ -1063,6 +1068,11 @@ Class MigrationBuilder from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlite 
+		dn_x = dotnet_call("s4:call",nHandle,"s8:IsSqlite")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 

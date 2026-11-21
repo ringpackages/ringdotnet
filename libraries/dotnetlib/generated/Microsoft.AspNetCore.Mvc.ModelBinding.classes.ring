@@ -1173,6 +1173,9 @@ Class IModelMetadataProvider from DotNetObject
 	Func GetMetadataForProperties P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
+	Func GetMetadataForProperty P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+
 
 Class IModelNameProvider from DotNetObject
 
@@ -2662,6 +2665,11 @@ Class ModelStateDictionary from Object
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func RemoveAll P1
+		dotnet_callv("s4:call",nHandle,"s9:RemoveAll",P1)
+
+		return self
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

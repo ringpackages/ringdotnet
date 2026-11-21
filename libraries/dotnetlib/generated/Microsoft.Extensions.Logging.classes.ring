@@ -373,6 +373,36 @@ Class ILogger from DotNetObject
 	Func BeginScope P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeginScope",P1))
 
+	Func LogDebug P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s8:LogDebug",P1,P2,P3,P4)
+
+		return self
+
+	Func LogTrace P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s8:LogTrace",P1,P2,P3,P4)
+
+		return self
+
+	Func LogInformation P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s14:LogInformation",P1,P2,P3,P4)
+
+		return self
+
+	Func LogWarning P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s10:LogWarning",P1,P2,P3,P4)
+
+		return self
+
+	Func LogError P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s8:LogError",P1,P2,P3,P4)
+
+		return self
+
+	Func LogCritical P1,P2,P3,P4
+		dotnet_callv("s4:call",nHandle,"s11:LogCritical",P1,P2,P3,P4)
+
+		return self
+
 
 Class ILoggerFactory from DotNetObject
 
@@ -397,6 +427,21 @@ Class ILoggerFactory from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
+
+	Func AddConsole P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole",P1))
+
+	Func AddDebug P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug",P1))
+
+	Func AddEventLog P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog",P1))
+
+	Func AddEventSourceLogger 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddEventSourceLogger"))
+
+	Func AddTraceSource P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTraceSource",P1,P2))
 
 
 Class ILoggerProvider from DotNetObject
@@ -431,6 +476,48 @@ Class ILoggingBuilder from DotNetObject
 			return self
 		ok
 		return self
+
+	Func AddConsole 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole"))
+
+	Func AddSimpleConsole 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddSimpleConsole"))
+
+	Func AddJsonConsole 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonConsole"))
+
+	Func AddSystemdConsole P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddSystemdConsole",P1))
+
+	Func AddConsoleFormatter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddConsoleFormatter"))
+
+	Func AddDebug 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug"))
+
+	Func AddEventLog 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog"))
+
+	Func AddEventSourceLogger 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddEventSourceLogger"))
+
+	Func AddFilter P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddFilter",P1))
+
+	Func SetMinimumLevel P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetMinimumLevel",P1))
+
+	Func AddProvider P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProvider",P1))
+
+	Func ClearProviders 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ClearProviders"))
+
+	Func Configure P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func AddTraceSource P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTraceSource",P1))
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -740,6 +827,9 @@ Class LoggerFilterOptions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func AddFilter P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddFilter",P1))
 
 	Func getCaptureScopes
 		dn_x = dotnet_call("s3:get",nHandle,"s13:CaptureScopes")

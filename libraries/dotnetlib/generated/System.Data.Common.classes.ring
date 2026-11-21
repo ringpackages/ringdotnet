@@ -1948,6 +1948,14 @@ Class DbDataReader from MarshalByRefObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:NextResultAsync",P1))
 
+	Func GetColumnSchema 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetColumnSchema"))
+
+	Func CanGetColumnSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s18:CanGetColumnSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 

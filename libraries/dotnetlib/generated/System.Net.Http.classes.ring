@@ -210,6 +210,21 @@ Class HttpContent from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ReadFromJsonAsAsyncEnumerable P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
+
+	Func ReadFromJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadFromJsonAsync",P1))
+		ok
+		raise("DotNet Error: ReadFromJsonAsync does not take one argument: use named arguments, ReadFromJsonAsync([ :parameter = value, ... ])")
+
 	Func getHeaders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
 
@@ -896,6 +911,42 @@ Class HttpClient from HttpMessageInvoker
 		dotnet_callv("s4:call",nHandle,"s21:CancelPendingRequests")
 
 		return self
+
+	Func GetFromJsonAsAsyncEnumerable P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1))
+		ok
+		raise("DotNet Error: GetFromJsonAsAsyncEnumerable does not take one argument: use named arguments, GetFromJsonAsAsyncEnumerable([ :parameter = value, ... ])")
+
+	Func DeleteFromJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:DeleteFromJsonAsync",P1))
+		ok
+		raise("DotNet Error: DeleteFromJsonAsync does not take one argument: use named arguments, DeleteFromJsonAsync([ :parameter = value, ... ])")
+
+	Func GetFromJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetFromJsonAsync",P1))
+		ok
+		raise("DotNet Error: GetFromJsonAsync does not take one argument: use named arguments, GetFromJsonAsync([ :parameter = value, ... ])")
+
+	Func PostAsJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:PostAsJsonAsync",P1))
+		ok
+		raise("DotNet Error: PostAsJsonAsync does not take one argument: use named arguments, PostAsJsonAsync([ :parameter = value, ... ])")
+
+	Func PutAsJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:PutAsJsonAsync",P1))
+		ok
+		raise("DotNet Error: PutAsJsonAsync does not take one argument: use named arguments, PutAsJsonAsync([ :parameter = value, ... ])")
+
+	Func PatchAsJsonAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:PatchAsJsonAsync",P1))
+		ok
+		raise("DotNet Error: PatchAsJsonAsync does not take one argument: use named arguments, PatchAsJsonAsync([ :parameter = value, ... ])")
 
 	Func getDefaultRequestHeaders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s21:DefaultRequestHeaders"))

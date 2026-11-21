@@ -955,6 +955,36 @@ Class ExpressionsExpression from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostDecrementAssign",P1))
 
+	Func Print P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s5:Print",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s5:Print")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s5:Print",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func CreateValueBufferReadValueExpression P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:CreateValueBufferReadValueExpression",P1,P2,P3))
+
+	Func CreateKeyValuesExpression P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateKeyValuesExpression",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateKeyValuesExpression",P1))
+
+	Func CreateEFPropertyExpression P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:CreateEFPropertyExpression",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:CreateEFPropertyExpression",P1))
+
 	Func getNodeType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
 
@@ -1712,6 +1742,18 @@ Class LambdaExpression from ExpressionsExpression
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
 
+	Func GetPropertyAccess 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetPropertyAccess"))
+
+	Func GetMemberAccess 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetMemberAccess"))
+
+	Func GetPropertyAccessList 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessList"))
+
+	Func GetMemberAccessList 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMemberAccessList"))
+
 	Func getParameters
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
 
@@ -1870,6 +1912,9 @@ Class MemberExpression from ExpressionsExpression
 	Func Update P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
+	Func Assign P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Assign",P1))
+
 	Func getMember
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Member"))
 
@@ -1980,6 +2025,12 @@ Class MethodCallExpression from ExpressionsExpression
 
 	Func GetArgument P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+
+	Func TryGetEFPropertyArguments 
+		return dnSend("s4:call",nHandle,"s25:TryGetEFPropertyArguments","")
+
+	Func TryGetIndexerArguments P1
+		return dnSend("s4:call",nHandle,"s22:TryGetIndexerArguments",dnPackItem(P1))
 
 	Func getMethod
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Method"))

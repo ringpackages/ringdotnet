@@ -795,6 +795,15 @@ Class DbContextOptionsBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func UseSqlite P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:UseSqlite",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseSqlite"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseSqlite",P1))
+
 	Func getOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
@@ -825,6 +834,41 @@ Class DbFunctions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Like P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Like",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Random 
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Random")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Collate P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Collate",P1,P2))
+
+	Func Least P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Least",P1))
+
+	Func Greatest P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Greatest",P1))
+
+	Func Glob P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s4:Glob",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Hex P1
+		dn_x = dotnet_call("s4:call",nHandle,"s3:Hex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func Unhex P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Unhex",P1))
+
+	Func Substr P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Substr",P1,P2))
 
 
 Class DbFunctionsExtensions from Object
@@ -1301,6 +1345,21 @@ Class ModelBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func HasSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:HasSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HasSequence",P1))
+
+	Func HasDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasDbFunction",P1))
+
+	Func HasDefaultSchema P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HasDefaultSchema",P1))
+
+	Func UseCollation P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseCollation",P1))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))

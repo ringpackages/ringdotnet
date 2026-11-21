@@ -1194,6 +1194,28 @@ Class IConfiguration from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
+	Func Get_ 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+
+	Func Bind P1,P2
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1,P2)
+
+		return self
+
+	Func GetValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+
+	Func GetConnectionString P1
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+
+	Func GetRequiredSection P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
+
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1223,6 +1245,57 @@ Class IConfigurationBuilder from DotNetObject
 
 	Func Build 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+
+	Func AddConfiguration P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddConfiguration",P1))
+
+	Func AddCommandLine P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddCommandLine",P1))
+
+	Func AddEnvironmentVariables 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+
+	Func SetFileProvider P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetFileProvider",P1))
+
+	Func GetFileProvider 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileProvider"))
+
+	Func SetBasePath P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBasePath",P1))
+
+	Func SetFileLoadExceptionHandler P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:SetFileLoadExceptionHandler",P1))
+
+	Func GetFileLoadExceptionHandler 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetFileLoadExceptionHandler"))
+
+	Func AddIniFile P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddIniFile",P1))
+
+	Func AddIniStream P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddIniStream",P1))
+
+	Func AddJsonFile P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddJsonFile",P1))
+
+	Func AddJsonStream P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddJsonStream",P1))
+
+	Func AddKeyPerFile P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddKeyPerFile",P1))
+
+	Func AddInMemoryCollection 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+
+	Func AddUserSecrets 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
+
+	Func AddXmlFile P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddXmlFile",P1))
+
+	Func AddXmlStream P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddXmlStream",P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -1337,6 +1410,11 @@ Class IConfigurationRoot from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
+	Func GetDebugView 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getProviders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Providers"))
 
@@ -1367,6 +1445,11 @@ Class IConfigurationSection from DotNetObject
 
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
+
+	Func Exists 
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getKey
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")

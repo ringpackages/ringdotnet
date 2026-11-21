@@ -4106,6 +4106,28 @@ Class IConventionElementType from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func SetStoreType P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:SetStoreType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetStoreTypeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
+
+	Func SetIsFixedLength P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsFixedLength",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsFixedLength",P1))
+
+	Func GetIsFixedLengthConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsFixedLengthConfigurationSource"))
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -4719,6 +4741,268 @@ Class IConventionEntityType from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func SetTableName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:SetTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetTableNameConfigurationSource"))
+
+	Func SetSchema P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:SetSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetSchemaConfigurationSource"))
+
+	Func SetViewName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:SetViewName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:SetViewName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetViewNameConfigurationSource"))
+
+	Func SetViewSchema P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetViewSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:SetViewSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchemaConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetViewSchemaConfigurationSource"))
+
+	Func SetSqlQuery P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:SetSqlQuery",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s11:SetSqlQuery",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQueryConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetSqlQueryConfigurationSource"))
+
+	Func SetFunctionName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetFunctionName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s15:SetFunctionName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetFunctionNameConfigurationSource"))
+
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func SetDeleteStoredProcedure P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetDeleteStoredProcedure",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDeleteStoredProcedure"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDeleteStoredProcedure",P1))
+
+	Func RemoveDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveDeleteStoredProcedure"))
+
+	Func GetDeleteStoredProcedureConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetDeleteStoredProcedureConfigurationSource"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func SetInsertStoredProcedure P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetInsertStoredProcedure",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetInsertStoredProcedure"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetInsertStoredProcedure",P1))
+
+	Func RemoveInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveInsertStoredProcedure"))
+
+	Func GetInsertStoredProcedureConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetInsertStoredProcedureConfigurationSource"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func SetUpdateStoredProcedure P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetUpdateStoredProcedure",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetUpdateStoredProcedure"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetUpdateStoredProcedure",P1))
+
+	Func RemoveUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveUpdateStoredProcedure"))
+
+	Func GetUpdateStoredProcedureConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUpdateStoredProcedureConfigurationSource"))
+
+	Func FindCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
+
+	Func AddCheckConstraint P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddCheckConstraint",P1))
+		ok
+		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
+
+	Func RemoveCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveCheckConstraint",P1))
+
+	Func GetCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
+
+	Func GetDeclaredCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
+
+	Func SetComment P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:SetComment",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s10:SetComment",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCommentConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetCommentConfigurationSource"))
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetOrCreateMappingFragment P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s26:GetOrCreateMappingFragment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s26:GetOrCreateMappingFragment",dnPackItem(P1))
+
+	Func RemoveMappingFragment P1
+		return dnSend("s4:call",nHandle,"s21:RemoveMappingFragment",dnPackItem(P1))
+
+	Func FindRowInternalForeignKeys P1
+		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
+
+	Func SetIsTableExcludedFromMigrations P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
+
+	Func GetIsTableExcludedFromMigrationsConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource"))
+
+	Func SetMappingStrategy P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:SetMappingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s18:SetMappingStrategy",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMappingStrategyConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetMappingStrategyConfigurationSource"))
+
+	Func SetContainerColumnName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:SetContainerColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s22:SetContainerColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetContainerColumnNameConfigurationSource"))
+
+	Func SetContainerColumnType P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:SetContainerColumnType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s22:SetContainerColumnType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetContainerColumnTypeConfigurationSource"))
+
+	Func SetContainerColumnTypeMapping P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:SetContainerColumnTypeMapping",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:SetContainerColumnTypeMapping",P1))
+
+	Func GetContainerColumnTypeMappingConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s48:GetContainerColumnTypeMappingConfigurationSource"))
+
+	Func SetJsonPropertyName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:SetJsonPropertyName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetJsonPropertyNameConfigurationSource"))
+
+	Func UseSqlReturningClause P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
+
+	Func GetUseSqlReturningClauseConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource"))
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -4881,6 +5165,15 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func UseSqlReturningClause P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
+
+	Func GetUseSqlReturningClauseConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource"))
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -5101,6 +5394,22 @@ Class IConventionForeignKey from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func SetConstraintName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:SetConstraintName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s17:SetConstraintName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConstraintNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetConstraintNameConfigurationSource"))
+
+	Func FindSharedObjectRootForeignKey P1
+		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -5280,6 +5589,35 @@ Class IConventionIndex from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func SetDatabaseName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetDatabaseName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s15:SetDatabaseName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDatabaseNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDatabaseNameConfigurationSource"))
+
+	Func SetFilter P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetFilter",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s9:SetFilter",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFilterConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetFilterConfigurationSource"))
+
+	Func FindSharedObjectRootIndex P1
+		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -5418,6 +5756,22 @@ Class IConventionKey from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func SetName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
+
+	Func FindSharedObjectRootKey P1
+		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -5688,6 +6042,77 @@ Class IConventionModel from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func SetDefaultSchema P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:SetDefaultSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s16:SetDefaultSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchemaConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetDefaultSchemaConfigurationSource"))
+
+	Func SetMaxIdentifierLength P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:SetMaxIdentifierLength",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SetMaxIdentifierLength",P1))
+
+	Func GetMaxIdentifierLengthConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetMaxIdentifierLengthConfigurationSource"))
+
+	Func FindSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
+
+	Func AddSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddSequence",P1))
+
+	Func RemoveSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RemoveSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveSequence",P1))
+
+	Func GetSequences 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
+
+	Func FindDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
+
+	Func AddDbFunction P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddDbFunction",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddDbFunction",P1))
+
+	Func RemoveDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveDbFunction",P1))
+
+	Func GetDbFunctions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
+
+	Func SetCollation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetCollation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:SetCollation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollationConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetCollationConfigurationSource"))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -6604,6 +7029,162 @@ Class IConventionProperty from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func SetColumnName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:SetColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnNameConfigurationSource"))
+
+	Func SetColumnOrder P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetColumnOrder",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetColumnOrder",P1))
+
+	Func GetColumnOrderConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetColumnOrderConfigurationSource"))
+
+	Func SetColumnType P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s13:SetColumnType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnTypeConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnTypeConfigurationSource"))
+
+	Func SetDefaultValueSql P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:SetDefaultValueSql",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s18:SetDefaultValueSql",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultValueSqlConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetDefaultValueSqlConfigurationSource"))
+
+	Func SetComputedColumnSql P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:SetComputedColumnSql",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s20:SetComputedColumnSql",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComputedColumnSqlConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s39:GetComputedColumnSqlConfigurationSource"))
+
+	Func SetIsStored P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetIsStored",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIsStored",P1))
+
+	Func GetIsStoredConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsStoredConfigurationSource"))
+
+	Func SetDefaultValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:SetDefaultValue",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetDefaultValue",P1))
+
+	Func GetDefaultValueConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDefaultValueConfigurationSource"))
+
+	Func SetIsFixedLength P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsFixedLength",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsFixedLength",P1))
+
+	Func GetIsFixedLengthConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsFixedLengthConfigurationSource"))
+
+	Func SetComment P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:SetComment",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s10:SetComment",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCommentConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetCommentConfigurationSource"))
+
+	Func SetCollation P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetCollation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:SetCollation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollationConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetCollationConfigurationSource"))
+
+	Func FindSharedStoreObjectRootProperty P1
+		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
+
+	Func GetOverrides 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
+
+	Func FindOverrides P1
+		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
+
+	Func GetOrCreateOverrides P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetOrCreateOverrides",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetOrCreateOverrides",dnPackItem(P1))
+
+	Func RemoveOverrides P1
+		return dnSend("s4:call",nHandle,"s15:RemoveOverrides",dnPackItem(P1))
+
+	Func SetJsonPropertyName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:SetJsonPropertyName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetJsonPropertyNameConfigurationSource"))
+
+	Func SetSrid P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:SetSrid",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSrid",P1))
+
+	Func GetSridConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetSridConfigurationSource"))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -8335,6 +8916,45 @@ Class IConventionTrigger from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func SetDatabaseName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetDatabaseName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s15:SetDatabaseName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDatabaseNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDatabaseNameConfigurationSource"))
+
+	Func SetTableName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:SetTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableNameConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetTableNameConfigurationSource"))
+
+	Func SetTableSchema P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:SetTableSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s14:SetTableSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchemaConfigurationSource 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTableSchemaConfigurationSource"))
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -9104,6 +9724,11 @@ Class IElementType from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetStoreType 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -9514,6 +10139,33 @@ Class IEntityType from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func FindCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
+
+	Func GetCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
+
+	Func GetDeclaredCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func FindRowInternalForeignKeys P1
+		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
@@ -9768,6 +10420,12 @@ Class IForeignKey from DotNetObject
 
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func GetMappedConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
+
+	Func FindSharedObjectRootForeignKey P1
+		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -10447,6 +11105,12 @@ Class IIndex from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetMappedTableIndexes 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedTableIndexes"))
+
+	Func FindSharedObjectRootIndex P1
+		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -10569,6 +11233,12 @@ Class IKey from DotNetObject
 
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func GetMappedConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
+
+	Func FindSharedObjectRootKey P1
+		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -10712,6 +11382,33 @@ Class IModel from DotNetObject
 
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func GetRelationalModel 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRelationalModel"))
+
+	Func FindSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
+
+	Func GetSequences 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
+
+	Func FindDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
+
+	Func GetDbFunctions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
+
+	Func GetRelationalDependencies P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetRelationalDependencies",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies",P1))
 
 	Func getModelDependencies
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ModelDependencies"))
@@ -11829,6 +12526,16 @@ Class IMutableElementType from DotNetObject
 
 		return self
 
+	Func SetStoreType P1
+		dotnet_callv("s4:call",nHandle,"s12:SetStoreType",P1)
+
+		return self
+
+	Func SetIsFixedLength P1
+		dotnet_callv("s4:call",nHandle,"s16:SetIsFixedLength",P1)
+
+		return self
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -12353,6 +13060,133 @@ Class IMutableEntityType from DotNetObject
 
 		return self
 
+	Func SetTableName P1
+		dotnet_callv("s4:call",nHandle,"s12:SetTableName",P1)
+
+		return self
+
+	Func SetSchema P1
+		dotnet_callv("s4:call",nHandle,"s9:SetSchema",P1)
+
+		return self
+
+	Func SetViewName P1
+		dotnet_callv("s4:call",nHandle,"s11:SetViewName",P1)
+
+		return self
+
+	Func SetViewSchema P1
+		dotnet_callv("s4:call",nHandle,"s13:SetViewSchema",P1)
+
+		return self
+
+	Func SetSqlQuery P1
+		dotnet_callv("s4:call",nHandle,"s11:SetSqlQuery",P1)
+
+		return self
+
+	Func SetFunctionName P1
+		dotnet_callv("s4:call",nHandle,"s15:SetFunctionName",P1)
+
+		return self
+
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func SetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDeleteStoredProcedure"))
+
+	Func RemoveDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func SetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetInsertStoredProcedure"))
+
+	Func RemoveInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func SetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetUpdateStoredProcedure"))
+
+	Func RemoveUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveUpdateStoredProcedure"))
+
+	Func FindCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
+
+	Func AddCheckConstraint P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddCheckConstraint",P1,P2))
+
+	Func RemoveCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveCheckConstraint",P1))
+
+	Func GetCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
+
+	Func GetDeclaredCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
+
+	Func SetComment P1
+		dotnet_callv("s4:call",nHandle,"s10:SetComment",P1)
+
+		return self
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetOrCreateMappingFragment P1
+		return dnSend("s4:call",nHandle,"s26:GetOrCreateMappingFragment",dnPackItem(P1))
+
+	Func RemoveMappingFragment P1
+		return dnSend("s4:call",nHandle,"s21:RemoveMappingFragment",dnPackItem(P1))
+
+	Func FindRowInternalForeignKeys P1
+		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
+
+	Func SetIsTableExcludedFromMigrations P1
+		dotnet_callv("s4:call",nHandle,"s32:SetIsTableExcludedFromMigrations",P1)
+
+		return self
+
+	Func SetMappingStrategy P1
+		dotnet_callv("s4:call",nHandle,"s18:SetMappingStrategy",P1)
+
+		return self
+
+	Func SetContainerColumnName P1
+		dotnet_callv("s4:call",nHandle,"s22:SetContainerColumnName",P1)
+
+		return self
+
+	Func SetContainerColumnType P1
+		dotnet_callv("s4:call",nHandle,"s22:SetContainerColumnType",P1)
+
+		return self
+
+	Func SetContainerColumnTypeMapping P1
+		dotnet_callv("s4:call",nHandle,"s29:SetContainerColumnTypeMapping",P1)
+
+		return self
+
+	Func SetJsonPropertyName P1
+		dotnet_callv("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
+
+		return self
+
+	Func UseSqlReturningClause P1
+		dotnet_callv("s4:call",nHandle,"s21:UseSqlReturningClause",P1)
+
+		return self
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
@@ -12487,6 +13321,11 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 
 		return self
 
+	Func UseSqlReturningClause P1
+		dotnet_callv("s4:call",nHandle,"s21:UseSqlReturningClause",P1)
+
+		return self
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -12614,6 +13453,14 @@ Class IMutableForeignKey from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
 
 		return self
+
+	Func SetConstraintName P1
+		dotnet_callv("s4:call",nHandle,"s17:SetConstraintName",P1)
+
+		return self
+
+	Func FindSharedObjectRootForeignKey P1
+		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -12768,6 +13615,19 @@ Class IMutableIndex from DotNetObject
 
 		return self
 
+	Func SetDatabaseName P1
+		dotnet_callv("s4:call",nHandle,"s15:SetDatabaseName",P1)
+
+		return self
+
+	Func SetFilter P1
+		dotnet_callv("s4:call",nHandle,"s9:SetFilter",P1)
+
+		return self
+
+	Func FindSharedObjectRootIndex P1
+		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
 	Func getIsUnique
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12886,6 +13746,14 @@ Class IMutableKey from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
 
 		return self
+
+	Func SetName P1
+		dotnet_callv("s4:call",nHandle,"s7:SetName",P1)
+
+		return self
+
+	Func FindSharedObjectRootKey P1
+		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -13086,6 +13954,54 @@ Class IMutableModel from DotNetObject
 
 	Func SetOrRemoveAnnotation P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
+	Func SetDefaultSchema P1
+		dotnet_callv("s4:call",nHandle,"s16:SetDefaultSchema",P1)
+
+		return self
+
+	Func SetMaxIdentifierLength P1
+		dotnet_callv("s4:call",nHandle,"s22:SetMaxIdentifierLength",P1)
+
+		return self
+
+	Func FindSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
+
+	Func AddSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddSequence",P1))
+
+	Func RemoveSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RemoveSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveSequence",P1))
+
+	Func GetSequences 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
+
+	Func FindDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
+
+	Func AddDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddDbFunction",P1))
+
+	Func RemoveDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveDbFunction",P1))
+
+	Func GetDbFunctions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
+
+	Func SetCollation P1
+		dotnet_callv("s4:call",nHandle,"s12:SetCollation",P1)
 
 		return self
 
@@ -13760,6 +14676,81 @@ Class IMutableProperty from DotNetObject
 
 	Func SetOrRemoveAnnotation P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
+
+		return self
+
+	Func SetColumnName P1
+		dotnet_callv("s4:call",nHandle,"s13:SetColumnName",P1)
+
+		return self
+
+	Func SetColumnOrder P1
+		dotnet_callv("s4:call",nHandle,"s14:SetColumnOrder",P1)
+
+		return self
+
+	Func SetColumnType P1
+		dotnet_callv("s4:call",nHandle,"s13:SetColumnType",P1)
+
+		return self
+
+	Func SetDefaultValueSql P1
+		dotnet_callv("s4:call",nHandle,"s18:SetDefaultValueSql",P1)
+
+		return self
+
+	Func SetComputedColumnSql P1
+		dotnet_callv("s4:call",nHandle,"s20:SetComputedColumnSql",P1)
+
+		return self
+
+	Func SetIsStored P1
+		dotnet_callv("s4:call",nHandle,"s11:SetIsStored",P1)
+
+		return self
+
+	Func SetDefaultValue P1
+		dotnet_callv("s4:call",nHandle,"s15:SetDefaultValue",P1)
+
+		return self
+
+	Func SetIsFixedLength P1
+		dotnet_callv("s4:call",nHandle,"s16:SetIsFixedLength",P1)
+
+		return self
+
+	Func SetComment P1
+		dotnet_callv("s4:call",nHandle,"s10:SetComment",P1)
+
+		return self
+
+	Func SetCollation P1
+		dotnet_callv("s4:call",nHandle,"s12:SetCollation",P1)
+
+		return self
+
+	Func FindSharedStoreObjectRootProperty P1
+		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
+
+	Func GetOverrides 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
+
+	Func FindOverrides P1
+		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
+
+	Func GetOrCreateOverrides P1
+		return dnSend("s4:call",nHandle,"s20:GetOrCreateOverrides",dnPackItem(P1))
+
+	Func RemoveOverrides P1
+		return dnSend("s4:call",nHandle,"s15:RemoveOverrides",dnPackItem(P1))
+
+	Func SetJsonPropertyName P1
+		dotnet_callv("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
+
+		return self
+
+	Func SetSrid P1
+		dotnet_callv("s4:call",nHandle,"s7:SetSrid",P1)
 
 		return self
 
@@ -15094,6 +16085,21 @@ Class IMutableTrigger from DotNetObject
 
 		return self
 
+	Func SetDatabaseName P1
+		dotnet_callv("s4:call",nHandle,"s15:SetDatabaseName",P1)
+
+		return self
+
+	Func SetTableName P1
+		dotnet_callv("s4:call",nHandle,"s12:SetTableName",P1)
+
+		return self
+
+	Func SetTableSchema P1
+		dotnet_callv("s4:call",nHandle,"s14:SetTableSchema",P1)
+
+		return self
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -16125,6 +17131,56 @@ Class IProperty from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetColumnType 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDefaultColumnMappings"))
+
+	Func GetTableColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetTableColumnMappings"))
+
+	Func GetViewColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetViewColumnMappings"))
+
+	Func GetSqlQueryColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetSqlQueryColumnMappings"))
+
+	Func GetFunctionColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetFunctionColumnMappings"))
+
+	Func GetInsertStoredProcedureResultColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetInsertStoredProcedureResultColumnMappings"))
+
+	Func GetInsertStoredProcedureParameterMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetInsertStoredProcedureParameterMappings"))
+
+	Func GetDeleteStoredProcedureParameterMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetDeleteStoredProcedureParameterMappings"))
+
+	Func GetUpdateStoredProcedureResultColumnMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetUpdateStoredProcedureResultColumnMappings"))
+
+	Func GetUpdateStoredProcedureParameterMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetUpdateStoredProcedureParameterMappings"))
+
+	Func FindColumn P1
+		return dnSend("s4:call",nHandle,"s10:FindColumn",dnPackItem(P1))
+
+	Func FindSharedStoreObjectRootProperty P1
+		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
+
+	Func GetOverrides 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
+
+	Func FindOverrides P1
+		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
+
+	Func GetReaderFieldValue P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetReaderFieldValue",P1,P2,P3))
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
@@ -16745,6 +17801,11 @@ Class IReadOnlyComplexType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetContainerColumnName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
@@ -17140,6 +18201,20 @@ Class IReadOnlyElementType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetStoreType 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsFixedLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+
+	Func GetRelationalTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -17500,6 +18575,151 @@ Class IReadOnlyEntityType from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetTableName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultTableName P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedTableName 
+		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedViewName 
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewName 
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSqlQueryName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func FindCheckConstraint P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
+
+	Func GetCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
+
+	Func GetDeclaredCheckConstraints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
+
+	Func GetComment 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func FindRowInternalForeignKeys P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRowInternalForeignKeys",P1))
+
+	Func IsTableExcludedFromMigrations 
+		dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMappingStrategy 
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
+
+	Func GetJsonPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlReturningClauseUsed 
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
@@ -17603,6 +18823,11 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func IsSqlReturningClauseUsed 
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -17695,6 +18920,24 @@ Class IReadOnlyForeignKey from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetConstraintName 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultName 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindSharedObjectRootForeignKey P1
+		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
+	Func IsRowInternal P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -17834,6 +19077,24 @@ Class IReadOnlyIndex from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetDatabaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultDatabaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFilter 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindSharedObjectRootIndex P1
+		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -17929,6 +19190,19 @@ Class IReadOnlyKey from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetName 
+		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultName 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindSharedObjectRootKey P1
+		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -18031,6 +19305,36 @@ Class IReadOnlyModel from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMaxIdentifierLength 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func FindSequence P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
+
+	Func GetSequences 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
+
+	Func FindDbFunction P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
+
+	Func GetDbFunctions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
+
+	Func GetCollation 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -18536,6 +19840,97 @@ Class IReadOnlyProperty from DotNetObject
 		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetColumnBaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnName 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnBaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnName 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnOrder 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+
+	Func GetColumnType 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultValueSql 
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComputedColumnSql 
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetIsStored 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+
+	Func GetDefaultValue 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+
+	Func TryGetDefaultValue 
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+
+	Func IsFixedLength 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+
+	Func IsColumnNullable 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComment 
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollation 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetRelationalTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+
+	Func FindSharedStoreObjectRootProperty P1
+		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
+
+	Func GetOverrides 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
+
+	Func FindOverrides P1
+		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
+
+	Func GetMappedStoreObjects P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
+
+	Func GetJsonPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSrid 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -19604,6 +20999,26 @@ Class IReadOnlyTrigger from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetDatabaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultDatabaseName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -19750,6 +21165,76 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -22997,6 +24482,11 @@ Class ITable from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func IsSqlReturningClauseUsed 
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
 
@@ -23904,6 +25394,45 @@ Class ITypeBase from DotNetObject
 
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
+
+	Func GetDefaultMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDefaultMappings"))
+
+	Func GetTableMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetTableMappings"))
+
+	Func GetViewMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetViewMappings"))
+
+	Func GetSqlQueryMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSqlQueryMappings"))
+
+	Func GetFunctionMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetFunctionMappings"))
+
+	Func GetDeleteStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetInsertStoredProcedureMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetInsertStoredProcedureMappings"))
+
+	Func GetDeleteStoredProcedureMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetDeleteStoredProcedureMappings"))
+
+	Func GetUpdateStoredProcedureMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetUpdateStoredProcedureMappings"))
+
+	Func GetMappingFragments 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+
+	Func FindMappingFragment P1
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))

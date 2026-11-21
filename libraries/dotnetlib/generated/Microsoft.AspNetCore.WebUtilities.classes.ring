@@ -902,6 +902,18 @@ Class MultipartSection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func AsFileSection 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AsFileSection"))
+
+	Func AsFormDataSection 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AsFormDataSection"))
+
+	Func GetContentDispositionHeader 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetContentDispositionHeader"))
+
+	Func ReadAsStringAsync 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
+
 	Func getContentType
 		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

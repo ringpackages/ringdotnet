@@ -1030,6 +1030,15 @@ Class ControllerActionEndpointConventionBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func WithStaticAssets P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
+
 
 Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from Object
 
@@ -2493,6 +2502,146 @@ Class IApplicationBuilder from DotNetObject
 	Func Build 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
+	Func UseAntiforgery 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseAntiforgery"))
+
+	Func UseRequestLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization"))
+
+	Func UseAuthentication 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:UseAuthentication"))
+
+	Func UseAuthorization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseAuthorization"))
+
+	Func UseCertificateForwarding 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:UseCertificateForwarding"))
+
+	Func UseCookiePolicy 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy"))
+
+	Func UseCors 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors"))
+
+	Func UseDefaultFiles 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles"))
+
+	Func UseDeveloperExceptionPage 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage"))
+
+	Func UseDirectoryBrowser 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser"))
+
+	Func UseRouting 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseRouting"))
+
+	Func UseEndpoints P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseEndpoints",P1))
+
+	Func UseExceptionHandler 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler"))
+
+	Func UseFileServer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer"))
+
+	Func UseForwardedHeaders 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders"))
+
+	Func UseHealthChecks P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseHealthChecks",P1))
+
+	Func UseHostFiltering 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseHostFiltering"))
+
+	Func UseHsts 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseHsts"))
+
+	Func UseHttpLogging 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseHttpLogging"))
+
+	Func UseW3CLogging 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseW3CLogging"))
+
+	Func UseHttpMethodOverride 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride"))
+
+	Func UseHttpsRedirection 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseHttpsRedirection"))
+
+	Func Map P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
+
+	Func MapWhen P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapWhen",P1,P2))
+
+	Func UseMvc 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc"))
+
+	Func UseMvcWithDefaultRoute 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseMvcWithDefaultRoute"))
+
+	Func UseOutputCache 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseOutputCache"))
+
+	Func UseRateLimiter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter"))
+
+	Func UseRequestDecompression 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UseRequestDecompression"))
+
+	Func UseRequestTimeouts 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseRequestTimeouts"))
+
+	Func UseResponseCaching 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseResponseCaching"))
+
+	Func UseResponseCompression 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseResponseCompression"))
+
+	Func UseRewriter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter"))
+
+	Func UseRouter P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseRouter",P1))
+
+	Func Run P1
+		dotnet_callv("s4:call",nHandle,"s3:Run",P1)
+
+		return self
+
+	Func UseSession 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession"))
+
+	Func UseStaticFiles 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles"))
+
+	Func UseStatusCodePages P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages",P1))
+
+	Func UseStatusCodePagesWithRedirects P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithRedirects",P1))
+
+	Func UseStatusCodePagesWithReExecute P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+
+	Func UseMiddleware P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1))
+
+	Func UsePathBase P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UsePathBase",P1))
+
+	Func UseWhen P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseWhen",P1,P2))
+
+	Func UseWebSockets 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets"))
+
+	Func UseWelcomePage P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage",P1))
+
 	Func getApplicationServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ApplicationServices"))
 
@@ -2533,6 +2682,21 @@ Class IEndpointConventionBuilder from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Finally",P1)
 
 		return self
+
+	Func WithRequestTimeout P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class IHubEndpointConventionBuilder from DotNetObject
@@ -2850,6 +3014,15 @@ Class PageActionEndpointConventionBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func WithStaticAssets P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
+
 
 Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Object
 
@@ -2968,6 +3141,21 @@ Class RazorComponentsEndpointConventionBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func AddAdditionalAssemblies P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddAdditionalAssemblies",P1))
+
+	Func WithStaticAssets P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
+
+	Func AddInteractiveServerRenderMode 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerRenderMode"))
 
 
 Class RazorComponentsEndpointConventionBuilderExtensions from Object
@@ -3117,6 +3305,9 @@ Class RequestLocalizationOptions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func AddInitialRequestCultureProvider P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:AddInitialRequestCultureProvider",P1))
 
 	Func getCultureInfoUseUserOverride
 		dn_x = dotnet_call("s3:get",nHandle,"s26:CultureInfoUseUserOverride")
@@ -3359,6 +3550,39 @@ Class RouteHandlerBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func AddEndpointFilter 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddEndpointFilter"))
+
+	Func ExcludeFromDescription 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ExcludeFromDescription"))
+
+	Func Produces P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Produces",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Produces",P1))
+
+	Func ProducesProblem P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ProducesProblem",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ProducesProblem",P1))
+
+	Func ProducesValidationProblem P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:ProducesValidationProblem",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:ProducesValidationProblem"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ProducesValidationProblem",P1))
+
+	Func WithTags P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:WithTags",P1))
+
+	Func Accepts P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Accepts",P1,P2))
 
 
 Class RouteShortCircuitEndpointConventionBuilderExtensions from Object

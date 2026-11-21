@@ -1444,6 +1444,15 @@ Class IHealthChecksBuilder from DotNetObject
 	Func Add P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
+	Func AddCheck P1,P2,P3,P4
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddCheck",P1,P2,P3,P4))
+
+	Func AddTypeActivatedCheck P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddTypeActivatedCheck",P1,P2))
+
+	Func AddAsyncCheck P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAsyncCheck",P1,P2,P3))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1464,6 +1473,63 @@ Class IHttpClientBuilder from DotNetObject
 			return self
 		ok
 		return self
+
+	Func ConfigureHttpClient P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConfigureHttpClient",P1))
+
+	Func AddHttpMessageHandler P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddHttpMessageHandler",P1))
+
+	Func ConfigurePrimaryHttpMessageHandler P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigurePrimaryHttpMessageHandler",P1))
+
+	Func ConfigureHttpMessageHandlerBuilder P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigureHttpMessageHandlerBuilder",P1))
+
+	Func UseSocketsHttpHandler P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSocketsHttpHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSocketsHttpHandler"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSocketsHttpHandler",P1))
+
+	Func AddTypedClient 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTypedClient"))
+
+	Func RedactLoggedHeaders P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RedactLoggedHeaders",P1))
+
+	Func SetHandlerLifetime P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:SetHandlerLifetime",P1))
+
+	Func ConfigureAdditionalHttpMessageHandlers P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:ConfigureAdditionalHttpMessageHandlers",P1))
+
+	Func AddAsKeyed P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddAsKeyed",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddAsKeyed"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddAsKeyed",P1))
+
+	Func RemoveAsKeyed 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RemoveAsKeyed"))
+
+	Func AddLogger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddLogger",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddLogger",P1))
+
+	Func RemoveAllLoggers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAllLoggers"))
+
+	Func AddDefaultLogger 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultLogger"))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -1515,6 +1581,81 @@ Class IMvcBuilder from DotNetObject
 		ok
 		return self
 
+	Func AddMvcOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddMvcOptions",P1))
+
+	Func AddJsonOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonOptions",P1))
+
+	Func AddFormatterMappings P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings",P1))
+
+	Func AddApplicationPart P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddApplicationPart",P1))
+
+	Func ConfigureApplicationPartManager P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ConfigureApplicationPartManager",P1))
+
+	Func AddControllersAsServices 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddControllersAsServices"))
+
+	Func SetCompatibilityVersion P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetCompatibilityVersion",P1))
+
+	Func ConfigureApiBehaviorOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureApiBehaviorOptions",P1))
+
+	Func AddDataAnnotationsLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+
+	Func AddViewLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+
+	Func AddMvcLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+
+	Func AddRazorOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRazorOptions",P1))
+
+	Func AddTagHelpersAsServices 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddTagHelpersAsServices"))
+
+	Func InitializeTagHelper P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializeTagHelper",P1))
+
+	Func AddRazorPagesOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRazorPagesOptions",P1))
+
+	Func WithRazorPagesRoot P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRazorPagesRoot",P1))
+
+	Func WithRazorPagesAtContentRoot 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:WithRazorPagesAtContentRoot"))
+
+	Func AddViewOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddViewOptions",P1))
+
+	Func AddViewComponentsAsServices 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddViewComponentsAsServices"))
+
+	Func AddSessionStateTempDataProvider 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddSessionStateTempDataProvider"))
+
+	Func AddCookieTempDataProvider 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+
+	Func AddXmlOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddXmlOptions",P1))
+
+	Func AddXmlDataContractSerializerFormatters 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+
+	Func AddXmlSerializerFormatters 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+
+	Func AddCacheTagHelperLimits P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddCacheTagHelperLimits",P1))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1542,6 +1683,93 @@ Class IMvcCoreBuilder from DotNetObject
 		ok
 		return self
 
+	Func AddApiExplorer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddApiExplorer"))
+
+	Func AddMvcOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddMvcOptions",P1))
+
+	Func AddJsonOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonOptions",P1))
+
+	Func AddFormatterMappings 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings"))
+
+	Func AddAuthorization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+
+	Func AddControllersAsServices 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddControllersAsServices"))
+
+	Func AddApplicationPart P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddApplicationPart",P1))
+
+	Func ConfigureApplicationPartManager P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ConfigureApplicationPartManager",P1))
+
+	Func ConfigureApiBehaviorOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureApiBehaviorOptions",P1))
+
+	Func SetCompatibilityVersion P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetCompatibilityVersion",P1))
+
+	Func AddCors 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+
+	Func ConfigureCors P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ConfigureCors",P1))
+
+	Func AddDataAnnotations 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddDataAnnotations"))
+
+	Func AddDataAnnotationsLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+
+	Func AddViewLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+
+	Func AddMvcLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+
+	Func AddRazorViewEngine 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorViewEngine"))
+
+	Func AddTagHelpersAsServices 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddTagHelpersAsServices"))
+
+	Func InitializeTagHelper P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializeTagHelper",P1))
+
+	Func AddRazorPages 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+
+	Func WithRazorPagesRoot P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRazorPagesRoot",P1))
+
+	Func AddViews 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddViews"))
+
+	Func AddCookieTempDataProvider 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+
+	Func ConfigureViews P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureViews",P1))
+
+	Func AddXmlOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddXmlOptions",P1))
+
+	Func AddXmlDataContractSerializerFormatters 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+
+	Func AddXmlSerializerFormatters 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+
+	Func AddCacheTagHelper 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCacheTagHelper"))
+
+	Func AddCacheTagHelperLimits P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddCacheTagHelperLimits",P1))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1568,6 +1796,15 @@ Class IRazorComponentsBuilder from DotNetObject
 		ok
 		return self
 
+	Func AddInteractiveServerComponents P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddInteractiveServerComponents",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerComponents"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerComponents",P1))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1587,6 +1824,12 @@ Class IServerSideBlazorBuilder from DotNetObject
 			return self
 		ok
 		return self
+
+	Func AddCircuitOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCircuitOptions",P1))
+
+	Func AddHubOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHubOptions",P1))
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -1651,6 +1894,245 @@ Class IServiceCollection from DotNetObject
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func AddHostFiltering P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostFiltering",P1))
+
+	Func AddHsts P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddHsts",P1))
+
+	Func AddHttpsRedirection P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddHttpsRedirection",P1))
+
+	Func AddRateLimiter P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRateLimiter",P1))
+
+	Func AddResponseCompression 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression"))
+
+	Func AddAntiforgery 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery"))
+
+	Func AddAuthenticationCore 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore"))
+
+	Func AddAuthentication 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication"))
+
+	Func AddAuthorizationCore 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore"))
+
+	Func AddCascadingAuthenticationState 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddCascadingAuthenticationState"))
+
+	Func AddCascadingValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCascadingValue",P1))
+
+	Func TryAddCascadingValue P1
+		dotnet_callv("s4:call",nHandle,"s20:TryAddCascadingValue",P1)
+
+		return self
+
+	Func AddCertificateForwarding P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddCertificateForwarding",P1))
+
+	Func AddServerSideBlazor P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddServerSideBlazor",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddServerSideBlazor"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddServerSideBlazor",P1))
+
+	Func AddConnections 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections"))
+
+	Func AddCookiePolicy P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddCookiePolicy",P1))
+
+	Func AddCors 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+
+	Func AddDataProtection 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection"))
+
+	Func AddDirectoryBrowser 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddDirectoryBrowser"))
+
+	Func AddWebEncoders 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders"))
+
+	Func AddEndpointsApiExplorer 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEndpointsApiExplorer"))
+
+	Func AddExceptionHandler P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler",P1))
+
+	Func AddHealthChecks 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddHealthChecks"))
+
+	Func AddHttpClient 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient"))
+
+	Func ConfigureHttpClientDefaults P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureHttpClientDefaults",P1))
+
+	Func ConfigureHttpJsonOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureHttpJsonOptions",P1))
+
+	Func AddHttpLogging 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging"))
+
+	Func AddHttpLoggingInterceptor 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddHttpLoggingInterceptor"))
+
+	Func AddW3CLogging P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddW3CLogging",P1))
+
+	Func AddHttpContextAccessor 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddHttpContextAccessor"))
+
+	Func AddIdentity 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity"))
+
+	Func AddIdentityApiEndpoints 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints"))
+
+	Func ConfigureApplicationCookie P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConfigureApplicationCookie",P1))
+
+	Func ConfigureExternalCookie P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConfigureExternalCookie",P1))
+
+	Func AddLocalization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization"))
+
+	Func AddLogging 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging"))
+
+	Func AddMemoryCache 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache"))
+
+	Func AddDistributedMemoryCache 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache"))
+
+	Func AddMetrics 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics"))
+
+	Func AddMvcCore 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore"))
+
+	Func AddMvc 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc"))
+
+	Func AddControllers 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers"))
+
+	Func AddControllersWithViews 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews"))
+
+	Func AddRazorPages 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+
+	Func Configure P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func AddOptions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
+
+	Func AddOptionsWithValidateOnStart P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+
+	Func ConfigureAll P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConfigureAll",P1))
+
+	Func PostConfigure P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PostConfigure",P1))
+
+	Func PostConfigureAll P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:PostConfigureAll",P1))
+
+	Func ConfigureOptions 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions"))
+
+	Func AddOutputCache 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache"))
+
+	Func AddAuthorizationBuilder 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddAuthorizationBuilder"))
+
+	Func AddAuthorizationPolicyEvaluator 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddAuthorizationPolicyEvaluator"))
+
+	Func AddAuthorization 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+
+	Func AddProblemDetails 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails"))
+
+	Func AddRazorComponents P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRazorComponents",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorComponents"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorComponents",P1))
+
+	Func AddRequestDecompression 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression"))
+
+	Func AddRequestLocalization P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddRequestLocalization",P1))
+
+	Func AddRequestTimeouts 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts"))
+
+	Func AddResponseCaching 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching"))
+
+	Func AddRouting 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting"))
+
+	Func AddRoutingCore 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRoutingCore"))
+
+	Func BuildServiceProvider 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider"))
+
+	Func AddHostedService 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService"))
+
+	Func AddTransient P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1,P2))
+
+	Func AddScoped P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1,P2))
+
+	Func AddSingleton P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1,P2))
+
+	Func AddKeyedTransient P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedTransient",P1,P2,P3))
+
+	Func AddKeyedScoped P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddKeyedScoped",P1,P2,P3))
+
+	Func AddKeyedSingleton P1,P2,P3
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedSingleton",P1,P2,P3))
+
+	Func AddSession 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession"))
+
+	Func AddSignalR 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
@@ -1747,6 +2229,9 @@ Class IServiceScopeFactory from DotNetObject
 	Func CreateScope 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
 
+	Func CreateAsyncScope 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
 
 Class ISocketsHttpHandlerBuilder from DotNetObject
 
@@ -1761,6 +2246,9 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 			return self
 		ok
 		return self
+
+	Func Configure P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")

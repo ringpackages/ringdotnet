@@ -1211,6 +1211,9 @@ Class IDbContextTransaction from DotNetObject
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
+	Func GetDbTransaction 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDbTransaction"))
+
 	Func getTransactionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
 
@@ -1343,6 +1346,14 @@ Class IExecutionStrategy from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
+
+	Func ExecuteInTransaction P1,P2
+		dotnet_callv("s4:call",nHandle,"s20:ExecuteInTransaction",P1,P2)
+
+		return self
+
+	Func ExecuteInTransactionAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ExecuteInTransactionAsync",P1,P2))
 
 	Func getRetriesOnFailure
 		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
@@ -1502,6 +1513,21 @@ Class IRelationalCommandBuilder from DotNetObject
 
 	Func DecrementIndent 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DecrementIndent"))
+
+	Func AppendLines P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
+
+	Func Indent 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
+
+	Func AddCompositeParameter P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddCompositeParameter",P1,P2))
+
+	Func AddRawParameter P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRawParameter",P1,P2))
 
 	Func getParameters
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
@@ -2136,6 +2162,12 @@ Class IRelationalTypeMappingSource from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:FindMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
+
+	Func GetMappingForValue P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMappingForValue",P1))
+
+	Func GetMapping P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMapping",P1))
 
 
 Class IRelationalTypeMappingSourcePlugin from DotNetObject

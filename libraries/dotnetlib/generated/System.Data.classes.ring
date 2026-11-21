@@ -949,6 +949,14 @@ Class DataRow from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Field P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Field",P1))
+
+	Func SetField P1,P2
+		dotnet_callv("s4:call",nHandle,"s8:SetField",P1,P2)
+
+		return self
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1692,6 +1700,12 @@ Class DataTable from MarshalByValueComponent
 
 	Func GetDataTableSchema P1
 		return dnObj(dotnet_callo("s4:call",'System.Data.DataTable, System.Data.Common',"s18:GetDataTableSchema",P1))
+
+	Func AsEnumerable 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+
+	Func AsDataView 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AsDataView"))
 
 	Func setColumnChangingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ColumnChanging",dnCallback(P1)])
@@ -2447,6 +2461,9 @@ Class EnumerableRowCollection from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
 
 
 Class EnumerableRowCollectionExtensions from Object

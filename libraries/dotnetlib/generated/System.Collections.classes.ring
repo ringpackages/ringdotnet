@@ -1194,6 +1194,12 @@ Class IEnumerable from DotNetObject
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
+	Func Cast 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+
+	Func OfType 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+
 
 Class IEnumerator from DotNetObject
 

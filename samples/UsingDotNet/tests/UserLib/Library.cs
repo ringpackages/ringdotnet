@@ -85,4 +85,13 @@ namespace MyCompany.Tools
 	{
 		public string Text { get { return "user version"; } }
 	}
+	// Extension methods are methods of the Ring class of the type that they extend: calc.Shout("!") is CalculatorExtensions.Shout(calc, "!").
+	// Describe has the same name and the same number of parameters as a method of Calculator (the compiler chooses by the type of the value);
+	// Add has more parameters than the method of Calculator, so it is not added (an extension never changes the signature of a method).
+	public static class CalculatorExtensions
+	{
+		public static string Shout(this Calculator calc, string suffix) { return calc.Name.ToUpper() + suffix; }
+		public static string Describe(this Calculator calc, string format) { return string.Format(format, calc.Total); }
+		public static string Add(this Calculator calc, string first, string second) { return first + second; }
+	}
 }

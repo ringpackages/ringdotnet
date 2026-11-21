@@ -1104,6 +1104,9 @@ Class IFeatureCollection from DotNetObject
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
+	Func GetRequiredFeature 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature"))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 

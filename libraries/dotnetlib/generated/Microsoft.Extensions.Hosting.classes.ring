@@ -986,6 +986,39 @@ Class IHost from DotNetObject
 
 		return self
 
+	Func Start 
+		dotnet_callv("s4:call",nHandle,"s5:Start")
+
+		return self
+
+	Func WaitForShutdown 
+		dotnet_callv("s4:call",nHandle,"s15:WaitForShutdown")
+
+		return self
+
+	Func Run 
+		dotnet_callv("s4:call",nHandle,"s3:Run")
+
+		return self
+
+	Func RunAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:RunAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
+
+	Func WaitForShutdownAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForShutdownAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync",P1))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -1127,6 +1160,60 @@ Class IHostBuilder from DotNetObject
 	Func Build 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
+	Func ConfigureWebHostDefaults P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureWebHostDefaults",P1))
+
+	Func ConfigureWebHost P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureWebHost",P1))
+
+	Func ConfigureSlimWebHost P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureSlimWebHost",P1,P2))
+
+	Func Start 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start"))
+
+	Func StartAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+
+	Func UseEnvironment P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+
+	Func UseContentRoot P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+
+	Func UseDefaultServiceProvider P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+
+	Func ConfigureLogging P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+
+	Func ConfigureHostOptions P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureHostOptions",P1))
+
+	Func ConfigureDefaults P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureDefaults",P1))
+
+	Func UseConsoleLifetime 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime"))
+
+	Func RunConsoleAsync P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RunConsoleAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync",P1))
+
+	Func ConfigureMetrics P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureMetrics",P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -1149,6 +1236,26 @@ Class IHostEnvironment from DotNetObject
 			return self
 		ok
 		return self
+
+	Func IsDevelopment 
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsDevelopment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsStaging 
+		dn_x = dotnet_call("s4:call",nHandle,"s9:IsStaging")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsProduction 
+		dn_x = dotnet_call("s4:call",nHandle,"s12:IsProduction")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsEnvironment P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEnvironment",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEnvironmentName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")

@@ -637,6 +637,9 @@ Class IAsyncDisposable from DotNetObject
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
+	Func ConfigureAwait P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 
 Class IAsyncResult from DotNetObject
 
@@ -1324,6 +1327,38 @@ Class Type from MemberInfo
 
 	Func ReflectionOnlyGetType P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s21:ReflectionOnlyGetType",P1,P2,P3))
+
+	Func GetTypeInfo 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeInfo"))
+
+	Func GetRuntimeFields 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeFields"))
+
+	Func GetRuntimeMethods 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetRuntimeMethods"))
+
+	Func GetRuntimeProperties 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetRuntimeProperties"))
+
+	Func GetRuntimeEvents 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeEvents"))
+
+	Func GetRuntimeField P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRuntimeField",P1))
+
+	Func GetRuntimeMethod P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeMethod",P1,P2))
+
+	Func GetRuntimeProperty P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRuntimeProperty",P1))
+
+	Func GetRuntimeEvent P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRuntimeEvent",P1))
+
+	Func ShortDisplayName 
+		dn_x = dotnet_call("s4:call",nHandle,"s16:ShortDisplayName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Namespace")
@@ -5202,6 +5237,12 @@ Class String from Object
 		return dn_x
 		ok
 		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
+
+	Func AsSpan 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
+
+	Func AsMemory 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

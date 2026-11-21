@@ -501,6 +501,15 @@ Class AuthenticationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func AddBearerToken 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken"))
+
+	Func AddCookie 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie"))
+
+	Func AddOAuth P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddOAuth",P1,P2))
+
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
@@ -870,6 +879,24 @@ Class AuthenticationProperties from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func StoreTokens P1
+		dotnet_callv("s4:call",nHandle,"s11:StoreTokens",P1)
+
+		return self
+
+	Func GetTokenValue P1
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetTokenValue",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func UpdateTokenValue P1,P2
+		dn_x = dotnet_call("s4:call",nHandle,"s16:UpdateTokenValue",P1,P2)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTokens 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetTokens"))
 
 	Func getItems
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
@@ -1548,6 +1575,9 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 		ok
 		return self
 
+	Func GetSchemeConfiguration P1
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetSchemeConfiguration",P1))
+
 	Func getAuthenticationConfiguration
 		return dnObj(dotnet_callo("s3:get",nHandle,"s27:AuthenticationConfiguration"))
 
@@ -1726,6 +1756,9 @@ Class IAuthenticationService from DotNetObject
 
 	Func SignOutAsync P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1,P2,P3))
+
+	Func GetTokenAsync P1,P2
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTokenAsync",P1,P2))
 
 
 Class IAuthenticationSignInHandler from DotNetObject
