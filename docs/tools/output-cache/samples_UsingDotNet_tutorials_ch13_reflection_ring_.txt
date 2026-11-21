@@ -28,4 +28,4 @@ Append has 20 versions with 1 parameter, the first ones are:
 An object knows its type: StringBuilder
 Values of DayOfWeek: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 
-dnDescribe('System.Math') returned a list with 10 parts
+dnDescribe('System.Math') returned a list with 11 parts

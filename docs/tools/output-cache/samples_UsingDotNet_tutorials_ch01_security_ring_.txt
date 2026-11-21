@@ -2,12 +2,8 @@ SHA-256 of 'abc'   : ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20
 MD5 of 'abc'       : 900150983cd24fb0d6963f7d28e17f72  (old: do not use it for security)
 Changing one letter: a52d159f262b2c6d... is completely different
 
-Stored hash       : 96bfe623b61386cd2decc5387d3debb0... (64 characters)
-Right password    : 1
-Wrong password    : 0
-
 HMAC             : c431e4857a6b817f9eeaab86b00f78e2...
-Random token      : 5482a7de9c6fff35
+Random token      : d65862d7492fca6e
 
 Encrypted        : 32 bytes (the text had 25)
 Decrypted        : Ring talks to .NET crypto
