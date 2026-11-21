@@ -73,7 +73,7 @@ Newtonsoft.Json has the namespaces `Newtonsoft.Json` (for example `JsonConvert`)
 
 > [!TIP] Before you build a program around a package, write a ten-line Ring program that calls the one method that you need. If that works, the rest is the same work.
 
-> [!NOTE] Look at the licence of a package before you give your program to others: most are free to use, but each has its own terms, and they are shown on its page at nuget.org.
+> [!NOTE] Look at the license of a package before you give your program to others: most are free to use, but each has its own terms, and they are shown on its page at nuget.org.
 
 ## What you learned
 

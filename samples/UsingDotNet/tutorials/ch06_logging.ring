@@ -52,7 +52,7 @@ func main
 	next
 	new Directory().Delete([ :path = cFolder, :recursive = True ])
 
-# A logger as a Ring class: the settings are attributes, the behaviour is in the methods
+# A logger as a Ring class: the settings are attributes, the behavior is in the methods
 class Logger
 
 	cFile = ""

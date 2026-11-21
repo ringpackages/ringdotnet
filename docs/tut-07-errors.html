@@ -351,7 +351,7 @@ using {
 <h3 id="4-tryparse">4. TryParse<a class="anchor" href="#4-tryparse">#</a></h3>
 <p>The same idea for numbers. <code>TryParse</code> returns <code>[worked, value]</code>; you decide.</p>
 <h3 id="5-your-own-errors">5. Your own errors<a class="anchor" href="#5-your-own-errors">#</a></h3>
-<p><code>raise("text")</code> creates an error. Use it when <em>your</em> function is called with a request it cannot honour (<code>withdraw(100,250)</code>). The caller sees the text in <code>cCatchError</code>.</p>
+<p><code>raise("text")</code> creates an error. Use it when <em>your</em> function is called with a request it cannot honor (<code>withdraw(100,250)</code>). The caller sees the text in <code>cCatchError</code>.</p>
 <h3 id="6-clean-up">6. Clean up<a class="anchor" href="#6-clean-up">#</a></h3>
 <p>Open files, connections and readers must be closed even when an error happens. The simple pattern: put the work in <code>try</code>, and do the cleanup <em>after</em> the <code>try</code> block. The program checks if the writer exists, closes it and deletes the file.</p>
 <h3 id="more-detail">More detail<a class="anchor" href="#more-detail">#</a></h3>

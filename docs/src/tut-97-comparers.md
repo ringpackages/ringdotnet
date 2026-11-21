@@ -25,7 +25,7 @@ The tutorial [Cultures](tut-33-cultures.html) formatted numbers and dates for a 
 
 ### Ordinal and culture
 
-**Ordinal** comparison looks at the number (code) of every character. It is exact and fast and gives the same answer on every computer, so it is the right choice for *technical* text: file names, identifiers, keys, protocols. **Culture** comparison follows the rules of a language: letters with accents are close to their base letters and `a` and `A` are neighbours. Use it for text that people read, such as a sorted list of names on the screen. The comparison type is an enum, so it is a text: `"Ordinal"`, `"OrdinalIgnoreCase"`, `"InvariantCulture"`, `"InvariantCultureIgnoreCase"`, `"CurrentCulture"`.
+**Ordinal** comparison looks at the number (code) of every character. It is exact and fast and gives the same answer on every computer, so it is the right choice for *technical* text: file names, identifiers, keys, protocols. **Culture** comparison follows the rules of a language: letters with accents are close to their base letters and `a` and `A` are neighbors. Use it for text that people read, such as a sorted list of names on the screen. The comparison type is an enum, so it is a text: `"Ordinal"`, `"OrdinalIgnoreCase"`, `"InvariantCulture"`, `"InvariantCultureIgnoreCase"`, `"CurrentCulture"`.
 
 ### The result of Compare
 

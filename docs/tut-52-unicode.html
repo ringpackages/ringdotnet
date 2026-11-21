@@ -289,7 +289,7 @@ using {
 	cArabic = <span class="s">"مرحبا بالعالم"</span>
 	? nl + <span class="s">"3. Arabic text survives the round trip: "</span> + yesNo(oUtf8.<span class="f">GetString</span>(oUtf8.<span class="f">GetBytes</span>(cArabic)) = cArabic)
 
-	<span class="c"># 4. One letter you see can be several code points: 'é' can be e + a combining accent. An emoji with a skin colour is two.</span>
+	<span class="c"># 4. One letter you see can be several code points: 'é' can be e + a combining accent. An emoji with a skin color is two.</span>
 	cDecomposed = <span class="s">"e"</span> + char(<span class="n">204</span>) + char(<span class="n">129</span>)        <span class="c"># the bytes of 'e' followed by U+0301 (combining acute accent)</span>
 	oShown = textElements(cDecomposed)
 	? nl + <span class="s">"4. 'e' + a combining accent: "</span> + len(cDecomposed) + <span class="s">" bytes, "</span> + oShown.LengthInTextElements + <span class="s">" letter shown: "</span> + cDecomposed

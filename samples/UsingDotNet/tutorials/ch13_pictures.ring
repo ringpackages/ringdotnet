@@ -27,7 +27,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","SkiaSharp")
 
 func main
-	# 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colours are values of the type SKColor: Parse reads "#rrggbb".
+	# 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colors are values of the type SKColor: Parse reads "#rrggbb".
 	oBitmap = new SKBitmap().@New([ :width = 200, :height = 100 ])
 	oCanvas = new SKCanvas(oBitmap)
 	oBlue = new SKColor().Parse("#2060c0")
@@ -35,7 +35,7 @@ func main
 	oWhite = new SKColor().Parse("#ffffff")
 	oCanvas.Clear(oBlue)
 
-	# 2. A paint says how to draw: its colour, and whether the edges are smooth
+	# 2. A paint says how to draw: its color, and whether the edges are smooth
 	oPaint = new SKPaint
 	oPaint.Color = oYellow
 	oPaint.IsAntialias = true
@@ -47,9 +47,9 @@ func main
 
 	# 3. Look at pixels: a pixel is an SKColor with Red, Green, Blue and Alpha from 0 to 255
 	oCorner = oBitmap.GetPixel(0,0)
-	oCentre = oBitmap.GetPixel(150,50)
+	oCenter = oBitmap.GetPixel(150,50)
 	? "2. corner (0,0): " + oCorner.Red + ", " + oCorner.Green + ", " + oCorner.Blue
-	? "   centre of the circle (150,50): " + oCentre.Red + ", " + oCentre.Green + ", " + oCentre.Blue
+	? "   center of the circle (150,50): " + oCenter.Red + ", " + oCenter.Green + ", " + oCenter.Blue
 
 	# 4. Save as PNG: Encode gives the data of the picture, ToArray its bytes (a Ring text), and File writes them
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-picture.png"])
@@ -61,5 +61,5 @@ func main
 	# 5. Read the file back: Decode makes a bitmap again, and the pixels are the same
 	oBack = new SKBitmap().Decode(cFile)
 	oPixel = oBack.GetPixel(150,50)
-	? "4. read back: " + oBack.Width + " x " + oBack.Height + ", centre " + oPixel.Red + ", " + oPixel.Green + ", " + oPixel.Blue
+	? "4. read back: " + oBack.Width + " x " + oBack.Height + ", center " + oPixel.Red + ", " + oPixel.Green + ", " + oPixel.Blue
 	new File().Delete(cFile)

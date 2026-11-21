@@ -1,6 +1,6 @@
 ---
 title: "Cultures"
-lead: "1,234.5" and "1.234,5" are the same number written in two languages. This lesson shows how .NET writes, reads, sorts and capitalises text for different cultures, and when to avoid culture altogether.
+lead: "1,234.5" and "1.234,5" are the same number written in two languages. This lesson shows how .NET writes, reads, sorts and capitalizes text for different cultures, and when to avoid culture altogether.
 ---
 
 ## What you will learn
@@ -41,7 +41,7 @@ Every `ToString` and `Parse` that you call without saying a culture uses the cul
 
 `InvariantCulture` is a fixed culture that never changes with the computer: `.` for decimals, no thousands separator problems. Use it for **files, network messages, JSON, logs** — anything a program writes for another program. Use the user's culture only for what you show to people.
 
-> [!WARNING] The most common internationalisation bug: a program that writes `3.5` on one computer and `3,5` on another, then fails to read the file. Format and parse data with the invariant culture.
+> [!WARNING] The most common internationalization bug: a program that writes `3.5` on one computer and `3,5` on another, then fails to read the file. Format and parse data with the invariant culture.
 
 ### Comparing and sorting
 

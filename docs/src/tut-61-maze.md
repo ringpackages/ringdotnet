@@ -27,7 +27,7 @@ The maze is `C_ROWS` rows of `C_COLUMNS` cells. `aOpen[row][column]` is a text w
 
 ### Making the maze: depth-first with a stack
 
-Start in the top left cell and walk: choose a random neighbour that has not been visited, open the wall between the two cells and move there, pushing the new cell on the **stack**. When a cell has no unvisited neighbour, go back by popping the stack. The algorithm ends when the stack is empty — every cell was visited exactly once. This gives long winding corridors and a *perfect* maze: between any two cells there is **exactly one path**. The self test checks this property: a perfect maze with 273 cells has exactly 272 openings.
+Start in the top left cell and walk: choose a random neighbor that has not been visited, open the wall between the two cells and move there, pushing the new cell on the **stack**. When a cell has no unvisited neighbor, go back by popping the stack. The algorithm ends when the stack is empty — every cell was visited exactly once. This gives long winding corridors and a *perfect* maze: between any two cells there is **exactly one path**. The self test checks this property: a perfect maze with 273 cells has exactly 272 openings.
 
 ### Solving: breadth-first with a queue
 
@@ -41,7 +41,7 @@ Cells on the path are small orange squares, the start is green and the exit red.
 
 ### Testing
 
-You cannot test a random maze against a fixed picture. The self test checks **properties** instead: the number of openings, the path starts at the exit and ends at the start, every step moves to a neighbour, and **no step crosses a wall**. Tests for properties keep working when you change the generator.
+You cannot test a random maze against a fixed picture. The self test checks **properties** instead: the number of openings, the path starts at the exit and ends at the start, every step moves to a neighbor, and **no step crosses a wall**. Tests for properties keep working when you change the generator.
 
 The checks of this program are in a separate file, `selftest/ch12_maze.ring`:
 

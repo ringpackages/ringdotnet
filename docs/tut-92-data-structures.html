@@ -295,7 +295,7 @@ using {
 	<span class="k">next</span>
 	? nl + <span class="s">"3. sorted dictionary, keys in order: "</span> + cKeys
 
-	<span class="c"># 4. LinkedList: items are linked to their neighbours. Adding or removing at either end, or next to a known node, is quick.</span>
+	<span class="c"># 4. LinkedList: items are linked to their neighbors. Adding or removing at either end, or next to a known node, is quick.</span>
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.LinkedList"</span>,[cText],[])
 	oList.<span class="f">AddLast</span>(<span class="s">"b"</span>)
 	oList.<span class="f">AddLast</span>(<span class="s">"c"</span>)
@@ -366,7 +366,7 @@ using {
 <h3 id="sorteddictionary">SortedDictionary<a class="anchor" href="#sorteddictionary">#</a></h3>
 <p>Same as a <code>Dictionary</code>, with the keys in order. The loop over <code>Keys</code> gives <em>apple banana fig pear</em>. Use it when the order matters for display; use the plain <code>Dictionary</code> when only the speed of the lookup matters.</p>
 <h3 id="linkedlist">LinkedList<a class="anchor" href="#linkedlist">#</a></h3>
-<p>Each item is a <strong>node</strong> that knows its neighbours (<code>Next</code>, <code>Previous</code>). <code>AddFirst</code>, <code>AddLast</code> and <code>AddAfter(node, value)</code> do not move other items, and <code>Remove</code> of a known node is quick. The price: no access by number. Take it when you add or remove in the middle of a long list all the time, for example an <em>undo</em> list or a play list.</p>
+<p>Each item is a <strong>node</strong> that knows its neighbors (<code>Next</code>, <code>Previous</code>). <code>AddFirst</code>, <code>AddLast</code> and <code>AddAfter(node, value)</code> do not move other items, and <code>Remove</code> of a known node is quick. The price: no access by number. Take it when you add or remove in the middle of a long list all the time, for example an <em>undo</em> list or a play list.</p>
 <h3 id="bitarray">BitArray<a class="anchor" href="#bitarray">#</a></h3>
 <p>One bit for each item. A million yes/no values (a sieve of primes, which seats are free, which files were seen) take 125 KB instead of megabytes. <code>Set(index, value)</code> and <code>@Get(index)</code> write and read one bit (<code>Get</code> is a Ring word, so the name starts with <code>@</code>, see below); <code>@And</code>, <code>@Or</code>, <code>Xor</code> and <code>@Not</code> work on all the bits at once and <strong>change the array they are called on</strong>, so the program copies it first (<code>new BitArray(bits)</code>). In the output, <code>AND</code> has only the bit that both arrays have and <code>OR</code> has the bits of either.</p>
 <div class="callout note"><span class="t">Note</span><p>Ring accepts most of its own words as method names after a dot (<code>Set</code>, <code>From</code>, <code>To</code>, <code>Step</code>, <code>In</code>, <code>On</code>, <code>Off</code>), but not <code>Get</code>, <code>And</code> and <code>Or</code> (a statement <code>get x</code> reads input, and <code>and</code>, <code>or</code> are the operators of conditions). A .NET method with one of those names has a name that starts with <code>@</code> in the generated class: <code>oBits.@Get(3)</code>, <code>oBits.@And(oOther)</code>.</p></div>

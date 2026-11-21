@@ -18,7 +18,7 @@ func selfTest
 			lConnected = False
 		ok
 	next
-	dnAssert("every step of the path moves to a neighbour cell",lConnected,True)
+	dnAssert("every step of the path moves to a neighbor cell",lConnected,True)
 	lThroughOpenings = True
 	for nI = 1 to len(aPath) - 1
 		aThis = aPath[nI]

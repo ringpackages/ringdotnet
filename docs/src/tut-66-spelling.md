@@ -35,7 +35,7 @@ The program computes it with a **table**. `aTable[i][j]` holds the distance betw
 | the cell on the left | insert a letter | +1 |
 | the cell diagonally | replace a letter | +0 if the letters are equal, else +1 |
 
-The corner at the end is the answer. Each cell is computed from three neighbours that are already known, so the work is `length1 × length2` steps. This technique — fill a table so that nothing is computed twice — is the same idea as the cache in the tutorial [Speed — measure first](tut-53-speed.html).
+The corner at the end is the answer. Each cell is computed from three neighbors that are already known, so the work is `length1 × length2` steps. This technique — fill a table so that nothing is computed twice — is the same idea as the cache in the tutorial [Speed — measure first](tut-53-speed.html).
 
 ### Suggestions
 
@@ -45,7 +45,7 @@ The corner at the end is the answer. Each cell is computed from three neighbours
 
 `Regex.Matches("[A-Za-z]+")` finds the words and, for each one, its `Index`, so the program can say *where* the mistake is. It converts the word to lower case, asks the set, and only for unknown words does the (more expensive) search for suggestions. Do the cheap test first.
 
-> [!NOTE] Plain edit distance counts a swap of two neighbour letters (`teh` for `the`) as 2 changes. The *Damerau* variant counts it as 1; it is a good exercise.
+> [!NOTE] Plain edit distance counts a swap of two neighbor letters (`teh` for `the`) as 2 changes. The *Damerau* variant counts it as 1; it is a good exercise.
 
 ## What you learned
 
@@ -56,7 +56,7 @@ The corner at the end is the answer. Each cell is computed from three neighbours
 
 ## Exercises
 
-1. Add the swap of neighbours (Damerau distance) and see `teh → the` become 1.
+1. Add the swap of neighbors (Damerau distance) and see `teh → the` become 1.
 2. Read the dictionary from a text file with one word per line.
 3. Print the checked text with `[brackets]` around the unknown words.
 4. Suggest only words that start with the same letter, and measure how much faster it is (the tutorial [Speed — measure first](tut-53-speed.html)).

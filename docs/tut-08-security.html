@@ -306,7 +306,7 @@ Decrypted        : Ring talks to .NET crypto</code></pre></div>
 <h3 id="random-tokens">Random tokens<a class="anchor" href="#random-tokens">#</a></h3>
 <p>For secrets (session ids, reset links) use <code>RandomNumberGenerator.GetBytes(n)</code>. The ordinary <code>Random</code> class is predictable and must not be used for secrets.</p>
 <h3 id="aes">AES<a class="anchor" href="#aes">#</a></h3>
-<p>AES is the standard encryption. <code>Aes.Create(NULL)</code> makes an encryptor; <code>GenerateKey()</code> and <code>GenerateIV()</code> create a random key and <em>initialisation vector</em>; <code>CreateEncryptor(NULL).TransformFinalBlock(text, 0, length)</code> encrypts, <code>CreateDecryptor(NULL)</code> decrypts. Anyone with the key and the IV can decrypt, so those must be kept safe and passed to the receiver separately from the data.</p>
+<p>AES is the standard encryption. <code>Aes.Create(NULL)</code> makes an encryptor; <code>GenerateKey()</code> and <code>GenerateIV()</code> create a random key and <em>initialization vector</em>; <code>CreateEncryptor(NULL).TransformFinalBlock(text, 0, length)</code> encrypts, <code>CreateDecryptor(NULL)</code> decrypts. Anyone with the key and the IV can decrypt, so those must be kept safe and passed to the receiver separately from the data.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>hashing is one way, encryption is two ways,</li><li><code>RandomNumberGenerator</code> for secrets,</li><li><code>NULL</code> selects a method's version without parameters.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

@@ -33,8 +33,8 @@ func nextRandom nLimit
 
 # ---------------------------------------------------------------- making the maze (depth-first with a stack)
 
-# Start with all walls. Walk to a random neighbour that has not been visited, opening the wall between the two cells; when
-# there is no such neighbour go back (pop the stack). Every cell is visited once, so there is exactly one path between any two cells.
+# Start with all walls. Walk to a random neighbor that has not been visited, opening the wall between the two cells; when
+# there is no such neighbor go back (pop the stack). Every cell is visited once, so there is exactly one path between any two cells.
 func newMaze
 	aOpen = []
 	aSeen = []
@@ -50,7 +50,7 @@ func newMaze
 	aSeen[1][1] = True
 	while len(aStack) > 0
 		aCell = aStack[len(aStack)]
-		aFree = freeNeighbours(aCell,aSeen)
+		aFree = freeNeighbors(aCell,aSeen)
 		if len(aFree) = 0
 			del(aStack,len(aStack))
 		else
@@ -64,8 +64,8 @@ func newMaze
 	oInfo.Text = "A new maze: " + C_COLUMNS + " x " + C_ROWS + " cells"
 	draw()
 
-# the four neighbours [row, column] that exist and were not visited
-func freeNeighbours aCell, aSeen
+# the four neighbors [row, column] that exist and were not visited
+func freeNeighbors aCell, aSeen
 	aList = []
 	for aMove in [[-1,0],[0,1],[1,0],[0,-1]]
 		nRow = aCell[1] + aMove[1]

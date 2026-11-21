@@ -51,7 +51,7 @@ The same idea for numbers. `TryParse` returns `[worked, value]`; you decide.
 
 ### 5. Your own errors
 
-`raise("text")` creates an error. Use it when *your* function is called with a request it cannot honour (`withdraw(100,250)`). The caller sees the text in `cCatchError`.
+`raise("text")` creates an error. Use it when *your* function is called with a request it cannot honor (`withdraw(100,250)`). The caller sees the text in `cCatchError`.
 
 ### 6. Clean up
 

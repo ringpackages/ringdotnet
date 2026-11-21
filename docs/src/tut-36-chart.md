@@ -40,7 +40,7 @@ For a bar: `nHeight = (nBottom - nTop) * value / nScaleMax`. A value of `nScaleM
 
 ### One bar per value
 
-The width available for one bar is `nSlot`, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centred in it, which leaves a gap between bars. The colour comes from a list.
+The width available for one bar is `nSlot`, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centerd in it, which leaves a gap between bars. The color comes from a list.
 
 ### The text
 
@@ -52,7 +52,7 @@ The width available for one bar is `nSlot`, the plot width divided by the number
 
 ### Testing a drawing
 
-You cannot look at a picture in a test, but you can **read pixels**. `oCanvas.pixel(x,y)` returns the colour: the background is `ffffffff` (white), and a point inside the April bar is `ffdc143c` (crimson). The test also checks the helper functions `maxOf` and `niceMax` with plain `dnAssert`s. Pixel positions must be whole numbers: `floor(...)`.
+You cannot look at a picture in a test, but you can **read pixels**. `oCanvas.pixel(x,y)` returns the color: the background is `ffffffff` (white), and a point inside the April bar is `ffdc143c` (crimson). The test also checks the helper functions `maxOf` and `niceMax` with plain `dnAssert`s. Pixel positions must be whole numbers: `floor(...)`.
 
 The checks of this program are in a separate file, `selftest/ch10_chart.ring`:
 
@@ -68,7 +68,7 @@ The checks of this program are in a separate file, `selftest/ch10_chart.ring`:
 ## Exercises
 
 1. Draw a **line chart**: points joined by `oCanvas.line`.
-2. Add a legend that lists the months with their colours.
+2. Add a legend that lists the months with their colors.
 3. Read the data from a CSV file (the tutorial [Tabular data](tut-30-tables.html)).
 4. Draw a **pie chart** with `FillPie` (`Graphics`), using the percentage of each value.
 

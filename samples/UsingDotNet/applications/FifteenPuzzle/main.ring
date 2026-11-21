@@ -50,7 +50,7 @@ func emptyCell
 	return find(aTiles,0)
 
 # cells that touch the cell
-func neighbours nCell
+func neighbors nCell
 	aList = []
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE
@@ -62,7 +62,7 @@ func neighbours nCell
 
 func slideTile nCell
 	nEmpty = emptyCell()
-	if find(neighbours(nEmpty),nCell) > 0
+	if find(neighbors(nEmpty),nCell) > 0
 		aTiles[nEmpty] = aTiles[nCell]
 		aTiles[nCell] = 0
 		return true
@@ -92,7 +92,7 @@ func shuffleBoard
 		aTiles[nCell] = nCell % len(aTiles)
 	next
 	for nStep = 1 to 200
-		aNear = neighbours(emptyCell())
+		aNear = neighbors(emptyCell())
 		slideTile(aNear[random(len(aNear) - 1) + 1])
 	next
 	nMoves = 0

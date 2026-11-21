@@ -29,7 +29,7 @@ A sorting algorithm is a loop that finishes in a moment: you could not see it. S
 
 | Algorithm | Idea | Work |
 |---|---|---|
-| **Bubble sort** | compare neighbours and swap them if they are in the wrong order; repeat, and the biggest bar "bubbles" to the end | many comparisons and many swaps |
+| **Bubble sort** | compare neighbors and swap them if they are in the wrong order; repeat, and the biggest bar "bubbles" to the end | many comparisons and many swaps |
 | **Selection sort** | find the smallest of the rest and swap it to the front | many comparisons, **at most n − 1 swaps** |
 | **Insertion sort** | take the next bar and slide it left until it is in the right place (like sorting playing cards in your hand) | fast when the data is already nearly sorted |
 

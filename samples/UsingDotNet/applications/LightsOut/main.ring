@@ -1,4 +1,4 @@
-# Lights Out - press a cell to toggle it and its neighbours until all the lights are off
+# Lights Out - press a cell to toggle it and its neighbors until all the lights are off
 # (a port of ring/applications/lightsout to RingDotNet)
 
 load "dotnet.ring"
@@ -53,7 +53,7 @@ func showLights
 func toggle nCell
 	aLights[nCell] = not aLights[nCell]
 
-# toggle the cell and its neighbours
+# toggle the cell and its neighbors
 func flip nCell
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE

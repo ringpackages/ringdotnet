@@ -34,7 +34,7 @@ func main
 	? "   the total size of the files: " + folderSize(cRoot) + " bytes"
 	new Directory().Delete([ :path = cRoot, :recursive = True ])
 
-	# 6. A flood fill: color an area, then do the same for the four neighbours. (The "paint bucket" of a drawing program.)
+	# 6. A flood fill: color an area, then do the same for the four neighbors. (The "paint bucket" of a drawing program.)
 	aImage = ["..#####..","..#...#..","..#...#..","..#####..","........."]
 	? nl + "6. fill the inside of the frame, starting at row 2, column 4:"
 	aGrid = []

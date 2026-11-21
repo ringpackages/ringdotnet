@@ -44,7 +44,7 @@ func isAlive nColumn, nRow
 	nRow = (nRow + C_ROWS) % C_ROWS
 	return aCells[cellIndex(nColumn,nRow)]
 
-func countNeighbours nColumn, nRow
+func countNeighbors nColumn, nRow
 	nTotal = 0
 	for nDy = -1 to 1
 		for nDx = -1 to 1
@@ -59,7 +59,7 @@ func nextGeneration
 	aNext = list(C_COLUMNS * C_ROWS)
 	for nRow = 0 to C_ROWS - 1
 		for nColumn = 0 to C_COLUMNS - 1
-			nNear = countNeighbours(nColumn,nRow)
+			nNear = countNeighbors(nColumn,nRow)
 			if aCells[cellIndex(nColumn,nRow)]
 				aNext[cellIndex(nColumn,nRow)] = (nNear = 2 or nNear = 3)
 			else

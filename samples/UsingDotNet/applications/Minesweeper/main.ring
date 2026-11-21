@@ -43,7 +43,7 @@ uiRun(oForm)
 
 # --------------------------------------------------------------------------
 
-func neighbours nCell
+func neighbors nCell
 	aList = []
 	nRow = floor((nCell - 1) / C_COLUMNS)
 	nColumn = (nCell - 1) % C_COLUMNS
@@ -62,7 +62,7 @@ func neighbours nCell
 
 func mineCount nCell
 	nTotal = 0
-	for nNear in neighbours(nCell)
+	for nNear in neighbors(nCell)
 		nTotal += aMine[nNear]
 	next
 	return nTotal
@@ -147,7 +147,7 @@ func reveal nCell
 			aButtons[nCurrent].ForeColor = numberColor(nNear)
 		else
 			aButtons[nCurrent].Text = ""
-			for nOther in neighbours(nCurrent)
+			for nOther in neighbors(nCurrent)
 				if not aRevealed[nOther] and not aFlagged[nOther]
 					aQueue + nOther
 				ok

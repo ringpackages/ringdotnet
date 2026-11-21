@@ -37,7 +37,7 @@ A **modal** window blocks the window behind it until it is closed: the user must
 | Property | Effect |
 |---|---|
 | `FormBorderStyle = "FixedDialog"` | a thin border, not resizable |
-| `MaximizeBox = False`, `MinimizeBox = False` | no maximise or minimise buttons |
+| `MaximizeBox = False`, `MinimizeBox = False` | no maximize or minimize buttons |
 | `StartPosition = "CenterParent"` | opens in the middle of the main window |
 
 ### Default buttons

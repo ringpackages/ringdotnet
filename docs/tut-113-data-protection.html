@@ -267,7 +267,7 @@ using {
 	cProviderType = <span class="s">"Microsoft.AspNetCore.DataProtection.DataProtectionProvider"</span>
 
 	<span class="c"># The Data Protection API encrypts and signs small pieces of data (a cookie, a token, a "remember me" value, a link in an e-mail)</span>
-	<span class="c"># without you handling keys, algorithms or initialisation vectors. It makes keys, keeps them in a folder, renews them,</span>
+	<span class="c"># without you handling keys, algorithms or initialization vectors. It makes keys, keeps them in a folder, renews them,</span>
 	<span class="c"># and encrypts with AES and signs with HMAC. ASP.NET Core uses it for its cookies and tokens.</span>
 	cKeys = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_protection_keys"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cKeys)

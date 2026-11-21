@@ -284,7 +284,7 @@ using {
 	cBack = decompress(<span class="s">"GZip"</span>,cPacked)
 	? nl + <span class="s">"3. after GZip and back: "</span> + len(cBack) + <span class="s">" bytes, same as the original: "</span> + (cBack = aBytes)
 
-	<span class="c"># 4. GZip data starts with two fixed bytes (31 and 139): that is how a program recognises a .gz file</span>
+	<span class="c"># 4. GZip data starts with two fixed bytes (31 and 139): that is how a program recognizes a .gz file</span>
 	? nl + <span class="s">"4. first bytes of a GZip result: "</span> + ascii(cPacked[<span class="n">1</span>]) + <span class="s">" "</span> + ascii(cPacked[<span class="n">2</span>])
 
 	<span class="c"># 5. Data that does not repeat does not shrink (it grows a little because of the header)</span>
@@ -360,7 +360,7 @@ using {
 <h3 id="compress-and-decompress">Compress and decompress<a class="anchor" href="#compress-and-decompress">#</a></h3>
 <p><code>compress</code> writes the bytes into the compressor (<code>Write(bytes, 0, count)</code>) and calls <code>Dispose()</code>. <strong><code>Dispose</code> matters</strong>: it writes the end of the compressed data. If you only read the memory stream without it, the result is cut and cannot be decompressed. <code>decompress</code> opens a <code>MemoryStream</code> on the packed bytes (<code>[ :buffer = ... ]</code>), wraps it in a decompressor and copies everything to another stream with <code>CopyTo</code>. A <code>byte[]</code> is a Ring text of bytes in this package, so <code>len()</code> is the number of bytes and <code>cBack = aBytes</code> compares them.</p>
 <h3 id="sizes">Sizes<a class="anchor" href="#sizes">#</a></h3>
-<p>The text repeats one sentence 200 times, so every format makes it tiny; Brotli is the smallest and GZip the largest here, which is common for text (Brotli is slower to compress). With normal text expect 2 to 4 times smaller, not 100. A GZip result starts with the bytes <strong>31 139</strong> (<code>1F 8B</code>), which is how programs recognise a <code>.gz</code> file.</p>
+<p>The text repeats one sentence 200 times, so every format makes it tiny; Brotli is the smallest and GZip the largest here, which is common for text (Brotli is slower to compress). With normal text expect 2 to 4 times smaller, not 100. A GZip result starts with the bytes <strong>31 139</strong> (<code>1F 8B</code>), which is how programs recognize a <code>.gz</code> file.</p>
 <h3 id="random-data">Random data<a class="anchor" href="#random-data">#</a></h3>
 <p>Compression needs repetition. Random bytes have none, so the result is slightly <strong>larger</strong> than the original (the header and the bookkeeping cost a few bytes). Data that is already compressed (JPEG, PNG, ZIP, MP4) behaves the same: compressing it twice does not help.</p>
 <h3 id="a-compressed-file">A compressed file<a class="anchor" href="#a-compressed-file">#</a></h3>

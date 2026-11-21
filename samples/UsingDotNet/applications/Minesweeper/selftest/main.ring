@@ -8,9 +8,9 @@ func selfTest
 	next
 	# C_MINES stays 10 so the win check below uses its own counts
 	startPlay()
-	dnAssert("neighbour count",mineCount(11),2)
-	dnAssert("corner has 3 neighbours",len(neighbours(1)),3)
-	dnAssert("middle has 8 neighbours",len(neighbours(41)),8)
+	dnAssert("neighbor count",mineCount(11),2)
+	dnAssert("corner has 3 neighbors",len(neighbors(1)),3)
+	dnAssert("middle has 8 neighbors",len(neighbors(41)),8)
 	aButtons[11].PerformClick()
 	cButton = "Left"
 	cellClicked(11,"Left")

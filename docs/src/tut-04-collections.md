@@ -19,7 +19,7 @@ lead: Lists, dictionaries, sets, queues and stacks, how to sort them, and how to
 | **Queue** | first in, first out (a line of customers) | `StringQueue` |
 | **Stack** | last in, first out (undo) | `StringStack` |
 
-Ring lists are flexible and fine for most programs. Use .NET collections when you need their special behaviour (a set, a queue), speed with big data, or when a .NET method asks for one.
+Ring lists are flexible and fine for most programs. Use .NET collections when you need their special behavior (a set, a queue), speed with big data, or when a .NET method asks for one.
 
 ## The program
 

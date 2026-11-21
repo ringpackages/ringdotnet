@@ -79,7 +79,7 @@ Move the slider and the text changes by itself. In the test: `oSlider.Value = 10
 
 1. Add a `CheckBox` named `shout` and make the greeting upper case when it is ticked.
 2. Add a `ProgressBar` and bind its `Value` to the slider as well.
-3. Change the circle's colour with a second slider (`Brush`).
+3. Change the circle's color with a second slider (`Brush`).
 4. See the WPF [samples](gallery-wpf.html) for shapes, grids, menus, tabs and timers.
 
 ## Next

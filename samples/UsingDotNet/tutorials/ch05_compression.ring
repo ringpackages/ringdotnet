@@ -30,7 +30,7 @@ func main
 	cBack = decompress("GZip",cPacked)
 	? nl + "3. after GZip and back: " + len(cBack) + " bytes, same as the original: " + (cBack = aBytes)
 
-	# 4. GZip data starts with two fixed bytes (31 and 139): that is how a program recognises a .gz file
+	# 4. GZip data starts with two fixed bytes (31 and 139): that is how a program recognizes a .gz file
 	? nl + "4. first bytes of a GZip result: " + ascii(cPacked[1]) + " " + ascii(cPacked[2])
 
 	# 5. Data that does not repeat does not shrink (it grows a little because of the header)

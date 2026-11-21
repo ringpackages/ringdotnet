@@ -26,7 +26,7 @@ lead: Programs that work on every computer build paths with Path.Combine, ask th
 
 ### Combine and split
 
-`Path.Combine` joins parts: give a list of the parts (`Combine([a, b, c])`) or name them (`Combine([ :path1 = a, :path2 = b ])`). Careful: if a later part is **rooted** (starts with a separator or a drive), the earlier parts are dropped. That is correct behaviour but a classic surprise when the part comes from user input.
+`Path.Combine` joins parts: give a list of the parts (`Combine([a, b, c])`) or name them (`Combine([ :path1 = a, :path2 = b ])`). Careful: if a later part is **rooted** (starts with a separator or a drive), the earlier parts are dropped. That is correct behavior but a classic surprise when the part comes from user input.
 
 `GetFileName`, `GetFileNameWithoutExtension`, `GetExtension`, `GetDirectoryName` and `ChangeExtension` take a path apart or change one piece. Use them instead of searching for dots and slashes yourself: `summary.final.txt` has *two* dots, and only the last one starts the extension.
 

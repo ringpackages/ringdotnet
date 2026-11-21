@@ -52,7 +52,7 @@ Run it with `--speak` to hear the voice.
 
 - A voice that is installed on your computer may not be installed on the computer of another person. The default voice always exists.
 - The quality is the quality of the voices of Windows: clear, not natural. Online voice services are better, but they need a key, the internet and often money.
-- Look at the licence of a package before you give a program to others.
+- Look at the license of a package before you give a program to others.
 
 ## What you learned
 

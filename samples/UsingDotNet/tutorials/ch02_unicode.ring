@@ -33,7 +33,7 @@ func main
 	cArabic = "مرحبا بالعالم"
 	? nl + "3. Arabic text survives the round trip: " + yesNo(oUtf8.GetString(oUtf8.GetBytes(cArabic)) = cArabic)
 
-	# 4. One letter you see can be several code points: 'é' can be e + a combining accent. An emoji with a skin colour is two.
+	# 4. One letter you see can be several code points: 'é' can be e + a combining accent. An emoji with a skin color is two.
 	cDecomposed = "e" + char(204) + char(129)        # the bytes of 'e' followed by U+0301 (combining acute accent)
 	oShown = textElements(cDecomposed)
 	? nl + "4. 'e' + a combining accent: " + len(cDecomposed) + " bytes, " + oShown.LengthInTextElements + " letter shown: " + cDecomposed

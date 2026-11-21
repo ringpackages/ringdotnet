@@ -12,7 +12,7 @@ func main
 	cProviderType = "Microsoft.AspNetCore.DataProtection.DataProtectionProvider"
 
 	# The Data Protection API encrypts and signs small pieces of data (a cookie, a token, a "remember me" value, a link in an e-mail)
-	# without you handling keys, algorithms or initialisation vectors. It makes keys, keeps them in a folder, renews them,
+	# without you handling keys, algorithms or initialization vectors. It makes keys, keeps them in a folder, renews them,
 	# and encrypts with AES and signs with HMAC. ASP.NET Core uses it for its cookies and tokens.
 	cKeys = new Path().Combine([new Path().GetTempPath(),"ringdotnet_protection_keys"])
 	if new Directory().Exists(cKeys)

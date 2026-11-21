@@ -13,7 +13,7 @@ lead: Create a picture in memory, draw on it, read and change pixels, convert it
 
 ## Concepts
 
-An **image** is a grid of **pixels**; each pixel has a **colour** made of red, green, blue (0–255) and an alpha value for transparency. A **Bitmap** is such a grid in memory. To draw on it you use a **Graphics** object created from the bitmap. A **Brush** fills areas, a **Pen** draws lines, a **Font** draws text.
+An **image** is a grid of **pixels**; each pixel has a **color** made of red, green, blue (0–255) and an alpha value for transparency. A **Bitmap** is such a grid in memory. To draw on it you use a **Graphics** object created from the bitmap. A **Brush** fills areas, a **Pen** draws lines, a **Font** draws text.
 
 > [!NOTE] `System.Drawing` is part of the desktop runtime, so the `using` block with `System.Drawing` starts the desktop runtime even though the program shows no window.
 
@@ -46,7 +46,7 @@ The three pictures that the program saves:
 | `DrawLine(pen, new Point(x1,y1), new Point(x2,y2))` | a line |
 | `DrawString(text, font, brush, new PointF(x,y))` | text |
 
-Colours are `new Color().SteelBlue`, `new Color().Black`... (the names of the .NET `Color` properties). A pen's width is a property: `new Pen(color) { Width = 3 }`.
+Colors are `new Color().SteelBlue`, `new Color().Black`... (the names of the .NET `Color` properties). A pen's width is a property: `new Pen(color) { Width = 3 }`.
 
 > [!TIP] These drawing methods take their arguments **in order**: a `Rectangle` or a `Point` object carries the numbers. In the tutorial [Drawing and animation](tut-14-animation.html) `UiCanvas` gives shorter calls for simple drawing on screen.
 
@@ -60,7 +60,7 @@ Colours are `new Color().SteelBlue`, `new Color().Black`... (the names of the .N
 
 ### A gray copy
 
-A pixel is gray when its red, green and blue are equal. The average `(R + G + B) / 3` is a simple conversion. Two loops visit every pixel: for every `nY`, for every `nX`, read the colour, compute the gray value, write it with `SetPixel`. `new Color().FromArgb([ :red = r, :green = g, :blue = b ])` makes a colour from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use `LockBits` or leave the work to a library.
+A pixel is gray when its red, green and blue are equal. The average `(R + G + B) / 3` is a simple conversion. Two loops visit every pixel: for every `nY`, for every `nX`, read the color, compute the gray value, write it with `SetPixel`. `new Color().FromArgb([ :red = r, :green = g, :blue = b ])` makes a color from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use `LockBits` or leave the work to a library.
 
 ### Resizing
 
@@ -72,7 +72,7 @@ Draw the loaded image into a smaller rectangle of a new bitmap: `DrawImage(oLoad
 
 ## What you learned
 
-- bitmap, pixel, colour, `Graphics`,
+- bitmap, pixel, color, `Graphics`,
 - brushes and pens,
 - `GetPixel` / `SetPixel` loops,
 - save, load, resize,

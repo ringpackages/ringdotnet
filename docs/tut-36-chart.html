@@ -350,13 +350,13 @@ oCanvas = <span class="s">""</span>
 <h3 id="pixels-from-values">Pixels from values<a class="anchor" href="#pixels-from-values">#</a></h3>
 <p>For a bar: <code>nHeight = (nBottom - nTop) * value / nScaleMax</code>. A value of <code>nScaleMax</code> fills the whole plot area; half of it fills half. The <em>y</em> of the top of a bar is <code>nBottom - nHeight</code> because <strong>y grows downwards</strong> on a screen: the bottom axis has the <em>bigger</em> y.</p>
 <h3 id="one-bar-per-value">One bar per value<a class="anchor" href="#one-bar-per-value">#</a></h3>
-<p>The width available for one bar is <code>nSlot</code>, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centred in it, which leaves a gap between bars. The colour comes from a list.</p>
+<p>The width available for one bar is <code>nSlot</code>, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centerd in it, which leaves a gap between bars. The color comes from a list.</p>
 <h3 id="the-text">The text<a class="anchor" href="#the-text">#</a></h3>
 <p><code>oCanvas.text(text, x, y, color, size)</code> draws the title, the axis numbers, the value above each bar and the label under it. Small offsets (<code>-18</code>, <code>+6</code>) place the text next to the bar without touching it.</p>
 <h3 id="saving">Saving<a class="anchor" href="#saving">#</a></h3>
 <p><code>oCanvas.oBitmap</code> is the .NET bitmap that the canvas draws on: <code>Save([ :filename = ..., :format = ... ])</code> writes a PNG (the tutorial <a href="tut-22-images.html">Images</a>).</p>
 <h3 id="testing-a-drawing">Testing a drawing<a class="anchor" href="#testing-a-drawing">#</a></h3>
-<p>You cannot look at a picture in a test, but you can <strong>read pixels</strong>. <code>oCanvas.pixel(x,y)</code> returns the colour: the background is <code>ffffffff</code> (white), and a point inside the April bar is <code>ffdc143c</code> (crimson). The test also checks the helper functions <code>maxOf</code> and <code>niceMax</code> with plain <code>dnAssert</code>s. Pixel positions must be whole numbers: <code>floor(...)</code>.</p>
+<p>You cannot look at a picture in a test, but you can <strong>read pixels</strong>. <code>oCanvas.pixel(x,y)</code> returns the color: the background is <code>ffffffff</code> (white), and a point inside the April bar is <code>ffdc143c</code> (crimson). The test also checks the helper functions <code>maxOf</code> and <code>niceMax</code> with plain <code>dnAssert</code>s. Pixel positions must be whole numbers: <code>floor(...)</code>.</p>
 <p>The checks of this program are in a separate file, <code>selftest/ch10_chart.ring</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_chart.ring: run with  ring ch10_chart.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
@@ -378,7 +378,7 @@ oCanvas = <span class="s">""</span>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>chart = scale + bars + text,</li><li>y grows downwards,</li><li>a round axis maximum,</li><li>tests can read pixels.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Draw a <strong>line chart</strong>: points joined by <code>oCanvas.line</code>.</li><li>Add a legend that lists the months with their colours.</li><li>Read the data from a CSV file (the tutorial <a href="tut-30-tables.html">Tabular data</a>).</li><li>Draw a <strong>pie chart</strong> with <code>FillPie</code> (<code>Graphics</code>), using the percentage of each value.</li></ol>
+<ol><li>Draw a <strong>line chart</strong>: points joined by <code>oCanvas.line</code>.</li><li>Add a legend that lists the months with their colors.</li><li>Read the data from a CSV file (the tutorial <a href="tut-30-tables.html">Tabular data</a>).</li><li>Draw a <strong>pie chart</strong> with <code>FillPie</code> (<code>Graphics</code>), using the percentage of each value.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-42-browser.html">A folder browser</a></p>
 <div class="pager"><a href="tut-153-printing.html"><small>Previous</small>Printing</a><a class="next" href="tut-42-browser.html"><small>Next</small>A folder browser</a></div>

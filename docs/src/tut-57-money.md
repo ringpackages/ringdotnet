@@ -33,7 +33,7 @@ Convert to **whole cents** when the amount comes in (`toCents("19.99")` → `199
 
 Percentages create parts of cents (7.5 % of 1999 is 149.925). You need a rule, and the rule must be written down:
 
-- **banker's rounding** (`ToEven`, the default of `Math.Round`): half cases go to the even neighbour, `0.5 → 0`, `1.5 → 2`, `2.5 → 2`. Over many numbers it does not favour up or down.
+- **banker's rounding** (`ToEven`, the default of `Math.Round`): half cases go to the even neighbor, `0.5 → 0`, `1.5 → 2`, `2.5 → 2`. Over many numbers it does not favor up or down.
 - **school rounding** (`AwayFromZero`): halves go up, `2.5 → 3`. This is what most invoices and tax rules expect.
 
 `Math.Round` takes the mode by name: `oMath.Round([ :value = 2.5, :mode = "AwayFromZero" ])`.

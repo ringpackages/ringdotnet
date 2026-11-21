@@ -74,7 +74,7 @@ The names of the parameters are in the files that the generator wrote (`Excel/cl
 
 ### Using ClosedXML in a program
 
-- **Check the licence** of every package before you give a program to others. It is on the page of the package at nuget.org.
+- **Check the license** of every package before you give a program to others. It is on the page of the package at nuget.org.
 - **Close what you open**: `Dispose()` of a workbook releases the file, so it can be moved or deleted. The program does that before it deletes the file.
 - **Many cells are many calls.** Every `Cell(...).Value = ...` crosses the bridge. A sheet of a few thousand cells is fine; for hundreds of thousands, look for a method of the package that takes many values at once (ClosedXML has `InsertData` for that).
 

@@ -32,7 +32,7 @@ A document has **blocks** (headings, paragraphs, lists) and, inside the blocks, 
 
 ### Blocks: a scan with state
 
-The function goes through the lines. The one thing it must remember is whether it is **inside a list**: the first `- ` line opens `<ul>`, further items continue it, and the first line that is not an item (or an empty line) closes it with `</ul>`. Headings are recognised by the number of `#`: check `###` first, then `##`, then `#`, otherwise the line is a paragraph. A `StringBuilder` collects the output without copying the text again and again.
+The function goes through the lines. The one thing it must remember is whether it is **inside a list**: the first `- ` line opens `<ul>`, further items continue it, and the first line that is not an item (or an empty line) closes it with `</ul>`. Headings are recognized by the number of `#`: check `###` first, then `##`, then `#`, otherwise the line is a paragraph. A `StringBuilder` collects the output without copying the text again and again.
 
 ### Inline: escape first
 

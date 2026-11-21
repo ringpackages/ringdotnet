@@ -249,7 +249,7 @@
 <article>
 <h1>Pictures on every system</h1><p class="lead">The picture classes of earlier lessons (Bitmap, Graphics) are a Windows feature. SkiaSharp, a package from nuget.org, draws, saves and reads pictures on Windows, Linux and macOS. This lesson draws a small picture, looks at its pixels, saves it as PNG, and reads the file back - and shows how a package with a native library is brought to Ring.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>why <code>System.Drawing</code> is not the answer on every system, and what SkiaSharp offers instead,</li><li>how a package with a <strong>native library</strong> is published and found,</li><li>a bitmap, a canvas, a paint and colours,</li><li>reading pixels, and saving and reading a PNG file,</li></ul>
+<ul><li>why <code>System.Drawing</code> is not the answer on every system, and what SkiaSharp offers instead,</li><li>how a package with a <strong>native library</strong> is published and found,</li><li>a bitmap, a canvas, a paint and colors,</li><li>reading pixels, and saving and reading a PNG file,</li></ul>
 <h2 id="why-another-picture-library">Why another picture library<a class="anchor" href="#why-another-picture-library">#</a></h2>
 <p>The lessons <a href="tut-22-images.html">Images</a> and <a href="tut-62-filters.html">An image filter lab</a> use <code>Bitmap</code> and <code>Graphics</code> of Windows. In current versions of .NET these classes work on <strong>Windows only</strong>, so a program that makes pictures on a Linux server needs another library. <strong>SkiaSharp</strong> is one: the drawing engine of Chrome and Android, with a .NET interface. It makes the same picture on every system.</p>
 <p>A drawing engine is written in C++, so SkiaSharp is two things: a managed DLL (<code>SkiaSharp.dll</code>) and a <strong>native library</strong> for each system (<code>libSkiaSharp.dll</code> for Windows, <code>libSkiaSharp.so</code> for Linux). The package of the managed part includes the native libraries for Windows and macOS. The one for Linux is a separate package, so the project file names both:</p>
@@ -297,7 +297,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"/"</span>,<span class="s">"SkiaSharp"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
-	<span class="c"># 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colours are values of the type SKColor: Parse reads "#rrggbb".</span>
+	<span class="c"># 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colors are values of the type SKColor: Parse reads "#rrggbb".</span>
 	oBitmap = <span class="k">new</span> <span class="t">SKBitmap</span>().@<span class="k">New</span>([ :<span class="t">width</span> = <span class="n">200</span>, :height = <span class="n">100</span> ])
 	oCanvas = <span class="k">new</span> <span class="t">SKCanvas</span>(oBitmap)
 	oBlue = <span class="k">new</span> <span class="t">SKColor</span>().<span class="f">Parse</span>(<span class="s">"#2060c0"</span>)
@@ -305,7 +305,7 @@ chdir(cHere)
 	oWhite = <span class="k">new</span> <span class="t">SKColor</span>().<span class="f">Parse</span>(<span class="s">"#ffffff"</span>)
 	oCanvas.<span class="f">Clear</span>(oBlue)
 
-	<span class="c"># 2. A paint says how to draw: its colour, and whether the edges are smooth</span>
+	<span class="c"># 2. A paint says how to draw: its color, and whether the edges are smooth</span>
 	oPaint = <span class="k">new</span> <span class="t">SKPaint</span>
 	oPaint.Color = oYellow
 	oPaint.IsAntialias = <span class="k">true</span>
@@ -317,9 +317,9 @@ chdir(cHere)
 
 	<span class="c"># 3. Look at pixels: a pixel is an SKColor with Red, Green, Blue and Alpha from 0 to 255</span>
 	oCorner = oBitmap.<span class="f">GetPixel</span>(<span class="n">0</span>,<span class="n">0</span>)
-	oCentre = oBitmap.<span class="f">GetPixel</span>(<span class="n">150</span>,<span class="n">50</span>)
+	oCenter = oBitmap.<span class="f">GetPixel</span>(<span class="n">150</span>,<span class="n">50</span>)
 	? <span class="s">"2. corner (0,0): "</span> + oCorner.Red + <span class="s">", "</span> + oCorner.Green + <span class="s">", "</span> + oCorner.Blue
-	? <span class="s">"   centre of the circle (150,50): "</span> + oCentre.Red + <span class="s">", "</span> + oCentre.Green + <span class="s">", "</span> + oCentre.Blue
+	? <span class="s">"   center of the circle (150,50): "</span> + oCenter.Red + <span class="s">", "</span> + oCenter.Green + <span class="s">", "</span> + oCenter.Blue
 
 	<span class="c"># 4. Save as PNG: Encode gives the data of the picture, ToArray its bytes (a Ring text), and File writes them</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-picture.png"</span>])
@@ -331,20 +331,20 @@ chdir(cHere)
 	<span class="c"># 5. Read the file back: Decode makes a bitmap again, and the pixels are the same</span>
 	oBack = <span class="k">new</span> <span class="t">SKBitmap</span>().<span class="f">Decode</span>(cFile)
 	oPixel = oBack.<span class="f">GetPixel</span>(<span class="n">150</span>,<span class="n">50</span>)
-	? <span class="s">"4. read back: "</span> + oBack.Width + <span class="s">" x "</span> + oBack.Height + <span class="s">", centre "</span> + oPixel.Red + <span class="s">", "</span> + oPixel.Green + <span class="s">", "</span> + oPixel.Blue
+	? <span class="s">"4. read back: "</span> + oBack.Width + <span class="s">" x "</span> + oBack.Height + <span class="s">", center "</span> + oPixel.Red + <span class="s">", "</span> + oPixel.Green + <span class="s">", "</span> + oPixel.Blue
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the picture is 200 x 100 pixels
 2. corner (0,0): 32, 96, 192
-   centre of the circle (150,50): 255, 204, 0
+   center of the circle (150,50): 255, 204, 0
 3. a PNG file was written: 1, 1
-4. read back: 200 x 100, centre 255, 204, 0</code></pre></div>
+4. read back: 200 x 100, center 255, 204, 0</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="bitmap-canvas-paint">Bitmap, canvas, paint<a class="anchor" href="#bitmap-canvas-paint">#</a></h3>
 <ul><li>An <code>SKBitmap</code> is the picture: a grid of pixels. <code>@New([ :width = 200, :height = 100 ])</code> makes an empty one (a constructor chosen by the names of its parameters).</li><li>An <code>SKCanvas</code> is what draws on a bitmap: <code>new SKCanvas(oBitmap)</code>. Its methods are <code>Clear</code>, <code>DrawCircle</code>, <code>DrawRect</code>, <code>DrawText</code> and more, and each of the ones with several versions takes a list of the names of its parameters.</li><li>An <code>SKPaint</code> says <strong>how</strong> to draw: its <code>Color</code>, <code>IsAntialias</code> (smooth edges), <code>TextSize</code>. The same paint can draw many things, and it can be changed between them: the program draws the circle in yellow and the text in white with one paint.</li></ul>
-<h3 id="colours">Colours<a class="anchor" href="#colours">#</a></h3>
-<p>A colour is a value of the type <code>SKColor</code>, with <code>Red</code>, <code>Green</code>, <code>Blue</code> and <code>Alpha</code> (the opacity) from 0 to 255. <code>new SKColor().Parse("#2060c0")</code> reads the usual web notation. Colours are values, so the program makes them once (<code>oBlue</code>, <code>oYellow</code>, <code>oWhite</code>) and uses them where it needs them.</p>
+<h3 id="colors">Colors<a class="anchor" href="#colors">#</a></h3>
+<p>A color is a value of the type <code>SKColor</code>, with <code>Red</code>, <code>Green</code>, <code>Blue</code> and <code>Alpha</code> (the opacity) from 0 to 255. <code>new SKColor().Parse("#2060c0")</code> reads the usual web notation. Colors are values, so the program makes them once (<code>oBlue</code>, <code>oYellow</code>, <code>oWhite</code>) and uses them where it needs them.</p>
 <h3 id="pixels">Pixels<a class="anchor" href="#pixels">#</a></h3>
-<p><code>oBitmap.GetPixel(150,50)</code> is the colour of the pixel at column 150 and row 50 (the top left corner is 0,0). The program checks two pixels: the corner is the blue of <code>Clear</code>, and the centre of the circle is the yellow of the paint.</p>
+<p><code>oBitmap.GetPixel(150,50)</code> is the color of the pixel at column 150 and row 50 (the top left corner is 0,0). The program checks two pixels: the corner is the blue of <code>Clear</code>, and the center of the circle is the yellow of the paint.</p>
 <h3 id="saving-and-reading">Saving and reading<a class="anchor" href="#saving-and-reading">#</a></h3>
 <p><code>SKImage</code> is a finished picture. <code>new SKImage().FromBitmap(oBitmap)</code> makes one, and <code>Encode(NULL)</code> gives the data of a <strong>PNG</strong> file (the default format). <code>ToArray()</code> returns the bytes, and a <code>byte[]</code> that .NET returns is a Ring text, so <code>File.WriteAllBytes(cFile, cPng)</code> writes the file. The second to fourth bytes are the letters <code>PNG</code>, which the program uses as a test. <code>new SKBitmap().Decode(cFile)</code> reads a file again, and the pixels are the same.</p>
 <p>For another format, give the format and the quality: <code>Encode([ :format = "Jpeg", :quality = 80 ])</code>.</p>
@@ -353,9 +353,9 @@ chdir(cHere)
 <h3 id="which-system">Which system<a class="anchor" href="#which-system">#</a></h3>
 <p>SkiaSharp works on Windows, Linux and macOS. The program here was run on Windows and on Linux (x64) and printed the same lines. macOS and arm64 were <strong>not tested</strong>, although the package has native libraries for them (the Linux one needs the extra package of the project file).</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li><code>System.Drawing</code> is Windows-only, and SkiaSharp draws on every system,</li><li>a package with a native library is published with its <code>runtimes</code> folder, and the bridge finds the library of the running system,</li><li>bitmap, canvas, paint and colours; pixels; PNG and JPEG.</li></ul>
+<ul><li><code>System.Drawing</code> is Windows-only, and SkiaSharp draws on every system,</li><li>a package with a native library is published with its <code>runtimes</code> folder, and the bridge finds the library of the running system,</li><li>bitmap, canvas, paint and colors; pixels; PNG and JPEG.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Draw a rectangle: <code>oCanvas.DrawRect([ :x = 10, :y = 10, :w = 60, :h = 30, :paint = oPaint ])</code>, in another colour.</li><li>Move the circle, change its size, and print the colour of a pixel on its edge.</li><li>Save the picture as JPEG with <code>Encode([ :format = "Jpeg", :quality = 80 ])</code> and compare the sizes of the two files.</li><li>Write a function <code>drawFlag(cColor1, cColor2, cColor3)</code> that draws three stripes and returns the PNG bytes.</li></ol>
+<ol><li>Draw a rectangle: <code>oCanvas.DrawRect([ :x = 10, :y = 10, :w = 60, :h = 30, :paint = oPaint ])</code>, in another color.</li><li>Move the circle, change its size, and print the color of a pixel on its edge.</li><li>Save the picture as JPEG with <code>Encode([ :format = "Jpeg", :quality = 80 ])</code> and compare the sizes of the two files.</li><li>Write a function <code>drawFlag(cColor1, cColor2, cColor3)</code> that draws three stripes and returns the PNG bytes.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-169-pdf.html">PDF files</a></p>
 <div class="pager"><a href="tut-167-excel.html"><small>Previous</small>Excel files</a><a class="next" href="tut-169-pdf.html"><small>Next</small>PDF files</a></div>

@@ -50,7 +50,7 @@ For secrets (session ids, reset links) use `RandomNumberGenerator.GetBytes(n)`. 
 
 ### AES
 
-AES is the standard encryption. `Aes.Create(NULL)` makes an encryptor; `GenerateKey()` and `GenerateIV()` create a random key and *initialisation vector*; `CreateEncryptor(NULL).TransformFinalBlock(text, 0, length)` encrypts, `CreateDecryptor(NULL)` decrypts. Anyone with the key and the IV can decrypt, so those must be kept safe and passed to the receiver separately from the data.
+AES is the standard encryption. `Aes.Create(NULL)` makes an encryptor; `GenerateKey()` and `GenerateIV()` create a random key and *initialization vector*; `CreateEncryptor(NULL).TransformFinalBlock(text, 0, length)` encrypts, `CreateDecryptor(NULL)` decrypts. Anyone with the key and the IV can decrypt, so those must be kept safe and passed to the receiver separately from the data.
 
 ## What you learned
 

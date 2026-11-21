@@ -7,7 +7,7 @@ lead: The picture classes of earlier lessons (Bitmap, Graphics) are a Windows fe
 
 - why `System.Drawing` is not the answer on every system, and what SkiaSharp offers instead,
 - how a package with a **native library** is published and found,
-- a bitmap, a canvas, a paint and colours,
+- a bitmap, a canvas, a paint and colors,
 - reading pixels, and saving and reading a PNG file,
 
 ## Why another picture library
@@ -38,13 +38,13 @@ They are the steps of the lessons [A NuGet package](tut-162-nuget.html), [A QR c
 - An `SKCanvas` is what draws on a bitmap: `new SKCanvas(oBitmap)`. Its methods are `Clear`, `DrawCircle`, `DrawRect`, `DrawText` and more, and each of the ones with several versions takes a list of the names of its parameters.
 - An `SKPaint` says **how** to draw: its `Color`, `IsAntialias` (smooth edges), `TextSize`. The same paint can draw many things, and it can be changed between them: the program draws the circle in yellow and the text in white with one paint.
 
-### Colours
+### Colors
 
-A colour is a value of the type `SKColor`, with `Red`, `Green`, `Blue` and `Alpha` (the opacity) from 0 to 255. `new SKColor().Parse("#2060c0")` reads the usual web notation. Colours are values, so the program makes them once (`oBlue`, `oYellow`, `oWhite`) and uses them where it needs them.
+A color is a value of the type `SKColor`, with `Red`, `Green`, `Blue` and `Alpha` (the opacity) from 0 to 255. `new SKColor().Parse("#2060c0")` reads the usual web notation. Colors are values, so the program makes them once (`oBlue`, `oYellow`, `oWhite`) and uses them where it needs them.
 
 ### Pixels
 
-`oBitmap.GetPixel(150,50)` is the colour of the pixel at column 150 and row 50 (the top left corner is 0,0). The program checks two pixels: the corner is the blue of `Clear`, and the centre of the circle is the yellow of the paint.
+`oBitmap.GetPixel(150,50)` is the color of the pixel at column 150 and row 50 (the top left corner is 0,0). The program checks two pixels: the corner is the blue of `Clear`, and the center of the circle is the yellow of the paint.
 
 ### Saving and reading
 
@@ -64,12 +64,12 @@ SkiaSharp works on Windows, Linux and macOS. The program here was run on Windows
 
 - `System.Drawing` is Windows-only, and SkiaSharp draws on every system,
 - a package with a native library is published with its `runtimes` folder, and the bridge finds the library of the running system,
-- bitmap, canvas, paint and colours; pixels; PNG and JPEG.
+- bitmap, canvas, paint and colors; pixels; PNG and JPEG.
 
 ## Exercises
 
-1. Draw a rectangle: `oCanvas.DrawRect([ :x = 10, :y = 10, :w = 60, :h = 30, :paint = oPaint ])`, in another colour.
-2. Move the circle, change its size, and print the colour of a pixel on its edge.
+1. Draw a rectangle: `oCanvas.DrawRect([ :x = 10, :y = 10, :w = 60, :h = 30, :paint = oPaint ])`, in another color.
+2. Move the circle, change its size, and print the color of a pixel on its edge.
 3. Save the picture as JPEG with `Encode([ :format = "Jpeg", :quality = 80 ])` and compare the sizes of the two files.
 4. Write a function `drawFlag(cColor1, cColor2, cColor3)` that draws three stripes and returns the PNG bytes.
 

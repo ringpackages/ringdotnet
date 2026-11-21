@@ -96,7 +96,7 @@ func le16 nValue
 
 # ---------------------------------------------------------------- the filters: each one makes a new list of rows from the old one
 
-# a value kept between 0 and 255 (a colour channel cannot be outside)
+# a value kept between 0 and 255 (a color channel cannot be outside)
 func clamp nValue
 	if nValue < 0
 		return 0
@@ -136,7 +136,7 @@ func sepiaPixel aPixel
 	nBlue = aPixel[3]
 	return [clamp(nRed * 0.393 + nGreen * 0.769 + nBlue * 0.189),clamp(nRed * 0.349 + nGreen * 0.686 + nBlue * 0.168),clamp(nRed * 0.272 + nGreen * 0.534 + nBlue * 0.131)]
 
-# blur: every pixel becomes the average of itself and its 8 neighbours (at the border: only the neighbours that exist)
+# blur: every pixel becomes the average of itself and its 8 neighbors (at the border: only the neighbors that exist)
 func blur aPixels
 	aRows = []
 	for nY = 1 to C_HEIGHT
@@ -164,7 +164,7 @@ func blur aPixels
 	next
 	return aRows
 
-# edges: the difference between a pixel and its right and lower neighbour; flat areas become black, borders light
+# edges: the difference between a pixel and its right and lower neighbor; flat areas become black, borders light
 func edges aPixels
 	aGray = mapPixels(aPixels,"grayPixel")
 	aRows = []

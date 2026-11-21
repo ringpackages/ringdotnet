@@ -42,7 +42,7 @@ Same as a `Dictionary`, with the keys in order. The loop over `Keys` gives *appl
 
 ### LinkedList
 
-Each item is a **node** that knows its neighbours (`Next`, `Previous`). `AddFirst`, `AddLast` and `AddAfter(node, value)` do not move other items, and `Remove` of a known node is quick. The price: no access by number. Take it when you add or remove in the middle of a long list all the time, for example an *undo* list or a play list.
+Each item is a **node** that knows its neighbors (`Next`, `Previous`). `AddFirst`, `AddLast` and `AddAfter(node, value)` do not move other items, and `Remove` of a known node is quick. The price: no access by number. Take it when you add or remove in the middle of a long list all the time, for example an *undo* list or a play list.
 
 ### BitArray
 

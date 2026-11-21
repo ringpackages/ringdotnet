@@ -41,7 +41,7 @@ func main
 	next
 	? nl + "3. sorted dictionary, keys in order: " + cKeys
 
-	# 4. LinkedList: items are linked to their neighbours. Adding or removing at either end, or next to a known node, is quick.
+	# 4. LinkedList: items are linked to their neighbors. Adding or removing at either end, or next to a known node, is quick.
 	oList = dnNewGeneric("System.Collections.Generic.LinkedList",[cText],[])
 	oList.AddLast("b")
 	oList.AddLast("c")

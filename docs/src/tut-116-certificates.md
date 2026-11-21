@@ -26,7 +26,7 @@ The tutorial [Digital signatures](tut-105-signatures.html) signed data with a ba
 
 ### What a certificate says
 
-A certificate is a small document, signed by an **issuer**, that says: *the public key below belongs to the subject named here, and this is true from this date to that date*. The **subject** is a distinguished name such as `CN=Demo Server, O=RingDotNet, C=EG` (common name, organisation, country). The **thumbprint** is the SHA-1 hash of the whole certificate: a short identifier that you compare to be sure it is *this* certificate and not another one with the same name.
+A certificate is a small document, signed by an **issuer**, that says: *the public key below belongs to the subject named here, and this is true from this date to that date*. The **subject** is a distinguished name such as `CN=Demo Server, O=RingDotNet, C=EG` (common name, organization, country). The **thumbprint** is the SHA-1 hash of the whole certificate: a short identifier that you compare to be sure it is *this* certificate and not another one with the same name.
 
 In the real world the issuer is a **certificate authority** (CA) that your computer trusts, and it checks who you are before it signs. In a **self-signed** certificate the subject and the issuer are the same: the certificate vouches for itself. That is useful for tests, for development and for programs that talk to each other on a network you control (you install the certificate on both sides yourself), but no browser trusts it.
 

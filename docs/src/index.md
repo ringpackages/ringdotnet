@@ -56,7 +56,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 <a class="card" href="gallery-wpf.html"><img src="img/shots/wpf-03_binding_slider.png" alt="WPF binding" style="max-width:100%;border-radius:8px"></a>
 </div>
 
-## How the documentation is organised
+## How the documentation is organized
 
 | Part | What it is for |
 |---|---|
@@ -67,7 +67,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 | **Reference** | the [function index](reference.html) and the [class reference](api.html) with every wrapped class |
 | **Appendix** | a [quick introduction to Ring](ring-intro.html), for readers who are new to the language |
 
-## How the package is organised
+## How the package is organized
 
 | Folder | Contents |
 |---|---|

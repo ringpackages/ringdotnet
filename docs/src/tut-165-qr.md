@@ -66,9 +66,9 @@ A `byte[]` that .NET returns is a Ring text of bytes (a copy), so the PNG is a R
 
 ### Using a package safely
 
-- The program was tested to make a code and a PNG. A real use of a code should be **tried with a camera** of the kind that your users have, with the size and the colours that you chose.
+- The program was tested to make a code and a PNG. A real use of a code should be **tried with a camera** of the kind that your users have, with the size and the colors that you chose.
 - The text of a code is not secret: anybody who scans it reads it. A code with a password for a Wi-Fi network shows the password to everybody who sees the code.
-- Look at the licence of a package before you give your program to others (the page of the package at nuget.org shows it).
+- Look at the license of a package before you give your program to others (the page of the package at nuget.org shows it).
 
 ## What you learned
 

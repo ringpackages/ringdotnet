@@ -60,7 +60,7 @@ In the [class reference](api.html) a static member is marked *static*.
 
 ## Namespaces and assemblies
 
-.NET has thousands of classes, so they are organised:
+.NET has thousands of classes, so they are organized:
 
 - A **namespace** is a folder of classes with a dotted name: `System.IO` holds the file classes, `System.Text` holds the text classes, `System.Windows.Forms` holds the window classes.
 - An **assembly** is a file (a `.dll`) that contains the compiled classes. You rarely need to think about it.

@@ -47,7 +47,7 @@ Create a `TabPage` for each tab, set its `Text` (the title on the tab), and add 
 
 ### TableLayoutPanel
 
-A table with columns and rows. `oTable.Controls.Add([ :control = oTitle, :column = 0, :row = nRow ])` puts a control into a cell (named arguments, because this method has several versions). `Dock = "Fill"` makes the label fill its cell; `TextAlign = "MiddleLeft"` centres the text vertically.
+A table with columns and rows. `oTable.Controls.Add([ :control = oTitle, :column = 0, :row = nRow ])` puts a control into a cell (named arguments, because this method has several versions). `Dock = "Fill"` makes the label fill its cell; `TextAlign = "MiddleLeft"` centers the text vertically.
 
 ### DataTable, DataView, DataGridView
 

@@ -60,6 +60,6 @@ func selfTest
 		uiSendKeys(oForm," ")
 		dnAssert("Space does not press the New game button",nScore > 0,True)
 	ok
-	# a full board without equal neighbours is game over
+	# a full board without equal neighbors is game over
 	aBoard = [2,4,2,4, 4,2,4,2, 2,4,2,4, 4,2,4,2]
 	dnAssert("no moves left",canMove(),0)

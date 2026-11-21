@@ -41,7 +41,7 @@ Take A = {dotnet, json, linq, ring, web} and B = {json, ring, tcp, udp, web}:
 | `ExceptWith(B)` | in A but **not** in B | dotnet linq |
 | `SymmetricExceptWith(B)` | in one of them, **not in both** | dotnet linq tcp udp |
 
-All four **change the set they are called on**, they do not return a new set. So the program first makes a copy (a `HashSet` can be made from another collection: `copySet`) and then changes the copy. If you forget this, A is spoilt for the next step.
+All four **change the set they are called on**, they do not return a new set. So the program first makes a copy (a `HashSet` can be made from another collection: `copySet`) and then changes the copy. If you forget this, A is spoiled for the next step.
 
 ### Questions
 

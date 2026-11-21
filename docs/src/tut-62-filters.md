@@ -6,7 +6,7 @@ lead: A picture is a table of numbers. This lesson holds the pixels in Ring list
 ## What you will learn
 
 - a picture as rows of `[red, green, blue]` numbers,
-- filters as functions that take a pixel (or its neighbours) and return a new one,
+- filters as functions that take a pixel (or its neighbors) and return a new one,
 - why per-pixel calls across the bridge are slow, and a faster way,
 - the structure of a **BMP** file and writing it with Ring,
 - little-endian numbers,
@@ -28,7 +28,7 @@ lead: A picture is a table of numbers. This lesson holds the pixels in Ring list
 
 ### Pixels as numbers
 
-`aSource[y][x]` is `[r, g, b]`, each from 0 to 255. The sample picture is made by `pictureColor`, a function that returns the colour of a point: a sky that gets lighter near the horizon, a circle for the sun (a point is inside if `(x − 94)² + (y − 22)² ≤ 14²`), grass, a house and a roof. Everything is plain Ring, so it is fast.
+`aSource[y][x]` is `[r, g, b]`, each from 0 to 255. The sample picture is made by `pictureColor`, a function that returns the color of a point: a sky that gets lighter near the horizon, a circle for the sun (a point is inside if `(x − 94)² + (y − 22)² ≤ 14²`), grass, a house and a roof. Everything is plain Ring, so it is fast.
 
 ### Filters
 
@@ -40,14 +40,14 @@ Most filters change each pixel on its own, so `mapPixels` applies a function to 
 | **Invert** | `255 − value` for each channel |
 | **Brighter / Darker** | add or subtract 40, and **clamp** the result into 0…255 |
 | **Sepia** | each new channel is a weighted sum of the old three |
-| **Blur** | each pixel becomes the **average of its 3 × 3 neighbourhood** |
-| **Edges** | the difference between a pixel and its right and lower neighbour; where the picture is flat the difference is zero (black) |
+| **Blur** | each pixel becomes the **average of its 3 × 3 neighborhood** |
+| **Edges** | the difference between a pixel and its right and lower neighbor; where the picture is flat the difference is zero (black) |
 
-Blur and edges look at neighbours, so they need two nested loops, and they must write into a **new** list: if you changed the picture in place, the next pixel would see already changed neighbours.
+Blur and edges look at neighbors, so they need two nested loops, and they must write into a **new** list: if you changed the picture in place, the next pixel would see already changed neighbors.
 
 ### The slow way and the fast way
 
-The obvious way to show the result is `Bitmap.SetPixel(x, y, color)` for every pixel. Every call crosses the bridge (and creating the colour is another call), so the 10,800 pixels of this small picture would take several seconds *for each click*. See the tutorial [Speed — measure first](tut-53-speed.html): fewer calls win. Instead, the program builds the whole **file** in Ring and lets .NET load it with one call.
+The obvious way to show the result is `Bitmap.SetPixel(x, y, color)` for every pixel. Every call crosses the bridge (and creating the color is another call), so the 10,800 pixels of this small picture would take several seconds *for each click*. See the tutorial [Speed — measure first](tut-53-speed.html): fewer calls win. Instead, the program builds the whole **file** in Ring and lets .NET load it with one call.
 
 ### A BMP file
 
@@ -70,7 +70,7 @@ The checks of this program are in a separate file, `selftest/ch12_filters.ring`:
 ## What you learned
 
 - pixels as numbers and filters as functions,
-- 3 × 3 neighbourhoods and writing to a new list,
+- 3 × 3 neighborhoods and writing to a new list,
 - clamping,
 - writing a BMP file and little-endian numbers,
 - avoiding thousands of bridge calls.

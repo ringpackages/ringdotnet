@@ -1356,7 +1356,7 @@ shuffleBoard()
 	<span class="k">return</span> find(aTiles,<span class="n">0</span>)
 
 <span class="c"># cells that touch the cell</span>
-<span class="k">func</span> <span class="f">neighbours</span> nCell
+<span class="k">func</span> <span class="f">neighbors</span> nCell
 	aList = []
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
@@ -1368,7 +1368,7 @@ shuffleBoard()
 
 <span class="k">func</span> <span class="f">slideTile</span> nCell
 	nEmpty = emptyCell()
-	<span class="k">if</span> find(neighbours(nEmpty),nCell) &gt; <span class="n">0</span>
+	<span class="k">if</span> find(neighbors(nEmpty),nCell) &gt; <span class="n">0</span>
 		aTiles[nEmpty] = aTiles[nCell]
 		aTiles[nCell] = <span class="n">0</span>
 		<span class="k">return</span> <span class="k">true</span>
@@ -1398,7 +1398,7 @@ shuffleBoard()
 		aTiles[nCell] = nCell % len(aTiles)
 	<span class="k">next</span>
 	<span class="k">for</span> nStep = <span class="n">1</span> <span class="k">to</span> <span class="n">200</span>
-		aNear = neighbours(emptyCell())
+		aNear = neighbors(emptyCell())
 		slideTile(aNear[random(len(aNear) - <span class="n">1</span>) + <span class="n">1</span>])
 	<span class="k">next</span>
 	nMoves = <span class="n">0</span>
@@ -1726,7 +1726,7 @@ glider()
 	nRow = (nRow + C_ROWS) % C_ROWS
 	<span class="k">return</span> aCells[cellIndex(nColumn,nRow)]
 
-<span class="k">func</span> <span class="f">countNeighbours</span> nColumn, nRow
+<span class="k">func</span> <span class="f">countNeighbors</span> nColumn, nRow
 	nTotal = <span class="n">0</span>
 	<span class="k">for</span> nDy = -<span class="n">1</span> <span class="k">to</span> <span class="n">1</span>
 		<span class="k">for</span> nDx = -<span class="n">1</span> <span class="k">to</span> <span class="n">1</span>
@@ -1741,7 +1741,7 @@ glider()
 	aNext = list(C_COLUMNS * C_ROWS)
 	<span class="k">for</span> nRow = <span class="n">0</span> <span class="k">to</span> C_ROWS - <span class="n">1</span>
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> C_COLUMNS - <span class="n">1</span>
-			nNear = countNeighbours(nColumn,nRow)
+			nNear = countNeighbors(nColumn,nRow)
 			<span class="k">if</span> aCells[cellIndex(nColumn,nRow)]
 				aNext[cellIndex(nColumn,nRow)] = (nNear = <span class="n">2</span> <span class="k">or</span> nNear = <span class="n">3</span>)
 			<span class="k">else</span>
@@ -2073,7 +2073,7 @@ fromDate()
 	nJulian = floor(number(oJulian.Text))
 	aDate = calendarDate(nJulian)
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(aDate[<span class="n">1</span>],aDate[<span class="n">2</span>],aDate[<span class="n">3</span>])
-	oPicker.Value = oDate</code></pre></div></details></div></div><div class="item" id="lights-out"><div class="pic"><img src="img/shots/app-LightsOut.png" alt="Lights Out" loading="lazy"></div><div class="info"><h3>Lights Out</h3><p>Lights Out - press a cell to toggle it and its neighbours until all the lights are off (a port of ring/applications/lightsout to RingDotNet)</p><div class="run"><code>cd samples/UsingDotNet/applications/LightsOut  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Lights Out - press a cell to toggle it and its neighbours until all the lights are off</span>
+	oPicker.Value = oDate</code></pre></div></details></div></div><div class="item" id="lights-out"><div class="pic"><img src="img/shots/app-LightsOut.png" alt="Lights Out" loading="lazy"></div><div class="info"><h3>Lights Out</h3><p>Lights Out - press a cell to toggle it and its neighbors until all the lights are off (a port of ring/applications/lightsout to RingDotNet)</p><div class="run"><code>cd samples/UsingDotNet/applications/LightsOut  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Lights Out - press a cell to toggle it and its neighbors until all the lights are off</span>
 <span class="c"># (a port of ring/applications/lightsout to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -2128,7 +2128,7 @@ newGame()
 <span class="k">func</span> <span class="f">toggle</span> nCell
 	aLights[nCell] = <span class="k">not</span> aLights[nCell]
 
-<span class="c"># toggle the cell and its neighbours</span>
+<span class="c"># toggle the cell and its neighbors</span>
 <span class="k">func</span> <span class="f">flip</span> nCell
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
@@ -2503,7 +2503,7 @@ newGame()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
-<span class="k">func</span> <span class="f">neighbours</span> nCell
+<span class="k">func</span> <span class="f">neighbors</span> nCell
 	aList = []
 	nRow = floor((nCell - <span class="n">1</span>) / C_COLUMNS)
 	nColumn = (nCell - <span class="n">1</span>) % C_COLUMNS
@@ -2522,7 +2522,7 @@ newGame()
 
 <span class="k">func</span> <span class="f">mineCount</span> nCell
 	nTotal = <span class="n">0</span>
-	<span class="k">for</span> nNear <span class="k">in</span> neighbours(nCell)
+	<span class="k">for</span> nNear <span class="k">in</span> neighbors(nCell)
 		nTotal += aMine[nNear]
 	<span class="k">next</span>
 	<span class="k">return</span> nTotal
@@ -2607,7 +2607,7 @@ newGame()
 			aButtons[nCurrent].ForeColor = numberColor(nNear)
 		<span class="k">else</span>
 			aButtons[nCurrent].Text = <span class="s">""</span>
-			<span class="k">for</span> nOther <span class="k">in</span> neighbours(nCurrent)
+			<span class="k">for</span> nOther <span class="k">in</span> neighbors(nCurrent)
 				<span class="k">if</span> <span class="k">not</span> aRevealed[nOther] <span class="k">and</span> <span class="k">not</span> aFlagged[nOther]
 					aQueue + nOther
 				<span class="k">ok</span>

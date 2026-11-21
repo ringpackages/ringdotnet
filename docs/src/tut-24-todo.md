@@ -5,7 +5,7 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 
 ## What you will learn
 
-- planning a small application: data, window, behaviour, saving,
+- planning a small application: data, window, behavior, saving,
 - a `CheckedListBox`,
 - saving to JSON and loading it again,
 - keeping a window and its data in step.
@@ -59,7 +59,7 @@ The checks of this program are in a separate file, `selftest/ch12_todo.ring`:
 
 ## What you learned
 
-- design first: data, window, behaviour, saving,
+- design first: data, window, behavior, saving,
 - `CheckedListBox`, events after a click,
 - JSON for saving the tasks as a list of [done, text] pairs,
 - a flag to avoid saving while loading,

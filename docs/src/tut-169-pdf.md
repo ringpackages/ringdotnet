@@ -60,7 +60,7 @@ A font is made with the name of a family and a size: `dnNew("PdfSharp.Drawing.XF
 
 ### Before you use it in a real program
 
-- **Look at the licence** of a PDF package. Some are free for any use, others are free only for a small business or for open source. It is on the page of the package at nuget.org.
+- **Look at the license** of a PDF package. Some are free for any use, others are free only for a small business or for open source. It is on the page of the package at nuget.org.
 - **Text that is long** has to be cut into lines by the program, or by a helper class of the package (PDFsharp has a text formatter for it).
 - **Many small drawing calls** are many calls over the bridge. A report of a few pages is no problem.
 
@@ -70,7 +70,7 @@ A font is made with the name of a family and a size: `dnNew("PdfSharp.Drawing.XF
 - a document has pages, and an `XGraphics` draws on a page,
 - fonts, brushes and pens are objects; `dnNew` with parameter names makes a font,
 - a file can be opened again to check its pages and title,
-- check the fonts and the licence before a real use.
+- check the fonts and the license before a real use.
 
 ## Exercises
 

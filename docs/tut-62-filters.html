@@ -249,7 +249,7 @@
 <article>
 <h1>An image filter lab</h1><p class="lead">A picture is a table of numbers. This lesson holds the pixels in Ring lists, writes each filter as a small function, saves the result as a BMP file written byte by byte, and shows the original and the result side by side.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>a picture as rows of <code>[red, green, blue]</code> numbers,</li><li>filters as functions that take a pixel (or its neighbours) and return a new one,</li><li>why per-pixel calls across the bridge are slow, and a faster way,</li><li>the structure of a <strong>BMP</strong> file and writing it with Ring,</li><li>little-endian numbers,</li><li>showing an image in a <code>PictureBox</code>.</li></ul>
+<ul><li>a picture as rows of <code>[red, green, blue]</code> numbers,</li><li>filters as functions that take a pixel (or its neighbors) and return a new one,</li><li>why per-pixel calls across the bridge are slow, and a faster way,</li><li>the structure of a <strong>BMP</strong> file and writing it with Ring,</li><li>little-endian numbers,</li><li>showing an image in a <code>PictureBox</code>.</li></ul>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_filters.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># an image filter lab - pixels as numbers, filters as small functions, a BMP file written by hand, before and after side by side</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -349,7 +349,7 @@ nFile = <span class="n">0</span>
 
 <span class="c"># ---------------------------------------------------------------- the filters: each one makes a new list of rows from the old one</span>
 
-<span class="c"># a value kept between 0 and 255 (a colour channel cannot be outside)</span>
+<span class="c"># a value kept between 0 and 255 (a color channel cannot be outside)</span>
 <span class="k">func</span> <span class="f">clamp</span> nValue
 	<span class="k">if</span> nValue &lt; <span class="n">0</span>
 		<span class="k">return</span> <span class="n">0</span>
@@ -389,7 +389,7 @@ nFile = <span class="n">0</span>
 	nBlue = aPixel[<span class="n">3</span>]
 	<span class="k">return</span> [clamp(nRed * <span class="n">0.393</span> + nGreen * <span class="n">0.769</span> + nBlue * <span class="n">0.189</span>),clamp(nRed * <span class="n">0.349</span> + nGreen * <span class="n">0.686</span> + nBlue * <span class="n">0.168</span>),clamp(nRed * <span class="n">0.272</span> + nGreen * <span class="n">0.534</span> + nBlue * <span class="n">0.131</span>)]
 
-<span class="c"># blur: every pixel becomes the average of itself and its 8 neighbours (at the border: only the neighbours that exist)</span>
+<span class="c"># blur: every pixel becomes the average of itself and its 8 neighbors (at the border: only the neighbors that exist)</span>
 <span class="k">func</span> <span class="f">blur</span> aPixels
 	aRows = []
 	<span class="k">for</span> nY = <span class="n">1</span> <span class="k">to</span> C_HEIGHT
@@ -417,7 +417,7 @@ nFile = <span class="n">0</span>
 	<span class="k">next</span>
 	<span class="k">return</span> aRows
 
-<span class="c"># edges: the difference between a pixel and its right and lower neighbour; flat areas become black, borders light</span>
+<span class="c"># edges: the difference between a pixel and its right and lower neighbor; flat areas become black, borders light</span>
 <span class="k">func</span> <span class="f">edges</span> aPixels
 	aGray = mapPixels(aPixels,<span class="s">"grayPixel"</span>)
 	aRows = []
@@ -471,13 +471,13 @@ nFile = <span class="n">0</span>
 <div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnNew</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="pixels-as-numbers">Pixels as numbers<a class="anchor" href="#pixels-as-numbers">#</a></h3>
-<p><code>aSource[y][x]</code> is <code>[r, g, b]</code>, each from 0 to 255. The sample picture is made by <code>pictureColor</code>, a function that returns the colour of a point: a sky that gets lighter near the horizon, a circle for the sun (a point is inside if <code>(x − 94)² + (y − 22)² ≤ 14²</code>), grass, a house and a roof. Everything is plain Ring, so it is fast.</p>
+<p><code>aSource[y][x]</code> is <code>[r, g, b]</code>, each from 0 to 255. The sample picture is made by <code>pictureColor</code>, a function that returns the color of a point: a sky that gets lighter near the horizon, a circle for the sun (a point is inside if <code>(x − 94)² + (y − 22)² ≤ 14²</code>), grass, a house and a roof. Everything is plain Ring, so it is fast.</p>
 <h3 id="filters">Filters<a class="anchor" href="#filters">#</a></h3>
 <p>Most filters change each pixel on its own, so <code>mapPixels</code> applies a function to every pixel (<code>call cFunction(aPixel)</code>):</p>
-<div class="tablewrap"><table><thead><tr><th>Filter</th><th>Rule</th></tr></thead><tbody><tr><td><strong>Gray</strong></td><td><code>0.299 r + 0.587 g + 0.114 b</code> — the eye sees green brighter than blue</td></tr><tr><td><strong>Invert</strong></td><td><code>255 − value</code> for each channel</td></tr><tr><td><strong>Brighter / Darker</strong></td><td>add or subtract 40, and <strong>clamp</strong> the result into 0…255</td></tr><tr><td><strong>Sepia</strong></td><td>each new channel is a weighted sum of the old three</td></tr><tr><td><strong>Blur</strong></td><td>each pixel becomes the <strong>average of its 3 × 3 neighbourhood</strong></td></tr><tr><td><strong>Edges</strong></td><td>the difference between a pixel and its right and lower neighbour; where the picture is flat the difference is zero (black)</td></tr></tbody></table></div>
-<p>Blur and edges look at neighbours, so they need two nested loops, and they must write into a <strong>new</strong> list: if you changed the picture in place, the next pixel would see already changed neighbours.</p>
+<div class="tablewrap"><table><thead><tr><th>Filter</th><th>Rule</th></tr></thead><tbody><tr><td><strong>Gray</strong></td><td><code>0.299 r + 0.587 g + 0.114 b</code> — the eye sees green brighter than blue</td></tr><tr><td><strong>Invert</strong></td><td><code>255 − value</code> for each channel</td></tr><tr><td><strong>Brighter / Darker</strong></td><td>add or subtract 40, and <strong>clamp</strong> the result into 0…255</td></tr><tr><td><strong>Sepia</strong></td><td>each new channel is a weighted sum of the old three</td></tr><tr><td><strong>Blur</strong></td><td>each pixel becomes the <strong>average of its 3 × 3 neighborhood</strong></td></tr><tr><td><strong>Edges</strong></td><td>the difference between a pixel and its right and lower neighbor; where the picture is flat the difference is zero (black)</td></tr></tbody></table></div>
+<p>Blur and edges look at neighbors, so they need two nested loops, and they must write into a <strong>new</strong> list: if you changed the picture in place, the next pixel would see already changed neighbors.</p>
 <h3 id="the-slow-way-and-the-fast-way">The slow way and the fast way<a class="anchor" href="#the-slow-way-and-the-fast-way">#</a></h3>
-<p>The obvious way to show the result is <code>Bitmap.SetPixel(x, y, color)</code> for every pixel. Every call crosses the bridge (and creating the colour is another call), so the 10,800 pixels of this small picture would take several seconds <em>for each click</em>. See the tutorial <a href="tut-53-speed.html">Speed — measure first</a>: fewer calls win. Instead, the program builds the whole <strong>file</strong> in Ring and lets .NET load it with one call.</p>
+<p>The obvious way to show the result is <code>Bitmap.SetPixel(x, y, color)</code> for every pixel. Every call crosses the bridge (and creating the color is another call), so the 10,800 pixels of this small picture would take several seconds <em>for each click</em>. See the tutorial <a href="tut-53-speed.html">Speed — measure first</a>: fewer calls win. Instead, the program builds the whole <strong>file</strong> in Ring and lets .NET load it with one call.</p>
 <h3 id="a-bmp-file">A BMP file<a class="anchor" href="#a-bmp-file">#</a></h3>
 <p>A BMP is one of the simplest picture formats:</p>
 <ul><li>a 14-byte file header (<code>"BM"</code>, the file size, where the pixels start),</li><li>a 40-byte picture header (width, height, 24 bits per pixel, ...),</li><li>the pixels: row by row <strong>from the bottom row up</strong>, each pixel as <strong>blue, green, red</strong>, each row padded to a multiple of 4 bytes (120 pixels × 3 = 360 is).</li></ul>
@@ -515,7 +515,7 @@ nFile = <span class="n">0</span>
 	<span class="f">dnAssert</span>(<span class="s">"the sun was written to the file correctly (blue)"</span>,oColor.B,<span class="n">0</span>)</code></pre></div>
 <div class="callout tip"><span class="t">Tip</span><p>Try the same with <code>uiPictureBox</code> and a photo of your own: load it with <code>Bitmap</code>, read the pixels once into lists, and use the filters from this tutorial. Reading one pixel at a time is slow, so keep photos small, or look at <code>LockBits</code> for fast access.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>pixels as numbers and filters as functions,</li><li>3 × 3 neighbourhoods and writing to a new list,</li><li>clamping,</li><li>writing a BMP file and little-endian numbers,</li><li>avoiding thousands of bridge calls.</li></ul>
+<ul><li>pixels as numbers and filters as functions,</li><li>3 × 3 neighborhoods and writing to a new list,</li><li>clamping,</li><li>writing a BMP file and little-endian numbers,</li><li>avoiding thousands of bridge calls.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Add a <strong>Threshold</strong> filter: black below 128 gray, white above.</li><li>Add a <strong>Mirror</strong> filter that reverses each row.</li><li>Make <strong>Blur</strong> stronger by repeating it three times.</li><li>Add a button that saves the result with <code>File.Copy</code> to a file chosen with <code>uiSaveFileName</code>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

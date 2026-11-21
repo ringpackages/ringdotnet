@@ -291,7 +291,7 @@ nMoves = <span class="n">0</span>
 	? <span class="s">"   the total size of the files: "</span> + folderSize(cRoot) + <span class="s">" bytes"</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cRoot, :recursive = <span class="k">True</span> ])
 
-	<span class="c"># 6. A flood fill: color an area, then do the same for the four neighbours. (The "paint bucket" of a drawing program.)</span>
+	<span class="c"># 6. A flood fill: color an area, then do the same for the four neighbors. (The "paint bucket" of a drawing program.)</span>
 	aImage = [<span class="s">"..#####.."</span>,<span class="s">"..#...#.."</span>,<span class="s">"..#...#.."</span>,<span class="s">"..#####.."</span>,<span class="s">"........."</span>]
 	? nl + <span class="s">"6. fill the inside of the frame, starting at row 2, column 4:"</span>
 	aGrid = []

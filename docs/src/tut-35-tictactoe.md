@@ -81,7 +81,7 @@ The checks of this program are in a separate file, `selftest/ch12_tictactoe.ring
 
 1. Highlight the three winning buttons.
 2. Add a score: how many games X and O have won.
-3. Write `bestMove(aBoard, cPlayer)` for a computer opponent: win if you can, block if you must, otherwise take the centre.
+3. Write `bestMove(aBoard, cPlayer)` for a computer opponent: win if you can, block if you must, otherwise take the center.
 4. Make the board size 4 × 4 with four in a row.
 
 The [TicTacToe](gallery-apps.html#tic-tac-toe) application is the full-size version.

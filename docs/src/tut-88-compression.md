@@ -32,7 +32,7 @@ A compression stream does not hold data itself: it is built **on top of** anothe
 
 ### Sizes
 
-The text repeats one sentence 200 times, so every format makes it tiny; Brotli is the smallest and GZip the largest here, which is common for text (Brotli is slower to compress). With normal text expect 2 to 4 times smaller, not 100. A GZip result starts with the bytes **31 139** (`1F 8B`), which is how programs recognise a `.gz` file.
+The text repeats one sentence 200 times, so every format makes it tiny; Brotli is the smallest and GZip the largest here, which is common for text (Brotli is slower to compress). With normal text expect 2 to 4 times smaller, not 100. A GZip result starts with the bytes **31 139** (`1F 8B`), which is how programs recognize a `.gz` file.
 
 ### Random data
 

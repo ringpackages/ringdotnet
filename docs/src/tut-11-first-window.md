@@ -21,7 +21,7 @@ lead: Build a window in four small steps — an empty form, a label and a button
 ![The empty window](img/shots/tut-g01a.png "Step 1: a window with a title")
 
 - The `using { }` block comes **first**. Because it names `System.Windows.Forms`, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what `dnUseDesktop()` does).
-- `uiForm("My first window",320,120)` makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.
+- `uiForm("My first window",320,120)` makes a form with a title and a client area of 320 × 120 pixels, centerd on the screen.
 - `uiRun(oForm)` shows the window and waits. The program continues after the window is closed.
 
 ## Step 2: a label and a button
