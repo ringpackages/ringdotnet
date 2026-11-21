@@ -187,6 +187,7 @@ PAGES = [
     ("tut-168-pictures", "Pictures on every system", "Tutorials: Libraries, testing and release"),
     ("tut-169-pdf", "PDF files", "Tutorials: Libraries, testing and release"),
     ("tut-170-speech", "Text to speech", "Tutorials: Libraries, testing and release"),
+    ("tut-171-csv-to-excel", "A project: from CSV to Excel", "Tutorials: Libraries, testing and release"),
     ("tut-28-testing", "Testing", "Tutorials: Libraries, testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Libraries, testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),

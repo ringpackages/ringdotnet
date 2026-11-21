@@ -1,0 +1,12 @@
+1. rows read from the CSV and stored: 8, in the database: 8
+2. rows with 9 units or more:
+   North Tea 10
+   North Coffee 9
+   South Coffee 12
+3. total by region:
+   East 55.50
+   North 84
+   South 69.50
+
+4. the report has the sheets Sales and By region, and 8 rows of sales and a total row
+   the total of the sheet Sales (a formula): 209

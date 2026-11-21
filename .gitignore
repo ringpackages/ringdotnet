@@ -36,3 +36,6 @@ samples/UsingDotNet/tutorials/Pdf/classes/
 samples/UsingDotNet/tutorials/Speech/libs/
 samples/UsingDotNet/tutorials/Speech/bin/
 samples/UsingDotNet/tutorials/Speech/classes/
+samples/UsingDotNet/tutorials/Report/libs/
+samples/UsingDotNet/tutorials/Report/bin/
+samples/UsingDotNet/tutorials/Report/classes/
