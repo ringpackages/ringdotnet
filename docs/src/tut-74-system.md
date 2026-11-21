@@ -31,7 +31,7 @@ The output shows what is true on the computer where the page was made; the progr
 
 ### Drives
 
-`Directory.GetLogicalDrives()` lists the drives (`C:\`, `D:\`, ...; on Linux just `/`). For the space on a drive look at the `DriveInfo` class in a C# library if your program needs it.
+`Directory.GetLogicalDrives()` lists the drives (`C:\`, `D:\`, ...; on Linux just `/`). For the size and the free space of a drive use `DriveInfo` (the tutorial [Disks and free space](tut-124-disks.html)).
 
 ### This process and the others
 

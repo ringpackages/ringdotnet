@@ -54,7 +54,7 @@ A `StringWriter` has the same methods as a `StreamWriter` (`Write`, `WriteLine`)
 1. Write `numberedLines(oReader, oWriter)` that copies a text and puts a line number before each line.
 2. Write a test that captures the output of `Console.WriteLine` and checks it.
 3. Make a table with `String.Format` and aligned columns for a list of products and prices.
-4. Read a CSV text with `StringReader` and `Split` (the tutorial [Working with text](tut-02-text.html)).
+4. Read a CSV text with `StringReader` and cut each line into fields with Ring (`str2list(substr(cLine,",",nl))`, see the tutorial [Working with text](tut-02-text.html)).
 
 ## Next
 

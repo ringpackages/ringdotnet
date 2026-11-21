@@ -400,7 +400,6 @@ A damaged file: the defaults are used, error was: 1
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-class-for-settings">A class for settings<a class="anchor" href="#a-class-for-settings">#</a></h3>
 <p>Everything about settings is in one Ring class, <code>Settings</code>, so the rest of the program only says <code>oSettings.getValue("name")</code> and <code>oSettings.setValue("fontSize",14)</code>. The class keeps a list of <code>[key, value]</code> pairs: its starting content <em>is</em> the list of <strong>defaults</strong>, so the keys that exist are defined in one place.</p>
-<div class="callout note"><span class="t">Note</span><p>The method that reads the file is called <code>readFile</code>, not <code>load</code>: <code>load</code> is a Ring keyword, so it is not used as a name.</p></div>
 <h3 id="saving">Saving<a class="anchor" href="#saving">#</a></h3>
 <p><code>save</code> writes a JSON object by hand: texts in quotes, numbers without. For real data with arbitrary text use <code>JsonSerializer</code> (the tutorial <a href="tut-06-json-xml.html">JSON and XML</a>), which also escapes quotes and line breaks.</p>
 <h3 id="loading">Loading<a class="anchor" href="#loading">#</a></h3>

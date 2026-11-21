@@ -34,7 +34,7 @@ The easy way is a typed list: a `List<Int32>` (made with `dnNewGeneric`), the va
 
 ### Array methods
 
-They are static methods of the `Array` class. `Sort` and `Reverse` are called on `new Array()` like any static method; for the others the program uses `dnStatic("System.Array", method, [arguments])`, which names the class and the method as texts:
+They are static methods of the `Array` class. `Sort` and `Reverse` are called on `new Array()` like any static method; for the others the program uses `dnStatic("System.Array", method, [arguments])`. These names have several forms, so as methods of an object each would take one list of named values; `dnStatic` names the class and the method as texts and passes the values **in order**:
 
 | Call | Does |
 |---|---|

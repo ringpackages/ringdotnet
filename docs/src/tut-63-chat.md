@@ -43,8 +43,6 @@ A Ring text is a list of bytes, so `cPartial += char(nByte)` rebuilds UTF-8 text
 
 The two windows live in the same program only to make the tutorial easy to run; the classes would work the same in different programs on different computers. Give the server's address instead of `127.0.0.1`.
 
-> [!NOTE] Two details of Ring used in this lesson: `for x in object.method()` calls the method *again for every item*, so a method that consumes data must be assigned to a variable first; and a variable named `oR` is read as the keyword `or`.
-
 ### Testing
 
 The self test sends a line from Alice and calls `waitForText`, which pumps up to 50 times with a 20 ms sleep until both windows show the line — network messages arrive a little later, so a test must wait for them instead of checking at once. Then it checks that Bob's line arrives in both windows, that the server has two clients, and that an empty text is not sent.
