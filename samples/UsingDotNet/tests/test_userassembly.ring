@@ -42,6 +42,28 @@ oBuilder = oCalc.callGeneric("Create",["System.Text.StringBuilder"],[])
 dnAssert("generic method, a new object",oBuilder.typeName(),"System.Text.StringBuilder")
 dnAssert("generic method on a type",dnType("MyCompany.Tools.Calculator").callGeneric("Parse",["System.Int32"],["7"]),7)
 dnAssert("generic method, named arguments",dnRequest("callnamed",[oCalc,"Parse",[ [:typeArguments,["System.Int32"]], [:text,"9"] ]]),9)
+# a closed generic type with no class of its own is wrapped by the class of its definition
+oCounts = oCalc.Counts()
+dnAssert("generic type, class of the definition",classname(oCounts),"dictionary")
+dnAssert("generic type, a property",oCounts.Count,2)
+dnAssert("generic type, a method",oCounts.ContainsKey("b"),1)
+dnAssert("generic type, a method with a missing key",oCounts.ContainsKey("z"),0)
+dnAssert("another generic type",oCalc.Sorted().Count,2)
+oNumbers = new HashSet([ :typeArguments = ["System.Int32"] ])
+oNumbers.Add(4)
+oNumbers.Add(4)
+dnAssert("new with type arguments",oNumbers.Count,1)
+oNumbers2 = new SortedSet([ :typeArguments = ["System.String"] ])
+oNumbers2.Add("b")
+oNumbers2.Add("a")
+dnAssert("a sorted set of texts",oNumbers2.Min,"a")
+try
+	new HashSet([ :capacity = 3 ])
+	dnAssert("a generic class needs its type arguments",1,0)
+catch
+	dnAssert("a generic class needs its type arguments",substr(cCatchError,"typeArguments") > 0,1)
+done
+
 # the generated method takes the type arguments in the named form
 dnAssert("generated method, type arguments",oCalc.Parse([ :typeArguments = ["System.Int32"], :text = "12" ]),12)
 dnAssert("generated method, no arguments",oCalc.Create([ :typeArguments = ["System.Text.StringBuilder"] ]).typeName(),"System.Text.StringBuilder")

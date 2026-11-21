@@ -39,4 +39,5 @@ dnRegisterClass("System.Linq.Expressions.SwitchExpression","SwitchExpression",0)
 dnRegisterClass("System.Linq.Expressions.TryExpression","TryExpression",0)
 dnRegisterClass("System.Linq.Expressions.TypeBinaryExpression","TypeBinaryExpression",0)
 dnRegisterClass("System.Linq.Expressions.UnaryExpression","UnaryExpression",0)
+dnRegisterClass("System.Linq.Expressions.Expression`1","Expression1",1)
 load "System.Linq.Expressions.classes.ring"

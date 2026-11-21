@@ -5,6 +5,7 @@ dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo","BindingInfo
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource","AspBindingSource",4)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.BindingSourceValueProvider","BindingSourceValueProvider",0)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider","CompositeValueProvider",0)
+dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.DefaultPropertyFilterProvider`1","DefaultPropertyFilterProvider",1)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider","EmptyModelMetadataProvider",0)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName","EnumGroupAndName",0)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProvider","FormFileValueProvider",1)

@@ -10,6 +10,7 @@ dnRegisterClass("Microsoft.Extensions.Logging.IExternalScopeProvider","IExternal
 dnRegisterClass("Microsoft.Extensions.Logging.ILogger","ILogger",0)
 dnRegisterClass("Microsoft.Extensions.Logging.ILoggerFactory","ILoggerFactory",0)
 dnRegisterClass("Microsoft.Extensions.Logging.ILoggerProvider","ILoggerProvider",0)
+dnRegisterClass("Microsoft.Extensions.Logging.ILogger`1","ILogger1",1)
 dnRegisterClass("Microsoft.Extensions.Logging.ILoggingBuilder","ILoggingBuilder",0)
 dnRegisterClass("Microsoft.Extensions.Logging.ISupportExternalScope","ISupportExternalScope",0)
 dnRegisterClass("Microsoft.Extensions.Logging.LogDefineOptions","LogDefineOptions",0)
@@ -21,6 +22,7 @@ dnRegisterClass("Microsoft.Extensions.Logging.LoggerFactoryOptions","LoggerFacto
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerFilterOptions","LoggerFilterOptions",0)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerFilterRule","LoggerFilterRule",4)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerMessage","LoggerMessage",0)
+dnRegisterClass("Microsoft.Extensions.Logging.Logger`1","Logger",1)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggingBuilderExtensions","LoggingBuilderExtensions",0)
 dnRegisterClass("Microsoft.Extensions.Logging.TraceSourceFactoryExtensions","TraceSourceFactoryExtensions",0)
 load "Microsoft.Extensions.Logging.classes.ring"

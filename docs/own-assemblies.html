@@ -312,6 +312,9 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="c">/* generic methods whose type argument the arguments do not show: Ring gives it as a type name (callGeneric) */</span>
 		<span class="k">public</span> <span class="k">static</span> T Parse&lt;T&gt;(<span class="k">string</span> text) { <span class="k">return</span> (T)Convert.<span class="f">ChangeType</span>(text, typeof(T), System.Globalization.CultureInfo.InvariantCulture); }
 		<span class="k">public</span> T Create&lt;T&gt;() where T : <span class="k">new</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">T</span>(); }
+		<span class="c">/* closed generic types that have no class of their own: the class of the generic definition wraps them */</span>
+		<span class="k">public</span> Dictionary&lt;<span class="k">string</span>, <span class="k">int</span>&gt; <span class="t">Counts</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">Dictionary</span>&lt;<span class="k">string</span>, <span class="k">int</span>&gt; { { <span class="s">"a"</span>, <span class="n">1</span> }, { <span class="s">"b"</span>, <span class="n">2</span> } }; }
+		<span class="k">public</span> SortedSet&lt;<span class="k">double</span>&gt; <span class="t">Sorted</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">SortedSet</span>&lt;<span class="k">double</span>&gt; { <span class="n">3.5</span>, <span class="n">1.5</span> }; }
 	}
 
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
@@ -436,6 +439,28 @@ oBuilder = oCalc.<span class="f">callGeneric</span>(<span class="s">"Create"</sp
 <span class="f">dnAssert</span>(<span class="s">"generic method, a new object"</span>,oBuilder.<span class="f">typeName</span>(),<span class="s">"System.Text.StringBuilder"</span>)
 <span class="f">dnAssert</span>(<span class="s">"generic method on a type"</span>,<span class="f">dnType</span>(<span class="s">"MyCompany.Tools.Calculator"</span>).<span class="f">callGeneric</span>(<span class="s">"Parse"</span>,[<span class="s">"System.Int32"</span>],[<span class="s">"7"</span>]),<span class="n">7</span>)
 <span class="f">dnAssert</span>(<span class="s">"generic method, named arguments"</span>,<span class="f">dnRequest</span>(<span class="s">"callnamed"</span>,[oCalc,<span class="s">"Parse"</span>,[ [:typeArguments,[<span class="s">"System.Int32"</span>]], [:text,<span class="s">"9"</span>] ]]),<span class="n">9</span>)
+<span class="c"># a closed generic type with no class of its own is wrapped by the class of its definition</span>
+oCounts = oCalc.<span class="f">Counts</span>()
+<span class="f">dnAssert</span>(<span class="s">"generic type, class of the definition"</span>,classname(oCounts),<span class="s">"dictionary"</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic type, a property"</span>,oCounts.Count,<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic type, a method"</span>,oCounts.<span class="f">ContainsKey</span>(<span class="s">"b"</span>),<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic type, a method with a missing key"</span>,oCounts.<span class="f">ContainsKey</span>(<span class="s">"z"</span>),<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"another generic type"</span>,oCalc.<span class="f">Sorted</span>().Count,<span class="n">2</span>)
+oNumbers = <span class="k">new</span> <span class="t">HashSet</span>([ :typeArguments = [<span class="s">"System.Int32"</span>] ])
+oNumbers.<span class="f">Add</span>(<span class="n">4</span>)
+oNumbers.<span class="f">Add</span>(<span class="n">4</span>)
+<span class="f">dnAssert</span>(<span class="s">"new with type arguments"</span>,oNumbers.Count,<span class="n">1</span>)
+oNumbers2 = <span class="k">new</span> <span class="t">SortedSet</span>([ :typeArguments = [<span class="s">"System.String"</span>] ])
+oNumbers2.<span class="f">Add</span>(<span class="s">"b"</span>)
+oNumbers2.<span class="f">Add</span>(<span class="s">"a"</span>)
+<span class="f">dnAssert</span>(<span class="s">"a sorted set of texts"</span>,oNumbers2.Min,<span class="s">"a"</span>)
+<span class="k">try</span>
+	<span class="k">new</span> <span class="t">HashSet</span>([ :capacity = <span class="n">3</span> ])
+	<span class="f">dnAssert</span>(<span class="s">"a generic class needs its type arguments"</span>,<span class="n">1</span>,<span class="n">0</span>)
+<span class="k">catch</span>
+	<span class="f">dnAssert</span>(<span class="s">"a generic class needs its type arguments"</span>,substr(cCatchError,<span class="s">"typeArguments"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+<span class="k">done</span>
+
 <span class="c"># the generated method takes the type arguments in the named form</span>
 <span class="f">dnAssert</span>(<span class="s">"generated method, type arguments"</span>,oCalc.<span class="f">Parse</span>([ :typeArguments = [<span class="s">"System.Int32"</span>], :text = <span class="s">"12"</span> ]),<span class="n">12</span>)
 <span class="f">dnAssert</span>(<span class="s">"generated method, no arguments"</span>,oCalc.<span class="f">Create</span>([ :typeArguments = [<span class="s">"System.Text.StringBuilder"</span>] ]).<span class="f">typeName</span>(),<span class="s">"System.Text.StringBuilder"</span>)

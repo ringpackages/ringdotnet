@@ -108,7 +108,7 @@ func summary aResult
 	nWrapped = count(aResult,"OK   type: wrapped (class, struct, interface)")
 	nEnums = count(aResult,"OK   type: enum (a text in Ring)")
 	nDelegates = count(aResult,"OK   type: delegate (a callback in Ring)")
-	nGeneric = count(aResult,"GAP  type: generic type definition (not wrapped)")
+	nGeneric = count(aResult,"INFO type: generic type definition (wrapped, made with :typeArguments)")
 	nNested = count(aResult,"GAP  type: nested type (not wrapped)")
 	nMethods = count(aResult,"INFO method: public methods")
 	nCallable = count(aResult,"OK   method: callable") + count(aResult,"OK   method: callable with :typeArguments (generic, type argument only in the result)")

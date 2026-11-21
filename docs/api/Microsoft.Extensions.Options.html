@@ -248,10 +248,110 @@
 <main>
 <article>
 <h1>Microsoft.Extensions.Options</h1>
-<p class="lead">5 wrapped types. Load them with <code>using { "Microsoft.Extensions.Options" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-IStartupValidator">IStartupValidator</a> <a href="#c-Options">Options</a> <a href="#c-OptionsMonitorExtensions">OptionsMonitorExtensions</a> <a href="#c-ValidateOptionsResult">ValidateOptionsResult</a> <a href="#c-ValidateOptionsResultBuilder">ValidateOptionsResultBuilder</a></div><details class="cls" id="c-IStartupValidator"><summary><b>IStartupValidator</b> <span class="muted">interface</span></summary>
+<p class="lead">44 wrapped types. Load them with <code>using { "Microsoft.Extensions.Options" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-ConfigurationChangeTokenSource">ConfigurationChangeTokenSource</a> <a href="#c-ConfigureFromConfigurationOptions">ConfigureFromConfigurationOptions</a> <a href="#c-ConfigureNamedOptions">ConfigureNamedOptions</a> <a href="#c-ConfigureNamedOptions2">ConfigureNamedOptions2</a> <a href="#c-ConfigureNamedOptions3">ConfigureNamedOptions3</a> <a href="#c-ConfigureNamedOptions4">ConfigureNamedOptions4</a> <a href="#c-ConfigureNamedOptions5">ConfigureNamedOptions5</a> <a href="#c-ConfigureNamedOptions6">ConfigureNamedOptions6</a> <a href="#c-ConfigureOptions">ConfigureOptions</a> <a href="#c-DataAnnotationValidateOptions">DataAnnotationValidateOptions</a> <a href="#c-IConfigureNamedOptions">IConfigureNamedOptions</a> <a href="#c-IConfigureOptions">IConfigureOptions</a> <a href="#c-IOptions">IOptions</a> <a href="#c-IOptionsChangeTokenSource">IOptionsChangeTokenSource</a> <a href="#c-IOptionsFactory">IOptionsFactory</a> <a href="#c-IOptionsMonitor">IOptionsMonitor</a> <a href="#c-IOptionsMonitorCache">IOptionsMonitorCache</a> <a href="#c-IOptionsSnapshot">IOptionsSnapshot</a> <a href="#c-IPostConfigureOptions">IPostConfigureOptions</a> <a href="#c-IStartupValidator">IStartupValidator</a> <a href="#c-IValidateOptions">IValidateOptions</a> <a href="#c-NamedConfigureFromConfigurationOptions">NamedConfigureFromConfigurationOptions</a> <a href="#c-Options">Options</a> <a href="#c-OptionsBuilder">OptionsBuilder</a> <a href="#c-OptionsCache">OptionsCache</a> <a href="#c-OptionsFactory">OptionsFactory</a> <a href="#c-OptionsManager">OptionsManager</a> <a href="#c-OptionsMonitor">OptionsMonitor</a> <a href="#c-OptionsMonitorExtensions">OptionsMonitorExtensions</a> <a href="#c-OptionsWrapper">OptionsWrapper</a> <a href="#c-PostConfigureOptions">PostConfigureOptions</a> <a href="#c-PostConfigureOptions2">PostConfigureOptions2</a> <a href="#c-PostConfigureOptions3">PostConfigureOptions3</a> <a href="#c-PostConfigureOptions4">PostConfigureOptions4</a> <a href="#c-PostConfigureOptions5">PostConfigureOptions5</a> <a href="#c-PostConfigureOptions6">PostConfigureOptions6</a> <a href="#c-ValidateOptions">ValidateOptions</a> <a href="#c-ValidateOptions2">ValidateOptions2</a> <a href="#c-ValidateOptions3">ValidateOptions3</a> <a href="#c-ValidateOptions4">ValidateOptions4</a> <a href="#c-ValidateOptions5">ValidateOptions5</a> <a href="#c-ValidateOptions6">ValidateOptions6</a> <a href="#c-ValidateOptionsResult">ValidateOptionsResult</a> <a href="#c-ValidateOptionsResultBuilder">ValidateOptionsResultBuilder</a></div><details class="cls" id="c-ConfigurationChangeTokenSource"><summary><b>ConfigurationChangeTokenSource</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigurationChangeTokenSource`1</code> · assembly <code>Microsoft.Extensions.Options.ConfigurationExtensions</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureFromConfigurationOptions"><summary><b>ConfigureFromConfigurationOptions</b> <span class="muted">class · extends ConfigureOptions&lt;TOptions&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureFromConfigurationOptions`1</code> · assembly <code>Microsoft.Extensions.Options.ConfigurationExtensions</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Action</code></td><td><code>Action&lt;TOptions&gt;</code></td><td>read</td><td><code>o.getAction()</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions"><summary><b>ConfigureNamedOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions2"><summary><b>ConfigureNamedOptions2</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`2</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency</code></td><td><code>TDep</code></td><td>read</td><td><code>o.Dependency</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions3"><summary><b>ConfigureNamedOptions3</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`3</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions4"><summary><b>ConfigureNamedOptions4</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`4</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions5"><summary><b>ConfigureNamedOptions5</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`5</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureNamedOptions6"><summary><b>ConfigureNamedOptions6</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureNamedOptions`6</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr><tr><td><code>Dependency5</code></td><td><code>TDep5</code></td><td>read</td><td><code>o.Dependency5</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ConfigureOptions"><summary><b>ConfigureOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ConfigureOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Action</code></td><td><code>Action&lt;TOptions&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-DataAnnotationValidateOptions"><summary><b>DataAnnotationValidateOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.DataAnnotationValidateOptions`1</code> · assembly <code>Microsoft.Extensions.Options.DataAnnotations</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IConfigureNamedOptions"><summary><b>IConfigureNamedOptions</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IConfigureNamedOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IConfigureOptions"><summary><b>IConfigureOptions</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IConfigureOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IOptions"><summary><b>IOptions</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Value</code></td><td><code>TOptions</code></td><td>read</td><td><code>o.Value</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IOptionsChangeTokenSource"><summary><b>IOptionsChangeTokenSource</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptionsChangeTokenSource`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IOptionsFactory"><summary><b>IOptionsFactory</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptionsFactory`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IOptionsMonitor"><summary><b>IOptionsMonitor</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptionsMonitor`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CurrentValue</code></td><td><code>TOptions</code></td><td>read</td><td><code>o.CurrentValue</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IOptionsMonitorCache"><summary><b>IOptionsMonitorCache</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptionsMonitorCache`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IOptionsSnapshot"><summary><b>IOptionsSnapshot</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IOptionsSnapshot`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IPostConfigureOptions"><summary><b>IPostConfigureOptions</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IPostConfigureOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-IStartupValidator"><summary><b>IStartupValidator</b> <span class="muted">interface</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Options.IStartupValidator</code> · assembly <code>Microsoft.Extensions.Options</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Validate</code></td><td><span class="muted">—</span></td><td><code>void Validate()</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IValidateOptions"><summary><b>IValidateOptions</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.IValidateOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-NamedConfigureFromConfigurationOptions"><summary><b>NamedConfigureFromConfigurationOptions</b> <span class="muted">class · extends ConfigureNamedOptions&lt;TOptions&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.NamedConfigureFromConfigurationOptions`1</code> · assembly <code>Microsoft.Extensions.Options.ConfigurationExtensions</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.getName()</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions&gt;</code></td><td>read</td><td><code>o.getAction()</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-Options"><summary><b>Options</b> <span class="muted">class static</span></summary>
 <div class="clsbody">
@@ -259,10 +359,100 @@
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DefaultName</code></td><td><code>string</code></td><td>read · static</td><td><code>o.DefaultName</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Create</code></td><td><span class="muted">—</span></td><td><code>static IOptions&lt;TOptions&gt; Create&lt;TOptions&gt;(TOptions options)</code></td></tr></tbody></table></div>
 </div></details>
+<details class="cls" id="c-OptionsBuilder"><summary><b>OptionsBuilder</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsBuilder`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Services</code></td><td><code>IServiceCollection</code></td><td>read</td><td><code>o.Services</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Configure</code></td><td><span class="muted">—</span></td><td><code>OptionsBuilder&lt;TOptions&gt; Configure&lt;TDep&gt;(Action&lt;TOptions, TDep&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; Configure&lt;TDep1, TDep2&gt;(Action&lt;TOptions, TDep1, TDep2&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; Configure&lt;TDep1, TDep2, TDep3&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; Configure&lt;TDep1, TDep2, TDep3, TDep4&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; Configure&lt;TDep1, TDep2, TDep3, TDep4, TDep5&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5&gt; configureOptions)</code></td></tr><tr><td><code>PostConfigure</code></td><td><span class="muted">—</span></td><td><code>OptionsBuilder&lt;TOptions&gt; PostConfigure&lt;TDep&gt;(Action&lt;TOptions, TDep&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; PostConfigure&lt;TDep1, TDep2&gt;(Action&lt;TOptions, TDep1, TDep2&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; PostConfigure&lt;TDep1, TDep2, TDep3&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; PostConfigure&lt;TDep1, TDep2, TDep3, TDep4&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4&gt; configureOptions)</code><br><code>OptionsBuilder&lt;TOptions&gt; PostConfigure&lt;TDep1, TDep2, TDep3, TDep4, TDep5&gt;(Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5&gt; configureOptions)</code></td></tr><tr><td><code>Validate</code></td><td><span class="muted">—</span></td><td><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep&gt;(Func&lt;TOptions, TDep, bool&gt; validation)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep&gt;(Func&lt;TOptions, TDep, bool&gt; validation, string failureMessage)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2&gt;(Func&lt;TOptions, TDep1, TDep2, bool&gt; validation)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2&gt;(Func&lt;TOptions, TDep1, TDep2, bool&gt; validation, string failureMessage)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, bool&gt; validation)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, bool&gt; validation, string failureMessage)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3, TDep4&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, bool&gt; validation)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3, TDep4&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, bool&gt; validation, string failureMessage)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3, TDep4, TDep5&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5, bool&gt; validation)</code><br><code>OptionsBuilder&lt;TOptions&gt; Validate&lt;TDep1, TDep2, TDep3, TDep4, TDep5&gt;(Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5, bool&gt; validation, string failureMessage)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-OptionsCache"><summary><b>OptionsCache</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsCache`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-OptionsFactory"><summary><b>OptionsFactory</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsFactory`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+</div></details>
+<details class="cls" id="c-OptionsManager"><summary><b>OptionsManager</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsManager`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Value</code></td><td><code>TOptions</code></td><td>read</td><td><code>o.Value</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-OptionsMonitor"><summary><b>OptionsMonitor</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsMonitor`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CurrentValue</code></td><td><code>TOptions</code></td><td>read</td><td><code>o.CurrentValue</code></td></tr></tbody></table></div>
+</div></details>
 <details class="cls" id="c-OptionsMonitorExtensions"><summary><b>OptionsMonitorExtensions</b> <span class="muted">class static</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Options.OptionsMonitorExtensions</code> · assembly <code>Microsoft.Extensions.Options</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>OnChange</code></td><td><span class="muted">—</span></td><td><code>static IDisposable OnChange&lt;TOptions&gt;(IOptionsMonitor&lt;TOptions&gt; monitor, Action&lt;TOptions&gt; listener)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-OptionsWrapper"><summary><b>OptionsWrapper</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.OptionsWrapper`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Value</code></td><td><code>TOptions</code></td><td>read</td><td><code>o.Value</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions"><summary><b>PostConfigureOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions2"><summary><b>PostConfigureOptions2</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`2</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency</code></td><td><code>TDep</code></td><td>read</td><td><code>o.Dependency</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions3"><summary><b>PostConfigureOptions3</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`3</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions4"><summary><b>PostConfigureOptions4</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`4</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions5"><summary><b>PostConfigureOptions5</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`5</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-PostConfigureOptions6"><summary><b>PostConfigureOptions6</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.PostConfigureOptions`6</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Action</code></td><td><code>Action&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5&gt;</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr><tr><td><code>Dependency5</code></td><td><code>TDep5</code></td><td>read</td><td><code>o.Dependency5</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions"><summary><b>ValidateOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`1</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions2"><summary><b>ValidateOptions2</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`2</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, TDep, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr><tr><td><code>Dependency</code></td><td><code>TDep</code></td><td>read</td><td><code>o.Dependency</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions3"><summary><b>ValidateOptions3</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`3</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, TDep1, TDep2, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions4"><summary><b>ValidateOptions4</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`4</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, TDep1, TDep2, TDep3, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions5"><summary><b>ValidateOptions5</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`5</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ValidateOptions6"><summary><b>ValidateOptions6</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Options.ValidateOptions`6</code> · assembly <code>Microsoft.Extensions.Options</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>Validation</code></td><td><code>Func&lt;TOptions, TDep1, TDep2, TDep3, TDep4, TDep5, bool&gt;</code></td><td>read</td><td><code>o.Validation</code></td></tr><tr><td><code>FailureMessage</code></td><td><code>string</code></td><td>read</td><td><code>o.FailureMessage</code></td></tr><tr><td><code>Dependency1</code></td><td><code>TDep1</code></td><td>read</td><td><code>o.Dependency1</code></td></tr><tr><td><code>Dependency2</code></td><td><code>TDep2</code></td><td>read</td><td><code>o.Dependency2</code></td></tr><tr><td><code>Dependency3</code></td><td><code>TDep3</code></td><td>read</td><td><code>o.Dependency3</code></td></tr><tr><td><code>Dependency4</code></td><td><code>TDep4</code></td><td>read</td><td><code>o.Dependency4</code></td></tr><tr><td><code>Dependency5</code></td><td><code>TDep5</code></td><td>read</td><td><code>o.Dependency5</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-ValidateOptionsResult"><summary><b>ValidateOptionsResult</b> <span class="muted">class</span></summary>
 <div class="clsbody">

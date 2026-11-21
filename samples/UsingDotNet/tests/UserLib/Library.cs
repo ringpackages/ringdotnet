@@ -32,6 +32,9 @@ namespace MyCompany.Tools
 		/* generic methods whose type argument the arguments do not show: Ring gives it as a type name (callGeneric) */
 		public static T Parse<T>(string text) { return (T)Convert.ChangeType(text, typeof(T), System.Globalization.CultureInfo.InvariantCulture); }
 		public T Create<T>() where T : new() { return new T(); }
+		/* closed generic types that have no class of their own: the class of the generic definition wraps them */
+		public Dictionary<string, int> Counts() { return new Dictionary<string, int> { { "a", 1 }, { "b", 2 } }; }
+		public SortedSet<double> Sorted() { return new SortedSet<double> { 3.5, 1.5 }; }
 	}
 
 	public class Counter : Calculator

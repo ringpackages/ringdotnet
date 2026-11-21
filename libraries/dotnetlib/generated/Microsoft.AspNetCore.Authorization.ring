@@ -4,6 +4,8 @@ dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationBuilder","Autho
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationFailure","AuthorizationFailure",0)
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationFailureReason","AuthorizationFailureReason",2)
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext","AuthorizationHandlerContext",3)
+dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationHandler`1","AuthorizationHandler",1)
+dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationHandler`2","AuthorizationHandler2",1)
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationMiddleware","AuthorizationMiddleware",2)
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationOptions","AuthorizationOptions",0)
 dnRegisterClass("Microsoft.AspNetCore.Authorization.AuthorizationPolicy","AuthorizationPolicy",2)

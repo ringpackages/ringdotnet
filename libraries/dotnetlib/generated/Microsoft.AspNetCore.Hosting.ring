@@ -25,4 +25,5 @@ dnRegisterClass("Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions","Web
 dnRegisterClass("Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions","WebHostBuilderSocketExtensions",0)
 dnRegisterClass("Microsoft.AspNetCore.Hosting.WebHostDefaults","WebHostDefaults",0)
 dnRegisterClass("Microsoft.AspNetCore.Hosting.WebHostExtensions","WebHostExtensions",0)
+dnRegisterClass("Microsoft.AspNetCore.Hosting.StartupBase`1","StartupBase1",1)
 load "Microsoft.AspNetCore.Hosting.classes.ring"

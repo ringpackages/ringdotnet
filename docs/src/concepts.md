@@ -217,6 +217,19 @@ oList = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 oList.callMethod("Add",[5])
 ```
 
+A generic type also has a Ring class: the class of its definition (`List`, `Dictionary`, `HashSet`, `SortedSet`...). Its objects are made with the type arguments in the named list, together with the constructor parameters if there are any, and the same class wraps every closed type of the definition that .NET gives back (a `Dictionary<string, int>` returned by a method is a `Dictionary`). When another type has the name already (`Queue` and `Stack` of `System.Collections`), the name of the generic one ends with the number of its type arguments.
+
+```ring
+dnImport("System.Collections.Generic")
+oNumbers = new HashSet([ :typeArguments = ["System.Int32"] ])
+oNumbers.Add(4)
+oNumbers.Add(4)
+? oNumbers.Count    # 1
+oScores = new Dictionary([ :typeArguments = ["System.String","System.Int32"], :capacity = 10 ])
+```
+
+The members have the type argument as `object`, so Ring values go in and out as they are; the static members of a generic type need a closed type and are not in the class (use `dnNewGeneric`, `callMethod` on `dnType` with the closed name).
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

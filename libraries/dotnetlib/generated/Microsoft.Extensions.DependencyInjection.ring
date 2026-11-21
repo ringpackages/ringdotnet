@@ -38,6 +38,7 @@ dnRegisterClass("Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder","IMvc
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IRazorComponentsBuilder","IRazorComponentsBuilder",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServerSideBlazorBuilder","IServerSideBlazorBuilder",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServiceCollection","IServiceCollection",0)
+dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServiceProviderFactory`1","IServiceProviderFactory",1)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServiceProviderIsKeyedService","IServiceProviderIsKeyedService",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServiceProviderIsService","IServiceProviderIsService",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.IServiceScope","IServiceScope",0)

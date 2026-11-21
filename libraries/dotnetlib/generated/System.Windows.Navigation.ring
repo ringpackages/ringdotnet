@@ -18,4 +18,6 @@ dnRegisterClass("System.Windows.Navigation.NavigationService","NavigationService
 dnRegisterClass("System.Windows.Navigation.NavigationWindow","NavigationWindow",0)
 dnRegisterClass("System.Windows.Navigation.PageFunctionBase","PageFunctionBase",0)
 dnRegisterClass("System.Windows.Navigation.RequestNavigateEventArgs","RequestNavigateEventArgs",2)
+dnRegisterClass("System.Windows.Navigation.ReturnEventArgs`1","ReturnEventArgs",1)
+dnRegisterClass("System.Windows.Navigation.PageFunction`1","PageFunction",1)
 load "System.Windows.Navigation.classes.ring"

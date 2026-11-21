@@ -11,6 +11,7 @@ dnRegisterClass("Microsoft.AspNetCore.Routing.EndpointNameMetadata","EndpointNam
 dnRegisterClass("Microsoft.AspNetCore.Routing.HttpMethodMetadata","HttpMethodMetadata",1)
 dnRegisterClass("Microsoft.AspNetCore.Routing.IDataTokensMetadata","IDataTokensMetadata",0)
 dnRegisterClass("Microsoft.AspNetCore.Routing.IDynamicEndpointMetadata","IDynamicEndpointMetadata",0)
+dnRegisterClass("Microsoft.AspNetCore.Routing.IEndpointAddressScheme`1","IEndpointAddressScheme",1)
 dnRegisterClass("Microsoft.AspNetCore.Routing.IEndpointGroupNameMetadata","IEndpointGroupNameMetadata",0)
 dnRegisterClass("Microsoft.AspNetCore.Routing.IEndpointNameMetadata","IEndpointNameMetadata",0)
 dnRegisterClass("Microsoft.AspNetCore.Routing.IEndpointRouteBuilder","IEndpointRouteBuilder",0)

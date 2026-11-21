@@ -248,7 +248,31 @@
 <main>
 <article>
 <h1>System.Collections.ObjectModel</h1>
-<p class="lead">4 wrapped types. Load them with <code>using { "System.Collections.ObjectModel" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-ObservableObjectList">ObservableObjectList</a> <a href="#c-ObservableStringList">ObservableStringList</a> <a href="#c-ReadOnlyStringList">ReadOnlyStringList</a> <a href="#c-StringCollectionList">StringCollectionList</a></div><details class="cls" id="c-ObservableObjectList"><summary><b>ObservableObjectList</b> <span class="muted">class · extends Collection&lt;object&gt;</span></summary>
+<p class="lead">10 wrapped types. Load them with <code>using { "System.Collections.ObjectModel" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-Collection">Collection</a> <a href="#c-KeyedCollection">KeyedCollection</a> <a href="#c-ObservableCollection">ObservableCollection</a> <a href="#c-ObservableObjectList">ObservableObjectList</a> <a href="#c-ObservableStringList">ObservableStringList</a> <a href="#c-ReadOnlyCollection">ReadOnlyCollection</a> <a href="#c-ReadOnlyDictionary">ReadOnlyDictionary</a> <a href="#c-ReadOnlyObservableCollection">ReadOnlyObservableCollection</a> <a href="#c-ReadOnlyStringList">ReadOnlyStringList</a> <a href="#c-StringCollectionList">StringCollectionList</a></div><details class="cls" id="c-Collection"><summary><b>Collection</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.Collection`1</code> · assembly <code>System.Private.CoreLib</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>T</code> · <code>o.SetItem(index,value)</code></p>
+</div></details>
+<details class="cls" id="c-KeyedCollection"><summary><b>KeyedCollection</b> <span class="muted">class abstract · extends Collection&lt;TItem&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.KeyedCollection`2</code> · assembly <code>System.ObjectModel</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Comparer</code></td><td><code>IEqualityComparer&lt;TKey&gt;</code></td><td>read</td><td><code>o.Comparer</code></td></tr><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.getCount()</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(TKey key)</code> → <code>TItem</code></p>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-ObservableCollection"><summary><b>ObservableCollection</b> <span class="muted">class · extends Collection&lt;T&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.ObservableCollection`1</code> · assembly <code>System.ObjectModel</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection, INotifyCollectionChanged, INotifyPropertyChanged</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.getCount()</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>T</code> · <code>o.SetItem(index,value)</code></p>
+<h4>Events</h4><div class="tablewrap"><table class="api"><thead><tr><th>Event</th><th>Handler type</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CollectionChanged</code></td><td><code>NotifyCollectionChangedEventHandler</code></td><td><code>o.setCollectionChangedEvent(code)</code> · <code>o.clearCollectionChangedEvent()</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-ObservableObjectList"><summary><b>ObservableObjectList</b> <span class="muted">class · extends Collection&lt;object&gt;</span></summary>
 <div class="clsbody">
 <p class="net"><code>System.Collections.ObjectModel.ObservableCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]</code> · assembly <code>System.ObjectModel</code></p>
 <p class="muted">Implements: IEnumerable, IList, ICollection, INotifyCollectionChanged, INotifyPropertyChanged</p>
@@ -269,6 +293,28 @@
 <h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>string</code> · <code>o.SetItem(index,value)</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Move</code></td><td><span class="muted">—</span></td><td><code>void Move(int oldIndex, int newIndex)</code></td></tr></tbody></table></div>
 <h4>Events</h4><div class="tablewrap"><table class="api"><thead><tr><th>Event</th><th>Handler type</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CollectionChanged</code></td><td><code>NotifyCollectionChangedEventHandler</code></td><td><code>o.setCollectionChangedEvent(code)</code> · <code>o.clearCollectionChangedEvent()</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-ReadOnlyCollection"><summary><b>ReadOnlyCollection</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.ReadOnlyCollection`1</code> · assembly <code>System.Private.CoreLib</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr><tr><td><code>Empty</code></td><td><code>ReadOnlyCollection&lt;T&gt;</code></td><td>read · static</td><td><code>o.getEmpty()</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>T</code></p>
+</div></details>
+<details class="cls" id="c-ReadOnlyDictionary"><summary><b>ReadOnlyDictionary</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.ReadOnlyDictionary`2</code> · assembly <code>System.Private.CoreLib</code></p>
+<p class="muted">Implements: IEnumerable, IDictionary, ICollection</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Keys</code></td><td><code>KeyCollection&lt;TKey, TValue&gt;</code></td><td>read</td><td><code>o.Keys</code></td></tr><tr><td><code>Values</code></td><td><code>ValueCollection&lt;TKey, TValue&gt;</code></td><td>read</td><td><code>o.Values</code></td></tr><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr><tr><td><code>Empty</code></td><td><code>ReadOnlyDictionary&lt;TKey, TValue&gt;</code></td><td>read · static</td><td><code>o.getEmpty()</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(TKey key)</code> → <code>TValue</code></p>
+</div></details>
+<details class="cls" id="c-ReadOnlyObservableCollection"><summary><b>ReadOnlyObservableCollection</b> <span class="muted">class · extends ReadOnlyCollection&lt;T&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Collections.ObjectModel.ReadOnlyObservableCollection`1</code> · assembly <code>System.ObjectModel</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection, INotifyCollectionChanged, INotifyPropertyChanged</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.getCount()</code></td></tr><tr><td><code>Empty</code></td><td><code>ReadOnlyObservableCollection&lt;T&gt;</code></td><td>read · static</td><td><code>o.getEmpty()</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>T</code></p>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-ReadOnlyStringList"><summary><b>ReadOnlyStringList</b> <span class="muted">class</span></summary>

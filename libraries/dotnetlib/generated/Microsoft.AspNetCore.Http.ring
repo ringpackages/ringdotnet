@@ -54,6 +54,7 @@ dnRegisterClass("Microsoft.AspNetCore.Http.IResultExtensions","IResultExtensions
 dnRegisterClass("Microsoft.AspNetCore.Http.ISession","ISession",0)
 dnRegisterClass("Microsoft.AspNetCore.Http.IStatusCodeHttpResult","IStatusCodeHttpResult",0)
 dnRegisterClass("Microsoft.AspNetCore.Http.IValueHttpResult","IValueHttpResult",0)
+dnRegisterClass("Microsoft.AspNetCore.Http.IValueHttpResult`1","IValueHttpResult1",1)
 dnRegisterClass("Microsoft.AspNetCore.Http.MiddlewareFactory","MiddlewareFactory",1)
 dnRegisterClass("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions","OpenApiRouteHandlerBuilderExtensions",0)
 dnRegisterClass("Microsoft.AspNetCore.Http.PathString","PathString",0)

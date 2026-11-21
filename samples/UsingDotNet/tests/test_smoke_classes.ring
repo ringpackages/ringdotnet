@@ -48,6 +48,22 @@ func main
 			if not lParameterless
 				loop
 			ok
+			if substr(aEntry[1],"`") > 0 and substr(aEntry[1],"[") = 0
+				# a generic definition: an object needs its type arguments (all texts here; a type that does not accept texts is left out)
+				aArguments = []
+				for nArgument = 1 to number(substr(aEntry[1],substr(aEntry[1],"`") + 1,1))
+					aArguments + "System.String"
+				next
+				try
+					oObject = dnNew(aEntry[1],[ :typeArguments = aArguments ])
+				catch
+					loop
+				done
+				nTried++
+				nObjects++
+				harmlessCalls(oObject,aEntry[1],aApi,aWrong)
+				loop
+			ok
 			nTried++
 			try
 				if dnCreate(aEntry[1],[]) = 0

@@ -7,6 +7,7 @@ dnRegisterClass("System.Net.Http.Headers.ContentDispositionHeaderValue","Content
 dnRegisterClass("System.Net.Http.Headers.ContentRangeHeaderValue","ContentRangeHeaderValue",1)
 dnRegisterClass("System.Net.Http.Headers.EntityTagHeaderValue","EntityTagHeaderValue",1)
 dnRegisterClass("System.Net.Http.Headers.HeaderStringValues","HeaderStringValues",0)
+dnRegisterClass("System.Net.Http.Headers.HttpHeaderValueCollection`1","HttpHeaderValueCollection",1)
 dnRegisterClass("System.Net.Http.Headers.HttpHeaders","HttpHeaders",0)
 dnRegisterClass("System.Net.Http.Headers.HttpHeadersNonValidated","HttpHeadersNonValidated",0)
 dnRegisterClass("System.Net.Http.Headers.MediaTypeHeaderValue","MediaTypeHeaderValue",1)

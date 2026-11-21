@@ -279,6 +279,8 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Collections.Generic",
+	  :assemblies = ["System.Private.CoreLib","System.Collections"],
+	  :all = true,
 	  :types = [
 		["System.Collections.Generic.List`1[[System.String]]","StringList",0],
 		["System.Collections.Generic.List`1[[System.Double]]","NumberList",0],
@@ -308,6 +310,8 @@ aDotNetManifest = [
 	  ] ],
 
 	[ :namespace = "System.Collections.ObjectModel",
+	  :assemblies = ["System.Private.CoreLib","System.ObjectModel"],
+	  :all = true,
 	  :types = [ ["System.Collections.ObjectModel.ObservableCollection`1[[System.String]]","ObservableStringList",0],
 		["System.Collections.ObjectModel.ObservableCollection`1[[System.Object]]","ObservableObjectList",0],
 		["System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String]]","ReadOnlyStringList"],

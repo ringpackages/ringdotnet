@@ -86,8 +86,9 @@ namespace RingDotNet
 			try { types = asm.GetExportedTypes(); }
 			catch (ReflectionTypeLoadException ex) { types = Array.FindAll(ex.Types, x => x != null); }
 
-			foreach (Type t in types)
+			foreach (Type exported in types)
 			{
+				Type t = exported;
 				string name = t.FullName ?? t.Name;
 				tally.Add("INFO type: public types", name);
 
@@ -100,9 +101,16 @@ namespace RingDotNet
 
 				int members = CountMembers(t);
 				if (t.IsNested) { tally.Add("GAP  type: nested type (not wrapped)", name); AddMembers(tally, members); continue; }
-				if (t.IsGenericTypeDefinition) { tally.Add("GAP  type: generic type definition (not wrapped)", name); AddMembers(tally, members); continue; }
 				if (t.IsByRefLike) { tally.Add("GAP  type: ref struct (cannot be an object)", name); AddMembers(tally, members); continue; }
 
+				if (t.IsGenericTypeDefinition)
+				{
+					/* the class of a generic definition has the members of the type closed over object; its objects are made with :typeArguments */
+					Type closed = Bridge.CloseOverObject(t);
+					if (closed == null) { tally.Add("GAP  type: generic type definition that cannot be closed (not wrapped)", name); AddMembers(tally, members); continue; }
+					tally.Add("INFO type: generic type definition (wrapped, made with :typeArguments)", name);
+					t = closed;
+				}
 				tally.Add("OK   type: wrapped (class, struct, interface)", name);
 				if (t.IsInterface) tally.Add("INFO type: interface", name);
 				else if (t.IsAbstract && t.IsSealed) tally.Add("INFO type: static class", name);

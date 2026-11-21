@@ -213,6 +213,8 @@ namespace RingDotNet
 			for (Type t = type; t != null && t != typeof(object) && count < 8; t = t.BaseType, count++)
 			{
 				sb.Append('|').Append(t.FullName ?? t.Name);
+				/* a closed generic type is also known by its definition (List`1): the generated class of the definition wraps it */
+				if (t.IsGenericType) sb.Append('|').Append(t.GetGenericTypeDefinition().FullName);
 			}
 			/* then the interfaces (a class that is not generated can still be wrapped as ICryptoTransform, IDisposable...).
 			   The most specific interface comes first: the one named after the class by the usual rule (XLWorksheet --> IXLWorksheet),
@@ -225,6 +227,7 @@ namespace RingDotNet
 				if (i.IsVisible && count++ < 40)
 				{
 					sb.Append('|').Append(i.FullName ?? i.Name);
+					if (i.IsGenericType) sb.Append('|').Append(i.GetGenericTypeDefinition().FullName);
 				}
 			}
 			return sb.ToString();
@@ -808,7 +811,7 @@ namespace RingDotNet
 				catch (Exception) { continue; }
 				foreach (Type t in types)
 				{
-					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsGenericTypeDefinition || t.IsByRefLike)
+					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsByRefLike || (t.IsGenericTypeDefinition && CloseOverObject(t) == null))
 					{
 						continue;
 					}
@@ -1084,8 +1087,43 @@ namespace RingDotNet
 			return new[] { t }.Concat(t.GetInterfaces());
 		}
 
+		/* The type of a generic definition that describes it: closed over object (or int, string when a constraint does not allow object), so that the
+		   members have types; null when no such type exists */
+		internal static Type CloseOverObject(Type def)
+		{
+			Type[] parameters = def.GetGenericArguments();
+			Func<Type, Type>[] choices =
+			{
+				g =>
+				{
+					if ((g.GenericParameterAttributes & GenericParameterAttributes.NotNullableValueTypeConstraint) != 0) return typeof(int);
+					foreach (Type c in g.GetGenericParameterConstraints())
+					{
+						if (!c.ContainsGenericParameters) return c;
+					}
+					return typeof(object);
+				},
+				g => typeof(int),
+				g => typeof(string)
+			};
+			foreach (Func<Type, Type> choose in choices)
+			{
+				try { return def.MakeGenericType(parameters.Select(choose).ToArray()); }
+				catch (ArgumentException) { }
+			}
+			return null;
+		}
+
 		private static List<object> Describe(Type t)
 		{
+			Type definition = null;
+			if (t.IsGenericTypeDefinition)
+			{
+				/* a generic definition is described by its members, with object for the type arguments; its static members need a closed type, so
+				   they are left out */
+				definition = t;
+				t = CloseOverObject(t) ?? throw new ArgumentException("Can't describe the generic type " + t.FullName);
+			}
 			List<object> ctors = new RingList();
 			if (!t.IsAbstract)
 			{
@@ -1108,6 +1146,7 @@ namespace RingDotNet
 				foreach (MethodInfo m in InterfaceAware(t).SelectMany(x => x.GetMethods(f)))
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
+					if (definition != null && m.IsStatic) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
 					methods.Add(new RingList { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
 				}
@@ -1120,12 +1159,14 @@ namespace RingDotNet
 				{
 					if (p.GetIndexParameters().Length > 0) continue;
 					if (t.IsInterface && !seenProperties.Add(p.Name)) continue;
+					if (definition != null && (p.GetMethod ?? p.SetMethod).IsStatic) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
 					members.Add(new RingList { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
 				}
 				foreach (FieldInfo fi in t.GetFields(f))
 				{
+					if (definition != null && fi.IsStatic) continue;
 					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
 				}
 			}
@@ -1148,6 +1189,7 @@ namespace RingDotNet
 				foreach (EventInfo ev in InterfaceAware(t).SelectMany(x => x.GetEvents(f)))
 				{
 					if (t.IsInterface && !seenEvents.Add(ev.Name)) continue;
+					if (definition != null && f.HasFlag(BindingFlags.Static)) continue;
 					events.Add(new RingList { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
@@ -1158,7 +1200,8 @@ namespace RingDotNet
 			{
 				if (i.IsVisible && !i.IsGenericType && !inherited.Contains(i)) interfaces.Add(TName(i));
 			}
-			return new RingList { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, t.BaseType == null ? "" : TName(t.BaseType), interfaces };
+			string baseName = t.BaseType == null ? "" : definition != null && t.BaseType.IsGenericType ? t.BaseType.GetGenericTypeDefinition().FullName : TName(t.BaseType);
+			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces };
 		}
 
 		private static List<object> ToList(object target)
@@ -2218,6 +2261,13 @@ namespace RingDotNet
 		private static object CreateInstanceNamed(Type t, object pairs)
 		{
 			SplitPairs(pairs, out string[] names, out object[] values);
+			Type[] typeArgs = TakeTypeArguments(ref names, ref values);
+			if (t.IsGenericTypeDefinition)
+			{
+				if (typeArgs == null) throw new ArgumentException("The generic type " + t.FullName + " needs its type arguments: :typeArguments = [ type names ]");
+				t = t.MakeGenericType(typeArgs);
+			}
+			else if (typeArgs != null) throw new ArgumentException(t.FullName + " is not a generic type: :typeArguments does not apply");
 			if (t.IsAbstract) throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
 			if (names.Length == 0 && t.IsValueType) return Activator.CreateInstance(t);
 			ConstructorInfo ctor = PickNamed(ConstructorsOf(t), names, values, out object[] conv) as ConstructorInfo;

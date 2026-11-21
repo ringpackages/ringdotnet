@@ -2,5 +2,9 @@
 dnImport("System")
 dnImport("System.Collections.Generic")
 dnRegisterClass("System.Linq.Enumerable","Enumerable",0)
+dnRegisterClass("System.Linq.IGrouping`2","IGrouping",1)
+dnRegisterClass("System.Linq.ILookup`2","ILookup",1)
+dnRegisterClass("System.Linq.IOrderedEnumerable`1","IOrderedEnumerable",1)
+dnRegisterClass("System.Linq.Lookup`2","Lookup",1)
 load "System.Linq.classes.ring"
 load "../linq.ring"

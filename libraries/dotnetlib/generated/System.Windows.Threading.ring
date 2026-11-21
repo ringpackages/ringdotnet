@@ -14,6 +14,7 @@ dnRegisterClass("System.Windows.Threading.DispatcherProcessingDisabled","Dispatc
 dnRegisterClass("System.Windows.Threading.DispatcherSynchronizationContext","DispatcherSynchronizationContext",0)
 dnRegisterClass("System.Windows.Threading.DispatcherTimer","DispatcherTimer",0)
 dnRegisterClass("System.Windows.Threading.DispatcherFrame","DispatcherFrame",0)
+dnRegisterClass("System.Windows.Threading.DispatcherOperation`1","DispatcherOperation1",1)
 dnRegisterClass("System.Windows.Threading.DispatcherUnhandledExceptionEventArgs","DispatcherUnhandledExceptionEventArgs",0)
 dnRegisterClass("System.Windows.Threading.DispatcherUnhandledExceptionFilterEventArgs","DispatcherUnhandledExceptionFilterEventArgs",0)
 load "System.Windows.Threading.classes.ring"

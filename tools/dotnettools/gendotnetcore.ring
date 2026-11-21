@@ -68,6 +68,13 @@ func resolveNamespace aEntry
 		if cRing = ""
 			cRing = className(cCanonical,cNs)
 		ok
+		if substr(cCanonical,"`") and not substr(cCanonical,"[")
+			# a generic definition whose name another type has (ValueTuple, ValueTuple`2): the number of type arguments follows the name
+			nTaken = find(aTaken,lower(cRing),1)
+			if nTaken > 0 and aTaken[nTaken][2] != cCanonical
+				cRing += substr(cCanonical,substr(cCanonical,"`") + 1,len(cCanonical))
+			ok
+		ok
 		cRing = uniqueClassName(cRing,cCanonical,cNs)
 		nPos = find(aClassMap,cCanonical,1)
 		if nPos = 0
@@ -448,6 +455,13 @@ func buildPlan cTypeName, nForceInit
 			lCreate = true
 		ok
 	next
+	# A generic definition (List`1): init takes the named list that has the type arguments, new List([ :typeArguments = ["System.String"] ]),
+	# and the constructor parameters by name in the same list. The object it wraps can be of any closed type of the definition.
+	lGenericDef = substr(aInfo[1],"`") > 0 and not substr(aInfo[1],"[")
+	if lGenericDef
+		nInit = 1
+		lCreate = false
+	ok
 	# Properties and fields become attributes, so that oObj.Text = "x" calls setText() and oObj.Text calls getText()
 	aMethodNames = ["init","nhandle"]
 	for aMethod in aMethods
@@ -500,6 +514,12 @@ func buildPlan cTypeName, nForceInit
 		cCode += "			return self" + nl
 		cCode += "		ok" + nl
 	ok
+	if lGenericDef
+		cCode += "		if dotnet_isnamed(P1)" + nl
+		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl
+		cCode += "			oDotNetGuard = dotnet_guard(nHandle)" + nl
+		cCode += "		ok" + nl
+	ok
 	if lCreate
 		# init has one parameter and the type also has a parameterless constructor: init(NULL) (an empty text) calls that one
 		for aCtor in aCtors
@@ -525,7 +545,7 @@ func buildPlan cTypeName, nForceInit
 	# @New(value) calls the constructor with one parameter. Example: new WpfBinding().@New([ :path = "Value" ])  (New is a Ring keyword, so the method is @New)
 	lOtherCtor = false
 	for aCtor in aCtors
-		if len(aCtor) != nInit
+		if len(aCtor) != nInit and not lGenericDef
 			lOtherCtor = true
 		ok
 	next
