@@ -831,6 +831,26 @@ Class AttributeCollection from Object
 	Func FromExisting P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter',"s12:FromExisting",P1,P2))
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1337,6 +1357,26 @@ Class EventDescriptorCollection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1552,6 +1592,26 @@ Class IBindingList from DotNetObject
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
@@ -1777,6 +1837,26 @@ Class IBindingListView from DotNetObject
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
@@ -2308,20 +2388,45 @@ Class INestedSite from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -2516,20 +2621,45 @@ Class ISite from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -2691,20 +2821,45 @@ Class ITypeDescriptorContext from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -2856,20 +3011,45 @@ Class LicenseContext from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -3137,6 +3317,26 @@ Class ListSortDescriptionCollection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -3190,20 +3390,45 @@ Class MarshalByValueComponent from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -3871,6 +4096,26 @@ Class PropertyDescriptorCollection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -4144,10 +4389,17 @@ Class TypeDescriptionProvider from Object
 		ok
 		return self
 
-	Func RegisterType 
-		dotnet_callv("s4:call",nHandle,"s12:RegisterType")
+	Func RegisterType P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:RegisterType",P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dotnet_callv("s4:call",nHandle,"s12:RegisterType")
 
 		return self
+		ok
+		raise("DotNet Error: RegisterType needs its type arguments: RegisterType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func CreateInstance P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1,P2,P3,P4))
@@ -4229,10 +4481,17 @@ Class TypeDescriptor from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func RegisterType 
-		dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:RegisterType")
+	Func RegisterType P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:RegisterType",P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dotnet_callv("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:RegisterType")
 
 		return self
+		ok
+		raise("DotNet Error: RegisterType needs its type arguments: RegisterType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddAttributes P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s13:AddAttributes",P1,P2))

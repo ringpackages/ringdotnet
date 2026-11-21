@@ -29,6 +29,9 @@ namespace MyCompany.Tools
 		public List<string> Words(string text) { return new List<string>(text.Split(' ')); }
 		/* a method that returns exactly List<object>: the bridge must hand it over as an object (ObjectList), not as a Ring list */
 		public List<object> Mixed() { return new List<object> { 1, "two", 3.5 }; }
+		/* generic methods whose type argument the arguments do not show: Ring gives it as a type name (callGeneric) */
+		public static T Parse<T>(string text) { return (T)Convert.ChangeType(text, typeof(T), System.Globalization.CultureInfo.InvariantCulture); }
+		public T Create<T>() where T : new() { return new T(); }
 	}
 
 	public class Counter : Calculator

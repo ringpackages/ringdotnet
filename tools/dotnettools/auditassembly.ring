@@ -111,7 +111,7 @@ func summary aResult
 	nGeneric = count(aResult,"GAP  type: generic type definition (not wrapped)")
 	nNested = count(aResult,"GAP  type: nested type (not wrapped)")
 	nMethods = count(aResult,"INFO method: public methods")
-	nCallable = count(aResult,"OK   method: callable")
+	nCallable = count(aResult,"OK   method: callable") + count(aResult,"OK   method: callable with :typeArguments (generic, type argument only in the result)")
 	nLost = count(aResult,"GAP  members of types that are not wrapped")
 	? nl + "summary"
 	if nTypes > 0

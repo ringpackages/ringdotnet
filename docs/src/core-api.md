@@ -81,6 +81,7 @@ Every .NET object that Ring holds is a `DotNetObject` (the generated classes der
 
 ```ring
 oObject.callMethod("Method",[arg1,arg2])    # call a method
+oObject.callGeneric("Method",["System.Int32"],[arg1])    # a generic method with its type arguments
 oObject.getProp("Name")                      # read a property or field
 oObject.setProp("Name",value)                # write it
 oObject.toString()                           # ToString()

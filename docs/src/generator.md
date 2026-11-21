@@ -120,7 +120,7 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 ring auditassembly.ring Library.dll
 ```
 
-The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): generic type definitions, nested types, operator methods, methods whose only overload takes a `Span<T>`, generic methods whose type argument appears only in the result (`DeserializeObject<T>`), `ref` properties and returns, pointers. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
+The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): generic type definitions, nested types, operator methods, methods whose only overload takes a `Span<T>`, `ref` properties and returns, pointers. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
 
 ## Where to go next
 

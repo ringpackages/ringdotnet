@@ -470,6 +470,26 @@ Class DataColumnMappingCollection from MarshalByRefObject
 	Func GetColumnMappingBySchemaAction P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Data.Common.DataColumnMappingCollection, System.Data.Common',"s30:GetColumnMappingBySchemaAction",P1,P2,P3))
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -645,6 +665,26 @@ Class DataTableMappingCollection from MarshalByRefObject
 
 	Func GetTableMappingBySchemaAction P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",'System.Data.Common.DataTableMappingCollection, System.Data.Common',"s29:GetTableMappingBySchemaAction",P1,P2,P3,P4))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -916,6 +956,26 @@ Class DbBatchCommandCollection from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -1682,6 +1742,26 @@ Class DbConnectionStringBuilder from Object
 		ok
 		raise("DotNet Error: AppendKeyValuePair does not take one argument: use named arguments, AppendKeyValuePair([ :parameter = value, ... ])")
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1908,6 +1988,9 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetFieldValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
 
 	Func GetFieldValueAsync P1
@@ -1969,6 +2052,26 @@ Class DbDataReader from MarshalByRefObject
 		dn_x = dotnet_call("s4:call",nHandle,"s18:CanGetColumnSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
@@ -2965,6 +3068,26 @@ Class DbParameterCollection from MarshalByRefObject
 		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

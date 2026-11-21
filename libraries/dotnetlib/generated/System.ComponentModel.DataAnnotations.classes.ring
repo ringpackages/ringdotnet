@@ -120,20 +120,45 @@ Class ValidationContext from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 

@@ -219,6 +219,16 @@ oList.callMethod("Add",[5])
 
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
+When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.
+
+```ring
+dnImport("System.Text.Json")
+oJson = new JsonSerializer()
+oTags = oJson.Deserialize([ :typeArguments = ["System.Collections.Generic.List`1[[System.String]]"], :json = '["a","b"]' ])
+? oTags.Count    # 2
+oTags = oJson.callGeneric("Deserialize",["System.Collections.Generic.List`1[[System.String]]"],['["a","b"]'])
+```
+
 ## Return values
 
 | .NET returns | Ring gets |

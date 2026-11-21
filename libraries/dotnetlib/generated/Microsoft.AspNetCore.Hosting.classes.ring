@@ -440,6 +440,12 @@ Class IWebHostBuilder from DotNetObject
 
 	Func UseStartup P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseStartup",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
 
 	Func UseServer P1
@@ -805,6 +811,12 @@ Class WebHostBuilder from Object
 
 	Func UseStartup P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseStartup",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
 
 	Func UseServer P1

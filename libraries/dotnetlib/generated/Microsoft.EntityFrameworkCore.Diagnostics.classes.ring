@@ -5133,8 +5133,14 @@ Class IInterceptors from DotNetObject
 		ok
 		return self
 
-	Func Aggregate 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Aggregate"))
+	Func Aggregate P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Aggregate",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Aggregate"))
+		ok
+		raise("DotNet Error: Aggregate needs its type arguments: Aggregate([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ILoggingOptions from DotNetObject
@@ -6564,6 +6570,9 @@ Class MaterializationInterceptionData from ValueType
 		return self
 
 	Func GetPropertyValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetPropertyValue",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPropertyValue",P1))
 
 	Func getContext

@@ -406,8 +406,14 @@ Class FeatureCollection from Object
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
-	Func @Get 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+	Func @Get P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
+		raise("DotNet Error: Get needs its type arguments: Get([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Set P1
 		dotnet_callv("s4:call",nHandle,"s3:Set",P1)
@@ -421,7 +427,33 @@ Class FeatureCollection from Object
 
 	Func GetRequiredFeature P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredFeature",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -1097,8 +1129,14 @@ Class IFeatureCollection from DotNetObject
 		ok
 		return self
 
-	Func @Get 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+	Func @Get P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
+		raise("DotNet Error: Get needs its type arguments: Get([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Set P1
 		dotnet_callv("s4:call",nHandle,"s3:Set",P1)
@@ -1110,7 +1148,33 @@ Class IFeatureCollection from DotNetObject
 
 	Func GetRequiredFeature P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredFeature",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

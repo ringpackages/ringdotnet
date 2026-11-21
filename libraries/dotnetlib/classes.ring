@@ -32,6 +32,14 @@ class DotNetObject
 		ok
 		return dnRequest("call",dnJoin([self,cMethod],aParameters))
 
+	# Call a generic method whose type argument only its result shows (JsonConvert.DeserializeObject<T>(json)): the type arguments are a list of
+	# type names, then the arguments: oType.callGeneric("DeserializeObject",["System.Collections.Generic.List`1[[System.String]]"],[cJson])
+	func callGeneric  cMethod, aTypeArguments, aParameters
+		if not islist(aParameters)
+			aParameters = []
+		ok
+		return dnRequest("callgeneric",dnJoin([self,cMethod,aTypeArguments],aParameters))
+
 	# Read a property or a field
 	func getProp  cMember
 		return dnRequest("get",[self,cMember])

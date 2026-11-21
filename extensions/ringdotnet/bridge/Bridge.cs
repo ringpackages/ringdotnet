@@ -348,6 +348,8 @@ namespace RingDotNet
 					return CreateInstance(TypeOf(a, 0), Rest(a, 1));
 				case "call":
 					return CallMethod(a[0], Str(a, 1), Rest(a, 2));
+				case "callgeneric":
+					return CallMethodGeneric(a[0], Str(a, 1), a[2], Rest(a, 3));
 				case "callnamed":
 					return CallMethodNamed(a[0], Str(a, 1), a.Length > 2 ? a[2] : null);
 				case "newnamed":
@@ -1679,8 +1681,15 @@ namespace RingDotNet
 			return false;
 		}
 
-		private static MethodInfo CloseGeneric(MethodInfo def, object[] args)
+		private static MethodInfo CloseGeneric(MethodInfo def, object[] args, Type[] typeArgs = null)
 		{
+			if (typeArgs != null)
+			{
+				/* the type arguments the caller gave (:typeArguments = [ "System.String" ]): only a generic method with that many fit */
+				if (def.GetGenericArguments().Length != typeArgs.Length) return null;
+				try { return def.MakeGenericMethod(typeArgs); }
+				catch (ArgumentException) { return null; }
+			}
 			Dictionary<Type, Type> map = new Dictionary<Type, Type>();
 			ParameterInfo[] ps = def.GetParameters();
 			int next = 0;
@@ -1857,6 +1866,71 @@ namespace RingDotNet
 			return InvokeResult(m, instance, conv);
 		}
 
+		/* Generic methods with the type arguments given: JsonConvert.DeserializeObject<Person>(json). Each generic method of that name with that
+		   many type arguments is closed over them; the other methods are not candidates. */
+		private static IEnumerable<MethodBase> CloseAll(IEnumerable<MethodBase> candidates, Type[] typeArgs)
+		{
+			foreach (MethodBase candidate in candidates)
+			{
+				if (candidate is MethodInfo def && def.IsGenericMethodDefinition)
+				{
+					MethodInfo closed = CloseGeneric(def, null, typeArgs);
+					if (closed != null) yield return closed;
+				}
+			}
+		}
+
+		private static object CallMethodGeneric(object target, string name, object typeNames, object[] args)
+		{
+			object[] list = Plain(typeNames) as object[] ?? new object[] { Plain(typeNames) };
+			Type[] typeArgs = new Type[list.Length];
+			for (int i = 0; i < list.Length; i++)
+			{
+				object item = Plain(list[i]);
+				typeArgs[i] = item as Type ?? (item is string text ? ResolveType(text) : throw new ArgumentException("The type arguments must be type names"));
+			}
+			Type t;
+			object instance = null;
+			BindingFlags flags;
+			if (target is TypeRef tr) { t = tr.Type; flags = StaticFlags; }
+			else
+			{
+				if (target == null) throw new NullReferenceException("Can't call '" + name + "' on a null object");
+				instance = target;
+				t = target.GetType();
+				flags = InstanceFlags;
+			}
+			object[] conv = null;
+			MethodInfo m = Pick(CloseAll(MethodsNamed(t, name, flags), typeArgs), args, out conv) as MethodInfo;
+			if (m == null && instance != null)
+			{
+				m = Pick(CloseAll(MethodsNamed(t, name, StaticFlags), typeArgs), args, out conv) as MethodInfo;
+				if (m != null) instance = null;
+			}
+			if (m == null && instance != null)
+			{
+				foreach (Type i in t.GetInterfaces())
+				{
+					if (!i.IsVisible) continue;
+					m = Pick(CloseAll(MethodsNamed(i, name, InstanceFlags), typeArgs), args, out conv) as MethodInfo;
+					if (m != null) break;
+				}
+			}
+			if (m == null && instance != null)
+			{
+				object[] withTarget = new object[args.Length + 1];
+				withTarget[0] = instance;
+				Array.Copy(args, 0, withTarget, 1, args.Length);
+				m = Pick(CloseAll(ExtensionsFor(t, name), typeArgs), withTarget, out conv) as MethodInfo;
+				if (m != null) instance = null;
+			}
+			if (m == null)
+			{
+				throw new MissingMethodException("No public generic method " + t.FullName + "." + name + "<" + string.Join(", ", typeArgs.Select(x => x.Name)) + "> matches the " + args.Length + " argument(s)");
+			}
+			return InvokeResult(m, instance, conv);
+		}
+
 		/* ---------------------------------------------------------------- extension methods
 		   The generated class of a type has a method for each extension method of that type (Table.AddColumn("x") is TableExtensions.AddColumn(table, "x")).
 		   A call finds the extension methods only after the methods of the object itself: the first time that is needed, the static classes with
@@ -2001,7 +2075,26 @@ namespace RingDotNet
 			return given;
 		}
 
-		private static MethodBase PickNamed(IEnumerable<MethodBase> candidates, string[] names, object[] values, out object[] converted)
+		/* The reserved pair [ "typeArguments", [ "System.String", ... ] ] is not a parameter: it gives the type arguments of a generic method
+		   (JsonConvert.DeserializeObject<T>(json)) that the arguments cannot tell; null when there is none */
+		private static Type[] TakeTypeArguments(ref string[] names, ref object[] values)
+		{
+			int at = Array.FindIndex(names, n => string.Equals(n, "typeArguments", StringComparison.OrdinalIgnoreCase));
+			if (at < 0) return null;
+			object raw = Plain(values[at]);
+			object[] list = raw as object[] ?? new object[] { raw };
+			Type[] result = new Type[list.Length];
+			for (int i = 0; i < list.Length; i++)
+			{
+				object item = Plain(list[i]);
+				result[i] = item as Type ?? (item is string text ? ResolveType(text) : throw new ArgumentException("typeArguments must be a list of type names"));
+			}
+			names = names.Where((n, i) => i != at).ToArray();
+			values = values.Where((v, i) => i != at).ToArray();
+			return result;
+		}
+
+		private static MethodBase PickNamed(IEnumerable<MethodBase> candidates, string[] names, object[] values, out object[] converted, Type[] typeArgs = null)
 		{
 			MethodBase best = null;
 			object[] bestArgs = null;
@@ -2009,6 +2102,7 @@ namespace RingDotNet
 			foreach (MethodBase candidate in candidates)
 			{
 				MethodBase m = candidate;
+				if (typeArgs != null && !(m is MethodInfo given0 && given0.IsGenericMethodDefinition)) continue;
 				if (m is MethodInfo def && def.IsGenericMethodDefinition)
 				{
 					/* a generic method (Enumerable.Contains<T>(source, value)): match the names, then close it with the types of the values */
@@ -2016,7 +2110,7 @@ namespace RingDotNet
 					if (openGiven == null) continue;
 					object[] ordered = new object[openGiven.Length];
 					for (int i = 0; i < ordered.Length; i++) ordered[i] = openGiven[i] >= 0 ? values[openGiven[i]] : null;
-					m = CloseGeneric(def, ordered);
+					m = CloseGeneric(def, ordered, typeArgs);
 					if (m == null) continue;
 				}
 				if (m.ContainsGenericParameters) continue;
@@ -2066,6 +2160,7 @@ namespace RingDotNet
 		private static object CallMethodNamed(object target, string name, object pairs)
 		{
 			SplitPairs(pairs, out string[] names, out object[] values);
+			Type[] typeArgs = TakeTypeArguments(ref names, ref values);
 			Type t;
 			object instance = null;
 			BindingFlags flags;
@@ -2082,11 +2177,11 @@ namespace RingDotNet
 				flags = InstanceFlags;
 			}
 			object[] conv;
-			MethodInfo m = PickNamed(MethodsNamed(t, name, flags), names, values, out conv) as MethodInfo;
+			MethodInfo m = PickNamed(MethodsNamed(t, name, flags), names, values, out conv, typeArgs) as MethodInfo;
 			if (m == null && instance != null)
 			{
 				/* an object also gives access to the static methods of its class (Process.Start(startInfo)) */
-				m = PickNamed(MethodsNamed(t, name, StaticFlags), names, values, out conv) as MethodInfo;
+				m = PickNamed(MethodsNamed(t, name, StaticFlags), names, values, out conv, typeArgs) as MethodInfo;
 				if (m != null) instance = null;
 			}
 			if (m == null && instance != null)
@@ -2094,7 +2189,7 @@ namespace RingDotNet
 				foreach (Type i in t.GetInterfaces())
 				{
 					if (!i.IsVisible) continue;
-					m = PickNamed(MethodsNamed(i, name, InstanceFlags), names, values, out conv) as MethodInfo;
+					m = PickNamed(MethodsNamed(i, name, InstanceFlags), names, values, out conv, typeArgs) as MethodInfo;
 					if (m != null) break;
 				}
 			}
@@ -2108,13 +2203,14 @@ namespace RingDotNet
 					valuesWithTarget[0] = instance;
 					Array.Copy(names, 0, namesWithTarget, 1, names.Length);
 					Array.Copy(values, 0, valuesWithTarget, 1, values.Length);
-					m = PickNamed(new[] { candidate }, namesWithTarget, valuesWithTarget, out conv) as MethodInfo;
+					m = PickNamed(new[] { candidate }, namesWithTarget, valuesWithTarget, out conv, typeArgs) as MethodInfo;
 					if (m != null) { instance = null; break; }
 				}
 			}
 			if (m == null)
 			{
-				throw new MissingMethodException("No public method " + t.FullName + "." + name + " has the parameters (" + Describe(names) + ")");
+				throw new MissingMethodException("No public method " + t.FullName + "." + name + " has the parameters (" + Describe(names) + ")"
+						+ (typeArgs == null ? "" : " and " + typeArgs.Length + " type argument(s)"));
 			}
 			return InvokeResult(m, instance, conv);
 		}

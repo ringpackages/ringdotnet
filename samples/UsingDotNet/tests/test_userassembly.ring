@@ -35,6 +35,23 @@ dnAssert("a method that returns a List<object> gives an object, like any other c
 dnAssert("and its items are there",oMixed.Count,3)
 dnAssert("an item of it",oMixed.Item(1),"two")
 
+# a generic method whose type argument only the result shows: the type arguments are given by name
+dnAssert("generic method, an Int32",oCalc.callGeneric("Parse",["System.Int32"],["42"]) + 1,43)
+dnAssert("generic method, a Double",oCalc.callGeneric("Parse",["System.Double"],["2.5"]),2.5)
+oBuilder = oCalc.callGeneric("Create",["System.Text.StringBuilder"],[])
+dnAssert("generic method, a new object",oBuilder.typeName(),"System.Text.StringBuilder")
+dnAssert("generic method on a type",dnType("MyCompany.Tools.Calculator").callGeneric("Parse",["System.Int32"],["7"]),7)
+dnAssert("generic method, named arguments",dnRequest("callnamed",[oCalc,"Parse",[ [:typeArguments,["System.Int32"]], [:text,"9"] ]]),9)
+# the generated method takes the type arguments in the named form
+dnAssert("generated method, type arguments",oCalc.Parse([ :typeArguments = ["System.Int32"], :text = "12" ]),12)
+dnAssert("generated method, no arguments",oCalc.Create([ :typeArguments = ["System.Text.StringBuilder"] ]).typeName(),"System.Text.StringBuilder")
+try
+	oCalc.callGeneric("Parse",["System.Int32","System.Int32"],["1"])
+	dnAssert("two type arguments for one",1,0)
+catch
+	dnAssert("two type arguments for one",substr(cCatchError,"No public generic method") > 0,1)
+done
+
 nEvents = 0
 oCalc.setChangedEvent("nEvents++")
 oCalc.Add(1)

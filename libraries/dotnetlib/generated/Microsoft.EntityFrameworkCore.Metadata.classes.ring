@@ -11613,8 +11613,14 @@ Class IForeignKey from DotNetObject
 	Func GetNavigation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
 
-	Func GetDependentKeyValueFactory 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDependentKeyValueFactory"))
+	Func GetDependentKeyValueFactory P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:GetDependentKeyValueFactory",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDependentKeyValueFactory"))
+		ok
+		raise("DotNet Error: GetDependentKeyValueFactory needs its type arguments: GetDependentKeyValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func IsBaseLinking 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
@@ -12333,8 +12339,14 @@ Class IIndex from DotNetObject
 		ok
 		return self
 
-	Func GetNullableValueFactory 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNullableValueFactory"))
+	Func GetNullableValueFactory P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetNullableValueFactory",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNullableValueFactory"))
+		ok
+		raise("DotNet Error: GetNullableValueFactory needs its type arguments: GetNullableValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func DisplayName 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
@@ -12506,8 +12518,14 @@ Class IKey from DotNetObject
 	Func GetReferencingForeignKeys 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
-	Func GetPrincipalKeyValueFactory 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetPrincipalKeyValueFactory"))
+	Func GetPrincipalKeyValueFactory P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:GetPrincipalKeyValueFactory",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetPrincipalKeyValueFactory"))
+		ok
+		raise("DotNet Error: GetPrincipalKeyValueFactory needs its type arguments: GetPrincipalKeyValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func IsPrimaryKey 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
@@ -19193,8 +19211,14 @@ Class IProperty from DotNetObject
 		ok
 		return self
 
-	Func CreateKeyEqualityComparer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateKeyEqualityComparer"))
+	Func CreateKeyEqualityComparer P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateKeyEqualityComparer",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateKeyEqualityComparer"))
+		ok
+		raise("DotNet Error: CreateKeyEqualityComparer needs its type arguments: CreateKeyEqualityComparer([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func FindFirstPrincipal 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:FindFirstPrincipal"))
@@ -32295,10 +32319,12 @@ Class RuntimeNavigation from RuntimePropertyBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func SetCollectionAccessor P1,P2,P3,P4,P5
-		dotnet_callv("s4:call",nHandle,"s21:SetCollectionAccessor",P1,P2,P3,P4,P5)
-
-		return self
+	Func SetCollectionAccessor P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s21:SetCollectionAccessor",P1)
+			return self
+		ok
+		raise("DotNet Error: SetCollectionAccessor needs its type arguments: SetCollectionAccessor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getForeignKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ForeignKey"))
@@ -32780,10 +32806,12 @@ Class RuntimeSkipNavigation from RuntimePropertyBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func SetCollectionAccessor P1,P2,P3,P4,P5
-		dotnet_callv("s4:call",nHandle,"s21:SetCollectionAccessor",P1,P2,P3,P4,P5)
-
-		return self
+	Func SetCollectionAccessor P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s21:SetCollectionAccessor",P1)
+			return self
+		ok
+		raise("DotNet Error: SetCollectionAccessor needs its type arguments: SetCollectionAccessor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))

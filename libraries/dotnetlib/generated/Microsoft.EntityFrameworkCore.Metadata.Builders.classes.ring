@@ -6522,6 +6522,9 @@ Class OwnedNavigationSplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasTrigger",P1))
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func HasAnnotation P1,P2
@@ -6579,6 +6582,9 @@ Class OwnedNavigationSplitViewBuilder from Object
 		return self
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func HasAnnotation P1,P2
@@ -6723,6 +6729,9 @@ Class OwnedNavigationTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasComment",P1))
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func Equals P1
@@ -6780,6 +6789,9 @@ Class OwnedNavigationViewBuilder from Object
 		return self
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func Equals P1
@@ -7381,6 +7393,9 @@ Class SplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasTrigger",P1))
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func HasAnnotation P1,P2
@@ -7448,6 +7463,9 @@ Class SplitViewBuilder from Object
 		return self
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func HasAnnotation P1,P2
@@ -7664,6 +7682,9 @@ Class TableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasComment",P1))
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func Equals P1
@@ -7817,6 +7838,9 @@ Class ViewBuilder from Object
 		return self
 
 	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func Equals P1

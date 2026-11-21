@@ -965,9 +965,12 @@ Class ApplicationBuilder from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
 
-	Func UseMiddleware P1,P2
+	Func UseMiddleware P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseMiddleware",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1))
 
 	Func UsePathBase P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -1354,6 +1357,12 @@ Class ConfigureWebHostBuilder from Object
 
 	Func UseStartup P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseStartup",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
 
 	Func UseServer P1
@@ -1546,7 +1555,7 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections',"s20:MapConnectionHandler",P1))
 		ok
-		raise("DotNet Error: MapConnectionHandler does not take one argument: use named arguments, MapConnectionHandler([ :parameter = value, ... ])")
+		raise("DotNet Error: MapConnectionHandler needs its type arguments: MapConnectionHandler([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ControllerActionEndpointConventionBuilder from Object
@@ -1678,7 +1687,7 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s25:MapDynamicControllerRoute",P1)
 			return self
 		ok
-		raise("DotNet Error: MapDynamicControllerRoute does not take one argument: use named arguments, MapDynamicControllerRoute([ :parameter = value, ... ])")
+		raise("DotNet Error: MapDynamicControllerRoute needs its type arguments: MapDynamicControllerRoute([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class CookiePolicyAppBuilderExtensions from Object
@@ -3060,7 +3069,7 @@ Class HubEndpointRouteBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR',"s6:MapHub",P1))
 		ok
-		raise("DotNet Error: MapHub does not take one argument: use named arguments, MapHub([ :parameter = value, ... ])")
+		raise("DotNet Error: MapHub needs its type arguments: MapHub([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class IApplicationBuilder from DotNetObject
@@ -3351,9 +3360,12 @@ Class IApplicationBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
 
-	Func UseMiddleware P1,P2
+	Func UseMiddleware P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseMiddleware",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1))
 
 	Func UsePathBase P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -4009,6 +4021,9 @@ Class RazorComponentsEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapRazorComponents P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints',"s18:MapRazorComponents",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints',"s18:MapRazorComponents",P1))
 
 
@@ -4048,7 +4063,7 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s19:MapDynamicPageRoute",P1)
 			return self
 		ok
-		raise("DotNet Error: MapDynamicPageRoute does not take one argument: use named arguments, MapDynamicPageRoute([ :parameter = value, ... ])")
+		raise("DotNet Error: MapDynamicPageRoute needs its type arguments: MapDynamicPageRoute([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class RequestDecompressionBuilderExtensions from Object
@@ -4360,6 +4375,16 @@ Class RouteHandlerBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func AddEndpointFilter P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddEndpointFilter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddEndpointFilter"))
+		ok
+		raise("DotNet Error: AddEndpointFilter needs its type arguments: AddEndpointFilter([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func ExcludeFromDescription 
 		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ExcludeFromDescription"))
@@ -4369,7 +4394,7 @@ Class RouteHandlerBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Produces",P1))
 		ok
-		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Produces",P1))
 
 	Func ProducesProblem P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
@@ -4397,7 +4422,7 @@ Class RouteHandlerBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Accepts",P1))
 		ok
-		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
+		raise("DotNet Error: Accepts needs its type arguments: Accepts([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func WithRequestTimeout P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
@@ -4962,7 +4987,7 @@ Class UseMiddlewareExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions',"s13:UseMiddleware",P1))
 		ok
-		raise("DotNet Error: UseMiddleware does not take one argument: use named arguments, UseMiddleware([ :parameter = value, ... ])")
+		raise("DotNet Error: UseMiddleware needs its type arguments: UseMiddleware([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class UsePathBaseExtensions from Object
@@ -5388,9 +5413,12 @@ Class WebApplication from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
 
-	Func UseMiddleware P1,P2
+	Func UseMiddleware P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseMiddleware",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1))
 
 	Func UsePathBase P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -5437,6 +5465,13 @@ Class WebApplication from Object
 		ok
 		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
 
+	Func MapConnectionHandler P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:MapConnectionHandler",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:MapConnectionHandler",P1))
+
 	Func MapControllers 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
@@ -5472,6 +5507,16 @@ Class WebApplication from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:MapFallbackToAreaController",P1))
 		ok
 		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
+
+	Func MapDynamicControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s25:MapDynamicControllerRoute",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s25:MapDynamicControllerRoute",P1)
+
+		return self
 
 	Func MapGroup P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
@@ -5515,6 +5560,23 @@ Class WebApplication from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
 
+	Func MapHub P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:MapHub",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapHub",P1))
+
+	Func MapRazorComponents P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapRazorComponents",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapRazorComponents"))
+		ok
+		raise("DotNet Error: MapRazorComponents needs its type arguments: MapRazorComponents([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func MapRazorPages 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
@@ -5533,6 +5595,16 @@ Class WebApplication from Object
 		ok
 		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
 
+	Func MapDynamicPageRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:MapDynamicPageRoute",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s19:MapDynamicPageRoute",P1)
+
+		return self
+
 	Func MapStaticAssets P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets")
 		if dotnet_isnamed(P1)
@@ -5549,6 +5621,16 @@ Class WebApplication from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
+
+	Func MapIdentityApi P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapIdentityApi",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapIdentityApi"))
+		ok
+		raise("DotNet Error: MapIdentityApi needs its type arguments: MapIdentityApi([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MapShortCircuit P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")

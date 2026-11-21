@@ -820,20 +820,55 @@ Class DocumentPageView from FrameworkElement
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService"))
+		ok
+		raise("DotNet Error: GetService needs its type arguments: GetService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -989,20 +1024,55 @@ Class DocumentViewerBase from WpfControl
 
 		return self
 
-	Func GetRequiredKeyedService P1,P2
+	Func GetKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+
+	Func GetKeyedServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService"))
+		ok
+		raise("DotNet Error: GetService needs its type arguments: GetService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 

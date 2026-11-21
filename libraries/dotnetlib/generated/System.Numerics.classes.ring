@@ -1530,6 +1530,9 @@ Class Vector from Object
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:AndNot",P1,P2))
 
 	Func As P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s2:As",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s2:As",P1))
 
 	Func AsVectorByte P1

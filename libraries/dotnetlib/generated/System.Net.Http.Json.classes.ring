@@ -37,19 +37,19 @@ Class HttpClientJsonExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s28:GetFromJsonAsAsyncEnumerable",P1))
 		ok
-		raise("DotNet Error: GetFromJsonAsAsyncEnumerable does not take one argument: use named arguments, GetFromJsonAsAsyncEnumerable([ :parameter = value, ... ])")
+		raise("DotNet Error: GetFromJsonAsAsyncEnumerable needs its type arguments: GetFromJsonAsAsyncEnumerable([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func DeleteFromJsonAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s19:DeleteFromJsonAsync",P1))
 		ok
-		raise("DotNet Error: DeleteFromJsonAsync does not take one argument: use named arguments, DeleteFromJsonAsync([ :parameter = value, ... ])")
+		raise("DotNet Error: DeleteFromJsonAsync needs its type arguments: DeleteFromJsonAsync([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetFromJsonAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s16:GetFromJsonAsync",P1))
 		ok
-		raise("DotNet Error: GetFromJsonAsync does not take one argument: use named arguments, GetFromJsonAsync([ :parameter = value, ... ])")
+		raise("DotNet Error: GetFromJsonAsync needs its type arguments: GetFromJsonAsync([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func PostAsJsonAsync P1
 		if dotnet_isnamed(P1)

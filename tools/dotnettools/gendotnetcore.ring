@@ -653,7 +653,7 @@ func buildPlan cTypeName, nForceInit
 					aNames + "format"
 					aBlocks + ["format",dispatcherBlock("Format",cName,cTypeName,aMethods,[aFormArities,aFamilyAll[2],aFamilyAll[3]])]
 				ok
-			but len(aFamilyAll[1]) >= 2
+			but len(aFamilyAll[1]) >= 2 or needsTypeArguments(aMethods,cLower)
 				if find(aNames,lower(cDispatch)) = 0
 					aNames + lower(cDispatch)
 					aBlocks + [lower(cDispatch),dispatcherBlock(cDispatch,cName,cTypeName,aMethods,aFamilyAll)]
@@ -824,6 +824,16 @@ func buildPlan cTypeName, nForceInit
 
 
 # The overloads of a method name: [available arities (optional parameters count), any static, any instance]
+# True when a method of the name is generic with a type argument that its parameters do not show (JsonConvert.DeserializeObject<T>): the
+# type arguments are given in the named form, Name([ :typeArguments = [ "System.String" ], :json = "..." ])
+func needsTypeArguments aNtMethods, cNtLower
+	for aNtRec in aNtMethods
+		if len(aNtRec) >= 8 and lower(aNtRec[1]) = cNtLower and aNtRec[8] = 1
+			return true
+		ok
+	next
+	return false
+
 func familyInfo aFiMethods, cFiLower
 	aFiArities = []
 	lFiStatic = false
@@ -987,6 +997,8 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	ok
 	if find(aDiArities,1) > 0
 		cDiB += arityCall(aDiMethods,cDiName,cDiType,1,"call","		") + nl
+	but needsTypeArguments(aDiMethods,lower(cDiName))
+		cDiB += '		raise("DotNet Error: ' + cDiName + ' needs its type arguments: ' + cDiName + '([ :typeArguments = [ type names ], :parameter = value, ... ])")' + nl + nl
 	else
 		cDiB += '		raise("DotNet Error: ' + cDiName + ' does not take one argument: use named arguments, ' + cDiName + '([ :parameter = value, ... ])")' + nl + nl
 	ok
@@ -1105,7 +1117,7 @@ func findExtensions aPlan
 			if len(aInfo) >= 9 and aInfo[2]
 				cQualified = aInfo[1] + ", " + aInfo[9]
 				for aMethod in aInfo[4]
-					if len(aMethod) >= 8 and aMethod[7] = 1 and aMethod[8] = 0 and len(aMethod[4]) >= 1 and isIdent(aMethod[1])
+					if len(aMethod) >= 8 and aMethod[7] = 1 and len(aMethod[4]) >= 1 and isIdent(aMethod[1])
 						cTarget = aMethod[4][1]
 						# a target with no class of its own (System.IServiceProvider) still counts: the classes that implement it get the methods
 						lTarget = (not substr(cTarget,"`")) and (not substr(cTarget,"["))
@@ -1121,7 +1133,7 @@ func findExtensions aPlan
 								aExtMap + [cTarget,[]]
 								nPos = len(aExtMap)
 							ok
-							aExtMap[nPos][2] + [aMethod[1],false,aMethod[3],aRest,aMethod[5],nRequired,cQualified]
+							aExtMap[nPos][2] + [aMethod[1],false,aMethod[3],aRest,aMethod[5],nRequired,cQualified,aMethod[8]]
 							nCount++
 						ok
 					ok

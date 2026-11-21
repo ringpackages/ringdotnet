@@ -1110,10 +1110,16 @@ Class Marshal from Object
 		return self
 
 	Func GetObjectForNativeVariant P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetObjectForNativeVariant",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetObjectForNativeVariant",P1))
 
-	Func GetObjectsForNativeVariants P1,P2
-		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:GetObjectsForNativeVariants",P1,P2))
+	Func GetObjectsForNativeVariants P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:GetObjectsForNativeVariants",P1))
+		ok
+		raise("DotNet Error: GetObjectsForNativeVariants needs its type arguments: GetObjectsForNativeVariants([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetStartComSlot P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:GetStartComSlot",P1)
@@ -1615,9 +1621,15 @@ Class NFloat from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Ceiling",P1))
 
 	Func ConvertToInteger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:ConvertToInteger",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
@@ -2257,6 +2269,9 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func Read P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Read",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
 
 	Func ReadArray P1,P2,P3,P4

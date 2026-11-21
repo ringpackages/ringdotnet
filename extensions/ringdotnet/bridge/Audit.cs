@@ -120,7 +120,7 @@ namespace RingDotNet
 					if (!Bridge.Usable(c)) tally.Add("GAP  ctor: not callable (pointer or ref struct parameter)", Short(t, ".ctor"));
 				}
 
-				HashSet<string> callableNames = new HashSet<string>(t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static).Where(x => !x.IsSpecialName && Bridge.Usable(x) && !(x.IsGenericMethodDefinition && Bridge.NotInferable(x))).Select(x => x.Name));
+				HashSet<string> callableNames = new HashSet<string>(t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static).Where(x => !x.IsSpecialName && Bridge.Usable(x)).Select(x => x.Name));
 				/* methods, like Describe: public instance and static, no accessors or operators */
 				foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly))
 				{
@@ -140,8 +140,7 @@ namespace RingDotNet
 					}
 					else if (m.IsGenericMethodDefinition && Bridge.NotInferable(m))
 					{
-						if (callableNames.Contains(m.Name)) tally.Add("INFO method: generic with the type argument only in the result, but another overload of the name is callable", where);
-						else tally.Add("GAP  method: not callable (generic, type argument only in the result), no other overload of the name", where);
+						tally.Add("OK   method: callable with :typeArguments (generic, type argument only in the result)", where);
 					}
 					else tally.Add("OK   method: callable", where);
 					if (IsPointer(m.ReturnType) || IsRefLike(m.ReturnType)) tally.Add("GAP  method: pointer or ref struct result", where);

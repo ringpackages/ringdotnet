@@ -886,7 +886,7 @@ Class MigrationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddColumn",P1))
 		ok
-		raise("DotNet Error: AddColumn does not take one argument: use named arguments, AddColumn([ :parameter = value, ... ])")
+		raise("DotNet Error: AddColumn needs its type arguments: AddColumn([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddForeignKey P1
 		if dotnet_isnamed(P1)
@@ -910,7 +910,7 @@ Class MigrationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AlterColumn",P1))
 		ok
-		raise("DotNet Error: AlterColumn does not take one argument: use named arguments, AlterColumn([ :parameter = value, ... ])")
+		raise("DotNet Error: AlterColumn needs its type arguments: AlterColumn([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AlterDatabase P1
 		if dotnet_isnamed(P1)

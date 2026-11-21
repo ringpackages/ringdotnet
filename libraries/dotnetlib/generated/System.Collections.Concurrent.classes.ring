@@ -141,6 +141,26 @@ Class ConcurrentStringQueue from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -228,6 +248,26 @@ Class ConcurrentObjectQueue from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
@@ -336,6 +376,26 @@ Class ConcurrentObjectStack from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -424,6 +484,26 @@ Class ConcurrentObjectBag from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -483,8 +563,14 @@ Class ConcurrentObjectDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetAlternateLookup 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+	Func GetAlternateLookup P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetAlternateLookup",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+		ok
+		raise("DotNet Error: GetAlternateLookup needs its type arguments: GetAlternateLookup([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func TryGetAlternateLookup 
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
@@ -537,6 +623,26 @@ Class ConcurrentObjectDictionary from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -622,8 +728,14 @@ Class ConcurrentStringDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetAlternateLookup 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+	Func GetAlternateLookup P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetAlternateLookup",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+		ok
+		raise("DotNet Error: GetAlternateLookup needs its type arguments: GetAlternateLookup([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func TryGetAlternateLookup 
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
@@ -680,6 +792,26 @@ Class ConcurrentStringDictionary from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
@@ -868,6 +1000,26 @@ Class BlockingObjectCollection from Object
 		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"s14:TryTakeFromAny",dnPackItem(P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getBoundedCapacity
 		dn_x = dotnet_call("s3:get",nHandle,"s15:BoundedCapacity")

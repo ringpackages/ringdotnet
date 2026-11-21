@@ -2220,8 +2220,14 @@ Class Array from Object
 	Func ConvertAll P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Array, System.Private.CoreLib',"s10:ConvertAll",P1,P2))
 
-	Func Empty 
-		return dnObj(dotnet_callo("s4:call",'System.Array, System.Private.CoreLib',"s5:Empty"))
+	Func Empty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Array, System.Private.CoreLib',"s5:Empty",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",'System.Array, System.Private.CoreLib',"s5:Empty"))
+		ok
+		raise("DotNet Error: Empty needs its type arguments: Empty([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Exists P1,P2
 		dn_x = dotnet_call("s4:call",'System.Array, System.Private.CoreLib',"s6:Exists",P1,P2)
@@ -2303,6 +2309,26 @@ Class Array from Object
 		dn_x = dotnet_call("s4:call",'System.Array, System.Private.CoreLib',"s10:TrueForAll",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
@@ -5268,6 +5294,26 @@ Class String from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -8731,9 +8777,15 @@ Class Decimal from ValueType
 		return dn_x
 
 	Func ConvertToInteger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s16:ConvertToInteger",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Decimal, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Decimal, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Clamp P1,P2,P3
@@ -9023,9 +9075,15 @@ Class Double from ValueType
 		return dn_x
 
 	Func ConvertToInteger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Double, System.Private.CoreLib',"s16:ConvertToInteger",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Double, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Double, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Double, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
@@ -10104,9 +10162,15 @@ Class Half from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s7:Ceiling",P1))
 
 	Func ConvertToInteger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Half, System.Private.CoreLib',"s16:ConvertToInteger",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Half, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
@@ -12252,9 +12316,15 @@ Class Single from ValueType
 		return dn_x
 
 	Func ConvertToInteger P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Single, System.Private.CoreLib',"s16:ConvertToInteger",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Single, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Single, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Single, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1

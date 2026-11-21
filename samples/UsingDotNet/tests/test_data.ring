@@ -47,6 +47,9 @@ dnAssert("new XElement",oElem.ToString(),'<item id="7">text</item>')
 oJson = new JsonSerializer()
 dnAssert("Serialize list",oJson.Serialize([1,2,3]),"[1,2,3]")
 dnAssert("Serialize string",oJson.Serialize("hi"),'"hi"')
+# a generic method whose type argument only the result shows: the type arguments are given by name
+oTags = oJson.Deserialize([ :typeArguments = ["System.Collections.Generic.List`1[[System.String]]"], :json = '["a","b"]' ])
+dnAssert("Deserialize<List<string>>",oTags.Count,2)
 oParsed = new JsonDocument().Parse('{"name":"Ring","tags":["a","b"],"n":42}')
 oRoot = oParsed.RootElement
 dnAssert("JsonElement.GetProperty",oRoot.GetProperty("name").GetString(),"Ring")

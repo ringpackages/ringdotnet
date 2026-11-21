@@ -347,8 +347,14 @@ Class FilterContext from ActionContext
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func FindEffectivePolicy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindEffectivePolicy"))
+	Func FindEffectivePolicy P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:FindEffectivePolicy",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindEffectivePolicy"))
+		ok
+		raise("DotNet Error: FindEffectivePolicy needs its type arguments: FindEffectivePolicy([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getFilters
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Filters"))

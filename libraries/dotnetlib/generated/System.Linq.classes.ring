@@ -59,6 +59,9 @@ Class Enumerable from Object
 		return dn_x
 
 	Func Cast P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Enumerable, System.Linq',"s4:Cast",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s4:Cast",P1))
 
 	Func Chunk P1,P2
@@ -137,8 +140,14 @@ Class Enumerable from Object
 	Func AsEnumerable P1
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s12:AsEnumerable",P1))
 
-	Func Empty 
-		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Empty"))
+	Func Empty P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Enumerable, System.Linq',"s5:Empty",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Empty"))
+		ok
+		raise("DotNet Error: Empty needs its type arguments: Empty([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Except P1
 		if dotnet_isnamed(P1)
@@ -248,6 +257,9 @@ Class Enumerable from Object
 		raise("DotNet Error: MinBy does not take one argument: use named arguments, MinBy([ :parameter = value, ... ])")
 
 	Func OfType P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Enumerable, System.Linq',"s6:OfType",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:OfType",P1))
 
 	Func Order P1

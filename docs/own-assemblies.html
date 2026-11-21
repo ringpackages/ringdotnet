@@ -309,6 +309,9 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> List&lt;<span class="k">string</span>&gt; <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">string</span>&gt;(text.<span class="f">Split</span>(<span class="s">' '</span>)); }
 		<span class="c">/* a method that returns exactly List&lt;object&gt;: the bridge must hand it over as an object (ObjectList), not as a Ring list */</span>
 		<span class="k">public</span> List&lt;<span class="k">object</span>&gt; <span class="t">Mixed</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">object</span>&gt; { <span class="n">1</span>, <span class="s">"two"</span>, <span class="n">3.5</span> }; }
+		<span class="c">/* generic methods whose type argument the arguments do not show: Ring gives it as a type name (callGeneric) */</span>
+		<span class="k">public</span> <span class="k">static</span> T Parse&lt;T&gt;(<span class="k">string</span> text) { <span class="k">return</span> (T)Convert.<span class="f">ChangeType</span>(text, typeof(T), System.Globalization.CultureInfo.InvariantCulture); }
+		<span class="k">public</span> T Create&lt;T&gt;() where T : <span class="k">new</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">T</span>(); }
 	}
 
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
@@ -425,6 +428,23 @@ oMixed = oCalc.<span class="f">Mixed</span>()
 <span class="f">dnAssert</span>(<span class="s">"a method that returns a List&lt;object&gt; gives an object, like any other collection"</span>,classname(oMixed),<span class="s">"objectlist"</span>)
 <span class="f">dnAssert</span>(<span class="s">"and its items are there"</span>,oMixed.Count,<span class="n">3</span>)
 <span class="f">dnAssert</span>(<span class="s">"an item of it"</span>,oMixed.<span class="f">Item</span>(<span class="n">1</span>),<span class="s">"two"</span>)
+
+<span class="c"># a generic method whose type argument only the result shows: the type arguments are given by name</span>
+<span class="f">dnAssert</span>(<span class="s">"generic method, an Int32"</span>,oCalc.<span class="f">callGeneric</span>(<span class="s">"Parse"</span>,[<span class="s">"System.Int32"</span>],[<span class="s">"42"</span>]) + <span class="n">1</span>,<span class="n">43</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic method, a Double"</span>,oCalc.<span class="f">callGeneric</span>(<span class="s">"Parse"</span>,[<span class="s">"System.Double"</span>],[<span class="s">"2.5"</span>]),<span class="n">2.5</span>)
+oBuilder = oCalc.<span class="f">callGeneric</span>(<span class="s">"Create"</span>,[<span class="s">"System.Text.StringBuilder"</span>],[])
+<span class="f">dnAssert</span>(<span class="s">"generic method, a new object"</span>,oBuilder.<span class="f">typeName</span>(),<span class="s">"System.Text.StringBuilder"</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic method on a type"</span>,<span class="f">dnType</span>(<span class="s">"MyCompany.Tools.Calculator"</span>).<span class="f">callGeneric</span>(<span class="s">"Parse"</span>,[<span class="s">"System.Int32"</span>],[<span class="s">"7"</span>]),<span class="n">7</span>)
+<span class="f">dnAssert</span>(<span class="s">"generic method, named arguments"</span>,<span class="f">dnRequest</span>(<span class="s">"callnamed"</span>,[oCalc,<span class="s">"Parse"</span>,[ [:typeArguments,[<span class="s">"System.Int32"</span>]], [:text,<span class="s">"9"</span>] ]]),<span class="n">9</span>)
+<span class="c"># the generated method takes the type arguments in the named form</span>
+<span class="f">dnAssert</span>(<span class="s">"generated method, type arguments"</span>,oCalc.<span class="f">Parse</span>([ :typeArguments = [<span class="s">"System.Int32"</span>], :text = <span class="s">"12"</span> ]),<span class="n">12</span>)
+<span class="f">dnAssert</span>(<span class="s">"generated method, no arguments"</span>,oCalc.<span class="f">Create</span>([ :typeArguments = [<span class="s">"System.Text.StringBuilder"</span>] ]).<span class="f">typeName</span>(),<span class="s">"System.Text.StringBuilder"</span>)
+<span class="k">try</span>
+	oCalc.<span class="f">callGeneric</span>(<span class="s">"Parse"</span>,[<span class="s">"System.Int32"</span>,<span class="s">"System.Int32"</span>],[<span class="s">"1"</span>])
+	<span class="f">dnAssert</span>(<span class="s">"two type arguments for one"</span>,<span class="n">1</span>,<span class="n">0</span>)
+<span class="k">catch</span>
+	<span class="f">dnAssert</span>(<span class="s">"two type arguments for one"</span>,substr(cCatchError,<span class="s">"No public generic method"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+<span class="k">done</span>
 
 nEvents = <span class="n">0</span>
 oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)

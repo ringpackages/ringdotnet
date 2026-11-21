@@ -488,10 +488,13 @@ Class AuthenticationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScheme",P1))
 		ok
-		raise("DotNet Error: AddScheme does not take one argument: use named arguments, AddScheme([ :parameter = value, ... ])")
+		raise("DotNet Error: AddScheme needs its type arguments: AddScheme([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func AddRemoteScheme P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRemoteScheme",P1,P2,P3))
+	Func AddRemoteScheme P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AddRemoteScheme",P1))
+		ok
+		raise("DotNet Error: AddRemoteScheme needs its type arguments: AddRemoteScheme([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddPolicyScheme P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddPolicyScheme",P1,P2,P3))
@@ -526,7 +529,7 @@ Class AuthenticationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddOAuth",P1))
 		ok
-		raise("DotNet Error: AddOAuth does not take one argument: use named arguments, AddOAuth([ :parameter = value, ... ])")
+		raise("DotNet Error: AddOAuth needs its type arguments: AddOAuth([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -742,10 +745,12 @@ Class AuthenticationOptions from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func AddScheme P1,P2
-		dotnet_callv("s4:call",nHandle,"s9:AddScheme",P1,P2)
-
-		return self
+	Func AddScheme P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:AddScheme",P1)
+			return self
+		ok
+		raise("DotNet Error: AddScheme needs its type arguments: AddScheme([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -886,6 +891,9 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func GetParameter P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetParameter",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetParameter",P1))
 
 	Func SetParameter P1,P2

@@ -116,6 +116,9 @@ Class JsonDocument from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
 	Func getRootElement
@@ -368,6 +371,9 @@ Class JsonElement from ValueType
 		dnEnsureExt("System.Text.Json.JsonSerializer, System.Text.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
@@ -798,10 +804,17 @@ Class JsonSerializerOptions from Object
 	Func GetConverter P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetConverter",P1))
 
-	Func AddContext 
-		dotnet_callv("s4:call",nHandle,"s10:AddContext")
+	Func AddContext P1
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddContext",P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dotnet_callv("s4:call",nHandle,"s10:AddContext")
 
 		return self
+		ok
+		raise("DotNet Error: AddContext needs its type arguments: AddContext([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MakeReadOnly P1
 		if dotnet_isnamed(P1)

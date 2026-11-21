@@ -215,12 +215,18 @@ Class HttpContent from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
 
 	Func ReadFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadFromJsonAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync",P1))
 
@@ -523,6 +529,26 @@ Class HttpRequestOptions from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class HttpResponseMessage from Object
@@ -916,21 +942,21 @@ Class HttpClient from HttpMessageInvoker
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1))
 		ok
-		raise("DotNet Error: GetFromJsonAsAsyncEnumerable does not take one argument: use named arguments, GetFromJsonAsAsyncEnumerable([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1))
 
 	Func DeleteFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:DeleteFromJsonAsync",P1))
 		ok
-		raise("DotNet Error: DeleteFromJsonAsync does not take one argument: use named arguments, DeleteFromJsonAsync([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DeleteFromJsonAsync",P1))
 
 	Func GetFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetFromJsonAsync",P1))
 		ok
-		raise("DotNet Error: GetFromJsonAsync does not take one argument: use named arguments, GetFromJsonAsync([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetFromJsonAsync",P1))
 
 	Func PostAsJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
@@ -1291,6 +1317,26 @@ Class MultipartContent from HttpContent
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getHeaderEncodingSelector
 		return dnObj(dotnet_callo("s3:get",nHandle,"s22:HeaderEncodingSelector"))

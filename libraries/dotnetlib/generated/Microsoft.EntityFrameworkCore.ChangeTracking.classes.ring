@@ -279,8 +279,14 @@ Class ChangeTracker from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Entries 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
+	Func Entries P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Entries",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
+		ok
+		raise("DotNet Error: Entries needs its type arguments: Entries([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func HasChanges 
 		dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
@@ -873,6 +879,9 @@ Class PropertyValues from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func TryGetValue P1

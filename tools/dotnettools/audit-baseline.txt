@@ -1,4 +1,4 @@
-# Baseline of tools/dotnettools/auditpackages.py: the public API of the packages of packages.txt (and the DLLs they need), 44 lines.
+# Baseline of tools/dotnettools/auditpackages.py: the public API of the packages of packages.txt (and the DLLs they need), 53 lines.
 # 12 assemblies of the list could not be read in the same process (a version of a dependency was already loaded); they are left out.
 # Compare with a new run after a change of the bridge: a GAP line that gets smaller is a gap that was closed.
 == total of 111 assemblies
@@ -10,6 +10,7 @@
    2349  OK   method: delegate parameter (a callback in Ring)   e.g. Serilog.dll: Serilog.Filters.Matching.WithProperty
    1519  OK   type: enum (a text in Ring)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.ConstructorHandling
    1239  OK   method: params array (a plain list)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.SerializeObject
+   1124  OK   method: callable with :typeArguments (generic, type argument only in the result)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.DeserializeObject
     198  OK   type: delegate (a callback in Ring)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Serialization.SerializationCallback
     184  OK   property: indexer with one index (Item, SetItem)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.JArray.Item
     167  OK   event: setXXXEvent / clearXXXEvent   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonSerializer.Error
@@ -25,10 +26,9 @@
    1239  INFO type: no public constructor (made by a factory method)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Serialization.ErrorContext
    1195  INFO type: abstract class   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConverter
    1158  INFO method: generic with a type argument that no parameter shows (DeserializeObject<T> ...)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.DeserializeObject
-   1107  INFO method: not callable (Span or other ref struct parameter), but another overload of the name is   e.g. Serilog.dll: Serilog.Context.LogContext.Push
+   1120  INFO method: not callable (Span or other ref struct parameter), but another overload of the name is   e.g. Serilog.dll: Serilog.Context.LogContext.Push
     891  INFO type: static class   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert
     854  INFO type: struct   e.g. Serilog.dll: Serilog.Parsing.Alignment
-    614  INFO method: generic with the type argument only in the result, but another overload of the name is callable   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.DeserializeObject
     399  INFO type: exception (not wrapped)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonException
     245  INFO type: attribute (not wrapped)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonArrayAttribute
     147  INFO type: obsolete (not wrapped)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonValidatingReader
@@ -37,8 +37,7 @@
    2390  GAP  method: operator (op_Addition ... not exposed)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.JToken.op_Explicit
    1013  GAP  type: generic type definition (not wrapped)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.IArrayPool`1
     672  GAP  type: nested type (not wrapped)   e.g. Dapper.dll: Dapper.SqlMapper+GridReader
-    595  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.Parse
-    510  GAP  method: not callable (generic, type argument only in the result), no other overload of the name   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.Extensions.Value
+    582  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.ParseOrNull
      72  GAP  method: pointer or ref struct result   e.g. Microsoft.Extensions.Primitives.dll: Microsoft.Extensions.Primitives.StringSegment.AsSpan
      41  GAP  property: ref property   e.g. RBush.dll: RBush.ISpatialData.Envelope
      32  GAP  ctor: not callable (pointer or ref struct parameter)   e.g. NLog.dll: NLog.LogEventInfo..ctor
@@ -49,8 +48,6 @@
 
 summary
   types that Ring can use (wrapped, enums, delegates): 88 % (19397 of 21873)   (generic definitions 1013, nested 672)
-  methods that can be called, in the types that are wrapped: 95 % (64639 of 67466)
+  methods that can be called, in the types that are wrapped: 97 % (65763 of 67466)
   members (methods, constructors, properties) in types that are not wrapped: 10388
 
-not restored: none
-assemblies to audit: 111

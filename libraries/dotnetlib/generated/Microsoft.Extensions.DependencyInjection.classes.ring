@@ -625,7 +625,7 @@ Class ActivatorUtilities from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions',"s14:CreateInstance",P1))
 		ok
-		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
+		raise("DotNet Error: CreateInstance needs its type arguments: CreateInstance([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func CreateFactory P1
 		if dotnet_isnamed(P1)
@@ -1222,13 +1222,13 @@ Class HealthChecksBuilderAddCheckExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks',"s8:AddCheck",P1))
 		ok
-		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
+		raise("DotNet Error: AddCheck needs its type arguments: AddCheck([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddTypeActivatedCheck P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks',"s21:AddTypeActivatedCheck",P1))
 		ok
-		raise("DotNet Error: AddTypeActivatedCheck does not take one argument: use named arguments, AddTypeActivatedCheck([ :parameter = value, ... ])")
+		raise("DotNet Error: AddTypeActivatedCheck needs its type arguments: AddTypeActivatedCheck([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class HealthChecksBuilderDelegateExtensions from Object
@@ -1406,6 +1406,9 @@ Class HttpLoggingServicesExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging',"s14:AddHttpLogging",P1))
 
 	Func AddHttpLoggingInterceptor P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging',"s25:AddHttpLoggingInterceptor",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging',"s25:AddHttpLoggingInterceptor",P1))
 
 	Func AddW3CLogging P1,P2
@@ -1453,7 +1456,14 @@ Class IHealthChecksBuilder from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddCheck",P1))
 		ok
-		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddCheck",P1))
+
+	Func AddTypeActivatedCheck P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddTypeActivatedCheck",P1))
+		ok
+		raise("DotNet Error: AddTypeActivatedCheck needs its type arguments: AddTypeActivatedCheck([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddAsyncCheck P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
@@ -1489,10 +1499,22 @@ Class IHttpClientBuilder from DotNetObject
 
 	Func AddHttpMessageHandler P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddHttpMessageHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddHttpMessageHandler"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddHttpMessageHandler",P1))
 
 	Func ConfigurePrimaryHttpMessageHandler P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s34:ConfigurePrimaryHttpMessageHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigurePrimaryHttpMessageHandler"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigurePrimaryHttpMessageHandler",P1))
 
 	Func ConfigureHttpMessageHandlerBuilder P1
@@ -1511,6 +1533,12 @@ Class IHttpClientBuilder from DotNetObject
 
 	Func AddTypedClient P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddTypedClient",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTypedClient"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTypedClient",P1))
 
 	Func RedactLoggedHeaders P1
@@ -1543,6 +1571,9 @@ Class IHttpClientBuilder from DotNetObject
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddLogger",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddLogger"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddLogger",P1))
 
@@ -1589,16 +1620,31 @@ Class IKeyedServiceProvider from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
-	Func GetKeyedServices P1,P2
+	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -2274,6 +2320,12 @@ Class IServiceCollection from DotNetObject
 
 	Func AddExceptionHandler P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddExceptionHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler",P1))
 
 	Func AddHealthChecks 
@@ -2308,6 +2360,16 @@ Class IServiceCollection from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging",P1))
 
+	Func AddHttpLoggingInterceptor P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddHttpLoggingInterceptor",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddHttpLoggingInterceptor"))
+		ok
+		raise("DotNet Error: AddHttpLoggingInterceptor needs its type arguments: AddHttpLoggingInterceptor([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func AddW3CLogging P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddW3CLogging",P1))
@@ -2315,6 +2377,26 @@ Class IServiceCollection from DotNetObject
 	Func AddHttpContextAccessor 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddHttpContextAccessor"))
+
+	Func AddIdentity P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddIdentity",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity",P1))
+
+	Func AddIdentityApiEndpoints P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddIdentityApiEndpoints",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints",P1))
 
 	Func ConfigureApplicationCookie P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
@@ -2424,16 +2506,32 @@ Class IServiceCollection from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages",P1))
 
-	Func AddOptions 
-		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
-
 	Func Configure P1
-		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func AddOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddOptions",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions",P1))
+
+	Func AddOptionsWithValidateOnStart P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
 
 	Func ConfigureAll P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
@@ -2452,6 +2550,12 @@ Class IServiceCollection from DotNetObject
 
 	Func ConfigureOptions P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ConfigureOptions",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions",P1))
 
 	Func AddOutputCache P1
@@ -2562,12 +2666,21 @@ Class IServiceCollection from DotNetObject
 
 	Func AddHostedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddHostedService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService",P1))
 
 	Func AddTransient P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddTransient",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1))
 
@@ -2576,12 +2689,18 @@ Class IServiceCollection from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScoped",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1))
 
 	Func AddSingleton P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddSingleton",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1))
 
@@ -2590,21 +2709,21 @@ Class IServiceCollection from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedTransient",P1))
 		ok
-		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedTransient",P1))
 
 	Func AddKeyedScoped P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddKeyedScoped",P1))
 		ok
-		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddKeyedScoped",P1))
 
 	Func AddKeyedSingleton P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedSingleton",P1))
 		ok
-		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedSingleton",P1))
 
 	Func AddSession P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session")
@@ -2625,6 +2744,26 @@ Class IServiceCollection from DotNetObject
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
@@ -3518,7 +3657,7 @@ Class OAuthExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s8:AddOAuth",P1))
 		ok
-		raise("DotNet Error: AddOAuth does not take one argument: use named arguments, AddOAuth([ :parameter = value, ... ])")
+		raise("DotNet Error: AddOAuth needs its type arguments: AddOAuth([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class OptionsBuilderConfigurationExtensions from Object
@@ -3610,7 +3749,7 @@ Class OptionsConfigurationServiceCollectionExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions',"s9:Configure",P1))
 		ok
-		raise("DotNet Error: Configure does not take one argument: use named arguments, Configure([ :parameter = value, ... ])")
+		raise("DotNet Error: Configure needs its type arguments: Configure([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class OptionsServiceCollectionExtensions from Object
@@ -4245,6 +4384,12 @@ Class ServiceCollection from Object
 
 	Func AddExceptionHandler P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddExceptionHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler",P1))
 
 	Func AddHealthChecks 
@@ -4279,6 +4424,16 @@ Class ServiceCollection from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging",P1))
 
+	Func AddHttpLoggingInterceptor P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddHttpLoggingInterceptor",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddHttpLoggingInterceptor"))
+		ok
+		raise("DotNet Error: AddHttpLoggingInterceptor needs its type arguments: AddHttpLoggingInterceptor([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
 	Func AddW3CLogging P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddW3CLogging",P1))
@@ -4286,6 +4441,26 @@ Class ServiceCollection from Object
 	Func AddHttpContextAccessor 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddHttpContextAccessor"))
+
+	Func AddIdentity P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddIdentity",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity",P1))
+
+	Func AddIdentityApiEndpoints P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddIdentityApiEndpoints",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints",P1))
 
 	Func ConfigureApplicationCookie P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
@@ -4395,16 +4570,32 @@ Class ServiceCollection from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages",P1))
 
-	Func AddOptions 
-		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
-
 	Func Configure P1
-		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func AddOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddOptions",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions",P1))
+
+	Func AddOptionsWithValidateOnStart P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
 
 	Func ConfigureAll P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
@@ -4423,6 +4614,12 @@ Class ServiceCollection from Object
 
 	Func ConfigureOptions P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ConfigureOptions",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions",P1))
 
 	Func AddOutputCache P1
@@ -4533,12 +4730,21 @@ Class ServiceCollection from Object
 
 	Func AddHostedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddHostedService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService",P1))
 
 	Func AddTransient P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddTransient",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1))
 
@@ -4547,12 +4753,18 @@ Class ServiceCollection from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScoped",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1))
 
 	Func AddSingleton P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddSingleton",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1))
 
@@ -4561,21 +4773,21 @@ Class ServiceCollection from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedTransient",P1))
 		ok
-		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedTransient",P1))
 
 	Func AddKeyedScoped P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddKeyedScoped",P1))
 		ok
-		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddKeyedScoped",P1))
 
 	Func AddKeyedSingleton P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedSingleton",P1))
 		ok
-		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedSingleton",P1))
 
 	Func AddSession P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session")
@@ -4596,6 +4808,26 @@ Class ServiceCollection from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -4705,19 +4937,19 @@ Class ServiceCollectionServiceExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s17:AddKeyedTransient",P1))
 		ok
-		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedTransient needs its type arguments: AddKeyedTransient([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddKeyedScoped P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s14:AddKeyedScoped",P1))
 		ok
-		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedScoped needs its type arguments: AddKeyedScoped([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddKeyedSingleton P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s17:AddKeyedSingleton",P1))
 		ok
-		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedSingleton needs its type arguments: AddKeyedSingleton([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ServiceDescriptor from Object
@@ -4911,16 +5143,31 @@ Class ServiceProvider from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetKeyedServices P1,P2
+	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
 
 	Func CreateScope 
@@ -4952,20 +5199,23 @@ Class ServiceProviderKeyedServiceExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetKeyedService P1,P2
-		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s15:GetKeyedService",P1,P2))
+	Func GetKeyedService P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s15:GetKeyedService",P1))
+		ok
+		raise("DotNet Error: GetKeyedService needs its type arguments: GetKeyedService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetRequiredKeyedService P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s23:GetRequiredKeyedService",P1))
 		ok
-		raise("DotNet Error: GetRequiredKeyedService does not take one argument: use named arguments, GetRequiredKeyedService([ :parameter = value, ... ])")
+		raise("DotNet Error: GetRequiredKeyedService needs its type arguments: GetRequiredKeyedService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetKeyedServices P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s16:GetKeyedServices",P1))
 		ok
-		raise("DotNet Error: GetKeyedServices does not take one argument: use named arguments, GetKeyedServices([ :parameter = value, ... ])")
+		raise("DotNet Error: GetKeyedServices needs its type arguments: GetKeyedServices([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ServiceProviderOptions from Object
@@ -5032,6 +5282,9 @@ Class ServiceProviderServiceExtensions from Object
 		return dn_x
 
 	Func GetService P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s10:GetService",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s10:GetService",P1))
 
 	Func GetRequiredService P1

@@ -2652,9 +2652,15 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func CreateQueryExecutor P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:CreateQueryExecutor",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateQueryExecutor",P1))
 
 	Func CreateQueryExecutorExpression P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:CreateQueryExecutorExpression",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:CreateQueryExecutorExpression",P1))
 
 	Func RegisterRuntimeParameter P1,P2
@@ -4667,11 +4673,17 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 	Func Visit P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
-	Func ParameterValueExtractor P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s23:ParameterValueExtractor",P1,P2,P3,P4))
+	Func ParameterValueExtractor P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s23:ParameterValueExtractor",P1))
+		ok
+		raise("DotNet Error: ParameterValueExtractor needs its type arguments: ParameterValueExtractor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func ParameterListValueExtractor P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s27:ParameterListValueExtractor",P1,P2,P3))
+	Func ParameterListValueExtractor P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s27:ParameterListValueExtractor",P1))
+		ok
+		raise("DotNet Error: ParameterListValueExtractor needs its type arguments: ParameterListValueExtractor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getTranslationErrorDetails
 		dn_x = dotnet_call("s3:get",nHandle,"s23:TranslationErrorDetails")

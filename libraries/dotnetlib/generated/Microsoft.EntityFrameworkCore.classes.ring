@@ -628,11 +628,23 @@ Class DbContextOptions from Object
 		ok
 		return self
 
-	Func FindExtension 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindExtension"))
+	Func FindExtension P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:FindExtension",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindExtension"))
+		ok
+		raise("DotNet Error: FindExtension needs its type arguments: FindExtension([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func GetExtension 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetExtension"))
+	Func GetExtension P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetExtension",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetExtension"))
+		ok
+		raise("DotNet Error: GetExtension needs its type arguments: GetExtension([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func WithExtension P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WithExtension",P1))
@@ -779,8 +791,14 @@ Class DbContextOptionsBuilder from Object
 	Func ConfigureWarnings P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureWarnings",P1))
 
-	Func ReplaceService 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReplaceService"))
+	Func ReplaceService P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ReplaceService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReplaceService"))
+		ok
+		raise("DotNet Error: ReplaceService needs its type arguments: ReplaceService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddInterceptors P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddInterceptors",P1))
@@ -976,8 +994,11 @@ Class EF from Object
 	Func CompileQuery P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:CompileQuery",P1))
 
-	Func Property P1,P2
-		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s8:Property",P1,P2))
+	Func Property P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s8:Property",P1))
+		ok
+		raise("DotNet Error: Property needs its type arguments: Property([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Constant P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s8:Constant",P1))
@@ -1778,11 +1799,17 @@ Class RelationalDatabaseFacadeExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SqlQueryRaw P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational',"s11:SqlQueryRaw",P1,P2,P3))
+	Func SqlQueryRaw P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational',"s11:SqlQueryRaw",P1))
+		ok
+		raise("DotNet Error: SqlQueryRaw needs its type arguments: SqlQueryRaw([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func SqlQuery P1,P2
-		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational',"s8:SqlQuery",P1,P2))
+	Func SqlQuery P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational',"s8:SqlQuery",P1))
+		ok
+		raise("DotNet Error: SqlQuery needs its type arguments: SqlQuery([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func ExecuteSqlInterpolatedAsync P1
 		if dotnet_isnamed(P1)
@@ -2917,7 +2944,7 @@ Class RelationalModelBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s11:HasSequence",P1))
 		ok
-		raise("DotNet Error: HasSequence does not take one argument: use named arguments, HasSequence([ :parameter = value, ... ])")
+		raise("DotNet Error: HasSequence needs its type arguments: HasSequence([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func HasDbFunction P1
 		if dotnet_isnamed(P1)

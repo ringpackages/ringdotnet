@@ -1068,6 +1068,20 @@ Class DatabaseFacade from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func SqlQueryRaw P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SqlQueryRaw",P1))
+		ok
+		raise("DotNet Error: SqlQueryRaw needs its type arguments: SqlQueryRaw([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func SqlQuery P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SqlQuery",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SqlQuery",P1))
+
 	Func ExecuteSqlInterpolatedAsync P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
@@ -1755,8 +1769,14 @@ Class IDbContextOptions from DotNetObject
 		ok
 		return self
 
-	Func FindExtension 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindExtension"))
+	Func FindExtension P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:FindExtension",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindExtension"))
+		ok
+		raise("DotNet Error: FindExtension needs its type arguments: FindExtension([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getExtensions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Extensions"))
@@ -1841,11 +1861,23 @@ Class IInternalServiceCollectionMap from DotNetObject
 		ok
 		return self
 
-	Func AddDependencySingleton 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddDependencySingleton"))
+	Func AddDependencySingleton P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:AddDependencySingleton",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddDependencySingleton"))
+		ok
+		raise("DotNet Error: AddDependencySingleton needs its type arguments: AddDependencySingleton([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func AddDependencyScoped 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddDependencyScoped"))
+	Func AddDependencyScoped P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddDependencyScoped",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddDependencyScoped"))
+		ok
+		raise("DotNet Error: AddDependencyScoped needs its type arguments: AddDependencyScoped([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ILazyLoader from DotNetObject

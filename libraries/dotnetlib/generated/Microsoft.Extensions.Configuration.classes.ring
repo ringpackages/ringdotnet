@@ -446,7 +446,7 @@ Class ConfigurationBinder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		raise("DotNet Error: GetValue needs its type arguments: GetValue([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class ConfigurationBuilder from Object
@@ -570,6 +570,9 @@ Class ConfigurationBuilder from Object
 		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
 
@@ -790,6 +793,9 @@ Class ConfigurationManager from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -807,7 +813,7 @@ Class ConfigurationManager from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -920,6 +926,9 @@ Class ConfigurationManager from Object
 		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
 
@@ -1157,6 +1166,9 @@ Class ConfigurationRoot from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -1174,7 +1186,7 @@ Class ConfigurationRoot from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -1281,6 +1293,9 @@ Class ConfigurationSection from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -1298,7 +1313,7 @@ Class ConfigurationSection from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -1575,6 +1590,9 @@ Class IConfiguration from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -1592,7 +1610,7 @@ Class IConfiguration from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -1732,6 +1750,9 @@ Class IConfigurationBuilder from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
 
 	Func AddXmlFile P1
@@ -1792,6 +1813,9 @@ Class IConfigurationManager from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -1809,7 +1833,7 @@ Class IConfigurationManager from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -1919,6 +1943,9 @@ Class IConfigurationManager from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
 
 	Func AddXmlFile P1
@@ -2024,6 +2051,9 @@ Class IConfigurationRoot from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -2041,7 +2071,7 @@ Class IConfigurationRoot from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
@@ -2105,6 +2135,9 @@ Class IConfigurationSection from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Bind P1
@@ -2122,7 +2155,7 @@ Class IConfigurationSection from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetConnectionString P1
 		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")

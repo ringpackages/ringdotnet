@@ -685,11 +685,17 @@ Class Database from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SaveChangesAsync",P1))
 
-	Func CompileQuery P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CompileQuery",P1,P2))
+	Func CompileQuery P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CompileQuery",P1))
+		ok
+		raise("DotNet Error: CompileQuery needs its type arguments: CompileQuery([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func CompileQueryExpression P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CompileQueryExpression",P1,P2,P3))
+	Func CompileQueryExpression P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CompileQueryExpression",P1))
+		ok
+		raise("DotNet Error: CompileQueryExpression needs its type arguments: CompileQueryExpression([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -930,11 +936,17 @@ Class IDatabase from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SaveChangesAsync",P1))
 
-	Func CompileQuery P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CompileQuery",P1,P2))
+	Func CompileQuery P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CompileQuery",P1))
+		ok
+		raise("DotNet Error: CompileQuery needs its type arguments: CompileQuery([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
-	Func CompileQueryExpression P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CompileQueryExpression",P1,P2,P3))
+	Func CompileQueryExpression P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CompileQueryExpression",P1))
+		ok
+		raise("DotNet Error: CompileQueryExpression needs its type arguments: CompileQueryExpression([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 
 Class IDatabaseCreator from DotNetObject

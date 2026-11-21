@@ -58,8 +58,14 @@ Class JsonNode from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue"))
+	Func GetValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue"))
+		ok
+		raise("DotNet Error: GetValue needs its type arguments: GetValue([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func DeepClone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DeepClone"))
@@ -132,6 +138,9 @@ Class JsonNode from Object
 		dnEnsureExt("System.Text.Json.JsonSerializer, System.Text.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
@@ -231,8 +240,14 @@ Class JsonArray from JsonNode
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetValues 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetValues"))
+	Func GetValues P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetValues",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetValues"))
+		ok
+		raise("DotNet Error: GetValues needs its type arguments: GetValues([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Add P1
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -277,6 +292,26 @@ Class JsonArray from JsonNode
 			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonArray, System.Text.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonArray, System.Text.Json',"s6:Create",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
@@ -385,6 +420,26 @@ Class JsonObject from JsonNode
 			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonObject, System.Text.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonObject, System.Text.Json',"s6:Create",P1))
+
+	Func Cast P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+		ok
+		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func OfType P1
+		dnEnsureExt("System.Linq.Enumerable, System.Linq")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+		ok
+		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")

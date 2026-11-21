@@ -419,6 +419,12 @@ Class Assembly from Object
 
 	Func GetCustomAttribute P1
 		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func setModuleResolveEvent P1
@@ -1425,6 +1431,9 @@ Class MemberInfo from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
 		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getMemberType
@@ -1729,6 +1738,12 @@ Class Module from Object
 
 	Func GetCustomAttribute P1
 		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getAssembly
@@ -1955,6 +1970,9 @@ Class ParameterInfo from Object
 		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 

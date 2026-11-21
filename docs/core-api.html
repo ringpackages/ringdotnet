@@ -283,6 +283,7 @@ oSB.<span class="f">setProp</span>(<span class="s">"Capacity"</span>,<span class
 <h2 id="dotnetobject">DotNetObject<a class="anchor" href="#dotnetobject">#</a></h2>
 <p>Every .NET object that Ring holds is a <code>DotNetObject</code> (the generated classes derive from it):</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oObject.<span class="f">callMethod</span>(<span class="s">"Method"</span>,[arg1,arg2])    <span class="c"># call a method</span>
+oObject.<span class="f">callGeneric</span>(<span class="s">"Method"</span>,[<span class="s">"System.Int32"</span>],[arg1])    <span class="c"># a generic method with its type arguments</span>
 oObject.<span class="f">getProp</span>(<span class="s">"Name"</span>)                      <span class="c"># read a property or field</span>
 oObject.<span class="f">setProp</span>(<span class="s">"Name"</span>,value)                <span class="c"># write it</span>
 oObject.<span class="f">toString</span>()                           <span class="c"># ToString()</span>
