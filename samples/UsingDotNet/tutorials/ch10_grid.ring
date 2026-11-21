@@ -38,7 +38,7 @@ func main
 	oGrid.Columns.Add(oCombo)
 	addTextColumn("Total","Total",70,True)                 # read only: the program fills it
 
-	# a rows is made with the values of the cells, in the order of the columns
+	# a row is made with the values of the cells, in the order of the columns
 	oGrid.Rows.Add(["Pens",10,2.5,False,"Small",""])
 	oGrid.Rows.Add(["Paper",4,6,True,"Large",""])
 	oGrid.Rows.Add(["Glue",3,4,False,"Medium",""])

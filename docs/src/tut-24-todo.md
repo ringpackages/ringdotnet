@@ -8,7 +8,6 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 - planning a small application: data, window, behaviour, saving,
 - a `CheckedListBox`,
 - saving to JSON and loading it again,
-- a rule: a list of pairs that is passed alone is read as named arguments,
 - keeping a window and its data in step.
 
 ## The design
@@ -46,8 +45,6 @@ Remember the tutorial [A small text editor](tut-13-editor.html): the control tha
 
 The file holds a list of lists, one `[done, text]` per task: `[[1,"Buy milk"],[0,"Write the tutorial"]]`. `JsonSerializer.Serialize(aList)` writes it, and loading uses `JsonDocument`: `GetArrayLength()`, `Item(i)`, `GetInt32()`, `GetString()`.
 
-> [!NOTE] **Why the number comes first in each pair.** A Ring list such as `[["Buy milk",1],["Walk",0]]` is a list of `[text, value]` pairs, and a list of pairs that is passed *alone* to a method is read as **named arguments**: `:Buy milk = 1`. `Serialize` would look for a parameter called "Buy milk". Put a number (or anything that is not a text) first, or wrap the data in one more list, and the list is passed as a value.
-
 ### Starting and stopping
 
 `loadTasks` runs before the window is shown. `setFormClosingEvent("saveTasks()")` saves once more when the window closes. While loading, a flag `lLoading` stops `saveTasks` from rewriting the file in the middle of the loading.
@@ -64,7 +61,7 @@ The checks of this program are in a separate file, `selftest/ch12_todo.ring`:
 
 - design first: data, window, behaviour, saving,
 - `CheckedListBox`, events after a click,
-- JSON for saving, with the rule for lists of pairs in mind,
+- JSON for saving the tasks as a list of [done, text] pairs,
 - a flag to avoid saving while loading,
 - tests that use their own file.
 

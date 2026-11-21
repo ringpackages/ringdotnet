@@ -84,5 +84,3 @@ func jobStep
 		lRunning = False
 		oInfo.Text = "Finished"
 	ok
-
-# ---------------------------------------------------------------- the test: stop the timers, call the steps by hand

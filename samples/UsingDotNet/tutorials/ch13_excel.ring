@@ -27,7 +27,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","ClosedXML.Excel")
 
 func main
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-sales.xlsx"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-sales.xlsx"])
 
 	# 1. A workbook is the file; a worksheet is one of its sheets; a cell is found by its address ("B2") like in Excel
 	oBook = new XLWorkbook()

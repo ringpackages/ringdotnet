@@ -306,8 +306,8 @@ chdir(cHere)
 
 <span class="k">func</span> <span class="f">main</span>
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()
-	cDbFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"tutorial-sales.db"</span>])
-	cXlsx = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"tutorial-sales-report.xlsx"</span>])
+	cDbFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"ringdotnet-sales.db"</span>])
+	cXlsx = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"ringdotnet-sales-report.xlsx"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cDbFile) <span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cDbFile) <span class="k">ok</span>
 
 	<span class="c"># 1. The data: a CSV text (a program would read a file: new StreamReader for a path)</span>

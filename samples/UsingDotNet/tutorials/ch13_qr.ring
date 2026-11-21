@@ -49,7 +49,7 @@ func main
 
 	# 3. A picture: PngByteQRCode gives the bytes of a PNG file, and a byte[] that .NET returns is a Ring text
 	cPng = new PngByteQRCode().@New([ :data = oCode ]).GetGraphic(8)          # 8 pixels for each module
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-qr.png"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-qr.png"])
 	new File().WriteAllBytes(cFile,cPng)
 	? nl + "3. the picture is a PNG file: " + (substr(cPng,2,3) = "PNG") + ", written to a file: " + new File().Exists(cFile)
 	new File().Delete(cFile)

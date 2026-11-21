@@ -42,7 +42,7 @@ func main
 
 	# 2. Speech goes to a file: SetOutputToWaveFile, then Speak. Rate is from -10 (slow) to 10 (fast): a slower voice needs more time,
 	#    so its file is bigger.
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-speech.wav"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-speech.wav"])
 	cText = "Hello from Ring. This sentence is spoken by a voice of Windows."
 	nSizeNormal = speakToFile(oVoice,cText,0,cFile)
 	nSizeSlow = speakToFile(oVoice,cText,-5,cFile)

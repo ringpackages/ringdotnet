@@ -372,7 +372,7 @@ oTimer = <span class="s">""</span>
 		aReceived = []
 		<span class="k">for</span> aConnection <span class="k">in</span> aConnections
 			oReader = aConnection[<span class="n">2</span>]
-			aNew = oReader.<span class="f">lines</span>()              <span class="c"># (a variable first: "for x in call()" would call it again and again)</span>
+			aNew = oReader.<span class="f">lines</span>()              <span class="c"># the lines that arrived</span>
 			<span class="k">for</span> cLine <span class="k">in</span> aNew
 				aReceived + cLine
 			<span class="k">next</span>

@@ -76,8 +76,6 @@ func refreshStatus
 	oStatus.Text = "  " + nDone + " of " + oTasks.Items.Count + " done"
 
 # ---------------------------------------------------------------- saving and loading (JSON: [[1 or 0, "text"], ...])
-# Note: the number comes FIRST. A list like [["Buy milk",1]] (a list of [text, value] pairs) passed alone to a method is read as
-# NAMED ARGUMENTS ( :name = value ), so JsonSerializer.Serialize would look for a parameter called "Buy milk".
 
 func saveTasks
 	if lLoading
@@ -85,7 +83,7 @@ func saveTasks
 	ok
 	aList = []
 	for nIndex = 0 to oTasks.Items.Count - 1
-		aList + [oTasks.GetItemChecked(nIndex),oTasks.Items.Item(nIndex)]      # [done, text]: see the note about pairs
+		aList + [oTasks.GetItemChecked(nIndex),oTasks.Items.Item(nIndex)]          # [done, text]
 	next
 	cJson = new JsonSerializer().Serialize(aList)
 	new File().WriteAllText([ :path = cFile, :contents = cJson ])

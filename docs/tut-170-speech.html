@@ -313,7 +313,7 @@ chdir(cHere)
 
 	<span class="c"># 2. Speech goes to a file: SetOutputToWaveFile, then Speak. Rate is from -10 (slow) to 10 (fast): a slower voice needs more time,</span>
 	<span class="c">#    so its file is bigger.</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial-speech.wav"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-speech.wav"</span>])
 	cText = <span class="s">"Hello from Ring. This sentence is spoken by a voice of Windows."</span>
 	nSizeNormal = speakToFile(oVoice,cText,<span class="n">0</span>,cFile)
 	nSizeSlow = speakToFile(oVoice,cText,-<span class="n">5</span>,cFile)

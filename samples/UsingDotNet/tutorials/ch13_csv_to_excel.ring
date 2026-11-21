@@ -34,8 +34,8 @@ dnImportFrom(cClasses + "ClosedXML/","ClosedXML.Excel")
 
 func main
 	cTemp = new Path().GetTempPath()
-	cDbFile = new Path().Combine([cTemp,"tutorial-sales.db"])
-	cXlsx = new Path().Combine([cTemp,"tutorial-sales-report.xlsx"])
+	cDbFile = new Path().Combine([cTemp,"ringdotnet-sales.db"])
+	cXlsx = new Path().Combine([cTemp,"ringdotnet-sales-report.xlsx"])
 	if new File().Exists(cDbFile) new File().Delete(cDbFile) ok
 
 	# 1. The data: a CSV text (a program would read a file: new StreamReader for a path)

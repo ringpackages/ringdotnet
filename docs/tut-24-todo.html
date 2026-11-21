@@ -249,7 +249,7 @@
 <article>
 <h1>A project: a to-do list that remembers</h1><p class="lead">A complete small application — add, tick and remove tasks, see how many are done, and find them again the next time the program starts. Windows Forms, JSON and files together.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>planning a small application: data, window, behaviour, saving,</li><li>a <code>CheckedListBox</code>,</li><li>saving to JSON and loading it again,</li><li>a rule: a list of pairs that is passed alone is read as named arguments,</li><li>keeping a window and its data in step.</li></ul>
+<ul><li>planning a small application: data, window, behaviour, saving,</li><li>a <code>CheckedListBox</code>,</li><li>saving to JSON and loading it again,</li><li>keeping a window and its data in step.</li></ul>
 <h2 id="the-design">The design<a class="anchor" href="#the-design">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>Decision</th></tr></thead><tbody><tr><td><strong>Data</strong></td><td>the tasks live in the list control itself; each has a text and a done flag</td></tr><tr><td><strong>Window</strong></td><td>a text box and <em>Add</em> / <em>Remove</em> buttons on top, the list in the middle, a status line at the bottom</td></tr><tr><td><strong>Behaviour</strong></td><td><em>Add</em> ignores blank text; clicking an item ticks it; the status says "n of m done"</td></tr><tr><td><strong>Saving</strong></td><td>after every change the tasks are written to a JSON file; at start-up the file is read</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
@@ -331,8 +331,6 @@ lLoading = <span class="k">False</span>
 	oStatus.Text = <span class="s">"  "</span> + nDone + <span class="s">" of "</span> + oTasks.Items.Count + <span class="s">" done"</span>
 
 <span class="c"># ---------------------------------------------------------------- saving and loading (JSON: [[1 or 0, "text"], ...])</span>
-<span class="c"># Note: the number comes FIRST. A list like [["Buy milk",1]] (a list of [text, value] pairs) passed alone to a method is read as</span>
-<span class="c"># NAMED ARGUMENTS ( :name = value ), so JsonSerializer.Serialize would look for a parameter called "Buy milk".</span>
 
 <span class="k">func</span> <span class="f">saveTasks</span>
 	<span class="k">if</span> lLoading
@@ -340,7 +338,7 @@ lLoading = <span class="k">False</span>
 	<span class="k">ok</span>
 	aList = []
 	<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oTasks.Items.Count - <span class="n">1</span>
-		aList + [oTasks.<span class="f">GetItemChecked</span>(nIndex),oTasks.Items.<span class="f">Item</span>(nIndex)]      <span class="c"># [done, text]: see the note about pairs</span>
+		aList + [oTasks.<span class="f">GetItemChecked</span>(nIndex),oTasks.Items.<span class="f">Item</span>(nIndex)]          <span class="c"># [done, text]</span>
 	<span class="k">next</span>
 	cJson = <span class="k">new</span> <span class="t">JsonSerializer</span>().<span class="f">Serialize</span>(aList)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
@@ -369,7 +367,6 @@ lLoading = <span class="k">False</span>
 <p><code>setMouseUpEvent("tasksChanged()")</code> runs after the click, when the item's state is already up to date; the function saves and refreshes the status line. (The <code>ItemCheck</code> event runs <em>before</em> the state changes, which makes a status line show the old number.)</p>
 <h3 id="saving-as-json">Saving as JSON<a class="anchor" href="#saving-as-json">#</a></h3>
 <p>The file holds a list of lists, one <code>[done, text]</code> per task: <code>[[1,"Buy milk"],[0,"Write the tutorial"]]</code>. <code>JsonSerializer.Serialize(aList)</code> writes it, and loading uses <code>JsonDocument</code>: <code>GetArrayLength()</code>, <code>Item(i)</code>, <code>GetInt32()</code>, <code>GetString()</code>.</p>
-<div class="callout note"><span class="t">Note</span><p><strong>Why the number comes first in each pair.</strong> A Ring list such as <code>[["Buy milk",1],["Walk",0]]</code> is a list of <code>[text, value]</code> pairs, and a list of pairs that is passed <em>alone</em> to a method is read as <strong>named arguments</strong>: <code>:Buy milk = 1</code>. <code>Serialize</code> would look for a parameter called "Buy milk". Put a number (or anything that is not a text) first, or wrap the data in one more list, and the list is passed as a value.</p></div>
 <h3 id="starting-and-stopping">Starting and stopping<a class="anchor" href="#starting-and-stopping">#</a></h3>
 <p><code>loadTasks</code> runs before the window is shown. <code>setFormClosingEvent("saveTasks()")</code> saves once more when the window closes. While loading, a flag <code>lLoading</code> stops <code>saveTasks</code> from rewriting the file in the middle of the loading.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
@@ -401,7 +398,7 @@ lLoading = <span class="k">False</span>
 	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,oTasks.Items.Count,<span class="n">1</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>design first: data, window, behaviour, saving,</li><li><code>CheckedListBox</code>, events after a click,</li><li>JSON for saving, with the rule for lists of pairs in mind,</li><li>a flag to avoid saving while loading,</li><li>tests that use their own file.</li></ul>
+<ul><li>design first: data, window, behaviour, saving,</li><li><code>CheckedListBox</code>, events after a click,</li><li>JSON for saving the tasks as a list of [done, text] pairs,</li><li>a flag to avoid saving while loading,</li><li>tests that use their own file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Show the done tasks in gray (use <code>DrawItem</code>, or simply move done tasks to the bottom).</li><li>Add <strong>Clear done</strong> that removes all ticked tasks.</li><li>Save to the user's documents folder (<code>Environment.GetFolderPath("MyDocuments")</code>).</li><li>Add a due date to each task and sort by it.</li></ol>
 <p>The full-size version is the <a href="gallery-apps.html#todo-list">TodoList</a> application.</p>

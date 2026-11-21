@@ -19,7 +19,7 @@ func main
 	? "2. separator: " + new Path().DirectorySeparatorChar + "   Combine: " + new Path().Combine(["data","report.txt"])
 
 	# 3. Case. Windows does not care about upper and lower case in a file name, Linux does (macOS usually does not, but can).
-	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial-systems"])
+	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet-systems"])
 	new Directory().CreateDirectory(cFolder)
 	cFile = new Path().Combine([cFolder,"notes.txt"])
 	new File().WriteAllText([ :path = cFile, :contents = "x" ])

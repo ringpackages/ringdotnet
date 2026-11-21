@@ -277,7 +277,7 @@ using {
 	? <span class="s">"2. separator: "</span> + <span class="k">new</span> <span class="t">Path</span>().DirectorySeparatorChar + <span class="s">"   Combine: "</span> + <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="s">"data"</span>,<span class="s">"report.txt"</span>])
 
 	<span class="c"># 3. Case. Windows does not care about upper and lower case in a file name, Linux does (macOS usually does not, but can).</span>
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial-systems"</span>])
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-systems"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"notes.txt"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"x"</span> ])

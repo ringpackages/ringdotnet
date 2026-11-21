@@ -29,7 +29,7 @@ dnImportFrom(cClasses + "/","PdfSharp.Pdf.IO")
 dnImportFrom(cClasses + "/","PdfSharp.Drawing")
 
 func main
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-report.pdf"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-report.pdf"])
 
 	# 1. A document has pages, and a page is drawn with an XGraphics, like a canvas. Fonts are made with dnNew and the names of the
 	#    parameters of the constructor; the brush and the pen are ready objects of the classes XBrushes and XPens.

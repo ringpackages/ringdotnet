@@ -320,7 +320,7 @@ chdir(cHere)
 
 	<span class="c"># 3. A picture: PngByteQRCode gives the bytes of a PNG file, and a byte[] that .NET returns is a Ring text</span>
 	cPng = <span class="k">new</span> <span class="t">PngByteQRCode</span>().@<span class="k">New</span>([ :<span class="t">data</span> = oCode ]).<span class="f">GetGraphic</span>(<span class="n">8</span>)          <span class="c"># 8 pixels for each module</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial-qr.png"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-qr.png"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllBytes</span>(cFile,cPng)
 	? nl + <span class="s">"3. the picture is a PNG file: "</span> + (substr(cPng,<span class="n">2</span>,<span class="n">3</span>) = <span class="s">"PNG"</span>) + <span class="s">", written to a file: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>

@@ -322,7 +322,7 @@ chdir(cHere)
 	? <span class="s">"   centre of the circle (150,50): "</span> + oCentre.Red + <span class="s">", "</span> + oCentre.Green + <span class="s">", "</span> + oCentre.Blue
 
 	<span class="c"># 4. Save as PNG: Encode gives the data of the picture, ToArray its bytes (a Ring text), and File writes them</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial-picture.png"</span>])
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-picture.png"</span>])
 	oImage = <span class="k">new</span> <span class="t">SKImage</span>().<span class="f">FromBitmap</span>(oBitmap)
 	cPng = oImage.<span class="f">Encode</span>(<span class="k">NULL</span>).<span class="f">ToArray</span>()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllBytes</span>(cFile,cPng)

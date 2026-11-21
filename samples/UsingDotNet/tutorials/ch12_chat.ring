@@ -117,7 +117,7 @@ class ChatServer
 		aReceived = []
 		for aConnection in aConnections
 			oReader = aConnection[2]
-			aNew = oReader.lines()              # (a variable first: "for x in call()" would call it again and again)
+			aNew = oReader.lines()              # the lines that arrived
 			for cLine in aNew
 				aReceived + cLine
 			next

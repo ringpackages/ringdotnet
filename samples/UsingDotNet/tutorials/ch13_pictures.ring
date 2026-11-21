@@ -52,7 +52,7 @@ func main
 	? "   centre of the circle (150,50): " + oCentre.Red + ", " + oCentre.Green + ", " + oCentre.Blue
 
 	# 4. Save as PNG: Encode gives the data of the picture, ToArray its bytes (a Ring text), and File writes them
-	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-picture.png"])
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-picture.png"])
 	oImage = new SKImage().FromBitmap(oBitmap)
 	cPng = oImage.Encode(NULL).ToArray()
 	new File().WriteAllBytes(cFile,cPng)
