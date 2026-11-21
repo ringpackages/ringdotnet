@@ -1,7 +1,12 @@
 # A smoke test over the classes of many namespaces: every public class that has a constructor without parameters can be created by the
 # bridge, and the answer is a real object (a handle that is not 0). A class whose constructor refuses on this system (OpenSSL on Windows,
 # for example) raises a PlatformNotSupportedException, which is fine; any other error, or a handle of 0, is a failure.
+# Then a harmless call is made on each object that was created: ToString, GetHashCode, Equals(itself), GetType, and a read of every property
+# of a simple type (text, number, yes/no). The answers must have the right kind. A property may refuse because of the state of a new object
+# (a stream without a timeout, a response that was never received): that is an exception of .NET and is accepted; an error of the bridge is not.
 load "dotnet.ring"
+
+nProperties = 0          # a global: the function that reads the properties counts them
 
 func main
 	aNamespaces = ["System.Collections","System.Collections.Generic","System.Collections.Specialized","System.Collections.Concurrent",
@@ -14,6 +19,8 @@ func main
 	nTried = 0
 	aNull = []
 	aErrors = []
+	aWrong = []          # a harmless call that failed in a way that is not an exception of the class
+	nObjects = 0
 	for cNamespace in aNamespaces
 		dnImport(cNamespace)
 		for aEntry in aDotNetClassIndex
@@ -48,11 +55,28 @@ func main
 					aErrors + (aEntry[1] + ": " + left(cCatchError,60))
 				ok
 			done
+			# the harmless calls, on a new object of the class
+			oObject = ""
+			try
+				oObject = dnNew(aEntry[1],[])
+			catch
+				loop
+			done
+			if not isobject(oObject)
+				aWrong + (aEntry[1] + " is not an object")
+				loop
+			ok
+			nObjects++
+			harmlessCalls(oObject,aEntry[1],aApi,aWrong)
+
 		next
 	next
 	dnAssert("many classes were tried (" + nTried + ")",nTried > 150,True)
 	dnAssert("no class gave a handle of 0 " + joined(aNull),len(aNull),0)
 	dnAssert("no class raised another error " + joined(aErrors),len(aErrors),0)
+	dnAssert("harmless calls were made on many objects (" + nObjects + " objects)",nObjects > 150,True)
+	dnAssert("a property of a simple type was read on many of them",nProperties > 300,True)
+	dnAssert("no harmless call failed in the bridge " + joined(aWrong),len(aWrong),0)
 	dnTestSummary()
 
 # the items of a list as one text (empty for an empty list)
@@ -62,3 +86,65 @@ func joined aList
 		cText += cItem + "; "
 	next
 	return cText
+
+# The exceptions of .NET that a new object may raise for the state it is in (not a fault of the bridge)
+func stateError cMessage
+	for cKind in ["InvalidOperationException","ObjectDisposedException","NotSupportedException","PlatformNotSupportedException","NullReferenceException","ArgumentException","NotImplementedException"]
+		if substr(cMessage,cKind) > 0
+			return True
+		ok
+	next
+	return False
+
+func harmlessCalls oObject, cType, aApi, aWrong
+	try
+		if not isstring(oObject.toString())
+			aWrong + (cType + ": ToString is not a text")
+		ok
+	catch
+		if not stateError(cCatchError)
+			aWrong + (cType + ": ToString " + left(cCatchError,50))
+		ok
+	done
+	try
+		if not isnumber(oObject.callMethod("GetHashCode",[]))
+			aWrong + (cType + ": GetHashCode is not a number")
+		ok
+	catch
+		if not stateError(cCatchError)
+			aWrong + (cType + ": GetHashCode " + left(cCatchError,50))
+		ok
+	done
+	try
+		if oObject.callMethod("Equals",[oObject]) != 1
+			aWrong + (cType + ": an object is not equal to itself")
+		ok
+	catch
+		if not stateError(cCatchError)
+			aWrong + (cType + ": Equals " + left(cCatchError,50))
+		ok
+	done
+	try
+		cName = oObject.callMethod("GetType",[]).getProp("FullName")
+		if cName != cType and substr(cType,"`") = 0
+			aWrong + (cType + ": GetType().FullName is " + cName)
+		ok
+	catch
+		aWrong + (cType + ": GetType " + left(cCatchError,50))
+	done
+	for aMember in aApi[5]
+		if aMember[2] != 1 or aMember[4] = 1
+			loop
+		ok
+		if find(["System.String","System.Int32","System.Int64","System.Boolean","System.Double"],aMember[5]) = 0
+			loop
+		ok
+		nProperties++
+		try
+			x = oObject.getProp(aMember[1])
+		catch
+			if not stateError(cCatchError)
+				aWrong + (cType + "." + aMember[1] + ": " + left(cCatchError,50))
+			ok
+		done
+	next
