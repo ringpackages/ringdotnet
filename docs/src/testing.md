@@ -40,6 +40,10 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 | `test_userassembly.ring` | your own assemblies: generated classes, interfaces, explicit implementations, extension methods, enum parameters, renamed classes |
 | `test_import_folder.ring`, `test_classindex.ring`, `test_interface_members.ring` | loading generated classes from a folder, the class index, interfaces that inherit members |
 | `test_native_call.ring`, `test_handles.ring`, `test_overload_choice.ring`, `test_named.ring`, `test_guard.ring` | the native call path, the release of handles, the choice of an overload, named arguments, the managed pointers |
+| `test_binary.ring` | binary data: every byte value in texts, streams, files, Base64, hashes and byte buffers
+| `test_extension_methods.ring`, `test_more_classes.ring`, `test_new_forms.ring` | extension methods and `@` names, classes added after the coverage audit, the forms of `new`
+| `test_using*.ring` | `using { }` and the runtime mode that the namespaces start |
+| `test_ready_classes.ring`, `test_smoke_classes.ring` | every ready generic class is a real object; about 200 classes of twenty namespaces are created and given harmless calls (`ToString`, `Equals`, the `Get`, `To` and `Is` methods) |
 
 ## dnAssert
 
