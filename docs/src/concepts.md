@@ -280,6 +280,8 @@ oEnum.asyncDispose()
 
 A property (or field) of those types is read the same way: a `Span` property is an array (a text for `char`), a ref struct property is read like a ref struct result, a pointer is its address, and a `ref` property is its value (`oMemory.Span`, `oStream.PositionPointer`). These properties are read-only in Ring.
 
+An indexer with several indexes (`matrix[row, column]`) takes the indexes as a list: `oMatrix.Item([1,2])` reads and `oMatrix.SetItem([1,2],4.5)` writes. A type that has a one-index indexer too keeps its plain form: `Item(1)`.
+
 A pointer parameter (`byte*`, `char*`, `void*`, `int*`) takes an address or a buffer. A **number** is the address (from `NativeMemory.Alloc`, `Marshal.AllocHGlobal`, a native library); a **text**, a **byte string**, a **list** of numbers or a **ByteBuffer** is a buffer that is pinned for the call, so the method can read it (a text and a byte string end with a zero, for C strings) and a ByteBuffer is the live array that the method may fill. The address of a buffer is valid during the call only: a method that keeps the pointer needs memory that you allocate. A pointer that a method returns is its address, a number.
 
 ```ring

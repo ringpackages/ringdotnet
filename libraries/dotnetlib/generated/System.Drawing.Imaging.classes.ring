@@ -318,6 +318,21 @@ Class ColorMatrix from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")
+
+	Func SetItem P1,P2
+		if islist(P1)
+			aIndexes = P1
+			aIndexes + P2
+			callMethod("set_Item",aIndexes)
+			return self
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
+
 	Func getMatrix00
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix00")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

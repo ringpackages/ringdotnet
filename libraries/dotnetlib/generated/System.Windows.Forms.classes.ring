@@ -4168,6 +4168,9 @@ Class BindingContext from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func setCollectionChangedEvent P1
@@ -26038,6 +26041,21 @@ Class DataGridView from Control
 		dotnet_callv("s4:call",nHandle,"s19:UpdateRowHeightInfo",P1,P2)
 
 		return self
+
+	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")
+
+	Func SetItem P1,P2
+		if islist(P1)
+			aIndexes = P1
+			aIndexes + P2
+			callMethod("set_Item",aIndexes)
+			return self
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
 
 	Func setAllowUserToAddRowsChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"AllowUserToAddRowsChanged",dnCallback(P1)])

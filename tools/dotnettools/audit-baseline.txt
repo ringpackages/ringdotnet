@@ -23,6 +23,7 @@
      35  OK   method: Span result (an array in Ring)   e.g. CsvHelper.dll: CsvHelper.CsvDynamicRecord.GetSpan
      30  OK   property: Span, ref struct or pointer type (read like the result of a method)   e.g. CsvHelper.dll: CsvHelper.CsvReader.Item
      23  OK   method: IAsyncEnumerable result (toList, or asyncEnumerator and asyncNext)   e.g. Dapper.dll: Dapper.SqlMapper.QueryUnbufferedAsync
+      7  OK   property: indexer with several indexes (Item and SetItem with a list of the indexes)   e.g. SkiaSharp.dll: SkiaSharp.SKColorSpaceXyz.Item
       1  OK   method: pointer parameter (an address, or a buffer pinned for the call)   e.g. SkiaSharp.dll: SkiaSharp.SKImageFilter.CreateMerge
   74121  INFO method: public methods   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
   53876  INFO property: public properties   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.IJsonLineInfo.LineNumber
@@ -45,7 +46,6 @@
      60  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.ParseOrNull
      32  GAP  ctor: not callable (pointer or ref struct parameter)   e.g. NLog.dll: NLog.LogEventInfo..ctor
      30  GAP  method: operator that Ring has no syntax for (op_Increment, op_True ...)   e.g. Humanizer.dll: Humanizer.ByteSize.op_Increment
-      7  GAP  property: indexer with several indexes   e.g. SkiaSharp.dll: SkiaSharp.SKColorSpaceXyz.Item
       7  GAP  method: ref return   e.g. Acornima.dll: Acornima.CommentExtensions.RangeRef
       1  GAP  property: ref struct type that cannot be read   e.g. SkiaSharp.dll: SkiaSharp.SKRuntimeEffectUniforms.Item
 

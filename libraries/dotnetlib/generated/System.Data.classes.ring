@@ -1187,9 +1187,18 @@ Class DataRow from Object
 		return self
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
+		if islist(P1)
+			aIndexes = P1
+			aIndexes + P2
+			callMethod("set_Item",aIndexes)
+			return self
+		ok
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
@@ -4823,6 +4832,9 @@ Class DataTableCollection from InternalDataCollectionBase
 		return self
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func setCollectionChangedEvent P1

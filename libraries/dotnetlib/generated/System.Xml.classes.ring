@@ -988,6 +988,9 @@ Class XmlNode from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getName
@@ -1951,6 +1954,9 @@ Class XmlReader from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s6:Create",P1))
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

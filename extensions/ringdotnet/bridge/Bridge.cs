@@ -1562,6 +1562,16 @@ namespace RingDotNet
 					break;
 				}
 			}
+			/* Indexers with several indexes (Matrix[row, column]): [ [indexTypes], valueType, canWrite ] each; Ring gives the indexes as a list */
+			List<object> multiIndexers = new RingList();
+			foreach (PropertyInfo p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+			{
+				ParameterInfo[] ips = p.GetIndexParameters();
+				if (ips.Length >= 2 && p.GetMethod != null && p.GetMethod.IsPublic)
+				{
+					multiIndexers.Add(new RingList { new RingList(ips.Select(q => (object)TName(q.ParameterType))), TName(Unwrap(p.PropertyType)), p.SetMethod != null && p.SetMethod.IsPublic });
+				}
+			}
 			/* Events: [name, isStatic, handlerType] */
 			List<object> events = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
@@ -1591,7 +1601,7 @@ namespace RingDotNet
 					if (m.IsSpecialName && OperatorNames.ContainsValue(m.Name) && !operators.Contains(m.Name)) operators.Add(m.Name);
 				}
 			}
-			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators };
+			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators, multiIndexers };
 		}
 
 		/* ---------------------------------------------------------------- IAsyncEnumerable

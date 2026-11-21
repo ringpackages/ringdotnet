@@ -785,18 +785,48 @@ func buildPlan cTypeName, nForceInit
 		aBlocks + [lower(cRing),cB]
 	next
 
-	# Indexer: Item(index) / SetItem(index,value)
+	# Indexer: Item(index) / SetItem(index,value). An indexer with several indexes takes them as a list: Item([row,column]) / SetItem([row,column],value)
 	aIndexer = aInfo[6]
-	if len(aIndexer) = 3
+	lMulti = len(aInfo) >= 13 and len(aInfo[13]) > 0
+	lMultiWrite = false
+	if lMulti
+		for aMulti in aInfo[13]
+			if aMulti[3]
+				lMultiWrite = true
+			ok
+		next
+	ok
+	if len(aIndexer) = 3 or lMulti
 		if find(aNames,"item") = 0
 			cB = "	Func Item P1" + nl
-			cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
+			if lMulti
+				cB += "		if islist(P1)" + nl
+				cB += '			return callMethod("get_Item",P1)' + nl
+				cB += "		ok" + nl
+			ok
+			if len(aIndexer) = 3
+				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
+			else
+				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")' + nl + nl
+			ok
 			aBlocks + ["item",cB]
 		ok
-		if aIndexer[3] and find(aNames,"setitem") = 0
+		if (len(aIndexer) = 3 and aIndexer[3] or lMultiWrite) and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
-			cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',"void")
-			cB += "		return self" + nl + nl
+			if lMulti
+				cB += "		if islist(P1)" + nl
+				cB += "			aIndexes = P1" + nl
+				cB += "			aIndexes + P2" + nl
+				cB += '			callMethod("set_Item",aIndexes)' + nl
+				cB += "			return self" + nl
+				cB += "		ok" + nl
+			ok
+			if len(aIndexer) = 3 and aIndexer[3]
+				cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',"void")
+				cB += "		return self" + nl + nl
+			else
+				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")' + nl + nl
+			ok
 			aBlocks + ["setitem",cB]
 		ok
 		aNames + "item"

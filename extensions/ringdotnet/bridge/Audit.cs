@@ -204,7 +204,7 @@ namespace RingDotNet
 					int indexParameters = p.GetIndexParameters().Length;
 					if (indexParameters == 0) tally.Add("INFO property: public properties", where);
 					else if (indexParameters == 1) tally.Add("OK   property: indexer with one index (Item, SetItem)", where);
-					else tally.Add("GAP  property: indexer with several indexes", where);
+					else tally.Add("OK   property: indexer with several indexes (Item and SetItem with a list of the indexes)", where);
 					Type valueType = p.PropertyType.IsByRef ? p.PropertyType.GetElementType() : p.PropertyType;
 					if (IsRefLike(valueType) && !Bridge.IsSpan(valueType, out _, out _) && Bridge.ResultPlanOf(valueType) == null) tally.Add("GAP  property: ref struct type that cannot be read", where);
 					else if (IsRefLike(valueType) || IsPointer(valueType)) tally.Add("OK   property: Span, ref struct or pointer type (read like the result of a method)", where);

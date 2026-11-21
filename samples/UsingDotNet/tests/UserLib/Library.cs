@@ -98,6 +98,21 @@ namespace MyCompany.Tools
 		public ref int Slot { get { return ref slot; } }
 	}
 
+	// indexers with several indexes (and one with a single index): Ring gives the indexes as a list
+	public class Grid
+	{
+		private readonly double[,] cells = new double[3, 4];
+		private readonly string[] names = { "a", "b" };
+		public double this[int row, int column] { get { return cells[row, column]; } set { cells[row, column] = value; } }
+		public string this[string x, string y, string z] { get { return x + y + z; } }
+		public string this[int i] { get { return names[i]; } set { names[i] = value; } }
+	}
+
+	public class Table2
+	{
+		public int this[int row, int column] { get { return row * 10 + column; } }
+	}
+
 	public static class Spans
 	{
 		/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */

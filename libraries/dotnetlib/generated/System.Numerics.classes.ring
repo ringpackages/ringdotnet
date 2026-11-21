@@ -2088,6 +2088,21 @@ Class Matrix3x2 from ValueType
 	Func Subtract P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
+	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")
+
+	Func SetItem P1,P2
+		if islist(P1)
+			aIndexes = P1
+			aIndexes + P2
+			callMethod("set_Item",aIndexes)
+			return self
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
+
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2357,6 +2372,21 @@ Class Matrix4x4 from ValueType
 
 	Func Transpose P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s9:Transpose",P1))
+
+	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")
+
+	Func SetItem P1,P2
+		if islist(P1)
+			aIndexes = P1
+			aIndexes + P2
+			callMethod("set_Item",aIndexes)
+			return self
+		ok
+		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")

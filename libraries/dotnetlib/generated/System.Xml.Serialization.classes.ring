@@ -718,6 +718,9 @@ Class SoapAttributeOverrides from Object
 		return dn_x
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 
@@ -1756,6 +1759,9 @@ Class XmlAttributeOverrides from Object
 		return dn_x
 
 	Func Item P1
+		if islist(P1)
+			return callMethod("get_Item",P1)
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 

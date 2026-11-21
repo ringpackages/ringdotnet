@@ -72,6 +72,22 @@ oMemory2 = new CalculatorMemory()
 oMemory2.Stored = 2
 dnAssert("nested type, new",oMemory2.Stored,2)
 
+# an indexer with several indexes takes them as a list; the one with a single index keeps its plain form
+oGrid = new Grid()
+oGrid.SetItem([1,2],4.5)
+dnAssert("indexer with two indexes",oGrid.Item([1,2]),4.5)
+dnAssert("indexer with two indexes, another cell",oGrid.Item([0,0]),0)
+dnAssert("indexer with three indexes (a read-only one)",oGrid.Item(["a","b","c"]),"abc")
+oGrid.SetItem(1,"z")
+dnAssert("indexer with one index next to the others",oGrid.Item(1),"z")
+dnAssert("indexer with several indexes and no other",new Table2().Item([3,4]),34)
+try
+	new Table2().Item(5)
+	dnAssert("a plain index for a multi-index only type",1,0)
+catch
+	dnAssert("a plain index for a multi-index only type",substr(cCatchError,"as a list") > 0,1)
+done
+
 # a generic type that no simple type closes has a class too
 oFluent = new Fluent([ :typeArguments = ["MyCompany.Tools.FluentText"] ])
 oFluent.Hit()

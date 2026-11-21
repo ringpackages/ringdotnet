@@ -378,6 +378,21 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">ref</span> <span class="k">int</span> <span class="t">Slot</span> { <span class="k">get</span> { <span class="k">return</span> <span class="k">ref</span> slot; } }
 	}
 
+	<span class="c">// indexers with several indexes (and one with a single index): Ring gives the indexes as a list</span>
+	<span class="k">public</span> <span class="k">class</span> Grid
+	{
+		<span class="k">private</span> <span class="k">readonly</span> <span class="k">double</span>[,] cells = <span class="k">new</span> <span class="k">double</span>[<span class="n">3</span>, <span class="n">4</span>];
+		<span class="k">private</span> <span class="k">readonly</span> <span class="k">string</span>[] names = { <span class="s">"a"</span>, <span class="s">"b"</span> };
+		<span class="k">public</span> <span class="k">double</span> this[<span class="k">int</span> row, <span class="k">int</span> column] { <span class="k">get</span> { <span class="k">return</span> cells[row, column]; } <span class="k">set</span> { cells[row, column] = value; } }
+		<span class="k">public</span> <span class="k">string</span> this[<span class="k">string</span> x, <span class="k">string</span> y, <span class="k">string</span> z] { <span class="k">get</span> { <span class="k">return</span> x + y + z; } }
+		<span class="k">public</span> <span class="k">string</span> this[<span class="k">int</span> i] { <span class="k">get</span> { <span class="k">return</span> names[i]; } <span class="k">set</span> { names[i] = value; } }
+	}
+
+	<span class="k">public</span> <span class="k">class</span> Table2
+	{
+		<span class="k">public</span> <span class="k">int</span> this[<span class="k">int</span> row, <span class="k">int</span> column] { <span class="k">get</span> { <span class="k">return</span> row * <span class="n">10</span> + column; } }
+	}
+
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
 	{
 		<span class="c">/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */</span>
@@ -557,6 +572,22 @@ oMemory = oCalc.<span class="f">Remember</span>()
 oMemory2 = <span class="k">new</span> <span class="t">CalculatorMemory</span>()
 oMemory2.Stored = <span class="n">2</span>
 <span class="f">dnAssert</span>(<span class="s">"nested type, new"</span>,oMemory2.Stored,<span class="n">2</span>)
+
+<span class="c"># an indexer with several indexes takes them as a list; the one with a single index keeps its plain form</span>
+oGrid = <span class="k">new</span> <span class="t">Grid</span>()
+oGrid.<span class="f">SetItem</span>([<span class="n">1</span>,<span class="n">2</span>],<span class="n">4.5</span>)
+<span class="f">dnAssert</span>(<span class="s">"indexer with two indexes"</span>,oGrid.<span class="f">Item</span>([<span class="n">1</span>,<span class="n">2</span>]),<span class="n">4.5</span>)
+<span class="f">dnAssert</span>(<span class="s">"indexer with two indexes, another cell"</span>,oGrid.<span class="f">Item</span>([<span class="n">0</span>,<span class="n">0</span>]),<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"indexer with three indexes (a read-only one)"</span>,oGrid.<span class="f">Item</span>([<span class="s">"a"</span>,<span class="s">"b"</span>,<span class="s">"c"</span>]),<span class="s">"abc"</span>)
+oGrid.<span class="f">SetItem</span>(<span class="n">1</span>,<span class="s">"z"</span>)
+<span class="f">dnAssert</span>(<span class="s">"indexer with one index next to the others"</span>,oGrid.<span class="f">Item</span>(<span class="n">1</span>),<span class="s">"z"</span>)
+<span class="f">dnAssert</span>(<span class="s">"indexer with several indexes and no other"</span>,<span class="k">new</span> <span class="t">Table2</span>().<span class="f">Item</span>([<span class="n">3</span>,<span class="n">4</span>]),<span class="n">34</span>)
+<span class="k">try</span>
+	<span class="k">new</span> <span class="t">Table2</span>().<span class="f">Item</span>(<span class="n">5</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a plain index for a multi-index only type"</span>,<span class="n">1</span>,<span class="n">0</span>)
+<span class="k">catch</span>
+	<span class="f">dnAssert</span>(<span class="s">"a plain index for a multi-index only type"</span>,substr(cCatchError,<span class="s">"as a list"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+<span class="k">done</span>
 
 <span class="c"># a generic type that no simple type closes has a class too</span>
 oFluent = <span class="k">new</span> <span class="t">Fluent</span>([ :typeArguments = [<span class="s">"MyCompany.Tools.FluentText"</span>] ])
