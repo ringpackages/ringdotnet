@@ -228,6 +228,8 @@ oNumbers.Add(4)
 oScores = new Dictionary([ :typeArguments = ["System.String","System.Int32"], :capacity = 10 ])
 ```
 
+A generic type that no simple type closes (`TAssertions : Assertions<TAssertions>`, `T : struct, Enum`) has its class too, made from the open definition; the objects are made the same way, with real type arguments.
+
 The members have the type argument as `object`, so Ring values go in and out as they are; the static members of a generic type need a closed type and are not in the class (use `dnNewGeneric`, `callMethod` on `dnType` with the closed name).
 
 A nested type has a class too, named after the types around it: `SqlMapper.GridReader` of Dapper is `SqlMapperGridReader`, `Control.ControlCollection` of Windows Forms is `ControlCollection` (its name in the manifest).

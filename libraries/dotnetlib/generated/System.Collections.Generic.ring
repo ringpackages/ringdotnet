@@ -87,6 +87,7 @@ dnRegisterClass("System.Collections.Generic.PriorityQueue`2[[System.String, Syst
 dnRegisterClass("System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","StringPair",0)
 dnRegisterClass("System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ObjectPair",0)
 dnRegisterClass("System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","NumberPair",0)
+dnRegisterClass("System.Collections.Generic.EnumEqualityComparer`1","EnumEqualityComparer",1)
 dnRegisterClass("System.Collections.Generic.GenericComparer`1","GenericComparer",1)
 dnRegisterClass("System.Collections.Generic.GenericEqualityComparer`1","GenericEqualityComparer",1)
 dnRegisterClass("System.Collections.Generic.NullableComparer`1","NullableComparer",1)

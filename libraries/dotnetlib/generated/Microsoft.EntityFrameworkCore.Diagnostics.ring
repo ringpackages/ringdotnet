@@ -16,6 +16,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IDbConnectionIntercep
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IDbContextLogger","IDbContextLogger",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IDbTransactionInterceptor","IDbTransactionInterceptor",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IDiagnosticsLogger","IDiagnosticsLogger",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IDiagnosticsLogger`1","IDiagnosticsLogger1",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IErrorEventData","IErrorEventData",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IIdentityResolutionInterceptor","IIdentityResolutionInterceptor",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Diagnostics.IInstantiationBindingInterceptor","IInstantiationBindingInterceptor",0)

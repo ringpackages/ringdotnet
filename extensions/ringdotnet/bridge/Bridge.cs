@@ -817,7 +817,7 @@ namespace RingDotNet
 				catch (Exception) { continue; }
 				foreach (Type t in types)
 				{
-					if (t.Namespace != ns || t.IsEnum || t.IsByRefLike || (t.IsGenericTypeDefinition && CloseOverObject(t) == null))
+					if (t.Namespace != ns || t.IsEnum || t.IsByRefLike)
 					{
 						continue;
 					}
@@ -841,9 +841,9 @@ namespace RingDotNet
 			return t.FullName ?? t.Name;
 		}
 
-		internal static bool Usable(MethodBase m)
+		internal static bool Usable(MethodBase m, bool openType = false)
 		{
-			if (m.ContainsGenericParameters && !(m is MethodInfo gm && gm.IsGenericMethodDefinition))
+			if (!openType && m.ContainsGenericParameters && !(m is MethodInfo gm && gm.IsGenericMethodDefinition))
 			{
 				return false;
 			}
@@ -1225,19 +1225,23 @@ namespace RingDotNet
 		private static List<object> Describe(Type t)
 		{
 			Type definition = null;
+			bool openType = false;
 			if (t.IsGenericTypeDefinition)
 			{
 				/* a generic definition is described by its members, with object for the type arguments; its static members need a closed type, so
 				   they are left out */
 				definition = t;
-				t = CloseOverObject(t) ?? throw new ArgumentException("Can't describe the generic type " + t.FullName);
+				/* a definition that no simple type closes (TAssertions : Assertions<TAssertions>, T : struct, Enum) is described as it is, open: its
+				   members have the type parameters in their types, which the generator reads as objects */
+				Type closed = CloseOverObject(t);
+				if (closed != null) t = closed; else openType = true;
 			}
 			List<object> ctors = new RingList();
 			if (!t.IsAbstract)
 			{
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
 				{
-					if (!Usable(c)) continue;
+					if (!Usable(c, openType)) continue;
 					List<object> types = ParamTypes(c);
 					ctors.Add(types);
 					/* optional parameters: the constructor is also available with fewer parameters */
@@ -1251,13 +1255,13 @@ namespace RingDotNet
 			/* a method with a Span parameter is listed only when no other overload of the name has a plain form (Stream.Write(buffer, offset, count)
 			   keeps its place; the Span overload is still reached by callMethod) */
 			HashSet<string> plainNames = new HashSet<string>(InterfaceAware(t).SelectMany(x => x.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static))
-				.Where(x => !x.IsSpecialName && Usable(x) && !HasSpanParameter(x)).Select(x => x.Name));
+				.Where(x => !x.IsSpecialName && Usable(x, openType) && !HasSpanParameter(x)).Select(x => x.Name));
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				HashSet<string> seenMethods = new HashSet<string>();
 				foreach (MethodInfo m in InterfaceAware(t).SelectMany(x => x.GetMethods(f)))
 				{
-					if (m.IsSpecialName || !Usable(m)) continue;
+					if (m.IsSpecialName || !Usable(m, openType)) continue;
 					if (HasSpanParameter(m) && plainNames.Contains(m.Name)) continue;
 					if (definition != null && m.IsStatic) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;

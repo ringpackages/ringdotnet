@@ -44,6 +44,14 @@ namespace MyCompany.Tools
 		public SortedSet<double> Sorted() { return new SortedSet<double> { 3.5, 1.5 }; }
 	}
 
+	// A generic type that no simple type closes (TSelf is constrained by the type itself): its class is made from the open definition
+	public class Fluent<TSelf> where TSelf : Fluent<TSelf>
+	{
+		public int Hits { get; set; }
+		public Fluent<TSelf> Hit() { Hits++; return this; }
+	}
+	public class FluentText : Fluent<FluentText> { }
+
 	public class Counter : Calculator
 	{
 		public int Count { get; set; }

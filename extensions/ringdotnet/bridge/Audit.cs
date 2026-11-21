@@ -130,10 +130,10 @@ namespace RingDotNet
 				{
 					/* the class of a generic definition has the members of the type closed over object; its objects are made with :typeArguments */
 					Type closed = Bridge.CloseOverObject(t);
-					if (closed == null) { tally.Add("GAP  type: generic type definition that cannot be closed (not wrapped)", name); AddMembers(tally, members); continue; }
 					tally.Add("INFO type: generic type definition (wrapped, made with :typeArguments)", name);
-					t = closed;
+					if (closed != null) t = closed;
 				}
+				bool open = t.IsGenericTypeDefinition;          /* a definition that no simple type closes is described open */
 				tally.Add("OK   type: wrapped (class, struct, interface)", name);
 				if (t.IsInterface) tally.Add("INFO type: interface", name);
 				else if (t.IsAbstract && t.IsSealed) tally.Add("INFO type: static class", name);
@@ -148,10 +148,10 @@ namespace RingDotNet
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
 				{
 					tally.Add("INFO ctor: public constructors", Short(t, ".ctor"));
-					if (!Bridge.Usable(c)) tally.Add("GAP  ctor: not callable (pointer or ref struct parameter)", Short(t, ".ctor"));
+					if (!Bridge.Usable(c, open)) tally.Add("GAP  ctor: not callable (pointer or ref struct parameter)", Short(t, ".ctor"));
 				}
 
-				HashSet<string> callableNames = new HashSet<string>(t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static).Where(x => !x.IsSpecialName && Bridge.Usable(x)).Select(x => x.Name));
+				HashSet<string> callableNames = new HashSet<string>(t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static).Where(x => !x.IsSpecialName && Bridge.Usable(x, open)).Select(x => x.Name));
 				/* methods, like Describe: public instance and static, no accessors or operators */
 				foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly))
 				{
@@ -165,7 +165,7 @@ namespace RingDotNet
 					string where = Short(t, m.Name);
 					tally.Add("INFO method: public methods", where);
 					ParameterInfo[] ps = m.GetParameters();
-					if (ps.Any(p => IsPointer(p.ParameterType)) || ps.Any(p => IsRefLike(p.ParameterType) && !(!p.ParameterType.IsByRef && Bridge.IsSpan(p.ParameterType, out _, out _))) || !Bridge.Usable(m))
+					if (ps.Any(p => IsPointer(p.ParameterType)) || ps.Any(p => IsRefLike(p.ParameterType) && !(!p.ParameterType.IsByRef && Bridge.IsSpan(p.ParameterType, out _, out _))) || !Bridge.Usable(m, open))
 					{
 						string kind = ps.Any(p => IsPointer(p.ParameterType)) ? "pointer parameter" : ps.Any(p => IsRefLike(p.ParameterType)) ? "Span or other ref struct parameter" : "other";
 						if (callableNames.Contains(m.Name)) tally.Add("INFO method: not callable (" + kind + "), but another overload of the name is", where);

@@ -71,6 +71,7 @@ dnRegisterClass("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCore
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions","MvcXmlMvcBuilderExtensions",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions","MvcXmlMvcCoreBuilderExtensions",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.OAuthExtensions","OAuthExtensions",0)
+dnRegisterClass("Microsoft.Extensions.DependencyInjection.OAuthPostConfigureOptions`2","OAuthPostConfigureOptions",1)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions","OptionsBuilderConfigurationExtensions",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions","OptionsBuilderDataAnnotationsExtensions",0)
 dnRegisterClass("Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions","OptionsBuilderExtensions",0)

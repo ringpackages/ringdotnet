@@ -324,6 +324,14 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> SortedSet&lt;<span class="k">double</span>&gt; <span class="t">Sorted</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">SortedSet</span>&lt;<span class="k">double</span>&gt; { <span class="n">3.5</span>, <span class="n">1.5</span> }; }
 	}
 
+	<span class="c">// A generic type that no simple type closes (TSelf is constrained by the type itself): its class is made from the open definition</span>
+	<span class="k">public</span> <span class="k">class</span> Fluent&lt;TSelf&gt; where <span class="t">TSelf</span> : Fluent&lt;TSelf&gt;
+	{
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Hits</span> { <span class="k">get</span>; <span class="k">set</span>; }
+		<span class="k">public</span> Fluent&lt;TSelf&gt; <span class="t">Hit</span>() { Hits++; <span class="k">return</span> this; }
+	}
+	<span class="k">public</span> <span class="k">class</span> <span class="t">FluentText</span> : Fluent&lt;FluentText&gt; { }
+
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
 	{
 		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span> { <span class="k">get</span>; <span class="k">set</span>; }
@@ -475,6 +483,13 @@ oMemory = oCalc.<span class="f">Remember</span>()
 oMemory2 = <span class="k">new</span> <span class="t">CalculatorMemory</span>()
 oMemory2.Stored = <span class="n">2</span>
 <span class="f">dnAssert</span>(<span class="s">"nested type, new"</span>,oMemory2.Stored,<span class="n">2</span>)
+
+<span class="c"># a generic type that no simple type closes has a class too</span>
+oFluent = <span class="k">new</span> <span class="t">Fluent</span>([ :typeArguments = [<span class="s">"MyCompany.Tools.FluentText"</span>] ])
+oFluent.<span class="f">Hit</span>()
+oFluent.<span class="f">Hit</span>()
+<span class="f">dnAssert</span>(<span class="s">"open generic definition, a method"</span>,oFluent.Hits,<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"open generic definition, a call chain"</span>,oFluent.<span class="f">Hit</span>().<span class="f">Hit</span>().Hits,<span class="n">4</span>)
 
 <span class="c"># the generated method takes the type arguments in the named form</span>
 <span class="f">dnAssert</span>(<span class="s">"generated method, type arguments"</span>,oCalc.<span class="f">Parse</span>([ :typeArguments = [<span class="s">"System.Int32"</span>], :text = <span class="s">"12"</span> ]),<span class="n">12</span>)

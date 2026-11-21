@@ -33,6 +33,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionKeyB
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionModelBuilder","IConventionModelBuilder",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionNavigationBuilder","IConventionNavigationBuilder",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionOwnedEntityTypeBuilder","IConventionOwnedEntityTypeBuilder",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionPropertyBaseBuilder`1","IConventionPropertyBaseBuilder",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionPropertyBuilder","IConventionPropertyBuilder",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionRelationalPropertyOverridesBuilder","IConventionRelationalPropertyOverridesBuilder",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionSequenceBuilder","IConventionSequenceBuilder",0)

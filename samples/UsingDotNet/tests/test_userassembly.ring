@@ -72,6 +72,13 @@ oMemory2 = new CalculatorMemory()
 oMemory2.Stored = 2
 dnAssert("nested type, new",oMemory2.Stored,2)
 
+# a generic type that no simple type closes has a class too
+oFluent = new Fluent([ :typeArguments = ["MyCompany.Tools.FluentText"] ])
+oFluent.Hit()
+oFluent.Hit()
+dnAssert("open generic definition, a method",oFluent.Hits,2)
+dnAssert("open generic definition, a call chain",oFluent.Hit().Hit().Hits,4)
+
 # the generated method takes the type arguments in the named form
 dnAssert("generated method, type arguments",oCalc.Parse([ :typeArguments = ["System.Int32"], :text = "12" ]),12)
 dnAssert("generated method, no arguments",oCalc.Create([ :typeArguments = ["System.Text.StringBuilder"] ]).typeName(),"System.Text.StringBuilder")

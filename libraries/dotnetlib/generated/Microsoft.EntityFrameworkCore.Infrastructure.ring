@@ -54,6 +54,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ModelValidator","M
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ModelValidatorDependencies","ModelValidatorDependencies",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.PooledDbContextFactory`1","PooledDbContextFactory",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo","ProductInfo",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalDbContextOptionsBuilder`2","RelationalDbContextOptionsBuilder",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelDependencies","RelationalModelDependencies",4)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions","EfRelationalModelExtensions",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializerDependencies","RelationalModelRuntimeInitializerDependencies",2)
