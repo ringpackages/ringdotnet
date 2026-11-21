@@ -13,6 +13,7 @@ New to Ring? The appendix has a [Quick introduction to Ring](ring-intro.html) (a
 | **.NET 6 or newer** (tested with .NET 9) | The runtime that RingDotNet hosts inside the Ring process. |
 | **Windows Desktop runtime** | Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer). |
 | **ASP.NET Core runtime** | Only for web programs (`"RingDotNet.Web"`). |
+| **.NET SDK** | Only to build C# libraries and to get NuGet packages (`dotnet publish`): [A NuGet package](tut-162-nuget.html). |
 
 > [!NOTE] The package is built and tested on Windows with Ring 1.28 and .NET 9. The C extension and the managed bridge are portable; the Windows Forms and WPF parts are Windows-only by nature.
 

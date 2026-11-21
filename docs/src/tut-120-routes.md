@@ -22,7 +22,7 @@ The tutorial [A web service with a database](tut-16-web-service.html) and the tu
 
 {{output:samples/UsingDotNet/tutorials/ch07_routes.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

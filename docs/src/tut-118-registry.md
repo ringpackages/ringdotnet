@@ -20,7 +20,7 @@ The tutorial [Settings](tut-32-settings.html) saved settings in a file. On Windo
 
 {{output:samples/UsingDotNet/tutorials/ch06_registry.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNewGeneric`, `dnType`, `callMethod`, `getProp`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

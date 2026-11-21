@@ -20,7 +20,7 @@ Every ASP.NET Core program is built on this container, so what you learn here is
 
 {{output:samples/UsingDotNet/tutorials/ch09_dependency_injection.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnType`, `callMethod`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

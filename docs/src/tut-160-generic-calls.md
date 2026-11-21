@@ -70,4 +70,4 @@ A class made with `new X(...)` runs its `init`, and `init` has one form. A class
 
 ## Next
 
-[Common mistakes](tut-161-common-errors.html)
+[A NuGet package](tut-162-nuget.html)

@@ -196,24 +196,25 @@
 <a href="tut-61-maze.html">A maze</a>
 <a href="tut-62-filters.html">An image filter lab</a>
 <a href="tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="tut-19-callbacks.html">Callbacks and events</a>
 <a href="tut-20-reflection.html">Reflection</a>
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html" class="cur">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
-<a href="tut-161-common-errors.html">Common mistakes</a>
 <a href="tut-162-nuget.html">A NuGet package</a>
-<a href="tut-163-native.html">Native DLLs</a>
-<a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
-<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-167-excel.html">Excel files</a>
 <a href="tut-168-pictures.html">Pictures on every system</a>
 <a href="tut-169-pdf.html">PDF files</a>
 <a href="tut-170-speech.html">Text to speech</a>
+<a href="tut-164-sound.html">Sound</a>
+<a href="tut-163-native.html">Native DLLs</a>
 <a href="tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -378,7 +379,7 @@ The event ran 1 time(s)</code></pre></div>
 <h3 id="events">Events<a class="anchor" href="#events">#</a></h3>
 <p><code>setGreetedEvent("nTimes++ ? ...")</code> gives Ring code to run each time the C# code raises <code>Greeted</code>. The code reads <code>aDotNetArgs</code>, which is <code>[sender, eventArgs]</code>: here the event argument is the greeting text. Remember that event code sees only global variables (<code>nTimes</code> is global at the top of the program).</p>
 <h3 id="what-the-wrapper-made">What the wrapper made<a class="anchor" href="#what-the-wrapper-made">#</a></h3>
-<p>Open <code>Greeter/classes/Tutorial.Greetings/Greeter.ring</code>: it is a plain Ring class with one method per C# method. Nothing is hidden.</p>
+<p>Open <code>Greeter/classes/Tutorial.Greetings.classes.ring</code>: it has a plain Ring class for each C# class, with one method per C# method. Nothing is hidden.</p>
 <h2 id="using-a-nuget-package">Using a NuGet package<a class="anchor" href="#using-a-nuget-package">#</a></h2>
 <p>A package is a set of <code>.dll</code> files, and the .NET SDK can get it and its dependencies for you with a project file and <code>dotnet publish</code>. The tutorial <a href="tut-162-nuget.html">A NuGet package</a> shows it for a real package, and then the steps are the same: <code>wrapassembly.ring</code>, <code>dnLoad</code>, <code>dnImportFrom</code>. See also <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

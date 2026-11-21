@@ -196,24 +196,25 @@
 <a href="tut-61-maze.html">A maze</a>
 <a href="tut-62-filters.html">An image filter lab</a>
 <a href="tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="tut-19-callbacks.html">Callbacks and events</a>
 <a href="tut-20-reflection.html">Reflection</a>
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
-<a href="tut-161-common-errors.html">Common mistakes</a>
 <a href="tut-162-nuget.html">A NuGet package</a>
-<a href="tut-163-native.html">Native DLLs</a>
-<a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
-<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-167-excel.html">Excel files</a>
 <a href="tut-168-pictures.html">Pictures on every system</a>
 <a href="tut-169-pdf.html">PDF files</a>
 <a href="tut-170-speech.html">Text to speech</a>
+<a href="tut-164-sound.html">Sound</a>
+<a href="tut-163-native.html">Native DLLs</a>
 <a href="tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -327,7 +328,7 @@ using {
 
 5. the environment variable RDN111_Database__Host changes Database:Host to: db.example.com
    Database:Timeout is still from the file: 30</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnStatic</code>, <code>dnNewGeneric</code>, <code>dnType</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="layers">Layers<a class="anchor" href="#layers">#</a></h3>
 <p>A <code>ConfigurationBuilder</code> collects <strong>sources</strong>; <code>Build()</code> reads them and gives the configuration. The sources are added in order and <strong>later sources override earlier ones</strong>. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method that the builder has as a method (the tutorial <a href="tut-109-memory-cache.html">Caching</a>). Each has several forms, so the names of the parameters choose one: <code>oBuilder.AddJsonFile([ :path = cFile ])</code>, <code>oBuilder.AddInMemoryCollection([ :initialData = oDictionary ])</code>, <code>oBuilder.AddEnvironmentVariables([ :prefix = "APP_" ])</code>.</p>

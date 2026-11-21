@@ -30,7 +30,7 @@ An **element** has a name and can contain text and other elements; an **attribut
 
 {{output:samples/UsingDotNet/tutorials/ch02_xml.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnNew`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

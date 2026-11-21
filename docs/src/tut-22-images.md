@@ -31,7 +31,7 @@ The three pictures that the program saves:
 
 ![The small copy](img/tutorials/tutorial22-small.png "STEP 6: the resized copy (120 × 80)")
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnNew`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

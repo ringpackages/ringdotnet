@@ -196,24 +196,25 @@
 <a href="tut-61-maze.html">A maze</a>
 <a href="tut-62-filters.html">An image filter lab</a>
 <a href="tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="tut-19-callbacks.html">Callbacks and events</a>
 <a href="tut-20-reflection.html">Reflection</a>
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
-<a href="tut-161-common-errors.html">Common mistakes</a>
 <a href="tut-162-nuget.html">A NuGet package</a>
-<a href="tut-163-native.html">Native DLLs</a>
-<a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
-<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-167-excel.html">Excel files</a>
 <a href="tut-168-pictures.html">Pictures on every system</a>
 <a href="tut-169-pdf.html">PDF files</a>
 <a href="tut-170-speech.html">Text to speech</a>
+<a href="tut-164-sound.html">Sound</a>
+<a href="tut-163-native.html">Native DLLs</a>
 <a href="tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -249,7 +250,7 @@
 <h1>Getting started</h1><p class="lead">Install the package, run your first .NET call from Ring, and learn the four startup modes.</p>
 <p>New to Ring? The appendix has a <a href="ring-intro.html">Quick introduction to Ring</a> (about 15 minutes); read it first if you have never written a Ring program.</p>
 <h2 id="requirements">Requirements<a class="anchor" href="#requirements">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>You need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Ring</strong> 1.28 or newer</td><td>The language. The package is a normal Ring package.</td></tr><tr><td><strong>.NET 6 or newer</strong> (tested with .NET 9)</td><td>The runtime that RingDotNet hosts inside the Ring process.</td></tr><tr><td><strong>Windows Desktop runtime</strong></td><td>Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer).</td></tr><tr><td><strong>ASP.NET Core runtime</strong></td><td>Only for web programs (<code>"RingDotNet.Web"</code>).</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>You need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Ring</strong> 1.28 or newer</td><td>The language. The package is a normal Ring package.</td></tr><tr><td><strong>.NET 6 or newer</strong> (tested with .NET 9)</td><td>The runtime that RingDotNet hosts inside the Ring process.</td></tr><tr><td><strong>Windows Desktop runtime</strong></td><td>Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer).</td></tr><tr><td><strong>ASP.NET Core runtime</strong></td><td>Only for web programs (<code>"RingDotNet.Web"</code>).</td></tr><tr><td><strong>.NET SDK</strong></td><td>Only to build C# libraries and to get NuGet packages (<code>dotnet publish</code>): <a href="tut-162-nuget.html">A NuGet package</a>.</td></tr></tbody></table></div>
 <div class="callout note"><span class="t">Note</span><p>The package is built and tested on Windows with Ring 1.28 and .NET 9. The C extension and the managed bridge are portable; the Windows Forms and WPF parts are Windows-only by nature.</p></div>
 <h2 id="install">Install<a class="anchor" href="#install">#</a></h2>
 <p>Install the package with <strong>RingPM</strong>, the Ring package manager, in one step:</p>

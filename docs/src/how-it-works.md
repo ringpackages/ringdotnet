@@ -52,7 +52,7 @@ Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `
 
 ## Results are wrapped by their real type
 
-When a method returns an object, the bridge sends the list of its type and base types. `dnWrapObject` looks for the **most specific** generated class (importing its namespace if needed) and creates it. If no class exists the result is a plain `DotNetObject` — use `callMethod` and `getProp` on it.
+When a method returns an object, the bridge sends the list of its type, its base types and its interfaces (the interface named after the class first, then the ones that inherit the most interfaces: a class that is not public is wrapped as its interface). `dnWrapObject` looks for the **most specific** generated class (importing its namespace if needed) and creates it. If no class exists the result is a plain `DotNetObject` — use `callMethod` and `getProp` on it.
 
 ## Callbacks: Ring code called from .NET
 
@@ -77,6 +77,8 @@ A call from Ring to .NET is a request that Ring packs, the extension sends to th
 - The bridge **remembers the overload** that it chose for a kind of arguments (the type; for a number, whole or not and its range; a text only when no overload could read it as an enum or another type), so a method with many overloads, such as `Math.Max`, costs about the same as a method with one.
 - A method that returns an **object**: the extension answers the type and the handle, and Ring makes the wrapper object of the generated class with its guard. The library keeps one ready object per wrapper class and copies it, because a copy is cheaper than `new`, which runs the class bodies and `init` of every parent class. Every wrapper object declares one attribute for each property of its class and of its parent classes (that is how `oBtn.Text = "x"` reaches `setText()`), so a class with many properties, such as a Windows Forms `Button`, costs more than a small one. Keep a returned object in a variable (`oButton = oForm.Controls.Item(0)`) and use the variable, instead of asking for it again in a loop.
 - The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks. A call with **named arguments** (`oMath.Round([ :value = 3.14159, :digits = 2 ])`) and a method with `out` or `ref` parameters are native too.
+- The bridge looks for a method in the object itself first, then in the public interfaces of its class (methods that the class implements explicitly), then among the **extension methods** of the loaded assemblies. The generator gives the Ring class of the extended type a method for each extension method, so the call reaches the bridge under the plain name; the first time, the generated method asks the bridge to load the assembly that holds the extension class.
+- Native libraries of a package (`runtimes/<system>-<architecture>/native` next to its DLL) are found when .NET asks for them, so a package such as SkiaSharp works without copying files.
 - Fewer crossings are better than faster crossings: `toList()` copies a whole collection in one request, and a loop that reads 500 items with `Item(i)` makes 500 requests.
 
 ## Packages

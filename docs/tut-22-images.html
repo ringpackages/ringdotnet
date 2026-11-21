@@ -196,24 +196,25 @@
 <a href="tut-61-maze.html">A maze</a>
 <a href="tut-62-filters.html">An image filter lab</a>
 <a href="tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="tut-19-callbacks.html">Callbacks and events</a>
 <a href="tut-20-reflection.html">Reflection</a>
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
-<a href="tut-161-common-errors.html">Common mistakes</a>
 <a href="tut-162-nuget.html">A NuGet package</a>
-<a href="tut-163-native.html">Native DLLs</a>
-<a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
-<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-167-excel.html">Excel files</a>
 <a href="tut-168-pictures.html">Pictures on every system</a>
 <a href="tut-169-pdf.html">PDF files</a>
 <a href="tut-170-speech.html">Text to speech</a>
+<a href="tut-164-sound.html">Sound</a>
+<a href="tut-163-native.html">Native DLLs</a>
 <a href="tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -342,7 +343,7 @@ STEP 6: resized copy is 120 x 80</code></pre></div>
 <figure class="shot"><img src="img/tutorials/tutorial22.png" alt="The drawing" loading="lazy"><figcaption>STEP 2: a rectangle, a circle, a line and a text (240 × 160)</figcaption></figure>
 <figure class="shot"><img src="img/tutorials/tutorial22-gray.png" alt="The gray copy" loading="lazy"><figcaption>STEP 5: the gray copy</figcaption></figure>
 <figure class="shot"><img src="img/tutorials/tutorial22-small.png" alt="The small copy" loading="lazy"><figcaption>STEP 6: the resized copy (120 × 80)</figcaption></figure>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnNew</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="drawing">Drawing<a class="anchor" href="#drawing">#</a></h3>
 <p><code>new Bitmap(240,160)</code> is an empty picture; <code>new Graphics().FromImage(oBitmap)</code> gives the drawing tool; <code>Clear(color)</code> fills the background. Then:</p>

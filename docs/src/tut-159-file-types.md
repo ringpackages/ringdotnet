@@ -18,7 +18,7 @@ lead: The name of a file is only a habit. Many formats start with a few fixed by
 
 {{output:samples/UsingDotNet/tutorials/ch05_file_types.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

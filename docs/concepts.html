@@ -196,24 +196,25 @@
 <a href="tut-61-maze.html">A maze</a>
 <a href="tut-62-filters.html">An image filter lab</a>
 <a href="tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="tut-19-callbacks.html">Callbacks and events</a>
 <a href="tut-20-reflection.html">Reflection</a>
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
 <a href="tut-160-generic-calls.html">The generic functions</a>
-<a href="tut-161-common-errors.html">Common mistakes</a>
 <a href="tut-162-nuget.html">A NuGet package</a>
-<a href="tut-163-native.html">Native DLLs</a>
-<a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
-<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-167-excel.html">Excel files</a>
 <a href="tut-168-pictures.html">Pictures on every system</a>
 <a href="tut-169-pdf.html">PDF files</a>
 <a href="tut-170-speech.html">Text to speech</a>
+<a href="tut-164-sound.html">Sound</a>
+<a href="tut-163-native.html">Native DLLs</a>
 <a href="tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="tut-161-common-errors.html">Common mistakes</a>
+<a href="tut-166-systems.html">More than one system</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -271,6 +272,7 @@ file.txt
 1</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p><strong>With arguments, write the parentheses</strong>: <code>new StringBuilder("Hello")</code>. Ring calls <code>init()</code> only when they are there. A class that needs no argument can be written with or without them, <code>new MemoryStream</code> or <code>new MemoryStream()</code>: Ring runs the code of the class body in both cases, and the class makes its default .NET object there. A few classes have a first constructor parameter that you may leave out (<code>StringBuilder</code>, <code>Random</code>, <code>Version</code>): for them write <code>new StringBuilder</code> (the default object) or <code>new StringBuilder("text")</code>; <code>new StringBuilder()</code> with empty parentheses is an error ("less number of parameters").</p></div>
 <p>Inheritance is real: <code>Button</code> derives from <code>ButtonBase</code>, <code>Control</code> and so on, so a method defined on the base class works on every derived object.</p>
+<p>When two namespaces have a class with the same short name, the later one gets the last part of its namespace as a prefix (<code>WpfButton</code>, <code>TimersTimer</code>): the <a href="api.html">Class reference</a> shows the name of every class, and <a href="generator.html">Class generator</a> explains the rule.</p>
 <h2 id="short-names-for-static-classes">Short names for static classes<a class="anchor" href="#short-names-for-static-classes">#</a></h2>
 <p>A class such as <code>Math</code>, <code>Path</code> or <code>File</code> has only static members, so <code>new Math()</code> just makes an object that gives access to them. If you prefer the .NET style, make that object once at the top of the program and give it the name of the class:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -372,6 +374,9 @@ aParsed = <span class="k">new</span> <span class="t">Int32</span>().<span class=
 oTable.<span class="f">AddColumn</span>(<span class="s">"Name"</span>)                <span class="c"># TableExtensions.AddColumn(oTable, "Name")</span>
 oTable.<span class="f">AddRow</span>([<span class="s">"Ann"</span>,<span class="s">"31"</span>])</code></pre></div>
 <p>The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. An extension method has the same rule of names as every method: when it has several forms, the name takes one parameter and the names of the parameters choose the form. Extension methods that have no class to join (a type of another assembly than the one that is wrapped, a generic type, <code>string</code>, <code>object</code> and the numbers) are static calls on the class that holds them: <code>new StringHumanizeExtensions().Humanize("PascalCaseText")</code>. A generic extension method whose type cannot be known from its parameters (<code>Cast&lt;T&gt;</code>) cannot be called from Ring.</p>
+<h2 id="interfaces-and-classes-that-are-not-public">Interfaces and classes that are not public<a class="anchor" href="#interfaces-and-classes-that-are-not-public">#</a></h2>
+<p>Many methods return an interface (<code>IServiceScope</code>, <code>ICollection</code>) or an object of a class that is not public (a row of a database library, for example). The object is wrapped as the <strong>interface named after the class</strong> when there is one (<code>XLWorksheet</code> comes back as <code>IXLWorksheet</code>), otherwise as the most specific interface that has a Ring class. A wrapped interface has the members that it inherits from other interfaces (<code>oScope.Dispose()</code> from <code>IDisposable</code>, <code>oKeys.GetEnumerator()</code> on an <code>ICollection</code>), and the methods that a class implements explicitly are found through its public interfaces.</p>
+<p>A parameter of the type <code>System.Enum</code> does not say which enum it takes, so the text gives the full name of the member: <code>"System.DayOfWeek.Friday"</code>.</p>
 <h2 id="generics">Generics<a class="anchor" href="#generics">#</a></h2>
 <p>The most useful closed generic types have classes: <code>StringList</code>, <code>NumberList</code>, <code>ObjectList</code> (<code>List&lt;T&gt;</code>), <code>StringDictionary</code>, <code>NumberDictionary</code>, <code>ObjectDictionary</code> (<code>Dictionary&lt;string,T&gt;</code>), <code>StringSet</code>, <code>StringQueue</code>, <code>StringStack</code>. See <a href="collections-linq.html">Collections &amp; LINQ</a>.</p>
 <p>Any other closed generic type can be created without a class:</p>

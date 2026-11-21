@@ -196,24 +196,25 @@
 <a href="../tut-61-maze.html">A maze</a>
 <a href="../tut-62-filters.html">An image filter lab</a>
 <a href="../tut-63-chat.html">A chat over TCP</a>
-<h4>Tutorials: Libraries, testing and release</h4>
+<h4>Tutorials: Libraries and packages</h4>
 <a href="../tut-19-callbacks.html">Callbacks and events</a>
 <a href="../tut-20-reflection.html">Reflection</a>
 <a href="../tut-151-inspector.html">An object inspector</a>
 <a href="../tut-87-expressions.html">Expression trees</a>
 <a href="../tut-18-csharp-library.html">A C# library</a>
 <a href="../tut-160-generic-calls.html">The generic functions</a>
-<a href="../tut-161-common-errors.html">Common mistakes</a>
 <a href="../tut-162-nuget.html">A NuGet package</a>
-<a href="../tut-163-native.html">Native DLLs</a>
-<a href="../tut-164-sound.html">Sound</a>
 <a href="../tut-165-qr.html">A QR code</a>
-<a href="../tut-166-systems.html">More than one system</a>
 <a href="../tut-167-excel.html">Excel files</a>
 <a href="../tut-168-pictures.html">Pictures on every system</a>
 <a href="../tut-169-pdf.html">PDF files</a>
 <a href="../tut-170-speech.html">Text to speech</a>
+<a href="../tut-164-sound.html">Sound</a>
+<a href="../tut-163-native.html">Native DLLs</a>
 <a href="../tut-171-csv-to-excel.html">A project: from CSV to Excel</a>
+<h4>Tutorials: Testing and release</h4>
+<a href="../tut-161-common-errors.html">Common mistakes</a>
+<a href="../tut-166-systems.html">More than one system</a>
 <a href="../tut-28-testing.html">Testing</a>
 <a href="../tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -413,6 +414,7 @@
 <details class="cls" id="c-IConfigurationManager"><summary><b>IConfigurationManager</b> <span class="muted">interface</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Configuration.IConfigurationManager</code> · assembly <code>Microsoft.Extensions.Configuration.Abstractions</code></p>
+<h4>Indexer</h4><p><code>o.Item(string key)</code> → <code>string</code> · <code>o.SetItem(key,value)</code></p>
 </div></details>
 <details class="cls" id="c-IConfigurationProvider"><summary><b>IConfigurationProvider</b> <span class="muted">interface</span></summary>
 <div class="clsbody">
@@ -423,12 +425,14 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Configuration.IConfigurationRoot</code> · assembly <code>Microsoft.Extensions.Configuration.Abstractions</code></p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Providers</code></td><td><code>IEnumerable&lt;IConfigurationProvider&gt;</code></td><td>read</td><td><code>o.Providers</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(string key)</code> → <code>string</code> · <code>o.SetItem(key,value)</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Reload</code></td><td><span class="muted">—</span></td><td><code>void Reload()</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-IConfigurationSection"><summary><b>IConfigurationSection</b> <span class="muted">interface</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Configuration.IConfigurationSection</code> · assembly <code>Microsoft.Extensions.Configuration.Abstractions</code></p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Key</code></td><td><code>string</code></td><td>read</td><td><code>o.Key</code></td></tr><tr><td><code>Path</code></td><td><code>string</code></td><td>read</td><td><code>o.Path</code></td></tr><tr><td><code>Value</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Value</code> <code>o.Value = v</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(string key)</code> → <code>string</code> · <code>o.SetItem(key,value)</code></p>
 </div></details>
 <details class="cls" id="c-IConfigurationSource"><summary><b>IConfigurationSource</b> <span class="muted">interface</span></summary>
 <div class="clsbody">

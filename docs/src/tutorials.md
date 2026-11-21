@@ -41,7 +41,8 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only). |
 | [WPF](#wpf) | XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only). |
 | [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only). |
-| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, the common mistakes, a NuGet package, native DLLs, sound, a QR code, more than one system, Excel files, pictures on every system, PDF files, text to speech, a project with three packages, testing, and giving your program to others. |
+| [Libraries and packages](#libraries-and-packages) | Giving Ring code to .NET (callbacks and events), reflection and expression trees, an object inspector, a library written in C#, the generic functions, and then NuGet packages and native code: a NuGet package, a QR code, Excel files, pictures, PDF files, text to speech, sound, native DLLs, and a project that uses three packages together. |
+| [Testing and release](#testing-and-release) | The common mistakes, programs that run on more than one system, testing your programs, and giving a program to other people. |
 
 ## Where to start
 
@@ -56,7 +57,8 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | store data | **Databases and services** |
 | protect data and users | **Security** |
 | build programs with windows | **Windows Forms**, then **WPF** and **Projects with windows** |
-| go deeper: callbacks, reflection, your own C# library, tests | **Libraries, testing and release** |
+| go deeper: callbacks, reflection, your own C# library, NuGet packages | **Libraries and packages** |
+| find and fix mistakes, test and give away a program | **Testing and release** |
 | give your program to other people | the tutorial [Giving your program to others](tut-119-distribution.html) |
 
 ## The basics
@@ -295,9 +297,9 @@ Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an addre
 <a class="card" href="tut-63-chat.html"><div class="ic">🧩</div><b>A chat over TCP</b><span>A relay server, two clients and a timer that polls the sockets.</span></a>
 </div>
 
-## Libraries, testing and release
+## Libraries and packages
 
-Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, testing, and giving your program to others.
+Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, a library written in C#, and the generic functions; then **NuGet packages** and native code: how a package comes to Ring, a QR code, Excel files, pictures, PDF files, text to speech, sound, native DLLs, and a project that uses three packages together.
 
 <div class="cards">
 <a class="card" href="tut-19-callbacks.html"><div class="ic">📦</div><b>Callbacks and events</b><span>Give Ring code to .NET: function names, code texts, events, errors and the thread rule.</span></a>
@@ -306,17 +308,24 @@ Giving Ring code to .NET (callbacks and events), exploring code with reflection 
 <a class="card" href="tut-87-expressions.html"><div class="ic">📦</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
 <a class="card" href="tut-18-csharp-library.html"><div class="ic">📦</div><b>A library written in C#</b><span>Build a small C# library, wrap it and call it from Ring.</span></a>
 <a class="card" href="tut-160-generic-calls.html"><div class="ic">📦</div><b>The generic functions</b><span>dnNewGeneric, dnType, dnNew with names, dnStatic, callMethod and getProp: what to use when there is no class.</span></a>
-<a class="card" href="tut-161-common-errors.html"><div class="ic">📦</div><b>Common mistakes</b><span>The seven errors of the first weeks, made on purpose: the message, what it means and the fix.</span></a>
 <a class="card" href="tut-162-nuget.html"><div class="ic">📦</div><b>A NuGet package</b><span>From nuget.org to a Ring program: a project file, dotnet publish, the generator, and what to check when a package does not work.</span></a>
-<a class="card" href="tut-163-native.html"><div class="ic">📦</div><b>Native DLLs</b><span>P/Invoke: a few lines of C# give a function of kernel32 or user32 to Ring; numbers, texts, buffers, structures and errors.</span></a>
-<a class="card" href="tut-164-sound.html"><div class="ic">📦</div><b>Sound</b><span>A WAV file made from numbers, played with SoundPlayer; wrapping a framework class that has no Ring class.</span></a>
 <a class="card" href="tut-165-qr.html"><div class="ic">📦</div><b>A QR code</b><span>A second NuGet package: QRCoder makes a code, printed as text and written as a PNG; error-correction levels and parameters by name.</span></a>
-<a class="card" href="tut-166-systems.html"><div class="ic">📦</div><b>More than one system</b><span>One program on Windows and on Linux: paths, upper and lower case, line ends, folders, and keeping windows behind isWindows().</span></a>
 <a class="card" href="tut-167-excel.html"><div class="ic">📦</div><b>Excel files</b><span>ClosedXML from nuget.org: write a sheet with formulas and a bold header, read it back, and use a package that works with interfaces.</span></a>
 <a class="card" href="tut-168-pictures.html"><div class="ic">📦</div><b>Pictures on every system</b><span>SkiaSharp: draw a circle and text, read pixels, save and read PNG on Windows and Linux; a package with a native library.</span></a>
 <a class="card" href="tut-169-pdf.html"><div class="ic">📦</div><b>PDF files</b><span>PDFsharp from nuget.org: pages in points, text, lines and fonts, and reading the file back to check it.</span></a>
 <a class="card" href="tut-170-speech.html"><div class="ic">📦</div><b>Text to speech</b><span>System.Speech: the voices of Windows, speech written to a WAV file for a silent test, the rate, and a package with a DLL for each system.</span></a>
+<a class="card" href="tut-164-sound.html"><div class="ic">📦</div><b>Sound</b><span>A WAV file made from numbers, played with SoundPlayer; wrapping a framework class that has no Ring class.</span></a>
+<a class="card" href="tut-163-native.html"><div class="ic">📦</div><b>Native DLLs</b><span>P/Invoke: a few lines of C# give a function of kernel32 or user32 to Ring; numbers, texts, buffers, structures and errors.</span></a>
 <a class="card" href="tut-171-csv-to-excel.html"><div class="ic">📦</div><b>A project: from CSV to Excel</b><span>Three packages in one program: CsvHelper reads, LiteDB stores and finds, ClosedXML writes an Excel report.</span></a>
+</div>
+
+## Testing and release
+
+The mistakes that everybody makes first and their messages, programs that run on more than one system, testing your programs, and giving a program to other people.
+
+<div class="cards">
+<a class="card" href="tut-161-common-errors.html"><div class="ic">📦</div><b>Common mistakes</b><span>The seven errors of the first weeks, made on purpose: the message, what it means and the fix.</span></a>
+<a class="card" href="tut-166-systems.html"><div class="ic">📦</div><b>More than one system</b><span>One program on Windows and on Linux: paths, upper and lower case, line ends, folders, and keeping windows behind isWindows().</span></a>
 <a class="card" href="tut-28-testing.html"><div class="ic">📦</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
 <a class="card" href="tut-119-distribution.html"><div class="ic">📦</div><b>Giving your program to others</b><span>Ring2EXE, what the other computer needs, a self check.</span></a>
 </div>

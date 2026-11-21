@@ -20,7 +20,7 @@ The tutorial [Speed — measure first](tut-53-speed.html) measured how fast call
 
 {{output:samples/UsingDotNet/tutorials/ch09_memory_cache.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

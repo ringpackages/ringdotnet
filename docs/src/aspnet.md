@@ -99,7 +99,7 @@ end
 
 ## All of ASP.NET Core
 
-The ASP.NET Core classes are wrapped too: `Microsoft.AspNetCore.*` (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), `Microsoft.Extensions.*` (DependencyInjection, Configuration, Logging, Hosting, Caching...) and `Microsoft.Net.Http.Headers`. Class names that clash with other namespaces start with `Asp`.
+The ASP.NET Core classes are wrapped too: `Microsoft.AspNetCore.*` (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), `Microsoft.Extensions.*` (DependencyInjection, Configuration, Logging, Hosting, Caching...) and `Microsoft.Net.Http.Headers`. Class names that clash with other namespaces start with `Asp`. Extension methods (`AddSingleton`, `AddAuthentication`, `BuildServiceProvider`...) are methods of the classes that they extend ([Core concepts](concepts.html#extension-methods)).
 
 ```ring
 using { "Microsoft.AspNetCore.Http" }

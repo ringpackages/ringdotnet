@@ -22,7 +22,7 @@ The tutorial [Cultures](tut-33-cultures.html) shows that the same format gives d
 
 {{output:samples/UsingDotNet/tutorials/ch02_formatting.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

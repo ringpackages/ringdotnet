@@ -105,4 +105,4 @@ Several assemblies can go into one folder (the index of the classes keeps the ty
 ## Where to go next
 
 - [Class generator](generator.html): how the wrapper classes are made, and how to make more.
-- The tutorial chapter [Libraries, testing and release](tutorials.html#libraries-testing-and-release).
+- The tutorial chapter [Libraries and packages](tutorials.html#libraries-and-packages).

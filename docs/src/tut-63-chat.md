@@ -70,4 +70,4 @@ The checks of this program are in a separate file, `selftest/ch12_chat.ring`:
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Projects with windows**. The next chapter is **Libraries, testing and release**: it starts with [Callbacks and events](tut-19-callbacks.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Projects with windows**. The next chapter is **Libraries and packages**: it starts with [Callbacks and events](tut-19-callbacks.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

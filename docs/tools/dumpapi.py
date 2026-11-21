@@ -11,26 +11,36 @@ OUT = os.path.join(HERE, "api-data")
 RING = os.environ.get("RING_EXE", "B:/ring/bin/ring.exe")
 
 
+def qualified_names(ns, nets):
+    """{Ring class: assembly qualified .NET name}: the generated code of a class has its type as 'Namespace.Type, Assembly'"""
+    result = {}
+    path = os.path.join(GEN, ns + ".classes.ring")
+    if not os.path.exists(path):
+        return result
+    text = open(path, encoding="utf-8").read()
+    for block in text.split("\nClass ")[1:]:
+        name = re.match(r"(\w+)", block).group(1)
+        net = nets.get(name)
+        if not net:
+            continue
+        q = re.search(r"'(" + re.escape(net) + r", [^']+)'", block)
+        if q:
+            result[name] = q.group(1)
+    return result
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     lines = []
     for loader in sorted(os.listdir(GEN)):
-        if not loader.endswith(".ring") or loader == "classindex.ring":
+        if not loader.endswith(".ring") or loader.endswith(".classes.ring") or loader == "classindex.ring":
             continue
         ns = loader[:-5]
-        if not os.path.isdir(os.path.join(GEN, ns)):
-            continue
         text = open(os.path.join(GEN, loader), encoding="utf-8").read()
-        for m in re.finditer(r'dnRegisterClass\("([^"]+)","([^"]+)",\d+\)', text):
-            net, cls = m.group(1), m.group(2)
-            path = os.path.join(GEN, ns, cls + ".ring")
-            qualified = net
-            if os.path.exists(path):
-                src = open(path, encoding="utf-8").read()
-                q = re.search(r"dnTypeCached\('([^']+)'\)|dnCreate\('([^']+)'", src)
-                if q:
-                    qualified = q.group(1) or q.group(2)
-            lines.append("\t".join([ns, cls, qualified]))
+        registered = re.findall(r'dnRegisterClass\("([^"]+)","([^"]+)",\d+\)', text)
+        names = qualified_names(ns, {cls: net for net, cls in registered})
+        for net, cls in registered:
+            lines.append("	".join([ns, cls, names.get(cls, net)]))
     types = os.path.join(OUT, "types.txt")
     with open(types, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")

@@ -20,7 +20,7 @@ The same pattern makes e-mails, invoices and reports: a template, data, and a fu
 
 {{output:samples/UsingDotNet/tutorials/ch02_mailmerge.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

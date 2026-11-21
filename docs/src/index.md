@@ -43,7 +43,7 @@ The classes are real Ring classes with the same method names as the .NET ones �
 <a class="card" href="aspnet.html"><div class="ic">🌐</div><b>ASP.NET Core</b><span>A Kestrel web server whose routes are Ring functions. JSON in one call.</span></a>
 <a class="card" href="ef.html"><div class="ic">🗄️</div><b>Entity Framework Core</b><span>Tables, relations, migrations, queries as expression trees, typed entities.</span></a>
 <a class="card" href="api.html"><div class="ic">📖</div><b>Class reference</b><span>Every wrapped class: constructors, properties, methods with their Ring calls, events — @CLASSES@ types.</span></a>
-<a class="card" href="own-assemblies.html"><div class="ic">📦</div><b>Your own assemblies</b><span>Wrap any DLL or NuGet package with one command and use it like the built-in classes.</span></a>
+<a class="card" href="own-assemblies.html"><div class="ic">📦</div><b>Your own assemblies</b><span>Wrap any DLL or NuGet package with one command and use it like the built-in classes: Excel, PDF, pictures, QR codes, databases and more.</span></a>
 <a class="card" href="gallery-apps.html"><div class="ic">🎮</div><b>@APPS@ applications</b><span>Calculator, Notepad, Paint, Tetris, Sudoku, Minesweeper and more — each tests itself.</span></a>
 </div>
 

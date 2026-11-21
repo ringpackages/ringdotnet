@@ -22,7 +22,7 @@ The tutorial [Exploring .NET with reflection](tut-20-reflection.html) asked a *t
 
 {{output:samples/UsingDotNet/tutorials/ch13_inspector.ring --selftest}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnNew`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 

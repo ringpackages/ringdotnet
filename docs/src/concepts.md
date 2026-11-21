@@ -24,6 +24,8 @@ new Console().WriteLine("Hi")           # static members are called on an instan
 
 Inheritance is real: `Button` derives from `ButtonBase`, `Control` and so on, so a method defined on the base class works on every derived object.
 
+When two namespaces have a class with the same short name, the later one gets the last part of its namespace as a prefix (`WpfButton`, `TimersTimer`): the [Class reference](api.html) shows the name of every class, and [Class generator](generator.html) explains the rule.
+
 ## Short names for static classes
 
 A class such as `Math`, `Path` or `File` has only static members, so `new Math()` just makes an object that gives access to them. If you prefer the .NET style, make that object once at the top of the program and give it the name of the class:
@@ -197,6 +199,12 @@ oTable.AddRow(["Ann","31"])
 ```
 
 The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. An extension method has the same rule of names as every method: when it has several forms, the name takes one parameter and the names of the parameters choose the form. Extension methods that have no class to join (a type of another assembly than the one that is wrapped, a generic type, `string`, `object` and the numbers) are static calls on the class that holds them: `new StringHumanizeExtensions().Humanize("PascalCaseText")`. A generic extension method whose type cannot be known from its parameters (`Cast<T>`) cannot be called from Ring.
+
+## Interfaces and classes that are not public
+
+Many methods return an interface (`IServiceScope`, `ICollection`) or an object of a class that is not public (a row of a database library, for example). The object is wrapped as the **interface named after the class** when there is one (`XLWorksheet` comes back as `IXLWorksheet`), otherwise as the most specific interface that has a Ring class. A wrapped interface has the members that it inherits from other interfaces (`oScope.Dispose()` from `IDisposable`, `oKeys.GetEnumerator()` on an `ICollection`), and the methods that a class implements explicitly are found through its public interfaces.
+
+A parameter of the type `System.Enum` does not say which enum it takes, so the text gives the full name of the member: `"System.DayOfWeek.Friday"`.
 
 ## Generics
 

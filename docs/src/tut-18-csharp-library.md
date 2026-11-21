@@ -60,7 +60,7 @@ dotnet build Greeter -c Release -o Greeter/bin
 
 ### What the wrapper made
 
-Open `Greeter/classes/Tutorial.Greetings/Greeter.ring`: it is a plain Ring class with one method per C# method. Nothing is hidden.
+Open `Greeter/classes/Tutorial.Greetings.classes.ring`: it has a plain Ring class for each C# class, with one method per C# method. Nothing is hidden.
 
 ## Using a NuGet package
 

@@ -19,7 +19,7 @@ The tutorial [JSON and XML](tut-06-json-xml.html) read and wrote JSON as a tree 
 
 {{output:samples/UsingDotNet/tutorials/ch02_json_writer.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnNewGeneric`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 
