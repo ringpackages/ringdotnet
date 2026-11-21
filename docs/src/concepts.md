@@ -121,7 +121,7 @@ oForm = new Form() {
 oForm { Height = 300  Text += "!" }
 ```
 
-Assigning a read-only property raises an error. Properties whose names are Ring keywords (`From`, `To`, `Step`, `On` ...) are not attributes: use `getFrom()` / `setFrom(value)`.
+Assigning a read-only property raises an error. Most properties named like Ring words (`From`, `To`, `Step`, `On`...) are read and set like any other (`oMessage.From = ...`). The few that Ring reserves after a dot (`Get`, `Next`, `End`, `Load`...) are read with `getProp("Name")` and set with `setProp("Name", value)`.
 
 {{output:samples/UsingDotNet/introduction/test07_properties.ring}}
 

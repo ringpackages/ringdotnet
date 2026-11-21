@@ -321,7 +321,7 @@ oSB = <span class="f">dnNew</span>(<span class="s">"StringBuilder"</span>,[ :val
 }
 ? oForm.Controls.Count                 <span class="c"># chained: Controls returns a ControlCollection</span>
 oForm { Height = <span class="n">300</span>  Text += <span class="s">"!"</span> }</code></pre></div>
-<p>Assigning a read-only property raises an error. Properties whose names are Ring keywords (<code>From</code>, <code>To</code>, <code>Step</code>, <code>On</code> ...) are not attributes: use <code>getFrom()</code> / <code>setFrom(value)</code>.</p>
+<p>Assigning a read-only property raises an error. Most properties named like Ring words (<code>From</code>, <code>To</code>, <code>Step</code>, <code>On</code>...) are read and set like any other (<code>oMessage.From = ...</code>). The few that Ring reserves after a dot (<code>Get</code>, <code>Next</code>, <code>End</code>, <code>Load</code>...) are read with <code>getProp("Name")</code> and set with <code>setProp("Name", value)</code>.</p>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Length    = 5
 Truncated = Hel
 Math.PI   = 3.14

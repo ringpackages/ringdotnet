@@ -51,7 +51,7 @@ In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) 
 
 ### Keywords are not available as names
 
-`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... are Ring keywords, so they are not used as variable or function names, in any letter case. `oK` is `ok`. Names that are keywords get an `@` at the start in the generated classes (`@ForEach`, `@Exit`) and properties with a keyword name use `getFrom()` / `setFrom(value)`.
+`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... are Ring keywords, so they are not used as variable or function names, in any letter case. `oK` is `ok`. This is about your own names. In the generated classes a method that Ring reserves after a dot gets an `@` at the start (`@ForEach`, `@Next`), and a property with such a name is read with `getProp` and set with `setProp`.
 
 Do not define your own functions named like built-ins the library uses (`isNumber`, `len`...).
 
