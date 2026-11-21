@@ -382,20 +382,20 @@ namespace RingDotNet
 
 		private List<object> ToPairs(Table table, Dictionary<string, object> row)
 		{
-			List<object> pairs = new List<object>();
+			List<object> pairs = new RingList();
 			foreach (Column column in table.Columns)
 			{
 				object value = row.TryGetValue(column.Name, out object v) ? v : null;
 				if (value is DateTime date) value = date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 				else if (value is byte[] bytes) value = Convert.ToHexString(bytes).ToLowerInvariant();
-				pairs.Add(new List<object> { column.Name, value });
+				pairs.Add(new RingList { column.Name, value });
 			}
 			return pairs;
 		}
 
 		private List<object> Rows(Table table, IEnumerable<Dictionary<string, object>> rows)
 		{
-			List<object> list = new List<object>();
+			List<object> list = new RingList();
 			foreach (Dictionary<string, object> row in rows) list.Add(ToPairs(table, row));
 			return list;
 		}
@@ -433,11 +433,11 @@ namespace RingDotNet
 			Table table = Find(entity);
 			Column c = table.Columns.Find(x => string.Equals(x.Name, column, StringComparison.OrdinalIgnoreCase));
 			if (c == null) throw new ArgumentException("Unknown column " + column + " in " + table.Name);
-			return new List<object> {
-				new List<object> { "name", c.Name }, new List<object> { "type", (Nullable.GetUnderlyingType(c.Type) ?? c.Type).Name },
-				new List<object> { "key", c.Key ? 1 : 0 }, new List<object> { "nullable", c.Nullable ? 1 : 0 },
-				new List<object> { "required", c.Required ? 1 : 0 }, new List<object> { "unique", c.Unique ? 1 : 0 },
-				new List<object> { "index", c.Index ? 1 : 0 }, new List<object> { "maxlength", c.MaxLength } };
+			return new RingList {
+				new RingList { "name", c.Name }, new RingList { "type", (Nullable.GetUnderlyingType(c.Type) ?? c.Type).Name },
+				new RingList { "key", c.Key ? 1 : 0 }, new RingList { "nullable", c.Nullable ? 1 : 0 },
+				new RingList { "required", c.Required ? 1 : 0 }, new RingList { "unique", c.Unique ? 1 : 0 },
+				new RingList { "index", c.Index ? 1 : 0 }, new RingList { "maxlength", c.MaxLength } };
 		}
 
 		/* Add a row: returns its key (generated for int/long keys) */
@@ -450,7 +450,7 @@ namespace RingDotNet
 			SaveIfAuto();
 			if (!AutoSave) return null;
 			if (table.Keys.Count == 1) return row[table.KeyColumn.Name];
-			return table.Keys.Select(k => row[k.Name]).ToList();
+			return table.Keys.Select(k => row[k.Name]).ToRingList();
 		}
 
 		/* The row with the key, or null */
@@ -572,7 +572,7 @@ namespace RingDotNet
 			Table related = Find(relatedEntity);
 			List<Dictionary<string, object>> rows = SetOf(table).AsNoTracking().ToList();
 			List<Dictionary<string, object>> others = SetOf(related).AsNoTracking().ToList();
-			List<object> result = new List<object>();
+			List<object> result = new RingList();
 			Column down = ForeignKeyTo(related, table);
 			Column up = ForeignKeyTo(table, related);
 			if (down == null && up == null) throw new ArgumentException(table.Name + " and " + related.Name + " are not related");
@@ -582,12 +582,12 @@ namespace RingDotNet
 				if (down != null)
 				{
 					object id = row[table.KeyColumn.Name];
-					List<object> children = new List<object>();
+					List<object> children = new RingList();
 					foreach (Dictionary<string, object> other in others)
 					{
 						if (other.TryGetValue(down.Name, out link) && link != null && Convert.ToString(link, CultureInfo.InvariantCulture) == Convert.ToString(id, CultureInfo.InvariantCulture)) children.Add(ToPairs(related, other));
 					}
-					result.Add(new List<object> { ToPairs(table, row), children });
+					result.Add(new RingList { ToPairs(table, row), children });
 				}
 				else
 				{
@@ -599,7 +599,7 @@ namespace RingDotNet
 							if (Convert.ToString(other[related.KeyColumn.Name], CultureInfo.InvariantCulture) == Convert.ToString(link, CultureInfo.InvariantCulture)) { parentRow = ToPairs(related, other); break; }
 						}
 					}
-					result.Add(new List<object> { ToPairs(table, row), parentRow });
+					result.Add(new RingList { ToPairs(table, row), parentRow });
 				}
 			}
 			return result;
@@ -710,7 +710,7 @@ namespace RingDotNet
 		public List<object> Migrate()
 		{
 			RequireSqlite("Migrate");
-			List<object> changes = new List<object>();
+			List<object> changes = new RingList();
 			List<string> existingTables = Names("SELECT name AS Value FROM sqlite_master WHERE type = 'table'");
 			string script = Database.GenerateCreateScript();
 			List<string> statements = script.Split(';').Select(x => x.Trim()).Where(x => x.Length > 0).ToList();
@@ -783,7 +783,7 @@ namespace RingDotNet
 		{
 			RequireSqlite("Applied");
 			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
-			return Names("SELECT Name AS Value FROM RingMigrations ORDER BY AppliedAt, Name").Cast<object>().ToList();
+			return Names("SELECT Name AS Value FROM RingMigrations ORDER BY AppliedAt, Name").Cast<object>().ToRingList();
 		}
 
 		// ------------------------------------------------------------------ queries built as LINQ expression trees
@@ -929,10 +929,10 @@ namespace RingDotNet
 			if (take >= 0) query = query.Take(take);
 			List<object> rows = Rows(table, query.ToList());
 			if (select == null) return rows;
-			List<object> projected = new List<object>();
+			List<object> projected = new RingList();
 			foreach (object r in rows)
 			{
-				List<object> kept = new List<object>();
+				List<object> kept = new RingList();
 				foreach (object o in select)
 				{
 					string name = ColumnOf(table, o).Name;
@@ -976,12 +976,12 @@ namespace RingDotNet
 		{
 			Table table = Find(entity);
 			Column column = ColumnOf(table, columnName);
-			List<object> result = new List<object>();
+			List<object> result = new RingList();
 			var groups = Filtered(table, condition).ToList().GroupBy(r => r.TryGetValue(column.Name, out object v) ? v : null);
 			foreach (var g in groups.OrderBy(g => Convert.ToString(g.Key, CultureInfo.InvariantCulture)))
 			{
 				object key = g.Key is DateTime d ? d.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture) : g.Key;
-				result.Add(new List<object> { key, (long)g.Count() });
+				result.Add(new RingList { key, (long)g.Count() });
 			}
 			return result;
 		}
@@ -1015,10 +1015,10 @@ namespace RingDotNet
 				using (DbCommand command = SqlCommand(connection, sql, parameters))
 				using (DbDataReader reader = command.ExecuteReader())
 				{
-					List<object> rows = new List<object>();
+					List<object> rows = new RingList();
 					while (reader.Read())
 					{
-						List<object> row = new List<object>();
+						List<object> row = new RingList();
 						for (int i = 0; i < reader.FieldCount; i++)
 						{
 							object value = reader.GetValue(i);
@@ -1026,7 +1026,7 @@ namespace RingDotNet
 							else if (value is DateTime date) value = date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 							else if (value is byte[] bytes) value = Convert.ToHexString(bytes).ToLowerInvariant();
 							else if (value is long l && l >= int.MinValue && l <= int.MaxValue) value = (int)l;
-							row.Add(new List<object> { reader.GetName(i), value });
+							row.Add(new RingList { reader.GetName(i), value });
 						}
 						rows.Add(row);
 					}
@@ -1058,13 +1058,13 @@ namespace RingDotNet
 		/* The changes that are waiting to be saved: [ [table, state, row], ... ] state: Added, Modified, Deleted */
 		public List<object> PendingChanges()
 		{
-			List<object> list = new List<object>();
+			List<object> list = new RingList();
 			foreach (EntityEntry entry in ChangeTracker.Entries())
 			{
 				if (entry.State != EntityState.Added && entry.State != EntityState.Modified && entry.State != EntityState.Deleted) continue;
 				if (!(entry.Entity is Dictionary<string, object> row)) continue;
 				Table table = Find(entry.Metadata.Name);
-				list.Add(new List<object> { table.Name, entry.State.ToString(), ToPairs(table, row) });
+				list.Add(new RingList { table.Name, entry.State.ToString(), ToPairs(table, row) });
 			}
 			return list;
 		}

@@ -269,7 +269,7 @@ namespace RingDotNet
 				case float f: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(((double)f).ToString("R", Inv))); return;
 				case sbyte or byte or short or ushort or int or uint or long or ulong:
 					WriteItem(ms, 'n', Encoding.ASCII.GetBytes(Convert.ToString(value, Inv))); return;
-				case List<object> list when list.GetType() == typeof(List<object>):
+				case List<object> list when RingList.IsResult(list):
 					{
 						MemoryStream inner = new MemoryStream();
 						foreach (object item in list) { Encode(inner, item); }
@@ -403,7 +403,7 @@ namespace RingDotNet
 				case "listnamespaces":
 					return ListNamespaces(Str(a, 0));
 				case "enumnames":
-					return new List<object>(Enum.GetNames(TypeOf(a, 0)));
+					return new RingList(Enum.GetNames(TypeOf(a, 0)));
 				case "apidoc":
 					return ApiDoc(ResolveType(Str(a, 0)));
 				case "describe":
@@ -690,7 +690,7 @@ namespace RingDotNet
 		   because the message loop makes the WM_CHAR message of a key (like for the real keyboard) after the keys that are already queued. */
 		private static List<object> KeyTokens(string sequence)
 		{
-			List<object> tokens = new List<object>();
+			List<object> tokens = new RingList();
 			for (int i = 0; i < sequence.Length; i++)
 			{
 				if (sequence[i] == '{')
@@ -753,7 +753,7 @@ namespace RingDotNet
 			{
 				if (t.Namespace != null) found.Add(t.Namespace);
 			}
-			return new List<object>(found);
+			return new RingList(found);
 		}
 
 		/* Public classes and structs of a namespace that are worth wrapping in Ring */
@@ -781,7 +781,7 @@ namespace RingDotNet
 				}
 			}
 			found.Sort(StringComparer.Ordinal);
-			return new List<object>(found);
+			return new RingList(found);
 		}
 
 		private static List<object> ListTypes(string ns, object[] assemblyNames)
@@ -819,7 +819,7 @@ namespace RingDotNet
 				}
 			}
 			found.Sort(StringComparer.Ordinal);
-			return new List<object>(found);
+			return new RingList(found);
 		}
 
 		private static string TName(Type t)
@@ -886,7 +886,7 @@ namespace RingDotNet
 
 		private static List<object> ApiParams(MethodBase m)
 		{
-			List<object> list = new List<object>();
+			List<object> list = new RingList();
 			foreach (ParameterInfo p in m.GetParameters())
 			{
 				Dictionary<string, object> d = new Dictionary<string, object>();
@@ -915,7 +915,7 @@ namespace RingDotNet
 			if (t.BaseType != null && !SkipDeclaring(t.BaseType)) { r["base"] = Pretty(t.BaseType); r["basefull"] = t.BaseType.FullName ?? ""; }
 			r["interfaces"] = t.GetInterfaces().Where(i => i.IsPublic && (i.Namespace ?? "").StartsWith("System") && !i.IsGenericType).Select(Pretty).Take(12).ToList();
 			if (t.IsEnum) r["values"] = Enum.GetNames(t).ToList();
-			List<object> ctors = new List<object>();
+			List<object> ctors = new RingList();
 			if (!t.IsAbstract)
 			{
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
@@ -924,7 +924,7 @@ namespace RingDotNet
 				}
 			}
 			r["ctors"] = ctors;
-			List<object> methods = new List<object>();
+			List<object> methods = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				foreach (MethodInfo m in t.GetMethods(f))
@@ -941,8 +941,8 @@ namespace RingDotNet
 				}
 			}
 			r["methods"] = methods;
-			List<object> props = new List<object>();
-			List<object> fields = new List<object>();
+			List<object> props = new RingList();
+			List<object> fields = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				foreach (PropertyInfo p in t.GetProperties(f))
@@ -972,7 +972,7 @@ namespace RingDotNet
 			}
 			r["props"] = props;
 			r["fields"] = fields;
-			List<object> indexers = new List<object>();
+			List<object> indexers = new RingList();
 			foreach (PropertyInfo p in InterfaceAware(t).SelectMany(x => x.GetProperties(BindingFlags.Public | BindingFlags.Instance)))
 			{
 				ParameterInfo[] ips = p.GetIndexParameters();
@@ -983,7 +983,7 @@ namespace RingDotNet
 				}
 			}
 			r["indexers"] = indexers;
-			List<object> events = new List<object>();
+			List<object> events = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				foreach (EventInfo ev in t.GetEvents(f))
@@ -1028,7 +1028,7 @@ namespace RingDotNet
 
 		private static List<object> ParamTypes(MethodBase m)
 		{
-			List<object> list = new List<object>();
+			List<object> list = new RingList();
 			foreach (ParameterInfo p in m.GetParameters())
 			{
 				if (IsOutOnly(p)) continue;
@@ -1081,7 +1081,7 @@ namespace RingDotNet
 
 		private static List<object> Describe(Type t)
 		{
-			List<object> ctors = new List<object>();
+			List<object> ctors = new RingList();
 			if (!t.IsAbstract)
 			{
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
@@ -1092,11 +1092,11 @@ namespace RingDotNet
 					/* optional parameters: the constructor is also available with fewer parameters */
 					for (int cut = types.Count - 1; cut >= RequiredCount(c); cut--)
 					{
-						ctors.Add(types.GetRange(0, cut));
+						ctors.Add(new RingList(types.GetRange(0, cut)));
 					}
 				}
 			}
-			List<object> methods = new List<object>();
+			List<object> methods = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				HashSet<string> seenMethods = new HashSet<string>();
@@ -1104,10 +1104,10 @@ namespace RingDotNet
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
+					methods.Add(new RingList { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
 				}
 			}
-			List<object> members = new List<object>();
+			List<object> members = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				HashSet<string> seenProperties = new HashSet<string>();
@@ -1117,43 +1117,43 @@ namespace RingDotNet
 					if (t.IsInterface && !seenProperties.Add(p.Name)) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
-					members.Add(new List<object> { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
+					members.Add(new RingList { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
 				}
 				foreach (FieldInfo fi in t.GetFields(f))
 				{
-					members.Add(new List<object> { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
+					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
 				}
 			}
 			/* Indexer (like List[i] or Dictionary[key]): [indexType, valueType, canWrite] */
-			List<object> indexer = new List<object>();
+			List<object> indexer = new RingList();
 			foreach (PropertyInfo p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
 			{
 				ParameterInfo[] ips = p.GetIndexParameters();
 				if (ips.Length == 1 && p.GetMethod != null && p.GetMethod.IsPublic)
 				{
-					indexer = new List<object> { TName(ips[0].ParameterType), TName(p.PropertyType), p.SetMethod != null && p.SetMethod.IsPublic };
+					indexer = new RingList { TName(ips[0].ParameterType), TName(p.PropertyType), p.SetMethod != null && p.SetMethod.IsPublic };
 					break;
 				}
 			}
 			/* Events: [name, isStatic, handlerType] */
-			List<object> events = new List<object>();
+			List<object> events = new RingList();
 			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
 			{
 				HashSet<string> seenEvents = new HashSet<string>();
 				foreach (EventInfo ev in InterfaceAware(t).SelectMany(x => x.GetEvents(f)))
 				{
 					if (t.IsInterface && !seenEvents.Add(ev.Name)) continue;
-					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
+					events.Add(new RingList { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
 			/* the interfaces that the class implements and its base class does not (the extension methods of an interface are methods of the classes that implement it) */
-			List<object> interfaces = new List<object>();
+			List<object> interfaces = new RingList();
 			HashSet<Type> inherited = new HashSet<Type>(t.IsInterface || t.BaseType == null ? Type.EmptyTypes : t.BaseType.GetInterfaces());
 			foreach (Type i in t.GetInterfaces())
 			{
 				if (i.IsVisible && !i.IsGenericType && !inherited.Contains(i)) interfaces.Add(TName(i));
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, t.BaseType == null ? "" : TName(t.BaseType), interfaces };
+			return new RingList { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, t.BaseType == null ? "" : TName(t.BaseType), interfaces };
 		}
 
 		private static List<object> ToList(object target)
@@ -1162,7 +1162,7 @@ namespace RingDotNet
 			{
 				throw new ArgumentException("The object is not enumerable");
 			}
-			List<object> list = new List<object>();
+			List<object> list = new RingList();
 			foreach (object item in en)
 			{
 				list.Add(item);
@@ -1777,7 +1777,7 @@ namespace RingDotNet
 			{
 				case null or string or char or bool or byte[] or Enum or decimal or double or float:
 				case sbyte or byte or short or ushort or int or uint or long or ulong:
-				case List<object> when value.GetType() == typeof(List<object>):
+				case List<object> when RingList.IsResult(value):
 					return 0.0;
 				default:
 					return (double)Register(value);
@@ -1792,18 +1792,8 @@ namespace RingDotNet
 			return Constructors.GetOrAdd(t, type => type.GetConstructors(BindingFlags.Public | BindingFlags.Instance));
 		}
 
-		/* The results of the bridge itself are plain List<object>, and Encode sends those as Ring lists. A List<object> that a Ring program makes (ObjectList) must stay an
-		   object, so it is made as this subclass: it is a List<object> for every method and class that asks for one, and Encode does not take it for a result list. */
-		public sealed class ObjectListObject : List<object>
-		{
-			public ObjectListObject() { }
-			public ObjectListObject(int capacity) : base(capacity) { }
-			public ObjectListObject(IEnumerable<object> items) : base(items) { }
-		}
-
 		private static object CreateInstance(Type t, object[] args)
 		{
-			if (t == typeof(List<object>)) t = typeof(ObjectListObject);
 			if (t.IsAbstract)
 			{
 				throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
@@ -1956,7 +1946,7 @@ namespace RingDotNet
 			{
 				return returned;
 			}
-			List<object> results = new List<object>();
+			List<object> results = new RingList();
 			if (m.ReturnType != typeof(void))
 			{
 				results.Add(returned);
@@ -2129,7 +2119,6 @@ namespace RingDotNet
 		private static object CreateInstanceNamed(Type t, object pairs)
 		{
 			SplitPairs(pairs, out string[] names, out object[] values);
-			if (t == typeof(List<object>)) t = typeof(ObjectListObject);
 			if (t.IsAbstract) throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
 			if (names.Length == 0 && t.IsValueType) return Activator.CreateInstance(t);
 			ConstructorInfo ctor = PickNamed(ConstructorsOf(t), names, values, out object[] conv) as ConstructorInfo;

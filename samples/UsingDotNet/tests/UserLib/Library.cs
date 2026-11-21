@@ -27,6 +27,8 @@ namespace MyCompany.Tools
 			return true;
 		}
 		public List<string> Words(string text) { return new List<string>(text.Split(' ')); }
+		/* a method that returns exactly List<object>: the bridge must hand it over as an object (ObjectList), not as a Ring list */
+		public List<object> Mixed() { return new List<object> { 1, "two", 3.5 }; }
 	}
 
 	public class Counter : Calculator

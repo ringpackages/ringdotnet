@@ -30,6 +30,10 @@ dnAssert("out parameter ok",aDivide[1],1)
 dnAssert("out parameter value",aDivide[2],7.5)
 dnAssert("out parameter fails",oCalc.TryDivide(0)[1],0)
 dnAssert("returns generic list",len(oCalc.Words("a b c").toList()),3)
+oMixed = oCalc.Mixed()
+dnAssert("a method that returns a List<object> gives an object, like any other collection",classname(oMixed),"objectlist")
+dnAssert("and its items are there",oMixed.Count,3)
+dnAssert("an item of it",oMixed.Item(1),"two")
 
 nEvents = 0
 oCalc.setChangedEvent("nEvents++")

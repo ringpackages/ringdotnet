@@ -307,6 +307,8 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 			<span class="k">return</span> <span class="k">true</span>;
 		}
 		<span class="k">public</span> List&lt;<span class="k">string</span>&gt; <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">string</span>&gt;(text.<span class="f">Split</span>(<span class="s">' '</span>)); }
+		<span class="c">/* a method that returns exactly List&lt;object&gt;: the bridge must hand it over as an object (ObjectList), not as a Ring list */</span>
+		<span class="k">public</span> List&lt;<span class="k">object</span>&gt; <span class="t">Mixed</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">object</span>&gt; { <span class="n">1</span>, <span class="s">"two"</span>, <span class="n">3.5</span> }; }
 	}
 
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
@@ -419,6 +421,10 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)
 <span class="f">dnAssert</span>(<span class="s">"out parameter value"</span>,aDivide[<span class="n">2</span>],<span class="n">7.5</span>)
 <span class="f">dnAssert</span>(<span class="s">"out parameter fails"</span>,oCalc.<span class="f">TryDivide</span>(<span class="n">0</span>)[<span class="n">1</span>],<span class="n">0</span>)
 <span class="f">dnAssert</span>(<span class="s">"returns generic list"</span>,len(oCalc.<span class="f">Words</span>(<span class="s">"a b c"</span>).<span class="f">toList</span>()),<span class="n">3</span>)
+oMixed = oCalc.<span class="f">Mixed</span>()
+<span class="f">dnAssert</span>(<span class="s">"a method that returns a List&lt;object&gt; gives an object, like any other collection"</span>,classname(oMixed),<span class="s">"objectlist"</span>)
+<span class="f">dnAssert</span>(<span class="s">"and its items are there"</span>,oMixed.Count,<span class="n">3</span>)
+<span class="f">dnAssert</span>(<span class="s">"an item of it"</span>,oMixed.<span class="f">Item</span>(<span class="n">1</span>),<span class="s">"two"</span>)
 
 nEvents = <span class="n">0</span>
 oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)

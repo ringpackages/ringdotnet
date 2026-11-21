@@ -231,7 +231,7 @@ namespace RingDotNet
 		public List<object> Properties(string entity)
 		{
 			RingDb.Table table = Find(entity);
-			List<object> list = table.Columns.Select(c => (object)c.Name).ToList();
+			List<object> list = table.Columns.Select(c => (object)c.Name).ToRingList();
 			list.AddRange(navigations.Where(n => n.Child == table).Select(n => (object)n.ReferenceName));
 			list.AddRange(navigations.Where(n => n.Parent == table).Select(n => (object)n.CollectionName));
 			return list;
@@ -262,7 +262,7 @@ namespace RingDotNet
 		public List<object> ToRow(object entity)
 		{
 			RingDb.Table table = Find(entity.GetType().Name);
-			return table.Columns.Select(c => (object)new List<object> { c.Name, Get(entity, c.Name) }).ToList();
+			return table.Columns.Select(c => (object)new RingList { c.Name, Get(entity, c.Name) }).ToRingList();
 		}
 
 		/* Set columns of an entity from [ [name, value], ... ] */
@@ -305,7 +305,7 @@ namespace RingDotNet
 			SaveIfAuto();
 			RingDb.Table table = Find(entity.GetType().Name);
 			if (!AutoSave) return null;
-			return table.Keys.Count == 1 ? Get(entity, table.KeyColumn.Name) : new List<object>(table.Keys.Select(k => Get(entity, k.Name)));
+			return table.Keys.Count == 1 ? Get(entity, table.KeyColumn.Name) : new RingList(table.Keys.Select(k => Get(entity, k.Name)));
 		}
 
 		public new void Remove(object entity)
@@ -390,7 +390,7 @@ namespace RingDotNet
 			}
 			if (skip > 0) query = Call("Skip", query, type, skip);
 			if (take >= 0) query = Call("Take", query, type, take);
-			List<object> result = new List<object>();
+			List<object> result = new RingList();
 			foreach (object o in query) result.Add(o);
 			return result;
 		}
