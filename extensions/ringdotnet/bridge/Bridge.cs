@@ -406,6 +406,9 @@ namespace RingDotNet
 					return new RingList(Enum.GetNames(TypeOf(a, 0)));
 				case "apidoc":
 					return ApiDoc(ResolveType(Str(a, 0)));
+				case "auditassembly":
+					/* the audit of the public API of an assembly (a file path or a name): see Audit.cs */
+					return Audit.Assembly(File.Exists(Str(a, 0)) ? System.Reflection.Assembly.LoadFrom(Str(a, 0)) : System.Reflection.Assembly.Load(Str(a, 0)));
 				case "describe":
 					return Describe(TypeOf(a, 0));
 				case "isnull":
@@ -827,7 +830,7 @@ namespace RingDotNet
 			return t.FullName ?? t.Name;
 		}
 
-		private static bool Usable(MethodBase m)
+		internal static bool Usable(MethodBase m)
 		{
 			if (m.ContainsGenericParameters && !(m is MethodInfo gm && gm.IsGenericMethodDefinition))
 			{
@@ -1042,7 +1045,7 @@ namespace RingDotNet
 		    [member:[name,canRead,canWrite,isStatic,type]]] */
 		/* A generic method whose type parameters are not all found in its parameters (Cast<T>(IEnumerable), AddSingleton<T>(IServiceCollection)) cannot be called
 		   from Ring: nothing says what T is. The generator leaves such extension methods out. */
-		private static bool NotInferable(MethodInfo m)
+		internal static bool NotInferable(MethodInfo m)
 		{
 			if (!m.IsGenericMethodDefinition) return false;
 			foreach (Type argument in m.GetGenericArguments())

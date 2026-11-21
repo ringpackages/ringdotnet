@@ -112,6 +112,16 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 
 `tools/dotnettools/wrapassembly.ring` uses the same generator for a single DLL: [Your own assemblies](own-assemblies.html).
 
+## What the generator cannot wrap
+
+`tools/dotnettools/auditassembly.ring` reports, for one or more assemblies, how much of their public API Ring can use and what gets in the way. It applies the rules of the bridge itself, so it says what the generator does:
+
+```bash
+ring auditassembly.ring Library.dll
+```
+
+The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): generic type definitions, nested types, operator methods, methods whose only overload takes a `Span<T>`, generic methods whose type argument appears only in the result (`DeserializeObject<T>`), `ref` properties and returns, pointers. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
+
 ## Where to go next
 
 - [Testing](testing.html): how the package and your own programs are tested.
