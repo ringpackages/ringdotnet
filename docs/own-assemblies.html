@@ -295,6 +295,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Add</span>(<span class="k">double</span> value) { <span class="t">Total</span> += value; Changed?.<span class="f">Invoke</span>(this, EventArgs.Empty); <span class="k">return</span> this; }
 		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Multiply</span>(<span class="k">double</span> value) { <span class="t">Total</span> *= value; <span class="k">return</span> this; }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">Square</span>(<span class="k">int</span> x) { <span class="k">return</span> x * x; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">EnumName</span>(<span class="t">Enum</span> value) { <span class="k">return</span> value.<span class="f">GetType</span>().Name + <span class="s">"."</span> + value; }
 		<span class="k">public</span> <span class="k">string</span> <span class="t">Describe</span>(<span class="t">Level</span> level, <span class="k">string</span> prefix = <span class="s">"Total"</span>) { <span class="k">return</span> prefix + <span class="s">"="</span> + <span class="t">Total</span> + <span class="s">" ("</span> + level + <span class="s">")"</span>; }
 		<span class="k">public</span> <span class="k">bool</span> <span class="t">TryDivide</span>(<span class="k">double</span> by, <span class="k">out</span> <span class="k">double</span> result)
 		{
@@ -336,6 +337,32 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	{
 		<span class="k">public</span> <span class="k">static</span> <span class="t">IBox</span> <span class="t">NewBox</span>(<span class="k">double</span> side) { <span class="k">return</span> <span class="k">new</span> <span class="t">Box</span>(side); }
 	}
+	<span class="c">// A class that is not public and implements a public interface explicitly (a row of Dapper is like this): the methods of the interface</span>
+	<span class="c">// are called on the object although the class has no public method of that name.</span>
+	<span class="k">public</span> <span class="k">interface</span> IGetter
+	{
+		<span class="k">string</span> <span class="t">Fetch</span>(<span class="k">string</span> key);
+		<span class="k">string</span> <span class="t">Join</span>(<span class="k">string</span> first, <span class="k">string</span> second);
+		<span class="k">string</span> <span class="t">Join</span>(<span class="k">string</span> only);
+	}
+
+	<span class="k">internal</span> <span class="k">class</span> <span class="t">Hidden</span> : IGetter
+	{
+		<span class="k">string</span> IGetter.<span class="f">Fetch</span>(<span class="k">string</span> key) { <span class="k">return</span> key + <span class="s">"!"</span>; }
+		<span class="k">string</span> IGetter.<span class="f">Join</span>(<span class="k">string</span> first, <span class="k">string</span> second) { <span class="k">return</span> first + <span class="s">"+"</span> + second; }
+		<span class="k">string</span> IGetter.<span class="f">Join</span>(<span class="k">string</span> only) { <span class="k">return</span> only; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Hiding
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">object</span> <span class="t">NewGetter</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">Hidden</span>(); }
+	}
+	<span class="c">// A class with the name of a class of the library (System.Version): the generator gives it the prefix of its namespace, ToolsVersion,</span>
+	<span class="c">// so that both can be defined in one program.</span>
+	<span class="k">public</span> <span class="k">class</span> Version
+	{
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Text</span> { <span class="k">get</span> { <span class="k">return</span> <span class="s">"user version"</span>; } }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -374,6 +401,18 @@ nEvents = <span class="n">0</span>
 oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)
 oCalc.<span class="f">Add</span>(<span class="n">1</span>)
 <span class="f">dnAssert</span>(<span class="s">"user event"</span>,nEvents,<span class="n">1</span>)
+
+<span class="c"># a class of the assembly with the name of a class of the library gets the prefix of its namespace, and both work in one program</span>
+<span class="f">dnAssert</span>(<span class="s">"a class named like a class of the library is renamed"</span>,<span class="k">new</span> <span class="t">ToolsVersion</span>().Text,<span class="s">"user version"</span>)
+<span class="f">dnAssert</span>(<span class="s">"the class of the library has its own name"</span>,<span class="k">new</span> <span class="t">Version</span>(<span class="s">"1.2.3"</span>).Major,<span class="n">1</span>)
+
+<span class="c"># methods that a non-public class implements explicitly are found through its public interfaces</span>
+oGetter = <span class="k">new</span> <span class="t">Hiding</span>().<span class="f">NewGetter</span>()
+<span class="f">dnAssert</span>(<span class="s">"a method of an explicit interface implementation"</span>,oGetter.<span class="f">Fetch</span>(<span class="s">"key"</span>),<span class="s">"key!"</span>)
+<span class="f">dnAssert</span>(<span class="s">"the same with named parameters"</span>,oGetter.<span class="f">Join</span>([ :first = <span class="s">"a"</span>, :second = <span class="s">"b"</span> ]),<span class="s">"a+b"</span>)
+
+<span class="c"># a parameter of the type System.Enum does not say which enum it is: the text gives the full name of the member</span>
+<span class="f">dnAssert</span>(<span class="s">"a System.Enum parameter takes the full name of an enum member"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">EnumName</span>(<span class="s">"MyCompany.Tools.Level.High"</span>),<span class="s">"Level.High"</span>)
 
 <span class="c"># a class that is not public comes back as the interface named after it (IBox), and an interface has the members of the interfaces it inherits</span>
 oBox = <span class="k">new</span> <span class="t">Shapes</span>().<span class="f">NewBox</span>(<span class="n">3</span>)

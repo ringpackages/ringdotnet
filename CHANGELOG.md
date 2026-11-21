@@ -18,6 +18,14 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - Object code first: `new`, the dot and braces cover almost every call. The generic functions (`dnNew` with names, `dnStatic`, `dnType`, `callMethod`, `getProp`) are for the few cases that have no class.
 - `dnHandleCount()` gives the number of .NET objects that Ring holds, for tests of the release of handles.
 
+**Packages from nuget.org and other assemblies**
+- A package is brought to Ring in four steps: a project file with a `PackageReference`, `dotnet publish` (the package with the DLLs it needs and its native libraries), `wrapassembly.ring`, then `dnLoad` and `dnImportFrom`. The lessons from [A NuGet package](docs/tut-162-nuget.html) on show it with Newtonsoft.Json, QRCoder, ClosedXML, SkiaSharp, PDFsharp and System.Speech.
+- Native libraries of a package are found in `runtimes/<system>-<architecture>/native` next to its DLL.
+- `wrapassembly.ring` can wrap one namespace or all of them; the class index of the folder lets an object of a namespace that was not imported be wrapped when it comes back, and several assemblies can share a folder.
+- A class of the assembly that has the name of a class of the library gets the prefix of its namespace (`YamlDotNet.Core.Version` is `CoreVersion`), and the generator lists the renames.
+- An object that comes back as a class that is not public is wrapped as the interface named after it (`XLWorksheet` as `IXLWorksheet`), and an interface has the members that it inherits from other interfaces.
+- Methods that a class implements explicitly are found through its public interfaces (the rows of Dapper), and a parameter of the type `System.Enum` takes the full name of a member (`"System.DayOfWeek.Friday"`).
+
 **Desktop**
 - Windows Forms and WPF classes, helper functions (`uiForm`, `wpfXaml`...), keys typed into your own form for tests.
 - Self-testing programs: the checks of a window program are in `selftest/<program>.ring` next to it, and `uiRun` / `wpfRun` run them when the program starts with `--selftest`. The programs themselves stay free of test code.
