@@ -9,6 +9,8 @@ dnRegisterClass("System.Xml.Xsl.XslCompiledTransform","XslCompiledTransform",0)
 dnRegisterClass("System.Xml.Xsl.XslTransform","XslTransform",0)
 dnRegisterClass("System.Xml.Xsl.XsltArgumentList","XsltArgumentList",0)
 dnRegisterClass("System.Xml.Xsl.XsltContext","XsltContext",0)
+dnRegisterClass("System.Xml.Xsl.XsltException","XsltException",0)
 dnRegisterClass("System.Xml.Xsl.XsltMessageEncounteredEventArgs","XsltMessageEncounteredEventArgs",0)
 dnRegisterClass("System.Xml.Xsl.XsltSettings","XsltSettings",0)
+dnRegisterClass("System.Xml.Xsl.XsltCompileException","XsltCompileException",0)
 load "System.Xml.Xsl.classes.ring"

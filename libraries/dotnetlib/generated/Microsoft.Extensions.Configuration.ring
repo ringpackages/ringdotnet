@@ -10,6 +10,7 @@ dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationBuilder","Confi
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationDebugViewContext","ConfigurationDebugViewContext",0)
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationExtensions","ConfigurationExtensions",0)
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationKeyComparer","ConfigurationKeyComparer",0)
+dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationKeyNameAttribute","ConfigurationKeyNameAttribute",1)
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationManager","ConfigurationManager",0)
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationPath","ConfigurationPath",0)
 dnRegisterClass("Microsoft.Extensions.Configuration.ConfigurationProvider","ConfigurationProvider",0)

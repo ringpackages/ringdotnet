@@ -28,6 +28,7 @@ aExtMap = []	# [.NET name of an extended type, [the extension methods as methods
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
+aWantedNamespaces = []          # the namespaces of this run (empty: all of them): a base class in another namespace is not imported, it is not generated
 
 # Value of an optional key of a manifest entry
 func optValue aEntry, cKey, xDefault
@@ -219,7 +220,7 @@ func genNamespace aItem
 			cBase = buildPlan(aType[1],aType[3])[8]
 			nBase = find(aClassMap,cBase,1)
 			if cBase != "" and nBase > 0
-				if aClassMap[nBase][3] != cNs and find(aBaseNamespaces,aClassMap[nBase][3]) = 0
+				if aClassMap[nBase][3] != cNs and find(aBaseNamespaces,aClassMap[nBase][3]) = 0 and (len(aWantedNamespaces) = 0 or find(aWantedNamespaces,aClassMap[nBase][3]) > 0)
 					aBaseNamespaces + aClassMap[nBase][3]
 				ok
 			ok
@@ -1058,6 +1059,9 @@ func genClass cTypeName, cClass, nForceInit
 	aBasePlan = []
 	if aPlan[8] != ""
 		nBase = find(aClassMap,aPlan[8],1)
+		if nBase > 0 and len(aWantedNamespaces) > 0 and find(aWantedNamespaces,aClassMap[nBase][3]) = 0
+			nBase = 0          # a base class of a namespace that this run does not generate: all its members are in this class
+		ok
 		if nBase > 0
 			cBaseRing = aClassMap[nBase][2]
 			aBasePlan = buildPlan(aPlan[8],-1)
@@ -1210,6 +1214,7 @@ func findExtensions aPlan
 
 # Generate the namespaces of aDotNetManifest (all of them when aWanted is empty) into C_OUTDIR
 func genAll aWanted
+	aWantedNamespaces = aWanted
 	# Windows Forms / WPF types need the desktop runtime, it must be selected before any other .NET call
 	lDesktop = false
 	lWeb = false

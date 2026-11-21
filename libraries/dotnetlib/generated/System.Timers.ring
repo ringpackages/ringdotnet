@@ -3,4 +3,5 @@ dnImport("System")
 dnImport("System.ComponentModel")
 dnRegisterClass("System.Timers.ElapsedEventArgs","ElapsedEventArgs",1)
 dnRegisterClass("System.Timers.Timer","TimersTimer",0)
+dnRegisterClass("System.Timers.TimersDescriptionAttribute","TimersDescriptionAttribute",1)
 load "System.Timers.classes.ring"

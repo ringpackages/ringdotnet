@@ -6,6 +6,7 @@ dnRegisterClass("System.Security.Cryptography.X509Certificates.CertificateReques
 dnRegisterClass("System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder","CertificateRevocationListBuilder",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.DSACertificateExtensions","DSACertificateExtensions",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions","ECDsaCertificateExtensions",0)
+dnRegisterClass("System.Security.Cryptography.X509Certificates.Pkcs12LoadLimitExceededException","Pkcs12LoadLimitExceededException",1)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits","Pkcs12LoaderLimits",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.PublicKey","PublicKey",1)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.RSACertificateExtensions","RSACertificateExtensions",0)

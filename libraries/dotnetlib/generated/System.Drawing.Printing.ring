@@ -2,6 +2,7 @@
 dnImport("System")
 dnImport("System.ComponentModel")
 dnImport("System.Drawing")
+dnRegisterClass("System.Drawing.Printing.InvalidPrinterException","InvalidPrinterException",1)
 dnRegisterClass("System.Drawing.Printing.Margins","Margins",0)
 dnRegisterClass("System.Drawing.Printing.MarginsConverter","MarginsConverter",0)
 dnRegisterClass("System.Drawing.Printing.PageSettings","PageSettings",0)

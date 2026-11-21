@@ -256,6 +256,8 @@ aResult = dnStatic("System.Convert","TryToBase64Chars",["Ring",16])   # [done, c
 ? left(aResult[2],aResult[3])                                          # UmluZw==
 ```
 
+Exceptions and attributes have classes too: an exception that .NET gives back (`oError.InnerException`, the `Exception` of a task) is wrapped by the class of its type (`ArgumentException`, `AggregateException`) with its properties and methods. A .NET error that a call raises is still a Ring error with the message; the class is for the exception *objects*. Only the types marked obsolete are left out.
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

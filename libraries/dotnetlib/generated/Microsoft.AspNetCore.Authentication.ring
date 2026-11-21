@@ -5,6 +5,7 @@ dnRegisterClass("Microsoft.AspNetCore.Authentication.AccessDeniedContext","Acces
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticateResult","AuthenticateResult",0)
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationBuilder","AuthenticationBuilder",1)
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions","AuthenticationConfigurationProviderExtensions",0)
+dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationFailureException","AuthenticationFailureException",1)
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationFeature","AuthenticationFeature",0)
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider","AuthenticationHandlerProvider",1)
 dnRegisterClass("Microsoft.AspNetCore.Authentication.AuthenticationHandler`1","AuthenticationHandler",1)

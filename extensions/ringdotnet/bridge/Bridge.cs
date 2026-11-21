@@ -821,7 +821,7 @@ namespace RingDotNet
 					{
 						continue;
 					}
-					if (typeof(Delegate).IsAssignableFrom(t) || typeof(Attribute).IsAssignableFrom(t) || typeof(Exception).IsAssignableFrom(t))
+					if (typeof(Delegate).IsAssignableFrom(t))
 					{
 						continue;
 					}

@@ -23,6 +23,8 @@ dnRegisterClass("System.Windows.Data.IMultiValueConverter","IMultiValueConverter
 dnRegisterClass("System.Windows.Data.IValueConverter","IValueConverter",0)
 dnRegisterClass("System.Windows.Data.PropertyGroupDescription","PropertyGroupDescription",0)
 dnRegisterClass("System.Windows.Data.RelativeSource","RelativeSource",0)
+dnRegisterClass("System.Windows.Data.ValueConversionAttribute","ValueConversionAttribute",2)
+dnRegisterClass("System.Windows.Data.ValueUnavailableException","ValueUnavailableException",0)
 dnRegisterClass("System.Windows.Data.XmlNamespaceMapping","XmlNamespaceMapping",0)
 dnRegisterClass("System.Windows.Data.XmlNamespaceMappingCollection","XmlNamespaceMappingCollection",0)
 dnRegisterClass("System.Windows.Data.Binding","WpfBinding",0)

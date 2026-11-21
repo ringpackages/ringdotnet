@@ -9,6 +9,7 @@ dnRegisterClass("System.Transactions.ISinglePhaseNotification","ISinglePhaseNoti
 dnRegisterClass("System.Transactions.ITransactionPromoter","ITransactionPromoter",0)
 dnRegisterClass("System.Transactions.Transaction","Transaction",0)
 dnRegisterClass("System.Transactions.TransactionEventArgs","TransactionEventArgs",0)
+dnRegisterClass("System.Transactions.TransactionException","TransactionException",0)
 dnRegisterClass("System.Transactions.TransactionInformation","TransactionInformation",0)
 dnRegisterClass("System.Transactions.TransactionInterop","TransactionInterop",0)
 dnRegisterClass("System.Transactions.TransactionManager","TransactionManager",0)
@@ -19,4 +20,8 @@ dnRegisterClass("System.Transactions.DependentTransaction","DependentTransaction
 dnRegisterClass("System.Transactions.PreparingEnlistment","PreparingEnlistment",0)
 dnRegisterClass("System.Transactions.SinglePhaseEnlistment","SinglePhaseEnlistment",0)
 dnRegisterClass("System.Transactions.SubordinateTransaction","SubordinateTransaction",2)
+dnRegisterClass("System.Transactions.TransactionAbortedException","TransactionAbortedException",0)
+dnRegisterClass("System.Transactions.TransactionInDoubtException","TransactionInDoubtException",0)
+dnRegisterClass("System.Transactions.TransactionManagerCommunicationException","TransactionManagerCommunicationException",0)
+dnRegisterClass("System.Transactions.TransactionPromotionException","TransactionPromotionException",0)
 load "System.Transactions.classes.ring"

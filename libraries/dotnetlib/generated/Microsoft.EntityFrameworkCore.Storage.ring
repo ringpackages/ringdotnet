@@ -67,6 +67,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.RelationalTransactionFact
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo","RelationalTypeMappingInfo",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceDependencies","RelationalTypeMappingSourceDependencies",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions","RelationalTypeMappingSourceExtensions",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException","RetryLimitExceededException",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo","TypeMappingInfo",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceBase","TypeMappingSourceBase",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceDependencies","TypeMappingSourceDependencies",3)

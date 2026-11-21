@@ -29,6 +29,7 @@ dnRegisterClass("System.Collections.Generic.IReadOnlyDictionary`2","IReadOnlyDic
 dnRegisterClass("System.Collections.Generic.IReadOnlyList`1","IReadOnlyList",1)
 dnRegisterClass("System.Collections.Generic.IReadOnlySet`1","IReadOnlySet",1)
 dnRegisterClass("System.Collections.Generic.ISet`1","ISet",1)
+dnRegisterClass("System.Collections.Generic.KeyNotFoundException","KeyNotFoundException",0)
 dnRegisterClass("System.Collections.Generic.KeyValuePair","KeyValuePair",0)
 dnRegisterClass("System.Collections.Generic.KeyValuePair`2","KeyValuePair2",1)
 dnRegisterClass("System.Collections.Generic.LinkedListNode`1","LinkedListNode",1)

@@ -43,6 +43,7 @@ dnRegisterClass("System.Windows.Documents.TextEffectResolver","TextEffectResolve
 dnRegisterClass("System.Windows.Documents.TextEffectTarget","TextEffectTarget",0)
 dnRegisterClass("System.Windows.Documents.TextElement","TextElement",0)
 dnRegisterClass("System.Windows.Documents.TextElementCollection`1","TextElementCollection",1)
+dnRegisterClass("System.Windows.Documents.TextElementEditingBehaviorAttribute","TextElementEditingBehaviorAttribute",0)
 dnRegisterClass("System.Windows.Documents.TextRange","TextRange",2)
 dnRegisterClass("System.Windows.Documents.Typography","Typography",0)
 dnRegisterClass("System.Windows.Documents.ZoomPercentageConverter","ZoomPercentageConverter",0)

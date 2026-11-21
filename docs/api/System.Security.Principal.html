@@ -248,7 +248,17 @@
 <main>
 <article>
 <h1>System.Security.Principal</h1>
-<p class="lead">8 wrapped types. Load them with <code>using { "System.Security.Principal" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-IdentityReference">IdentityReference</a> <a href="#c-IdentityReferenceCollection">IdentityReferenceCollection</a> <a href="#c-IIdentity">IIdentity</a> <a href="#c-IPrincipal">IPrincipal</a> <a href="#c-NTAccount">NTAccount</a> <a href="#c-SecurityIdentifier">SecurityIdentifier</a> <a href="#c-WindowsIdentity">WindowsIdentity</a> <a href="#c-WindowsPrincipal">WindowsPrincipal</a></div><details class="cls" id="c-IdentityReference"><summary><b>IdentityReference</b> <span class="muted">class abstract</span></summary>
+<p class="lead">9 wrapped types. Load them with <code>using { "System.Security.Principal" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-IdentityNotMappedException">IdentityNotMappedException</a> <a href="#c-IdentityReference">IdentityReference</a> <a href="#c-IdentityReferenceCollection">IdentityReferenceCollection</a> <a href="#c-IIdentity">IIdentity</a> <a href="#c-IPrincipal">IPrincipal</a> <a href="#c-NTAccount">NTAccount</a> <a href="#c-SecurityIdentifier">SecurityIdentifier</a> <a href="#c-WindowsIdentity">WindowsIdentity</a> <a href="#c-WindowsPrincipal">WindowsPrincipal</a></div><details class="cls" id="c-IdentityNotMappedException"><summary><b>IdentityNotMappedException</b> <span class="muted">class sealed · extends <a href="System.html#c-SystemException">SystemException</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Security.Principal.IdentityNotMappedException</code> · assembly <code>System.Security.Principal.Windows</code></p>
+<p class="muted">Implements: ISerializable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IdentityNotMappedException()</code></td></tr><tr><td><code>new IdentityNotMappedException(string message)</code></td></tr><tr><td><code>new IdentityNotMappedException(string message, Exception inner)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new IdentityNotMappedException(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IdentityNotMappedException().@New([ :param = value ])</code> or <code>dnNew("IdentityNotMappedException",[ :param = value ])</code>.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>UnmappedIdentities</code></td><td><code>IdentityReferenceCollection</code></td><td>read</td><td><code>o.UnmappedIdentities</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GetObjectData</code></td><td><span class="muted">—</span></td><td><code>void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-IdentityReference"><summary><b>IdentityReference</b> <span class="muted">class abstract</span></summary>
 <div class="clsbody">
 <p class="net"><code>System.Security.Principal.IdentityReference</code> · assembly <code>System.Security.Principal.Windows</code></p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Value</code></td><td><code>string</code></td><td>read</td><td><code>o.Value</code></td></tr></tbody></table></div>

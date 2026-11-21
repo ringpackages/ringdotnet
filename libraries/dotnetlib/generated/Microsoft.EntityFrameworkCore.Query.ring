@@ -59,6 +59,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Query.MaterializerLiftableConstan
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelper","NavigationExpansionExtensibilityHelper",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies","NavigationExpansionExtensibilityHelperDependencies",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NonQueryExpression","NonQueryExpression",1)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NotParameterizedAttribute","NotParameterizedAttribute",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.PathSegment","EfPathSegment",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.ProjectionBindingExpression","ProjectionBindingExpression",3)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.ProjectionMember","ProjectionMember",0)

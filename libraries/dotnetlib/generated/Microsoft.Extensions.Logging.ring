@@ -22,7 +22,9 @@ dnRegisterClass("Microsoft.Extensions.Logging.LoggerFactoryOptions","LoggerFacto
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerFilterOptions","LoggerFilterOptions",0)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerFilterRule","LoggerFilterRule",4)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggerMessage","LoggerMessage",0)
+dnRegisterClass("Microsoft.Extensions.Logging.LoggerMessageAttribute","LoggerMessageAttribute",0)
 dnRegisterClass("Microsoft.Extensions.Logging.Logger`1","Logger",1)
 dnRegisterClass("Microsoft.Extensions.Logging.LoggingBuilderExtensions","LoggingBuilderExtensions",0)
+dnRegisterClass("Microsoft.Extensions.Logging.ProviderAliasAttribute","ProviderAliasAttribute",1)
 dnRegisterClass("Microsoft.Extensions.Logging.TraceSourceFactoryExtensions","TraceSourceFactoryExtensions",0)
 load "Microsoft.Extensions.Logging.classes.ring"

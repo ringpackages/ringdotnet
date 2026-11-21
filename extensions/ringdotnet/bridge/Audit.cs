@@ -118,8 +118,6 @@ namespace RingDotNet
 				/* what kind of type, and whether the generator wraps it */
 				if (t.IsEnum) { tally.Add("OK   type: enum (a text in Ring)", name); continue; }
 				if (typeof(Delegate).IsAssignableFrom(t)) { tally.Add("OK   type: delegate (a callback in Ring)", name); continue; }
-				if (typeof(Attribute).IsAssignableFrom(t)) { tally.Add("INFO type: attribute (not wrapped)", name); continue; }
-				if (typeof(Exception).IsAssignableFrom(t)) { tally.Add("INFO type: exception (not wrapped)", name); continue; }
 				if (t.IsDefined(typeof(ObsoleteAttribute), false)) { tally.Add("INFO type: obsolete (not wrapped)", name); continue; }
 
 				int members = CountMembers(t);

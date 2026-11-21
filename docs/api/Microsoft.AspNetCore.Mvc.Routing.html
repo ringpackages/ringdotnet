@@ -248,7 +248,7 @@
 <main>
 <article>
 <h1>Microsoft.AspNetCore.Mvc.Routing</h1>
-<p class="lead">12 wrapped types. Load them with <code>using { "Microsoft.AspNetCore.Mvc.Routing" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-AttributeRouteInfo">AttributeRouteInfo</a> <a href="#c-DynamicRouteValueTransformer">DynamicRouteValueTransformer</a> <a href="#c-IActionHttpMethodProvider">IActionHttpMethodProvider</a> <a href="#c-IRouteTemplateProvider">IRouteTemplateProvider</a> <a href="#c-IRouteValueProvider">IRouteValueProvider</a> <a href="#c-IUrlHelperFactory">IUrlHelperFactory</a> <a href="#c-KnownRouteValueConstraint">KnownRouteValueConstraint</a> <a href="#c-UrlActionContext">UrlActionContext</a> <a href="#c-UrlHelper">UrlHelper</a> <a href="#c-UrlHelperBase">UrlHelperBase</a> <a href="#c-UrlHelperFactory">UrlHelperFactory</a> <a href="#c-UrlRouteContext">UrlRouteContext</a></div><details class="cls" id="c-AttributeRouteInfo"><summary><b>AttributeRouteInfo</b> <span class="muted">class</span></summary>
+<p class="lead">14 wrapped types. Load them with <code>using { "Microsoft.AspNetCore.Mvc.Routing" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-AttributeRouteInfo">AttributeRouteInfo</a> <a href="#c-DynamicRouteValueTransformer">DynamicRouteValueTransformer</a> <a href="#c-HttpMethodAttribute">HttpMethodAttribute</a> <a href="#c-IActionHttpMethodProvider">IActionHttpMethodProvider</a> <a href="#c-IRouteTemplateProvider">IRouteTemplateProvider</a> <a href="#c-IRouteValueProvider">IRouteValueProvider</a> <a href="#c-IUrlHelperFactory">IUrlHelperFactory</a> <a href="#c-KnownRouteValueConstraint">KnownRouteValueConstraint</a> <a href="#c-RouteValueAttribute">RouteValueAttribute</a> <a href="#c-UrlActionContext">UrlActionContext</a> <a href="#c-UrlHelper">UrlHelper</a> <a href="#c-UrlHelperBase">UrlHelperBase</a> <a href="#c-UrlHelperFactory">UrlHelperFactory</a> <a href="#c-UrlRouteContext">UrlRouteContext</a></div><details class="cls" id="c-AttributeRouteInfo"><summary><b>AttributeRouteInfo</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo</code> · assembly <code>Microsoft.AspNetCore.Mvc.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new AttributeRouteInfo()</code></td></tr></tbody></table></div>
@@ -260,6 +260,12 @@
 <p class="net"><code>Microsoft.AspNetCore.Mvc.Routing.DynamicRouteValueTransformer</code> · assembly <code>Microsoft.AspNetCore.Mvc.Core</code></p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>State</code></td><td><code>object</code></td><td>read, write</td><td><code>o.State</code> <code>o.State = v</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>FilterAsync</code></td><td><span class="muted">—</span></td><td><code>ValueTask&lt;IReadOnlyList&lt;Endpoint&gt;&gt; FilterAsync(HttpContext httpContext, RouteValueDictionary values, IReadOnlyList&lt;Endpoint&gt; endpoints)</code></td></tr><tr><td><code>TransformAsync</code></td><td><span class="muted">—</span></td><td><code>ValueTask&lt;RouteValueDictionary&gt; TransformAsync(HttpContext httpContext, RouteValueDictionary values)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-HttpMethodAttribute"><summary><b>HttpMethodAttribute</b> <span class="muted">class abstract · extends <a href="System.html#c-Attribute">Attribute</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.AspNetCore.Mvc.Routing.HttpMethodAttribute</code> · assembly <code>Microsoft.AspNetCore.Mvc.Core</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>HttpMethods</code></td><td><code>IEnumerable&lt;string&gt;</code></td><td>read</td><td><code>o.HttpMethods</code></td></tr><tr><td><code>Template</code></td><td><code>string</code></td><td>read</td><td><code>o.Template</code></td></tr><tr><td><code>Order</code></td><td><code>int</code></td><td>read, write</td><td><code>o.Order</code> <code>o.Order = v</code></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Name</code> <code>o.Name = v</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-IActionHttpMethodProvider"><summary><b>IActionHttpMethodProvider</b> <span class="muted">interface</span></summary>
 <div class="clsbody">
@@ -287,6 +293,12 @@
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new KnownRouteValueConstraint(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)</code></td></tr></tbody></table></div>
 <p class="muted">Ring: <code>new KnownRouteValueConstraint(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new KnownRouteValueConstraint().@New([ :param = value ])</code> or <code>dnNew("KnownRouteValueConstraint",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Match</code></td><td><span class="muted">—</span></td><td><code>bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-RouteValueAttribute"><summary><b>RouteValueAttribute</b> <span class="muted">class abstract · extends <a href="System.html#c-Attribute">Attribute</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.AspNetCore.Mvc.Routing.RouteValueAttribute</code> · assembly <code>Microsoft.AspNetCore.Mvc.Core</code></p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RouteKey</code></td><td><code>string</code></td><td>read</td><td><code>o.RouteKey</code></td></tr><tr><td><code>RouteValue</code></td><td><code>string</code></td><td>read</td><td><code>o.RouteValue</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-UrlActionContext"><summary><b>UrlActionContext</b> <span class="muted">class</span></summary>
 <div class="clsbody">

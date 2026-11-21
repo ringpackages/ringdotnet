@@ -14,6 +14,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.IMigrationsModelDiffer
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.IMigrationsSqlGenerator","IMigrationsSqlGenerator",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.IMigrator","IMigrator",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.Migration","Migration",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.MigrationAttribute","MigrationAttribute",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder","MigrationBuilder",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.MigrationCommand","MigrationCommand",3)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Migrations.MigrationCommandListBuilder","MigrationCommandListBuilder",1)
