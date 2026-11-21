@@ -415,8 +415,6 @@ namespace RingDotNet
 					return new RingList(Enum.GetNames(TypeOf(a, 0)));
 				case "apidoc":
 					return ApiDoc(ResolveType(Str(a, 0)));
-				case "auditspans":
-					return Audit.Spans(File.Exists(Str(a, 0)) ? Assembly.LoadFrom(Str(a, 0)) : Assembly.Load(Str(a, 0)));
 				case "auditassembly":
 					/* the audit of the public API of an assembly (a file path or a name): see Audit.cs */
 					return Audit.Assembly(File.Exists(Str(a, 0)) ? System.Reflection.Assembly.LoadFrom(Str(a, 0)) : System.Reflection.Assembly.Load(Str(a, 0)));
@@ -850,7 +848,8 @@ namespace RingDotNet
 			foreach (ParameterInfo p in m.GetParameters())
 			{
 				Type pt = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType;
-				if (m is MethodInfo && !p.ParameterType.IsByRef && IsSpan(pt, out _, out _)) continue;          /* a Span<T> parameter: Ring gives an array (see InvokeWithSpans) */
+				if (m is MethodInfo && IsSpan(pt, out _, out _)) continue;          /* a Span<T> parameter: Ring gives an array (see InvokeWithSpans) */
+				if (m is MethodInfo && pt.IsByRefLike && !(p.IsOut && !p.IsIn) && RefStructFactory(pt) != null) continue;          /* a ref struct made from a value */
 				if (pt.IsPointer || pt.IsByRefLike || pt.IsByRef || (pt.IsGenericType && pt.GetGenericArguments().Any(g => g.IsByRefLike)))
 				{
 					return false;
@@ -1020,20 +1019,21 @@ namespace RingDotNet
 			return p.ParameterType.IsByRef && p.IsOut && !p.IsIn;
 		}
 
-		/* The parameters that answer a value: ref and out, and the Span<T> that the method writes to (the filled array is answered) */
+		/* The parameters that answer a value: ref and out (a ref struct that was made for the call is not answered), and the Span<T> that the method
+		   writes to (the filled array is answered) */
 		private static int ByRefCount(MethodBase m)
 		{
 			int n = 0;
 			foreach (ParameterInfo p in m.GetParameters())
 			{
-				if (p.ParameterType.IsByRef || (IsSpan(p.ParameterType, out _, out bool writable) && writable)) n++;
+				if (p.ParameterType.IsByRef)
+				{
+					Type element = p.ParameterType.GetElementType();
+					if (!element.IsByRefLike || IsSpan(element, out _, out _)) n++;
+				}
+				else if (IsSpan(p.ParameterType, out _, out bool writable) && writable) n++;
 			}
 			return n;
-		}
-
-		private static bool HasSpanParameter(MethodBase m)
-		{
-			return m.GetParameters().Any(p => !p.ParameterType.IsByRef && IsSpan(p.ParameterType, out _, out _));
 		}
 
 		/* Span<T> and ReadOnlySpan<T> */
@@ -1049,25 +1049,113 @@ namespace RingDotNet
 			return true;
 		}
 
+		private static Type Unwrap(Type t)
+		{
+			return t.IsByRef ? t.GetElementType() : t;
+		}
+
+		/* A ref struct of a library (MessagePackWriter, Utf8JsonReader) cannot be held by Ring or boxed. A parameter of such a type is made for the
+		   call from one value: a public op_Implicit(X) or a public constructor whose first parameter is X (the others optional), with X something
+		   Ring can give (a text, an array, an object). The struct is not answered: what the method does to it is lost. */
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, MethodBase> RefStructFactories =
+			new System.Collections.Concurrent.ConcurrentDictionary<Type, MethodBase>();
+
+		internal static MethodBase RefStructFactory(Type refStruct)
+		{
+			return RefStructFactories.GetOrAdd(refStruct, FindRefStructFactory);
+		}
+
+		private static bool Convertible(Type source)
+		{
+			return !source.IsPointer && !source.IsByRef && (!source.IsByRefLike || IsSpan(source, out _, out _));
+		}
+
+		private static MethodBase FindRefStructFactory(Type r)
+		{
+			foreach (MethodInfo m in r.GetMethods(BindingFlags.Public | BindingFlags.Static))
+			{
+				if (m.Name == "op_Implicit" && m.ReturnType == r && m.GetParameters().Length == 1 && Convertible(m.GetParameters()[0].ParameterType)) return m;
+			}
+			ConstructorInfo best = null;
+			foreach (ConstructorInfo c in r.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
+			{
+				ParameterInfo[] cps = c.GetParameters();
+				if (cps.Length == 0 || !Convertible(cps[0].ParameterType) || cps.Skip(1).Any(q => !q.IsOptional)) continue;
+				if (best == null || cps.Length < best.GetParameters().Length) best = c;
+			}
+			return best;
+		}
+
+		private static Type FactorySource(MethodBase factory)
+		{
+			return factory.GetParameters()[0].ParameterType;
+		}
+
+		private static bool HasSpanParameter(MethodBase m)
+		{
+			return m.GetParameters().Any(p => { Type t = Unwrap(p.ParameterType); return IsSpan(t, out _, out _) || (t.IsByRefLike && RefStructFactory(t) != null); })
+				|| (m is MethodInfo mi && IsSpan(mi.ReturnType, out _, out _));
+		}
+
 		private static readonly System.Collections.Concurrent.ConcurrentDictionary<MethodInfo, Func<object, object[], object>> SpanCalls =
 			new System.Collections.Concurrent.ConcurrentDictionary<MethodInfo, Func<object, object[], object>>();
 
-		/* A method with a Span<T> or ReadOnlySpan<T> parameter cannot be called by reflection (a ref struct cannot be boxed). A small method is made
-		   with IL for it: it takes the object[] of the arguments, makes each span around the array that Ring gave, calls the method, and puts the
-		   values of ref and out parameters back into the array. */
+		/* A method with a Span<T> or ReadOnlySpan<T> parameter or result, or a ref struct parameter, cannot be called by reflection (a ref struct
+		   cannot be boxed). A small method is made with IL for it: it takes the object[] of the arguments, makes each span around the array that Ring
+		   gave (and each ref struct from its value), calls the method, and puts the values of ref and out parameters back into the array (a span as
+		   an array). A Span result is answered as an array. */
 		private static object InvokeWithSpans(MethodInfo m, object instance, object[] conv)
 		{
 			ParameterInfo[] ps = m.GetParameters();
 			for (int i = 0; i < ps.Length; i++)
 			{
-				Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
-				bool span = IsSpan(pt, out _, out _);
-				if (conv[i] == Type.Missing || (conv[i] == null && pt.IsValueType && !span && Nullable.GetUnderlyingType(pt) == null))
+				Type pt = Unwrap(ps[i].ParameterType);
+				if (conv[i] == Type.Missing || (conv[i] == null && pt.IsValueType && !pt.IsByRefLike && Nullable.GetUnderlyingType(pt) == null))
 				{
-					conv[i] = pt.IsValueType && !span ? Activator.CreateInstance(pt) : null;
+					conv[i] = pt.IsValueType && !pt.IsByRefLike ? Activator.CreateInstance(pt) : null;
 				}
 			}
 			return SpanCalls.GetOrAdd(m, BuildSpanCall)(instance, conv);
+		}
+
+		/* the argument i of the object[] as a value of the type: a span from its array, a ref struct from its source value, any other value unboxed */
+		private static void EmitValue(System.Reflection.Emit.ILGenerator il, Type type, int index)
+		{
+			il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, index);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldelem_Ref);
+			if (IsSpan(type, out Type element, out _))
+			{
+				il.Emit(System.Reflection.Emit.OpCodes.Castclass, element.MakeArrayType());
+				il.Emit(System.Reflection.Emit.OpCodes.Call, type.GetMethod("op_Implicit", new[] { element.MakeArrayType() }));
+			}
+			else if (type.IsByRefLike)
+			{
+				MethodBase factory = RefStructFactory(type);
+				Type source = FactorySource(factory);
+				if (IsSpan(source, out Type sourceElement, out _))
+				{
+					il.Emit(System.Reflection.Emit.OpCodes.Castclass, sourceElement.MakeArrayType());
+					il.Emit(System.Reflection.Emit.OpCodes.Call, source.GetMethod("op_Implicit", new[] { sourceElement.MakeArrayType() }));
+				}
+				else il.Emit(System.Reflection.Emit.OpCodes.Unbox_Any, source);
+				if (factory is ConstructorInfo ctor)
+				{
+					foreach (ParameterInfo rest in ctor.GetParameters().Skip(1)) EmitDefault(il, rest.ParameterType);
+					il.Emit(System.Reflection.Emit.OpCodes.Newobj, ctor);
+				}
+				else il.Emit(System.Reflection.Emit.OpCodes.Call, (MethodInfo)factory);
+			}
+			else il.Emit(System.Reflection.Emit.OpCodes.Unbox_Any, type);
+		}
+
+		private static void EmitDefault(System.Reflection.Emit.ILGenerator il, Type type)
+		{
+			if (!type.IsValueType) { il.Emit(System.Reflection.Emit.OpCodes.Ldnull); return; }
+			System.Reflection.Emit.LocalBuilder temp = il.DeclareLocal(type);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldloca, temp);
+			il.Emit(System.Reflection.Emit.OpCodes.Initobj, type);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldloc, temp);
 		}
 
 		private static Func<object, object[], object> BuildSpanCall(MethodInfo m)
@@ -1082,11 +1170,36 @@ namespace RingDotNet
 				if (!ps[i].ParameterType.IsByRef) continue;
 				Type et = ps[i].ParameterType.GetElementType();
 				locals[i] = il.DeclareLocal(et);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, i);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldelem_Ref);
-				il.Emit(System.Reflection.Emit.OpCodes.Unbox_Any, et);
-				il.Emit(System.Reflection.Emit.OpCodes.Stloc, locals[i]);
+				if (IsSpan(et, out Type spanElement, out _))
+				{
+					/* a span that is passed by reference: made from the array when there is one, else the empty span (an out parameter) */
+					System.Reflection.Emit.LocalBuilder array = il.DeclareLocal(spanElement.MakeArrayType());
+					System.Reflection.Emit.Label none = il.DefineLabel();
+					il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, i);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldelem_Ref);
+					il.Emit(System.Reflection.Emit.OpCodes.Castclass, spanElement.MakeArrayType());
+					il.Emit(System.Reflection.Emit.OpCodes.Stloc, array);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldloc, array);
+					il.Emit(System.Reflection.Emit.OpCodes.Brfalse, none);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldloc, array);
+					il.Emit(System.Reflection.Emit.OpCodes.Call, et.GetMethod("op_Implicit", new[] { spanElement.MakeArrayType() }));
+					il.Emit(System.Reflection.Emit.OpCodes.Stloc, locals[i]);
+					il.MarkLabel(none);
+				}
+				else if (et.IsByRefLike)
+				{
+					EmitValue(il, et, i);
+					il.Emit(System.Reflection.Emit.OpCodes.Stloc, locals[i]);
+				}
+				else
+				{
+					il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, i);
+					il.Emit(System.Reflection.Emit.OpCodes.Ldelem_Ref);
+					il.Emit(System.Reflection.Emit.OpCodes.Unbox_Any, et);
+					il.Emit(System.Reflection.Emit.OpCodes.Stloc, locals[i]);
+				}
 			}
 			if (!m.IsStatic)
 			{
@@ -1096,34 +1209,39 @@ namespace RingDotNet
 			}
 			for (int i = 0; i < ps.Length; i++)
 			{
-				if (locals[i] != null)
-				{
-					il.Emit(System.Reflection.Emit.OpCodes.Ldloca, locals[i]);
-					continue;
-				}
-				il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, i);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldelem_Ref);
-				if (IsSpan(ps[i].ParameterType, out Type element, out _))
-				{
-					il.Emit(System.Reflection.Emit.OpCodes.Castclass, element.MakeArrayType());
-					il.Emit(System.Reflection.Emit.OpCodes.Call, ps[i].ParameterType.GetMethod("op_Implicit", new[] { element.MakeArrayType() }));
-				}
-				else il.Emit(System.Reflection.Emit.OpCodes.Unbox_Any, ps[i].ParameterType);
+				if (locals[i] != null) il.Emit(System.Reflection.Emit.OpCodes.Ldloca, locals[i]);
+				else EmitValue(il, ps[i].ParameterType, i);
 			}
 			il.Emit(m.IsStatic || declaring.IsValueType ? System.Reflection.Emit.OpCodes.Call : System.Reflection.Emit.OpCodes.Callvirt, m);
 			System.Reflection.Emit.LocalBuilder result = il.DeclareLocal(typeof(object));
 			if (m.ReturnType == typeof(void)) il.Emit(System.Reflection.Emit.OpCodes.Ldnull);
+			else if (IsSpan(m.ReturnType, out Type resultElement, out _))
+			{
+				/* a Span result is answered as an array */
+				System.Reflection.Emit.LocalBuilder span = il.DeclareLocal(m.ReturnType);
+				il.Emit(System.Reflection.Emit.OpCodes.Stloc, span);
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, span);
+				il.Emit(System.Reflection.Emit.OpCodes.Call, m.ReturnType.GetMethod("ToArray", Type.EmptyTypes));
+			}
 			else if (m.ReturnType.IsValueType) il.Emit(System.Reflection.Emit.OpCodes.Box, m.ReturnType);
 			il.Emit(System.Reflection.Emit.OpCodes.Stloc, result);
 			for (int i = 0; i < ps.Length; i++)
 			{
 				if (locals[i] == null) continue;
 				Type et = ps[i].ParameterType.GetElementType();
+				if (et.IsByRefLike && !IsSpan(et, out _, out _)) continue;
 				il.Emit(System.Reflection.Emit.OpCodes.Ldarg_1);
 				il.Emit(System.Reflection.Emit.OpCodes.Ldc_I4, i);
-				il.Emit(System.Reflection.Emit.OpCodes.Ldloc, locals[i]);
-				if (et.IsValueType) il.Emit(System.Reflection.Emit.OpCodes.Box, et);
+				if (IsSpan(et, out _, out _))
+				{
+					il.Emit(System.Reflection.Emit.OpCodes.Ldloca, locals[i]);
+					il.Emit(System.Reflection.Emit.OpCodes.Call, et.GetMethod("ToArray", Type.EmptyTypes));
+				}
+				else
+				{
+					il.Emit(System.Reflection.Emit.OpCodes.Ldloc, locals[i]);
+					if (et.IsValueType) il.Emit(System.Reflection.Emit.OpCodes.Box, et);
+				}
 				il.Emit(System.Reflection.Emit.OpCodes.Stelem_Ref);
 			}
 			il.Emit(System.Reflection.Emit.OpCodes.Ldloc, result);
@@ -1393,12 +1511,27 @@ namespace RingDotNet
 					score = 1;
 					return true;
 				}
+				if (spanElement == typeof(char) && v is string text)
+				{
+					result = text.ToCharArray();
+					score = 1;          /* a plain parameter (a string) wins against a span */
+					return true;
+				}
 				if (TryConvert(v, spanElement.MakeArrayType(), out result, out score))
 				{
-					score = Math.Max(1, score - 1);
+					score = 1;
 					return true;
 				}
 				return false;
+			}
+			if (ut.IsByRefLike)
+			{
+				/* a ref struct of a library: made for the call from its source value (see RefStructFactory) */
+				MethodBase factory = RefStructFactory(ut);
+				if (factory == null) return false;
+				if (!TryConvert(v, FactorySource(factory), out result, out score)) return false;
+				score = Math.Max(1, score - 1);
+				return true;
 			}
 			if (v is ByteBuffer buffer && (ut == typeof(byte[]) || ut == typeof(object)))
 			{
@@ -1824,7 +1957,7 @@ namespace RingDotNet
 					Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
 					if (IsOutOnly(ps[i]))
 					{
-						conv[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
+						conv[i] = pt.IsValueType && !pt.IsByRefLike ? Activator.CreateInstance(pt) : null;
 					}
 					else if (next < args.Length)
 					{
@@ -2285,7 +2418,9 @@ namespace RingDotNet
 		/* Run a method and shape its result: methods with out/ref parameters return a list [return value (if any), out/ref values...] */
 		private static object InvokeResult(MethodInfo m, object instance, object[] conv)
 		{
-			object returned = m.GetParameters().Any(p => !p.ParameterType.IsByRef && IsSpan(p.ParameterType, out _, out _)) ? InvokeWithSpans(m, instance, conv) : m.Invoke(instance, conv);
+			bool spanCall = HasSpanParameter(m);
+			object returned = spanCall ? InvokeWithSpans(m, instance, conv) : m.Invoke(instance, conv);
+			if (spanCall && returned is char[] returnedChars && IsSpan(m.ReturnType, out _, out _)) returned = new string(returnedChars);
 			if (ByRefCount(m) == 0)
 			{
 				return returned;
@@ -2298,8 +2433,12 @@ namespace RingDotNet
 			ParameterInfo[] mps = m.GetParameters();
 			for (int i = 0; i < mps.Length; i++)
 			{
-				if (mps[i].ParameterType.IsByRef) results.Add(conv[i]);
-				else if (IsSpan(mps[i].ParameterType, out _, out bool writableSpan) && writableSpan) results.Add(conv[i] is char[] chars ? new string(chars) : conv[i]);
+				Type answered = Unwrap(mps[i].ParameterType);
+				bool spanParameter = IsSpan(answered, out _, out bool writableSpan);
+				if (mps[i].ParameterType.IsByRef ? (!answered.IsByRefLike || spanParameter) : (spanParameter && writableSpan))
+				{
+					results.Add(spanParameter && conv[i] is char[] chars ? new string(chars) : conv[i]);
+				}
 			}
 			return results;
 		}
@@ -2393,7 +2532,7 @@ namespace RingDotNet
 					Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
 					if (IsOutOnly(ps[i]))
 					{
-						conv[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
+						conv[i] = pt.IsValueType && !pt.IsByRefLike ? Activator.CreateInstance(pt) : null;
 					}
 					else if (given[i] >= 0)
 					{

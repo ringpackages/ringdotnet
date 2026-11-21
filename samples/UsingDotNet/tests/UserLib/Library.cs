@@ -52,6 +52,32 @@ namespace MyCompany.Tools
 	}
 	public class FluentText : Fluent<FluentText> { }
 
+	// A ref struct of the library: Ring gives a text, the struct is made for the call from the text (its constructor)
+	public readonly ref struct Cursor
+	{
+		private readonly ReadOnlySpan<char> text;
+		public Cursor(ReadOnlySpan<char> text) { this.text = text; }
+		public int Length { get { return text.Length; } }
+		public int Count(char c) { int n = 0; foreach (char x in text) if (x == c) n++; return n; }
+	}
+
+	public static class Spans
+	{
+		public static int CursorLength(Cursor cursor) { return cursor.Length; }
+		public static int CountOf(ref Cursor cursor, char c) { return cursor.Count(c); }
+		/* a Span result: answered as an array (a text for char) */
+		public static ReadOnlySpan<char> Middle(string text) { return text.AsSpan(1, text.Length - 2); }
+		public static Span<byte> Head(byte[] data) { return data.AsSpan(0, 2); }
+		/* a span that is passed by reference */
+		public static bool TrySplit(ReadOnlySpan<char> text, out ReadOnlySpan<char> rest)
+		{
+			int at = text.IndexOf(',');
+			rest = at < 0 ? ReadOnlySpan<char>.Empty : text.Slice(at + 1);
+			return at >= 0;
+		}
+		public static void Skip(ref ReadOnlySpan<char> text, int n) { text = text.Slice(n); }
+	}
+
 	public class Counter : Calculator
 	{
 		public int Count { get; set; }

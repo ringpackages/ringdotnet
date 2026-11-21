@@ -1,8 +1,8 @@
-# Baseline of tools/dotnettools/auditpackages.py: the public API of the packages of packages.txt (and the DLLs they need), 53 lines.
+# Baseline of tools/dotnettools/auditpackages.py: the public API of the packages of packages.txt (and the DLLs they need), 55 lines.
 # 12 assemblies of the list could not be read in the same process (a version of a dependency was already loaded); they are left out.
 # Compare with a new run after a change of the bridge: a GAP line that gets smaller is a gap that was closed.
 == total of 111 assemblies
-  72256  OK   method: callable   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
+  72663  OK   method: callable   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
   19999  OK   type: wrapped (class, struct, interface)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable
    4863  OK   method: optional parameters (named arguments)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonReader.ReadAsync
    4142  OK   method: explicit interface implementation (found through the interface)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonReader
@@ -11,12 +11,14 @@
    2131  OK   method: operator (the Ring operator method: o + x, o < x ...)   e.g. AutoMapper.dll: AutoMapper.PropertyMapAction.op_Inequality
    1969  OK   method: params array (a plain list)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.SerializeObject
    1519  OK   type: enum (a text in Ring)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.ConstructorHandling
-   1344  OK   method: callable with :typeArguments (generic, type argument only in the result)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.DeserializeObject
-   1275  OK   method: Span parameter (an array in Ring: a text, a byte string, a list, or a size)   e.g. Serilog.dll: Serilog.Context.LogContext.Push
+   1349  OK   method: Span parameter (an array in Ring: a text, a byte string, a list, or a size)   e.g. Serilog.dll: Serilog.Context.LogContext.Push
+   1345  OK   method: callable with :typeArguments (generic, type argument only in the result)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonConvert.DeserializeObject
+    395  OK   method: ref struct parameter (made for the call from a value)   e.g. SkiaSharp.dll: SkiaSharp.SKRuntimeEffectUniforms.Add
     354  OK   method: conversion (convertTo)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.JToken.op_Explicit
     231  OK   property: indexer with one index (Item, SetItem)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.IJEnumerable`1[[Newtonsoft.Json.Linq.JToken, Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed]].Item
     198  OK   type: delegate (a callback in Ring)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Serialization.SerializationCallback
     176  OK   event: setXXXEvent / clearXXXEvent   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonSerializer.Error
+     35  OK   method: Span result (an array in Ring)   e.g. CsvHelper.dll: CsvHelper.CsvDynamicRecord.GetSpan
   74121  INFO method: public methods   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
   53876  INFO property: public properties   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.IJsonLineInfo.LineNumber
   26935  INFO ctor: public constructors   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable..ctor
@@ -34,11 +36,11 @@
     925  INFO type: struct   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.JEnumerable`1
     685  INFO type: nested type (wrapped, named after the types around it)   e.g. Dapper.dll: Dapper.SqlMapper+GridReader
     158  INFO type: obsolete (not wrapped)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonValidatingReader
-     62  INFO method: not callable (Span or other ref struct parameter), but another overload of the name is   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.Parse
+     52  INFO method: not callable (Span or other ref struct parameter), but another overload of the name is   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.Parse
       1  INFO method: not callable (pointer parameter), but another overload of the name is   e.g. SkiaSharp.dll: SkiaSharp.SKImageFilter.CreateMerge
-    458  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.ParseOrNull
-     70  GAP  method: pointer or ref struct result   e.g. CsvHelper.dll: CsvHelper.CsvDynamicRecord.GetSpan
+     60  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.ParseOrNull
      44  GAP  property: ref property   e.g. RBush.dll: RBush.ISpatialData.Envelope
+     35  GAP  method: pointer or ref struct result   e.g. SixLabors.Fonts.dll: SixLabors.Fonts.Unicode.MemoryExtensions.EnumerateCodePoints
      32  GAP  ctor: not callable (pointer or ref struct parameter)   e.g. NLog.dll: NLog.LogEventInfo..ctor
      31  GAP  property: pointer or ref struct type   e.g. CsvHelper.dll: CsvHelper.CsvReader.Item
      30  GAP  method: operator that Ring has no syntax for (op_Increment, op_True ...)   e.g. Humanizer.dll: Humanizer.ByteSize.op_Increment
@@ -48,6 +50,6 @@
 
 summary
   types that Ring can use (wrapped, enums, delegates): 99 % (21716 of 21874)   (generic definitions 1128, nested 685)
-  methods that can be called, in the types that are wrapped: 99 % (73600 of 74121)
+  methods that can be called, in the types that are wrapped: 99 % (74008 of 74121)
   members (methods, constructors, properties) in types that are not wrapped: 0
 

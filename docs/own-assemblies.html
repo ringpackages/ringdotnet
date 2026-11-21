@@ -332,6 +332,32 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	}
 	<span class="k">public</span> <span class="k">class</span> <span class="t">FluentText</span> : Fluent&lt;FluentText&gt; { }
 
+	<span class="c">// A ref struct of the library: Ring gives a text, the struct is made for the call from the text (its constructor)</span>
+	<span class="k">public</span> <span class="k">readonly</span> <span class="k">ref</span> <span class="k">struct</span> Cursor
+	{
+		<span class="k">private</span> <span class="k">readonly</span> ReadOnlySpan&lt;char&gt; text;
+		<span class="k">public</span> <span class="t">Cursor</span>(ReadOnlySpan&lt;char&gt; text) { this.text = text; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Length</span> { <span class="k">get</span> { <span class="k">return</span> text.Length; } }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span>(char c) { <span class="k">int</span> n = <span class="n">0</span>; <span class="k">foreach</span> (char x <span class="k">in</span> text) <span class="k">if</span> (x == c) n++; <span class="k">return</span> n; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CursorLength</span>(<span class="t">Cursor</span> cursor) { <span class="k">return</span> cursor.Length; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CountOf</span>(<span class="k">ref</span> <span class="t">Cursor</span> cursor, char c) { <span class="k">return</span> cursor.<span class="f">Count</span>(c); }
+		<span class="c">/* a Span result: answered as an array (a text for char) */</span>
+		<span class="k">public</span> <span class="k">static</span> ReadOnlySpan&lt;char&gt; <span class="t">Middle</span>(<span class="k">string</span> text) { <span class="k">return</span> text.<span class="f">AsSpan</span>(<span class="n">1</span>, text.Length - <span class="n">2</span>); }
+		<span class="k">public</span> <span class="k">static</span> Span&lt;byte&gt; <span class="t">Head</span>(byte[] data) { <span class="k">return</span> data.<span class="f">AsSpan</span>(<span class="n">0</span>, <span class="n">2</span>); }
+		<span class="c">/* a span that is passed by reference */</span>
+		<span class="k">public</span> <span class="k">static</span> <span class="k">bool</span> <span class="t">TrySplit</span>(ReadOnlySpan&lt;char&gt; text, <span class="k">out</span> ReadOnlySpan&lt;char&gt; rest)
+		{
+			<span class="k">int</span> at = text.<span class="f">IndexOf</span>(<span class="s">','</span>);
+			rest = at &lt; <span class="n">0</span> ? ReadOnlySpan&lt;char&gt;.Empty : text.<span class="f">Slice</span>(at + <span class="n">1</span>);
+			<span class="k">return</span> at &gt;= <span class="n">0</span>;
+		}
+		<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="t">Skip</span>(<span class="k">ref</span> ReadOnlySpan&lt;char&gt; text, <span class="k">int</span> n) { text = text.<span class="f">Slice</span>(n); }
+	}
+
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
 	{
 		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span> { <span class="k">get</span>; <span class="k">set</span>; }
