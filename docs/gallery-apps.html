@@ -2728,13 +2728,13 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="k">func</span> <span class="f">newFile</span>
 	<span class="k">if</span> canDiscard()
-		setText(<span class="s">""</span>,<span class="k">true</span>)
+		setText(<span class="s">""</span>)
 		cFileName = <span class="s">""</span>
 		lModified = <span class="k">false</span>
 		updateTitle()
 	<span class="k">ok</span>
 
-<span class="k">func</span> <span class="f">setText</span> cText, lKeepFlag
+<span class="k">func</span> <span class="f">setText</span> cText
 	lLoading = <span class="k">true</span>
 	oEditor.Text = cText
 	lLoading = <span class="k">false</span>
@@ -2754,7 +2754,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 		<span class="f">uiMessage</span>(<span class="s">"Can't open "</span> + cName + nl + cCatchError,<span class="s">"Notepad"</span>)
 		<span class="k">return</span>
 	<span class="k">done</span>
-	setText(cContent,<span class="k">false</span>)
+	setText(cContent)
 	cFileName = cName
 	lModified = <span class="k">false</span>
 	updateTitle()

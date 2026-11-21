@@ -18,7 +18,7 @@ cUrl = ""
 
 func main
 	cAddress = "http://localhost:5080"
-	if uiSelfTestWeb()
+	if isSelfTest()
 		cAddress = "http://127.0.0.1:0"
 	ok
 	oServer = new WebServer(cAddress)
@@ -27,14 +27,14 @@ func main
 	oServer.onPost("/api/todos","addTodo")
 	oServer.onDelete("/api/todos","deleteTodo")
 	cUrl = oServer.url()
-	if uiSelfTestWeb()
+	if isSelfTest()
 		selfTest()
 	else
 		? "Serving " + cUrl + "  (Ctrl+C to stop)"
 		oServer.run()
 	ok
 
-func uiSelfTestWeb
+func isSelfTest
 	return find(sysargv,"--selftest") > 0
 
 # ---------------------------------------------------------------- handlers
@@ -76,7 +76,7 @@ func deleteTodo oRequest
 # ---------------------------------------------------------------- self test: a .NET client talks to the server
 
 func request cMethod, cPath, cBody
-	oMessage = dnNew("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
 	ok

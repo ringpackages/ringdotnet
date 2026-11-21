@@ -86,13 +86,13 @@ func canDiscard
 
 func newFile
 	if canDiscard()
-		setText("",true)
+		setText("")
 		cFileName = ""
 		lModified = false
 		updateTitle()
 	ok
 
-func setText cText, lKeepFlag
+func setText cText
 	lLoading = true
 	oEditor.Text = cText
 	lLoading = false
@@ -112,7 +112,7 @@ func loadFile cName
 		uiMessage("Can't open " + cName + nl + cCatchError,"Notepad")
 		return
 	done
-	setText(cContent,false)
+	setText(cContent)
 	cFileName = cName
 	lModified = false
 	updateTitle()

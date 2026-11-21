@@ -309,7 +309,7 @@ cUrl = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	cAddress = <span class="s">"http://localhost:5080"</span>
-	<span class="k">if</span> <span class="f">uiSelfTestWeb</span>()
+	<span class="k">if</span> isSelfTest()
 		cAddress = <span class="s">"http://127.0.0.1:0"</span>
 	<span class="k">ok</span>
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(cAddress)
@@ -318,14 +318,14 @@ cUrl = <span class="s">""</span>
 	oServer.<span class="f">onPost</span>(<span class="s">"/api/todos"</span>,<span class="s">"addTodo"</span>)
 	oServer.<span class="f">onDelete</span>(<span class="s">"/api/todos"</span>,<span class="s">"deleteTodo"</span>)
 	cUrl = oServer.<span class="f">url</span>()
-	<span class="k">if</span> <span class="f">uiSelfTestWeb</span>()
+	<span class="k">if</span> isSelfTest()
 		selfTest()
 	<span class="k">else</span>
 		? <span class="s">"Serving "</span> + cUrl + <span class="s">"  (Ctrl+C to stop)"</span>
 		oServer.<span class="f">run</span>()
 	<span class="k">ok</span>
 
-<span class="k">func</span> <span class="f">uiSelfTestWeb</span>
+<span class="k">func</span> <span class="f">isSelfTest</span>
 	<span class="k">return</span> find(sysargv,<span class="s">"--selftest"</span>) &gt; <span class="n">0</span>
 
 <span class="c"># ---------------------------------------------------------------- handlers</span>
@@ -367,7 +367,7 @@ cUrl = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- self test: a .NET client talks to the server</span>
 
 <span class="k">func</span> <span class="f">request</span> cMethod, cPath, cBody
-	oMessage = <span class="f">dnNew</span>(<span class="s">"HttpRequestMessage"</span>,[ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oMessage.Content = <span class="k">new</span> <span class="t">StringContent</span>(cBody)
 	<span class="k">ok</span>
