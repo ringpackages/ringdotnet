@@ -67,7 +67,7 @@ if iswindows()
 ok
 dnAssert("Environment.NewLine",oEnv.NewLine,cNewLine)
 
-dnAssert("Random seed",new Random(1).Next_([ :minValue = 5, :maxValue = 6 ]),5)
+dnAssert("Random seed",new Random(1).@Next([ :minValue = 5, :maxValue = 6 ]),5)
 dnAssert("TimeZoneInfo.Utc",new TimeZoneInfo().Utc.Id,"UTC")
 dnAssert("GC memory",new GC().GetTotalMemory(0) > 0,1)
 dnAssert("Decimal.Parse",new Decimal().Parse("12.5"),12.5)

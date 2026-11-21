@@ -161,7 +161,7 @@ Class IPv6MulticastOption from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -255,7 +255,7 @@ Class MulticastOption from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.MulticastOption, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -315,7 +315,7 @@ Class NetworkStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.NetworkStream, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -382,7 +382,7 @@ Class SafeSocketHandle from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',P1)
@@ -481,7 +481,7 @@ Class SendPacketsElement from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -603,7 +603,7 @@ Class Socket from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.Socket, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1227,7 +1227,7 @@ Class SocketAsyncEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',P1)
@@ -1612,7 +1612,7 @@ Class TcpClient from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpClient, System.Net.Sockets',P1)
@@ -1771,7 +1771,7 @@ Class TcpListener from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpListener, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1914,7 +1914,7 @@ Class UdpClient from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpClient, System.Net.Sockets',P1)
@@ -2104,7 +2104,7 @@ Class UdpReceiveResult from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',P1)

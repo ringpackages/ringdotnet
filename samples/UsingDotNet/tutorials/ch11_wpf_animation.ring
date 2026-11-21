@@ -54,7 +54,7 @@ func startAnimations
 	oMove = new DoubleAnimation()
 	oMove.SetProp("From",10)                      # From and To can be empty in WPF, so they are set by name
 	oMove.SetProp("To",340)
-	oMove.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(2) ])
+	oMove.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(2) ])
 	oMove.AutoReverse = True
 	oMove.RepeatBehavior = new RepeatBehavior().Forever
 	oEase = new SineEase()
@@ -66,7 +66,7 @@ func startAnimations
 	oFade = new DoubleAnimation()
 	oFade.SetProp("From",1)
 	oFade.SetProp("To",0.1)
-	oFade.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(1.5) ])
+	oFade.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(1.5) ])
 	oFade.AutoReverse = True
 	oFade.RepeatBehavior = new RepeatBehavior().Forever
 	oBox.BeginAnimation([ :dp = oBox.OpacityProperty, :animation = oFade ])
@@ -75,7 +75,7 @@ func startAnimations
 	oTurn = new DoubleAnimation()
 	oTurn.SetProp("From",0)
 	oTurn.SetProp("To",360)
-	oTurn.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(3) ])
+	oTurn.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(3) ])
 	oTurn.RepeatBehavior = new RepeatBehavior().Forever
 	oSpin.BeginAnimation([ :dp = oSpin.AngleProperty, :animation = oTurn ])
 	oStatus.Text = "Running"

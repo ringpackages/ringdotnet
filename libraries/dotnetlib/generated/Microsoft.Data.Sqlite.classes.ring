@@ -66,7 +66,7 @@ Class SqliteBlob from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -102,7 +102,7 @@ Class SqliteCommand from DbCommand
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',P1)
@@ -142,7 +142,7 @@ Class SqliteConnection from DbConnection
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',P1)
@@ -266,7 +266,7 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',P1)
@@ -417,7 +417,7 @@ Class SqliteParameter from DbParameter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',P1)

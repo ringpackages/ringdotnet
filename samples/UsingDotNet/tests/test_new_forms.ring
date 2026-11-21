@@ -36,7 +36,7 @@ func main
 	dnAssert("new StringBuilder(NULL)",oText4.ToString(),"NULL")
 	dnAssert("new StringBuilder(capacity)",new StringBuilder(64).Capacity,64)
 	oRandom = new Random
-	dnAssert("new Random (no parentheses)",oRandom.Next_([ :minValue = 5, :maxValue = 6 ]),5)
+	dnAssert("new Random (no parentheses)",oRandom.@Next([ :minValue = 5, :maxValue = 6 ]),5)
 	dnAssert("new Version(text)",new Version("1.2.3").Major,1)
 
 	# objects that come back from .NET are wrapped as before (the class body must not make a second object)

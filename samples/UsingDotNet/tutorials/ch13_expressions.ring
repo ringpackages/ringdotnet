@@ -34,7 +34,7 @@ func main
 	# 4. A call of a .NET method inside the tree: Math.Sqrt(a * a + b * b), the length of the hypotenuse
 	oSqrt = new Type().GetType("System.Math").GetMethod("Sqrt")
 	oSquares = oExpression.Add([ :left = oExpression.Multiply([ :left = oA, :right = oA ]), :right = oExpression.Multiply([ :left = oB, :right = oB ]) ])
-	oHypotenuse = oExpression.Call_([ :instance = dnNull(), :method = oSqrt, :arguments = [oSquares] ])
+	oHypotenuse = oExpression.@Call([ :instance = dnNull(), :method = oSqrt, :arguments = [oSquares] ])
 	oLength = oExpression.Lambda([ :body = oHypotenuse, :parameters = [oA,oB] ])
 	? nl + "4. " + oLength.ToString() + " with 3 and 4 gives " + oLength.Compile(NULL).callMethod("DynamicInvoke",[[3,4]])
 

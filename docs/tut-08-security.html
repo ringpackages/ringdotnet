@@ -270,7 +270,7 @@ using {
 	? <span class="s">"Changing one letter: "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="s">"abd"</span>))),<span class="n">16</span>) + <span class="s">"... is completely different"</span>
 
 	<span class="c"># HMAC: a hash with a secret key proves that a message was not changed</span>
-	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_</span>([ :key = <span class="s">"secret key"</span> ])          <span class="c"># the constructor that takes the key</span>
+	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().@<span class="k">New</span>([ :<span class="t">key</span> = <span class="s">"secret key"</span> ])          <span class="c"># the constructor that takes the key</span>
 	? nl + <span class="s">"HMAC             : "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(oHmac.<span class="f">ComputeHash</span>(<span class="s">"message"</span>))),<span class="n">32</span>) + <span class="s">"..."</span>
 
 	<span class="c"># Random bytes for tokens: use RandomNumberGenerator, not Random</span>
@@ -304,7 +304,7 @@ Decrypted        : Ring talks to .NET crypto</code></pre></div>
 <h3 id="passwords">Passwords<a class="anchor" href="#passwords">#</a></h3>
 <p>Never store a password, and never store a plain hash of it either (attackers have tables of hashes of common passwords). A password needs a <strong>salted, slow hash</strong> (PBKDF2): a random <em>salt</em> so that two people with the same password get different hashes, and many <em>rounds</em> so that each guess is slow for an attacker. That needs a class whose constructor takes four values, and it is the subject of the tutorial <a href="tut-49-login.html">Login, sessions and cookies</a> in the chapter <strong>Security</strong>.</p>
 <h3 id="hmac">HMAC<a class="anchor" href="#hmac">#</a></h3>
-<p>An HMAC is a hash that needs a secret key (<code>new HMACSHA256().New_([ :key = "secret key" ])</code>: the constructor that takes the key). If you and a server share the key, an HMAC on a message proves the message was not changed on the way.</p>
+<p>An HMAC is a hash that needs a secret key (<code>new HMACSHA256().@New([ :key = "secret key" ])</code>: the constructor that takes the key). If you and a server share the key, an HMAC on a message proves the message was not changed on the way.</p>
 <h3 id="random-tokens">Random tokens<a class="anchor" href="#random-tokens">#</a></h3>
 <p>For secrets (session ids, reset links) use <code>RandomNumberGenerator.GetBytes(n)</code>. The ordinary <code>Random</code> class is predictable and must not be used for secrets.</p>
 <h3 id="aes">AES<a class="anchor" href="#aes">#</a></h3>

@@ -33,7 +33,7 @@ The program starts itself a second time with the argument `--child` (`exefilenam
 
 ### The parent
 
-1. **The lock.** `new Mutex().New_([ :initiallyOwned = False, :name = ... ])` opens (or creates) the mutex; `WaitOne(0)` means *try to take it, do not wait*. The parent gets it.
+1. **The lock.** `new Mutex().@New([ :initiallyOwned = False, :name = ... ])` opens (or creates) the mutex; `WaitOne(0)` means *try to take it, do not wait*. The parent gets it.
 2. **The pipe.** `NamedPipeServerStream` creates the pipe. The constructor has many forms, so it is made with named arguments; `direction = "InOut"` lets both sides read and write (enums are texts).
 3. **The child.** `ProcessStartInfo` describes the program to start: `UseShellExecute = False` and `RedirectStandardOutput = True` let the parent read what the child prints; `CreateNoWindow` hides the window. `Process.Start(info)` starts it.
 4. **Talking.** `WaitForConnection()` blocks until the child connects. After that the parent writes one line (`add 20 22`) and reads one line of the answer. `AutoFlush = True` sends each line at once; without it the line may wait in the buffer.

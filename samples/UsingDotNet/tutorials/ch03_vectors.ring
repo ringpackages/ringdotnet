@@ -8,8 +8,8 @@ using {
 func main
 	# 1. A Vector3 holds three numbers (X, Y, Z): a point or a direction in space (Vector2 has two numbers, Vector4 four).
 	#    The numbers are single-precision floats, so results are shown rounded.
-	oA = new Vector3().New_([ :x = 3, :y = 4, :z = 0 ])
-	oB = new Vector3().New_([ :x = 1, :y = 2, :z = 3 ])
+	oA = new Vector3().@New([ :x = 3, :y = 4, :z = 0 ])
+	oB = new Vector3().@New([ :x = 1, :y = 2, :z = 3 ])
 	? "1. a = " + show3(oA) + ", length of a = " + oA.Length() + ", squared length = " + oA.LengthSquared()
 
 	# 2. The operations are static methods: Add, Subtract, Multiply (by a number), Negate
@@ -20,8 +20,8 @@ func main
 	? "   -a    = " + show3(oVector.Negate(oA))
 
 	# 3. Dot product: a number that is 0 when two directions are at a right angle. Cross product: a vector at a right angle to both.
-	oX = new Vector3().New_([ :x = 1, :y = 0, :z = 0 ])
-	oY = new Vector3().New_([ :x = 0, :y = 1, :z = 0 ])
+	oX = new Vector3().@New([ :x = 1, :y = 0, :z = 0 ])
+	oY = new Vector3().@New([ :x = 0, :y = 1, :z = 0 ])
 	? nl + "3. x . y = " + oVector.Dot(oX,oY) + " (a right angle), a . b = " + oVector.Dot(oA,oB)
 	? "   x cross y = " + show3(oVector.Cross(oX,oY)) + " (the z axis)"
 
@@ -33,7 +33,7 @@ func main
 	? nl + "5. the middle of a and b = " + show3(oVector.Lerp(oA,oB,0.5))
 
 	# 6. A rotation of a 2D point with a matrix. Matrix3x2 does move, scale and rotate in the plane; the angle is in radians.
-	oPoint = new Vector2().New_([ :x = 1, :y = 0 ])
+	oPoint = new Vector2().@New([ :x = 1, :y = 0 ])
 	oMatrix = new Matrix3x2().CreateRotation(3.14159265358979 / 2)       # a quarter of a turn
 	oRotated = new Vector2().Transform(oPoint,oMatrix)
 	? nl + "6. the point (1, 0) turned by 90 degrees is (" + roundNumber(oRotated.X) + ", " + roundNumber(oRotated.Y) + ")"

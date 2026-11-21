@@ -37,9 +37,9 @@ func main
 	oServer.close()
 
 	# ASP.NET types can be used on their own
-	oPath = new PathString().New_([ :value = "/api/items" ])
+	oPath = new PathString().@New([ :value = "/api/items" ])
 	dnAssert("PathString",oPath.Value,"/api/items")
-	dnAssert("PathString.StartsWithSegments",oPath.StartsWithSegments(new PathString().New_([ :value = "/api" ])),1)
+	dnAssert("PathString.StartsWithSegments",oPath.StartsWithSegments(new PathString().@New([ :value = "/api" ])),1)
 	oQuery = new QueryString().Create([ :name = "name", :value = "ring dotnet" ])
 	dnAssert("QueryString encodes",oQuery.Value,"?name=ring%20dotnet")
 	oMedia = new AspMediaTypeHeaderValue("text/html")

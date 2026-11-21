@@ -387,7 +387,7 @@ Class DataColumn from MarshalByValueComponent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataColumn, System.Data.Common',P1)
@@ -750,7 +750,7 @@ Class DataRelation from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataRelation, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1233,7 +1233,7 @@ Class DataSet from MarshalByValueComponent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataSet, System.Data.Common',P1)
@@ -1367,7 +1367,7 @@ Class DataSet from MarshalByValueComponent
 
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -1549,7 +1549,7 @@ Class DataTable from MarshalByValueComponent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataTable, System.Data.Common',P1)
@@ -1660,7 +1660,7 @@ Class DataTable from MarshalByValueComponent
 
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -2066,7 +2066,7 @@ Class DataView from MarshalByValueComponent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataView, System.Data.Common',P1)
@@ -2259,7 +2259,7 @@ Class DataViewManager from MarshalByValueComponent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataViewManager, System.Data.Common',P1)
@@ -4393,7 +4393,7 @@ Class ForeignKeyConstraint from Constraint
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.ForeignKeyConstraint, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4464,7 +4464,7 @@ Class UniqueConstraint from Constraint
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.UniqueConstraint, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

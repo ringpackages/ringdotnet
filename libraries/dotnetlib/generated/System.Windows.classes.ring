@@ -1467,7 +1467,7 @@ Class ColorConvertedBitmapExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',P1)
@@ -1509,7 +1509,7 @@ Class Condition from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Condition, PresentationFramework',P1)
@@ -1758,7 +1758,7 @@ Class CornerRadius from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.CornerRadius, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2142,7 +2142,7 @@ Class WpfDataObject from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataObject, PresentationCore',P1)
@@ -2651,7 +2651,7 @@ Class DependencyPropertyChangedEventArgs from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',P1)
@@ -2788,7 +2788,7 @@ Class DpiScale from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DpiScale, PresentationCore',P1)
@@ -3095,7 +3095,7 @@ Class Duration from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Duration, PresentationCore',P1)
@@ -3210,7 +3210,7 @@ Class DynamicResourceExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DynamicResourceExtension, PresentationFramework',P1)
@@ -3441,7 +3441,7 @@ Class FigureLength from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FigureLength, PresentationFramework',P1)
@@ -4039,7 +4039,7 @@ Class FrameworkElementFactory from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkElementFactory, PresentationFramework',P1)
@@ -4087,7 +4087,7 @@ Class FrameworkElementFactory from Object
 
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -4253,7 +4253,7 @@ Class GridLength from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.GridLength, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5556,7 +5556,7 @@ Class Int32Rect from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Int32Rect, WindowsBase',P1)
@@ -6275,7 +6275,7 @@ Class PropertyMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.PropertyMetadata, WindowsBase',P1)
@@ -6334,7 +6334,7 @@ Class PropertyPath from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.PropertyPath, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6421,7 +6421,7 @@ Class Rect from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Rect, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6956,7 +6956,7 @@ Class RoutedEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.RoutedEventArgs, PresentationCore',P1)
@@ -7360,7 +7360,7 @@ Class SplashScreen from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.SplashScreen, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7437,7 +7437,7 @@ Class StaticResourceExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.StaticResourceExtension, PresentationFramework',P1)
@@ -7509,7 +7509,7 @@ Class Style from DispatcherObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Style, PresentationFramework',P1)
@@ -11256,7 +11256,7 @@ Class TemplateBindingExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TemplateBindingExtension, PresentationFramework',P1)
@@ -11352,7 +11352,7 @@ Class TemplateContentLoader from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Load_ P1,P2
+	Func @Load P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Load",P1,P2))
 
 	Func Save P1,P2
@@ -11408,7 +11408,7 @@ Class TextDecoration from Animatable
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecoration, PresentationCore',P1)
@@ -11514,7 +11514,7 @@ Class TextDecorationCollection from Animatable
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecorationCollection, PresentationCore',P1)
@@ -11693,7 +11693,7 @@ Class ThemeDictionaryExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeDictionaryExtension, PresentationFramework',P1)
@@ -11745,7 +11745,7 @@ Class ThemeMode from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeMode, PresentationFramework',P1)
@@ -11833,7 +11833,7 @@ Class Thickness from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Thickness, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11929,7 +11929,7 @@ Class TriggerActionCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TriggerActionCollection, PresentationFramework',P1)
@@ -16268,7 +16268,7 @@ Class ComponentResourceKey from ResourceKey
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ComponentResourceKey, PresentationFramework',P1)
@@ -17833,7 +17833,7 @@ Class DataTemplate from FrameworkTemplate
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplate, PresentationFramework',P1)
@@ -17965,7 +17965,7 @@ Class EventSetter from SetterBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventSetter, PresentationFramework',P1)
@@ -18207,10 +18207,10 @@ Class FrameworkElement from UIElement
 
 		return self
 
-	Func GetFlowDirection_ P1
+	Func @GetFlowDirection P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.FrameworkElement, PresentationFramework',"s16:GetFlowDirection",P1))
 
-	Func SetFlowDirection_ P1,P2
+	Func @SetFlowDirection P1,P2
 		dotnet_callv("s4:call",'System.Windows.FrameworkElement, PresentationFramework',"s16:SetFlowDirection",P1,P2)
 
 		return self
@@ -18987,7 +18987,7 @@ Class Setter from SetterBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Setter, PresentationFramework',P1)
@@ -19100,7 +19100,7 @@ Class SourceChangedEventArgs from RoutedEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.SourceChangedEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -19242,7 +19242,7 @@ Class UIPropertyMetadata from PropertyMetadata
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.UIPropertyMetadata, PresentationCore',P1)
@@ -19613,7 +19613,7 @@ Class DataTemplateKey from TemplateKey
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplateKey, PresentationFramework',P1)
@@ -19654,10 +19654,10 @@ Class DataTrigger from TriggerBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetValue_ P1
+	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
-	Func SetValue_ P1,P2
+	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
 
 		return self
@@ -19712,7 +19712,7 @@ Class EventTrigger from TriggerBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventTrigger, PresentationFramework',P1)
@@ -20226,7 +20226,7 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkPropertyMetadata, PresentationFramework',P1)
@@ -20386,7 +20386,7 @@ Class HierarchicalDataTemplate from DataTemplate
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.HierarchicalDataTemplate, PresentationFramework',P1)
@@ -20560,10 +20560,10 @@ Class Trigger from TriggerBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetValue_ P1
+	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
-	Func SetValue_ P1,P2
+	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
 
 		return self

@@ -388,7 +388,7 @@ Class AuthorizationMiddleware from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

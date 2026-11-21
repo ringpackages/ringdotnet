@@ -14,7 +14,7 @@ func main
 	# HTTP is a question and an answer. A WEBSOCKET is a connection that stays open after the first HTTP request: both sides can send a
 	# message whenever they like, which is what a chat, a live price list or a game needs. The first request asks to "upgrade" the
 	# connection, and then the two sides send MESSAGES (text or binary) until one of them closes it.
-	oSource = new CancellationTokenSource().New_([ :millisecondsDelay = 20000 ])
+	oSource = new CancellationTokenSource().@New([ :millisecondsDelay = 20000 ])
 	oToken = oSource.Token
 
 	# 1. The server: an HttpListener that accepts the upgrade. The port is a free one, found by asking the system for port 0.

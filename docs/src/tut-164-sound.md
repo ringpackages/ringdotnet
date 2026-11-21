@@ -74,9 +74,9 @@ Every number in the header is stored **little endian**: the lowest byte first. `
 
 ### The stream and the player
 
-`MemoryStream` has several constructors, so it is made with the name of the parameter that you want to pass: `dnNew("System.IO.MemoryStream",[ :buffer = cWav ])`. The class that the generator wrote for `SoundPlayer` is used the same way: `new SoundPlayer().New_([ :stream = oStream ])`. The tutorial [The generic functions](tut-160-generic-calls.html) explains the named form.
+`MemoryStream` has several constructors, so it is made with the name of the parameter that you want to pass: `dnNew("System.IO.MemoryStream",[ :buffer = cWav ])`. The class that the generator wrote for `SoundPlayer` is used the same way: `new SoundPlayer().@New([ :stream = oStream ])`. The tutorial [The generic functions](tut-160-generic-calls.html) explains the named form.
 
-`Load` is a keyword of Ring, so the method of .NET is `Load_()` (a name that is a keyword gets a trailing underscore). It reads the stream and **checks that it is a good WAV file**: a mistake in the header makes it raise an exception, so the line `the sound is loaded` is a test of the header as well.
+`Load` is a keyword of Ring, so the method of .NET is `@Load()` (a name that is a keyword gets an `@` at the start). It reads the stream and **checks that it is a good WAV file**: a mistake in the header makes it raise an exception, so the line `the sound is loaded` is a test of the header as well.
 
 ### Playing
 
@@ -94,14 +94,14 @@ Sounds that the system itself plays (`SystemSounds.Beep`) are in the same namesp
 - a class without a Ring class is wrapped from its DLL with `wrapassembly.ring`, and the DLL of a framework is found through a class that lives next to it,
 - a WAV file is a header and samples, with numbers stored little endian,
 - a Ring text is a list of bytes, built with `char()`,
-- `MemoryStream` with a named constructor, `SoundPlayer` with `Load_`, `PlaySync` and `Play`.
+- `MemoryStream` with a named constructor, `SoundPlayer` with `@Load`, `PlaySync` and `Play`.
 
 ## Exercises
 
 1. Run the program with `--play`, then change the frequency to 880 (one octave higher) and 220 (one octave lower).
 2. Make the note one second long and fade it: multiply every sample by `(nSamples - nSample) / nSamples`.
 3. Play two notes one after the other by adding the samples of the second one to `cData` before the header is made.
-4. Write the sound to a file with `new File().WriteAllBytes(cFile, cWav)` (the tutorial [Files and folders](tut-05-files.html)) and play the file by name: `new SoundPlayer().New_([ :soundLocation = cFile ])`.
+4. Write the sound to a file with `new File().WriteAllBytes(cFile, cWav)` (the tutorial [Files and folders](tut-05-files.html)) and play the file by name: `new SoundPlayer().@New([ :soundLocation = cFile ])`.
 
 ## Next
 

@@ -1684,7 +1684,7 @@ Class CalendarDateRange from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.CalendarDateRange, PresentationFramework',P1)
@@ -2973,7 +2973,7 @@ Class ControlTemplate from FrameworkTemplate
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ControlTemplate, PresentationFramework',P1)
@@ -4371,7 +4371,7 @@ Class DataGridCellInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridCellInfo, PresentationFramework',P1)
@@ -4432,7 +4432,7 @@ Class DataGridClipboardCellContent from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',P1)
@@ -4906,7 +4906,7 @@ Class DataGridLength from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.DataGridLength, PresentationFramework',P1)
@@ -6724,7 +6724,7 @@ Class HierarchicalVirtualizationConstraints from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',P1)
@@ -6782,7 +6782,7 @@ Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',P1)
@@ -6840,7 +6840,7 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',P1)
@@ -7870,7 +7870,7 @@ Class ItemContainerTemplateKey from TemplateKey
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',P1)
@@ -7927,7 +7927,7 @@ Class ItemsPanelTemplate from FrameworkTemplate
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',P1)
@@ -8707,7 +8707,7 @@ Class PageRange from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.PageRange, PresentationFramework',P1)
@@ -9091,7 +9091,7 @@ Class WpfRichTextBox from WpfTextBoxBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.RichTextBox, PresentationFramework',P1)
@@ -9912,22 +9912,22 @@ Class SpellCheck from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetIsEnabled_ P1,P2
+	Func @SetIsEnabled P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s12:SetIsEnabled",P1,P2)
 
 		return self
 
-	Func GetIsEnabled_ P1
+	Func @GetIsEnabled P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s12:GetIsEnabled",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetSpellingReform_ P1,P2
+	Func @SetSpellingReform P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s17:SetSpellingReform",P1,P2)
 
 		return self
 
-	Func GetCustomDictionaries_ P1
+	Func @GetCustomDictionaries P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.SpellCheck, PresentationFramework',"s21:GetCustomDictionaries",P1))
 
 	Func getIsEnabled
@@ -10240,7 +10240,7 @@ Class TextBlock from FrameworkElement
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.TextBlock, PresentationFramework',P1)
@@ -10274,90 +10274,90 @@ Class TextBlock from FrameworkElement
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetBaselineOffset_ P1,P2
+	Func @SetBaselineOffset P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:SetBaselineOffset",P1,P2)
 
 		return self
 
-	Func GetBaselineOffset_ P1
+	Func @GetBaselineOffset P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:GetBaselineOffset",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetFontFamily_ P1,P2
+	Func @SetFontFamily P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetFontFamily",P1,P2)
 
 		return self
 
-	Func GetFontFamily_ P1
+	Func @GetFontFamily P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetFontFamily",P1))
 
-	Func SetFontStyle_ P1,P2
+	Func @SetFontStyle P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s12:SetFontStyle",P1,P2)
 
 		return self
 
-	Func GetFontStyle_ P1
+	Func @GetFontStyle P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s12:GetFontStyle",P1))
 
-	Func SetFontWeight_ P1,P2
+	Func @SetFontWeight P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetFontWeight",P1,P2)
 
 		return self
 
-	Func GetFontWeight_ P1
+	Func @GetFontWeight P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetFontWeight",P1))
 
-	Func SetFontStretch_ P1,P2
+	Func @SetFontStretch P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s14:SetFontStretch",P1,P2)
 
 		return self
 
-	Func GetFontStretch_ P1
+	Func @GetFontStretch P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s14:GetFontStretch",P1))
 
-	Func SetFontSize_ P1,P2
+	Func @SetFontSize P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s11:SetFontSize",P1,P2)
 
 		return self
 
-	Func GetFontSize_ P1
+	Func @GetFontSize P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s11:GetFontSize",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetForeground_ P1,P2
+	Func @SetForeground P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetForeground",P1,P2)
 
 		return self
 
-	Func GetForeground_ P1
+	Func @GetForeground P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetForeground",P1))
 
-	Func SetLineHeight_ P1,P2
+	Func @SetLineHeight P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:SetLineHeight",P1,P2)
 
 		return self
 
-	Func GetLineHeight_ P1
+	Func @GetLineHeight P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s13:GetLineHeight",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetLineStackingStrategy_ P1,P2
+	Func @SetLineStackingStrategy P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s23:SetLineStackingStrategy",P1,P2)
 
 		return self
 
-	Func GetLineStackingStrategy_ P1
+	Func @GetLineStackingStrategy P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s23:GetLineStackingStrategy",P1))
 
-	Func SetTextAlignment_ P1,P2
+	Func @SetTextAlignment P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s16:SetTextAlignment",P1,P2)
 
 		return self
 
-	Func GetTextAlignment_ P1
+	Func @GetTextAlignment P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s16:GetTextAlignment",P1))
 
 	Func getInlines
@@ -10987,7 +10987,7 @@ Class TextChangedEventArgs from RoutedEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11090,12 +11090,12 @@ Class ToolBarTray from FrameworkElement
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func SetIsLocked_ P1,P2
+	Func @SetIsLocked P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ToolBarTray, PresentationFramework',"s11:SetIsLocked",P1,P2)
 
 		return self
 
-	Func GetIsLocked_ P1
+	Func @GetIsLocked P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ToolBarTray, PresentationFramework',"s11:GetIsLocked",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -11675,7 +11675,7 @@ Class ValidationError from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.ValidationError, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -11921,7 +11921,7 @@ Class VirtualizationCacheLength from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',P1)
@@ -19328,66 +19328,66 @@ Class ScrollViewer from ContentControl
 
 		return self
 
-	Func SetCanContentScroll_ P1,P2
+	Func @SetCanContentScroll P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s19:SetCanContentScroll",P1,P2)
 
 		return self
 
-	Func GetCanContentScroll_ P1
+	Func @GetCanContentScroll P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s19:GetCanContentScroll",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetHorizontalScrollBarVisibility_ P1,P2
+	Func @SetHorizontalScrollBarVisibility P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s32:SetHorizontalScrollBarVisibility",P1,P2)
 
 		return self
 
-	Func GetHorizontalScrollBarVisibility_ P1
+	Func @GetHorizontalScrollBarVisibility P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s32:GetHorizontalScrollBarVisibility",P1))
 
-	Func SetVerticalScrollBarVisibility_ P1,P2
+	Func @SetVerticalScrollBarVisibility P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s30:SetVerticalScrollBarVisibility",P1,P2)
 
 		return self
 
-	Func GetVerticalScrollBarVisibility_ P1
+	Func @GetVerticalScrollBarVisibility P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s30:GetVerticalScrollBarVisibility",P1))
 
-	Func GetIsDeferredScrollingEnabled_ P1
+	Func @GetIsDeferredScrollingEnabled P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s29:GetIsDeferredScrollingEnabled",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetIsDeferredScrollingEnabled_ P1,P2
+	Func @SetIsDeferredScrollingEnabled P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s29:SetIsDeferredScrollingEnabled",P1,P2)
 
 		return self
 
-	Func SetPanningMode_ P1,P2
+	Func @SetPanningMode P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s14:SetPanningMode",P1,P2)
 
 		return self
 
-	Func GetPanningMode_ P1
+	Func @GetPanningMode P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s14:GetPanningMode",P1))
 
-	Func SetPanningDeceleration_ P1,P2
+	Func @SetPanningDeceleration P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s22:SetPanningDeceleration",P1,P2)
 
 		return self
 
-	Func GetPanningDeceleration_ P1
+	Func @GetPanningDeceleration P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s22:GetPanningDeceleration",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetPanningRatio_ P1,P2
+	Func @SetPanningRatio P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s15:SetPanningRatio",P1,P2)
 
 		return self
 
-	Func GetPanningRatio_ P1
+	Func @GetPanningRatio P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.ScrollViewer, PresentationFramework',"s15:GetPanningRatio",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

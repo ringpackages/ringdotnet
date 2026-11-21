@@ -276,7 +276,7 @@ using {
 	oRequest = <span class="f">dnNew</span>(<span class="s">"CertificateRequest"</span>,[ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
 
 	<span class="c"># 2. Extensions say what the certificate may be used for. This one is a plain server certificate (not a CA that signs others).</span>
-	oBasic = <span class="k">new</span> <span class="t">X509BasicConstraintsExtension</span>().<span class="f">New_</span>([ :certificateAuthority = <span class="k">False</span>, :hasPathLengthConstraint = <span class="k">False</span>, :pathLengthConstraint = <span class="n">0</span>, :critical = <span class="k">True</span> ])
+	oBasic = <span class="k">new</span> <span class="t">X509BasicConstraintsExtension</span>().@<span class="k">New</span>([ :<span class="t">certificateAuthority</span> = <span class="k">False</span>, :hasPathLengthConstraint = <span class="k">False</span>, :pathLengthConstraint = <span class="n">0</span>, :critical = <span class="k">True</span> ])
 	oRequest.CertificateExtensions.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[oBasic])
 
 	<span class="c"># 3. Create it: valid from yesterday (a margin for computers whose clocks differ) until a year from today</span>
@@ -290,11 +290,11 @@ using {
 
 	<span class="c"># 4. Export WITH the private key as PFX (a file with a password), and load it again. A PFX is the secret: protect it like a password.</span>
 	aPfx = oCertificate.<span class="f">callMethod</span>(<span class="s">"Export"</span>,[<span class="s">"Pfx"</span>,<span class="s">"correct horse battery"</span>])
-	oLoaded = <span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aPfx, :password = <span class="s">"correct horse battery"</span> ])
+	oLoaded = <span class="k">new</span> <span class="t">X509Certificate2</span>().@<span class="k">New</span>([ :<span class="t">rawData</span> = aPfx, :password = <span class="s">"correct horse battery"</span> ])
 	? nl + <span class="s">"2. the PFX is bigger than 1000 bytes: "</span> + (len(aPfx) &gt; <span class="n">1000</span>) + <span class="s">"; loaded again it has the same thumbprint: "</span> + (oLoaded.Thumbprint = oCertificate.Thumbprint) + <span class="s">" and a private key: "</span> + oLoaded.HasPrivateKey
 	lWrong = <span class="k">False</span>
 	<span class="k">try</span>
-		<span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aPfx, :password = <span class="s">"wrong password"</span> ])
+		<span class="k">new</span> <span class="t">X509Certificate2</span>().@<span class="k">New</span>([ :<span class="t">rawData</span> = aPfx, :password = <span class="s">"wrong password"</span> ])
 	<span class="k">catch</span>
 		lWrong = <span class="k">True</span>
 	<span class="k">done</span>
@@ -304,7 +304,7 @@ using {
 	cPem = oCertificate.<span class="f">ExportCertificatePem</span>()
 	? nl + <span class="s">"3. the public certificate as PEM starts with: "</span> + left(substr(cPem,char(<span class="n">13</span>),<span class="s">""</span>),<span class="n">27</span>)
 	aCer = oCertificate.<span class="f">Export</span>(<span class="s">"Cert"</span>)
-	oPublic = <span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aCer ])
+	oPublic = <span class="k">new</span> <span class="t">X509Certificate2</span>().@<span class="k">New</span>([ :<span class="t">rawData</span> = aCer ])
 	? <span class="s">"   loaded from the public export: same thumbprint "</span> + (oPublic.Thumbprint = oCertificate.Thumbprint) + <span class="s">", private key: "</span> + oPublic.HasPrivateKey
 
 	<span class="c"># 6. Signing: the owner signs with the private key, anybody with the public certificate verifies</span>

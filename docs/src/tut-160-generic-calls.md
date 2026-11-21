@@ -33,7 +33,7 @@ The earlier lessons wrote `new StringBuilder("x")`, `oText.Append("y")`, `oText.
 
 ### Named values for a constructor
 
-A class made with `new X(...)` runs its `init`, and `init` has one form. A class that has **no constructor without values** (`FileStream` must have a path and a mode) cannot be made with `new FileStream()`, and a constructor with several values needs a way to choose among the constructors: the **names** of their parameters. `dnNew("FileStream", [ :path = cFile, :mode = "Open", :access = "Read" ])` does it. For a class that does have a constructor without values, the object form is `new MemoryStream().New_([ :buffer = bytes ])`, which the tutorials use first.
+A class made with `new X(...)` runs its `init`, and `init` has one form. A class that has **no constructor without values** (`FileStream` must have a path and a mode) cannot be made with `new FileStream()`, and a constructor with several values needs a way to choose among the constructors: the **names** of their parameters. `dnNew("FileStream", [ :path = cFile, :mode = "Open", :access = "Read" ])` does it. For a class that does have a constructor without values, the object form is `new MemoryStream().@New([ :buffer = bytes ])`, which the tutorials use first.
 
 ### A static method by name
 

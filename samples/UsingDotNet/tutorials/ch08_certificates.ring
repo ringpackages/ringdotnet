@@ -24,7 +24,7 @@ func main
 	oRequest = dnNew("CertificateRequest",[ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
 
 	# 2. Extensions say what the certificate may be used for. This one is a plain server certificate (not a CA that signs others).
-	oBasic = new X509BasicConstraintsExtension().New_([ :certificateAuthority = False, :hasPathLengthConstraint = False, :pathLengthConstraint = 0, :critical = True ])
+	oBasic = new X509BasicConstraintsExtension().@New([ :certificateAuthority = False, :hasPathLengthConstraint = False, :pathLengthConstraint = 0, :critical = True ])
 	oRequest.CertificateExtensions.callMethod("Add",[oBasic])
 
 	# 3. Create it: valid from yesterday (a margin for computers whose clocks differ) until a year from today
@@ -38,11 +38,11 @@ func main
 
 	# 4. Export WITH the private key as PFX (a file with a password), and load it again. A PFX is the secret: protect it like a password.
 	aPfx = oCertificate.callMethod("Export",["Pfx","correct horse battery"])
-	oLoaded = new X509Certificate2().New_([ :rawData = aPfx, :password = "correct horse battery" ])
+	oLoaded = new X509Certificate2().@New([ :rawData = aPfx, :password = "correct horse battery" ])
 	? nl + "2. the PFX is bigger than 1000 bytes: " + (len(aPfx) > 1000) + "; loaded again it has the same thumbprint: " + (oLoaded.Thumbprint = oCertificate.Thumbprint) + " and a private key: " + oLoaded.HasPrivateKey
 	lWrong = False
 	try
-		new X509Certificate2().New_([ :rawData = aPfx, :password = "wrong password" ])
+		new X509Certificate2().@New([ :rawData = aPfx, :password = "wrong password" ])
 	catch
 		lWrong = True
 	done
@@ -52,7 +52,7 @@ func main
 	cPem = oCertificate.ExportCertificatePem()
 	? nl + "3. the public certificate as PEM starts with: " + left(substr(cPem,char(13),""),27)
 	aCer = oCertificate.Export("Cert")
-	oPublic = new X509Certificate2().New_([ :rawData = aCer ])
+	oPublic = new X509Certificate2().@New([ :rawData = aCer ])
 	? "   loaded from the public export: same thumbprint " + (oPublic.Thumbprint = oCertificate.Thumbprint) + ", private key: " + oPublic.HasPrivateKey
 
 	# 6. Signing: the owner signs with the private key, anybody with the public certificate verifies

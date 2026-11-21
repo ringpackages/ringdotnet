@@ -317,7 +317,7 @@ oDb = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the client</span>
 
 <span class="k">func</span> <span class="f">send</span> cMethod, cPath, cBody
-	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().<span class="f">New_</span>([ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oMessage.Content = <span class="k">new</span> <span class="t">StringContent</span>(cBody)
 	<span class="k">ok</span>

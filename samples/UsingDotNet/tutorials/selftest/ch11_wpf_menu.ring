@@ -2,7 +2,7 @@
 
 # a menu item is clicked by raising its Click event, as a user would
 func clickItem cName
-	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new MenuItem().ClickEvent ]))
+	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new MenuItem().ClickEvent ]))
 
 func selfTest
 	# a menu item runs its code

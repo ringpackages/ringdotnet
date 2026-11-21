@@ -13,7 +13,7 @@ func main
 	# and then the message itself.
 	oListener = new TcpListener(new IPAddress().Loopback,0)
 	oListener.Start(NULL)
-	oClient = new TcpClient().New_([ :hostname = "127.0.0.1", :port = oListener.LocalEndpoint.Port ])
+	oClient = new TcpClient().@New([ :hostname = "127.0.0.1", :port = oListener.LocalEndpoint.Port ])
 	oServerSide = oListener.AcceptTcpClient()
 	oSender = oClient.GetStream()
 	oReceiver = oServerSide.GetStream()

@@ -29,7 +29,7 @@ A **claim** is one statement about a user: `Name = Ann`, `Email = ann@example.co
 
 An **identity** is a list of claims that came from one source (a password login, a certificate, a token) together with the name of that source (`AuthenticationType`). A **principal** is the user as the program sees them, and can hold several identities. `IsAuthenticated` is true when the identity has an authentication type.
 
-The constructors have several forms, so an identity is made with named values: `new ClaimsIdentity().New_([ :authenticationType = "Password" ])`.
+The constructors have several forms, so an identity is made with named values: `new ClaimsIdentity().@New([ :authenticationType = "Password" ])`.
 
 ### Finding claims
 

@@ -314,7 +314,7 @@ cShellOption = <span class="s">""</span>
 	<span class="k">if</span> <span class="k">not</span> isWindows()
 		cEcho = <span class="s">"echo $GREETING"</span>
 	<span class="k">ok</span>
-	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = cShell, :arguments = shellArgs(cEcho) ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = cShell, :arguments = shellArgs(cEcho) ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
 		RedirectStandardOutput = <span class="k">True</span>
@@ -350,7 +350,7 @@ cShellOption = <span class="s">""</span>
 
 <span class="c"># start a program; lRedirect = True gives the program's three streams to this program (input, output, error)</span>
 <span class="k">func</span> <span class="f">startProgram</span> cFile, cArguments, lRedirect
-	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = cFile, :arguments = cArguments ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = <span class="k">False</span>
 	oInfo.CreateNoWindow = <span class="k">True</span>
 	<span class="k">if</span> lRedirect

@@ -296,7 +296,7 @@ chdir(cHere)
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colours are values of the type SKColor: Parse reads "#rrggbb".</span>
-	oBitmap = <span class="k">new</span> <span class="t">SKBitmap</span>().<span class="f">New_</span>([ :width = <span class="n">200</span>, :height = <span class="n">100</span> ])
+	oBitmap = <span class="k">new</span> <span class="t">SKBitmap</span>().@<span class="k">New</span>([ :<span class="t">width</span> = <span class="n">200</span>, :height = <span class="n">100</span> ])
 	oCanvas = <span class="k">new</span> <span class="t">SKCanvas</span>(oBitmap)
 	oBlue = <span class="k">new</span> <span class="t">SKColor</span>().<span class="f">Parse</span>(<span class="s">"#2060c0"</span>)
 	oYellow = <span class="k">new</span> <span class="t">SKColor</span>().<span class="f">Parse</span>(<span class="s">"#ffcc00"</span>)
@@ -338,7 +338,7 @@ chdir(cHere)
 4. read back: 200 x 100, centre 255, 204, 0</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="bitmap-canvas-paint">Bitmap, canvas, paint<a class="anchor" href="#bitmap-canvas-paint">#</a></h3>
-<ul><li>An <code>SKBitmap</code> is the picture: a grid of pixels. <code>New_([ :width = 200, :height = 100 ])</code> makes an empty one (a constructor chosen by the names of its parameters).</li><li>An <code>SKCanvas</code> is what draws on a bitmap: <code>new SKCanvas(oBitmap)</code>. Its methods are <code>Clear</code>, <code>DrawCircle</code>, <code>DrawRect</code>, <code>DrawText</code> and more, and each of the ones with several versions takes a list of the names of its parameters.</li><li>An <code>SKPaint</code> says <strong>how</strong> to draw: its <code>Color</code>, <code>IsAntialias</code> (smooth edges), <code>TextSize</code>. The same paint can draw many things, and it can be changed between them: the program draws the circle in yellow and the text in white with one paint.</li></ul>
+<ul><li>An <code>SKBitmap</code> is the picture: a grid of pixels. <code>@New([ :width = 200, :height = 100 ])</code> makes an empty one (a constructor chosen by the names of its parameters).</li><li>An <code>SKCanvas</code> is what draws on a bitmap: <code>new SKCanvas(oBitmap)</code>. Its methods are <code>Clear</code>, <code>DrawCircle</code>, <code>DrawRect</code>, <code>DrawText</code> and more, and each of the ones with several versions takes a list of the names of its parameters.</li><li>An <code>SKPaint</code> says <strong>how</strong> to draw: its <code>Color</code>, <code>IsAntialias</code> (smooth edges), <code>TextSize</code>. The same paint can draw many things, and it can be changed between them: the program draws the circle in yellow and the text in white with one paint.</li></ul>
 <h3 id="colours">Colours<a class="anchor" href="#colours">#</a></h3>
 <p>A colour is a value of the type <code>SKColor</code>, with <code>Red</code>, <code>Green</code>, <code>Blue</code> and <code>Alpha</code> (the opacity) from 0 to 255. <code>new SKColor().Parse("#2060c0")</code> reads the usual web notation. Colours are values, so the program makes them once (<code>oBlue</code>, <code>oYellow</code>, <code>oWhite</code>) and uses them where it needs them.</p>
 <h3 id="pixels">Pixels<a class="anchor" href="#pixels">#</a></h3>

@@ -284,7 +284,7 @@ Class CodeIdentifiers from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',P1)
@@ -542,7 +542,7 @@ Class SoapAttributes from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapAttributes, System.Private.Xml',P1)
@@ -628,7 +628,7 @@ Class SoapReflectionImporter from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',P1)
@@ -989,7 +989,7 @@ Class XmlAttributes from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlAttributes, System.Private.Xml',P1)
@@ -1521,7 +1521,7 @@ Class XmlReflectionImporter from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',P1)
@@ -1845,7 +1845,7 @@ Class XmlSerializer from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializer, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2050,7 +2050,7 @@ Class XmlSerializerNamespaces from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',P1)
@@ -2140,7 +2140,7 @@ Class XmlSchemaImporter from SchemaImporter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

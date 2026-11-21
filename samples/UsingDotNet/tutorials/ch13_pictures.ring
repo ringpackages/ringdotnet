@@ -28,7 +28,7 @@ dnImportFrom(cClasses + "/","SkiaSharp")
 
 func main
 	# 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colours are values of the type SKColor: Parse reads "#rrggbb".
-	oBitmap = new SKBitmap().New_([ :width = 200, :height = 100 ])
+	oBitmap = new SKBitmap().@New([ :width = 200, :height = 100 ])
 	oCanvas = new SKCanvas(oBitmap)
 	oBlue = new SKColor().Parse("#2060c0")
 	oYellow = new SKColor().Parse("#ffcc00")

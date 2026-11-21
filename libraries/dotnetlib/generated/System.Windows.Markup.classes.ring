@@ -756,7 +756,7 @@ Class NamespaceMapEntry from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',P1)
@@ -831,7 +831,7 @@ Class ParserContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ParserContext, PresentationFramework',P1)
@@ -1163,7 +1163,7 @@ Class XamlReader from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s5:Parse",P1))
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Markup.XamlReader, PresentationFramework',"s4:Load",P1))
 		ok
@@ -1240,7 +1240,7 @@ Class XamlTypeMapper from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.XamlTypeMapper, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1488,7 +1488,7 @@ Class XmlnsDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.XmlnsDictionary, PresentationFramework',P1)
@@ -1663,7 +1663,7 @@ Class ArrayExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ArrayExtension, System.Xaml',P1)
@@ -1689,7 +1689,7 @@ Class ArrayExtension from MarkupExtension
 
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getType
@@ -1772,7 +1772,7 @@ Class PropertyDefinition from MemberDefinition
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getType
@@ -1820,7 +1820,7 @@ Class Reference from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.Reference, System.Xaml',P1)
@@ -1869,7 +1869,7 @@ Class StaticExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.StaticExtension, System.Xaml',P1)
@@ -1924,7 +1924,7 @@ Class TypeExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.TypeExtension, System.Xaml',P1)
@@ -1940,7 +1940,7 @@ Class TypeExtension from MarkupExtension
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getTypeName

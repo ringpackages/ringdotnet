@@ -337,7 +337,7 @@ Class DataColumnMapping from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataColumnMapping, System.Data.Common',P1)
@@ -510,7 +510,7 @@ Class DataTableMapping from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataTableMapping, System.Data.Common',P1)
@@ -1609,7 +1609,7 @@ Class DbConnectionStringBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',P1)
@@ -2258,7 +2258,7 @@ Class DbEnumerator from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DbEnumerator, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

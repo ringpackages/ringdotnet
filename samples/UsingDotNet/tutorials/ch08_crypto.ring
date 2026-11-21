@@ -89,7 +89,7 @@ func unprotect cPackage, cEncryptionKey, cMacKey
 	return ["ok",cPlain]
 
 func tagOf cBody, cMacKey
-	oHmac = new HMACSHA256().New_([ :key = cMacKey ])
+	oHmac = new HMACSHA256().@New([ :key = cMacKey ])
 	cTag = oHmac.ComputeHash(cBody)
 	oHmac.Dispose()
 	return cTag

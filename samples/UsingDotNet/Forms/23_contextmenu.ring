@@ -11,7 +11,7 @@ oPanel = uiPanel(oForm,15,15,265,70)
 oPanel.BackColor = uiColor("Lavender")
 oMenu = new ContextMenuStrip()
 for cColor in ["Red","Green","Blue"]
-	oItem = new ToolStripMenuItem().New_([ :text = cColor ])
+	oItem = new ToolStripMenuItem().@New([ :text = cColor ])
 	oItem.setClickEvent("oPanel.BackColor = uiColor('" + cColor + "')")
 	oMenu.Items.Add(oItem)
 next

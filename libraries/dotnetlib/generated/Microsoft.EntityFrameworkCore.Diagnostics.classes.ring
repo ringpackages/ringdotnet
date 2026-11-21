@@ -5700,7 +5700,7 @@ Class IdentityResolutionInterceptionData from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',P1)
@@ -5776,7 +5776,7 @@ Class InstantiationBindingInterceptionData from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',P1)
@@ -6547,7 +6547,7 @@ Class MaterializationInterceptionData from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',P1)
@@ -9369,7 +9369,7 @@ Class UpdatingIdentityResolutionInterceptor from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',P1)

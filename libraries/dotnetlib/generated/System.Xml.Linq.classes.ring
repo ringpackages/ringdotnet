@@ -200,7 +200,7 @@ Class XDeclaration from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -268,7 +268,7 @@ Class XName from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 		ok
@@ -321,7 +321,7 @@ Class XNamespace from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XNamespace, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getNamespaceName
@@ -594,7 +594,7 @@ Class XStreamingElement from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -671,7 +671,7 @@ Class XAttribute from XObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -691,7 +691,7 @@ Class XAttribute from XObject
 
 		return self
 
-	Func SetValue_ P1
+	Func @SetValue P1
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1)
 
 		return self
@@ -1005,7 +1005,7 @@ Class XDocumentType from XNode
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1073,7 +1073,7 @@ Class XProcessingInstruction from XNode
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1170,7 +1170,7 @@ Class XDocument from XContainer
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocument, System.Private.Xml.Linq',P1)
@@ -1201,7 +1201,7 @@ Class XDocument from XContainer
 		ok
 		raise("DotNet Error: SaveAsync does not take one argument: use named arguments, SaveAsync([ :parameter = value, ... ])")
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s4:Load",P1))
 		ok
@@ -1258,7 +1258,7 @@ Class XElement from XContainer
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XElement, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1362,12 +1362,12 @@ Class XElement from XContainer
 
 		return self
 
-	Func SetValue_ P1
+	Func @SetValue P1
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1)
 
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s4:Load",P1))
 		ok

@@ -495,7 +495,7 @@ fillTable()
 		<span class="k">ok</span>
 		cRow = <span class="s">""</span> + nCode + <span class="s">" "</span> + lower(cHex) + <span class="s">" "</span> + lower(cName)
 		<span class="k">if</span> cFilter = <span class="s">""</span> <span class="k">or</span> substr(cRow,cFilter)
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = <span class="s">""</span> + nCode ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = <span class="s">""</span> + nCode ])
 			oItem.SubItems.<span class="f">Add</span>(cHex)
 			oItem.SubItems.<span class="f">Add</span>(binary(nCode))
 			oItem.SubItems.<span class="f">Add</span>(cName)
@@ -1492,7 +1492,7 @@ oTree {
 	<span class="k">try</span>
 		<span class="k">for</span> cFile <span class="k">in</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>()
 			oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = oInfo.Name ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = oInfo.Name ])
 			oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
 			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
 			oList.Items.<span class="f">Add</span>(oItem)
@@ -2221,7 +2221,7 @@ calculate()
 		nBalance -= nPrincipal
 		nTotalInterest += nInterestPart
 		<span class="k">if</span> nMonth &lt;= <span class="n">12</span>
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = <span class="s">""</span> + nMonth ])
+			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = <span class="s">""</span> + nMonth ])
 			oItem.SubItems.<span class="f">Add</span>(money(nPayment))
 			oItem.SubItems.<span class="f">Add</span>(money(nInterestPart))
 			oItem.SubItems.<span class="f">Add</span>(money(nPrincipal))
@@ -2490,7 +2490,7 @@ oInfo.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<sp
 	oButton = <span class="f">uiButton</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + nColumn * C_SIZE,<span class="n">44</span> + nRow * C_SIZE,C_SIZE,C_SIZE,<span class="s">""</span>)
 	oButton {
 		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
-		Margin = <span class="k">new</span> <span class="t">Padding</span>().<span class="f">New_</span>([ :all = <span class="n">0</span> ])
+		Margin = <span class="k">new</span> <span class="t">Padding</span>().@<span class="k">New</span>([ :<span class="t">all</span> = <span class="n">0</span> ])
 		setMouseUpEvent(<span class="s">"cellClicked("</span> + nCell + <span class="s">",aDotNetArgs[2].Button)"</span>)
 	}
 	aButtons + oButton

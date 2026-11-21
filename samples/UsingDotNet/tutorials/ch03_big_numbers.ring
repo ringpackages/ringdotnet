@@ -46,8 +46,8 @@ func main
 
 	# 7. Complex numbers: a real part and an imaginary part. Math with them is done by the static methods of Complex.
 	oC = new Complex()
-	oI = new Complex().New_([ :real = 0, :imaginary = 1 ])        # i
+	oI = new Complex().@New([ :real = 0, :imaginary = 1 ])        # i
 	oMinusOne = oC.Multiply(oI,oI)
 	? nl + "7. i * i = " + oMinusOne.Real + " (real part), " + oMinusOne.Imaginary + " (imaginary part)"
-	oZ = new Complex().New_([ :real = 3, :imaginary = 4 ])
+	oZ = new Complex().@New([ :real = 3, :imaginary = 4 ])
 	? "   |3 + 4i| = " + oZ.Magnitude + ",  3+4i squared = " + oC.Multiply(oZ,oZ).ToString()

@@ -354,7 +354,7 @@ Class Authorization from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Authorization, System.Net.Requests',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -450,7 +450,7 @@ Class Cookie from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Cookie, System.Net.Primitives',P1)
@@ -711,7 +711,7 @@ Class CookieContainer from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.CookieContainer, System.Net.Primitives',P1)
@@ -2176,7 +2176,7 @@ Class IPAddress from Object
 		ok
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPAddress, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2417,7 +2417,7 @@ Class IPNetwork from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPNetwork, System.Net.Primitives',P1)
@@ -2504,7 +2504,7 @@ Class IWebProxyScript from DotNetObject
 
 		return self
 
-	Func Load_ P1,P2,P3
+	Func @Load P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Load",P1,P2,P3)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2555,7 +2555,7 @@ Class NetworkCredential from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkCredential, System.Net.Primitives',P1)
@@ -2858,7 +2858,7 @@ Class SocketAddress from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.SocketAddress, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3514,7 +3514,7 @@ Class WebProxy from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebProxy, System.Net.WebProxy',P1)
@@ -3994,7 +3994,7 @@ Class DnsEndPoint from EndPoint
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.DnsEndPoint, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

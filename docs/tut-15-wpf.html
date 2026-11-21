@@ -297,7 +297,7 @@ oNameBox = <span class="s">""</span>
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"greet"</span>).<span class="f">setClickEvent</span>(<span class="s">"oGreet.Text = 'Hello, ' + oNameBox.Text + '!'"</span>)
 
 	<span class="c"># 4. Data binding: the text follows the slider, with no code at all</span>
-	oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])
+	oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().@<span class="k">New</span>([ :<span class="t">path</span> = <span class="s">"Value"</span> ])
 	oBinding.Source = oSlider
 	oValue.<span class="f">SetBinding</span>(oValue.TextProperty,oBinding)
 
@@ -319,7 +319,7 @@ oNameBox = <span class="s">""</span>
 <p><code>setClickEvent("code")</code> works as in Windows Forms. <code>setValueChangedEvent</code> runs when the slider moves; here it sets the width and height of the circle from <code>oSlider.Value</code>.</p>
 <h3 id="data-binding">Data binding<a class="anchor" href="#data-binding">#</a></h3>
 <p>A <em>binding</em> connects a property of one element to a property of another, with no code in between:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])      <span class="c"># the property to follow: Value</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().@<span class="k">New</span>([ :<span class="t">path</span> = <span class="s">"Value"</span> ])      <span class="c"># the property to follow: Value</span>
 oBinding.Source = oSlider                       <span class="c"># whose property</span>
 oValue.<span class="f">SetBinding</span>(oValue.TextProperty,oBinding) <span class="c"># the Text of this block follows it</span></code></pre></div>
 <p>Move the slider and the text changes by itself. In the test: <code>oSlider.Value = 100</code>, then the text is <code>100</code>.</p>

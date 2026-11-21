@@ -177,7 +177,7 @@ def render_class(ns, cls, data, cinfo, wrapped, by_full):
         for c in ctors:
             rows.append("<tr><td><code>new %s(%s)</code></td></tr>" % (esc(cls), esc(sig_params(c))))
         out.append('<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody>%s</tbody></table></div>' % "".join(rows))
-        out.append('<p class="muted">Ring: <code>new %s(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new %s().New_([ :param = value ])</code> or <code>dnNew("%s",[ :param = value ])</code>.</p>' % (esc(cls), esc(cls), esc(cls)))
+        out.append('<p class="muted">Ring: <code>new %s(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new %s().@New([ :param = value ])</code> or <code>dnNew("%s",[ :param = value ])</code>.</p>' % (esc(cls), esc(cls), esc(cls)))
 
     # properties and fields
     props = [p for p in data.get("props", []) if own(p)]

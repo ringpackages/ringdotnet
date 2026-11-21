@@ -819,7 +819,7 @@ Class CookieOptions from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',P1)
@@ -1190,7 +1190,7 @@ Class AspFormCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1453,7 +1453,7 @@ Class FormFileCollection from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func ForEach_ P1
+	Func @ForEach P1
 		dotnet_callv("s4:call",nHandle,"s7:ForEach",P1)
 
 		return self
@@ -1619,7 +1619,7 @@ Class FragmentString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -1692,7 +1692,7 @@ Class HeaderDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',P1)
@@ -1882,7 +1882,7 @@ Class HostString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -2936,7 +2936,7 @@ Class HttpValidationProblemDetails from ProblemDetails
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -4367,7 +4367,7 @@ Class ISession from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func getIsAvailable
@@ -4532,7 +4532,7 @@ Class PathString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -4713,7 +4713,7 @@ Class ProducesResponseTypeMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4728,7 +4728,7 @@ Class ProducesResponseTypeMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -4781,7 +4781,7 @@ Class QueryCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',P1)
@@ -4861,7 +4861,7 @@ Class QueryString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -5517,7 +5517,7 @@ Class SessionExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1,P2
+	Func @Get P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions',"s3:Get",P1,P2))
 
 
@@ -6150,7 +6150,7 @@ Class StreamResponseBodyFeature from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6623,7 +6623,7 @@ Class DefaultHttpContext from HttpContext
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',P1)

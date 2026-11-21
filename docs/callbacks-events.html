@@ -249,12 +249,12 @@
 <h2 id="callbacks-with-dncallback">Callbacks with dnCallback()<a class="anchor" href="#callbacks-with-dncallback">#</a></h2>
 <p>Pass <code>dnCallback(code)</code> wherever a .NET delegate is expected: <code>Action</code>, <code>Func</code>, <code>Predicate</code>, <code>Comparison</code>, <code>EventHandler</code>, <code>Task</code> continuations... The bridge builds a delegate of the <strong>exact type</strong>. When .NET invokes it, the Ring code runs, as with events in RingQt. It can read <code>aDotNetArgs</code> (the list of the delegate arguments) and set <code>xDotNetResult</code> (converted to the delegate's return type).</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>nTotal = <span class="n">0</span>
-oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))                <span class="c"># ForEach is a Ring keyword: ForEach_</span>
+oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))                <span class="c"># ForEach is a Ring keyword: @ForEach</span>
 oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
 oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span class="s">"xDotNetResult = left(aDotNetArgs[1],1) = 'a'"</span>))</code></pre></div>
 <h3 id="a-function-name-instead-of-code">A function name instead of code<a class="anchor" href="#a-function-name-instead-of-code">#</a></h3>
 <p>If the text is just a <strong>function name</strong>, that function is called with the argument list as its only parameter, and its return value is the result:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"show"</span>))
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"show"</span>))
 
 <span class="k">func</span> <span class="f">show</span> aArgs
 	? aArgs[<span class="n">1</span>]</code></pre></div>
@@ -268,7 +268,7 @@ oList = <span class="k">new</span> <span class="t">StringList</span>()
 oList.<span class="f">Add</span>(<span class="s">"pear"</span>)  oList.<span class="f">Add</span>(<span class="s">"apple"</span>)  oList.<span class="f">Add</span>(<span class="s">"fig"</span>)  oList.<span class="f">Add</span>(<span class="s">"avocado"</span>)
 
 ? <span class="s">"ForEach (Action&lt;string&gt;):"</span>
-oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"printItem"</span>))
+oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"printItem"</span>))
 
 ? <span class="s">"Sort by length (Comparison&lt;string&gt;):"</span>
 oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"compareLength"</span>) ])
@@ -281,7 +281,7 @@ oFound = oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(
 
 <span class="c"># Callbacks can be any Ring code (as in RingQt events): aDotNetArgs holds the arguments, xDotNetResult the result</span>
 nTotal = <span class="n">0</span>
-oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))
+oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))
 ? <span class="s">"Total letters (inline code): "</span> + nTotal
 oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"</span>) ])
 ? <span class="s">"Longest first: "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>)
@@ -291,7 +291,7 @@ oNums = <span class="k">new</span> <span class="t">NumberList</span>()
 
 <span class="c"># Errors in the callback reach the caller</span>
 <span class="k">try</span>
-	oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"broken"</span>))
+	oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"broken"</span>))
 <span class="k">catch</span>
 	? <span class="s">"Caught: "</span> + cCatchError
 <span class="k">done</span>

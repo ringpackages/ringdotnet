@@ -720,7 +720,7 @@ Class ActivityContext from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',P1)
@@ -806,7 +806,7 @@ Class ActivityEvent from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',P1)
@@ -869,7 +869,7 @@ Class ActivityLink from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',P1)
@@ -998,7 +998,7 @@ Class ActivitySource from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1125,7 +1125,7 @@ Class ActivityTagsCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',P1)
@@ -1538,7 +1538,7 @@ Class Debugger from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Break_ 
+	Func @Break 
 		dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s5:Break")
 
 		return self
@@ -2792,7 +2792,7 @@ Class ProcessStartInfo from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',P1)
@@ -3206,7 +3206,7 @@ Class StackFrame from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackFrame, System.Private.CoreLib',P1)
@@ -3356,7 +3356,7 @@ Class StackTrace from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackTrace, System.Private.CoreLib',P1)
@@ -4197,7 +4197,7 @@ Class TraceSource from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4310,7 +4310,7 @@ Class BooleanSwitch from Switch_
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4497,7 +4497,7 @@ Class SourceSwitch from Switch_
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4547,7 +4547,7 @@ Class TextWriterTraceListener from TraceListener
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
@@ -4590,7 +4590,7 @@ Class TraceSwitch from Switch_
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4665,7 +4665,7 @@ Class ConsoleTraceListener from TextWriterTraceListener
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
@@ -4697,7 +4697,7 @@ Class DelimitedListTraceListener from TextWriterTraceListener
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4735,7 +4735,7 @@ Class XmlWriterTraceListener from TextWriterTraceListener
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

@@ -420,7 +420,7 @@ Class FilterItem from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

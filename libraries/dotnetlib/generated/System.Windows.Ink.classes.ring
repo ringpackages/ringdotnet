@@ -434,7 +434,7 @@ Class GestureRecognizer from DependencyObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.GestureRecognizer, PresentationCore',P1)
@@ -596,7 +596,7 @@ Class Stroke from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.Stroke, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -774,7 +774,7 @@ Class StrokeCollection from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.StrokeCollection, PresentationCore',P1)
@@ -1107,7 +1107,7 @@ Class EllipseStylusShape from StylusShape
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.EllipseStylusShape, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1176,7 +1176,7 @@ Class RectangleStylusShape from StylusShape
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.RectangleStylusShape, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

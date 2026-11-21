@@ -715,7 +715,7 @@ Class BitmapPalette from DispatcherObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1220,7 +1220,7 @@ Class BitmapImage from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapImage, PresentationCore',P1)
@@ -1453,7 +1453,7 @@ Class ColorConvertedBitmap from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',P1)
@@ -1557,7 +1557,7 @@ Class CroppedBitmap from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',P1)
@@ -1639,7 +1639,7 @@ Class FormatConvertedBitmap from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',P1)
@@ -2017,7 +2017,7 @@ Class TransformedBitmap from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',P1)
@@ -2300,7 +2300,7 @@ Class WriteableBitmap from BitmapSource
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

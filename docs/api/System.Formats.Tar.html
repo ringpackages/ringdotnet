@@ -250,7 +250,7 @@
 <div class="clsbody">
 <p class="net"><code>System.Formats.Tar.GnuTarEntry</code> · assembly <code>System.Formats.Tar</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new GnuTarEntry(TarEntryType entryType, string entryName)</code></td></tr><tr><td><code>new GnuTarEntry(TarEntry other)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new GnuTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new GnuTarEntry().New_([ :param = value ])</code> or <code>dnNew("GnuTarEntry",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new GnuTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new GnuTarEntry().@New([ :param = value ])</code> or <code>dnNew("GnuTarEntry",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>AccessTime</code></td><td><code>DateTimeOffset</code></td><td>read, write</td><td><code>o.AccessTime</code> <code>o.AccessTime = v</code></td></tr><tr><td><code>ChangeTime</code></td><td><code>DateTimeOffset</code></td><td>read, write</td><td><code>o.ChangeTime</code> <code>o.ChangeTime = v</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -258,7 +258,7 @@
 <div class="clsbody">
 <p class="net"><code>System.Formats.Tar.PaxGlobalExtendedAttributesTarEntry</code> · assembly <code>System.Formats.Tar</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PaxGlobalExtendedAttributesTarEntry(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; globalExtendedAttributes)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PaxGlobalExtendedAttributesTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PaxGlobalExtendedAttributesTarEntry().New_([ :param = value ])</code> or <code>dnNew("PaxGlobalExtendedAttributesTarEntry",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new PaxGlobalExtendedAttributesTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PaxGlobalExtendedAttributesTarEntry().@New([ :param = value ])</code> or <code>dnNew("PaxGlobalExtendedAttributesTarEntry",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>GlobalExtendedAttributes</code></td><td><code>IReadOnlyDictionary&lt;string, string&gt;</code></td><td>read</td><td><code>o.GlobalExtendedAttributes</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -266,7 +266,7 @@
 <div class="clsbody">
 <p class="net"><code>System.Formats.Tar.PaxTarEntry</code> · assembly <code>System.Formats.Tar</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PaxTarEntry(TarEntryType entryType, string entryName)</code></td></tr><tr><td><code>new PaxTarEntry(TarEntryType entryType, string entryName, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; extendedAttributes)</code></td></tr><tr><td><code>new PaxTarEntry(TarEntry other)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PaxTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PaxTarEntry().New_([ :param = value ])</code> or <code>dnNew("PaxTarEntry",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new PaxTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PaxTarEntry().@New([ :param = value ])</code> or <code>dnNew("PaxTarEntry",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ExtendedAttributes</code></td><td><code>IReadOnlyDictionary&lt;string, string&gt;</code></td><td>read</td><td><code>o.ExtendedAttributes</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -292,7 +292,7 @@
 <p class="net"><code>System.Formats.Tar.TarReader</code> · assembly <code>System.Formats.Tar</code></p>
 <p class="muted">Implements: IDisposable, IAsyncDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TarReader(Stream archiveStream, bool leaveOpen = …)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TarReader(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TarReader().New_([ :param = value ])</code> or <code>dnNew("TarReader",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TarReader(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TarReader().@New([ :param = value ])</code> or <code>dnNew("TarReader",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><span class="muted">—</span></td><td><code>void Dispose()</code></td></tr><tr><td><code>DisposeAsync</code></td><td><span class="muted">—</span></td><td><code>ValueTask DisposeAsync()</code></td></tr><tr><td><code>GetNextEntry</code></td><td><span class="muted">—</span></td><td><code>TarEntry GetNextEntry(bool copyData = …)</code></td></tr><tr><td><code>GetNextEntryAsync</code></td><td><span class="muted">—</span></td><td><code>ValueTask&lt;TarEntry&gt; GetNextEntryAsync(bool copyData = …, CancellationToken cancellationToken = …)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-TarWriter"><summary><b>TarWriter</b> <span class="muted">class sealed</span></summary>
@@ -300,7 +300,7 @@
 <p class="net"><code>System.Formats.Tar.TarWriter</code> · assembly <code>System.Formats.Tar</code></p>
 <p class="muted">Implements: IDisposable, IAsyncDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TarWriter(Stream archiveStream)</code></td></tr><tr><td><code>new TarWriter(Stream archiveStream, bool leaveOpen = …)</code></td></tr><tr><td><code>new TarWriter(Stream archiveStream, TarEntryFormat format = …, bool leaveOpen = …)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TarWriter(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TarWriter().New_([ :param = value ])</code> or <code>dnNew("TarWriter",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TarWriter(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TarWriter().@New([ :param = value ])</code> or <code>dnNew("TarWriter",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Format</code></td><td><code>TarEntryFormat</code></td><td>read</td><td><code>o.Format</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><span class="muted">—</span></td><td><code>void Dispose()</code></td></tr><tr><td><code>DisposeAsync</code></td><td><span class="muted">—</span></td><td><code>ValueTask DisposeAsync()</code></td></tr><tr><td><code>WriteEntry</code></td><td><span class="muted">—</span></td><td><code>void WriteEntry(string fileName, string entryName)</code><br><code>void WriteEntry(TarEntry entry)</code></td></tr><tr><td><code>WriteEntryAsync</code></td><td><span class="muted">—</span></td><td><code>Task WriteEntryAsync(string fileName, string entryName, CancellationToken cancellationToken = …)</code><br><code>Task WriteEntryAsync(TarEntry entry, CancellationToken cancellationToken = …)</code></td></tr></tbody></table></div>
 </div></details>
@@ -308,14 +308,14 @@
 <div class="clsbody">
 <p class="net"><code>System.Formats.Tar.UstarTarEntry</code> · assembly <code>System.Formats.Tar</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new UstarTarEntry(TarEntryType entryType, string entryName)</code></td></tr><tr><td><code>new UstarTarEntry(TarEntry other)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new UstarTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UstarTarEntry().New_([ :param = value ])</code> or <code>dnNew("UstarTarEntry",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new UstarTarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UstarTarEntry().@New([ :param = value ])</code> or <code>dnNew("UstarTarEntry",[ :param = value ])</code>.</p>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-V7TarEntry"><summary><b>V7TarEntry</b> <span class="muted">class sealed · extends <a href="#c-TarEntry">TarEntry</a></span></summary>
 <div class="clsbody">
 <p class="net"><code>System.Formats.Tar.V7TarEntry</code> · assembly <code>System.Formats.Tar</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new V7TarEntry(TarEntryType entryType, string entryName)</code></td></tr><tr><td><code>new V7TarEntry(TarEntry other)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new V7TarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new V7TarEntry().New_([ :param = value ])</code> or <code>dnNew("V7TarEntry",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new V7TarEntry(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new V7TarEntry().@New([ :param = value ])</code> or <code>dnNew("V7TarEntry",[ :param = value ])</code>.</p>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <div class="pager"></div>

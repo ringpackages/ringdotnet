@@ -424,7 +424,7 @@ Class MailAddress from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.MailAddress, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -624,7 +624,7 @@ Class MailMessage from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.MailMessage, System.Net.Mail',P1)
@@ -816,7 +816,7 @@ Class SmtpClient from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.SmtpClient, System.Net.Mail',P1)
@@ -990,7 +990,7 @@ Class AlternateView from AttachmentBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.AlternateView, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1042,7 +1042,7 @@ Class Attachment from AttachmentBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.Attachment, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1101,7 +1101,7 @@ Class LinkedResource from AttachmentBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.LinkedResource, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

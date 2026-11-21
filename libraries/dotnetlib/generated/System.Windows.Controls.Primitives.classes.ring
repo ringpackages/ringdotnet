@@ -641,7 +641,7 @@ Class CustomPopupPlacement from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',P1)
@@ -1186,7 +1186,7 @@ Class GeneratorPosition from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',P1)
@@ -1991,10 +1991,10 @@ Class RangeBase from WpfControl
 		ok
 		return self
 
-	Func GetValue_ P1
+	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
-	Func SetValue_ P1,P2
+	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
 
 		return self
@@ -3312,10 +3312,10 @@ Class Track from FrameworkElement
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetValue_ P1
+	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
-	Func SetValue_ P1,P2
+	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
 
 		return self

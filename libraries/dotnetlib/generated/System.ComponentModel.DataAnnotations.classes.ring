@@ -42,7 +42,7 @@ Class AssociatedMetadataTypeTypeDescriptionProvider from TypeDescriptionProvider
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -92,7 +92,7 @@ Class ValidationContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -174,7 +174,7 @@ Class DataAnnotationsValidationResult from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

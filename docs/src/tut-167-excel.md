@@ -49,7 +49,7 @@ The bold header is a **style**: `Range("A1:D1").Style.Font.Bold = true` gives th
 
 ### Reading
 
-`new XLWorkbook().New_([ :file = cFile ])` opens an existing file (a constructor chosen by the name of its parameter, the form of [The generic functions](tut-160-generic-calls.html)), and `Worksheet("Sales")` takes a sheet by its name. `LastRowUsed(NULL).RowNumber()` is the number of the last row that has anything in it, so the program loops from 1 to it.
+`new XLWorkbook().@New([ :file = cFile ])` opens an existing file (a constructor chosen by the name of its parameter, the form of [The generic functions](tut-160-generic-calls.html)), and `Worksheet("Sales")` takes a sheet by its name. `LastRowUsed(NULL).RowNumber()` is the number of the last row that has anything in it, so the program loops from 1 to it.
 
 A cell holds a `Value`, and a value has methods: `ToString()` is the text of the value (also for a number or a formula), `GetNumber()` is the number. A cell that is empty gives an empty text, as in the last row of the output.
 

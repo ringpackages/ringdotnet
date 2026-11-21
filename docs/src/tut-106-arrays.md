@@ -53,7 +53,7 @@ Looking at every item takes a long time in a big array. `BinarySearch` looks at 
 
 ### Two dimensions
 
-`Array.CreateInstance(type, rows, columns)` makes a table; its `Rank` is 2 and `Length` is the number of items (12). `GetLength(0)` is the number of rows and `GetLength(1)` the number of columns; in Ring the method is `GetLength_(dimension)`, because the name clashes with the property `Length` ([Core concepts](concepts.html)). Items are written with `SetValue([ :value = v, :index1 = row, :index2 = column ])` and read with `GetValue([ :index1 = row, :index2 = column ])`. For a table of Ring numbers it is often simpler to use a Ring list of lists; use a 2D array when a .NET method wants one.
+`Array.CreateInstance(type, rows, columns)` makes a table; its `Rank` is 2 and `Length` is the number of items (12). `GetLength(0)` is the number of rows and `GetLength(1)` the number of columns; in Ring the method is `@GetLength(dimension)`, because the name clashes with the property `Length` ([Core concepts](concepts.html)). Items are written with `SetValue([ :value = v, :index1 = row, :index2 = column ])` and read with `GetValue([ :index1 = row, :index2 = column ])`. For a table of Ring numbers it is often simpler to use a Ring list of lists; use a 2D array when a .NET method wants one.
 
 ## What you learned
 
@@ -62,7 +62,7 @@ Looking at every item takes a long time in a big array. `BinarySearch` looks at 
 - `Sort`, `Reverse`, `IndexOf`, `BinarySearch`, `Copy`, `Clear`,
 - positions start at 0,
 - `BinarySearch` needs a sorted array and answers a negative number for "not found",
-- two dimensions with `CreateInstance` and `GetLength_`.
+- two dimensions with `CreateInstance` and `@GetLength`.
 
 ## Exercises
 

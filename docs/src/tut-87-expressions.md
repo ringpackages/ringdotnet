@@ -6,7 +6,7 @@ lead: An expression tree is code stored as data. This lesson builds functions fr
 ## What you will learn
 
 - code as data: a tree of objects (`System.Linq.Expressions`),
-- `Parameter`, `Add`, `Multiply`, `Constant`, `Condition`, `Call_`, `Lambda`,
+- `Parameter`, `Add`, `Multiply`, `Constant`, `Condition`, `@Call`, `Lambda`,
 - `ToString()` of a tree and `NodeType`,
 - compiling a tree (`Compile`) and calling the function,
 - building a tree from something the program receives at run time.
@@ -38,9 +38,9 @@ Every part of the code is a node made by a factory method:
 | an operation | `Add`, `Subtract`, `Multiply`, `Divide` with `:left` and `:right` | `(a + b)` |
 | a comparison | `GreaterThan([ :left = ..., :right = ... ])` | `(a > b)` |
 | a decision | `Condition([ :test = ..., :ifTrue = ..., :ifFalse = ... ])` | `IIF((a > b), a, b)` |
-| a call of a .NET method | `Call_([ :instance = dnNull(), :method = ..., :arguments = [...] ])` | `Sqrt(x)` |
+| a call of a .NET method | `@Call([ :instance = dnNull(), :method = ..., :arguments = [...] ])` | `Sqrt(x)` |
 
-The factory methods have several forms, so they take a list of named values ([Core concepts](concepts.html)); `Call` is a Ring keyword and becomes `Call_`. The .NET type of a parameter is a `Type`: `dnType("System.Double")` gives it, and `new Type().GetType("System.Math").GetMethod("Sqrt")` gives the method object that `Call_` needs.
+The factory methods have several forms, so they take a list of named values ([Core concepts](concepts.html)); `Call` is a Ring keyword and becomes `@Call`. The .NET type of a parameter is a `Type`: `dnType("System.Double")` gives it, and `new Type().GetType("System.Math").GetMethod("Sqrt")` gives the method object that `@Call` needs.
 
 ### Show, compile, call
 
@@ -52,7 +52,7 @@ The factory methods have several forms, so they take a list of named values ([Co
 
 Step 5 receives only the *name of an operator* (`"+"`, `"-"`, `"*"`, `"/"`) and builds the function for it. A formula parser such as the tutorial [An expression calculator](tut-54-expression.html) could produce the same kind of tree from the text of the user, and the result would be a compiled function. This is the use of expression trees: the program does not know the code in advance.
 
-> [!WARNING] A tree built from a user's text can do whatever the nodes allow, including calling methods. Only allow the nodes that your formula language needs (arithmetic, comparisons) and never let a user choose the method of a `Call_`.
+> [!WARNING] A tree built from a user's text can do whatever the nodes allow, including calling methods. Only allow the nodes that your formula language needs (arithmetic, comparisons) and never let a user choose the method of a `@Call`.
 
 ## What you learned
 

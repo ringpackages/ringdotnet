@@ -344,7 +344,7 @@ using {
 	<span class="k">return</span> [<span class="s">"ok"</span>,cPlain]
 
 <span class="k">func</span> <span class="f">tagOf</span> cBody, cMacKey
-	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_</span>([ :key = cMacKey ])
+	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().@<span class="k">New</span>([ :<span class="t">key</span> = cMacKey ])
 	cTag = oHmac.<span class="f">ComputeHash</span>(cBody)
 	oHmac.<span class="f">Dispose</span>()
 	<span class="k">return</span> cTag

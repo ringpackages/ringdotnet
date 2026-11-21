@@ -69,8 +69,8 @@ func main
 
 # A4 is 827 x 1169 hundredths of an inch; the margins are 50 (half an inch). Landscape turns the page.
 func setupPaper oDocument,lLandscape
-	oDocument.DefaultPageSettings.PaperSize = new PaperSize().New_([ :name = "A4", :width = 827, :height = 1169 ])
-	oDocument.DefaultPageSettings.Margins = new Margins().New_([ :left = 50, :right = 50, :top = 50, :bottom = 50 ])
+	oDocument.DefaultPageSettings.PaperSize = new PaperSize().@New([ :name = "A4", :width = 827, :height = 1169 ])
+	oDocument.DefaultPageSettings.Margins = new Margins().@New([ :left = 50, :right = 50, :top = 50, :bottom = 50 ])
 	oDocument.DefaultPageSettings.Landscape = lLandscape
 
 # The PrintPage event: draw one page. e.MarginBounds is the rectangle inside the margins (in hundredths of an inch).
@@ -81,7 +81,7 @@ func drawPage oArgs
 	oFont = uiFont("Arial",10,False)
 	oBold = uiFont("Arial",10,True)
 	oBrush = new SolidBrush(uiColor("Black"))
-	nLine = oFont.GetHeight_(oGraphics)                 # the height of a line of text in the unit of the page (hundredths of an inch)
+	nLine = oFont.@GetHeight(oGraphics)                 # the height of a line of text in the unit of the page (hundredths of an inch)
 	nY = oBounds.Top
 
 	# the header: the title and the page number

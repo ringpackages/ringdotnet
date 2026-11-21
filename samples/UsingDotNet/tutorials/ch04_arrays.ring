@@ -54,7 +54,7 @@ func main
 			oGrid.SetValue([ :value = nRow * 10 + nColumn, :index1 = nRow, :index2 = nColumn ])
 		next
 	next
-	? nl + "6. a 3 x 4 table (rank " + oGrid.Rank + ", " + oGrid.Length + " items, " + oGrid.GetLength_(0) + " rows, " + oGrid.GetLength_(1) + " columns):"
+	? nl + "6. a 3 x 4 table (rank " + oGrid.Rank + ", " + oGrid.Length + " items, " + oGrid.@GetLength(0) + " rows, " + oGrid.@GetLength(1) + " columns):"
 	for nRow = 0 to 2
 		cLine = "   "
 		for nColumn = 0 to 3

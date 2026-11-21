@@ -68,7 +68,7 @@ func compress cFormat,cData
 	return oMemory.ToArray()
 
 func decompress cFormat,cData
-	oSource = new MemoryStream().New_([ :buffer = cData ])
+	oSource = new MemoryStream().@New([ :buffer = cData ])
 	oUnpacker = packer(cFormat,oSource,"Decompress")
 	oOut = new MemoryStream()
 	oUnpacker.CopyTo(oOut)

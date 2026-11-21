@@ -25,7 +25,7 @@ The tutorial [Drawing and animation](tut-14-animation.html) moved shapes with Ri
 
 ### Vectors
 
-A `Vector3` holds three numbers `X`, `Y`, `Z`. It can be a **position** (a point in space) or a **direction** with a length (a speed, a force). `Vector2` has two numbers and `Vector4` four. They are value types (structs): `new Vector3().New_([ :x = 3, :y = 4, :z = 0 ])` makes one by names, and `oV.X` reads a component. The numbers are *single-precision* floats (about 7 digits), so a result such as `0.6` can really be `0.6000000238`; the program rounds before printing (`roundNumber`), and so should yours when you compare.
+A `Vector3` holds three numbers `X`, `Y`, `Z`. It can be a **position** (a point in space) or a **direction** with a length (a speed, a force). `Vector2` has two numbers and `Vector4` four. They are value types (structs): `new Vector3().@New([ :x = 3, :y = 4, :z = 0 ])` makes one by names, and `oV.X` reads a component. The numbers are *single-precision* floats (about 7 digits), so a result such as `0.6` can really be `0.6000000238`; the program rounds before printing (`roundNumber`), and so should yours when you compare.
 
 ### Operations
 

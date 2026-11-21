@@ -25,7 +25,7 @@ oConvert = new Convert()
 dnAssert("SHA256",lower(oConvert.ToHexString(new SHA256().HashData("abc"))),"ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
 dnAssert("MD5",lower(oConvert.ToHexString(new MD5().HashData("abc"))),"900150983cd24fb0d6963f7d28e17f72")
 dnAssert("SHA1",lower(oConvert.ToHexString(new SHA1().HashData("abc"))),"a9993e364706816aba3e25717850c26c9cd0d89d")
-oHmac = new HMACSHA256().New_([ :key = "key" ])
+oHmac = new HMACSHA256().@New([ :key = "key" ])
 dnAssert("HMACSHA256",lower(oConvert.ToHexString(oHmac.ComputeHash("The quick brown fox jumps over the lazy dog"))),"f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8")
 dnAssert("RandomNumberGenerator",len(new RandomNumberGenerator().GetBytes(16)),16)
 

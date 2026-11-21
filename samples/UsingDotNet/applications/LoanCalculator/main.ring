@@ -71,7 +71,7 @@ func calculate
 		nBalance -= nPrincipal
 		nTotalInterest += nInterestPart
 		if nMonth <= 12
-			oItem = new ListViewItem().New_([ :text = "" + nMonth ])
+			oItem = new ListViewItem().@New([ :text = "" + nMonth ])
 			oItem.SubItems.Add(money(nPayment))
 			oItem.SubItems.Add(money(nInterestPart))
 			oItem.SubItems.Add(money(nPrincipal))

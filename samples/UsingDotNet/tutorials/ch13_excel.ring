@@ -54,7 +54,7 @@ func main
 	? "1. written: " + new File().Exists(cFile)
 
 	# 3. Read it back. The formulas were worked out when the cells were read.
-	oRead = new XLWorkbook().New_([ :file = cFile ])
+	oRead = new XLWorkbook().@New([ :file = cFile ])
 	oSales = oRead.Worksheet("Sales")
 	nLast = oSales.LastRowUsed(NULL).RowNumber()
 	? "2. the sheet has " + nLast + " rows:"

@@ -35,7 +35,7 @@ func main
 	? "1. a QR code for RING, as text (a block is a dark module):"
 
 	# The class that draws it as text takes the code (a constructor chosen by the name of its parameter)
-	oAscii = new AsciiQRCode().New_([ :data = oCode ])
+	oAscii = new AsciiQRCode().@New([ :data = oCode ])
 	? oAscii.GetGraphic(1)
 
 	# 2. A higher level of error correction repeats more data, so the code is bigger. The answer is a List<BitArray> that has no
@@ -48,7 +48,7 @@ func main
 	next
 
 	# 3. A picture: PngByteQRCode gives the bytes of a PNG file, and a byte[] that .NET returns is a Ring text
-	cPng = new PngByteQRCode().New_([ :data = oCode ]).GetGraphic(8)          # 8 pixels for each module
+	cPng = new PngByteQRCode().@New([ :data = oCode ]).GetGraphic(8)          # 8 pixels for each module
 	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial-qr.png"])
 	new File().WriteAllBytes(cFile,cPng)
 	? nl + "3. the picture is a PNG file: " + (substr(cPng,2,3) = "PNG") + ", written to a file: " + new File().Exists(cFile)

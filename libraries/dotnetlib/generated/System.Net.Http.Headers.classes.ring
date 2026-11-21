@@ -171,7 +171,7 @@ Class AuthenticationHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -514,7 +514,7 @@ Class ContentRangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -601,7 +601,7 @@ Class EntityTagHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -805,7 +805,7 @@ Class MediaTypeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -872,7 +872,7 @@ Class NameValueHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -932,7 +932,7 @@ Class ProductHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -991,7 +991,7 @@ Class ProductInfoHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1095,7 +1095,7 @@ Class RangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',P1)
@@ -1228,7 +1228,7 @@ Class StringWithQualityHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1329,7 +1329,7 @@ Class ViaHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1406,7 +1406,7 @@ Class WarningHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1996,7 +1996,7 @@ Class MediaTypeWithQualityHeaderValue from MediaTypeHeaderValue
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2040,7 +2040,7 @@ Class NameValueWithParametersHeaderValue from NameValueHeaderValue
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2083,7 +2083,7 @@ Class TransferCodingWithQualityHeaderValue from TransferCodingHeaderValue
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

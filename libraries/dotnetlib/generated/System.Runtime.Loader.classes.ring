@@ -60,7 +60,7 @@ Class AssemblyLoadContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

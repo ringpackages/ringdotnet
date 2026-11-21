@@ -397,7 +397,7 @@ oCalc.<span class="f">Add</span>(<span class="n">10</span>).<span class="f">Mult
 <span class="f">dnAssert</span>(<span class="s">"property read/write"</span>,oCalc.Name,<span class="s">"calc"</span>)
 oCalc.Name = <span class="s">"mine"</span>
 <span class="f">dnAssert</span>(<span class="s">"property write"</span>,oCalc.Name,<span class="s">"mine"</span>)
-<span class="f">dnAssert</span>(<span class="s">"constructor with parameters"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">New_</span>([ :start = <span class="n">5</span> ]).Total,<span class="n">5</span>)
+<span class="f">dnAssert</span>(<span class="s">"constructor with parameters"</span>,<span class="k">new</span> <span class="t">Calculator</span>().@<span class="k">New</span>([ :<span class="t">start</span> = <span class="n">5</span> ]).Total,<span class="n">5</span>)
 <span class="f">dnAssert</span>(<span class="s">"static method"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">Square</span>(<span class="n">7</span>),<span class="n">49</span>)
 <span class="f">dnAssert</span>(<span class="s">"enum as string and optional parameter"</span>,oCalc.<span class="f">Describe</span>([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ]),<span class="s">"Sum=30 (High)"</span>)
 aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)

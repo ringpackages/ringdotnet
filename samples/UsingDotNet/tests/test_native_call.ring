@@ -85,7 +85,7 @@ func main
 	oNames = new StringList()
 	oNames.Add("ab")
 	oNames.Add("cde")
-	oNames.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))
+	oNames.@ForEach(dnCallback("nTotal += len(aDotNetArgs[1])"))
 	dnAssert("a callback as an argument",nTotal,5)
 	oNames.InsertRange(0,["x","y"])
 	dnAssert("a list of texts as an argument",oNames.Count,4)
@@ -109,7 +109,7 @@ func main
 	aParsed = new Int32().TryParse([ :s = "42" ])
 	dnAssert("named, an answer that is a list (out parameter)",aParsed[1],True)
 	dnAssert("named, the out value",aParsed[2],42)
-	dnAssert("an empty list of names is the parameterless overload",new Random(NULL).Next_([]) >= 0,True)
+	dnAssert("an empty list of names is the parameterless overload",new Random(NULL).@Next([]) >= 0,True)
 	cError = ""
 	try
 		oMath.Round([ :nothing = 1 ])

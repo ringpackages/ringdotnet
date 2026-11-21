@@ -546,7 +546,7 @@ Class Encoding from Object
 		ok
 		return self
 
-	Func GetPreamble_ 
+	Func @GetPreamble 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPreamble"))
 
 	Func Clone 
@@ -929,7 +929,7 @@ Class Rune from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Rune, System.Private.CoreLib',P1)
@@ -1127,7 +1127,7 @@ Class StringBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.StringBuilder, System.Private.CoreLib',P1)
@@ -1371,7 +1371,7 @@ Class DecoderReplacementFallback from DecoderFallback
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.DecoderReplacementFallback, System.Private.CoreLib',P1)
@@ -1474,7 +1474,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.EncoderReplacementFallback, System.Private.CoreLib',P1)
@@ -1533,7 +1533,7 @@ Class UTF32Encoding from Encoding
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF32Encoding, System.Private.CoreLib',P1)
@@ -1570,7 +1570,7 @@ Class UTF7Encoding from Encoding
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF7Encoding, System.Private.CoreLib',P1)
@@ -1607,7 +1607,7 @@ Class UTF8Encoding from Encoding
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF8Encoding, System.Private.CoreLib',P1)
@@ -1646,7 +1646,7 @@ Class UnicodeEncoding from Encoding
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UnicodeEncoding, System.Private.CoreLib',P1)

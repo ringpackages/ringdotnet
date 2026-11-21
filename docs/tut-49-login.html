@@ -390,7 +390,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 
 <span class="c"># send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]</span>
 <span class="k">func</span> <span class="f">visit</span> cMethod, cPath, cForm, cCookie
-	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().<span class="f">New_</span>([ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cForm != <span class="s">""</span>
 		oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cForm, :encoding = <span class="k">new</span> <span class="t">Encoding</span>().UTF8, :mediaType = <span class="s">"application/x-www-form-urlencoded"</span> ])
 		oMessage.Content = oContent

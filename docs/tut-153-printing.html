@@ -321,8 +321,8 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 
 <span class="c"># A4 is 827 x 1169 hundredths of an inch; the margins are 50 (half an inch). Landscape turns the page.</span>
 <span class="k">func</span> <span class="f">setupPaper</span> oDocument,lLandscape
-	oDocument.DefaultPageSettings.PaperSize = <span class="k">new</span> <span class="t">PaperSize</span>().<span class="f">New_</span>([ :name = <span class="s">"A4"</span>, :width = <span class="n">827</span>, :height = <span class="n">1169</span> ])
-	oDocument.DefaultPageSettings.Margins = <span class="k">new</span> <span class="t">Margins</span>().<span class="f">New_</span>([ :left = <span class="n">50</span>, :right = <span class="n">50</span>, :top = <span class="n">50</span>, :bottom = <span class="n">50</span> ])
+	oDocument.DefaultPageSettings.PaperSize = <span class="k">new</span> <span class="t">PaperSize</span>().@<span class="k">New</span>([ :<span class="t">name</span> = <span class="s">"A4"</span>, :width = <span class="n">827</span>, :height = <span class="n">1169</span> ])
+	oDocument.DefaultPageSettings.Margins = <span class="k">new</span> <span class="t">Margins</span>().@<span class="k">New</span>([ :<span class="t">left</span> = <span class="n">50</span>, :right = <span class="n">50</span>, :top = <span class="n">50</span>, :bottom = <span class="n">50</span> ])
 	oDocument.DefaultPageSettings.Landscape = lLandscape
 
 <span class="c"># The PrintPage event: draw one page. e.MarginBounds is the rectangle inside the margins (in hundredths of an inch).</span>
@@ -333,7 +333,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 	oFont = <span class="f">uiFont</span>(<span class="s">"Arial"</span>,<span class="n">10</span>,<span class="k">False</span>)
 	oBold = <span class="f">uiFont</span>(<span class="s">"Arial"</span>,<span class="n">10</span>,<span class="k">True</span>)
 	oBrush = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="f">uiColor</span>(<span class="s">"Black"</span>))
-	nLine = oFont.<span class="f">GetHeight_</span>(oGraphics)                 <span class="c"># the height of a line of text in the unit of the page (hundredths of an inch)</span>
+	nLine = oFont.@GetHeight(oGraphics)                 <span class="c"># the height of a line of text in the unit of the page (hundredths of an inch)</span>
 	nY = oBounds.Top
 
 	<span class="c"># the header: the title and the page number</span>
@@ -411,7 +411,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 <h3 id="a-document-and-its-event">A document and its event<a class="anchor" href="#a-document-and-its-event">#</a></h3>
 <p>A <code>PrintDocument</code> does not draw by itself. <code>Print()</code> starts the job, and for each page the document raises <strong>PrintPage</strong>; the program draws on <code>e.Graphics</code> and, if the page is full, sets <code>e.HasMorePages = True</code>. The document then asks for the next page, and so on until the program answers <code>False</code>. The state of the job (the number of the page, the next row to print) is kept in global variables, because each call of the event is separate.</p>
 <h3 id="the-page">The page<a class="anchor" href="#the-page">#</a></h3>
-<p>The unit of the page is a hundredth of an inch. <code>e.MarginBounds</code> is the rectangle inside the margins (<code>Left</code>, <code>Top</code>, <code>Right</code>, <code>Bottom</code>), so the program never draws into the margin. The height of a line comes from the font: <code>Font.GetHeight_(graphics)</code> gives it in the unit of the graphics. The header has the title and the page number, the rows follow, and the loop stops when the next line would not fit above the bottom margin (one line is kept for the footer). In the output the first page has 57 rows and the second 43: 100 rows in all.</p>
+<p>The unit of the page is a hundredth of an inch. <code>e.MarginBounds</code> is the rectangle inside the margins (<code>Left</code>, <code>Top</code>, <code>Right</code>, <code>Bottom</code>), so the program never draws into the margin. The height of a line comes from the font: <code>Font.@GetHeight(graphics)</code> gives it in the unit of the graphics. The header has the title and the page number, the rows follow, and the loop stops when the next line would not fit above the bottom margin (one line is kept for the footer). In the output the first page has 57 rows and the second 43: 100 rows in all.</p>
 <h3 id="paper-and-margins">Paper and margins<a class="anchor" href="#paper-and-margins">#</a></h3>
 <p><code>DefaultPageSettings</code> has the <code>PaperSize</code>, the <code>Margins</code> and <code>Landscape</code>. The program sets the paper explicitly (A4 is 827 by 1169 hundredths of an inch), so the pages are the same on every computer; without it the size comes from the default printer, which can be A4 or Letter. In <strong>landscape</strong> the page is wide and low, so fewer rows fit and the same report needs three pages instead of two.</p>
 <div class="callout note"><span class="t">Note</span><p>The row counts depend on the font (<code>Arial</code> here): a computer without that font would use another one and could fit a different number of rows.</p></div>

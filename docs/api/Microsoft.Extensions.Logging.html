@@ -260,7 +260,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.EventId</code> · assembly <code>Microsoft.Extensions.Logging.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EventId(int id, string name = …)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EventId(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventId().New_([ :param = value ])</code> or <code>dnNew("EventId",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EventId(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventId().@New([ :param = value ])</code> or <code>dnNew("EventId",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Id</code></td><td><code>int</code></td><td>read</td><td><code>o.Id</code></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Equals</code></td><td><span class="muted">—</span></td><td><code>bool Equals(EventId other)</code><br><code>bool Equals(object obj)</code></td></tr><tr><td><code>GetHashCode</code></td><td><span class="muted">—</span></td><td><code>int GetHashCode()</code></td></tr><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -315,7 +315,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.LogDefineOptions</code> · assembly <code>Microsoft.Extensions.Logging.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LogDefineOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LogDefineOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LogDefineOptions().New_([ :param = value ])</code> or <code>dnNew("LogDefineOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LogDefineOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LogDefineOptions().@New([ :param = value ])</code> or <code>dnNew("LogDefineOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>SkipEnabledCheck</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.SkipEnabledCheck</code> <code>o.SkipEnabledCheck = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LoggerExtensions"><summary><b>LoggerExtensions</b> <span class="muted">class static</span></summary>
@@ -327,7 +327,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.LoggerExternalScopeProvider</code> · assembly <code>Microsoft.Extensions.Logging.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LoggerExternalScopeProvider()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LoggerExternalScopeProvider(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerExternalScopeProvider().New_([ :param = value ])</code> or <code>dnNew("LoggerExternalScopeProvider",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LoggerExternalScopeProvider(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerExternalScopeProvider().@New([ :param = value ])</code> or <code>dnNew("LoggerExternalScopeProvider",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ForEachScope</code></td><td><span class="muted">—</span></td><td><code>void ForEachScope&lt;TState&gt;(Action&lt;object, TState&gt; callback, TState state)</code></td></tr><tr><td><code>Push</code></td><td><span class="muted">—</span></td><td><code>IDisposable Push(object state)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LoggerFactory"><summary><b>LoggerFactory</b> <span class="muted">class</span></summary>
@@ -335,7 +335,7 @@
 <p class="net"><code>Microsoft.Extensions.Logging.LoggerFactory</code> · assembly <code>Microsoft.Extensions.Logging</code></p>
 <p class="muted">Implements: IDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LoggerFactory()</code></td></tr><tr><td><code>new LoggerFactory(IEnumerable&lt;ILoggerProvider&gt; providers)</code></td></tr><tr><td><code>new LoggerFactory(IEnumerable&lt;ILoggerProvider&gt; providers, LoggerFilterOptions filterOptions)</code></td></tr><tr><td><code>new LoggerFactory(IEnumerable&lt;ILoggerProvider&gt; providers, IOptionsMonitor&lt;LoggerFilterOptions&gt; filterOption)</code></td></tr><tr><td><code>new LoggerFactory(IEnumerable&lt;ILoggerProvider&gt; providers, IOptionsMonitor&lt;LoggerFilterOptions&gt; filterOption, IOptions&lt;LoggerFactoryOptions&gt; options)</code></td></tr><tr><td><code>new LoggerFactory(IEnumerable&lt;ILoggerProvider&gt; providers, IOptionsMonitor&lt;LoggerFilterOptions&gt; filterOption, IOptions&lt;LoggerFactoryOptions&gt; options = …, IExternalScopeProvider scopeProvider = …)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LoggerFactory(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFactory().New_([ :param = value ])</code> or <code>dnNew("LoggerFactory",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LoggerFactory(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFactory().@New([ :param = value ])</code> or <code>dnNew("LoggerFactory",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddProvider</code></td><td><span class="muted">—</span></td><td><code>void AddProvider(ILoggerProvider provider)</code></td></tr><tr><td><code>Create</code></td><td><span class="muted">—</span></td><td><code>static ILoggerFactory Create(Action&lt;ILoggingBuilder&gt; configure)</code></td></tr><tr><td><code>CreateLogger</code></td><td><span class="muted">—</span></td><td><code>ILogger CreateLogger(string categoryName)</code></td></tr><tr><td><code>Dispose</code></td><td><span class="muted">—</span></td><td><code>void Dispose()</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LoggerFactoryExtensions"><summary><b>LoggerFactoryExtensions</b> <span class="muted">class static</span></summary>
@@ -347,21 +347,21 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.LoggerFactoryOptions</code> · assembly <code>Microsoft.Extensions.Logging</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LoggerFactoryOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LoggerFactoryOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFactoryOptions().New_([ :param = value ])</code> or <code>dnNew("LoggerFactoryOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LoggerFactoryOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFactoryOptions().@New([ :param = value ])</code> or <code>dnNew("LoggerFactoryOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ActivityTrackingOptions</code></td><td><code>ActivityTrackingOptions</code></td><td>read, write</td><td><code>o.ActivityTrackingOptions</code> <code>o.ActivityTrackingOptions = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LoggerFilterOptions"><summary><b>LoggerFilterOptions</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.LoggerFilterOptions</code> · assembly <code>Microsoft.Extensions.Logging</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LoggerFilterOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LoggerFilterOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFilterOptions().New_([ :param = value ])</code> or <code>dnNew("LoggerFilterOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LoggerFilterOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFilterOptions().@New([ :param = value ])</code> or <code>dnNew("LoggerFilterOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CaptureScopes</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.CaptureScopes</code> <code>o.CaptureScopes = v</code></td></tr><tr><td><code>MinLevel</code></td><td><code>LogLevel</code></td><td>read, write</td><td><code>o.MinLevel</code> <code>o.MinLevel = v</code></td></tr><tr><td><code>Rules</code></td><td><code>IList&lt;LoggerFilterRule&gt;</code></td><td>read</td><td><code>o.Rules</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LoggerFilterRule"><summary><b>LoggerFilterRule</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.Extensions.Logging.LoggerFilterRule</code> · assembly <code>Microsoft.Extensions.Logging</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LoggerFilterRule(string providerName, string categoryName, LogLevel? logLevel, Func&lt;string, string, LogLevel, bool&gt; filter)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LoggerFilterRule(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFilterRule().New_([ :param = value ])</code> or <code>dnNew("LoggerFilterRule",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LoggerFilterRule(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LoggerFilterRule().@New([ :param = value ])</code> or <code>dnNew("LoggerFilterRule",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ProviderName</code></td><td><code>string</code></td><td>read</td><td><code>o.ProviderName</code></td></tr><tr><td><code>CategoryName</code></td><td><code>string</code></td><td>read</td><td><code>o.CategoryName</code></td></tr><tr><td><code>LogLevel</code></td><td><code>LogLevel?</code></td><td>read</td><td><code>o.LogLevel</code></td></tr><tr><td><code>Filter</code></td><td><code>Func&lt;string, string, LogLevel, bool&gt;</code></td><td>read</td><td><code>o.Filter</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>

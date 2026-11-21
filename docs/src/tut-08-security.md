@@ -42,7 +42,7 @@ Never store a password, and never store a plain hash of it either (attackers hav
 
 ### HMAC
 
-An HMAC is a hash that needs a secret key (`new HMACSHA256().New_([ :key = "secret key" ])`: the constructor that takes the key). If you and a server share the key, an HMAC on a message proves the message was not changed on the way.
+An HMAC is a hash that needs a secret key (`new HMACSHA256().@New([ :key = "secret key" ])`: the constructor that takes the key). If you and a server share the key, an HMAC on a message proves the message was not changed on the way.
 
 ### Random tokens
 

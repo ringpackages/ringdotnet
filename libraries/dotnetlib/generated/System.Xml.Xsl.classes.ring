@@ -158,7 +158,7 @@ Class XslCompiledTransform from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',P1)
@@ -174,7 +174,7 @@ Class XslCompiledTransform from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -224,7 +224,7 @@ Class XslTransform from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -397,7 +397,7 @@ Class XsltSettings from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XsltSettings, System.Private.Xml',P1)

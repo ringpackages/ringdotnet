@@ -213,7 +213,7 @@ Class CaseInsensitiveValueComparer from DotNetObject
 	Func ExtractSnapshotBody P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExtractSnapshotBody",P1))
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
@@ -957,7 +957,7 @@ Class ValueComparer from Object
 	Func ExtractSnapshotBody P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExtractSnapshotBody",P1))
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func GetGenericSnapshotMethod P1
@@ -1241,7 +1241,7 @@ Class NavigationEntry from MemberEntry
 		ok
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self

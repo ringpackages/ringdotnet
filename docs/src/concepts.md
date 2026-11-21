@@ -60,10 +60,10 @@ A Ring method has one name and one parameter list, so a .NET method name that ha
 | `Append()`, `Append(string)`, `Append(char, int)` | `Append(NULL)`, `Append("x")`, `Append([ :value = "x", :repeatCount = 3 ])` | One method: `NULL` = no parameters, a value = one parameter, a **list of `:name = value`** = the overload with those parameter names. |
 | `Math.Max(a, b)` | `Max(3,9)` | A name with only one number of parameters stays positional. |
 | `Console.WriteLine("x")` | `WriteLine("x")` | An overloaded name works like `Append`. |
-| `Next()`, `Next(int)`, `Next(int,int)` | `Next_(NULL)`, `Next_(10)`, `Next_([ :minValue = 1, :maxValue = 10 ])` | A name that is a Ring keyword gets a trailing underscore. |
+| `Next()`, `Next(int)`, `Next(int,int)` | `@Next(NULL)`, `@Next(10)`, `@Next([ :minValue = 1, :maxValue = 10 ])` | A name that is a Ring keyword gets an `@` at the start. |
 | `Serialize(value, options = null)` | `Serialize(value)`, `Serialize([ :value = v, :options = o ])` | **Optional parameters** can be left out of the list. |
 | `Path.Combine(a, b, c)` | `Combine([ :path1 = a, :path2 = b ])` or `Combine([a, b, c])` | A `params` array takes a plain list. |
-| `new MemoryStream(bytes)` | `new MemoryStream().New_([ :buffer = bytes ])` or `dnNew("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is the parameterless (or shortest) one; the others are chosen by name with `New_`. |
+| `new MemoryStream(bytes)` | `new MemoryStream().@New([ :buffer = bytes ])` or `dnNew("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is the parameterless (or shortest) one; the others are chosen by name with `@New`. |
 | `date.ToString("yyyy-MM-dd")` | `oDate.Format("yyyy-MM-dd")` or `oDate.Format([ :format = "d", :provider = oCulture ])` | `ToString()` keeps its plain form; its forms with parameters are `Format`. |
 
 The bridge still **picks the real overload from the argument types**: whole numbers prefer `int`, strings prefer `string`, a .NET object prefers its own type.
@@ -91,19 +91,19 @@ oProcess = new Process().Start([ :startInfo = oInfo ])        # by name
 oSB = new StringBuilder("a")
 oSB.Append([ :value = "b" ])
 
-oZ = new Complex().New_([ :real = 3, :imaginary = 4 ])         # a constructor chosen by names
+oZ = new Complex().@New([ :real = 3, :imaginary = 4 ])         # a constructor chosen by names
 oSB = dnNew("StringBuilder",[ :value = "Hello" ])             # the same with the generic function (it names the class as a text)
 ```
 
 Rules and limits:
 
-- **`NULL` for no arguments.** A Ring call passes the number of arguments the method declares, so on an overloaded method the parameterless form is called with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The same rule holds for **constructors**: `init()` has one parameter list, so a class whose `init` takes one value (`StringBuilder`, `Random`, `Version`) creates the parameterless object with `NULL`: `new StringBuilder(NULL)`, `new Random(NULL)`, `new Version(NULL)`. Other constructors: `New_([ :name = value ])`, `dnNew("Class",[ :name = value ])`, or `dnNew("Class",[ value1, value2 ])` with the values in order (`dnNew("TimeSpan",[1,2,3])` is `new TimeSpan(1,2,3)`). The function index and the class files show which is which.
+- **`NULL` for no arguments.** A Ring call passes the number of arguments the method declares, so on an overloaded method the parameterless form is called with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The same rule holds for **constructors**: `init()` has one parameter list, so a class whose `init` takes one value (`StringBuilder`, `Random`, `Version`) creates the parameterless object with `NULL`: `new StringBuilder(NULL)`, `new Random(NULL)`, `new Version(NULL)`. Other constructors: `@New([ :name = value ])`, `dnNew("Class",[ :name = value ])`, or `dnNew("Class",[ value1, value2 ])` with the values in order (`dnNew("TimeSpan",[1,2,3])` is `new TimeSpan(1,2,3)`). The function index and the class files show which is which.
 - **A name whose overloads all have the same number of parameters** (`Math.Max(a,b)`) stays positional. The bridge picks among same-arity overloads by the types of the values.
 - **`ToString` and `ToList` keep their plain forms**, because every object already has `toString()` / `toList()`. The forms of `ToString` with parameters are `Format`.
-- A method whose Ring name would clash with the getter or setter of a property (the static `GetValue(property)` of a WPF element next to a property `Value`) gets an underscore at the end: `GetValue_(property)`.
+- A method whose Ring name would clash with the getter or setter of a property (the static `GetValue(property)` of a WPF element next to a property `Value`) gets an `@` at the start: `@GetValue(property)`.
 - A name that matches no parameter, or a missing required parameter, raises an error that lists the names you gave. Names are not case sensitive.
 - A list of `[string, value]` pairs passed as the single argument is read as named arguments.
-- Names that are Ring keywords end with `_`: `oRnd.Next_([ :minValue = 1, :maxValue = 10 ])`.
+- Names that are Ring keywords start with `@`, as C# writes `@class`: `oRnd.@Next([ :minValue = 1, :maxValue = 10 ])`.
 - `dnNew("Class", ...)` takes a Ring class name or a full .NET type name.
 
 ## Properties and fields are attributes

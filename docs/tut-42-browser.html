@@ -326,7 +326,7 @@ cRoot = <span class="s">""</span>
 	nBytes = <span class="n">0</span>
 	<span class="k">for</span> cFile <span class="k">in</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>())
 		oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
-		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = oInfo.Name ])
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = oInfo.Name ])
 		oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
 		oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
 		oList.Items.<span class="f">Add</span>(oItem)
@@ -378,7 +378,7 @@ cRoot = <span class="s">""</span>
 <p><code>Tag</code> is a free property that can hold <em>anything</em>: here the <strong>full path</strong> of the folder. The node's <code>Text</code> is only the name; when the user picks a node, the program reads its <code>Tag</code> to know which folder it is.</p>
 <div class="callout tip"><span class="t">Tip</span><p>For a very big tree, build only the first level and add the subfolders when a node is <em>expanded</em> (event <code>BeforeExpand</code>). Walking a whole disk at start would take too long.</p></div>
 <h3 id="reacting-to-the-choice">Reacting to the choice<a class="anchor" href="#reacting-to-the-choice">#</a></h3>
-<p><code>setAfterSelectEvent("folderChosen()")</code> runs when a node is selected. The function reads <code>oTree.SelectedNode.Tag</code>, clears the list, and adds a <code>ListViewItem</code> for every file: <code>new ListViewItem().New_([ :text = name ])</code> makes the row with its first column, and <code>SubItems.Add(text)</code> fills the other columns (size, modified date).</p>
+<p><code>setAfterSelectEvent("folderChosen()")</code> runs when a node is selected. The function reads <code>oTree.SelectedNode.Tag</code>, clears the list, and adds a <code>ListViewItem</code> for every file: <code>new ListViewItem().@New([ :text = name ])</code> makes the row with its first column, and <code>SubItems.Add(text)</code> fills the other columns (size, modified date).</p>
 <h3 id="the-listview">The ListView<a class="anchor" href="#the-listview">#</a></h3>
 <p><code>View = "Details"</code> shows columns like Explorer; <code>Columns.Add([ :text = "Name", :width = 180 ])</code> adds a column with a title and a width in pixels; <code>FullRowSelect</code> highlights a whole row; <code>GridLines</code> draws lines. A <code>ListView</code> can also show icons (<code>LargeIcon</code>, <code>SmallIcon</code>, <code>List</code>).</p>
 <h3 id="file-sizes">File sizes<a class="anchor" href="#file-sizes">#</a></h3>

@@ -12,7 +12,7 @@ func main
 	? "1. a date:  " + oDate.Format("yyyy-MM-dd") + ", " + oDate.DayOfWeek + ", day " + oDate.DayOfYear + " of the year"
 	oNextDay = oDate.AddDays(2)
 	? "   2 days later: " + oNextDay.Format("yyyy-MM-dd") + "   (2024 is a leap year: February has 29 days)"
-	oTime = new TimeOnly().New_([ :hour = 22, :minute = 30, :second = 0 ])
+	oTime = new TimeOnly().@New([ :hour = 22, :minute = 30, :second = 0 ])
 	? "   a time: " + oTime.Format("HH:mm") + ", 3 hours later: " + oTime.AddHours(3).Format("HH:mm") + "   (it goes round the clock: no date to move to)"
 
 	# 2. TimeSpan: the length of time between two moments. Subtracting two dates gives one.
@@ -25,8 +25,8 @@ func main
 	? "   135 minutes is " + oHour.ToString() + " (hours:minutes:seconds)"
 
 	# 3. DateTimeOffset: a moment WITH its distance from UTC. Two offsets, one moment: they are equal, and UtcDateTime shows it.
-	oCairo = new DateTimeOffset().New_([ :year = 2024, :month = 6, :day = 15, :hour = 12, :minute = 0, :second = 0, :offset = new TimeSpan().FromHours(3) ])
-	oLondon = new DateTimeOffset().New_([ :year = 2024, :month = 6, :day = 15, :hour = 10, :minute = 0, :second = 0, :offset = new TimeSpan().FromHours(1) ])
+	oCairo = new DateTimeOffset().@New([ :year = 2024, :month = 6, :day = 15, :hour = 12, :minute = 0, :second = 0, :offset = new TimeSpan().FromHours(3) ])
+	oLondon = new DateTimeOffset().@New([ :year = 2024, :month = 6, :day = 15, :hour = 10, :minute = 0, :second = 0, :offset = new TimeSpan().FromHours(1) ])
 	? nl + "3. Cairo  " + oCairo.Format("yyyy-MM-dd HH:mm zzz")
 	? "   London " + oLondon.Format("yyyy-MM-dd HH:mm zzz")
 	? "   they are the same moment: " + oCairo.Equals(oLondon) + ", in UTC: " + oCairo.UtcDateTime.Format("HH:mm")

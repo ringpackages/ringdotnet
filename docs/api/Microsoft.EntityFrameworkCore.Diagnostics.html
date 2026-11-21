@@ -256,7 +256,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.AssemblyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new AssemblyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Assembly assembly)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new AssemblyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new AssemblyEventData().New_([ :param = value ])</code> or <code>dnNew("AssemblyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new AssemblyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new AssemblyEventData().@New([ :param = value ])</code> or <code>dnNew("AssemblyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Assembly</code></td><td><code>Assembly</code></td><td>read</td><td><code>o.Assembly</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -264,7 +264,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.BatchEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new BatchEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEnumerable&lt;IUpdateEntry&gt; entries, int commandCount)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new BatchEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new BatchEventData().New_([ :param = value ])</code> or <code>dnNew("BatchEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new BatchEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new BatchEventData().@New([ :param = value ])</code> or <code>dnNew("BatchEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Entries</code></td><td><code>IEnumerable&lt;IUpdateEntry&gt;</code></td><td>read</td><td><code>o.Entries</code></td></tr><tr><td><code>CommandCount</code></td><td><code>int</code></td><td>read</td><td><code>o.CommandCount</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -272,7 +272,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.BinaryExpressionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new BinaryExpressionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Expression left, Expression right)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new BinaryExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new BinaryExpressionEventData().New_([ :param = value ])</code> or <code>dnNew("BinaryExpressionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new BinaryExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new BinaryExpressionEventData().@New([ :param = value ])</code> or <code>dnNew("BinaryExpressionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Left</code></td><td><code>Expression</code></td><td>read</td><td><code>o.Left</code></td></tr><tr><td><code>Right</code></td><td><code>Expression</code></td><td>read</td><td><code>o.Right</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -280,7 +280,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CascadeDeleteEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CascadeDeleteEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, EntityEntry parentEntry, EntityState state)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CascadeDeleteEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CascadeDeleteEventData().New_([ :param = value ])</code> or <code>dnNew("CascadeDeleteEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CascadeDeleteEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CascadeDeleteEventData().@New([ :param = value ])</code> or <code>dnNew("CascadeDeleteEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>State</code></td><td><code>EntityState</code></td><td>read</td><td><code>o.State</code></td></tr><tr><td><code>ParentEntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.ParentEntityEntry</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -288,7 +288,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CascadeDeleteOrphanEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CascadeDeleteOrphanEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, IEntityType parentEntityTypes, EntityState state)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CascadeDeleteOrphanEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CascadeDeleteOrphanEventData().New_([ :param = value ])</code> or <code>dnNew("CascadeDeleteOrphanEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CascadeDeleteOrphanEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CascadeDeleteOrphanEventData().@New([ :param = value ])</code> or <code>dnNew("CascadeDeleteOrphanEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>State</code></td><td><code>EntityState</code></td><td>read</td><td><code>o.State</code></td></tr><tr><td><code>ParentEntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.ParentEntityType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -296,7 +296,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CollectionChangedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CollectionChangedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, INavigation navigation, IEnumerable&lt;object&gt; added, IEnumerable&lt;object&gt; removed)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CollectionChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CollectionChangedEventData().New_([ :param = value ])</code> or <code>dnNew("CollectionChangedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CollectionChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CollectionChangedEventData().@New([ :param = value ])</code> or <code>dnNew("CollectionChangedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr><tr><td><code>Navigation</code></td><td><code>INavigation</code></td><td>read</td><td><code>o.getNavigation()</code></td></tr><tr><td><code>Added</code></td><td><code>IEnumerable&lt;object&gt;</code></td><td>read</td><td><code>o.Added</code></td></tr><tr><td><code>Removed</code></td><td><code>IEnumerable&lt;object&gt;</code></td><td>read</td><td><code>o.Removed</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -304,7 +304,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ColumnsEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ColumnsEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, StoreObjectIdentifier storeObject, IReadOnlyList&lt;string&gt; columns)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ColumnsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ColumnsEventData().New_([ :param = value ])</code> or <code>dnNew("ColumnsEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ColumnsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ColumnsEventData().@New([ :param = value ])</code> or <code>dnNew("ColumnsEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>StoreObject</code></td><td><code>StoreObjectIdentifier</code></td><td>read</td><td><code>o.StoreObject</code></td></tr><tr><td><code>Columns</code></td><td><code>IReadOnlyList&lt;string&gt;</code></td><td>read</td><td><code>o.Columns</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -312,7 +312,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CommandCorrelatedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CommandCorrelatedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbContext context, DbCommandMethod executeMethod, Guid commandId, Guid connectionId, bool async, DateTimeOffset startTime, CommandSource commandSource)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CommandCorrelatedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandCorrelatedEventData().New_([ :param = value ])</code> or <code>dnNew("CommandCorrelatedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CommandCorrelatedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandCorrelatedEventData().@New([ :param = value ])</code> or <code>dnNew("CommandCorrelatedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>CommandId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.CommandId</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>ExecuteMethod</code></td><td><code>DbCommandMethod</code></td><td>read</td><td><code>o.ExecuteMethod</code></td></tr><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr><tr><td><code>CommandSource</code></td><td><code>CommandSource</code></td><td>read</td><td><code>o.CommandSource</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -320,7 +320,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CommandEndEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CommandEndEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbCommand command, DbContext context, DbCommandMethod executeMethod, Guid commandId, Guid connectionId, bool async, bool logParameterValues, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CommandEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandEndEventData().New_([ :param = value ])</code> or <code>dnNew("CommandEndEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CommandEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandEndEventData().@New([ :param = value ])</code> or <code>dnNew("CommandEndEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Duration</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Duration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -328,7 +328,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CommandErrorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CommandErrorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbCommand command, DbContext context, DbCommandMethod executeMethod, Guid commandId, Guid connectionId, Exception exception, bool async, bool logParameterValues, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CommandErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandErrorEventData().New_([ :param = value ])</code> or <code>dnNew("CommandErrorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CommandErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandErrorEventData().@New([ :param = value ])</code> or <code>dnNew("CommandErrorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -336,7 +336,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CommandEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CommandEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbCommand command, DbContext context, DbCommandMethod executeMethod, Guid commandId, Guid connectionId, bool async, bool logParameterValues, DateTimeOffset startTime, CommandSource commandSource)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CommandEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandEventData().New_([ :param = value ])</code> or <code>dnNew("CommandEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CommandEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandEventData().@New([ :param = value ])</code> or <code>dnNew("CommandEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Command</code></td><td><code>DbCommand</code></td><td>read</td><td><code>o.Command</code></td></tr><tr><td><code>LogParameterValues</code></td><td><code>bool</code></td><td>read</td><td><code>o.LogParameterValues</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -344,7 +344,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.CommandExecutedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CommandExecutedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbCommand command, DbContext context, DbCommandMethod executeMethod, Guid commandId, Guid connectionId, object result, bool async, bool logParameterValues, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CommandExecutedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandExecutedEventData().New_([ :param = value ])</code> or <code>dnNew("CommandExecutedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CommandExecutedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CommandExecutedEventData().@New([ :param = value ])</code> or <code>dnNew("CommandExecutedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Result</code></td><td><code>object</code></td><td>read</td><td><code>o.Result</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -352,7 +352,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ComplexPropertyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ComplexPropertyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyComplexProperty property)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ComplexPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ComplexPropertyEventData().New_([ :param = value ])</code> or <code>dnNew("ComplexPropertyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ComplexPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ComplexPropertyEventData().@New([ :param = value ])</code> or <code>dnNew("ComplexPropertyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Property</code></td><td><code>IReadOnlyComplexProperty</code></td><td>read</td><td><code>o.Property</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -360,7 +360,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConcurrencyExceptionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConcurrencyExceptionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, IReadOnlyList&lt;IUpdateEntry&gt; entries, DbUpdateConcurrencyException exception)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConcurrencyExceptionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConcurrencyExceptionEventData().New_([ :param = value ])</code> or <code>dnNew("ConcurrencyExceptionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConcurrencyExceptionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConcurrencyExceptionEventData().@New([ :param = value ])</code> or <code>dnNew("ConcurrencyExceptionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>DbUpdateConcurrencyException</code></td><td>read</td><td><code>o.getException()</code></td></tr><tr><td><code>Entries</code></td><td><code>IReadOnlyList&lt;EntityEntry&gt;</code></td><td>read</td><td><code>o.Entries</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -368,7 +368,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConnectionCreatedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConnectionCreatedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbContext context, Guid connectionId, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConnectionCreatedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionCreatedEventData().New_([ :param = value ])</code> or <code>dnNew("ConnectionCreatedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConnectionCreatedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionCreatedEventData().@New([ :param = value ])</code> or <code>dnNew("ConnectionCreatedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr><tr><td><code>Duration</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Duration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -376,7 +376,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConnectionCreatingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConnectionCreatingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, string connectionString, Guid connectionId, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConnectionCreatingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionCreatingEventData().New_([ :param = value ])</code> or <code>dnNew("ConnectionCreatingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConnectionCreatingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionCreatingEventData().@New([ :param = value ])</code> or <code>dnNew("ConnectionCreatingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ConnectionString</code></td><td><code>string</code></td><td>read</td><td><code>o.ConnectionString</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -384,7 +384,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConnectionEndEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConnectionEndEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbContext context, Guid connectionId, bool async, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConnectionEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionEndEventData().New_([ :param = value ])</code> or <code>dnNew("ConnectionEndEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConnectionEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionEndEventData().@New([ :param = value ])</code> or <code>dnNew("ConnectionEndEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Duration</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Duration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -392,7 +392,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConnectionErrorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConnectionErrorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbContext context, Guid connectionId, Exception exception, bool async, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConnectionErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionErrorEventData().New_([ :param = value ])</code> or <code>dnNew("ConnectionErrorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConnectionErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionErrorEventData().@New([ :param = value ])</code> or <code>dnNew("ConnectionErrorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -400,7 +400,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ConnectionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ConnectionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbConnection connection, DbContext context, Guid connectionId, bool async, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ConnectionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionEventData().New_([ :param = value ])</code> or <code>dnNew("ConnectionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ConnectionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ConnectionEventData().@New([ :param = value ])</code> or <code>dnNew("ConnectionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -408,7 +408,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ContextInitializedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ContextInitializedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, DbContextOptions contextOptions)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ContextInitializedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ContextInitializedEventData().New_([ :param = value ])</code> or <code>dnNew("ContextInitializedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ContextInitializedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ContextInitializedEventData().@New([ :param = value ])</code> or <code>dnNew("ContextInitializedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Context</code></td><td><code>DbContext</code></td><td>read</td><td><code>o.Context</code></td></tr><tr><td><code>ContextOptions</code></td><td><code>DbContextOptions</code></td><td>read</td><td><code>o.ContextOptions</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -432,7 +432,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DataReaderClosingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DataReaderClosingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbCommand command, DbDataReader dataReader, DbContext context, Guid commandId, Guid connectionId, bool async, int recordsAffected, int readCount, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DataReaderClosingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderClosingEventData().New_([ :param = value ])</code> or <code>dnNew("DataReaderClosingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DataReaderClosingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderClosingEventData().@New([ :param = value ])</code> or <code>dnNew("DataReaderClosingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -440,7 +440,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DataReaderDisposingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DataReaderDisposingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbCommand command, DbDataReader dataReader, DbContext context, Guid commandId, Guid connectionId, int recordsAffected, int readCount, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DataReaderDisposingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderDisposingEventData().New_([ :param = value ])</code> or <code>dnNew("DataReaderDisposingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DataReaderDisposingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderDisposingEventData().@New([ :param = value ])</code> or <code>dnNew("DataReaderDisposingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Duration</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Duration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -448,7 +448,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DataReaderEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DataReaderEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbCommand command, DbDataReader dataReader, DbContext context, Guid commandId, Guid connectionId, int recordsAffected, int readCount, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DataReaderEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderEventData().New_([ :param = value ])</code> or <code>dnNew("DataReaderEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DataReaderEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataReaderEventData().@New([ :param = value ])</code> or <code>dnNew("DataReaderEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Command</code></td><td><code>DbCommand</code></td><td>read</td><td><code>o.Command</code></td></tr><tr><td><code>DataReader</code></td><td><code>DbDataReader</code></td><td>read</td><td><code>o.DataReader</code></td></tr><tr><td><code>CommandId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.CommandId</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>RecordsAffected</code></td><td><code>int</code></td><td>read</td><td><code>o.RecordsAffected</code></td></tr><tr><td><code>ReadCount</code></td><td><code>int</code></td><td>read</td><td><code>o.ReadCount</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -466,7 +466,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DbContextErrorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DbContextErrorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, Exception exception)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DbContextErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextErrorEventData().New_([ :param = value ])</code> or <code>dnNew("DbContextErrorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DbContextErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextErrorEventData().@New([ :param = value ])</code> or <code>dnNew("DbContextErrorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -474,7 +474,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DbContextEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DbContextEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DbContextEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextEventData().New_([ :param = value ])</code> or <code>dnNew("DbContextEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DbContextEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextEventData().@New([ :param = value ])</code> or <code>dnNew("DbContextEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Context</code></td><td><code>DbContext</code></td><td>read</td><td><code>o.Context</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -482,7 +482,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DbContextTypeErrorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DbContextTypeErrorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Type contextType, Exception exception)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DbContextTypeErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextTypeErrorEventData().New_([ :param = value ])</code> or <code>dnNew("DbContextTypeErrorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DbContextTypeErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextTypeErrorEventData().@New([ :param = value ])</code> or <code>dnNew("DbContextTypeErrorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -490,7 +490,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.DbContextTypeEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DbContextTypeEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Type contextType)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DbContextTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextTypeEventData().New_([ :param = value ])</code> or <code>dnNew("DbContextTypeEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DbContextTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DbContextTypeEventData().@New([ :param = value ])</code> or <code>dnNew("DbContextTypeEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ContextType</code></td><td><code>Type</code></td><td>read</td><td><code>o.ContextType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -503,7 +503,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.EntityEntryEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EntityEntryEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EntityEntryEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityEntryEventData().New_([ :param = value ])</code> or <code>dnNew("EntityEntryEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EntityEntryEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityEntryEventData().@New([ :param = value ])</code> or <code>dnNew("EntityEntryEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -511,7 +511,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.EntityTypeEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EntityTypeEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyEntityType entityType)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EntityTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityTypeEventData().New_([ :param = value ])</code> or <code>dnNew("EntityTypeEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EntityTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityTypeEventData().@New([ :param = value ])</code> or <code>dnNew("EntityTypeEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IReadOnlyEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -519,7 +519,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.EntityTypeSchemaEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EntityTypeSchemaEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType entityType, string schema)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EntityTypeSchemaEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityTypeSchemaEventData().New_([ :param = value ])</code> or <code>dnNew("EntityTypeSchemaEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EntityTypeSchemaEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EntityTypeSchemaEventData().@New([ :param = value ])</code> or <code>dnNew("EntityTypeSchemaEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>Schema</code></td><td><code>string</code></td><td>read</td><td><code>o.Schema</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -527,7 +527,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.EventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventData().New_([ :param = value ])</code> or <code>dnNew("EventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventData().@New([ :param = value ])</code> or <code>dnNew("EventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EventId</code></td><td><code>EventId</code></td><td>read</td><td><code>o.EventId</code></td></tr><tr><td><code>LogLevel</code></td><td><code>LogLevel</code></td><td>read</td><td><code>o.LogLevel</code></td></tr><tr><td><code>EventIdCode</code></td><td><code>string</code></td><td>read</td><td><code>o.EventIdCode</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -535,7 +535,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EventDefinition(ILoggingOptions loggingOptions, EventId eventId, LogLevel level, string eventIdCode, Func&lt;LogLevel, Action&lt;ILogger, Exception&gt;&gt; logActionFunc)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EventDefinition(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventDefinition().New_([ :param = value ])</code> or <code>dnNew("EventDefinition",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EventDefinition(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EventDefinition().@New([ :param = value ])</code> or <code>dnNew("EventDefinition",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GenerateMessage</code></td><td><span class="muted">—</span></td><td><code>string GenerateMessage()</code></td></tr><tr><td><code>Log</code></td><td><span class="muted">—</span></td><td><code>void Log&lt;TLoggerCategory&gt;(IDiagnosticsLogger&lt;TLoggerCategory&gt; logger, Exception exception = …)</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -548,7 +548,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ExecutionStrategyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ExecutionStrategyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyList&lt;Exception&gt; exceptionsEncountered, TimeSpan delay, bool async)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ExecutionStrategyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ExecutionStrategyEventData().New_([ :param = value ])</code> or <code>dnNew("ExecutionStrategyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ExecutionStrategyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ExecutionStrategyEventData().@New([ :param = value ])</code> or <code>dnNew("ExecutionStrategyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ExceptionsEncountered</code></td><td><code>IReadOnlyList&lt;Exception&gt;</code></td><td>read</td><td><code>o.ExceptionsEncountered</code></td></tr><tr><td><code>Delay</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Delay</code></td></tr><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -556,7 +556,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ExpressionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ExpressionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Expression expression)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ExpressionEventData().New_([ :param = value ])</code> or <code>dnNew("ExpressionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ExpressionEventData().@New([ :param = value ])</code> or <code>dnNew("ExpressionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Expression</code></td><td><code>Expression</code></td><td>read</td><td><code>o.Expression</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -564,7 +564,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.FallbackEventDefinition</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new FallbackEventDefinition(ILoggingOptions loggingOptions, EventId eventId, LogLevel level, string eventIdCode, string messageFormat)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new FallbackEventDefinition(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new FallbackEventDefinition().New_([ :param = value ])</code> or <code>dnNew("FallbackEventDefinition",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new FallbackEventDefinition(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new FallbackEventDefinition().@New([ :param = value ])</code> or <code>dnNew("FallbackEventDefinition",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>MessageFormat</code></td><td><code>string</code></td><td>read</td><td><code>o.MessageFormat</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GenerateMessage</code></td><td><span class="muted">—</span></td><td><code>string GenerateMessage(Action&lt;ILogger&gt; logAction)</code></td></tr><tr><td><code>Log</code></td><td><span class="muted">—</span></td><td><code>void Log&lt;TLoggerCategory&gt;(IDiagnosticsLogger&lt;TLoggerCategory&gt; logger, Action&lt;ILogger&gt; logAction)</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
@@ -573,7 +573,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ForeignKeyCandidateEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ForeignKeyCandidateEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, string dependentToPrincipalNavigationSpecification, string principalToDependentNavigationSpecification, IReadOnlyList&lt;IReadOnlyPropertyBase&gt; firstPropertyCollection, IReadOnlyList&lt;IReadOnlyPropertyBase&gt; secondPropertyCollection)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ForeignKeyCandidateEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ForeignKeyCandidateEventData().New_([ :param = value ])</code> or <code>dnNew("ForeignKeyCandidateEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ForeignKeyCandidateEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ForeignKeyCandidateEventData().@New([ :param = value ])</code> or <code>dnNew("ForeignKeyCandidateEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DependentToPrincipalNavigationSpecification</code></td><td><code>string</code></td><td>read</td><td><code>o.DependentToPrincipalNavigationSpecification</code></td></tr><tr><td><code>PrincipalToDependentNavigationSpecification</code></td><td><code>string</code></td><td>read</td><td><code>o.PrincipalToDependentNavigationSpecification</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -581,7 +581,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ForeignKeyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ForeignKeyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyForeignKey foreignKey)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ForeignKeyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ForeignKeyEventData().New_([ :param = value ])</code> or <code>dnNew("ForeignKeyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ForeignKeyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ForeignKeyEventData().@New([ :param = value ])</code> or <code>dnNew("ForeignKeyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ForeignKey</code></td><td><code>IReadOnlyForeignKey</code></td><td>read</td><td><code>o.ForeignKey</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -614,7 +614,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IdentityResolutionInterceptionData(DbContext context)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new IdentityResolutionInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IdentityResolutionInterceptionData().New_([ :param = value ])</code> or <code>dnNew("IdentityResolutionInterceptionData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new IdentityResolutionInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IdentityResolutionInterceptionData().@New([ :param = value ])</code> or <code>dnNew("IdentityResolutionInterceptionData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Context</code></td><td><code>DbContext</code></td><td>read</td><td><code>o.Context</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-IDiagnosticsLogger"><summary><b>IDiagnosticsLogger</b> <span class="muted">interface</span></summary>
@@ -632,7 +632,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.IgnoringIdentityResolutionInterceptor</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IgnoringIdentityResolutionInterceptor()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new IgnoringIdentityResolutionInterceptor(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IgnoringIdentityResolutionInterceptor().New_([ :param = value ])</code> or <code>dnNew("IgnoringIdentityResolutionInterceptor",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new IgnoringIdentityResolutionInterceptor(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IgnoringIdentityResolutionInterceptor().@New([ :param = value ])</code> or <code>dnNew("IgnoringIdentityResolutionInterceptor",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>UpdateTrackedInstance</code></td><td><span class="muted">—</span></td><td><code>void UpdateTrackedInstance(IdentityResolutionInterceptionData interceptionData, EntityEntry existingEntry, object newEntity)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-IIdentityResolutionInterceptor"><summary><b>IIdentityResolutionInterceptor</b> <span class="muted">interface</span></summary>
@@ -680,7 +680,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.IndexEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IndexEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType entityType, string indexName, List&lt;string&gt; indexPropertyNames)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new IndexEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexEventData().New_([ :param = value ])</code> or <code>dnNew("IndexEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new IndexEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexEventData().@New([ :param = value ])</code> or <code>dnNew("IndexEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>PropertyNames</code></td><td><code>List&lt;string&gt;</code></td><td>read</td><td><code>o.PropertyNames</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -688,7 +688,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.IndexWithPropertiesEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IndexWithPropertiesEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType entityType, string indexName, List&lt;string&gt; indexPropertyNames, string property1Name, List&lt;ValueTuple&lt;string, string&gt;&gt; tablesMappedToProperty1, string property2Name, List&lt;ValueTuple&lt;string, string&gt;&gt; tablesMappedToProperty2)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new IndexWithPropertiesEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexWithPropertiesEventData().New_([ :param = value ])</code> or <code>dnNew("IndexWithPropertiesEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new IndexWithPropertiesEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexWithPropertiesEventData().@New([ :param = value ])</code> or <code>dnNew("IndexWithPropertiesEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>PropertyNames</code></td><td><code>List&lt;string&gt;</code></td><td>read</td><td><code>o.PropertyNames</code></td></tr><tr><td><code>Property1Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Property1Name</code></td></tr><tr><td><code>TablesMappedToProperty1</code></td><td><code>List&lt;ValueTuple&lt;string, string&gt;&gt;</code></td><td>read</td><td><code>o.TablesMappedToProperty1</code></td></tr><tr><td><code>Property2Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Property2Name</code></td></tr><tr><td><code>TablesMappedToProperty2</code></td><td><code>List&lt;ValueTuple&lt;string, string&gt;&gt;</code></td><td>read</td><td><code>o.TablesMappedToProperty2</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -696,7 +696,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.IndexWithPropertyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new IndexWithPropertyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType entityType, string indexName, List&lt;string&gt; indexPropertyNames, string invalidPropertyName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new IndexWithPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexWithPropertyEventData().New_([ :param = value ])</code> or <code>dnNew("IndexWithPropertyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new IndexWithPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new IndexWithPropertyEventData().@New([ :param = value ])</code> or <code>dnNew("IndexWithPropertyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>Name</code></td><td><code>string</code></td><td>read</td><td><code>o.Name</code></td></tr><tr><td><code>PropertyNames</code></td><td><code>List&lt;string&gt;</code></td><td>read</td><td><code>o.PropertyNames</code></td></tr><tr><td><code>PropertyName</code></td><td><code>string</code></td><td>read</td><td><code>o.PropertyName</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -704,7 +704,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new InstantiationBindingInterceptionData(ITypeBase typeBase)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new InstantiationBindingInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new InstantiationBindingInterceptionData().New_([ :param = value ])</code> or <code>dnNew("InstantiationBindingInterceptionData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new InstantiationBindingInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new InstantiationBindingInterceptionData().@New([ :param = value ])</code> or <code>dnNew("InstantiationBindingInterceptionData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>TypeBase</code></td><td><code>ITypeBase</code></td><td>read</td><td><code>o.TypeBase</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-InterceptionResult"><summary><b>InterceptionResult</b> <span class="muted">struct</span></summary>
@@ -717,7 +717,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.InvalidIncludePathEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new InvalidIncludePathEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, string navigationChain, string navigationName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new InvalidIncludePathEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new InvalidIncludePathEventData().New_([ :param = value ])</code> or <code>dnNew("InvalidIncludePathEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new InvalidIncludePathEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new InvalidIncludePathEventData().@New([ :param = value ])</code> or <code>dnNew("InvalidIncludePathEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>NavigationChain</code></td><td><code>string</code></td><td>read</td><td><code>o.NavigationChain</code></td></tr><tr><td><code>NavigationName</code></td><td><code>string</code></td><td>read</td><td><code>o.NavigationName</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -749,7 +749,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.KeyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new KeyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyKey key)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new KeyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new KeyEventData().New_([ :param = value ])</code> or <code>dnNew("KeyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new KeyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new KeyEventData().@New([ :param = value ])</code> or <code>dnNew("KeyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Key</code></td><td><code>IReadOnlyKey</code></td><td>read</td><td><code>o.Key</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -757,7 +757,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.LazyLoadingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LazyLoadingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, object entity, string navigationPropertyName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LazyLoadingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LazyLoadingEventData().New_([ :param = value ])</code> or <code>dnNew("LazyLoadingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LazyLoadingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LazyLoadingEventData().@New([ :param = value ])</code> or <code>dnNew("LazyLoadingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Entity</code></td><td><code>object</code></td><td>read</td><td><code>o.Entity</code></td></tr><tr><td><code>NavigationPropertyName</code></td><td><code>string</code></td><td>read</td><td><code>o.NavigationPropertyName</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -770,7 +770,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MaterializationInterceptionData(MaterializationContext materializationContext, IEntityType entityType, QueryTrackingBehavior? queryTrackingBehavior, Dictionary&lt;IPropertyBase, ValueTuple&lt;object, Func&lt;MaterializationContext, object&gt;&gt;&gt; valueAccessor)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MaterializationInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MaterializationInterceptionData().New_([ :param = value ])</code> or <code>dnNew("MaterializationInterceptionData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MaterializationInterceptionData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MaterializationInterceptionData().@New([ :param = value ])</code> or <code>dnNew("MaterializationInterceptionData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Context</code></td><td><code>DbContext</code></td><td>read</td><td><code>o.Context</code></td></tr><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>QueryTrackingBehavior</code></td><td><code>QueryTrackingBehavior?</code></td><td>read</td><td><code>o.QueryTrackingBehavior</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GetPropertyValue</code></td><td><span class="muted">—</span></td><td><code>T GetPropertyValue&lt;T&gt;(string propertyName)</code><br><code>object GetPropertyValue(string propertyName)</code><br><code>T GetPropertyValue&lt;T&gt;(IPropertyBase property)</code><br><code>object GetPropertyValue(IPropertyBase property)</code></td></tr></tbody></table></div>
 </div></details>
@@ -778,7 +778,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationAssemblyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationAssemblyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator, IMigrationsAssembly migrationsAssembly)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationAssemblyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationAssemblyEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationAssemblyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationAssemblyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationAssemblyEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationAssemblyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>MigrationsAssembly</code></td><td><code>IMigrationsAssembly</code></td><td>read</td><td><code>o.MigrationsAssembly</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -786,7 +786,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationColumnOperationEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationColumnOperationEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, ColumnOperation columnOperation)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationColumnOperationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationColumnOperationEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationColumnOperationEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationColumnOperationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationColumnOperationEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationColumnOperationEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ColumnOperation</code></td><td><code>ColumnOperation</code></td><td>read</td><td><code>o.ColumnOperation</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -794,7 +794,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationCommandEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationCommandEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator, Migration migration, MigrationCommand command)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationCommandEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationCommandEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationCommandEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationCommandEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationCommandEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationCommandEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Migration</code></td><td><code>Migration</code></td><td>read</td><td><code>o.Migration</code></td></tr><tr><td><code>MigrationCommand</code></td><td><code>MigrationCommand</code></td><td>read</td><td><code>o.MigrationCommand</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -802,7 +802,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator, Migration migration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Migration</code></td><td><code>Migration</code></td><td>read</td><td><code>o.Migration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -810,7 +810,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationScriptingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationScriptingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator, Migration migration, string fromMigration, string toMigration, bool idempotent)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationScriptingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationScriptingEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationScriptingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationScriptingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationScriptingEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationScriptingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>FromMigration</code></td><td><code>string</code></td><td>read</td><td><code>o.FromMigration</code></td></tr><tr><td><code>ToMigration</code></td><td><code>string</code></td><td>read</td><td><code>o.ToMigration</code></td></tr><tr><td><code>IsIdempotent</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsIdempotent</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -818,7 +818,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigrationTypeEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigrationTypeEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, TypeInfo migrationType)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigrationTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationTypeEventData().New_([ :param = value ])</code> or <code>dnNew("MigrationTypeEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigrationTypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigrationTypeEventData().@New([ :param = value ])</code> or <code>dnNew("MigrationTypeEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>MigrationType</code></td><td><code>TypeInfo</code></td><td>read</td><td><code>o.MigrationType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -826,7 +826,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigratorConnectionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigratorConnectionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator, DbConnection connection, Guid connectionId)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigratorConnectionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigratorConnectionEventData().New_([ :param = value ])</code> or <code>dnNew("MigratorConnectionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigratorConnectionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigratorConnectionEventData().@New([ :param = value ])</code> or <code>dnNew("MigratorConnectionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -834,7 +834,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MigratorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MigratorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IMigrator migrator)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MigratorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigratorEventData().New_([ :param = value ])</code> or <code>dnNew("MigratorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MigratorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MigratorEventData().@New([ :param = value ])</code> or <code>dnNew("MigratorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Migrator</code></td><td><code>IMigrator</code></td><td>read</td><td><code>o.Migrator</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -842,7 +842,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.MinBatchSizeEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MinBatchSizeEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEnumerable&lt;IUpdateEntry&gt; entries, int commandCount, int minBatchSize)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new MinBatchSizeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MinBatchSizeEventData().New_([ :param = value ])</code> or <code>dnNew("MinBatchSizeEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new MinBatchSizeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new MinBatchSizeEventData().@New([ :param = value ])</code> or <code>dnNew("MinBatchSizeEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>MinBatchSize</code></td><td><code>int</code></td><td>read</td><td><code>o.MinBatchSize</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -850,7 +850,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.NavigationBaseEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new NavigationBaseEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyNavigationBase navigationBase)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new NavigationBaseEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new NavigationBaseEventData().New_([ :param = value ])</code> or <code>dnNew("NavigationBaseEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new NavigationBaseEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new NavigationBaseEventData().@New([ :param = value ])</code> or <code>dnNew("NavigationBaseEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>NavigationBase</code></td><td><code>IReadOnlyNavigationBase</code></td><td>read</td><td><code>o.NavigationBase</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -858,7 +858,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.NavigationEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new NavigationEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyNavigation navigation)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new NavigationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new NavigationEventData().New_([ :param = value ])</code> or <code>dnNew("NavigationEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new NavigationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new NavigationEventData().@New([ :param = value ])</code> or <code>dnNew("NavigationEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Navigation</code></td><td><code>IReadOnlyNavigation</code></td><td>read</td><td><code>o.Navigation</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -866,7 +866,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.PropertyChangedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PropertyChangedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, IProperty property, object oldValue, object newValue)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PropertyChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyChangedEventData().New_([ :param = value ])</code> or <code>dnNew("PropertyChangedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new PropertyChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyChangedEventData().@New([ :param = value ])</code> or <code>dnNew("PropertyChangedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr><tr><td><code>Property</code></td><td><code>IProperty</code></td><td>read</td><td><code>o.getProperty()</code></td></tr><tr><td><code>OldValue</code></td><td><code>object</code></td><td>read</td><td><code>o.OldValue</code></td></tr><tr><td><code>NewValue</code></td><td><code>object</code></td><td>read</td><td><code>o.NewValue</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -874,7 +874,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.PropertyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PropertyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyProperty property)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyEventData().New_([ :param = value ])</code> or <code>dnNew("PropertyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new PropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyEventData().@New([ :param = value ])</code> or <code>dnNew("PropertyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Property</code></td><td><code>IReadOnlyProperty</code></td><td>read</td><td><code>o.Property</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -882,7 +882,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.PropertyValueEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PropertyValueEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, IProperty property, object value)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PropertyValueEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyValueEventData().New_([ :param = value ])</code> or <code>dnNew("PropertyValueEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new PropertyValueEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PropertyValueEventData().@New([ :param = value ])</code> or <code>dnNew("PropertyValueEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr><tr><td><code>Property</code></td><td><code>IProperty</code></td><td>read</td><td><code>o.getProperty()</code></td></tr><tr><td><code>Value</code></td><td><code>object</code></td><td>read</td><td><code>o.Value</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -890,7 +890,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.QueryExpressionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new QueryExpressionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, Expression queryExpression, ExpressionPrinter expressionPrinter)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new QueryExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new QueryExpressionEventData().New_([ :param = value ])</code> or <code>dnNew("QueryExpressionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new QueryExpressionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new QueryExpressionEventData().@New([ :param = value ])</code> or <code>dnNew("QueryExpressionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Expression</code></td><td><code>Expression</code></td><td>read</td><td><code>o.Expression</code></td></tr><tr><td><code>ExpressionPrinter</code></td><td><code>ExpressionPrinter</code></td><td>read</td><td><code>o.ExpressionPrinter</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -898,7 +898,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ReferenceChangedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ReferenceChangedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, INavigation navigation, object oldReferencedEntity, object newReferencedEntity)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ReferenceChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ReferenceChangedEventData().New_([ :param = value ])</code> or <code>dnNew("ReferenceChangedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ReferenceChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ReferenceChangedEventData().@New([ :param = value ])</code> or <code>dnNew("ReferenceChangedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr><tr><td><code>Navigation</code></td><td><code>INavigation</code></td><td>read</td><td><code>o.getNavigation()</code></td></tr><tr><td><code>OldReferencedEntity</code></td><td><code>object</code></td><td>read</td><td><code>o.OldReferencedEntity</code></td></tr><tr><td><code>NewReferencedEntity</code></td><td><code>object</code></td><td>read</td><td><code>o.NewReferencedEntity</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -906,7 +906,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.RelationalConcurrencyExceptionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RelationalConcurrencyExceptionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, DbConnection connection, DbCommand command, DbDataReader dataReader, Guid commandId, Guid connectionId, IReadOnlyList&lt;IUpdateEntry&gt; entries, DbUpdateConcurrencyException exception)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RelationalConcurrencyExceptionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RelationalConcurrencyExceptionEventData().New_([ :param = value ])</code> or <code>dnNew("RelationalConcurrencyExceptionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RelationalConcurrencyExceptionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RelationalConcurrencyExceptionEventData().@New([ :param = value ])</code> or <code>dnNew("RelationalConcurrencyExceptionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>Command</code></td><td><code>DbCommand</code></td><td>read</td><td><code>o.Command</code></td></tr><tr><td><code>DataReader</code></td><td><code>DbDataReader</code></td><td>read</td><td><code>o.DataReader</code></td></tr><tr><td><code>CommandId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.CommandId</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -936,7 +936,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesCompletedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SaveChangesCompletedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, int entitiesSavedCount)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SaveChangesCompletedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SaveChangesCompletedEventData().New_([ :param = value ])</code> or <code>dnNew("SaveChangesCompletedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SaveChangesCompletedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SaveChangesCompletedEventData().@New([ :param = value ])</code> or <code>dnNew("SaveChangesCompletedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntitiesSavedCount</code></td><td><code>int</code></td><td>read</td><td><code>o.EntitiesSavedCount</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -944,7 +944,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SaveChangesEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEnumerable&lt;IUpdateEntry&gt; entries, int rowsAffected)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SaveChangesEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SaveChangesEventData().New_([ :param = value ])</code> or <code>dnNew("SaveChangesEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SaveChangesEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SaveChangesEventData().@New([ :param = value ])</code> or <code>dnNew("SaveChangesEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Entries</code></td><td><code>IEnumerable&lt;IUpdateEntry&gt;</code></td><td>read</td><td><code>o.Entries</code></td></tr><tr><td><code>RowsAffected</code></td><td><code>int</code></td><td>read</td><td><code>o.RowsAffected</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -957,7 +957,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SequenceEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SequenceEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlySequence sequence)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SequenceEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SequenceEventData().New_([ :param = value ])</code> or <code>dnNew("SequenceEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SequenceEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SequenceEventData().@New([ :param = value ])</code> or <code>dnNew("SequenceEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Sequence</code></td><td><code>IReadOnlySequence</code></td><td>read</td><td><code>o.Sequence</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -965,7 +965,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ServiceProviderDebugInfoEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ServiceProviderDebugInfoEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IDictionary&lt;string, string&gt; newDebugInfo, IList&lt;IDictionary&lt;string, string&gt;&gt; cachedDebugInfos)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ServiceProviderDebugInfoEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProviderDebugInfoEventData().New_([ :param = value ])</code> or <code>dnNew("ServiceProviderDebugInfoEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ServiceProviderDebugInfoEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProviderDebugInfoEventData().@New([ :param = value ])</code> or <code>dnNew("ServiceProviderDebugInfoEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>NewDebugInfo</code></td><td><code>IDictionary&lt;string, string&gt;</code></td><td>read</td><td><code>o.NewDebugInfo</code></td></tr><tr><td><code>CachedDebugInfos</code></td><td><code>IList&lt;IDictionary&lt;string, string&gt;&gt;</code></td><td>read</td><td><code>o.CachedDebugInfos</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -973,7 +973,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ServiceProviderEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ServiceProviderEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IServiceProvider serviceProvider)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ServiceProviderEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProviderEventData().New_([ :param = value ])</code> or <code>dnNew("ServiceProviderEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ServiceProviderEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProviderEventData().@New([ :param = value ])</code> or <code>dnNew("ServiceProviderEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ServiceProvider</code></td><td><code>IServiceProvider</code></td><td>read</td><td><code>o.ServiceProvider</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -981,7 +981,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ServiceProvidersEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ServiceProvidersEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, ICollection&lt;IServiceProvider&gt; serviceProviders)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ServiceProvidersEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProvidersEventData().New_([ :param = value ])</code> or <code>dnNew("ServiceProvidersEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ServiceProvidersEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ServiceProvidersEventData().@New([ :param = value ])</code> or <code>dnNew("ServiceProvidersEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ServiceProviders</code></td><td><code>ICollection&lt;IServiceProvider&gt;</code></td><td>read</td><td><code>o.ServiceProviders</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -989,7 +989,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SharedDependentEntityEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SharedDependentEntityEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType firstEntityType, IEntityType secondEntityType)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SharedDependentEntityEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SharedDependentEntityEventData().New_([ :param = value ])</code> or <code>dnNew("SharedDependentEntityEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SharedDependentEntityEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SharedDependentEntityEventData().@New([ :param = value ])</code> or <code>dnNew("SharedDependentEntityEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>FirstEntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.FirstEntityType</code></td></tr><tr><td><code>SecondEntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.SecondEntityType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -997,7 +997,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SkipCollectionChangedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SkipCollectionChangedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, ISkipNavigation navigation, IEnumerable&lt;object&gt; added, IEnumerable&lt;object&gt; removed)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SkipCollectionChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SkipCollectionChangedEventData().New_([ :param = value ])</code> or <code>dnNew("SkipCollectionChangedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SkipCollectionChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SkipCollectionChangedEventData().@New([ :param = value ])</code> or <code>dnNew("SkipCollectionChangedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>EntityEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr><tr><td><code>Navigation</code></td><td><code>ISkipNavigation</code></td><td>read</td><td><code>o.getNavigation()</code></td></tr><tr><td><code>Added</code></td><td><code>IEnumerable&lt;object&gt;</code></td><td>read</td><td><code>o.Added</code></td></tr><tr><td><code>Removed</code></td><td><code>IEnumerable&lt;object&gt;</code></td><td>read</td><td><code>o.Removed</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1005,7 +1005,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.SkipNavigationEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SkipNavigationEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlySkipNavigation navigation)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SkipNavigationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SkipNavigationEventData().New_([ :param = value ])</code> or <code>dnNew("SkipNavigationEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SkipNavigationEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SkipNavigationEventData().@New([ :param = value ])</code> or <code>dnNew("SkipNavigationEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Navigation</code></td><td><code>IReadOnlySkipNavigation</code></td><td>read</td><td><code>o.Navigation</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1018,7 +1018,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.StateChangedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new StateChangedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, EntityEntry entityEntry, EntityState oldState, EntityState newState)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new StateChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new StateChangedEventData().New_([ :param = value ])</code> or <code>dnNew("StateChangedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new StateChangedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new StateChangedEventData().@New([ :param = value ])</code> or <code>dnNew("StateChangedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>OldState</code></td><td><code>EntityState</code></td><td>read</td><td><code>o.OldState</code></td></tr><tr><td><code>NewState</code></td><td><code>EntityState</code></td><td>read</td><td><code>o.NewState</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1026,7 +1026,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.StoredProcedurePropertyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new StoredProcedurePropertyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEntityType entityType, IProperty property, string storedProcedureName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new StoredProcedurePropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new StoredProcedurePropertyEventData().New_([ :param = value ])</code> or <code>dnNew("StoredProcedurePropertyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new StoredProcedurePropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new StoredProcedurePropertyEventData().@New([ :param = value ])</code> or <code>dnNew("StoredProcedurePropertyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityType</code></td><td><code>IEntityType</code></td><td>read</td><td><code>o.EntityType</code></td></tr><tr><td><code>StoredProcedureName</code></td><td><code>string</code></td><td>read</td><td><code>o.StoredProcedureName</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1034,7 +1034,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TransactionEndEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TransactionEndEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbTransaction transaction, DbContext context, Guid transactionId, Guid connectionId, bool async, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TransactionEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEndEventData().New_([ :param = value ])</code> or <code>dnNew("TransactionEndEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TransactionEndEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEndEventData().@New([ :param = value ])</code> or <code>dnNew("TransactionEndEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Duration</code></td><td><code>TimeSpan</code></td><td>read</td><td><code>o.Duration</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1042,7 +1042,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TransactionEnlistedEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TransactionEnlistedEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Transaction transaction, DbConnection connection, Guid connectionId)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TransactionEnlistedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEnlistedEventData().New_([ :param = value ])</code> or <code>dnNew("TransactionEnlistedEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TransactionEnlistedEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEnlistedEventData().@New([ :param = value ])</code> or <code>dnNew("TransactionEnlistedEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Transaction</code></td><td><code>Transaction</code></td><td>read</td><td><code>o.Transaction</code></td></tr><tr><td><code>Connection</code></td><td><code>DbConnection</code></td><td>read</td><td><code>o.Connection</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1050,7 +1050,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TransactionErrorEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TransactionErrorEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbTransaction transaction, DbContext context, Guid transactionId, Guid connectionId, bool async, string action, Exception exception, DateTimeOffset startTime, TimeSpan duration)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TransactionErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionErrorEventData().New_([ :param = value ])</code> or <code>dnNew("TransactionErrorEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TransactionErrorEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionErrorEventData().@New([ :param = value ])</code> or <code>dnNew("TransactionErrorEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Action</code></td><td><code>string</code></td><td>read</td><td><code>o.Action</code></td></tr><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1058,7 +1058,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TransactionEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TransactionEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbTransaction transaction, DbContext context, Guid transactionId, Guid connectionId, bool async, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TransactionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEventData().New_([ :param = value ])</code> or <code>dnNew("TransactionEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TransactionEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionEventData().@New([ :param = value ])</code> or <code>dnNew("TransactionEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Transaction</code></td><td><code>DbTransaction</code></td><td>read</td><td><code>o.Transaction</code></td></tr><tr><td><code>TransactionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.TransactionId</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1066,7 +1066,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TransactionStartingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TransactionStartingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, DbContext context, IsolationLevel isolationLevel, Guid transactionId, Guid connectionId, bool async, DateTimeOffset startTime)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TransactionStartingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionStartingEventData().New_([ :param = value ])</code> or <code>dnNew("TransactionStartingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TransactionStartingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TransactionStartingEventData().@New([ :param = value ])</code> or <code>dnNew("TransactionStartingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>IsolationLevel</code></td><td><code>IsolationLevel</code></td><td>read</td><td><code>o.IsolationLevel</code></td></tr><tr><td><code>TransactionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.TransactionId</code></td></tr><tr><td><code>ConnectionId</code></td><td><code>Guid</code></td><td>read</td><td><code>o.ConnectionId</code></td></tr><tr><td><code>IsAsync</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsAsync</code></td></tr><tr><td><code>StartTime</code></td><td><code>DateTimeOffset</code></td><td>read</td><td><code>o.StartTime</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1074,7 +1074,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TwoPropertyBaseCollectionsEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TwoPropertyBaseCollectionsEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyList&lt;IReadOnlyPropertyBase&gt; firstPropertyCollection, IReadOnlyList&lt;IReadOnlyPropertyBase&gt; secondPropertyCollection)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TwoPropertyBaseCollectionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoPropertyBaseCollectionsEventData().New_([ :param = value ])</code> or <code>dnNew("TwoPropertyBaseCollectionsEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TwoPropertyBaseCollectionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoPropertyBaseCollectionsEventData().@New([ :param = value ])</code> or <code>dnNew("TwoPropertyBaseCollectionsEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>FirstPropertyCollection</code></td><td><code>IReadOnlyList&lt;IReadOnlyPropertyBase&gt;</code></td><td>read</td><td><code>o.FirstPropertyCollection</code></td></tr><tr><td><code>SecondPropertyCollection</code></td><td><code>IReadOnlyList&lt;IReadOnlyPropertyBase&gt;</code></td><td>read</td><td><code>o.SecondPropertyCollection</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1082,7 +1082,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TwoSqlExpressionsEventData</code> · assembly <code>Microsoft.EntityFrameworkCore.Relational</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TwoSqlExpressionsEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, SqlExpression left, SqlExpression right)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TwoSqlExpressionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoSqlExpressionsEventData().New_([ :param = value ])</code> or <code>dnNew("TwoSqlExpressionsEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TwoSqlExpressionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoSqlExpressionsEventData().@New([ :param = value ])</code> or <code>dnNew("TwoSqlExpressionsEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Left</code></td><td><code>SqlExpression</code></td><td>read</td><td><code>o.Left</code></td></tr><tr><td><code>Right</code></td><td><code>SqlExpression</code></td><td>read</td><td><code>o.Right</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1090,7 +1090,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TwoUnmappedPropertyCollectionsEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TwoUnmappedPropertyCollectionsEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IEnumerable&lt;Tuple&lt;MemberInfo, Type&gt;&gt; firstPropertyCollection, IEnumerable&lt;Tuple&lt;MemberInfo, Type&gt;&gt; secondPropertyCollection)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TwoUnmappedPropertyCollectionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoUnmappedPropertyCollectionsEventData().New_([ :param = value ])</code> or <code>dnNew("TwoUnmappedPropertyCollectionsEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TwoUnmappedPropertyCollectionsEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TwoUnmappedPropertyCollectionsEventData().@New([ :param = value ])</code> or <code>dnNew("TwoUnmappedPropertyCollectionsEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>FirstPropertyCollection</code></td><td><code>IEnumerable&lt;Tuple&lt;MemberInfo, Type&gt;&gt;</code></td><td>read</td><td><code>o.FirstPropertyCollection</code></td></tr><tr><td><code>SecondPropertyCollection</code></td><td><code>IEnumerable&lt;Tuple&lt;MemberInfo, Type&gt;&gt;</code></td><td>read</td><td><code>o.SecondPropertyCollection</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1098,7 +1098,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TypeEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TypeEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Type clrType)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TypeEventData().New_([ :param = value ])</code> or <code>dnNew("TypeEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TypeEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TypeEventData().@New([ :param = value ])</code> or <code>dnNew("TypeEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ClrType</code></td><td><code>Type</code></td><td>read</td><td><code>o.ClrType</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1106,7 +1106,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.TypeLoadingEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new TypeLoadingEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Assembly assembly, Exception exception)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new TypeLoadingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TypeLoadingEventData().New_([ :param = value ])</code> or <code>dnNew("TypeLoadingEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new TypeLoadingEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new TypeLoadingEventData().@New([ :param = value ])</code> or <code>dnNew("TypeLoadingEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Exception</code></td><td><code>Exception</code></td><td>read</td><td><code>o.Exception</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1114,7 +1114,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.UniquifiedPropertyEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new UniquifiedPropertyEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IReadOnlyProperty property, string basePropertyName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new UniquifiedPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UniquifiedPropertyEventData().New_([ :param = value ])</code> or <code>dnNew("UniquifiedPropertyEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new UniquifiedPropertyEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UniquifiedPropertyEventData().@New([ :param = value ])</code> or <code>dnNew("UniquifiedPropertyEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>BasePropertyName</code></td><td><code>string</code></td><td>read</td><td><code>o.BasePropertyName</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1122,7 +1122,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.UpdateEntryEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new UpdateEntryEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, IUpdateEntry entityEntry)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new UpdateEntryEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UpdateEntryEventData().New_([ :param = value ])</code> or <code>dnNew("UpdateEntryEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new UpdateEntryEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UpdateEntryEventData().@New([ :param = value ])</code> or <code>dnNew("UpdateEntryEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EntityEntry</code></td><td><code>IUpdateEntry</code></td><td>read</td><td><code>o.EntityEntry</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1130,14 +1130,14 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new UpdatingIdentityResolutionInterceptor(bool preserveModifiedValues = …, bool updateOriginalValues = …)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new UpdatingIdentityResolutionInterceptor(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UpdatingIdentityResolutionInterceptor().New_([ :param = value ])</code> or <code>dnNew("UpdatingIdentityResolutionInterceptor",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new UpdatingIdentityResolutionInterceptor(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new UpdatingIdentityResolutionInterceptor().@New([ :param = value ])</code> or <code>dnNew("UpdatingIdentityResolutionInterceptor",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>UpdateTrackedInstance</code></td><td><span class="muted">—</span></td><td><code>void UpdateTrackedInstance(IdentityResolutionInterceptionData interceptionData, EntityEntry existingEntry, object newEntity)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-ValueConverterEventData"><summary><b>ValueConverterEventData</b> <span class="muted">class · extends <a href="#c-EventData">EventData</a></span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.ValueConverterEventData</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ValueConverterEventData(EventDefinitionBase eventDefinition, Func&lt;EventDefinitionBase, EventData, string&gt; messageGenerator, Type mappingClrType, ValueConverter valueConverter)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ValueConverterEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ValueConverterEventData().New_([ :param = value ])</code> or <code>dnNew("ValueConverterEventData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ValueConverterEventData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ValueConverterEventData().@New([ :param = value ])</code> or <code>dnNew("ValueConverterEventData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>MappingClrType</code></td><td><code>Type</code></td><td>read</td><td><code>o.MappingClrType</code></td></tr><tr><td><code>ValueConverter</code></td><td><code>ValueConverter</code></td><td>read</td><td><code>o.ValueConverter</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -1145,7 +1145,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.WarningsConfiguration</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new WarningsConfiguration()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new WarningsConfiguration(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new WarningsConfiguration().New_([ :param = value ])</code> or <code>dnNew("WarningsConfiguration",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new WarningsConfiguration(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new WarningsConfiguration().@New([ :param = value ])</code> or <code>dnNew("WarningsConfiguration",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DefaultBehavior</code></td><td><code>WarningBehavior</code></td><td>read</td><td><code>o.DefaultBehavior</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GetBehavior</code></td><td><span class="muted">—</span></td><td><code>WarningBehavior? GetBehavior(EventId eventId)</code></td></tr><tr><td><code>GetLevel</code></td><td><span class="muted">—</span></td><td><code>LogLevel? GetLevel(EventId eventId)</code></td></tr><tr><td><code>GetServiceProviderHashCode</code></td><td><span class="muted">—</span></td><td><code>int GetServiceProviderHashCode()</code></td></tr><tr><td><code>ShouldUseSameServiceProvider</code></td><td><span class="muted">—</span></td><td><code>bool ShouldUseSameServiceProvider(WarningsConfiguration other)</code></td></tr><tr><td><code>TryWithExplicit</code></td><td><span class="muted">—</span></td><td><code>WarningsConfiguration TryWithExplicit(EventId eventId, WarningBehavior warningBehavior)</code></td></tr><tr><td><code>WithDefaultBehavior</code></td><td><span class="muted">—</span></td><td><code>WarningsConfiguration WithDefaultBehavior(WarningBehavior warningBehavior)</code></td></tr><tr><td><code>WithExplicit</code></td><td><span class="muted">—</span></td><td><code>WarningsConfiguration WithExplicit(IEnumerable&lt;EventId&gt; eventIds, WarningBehavior warningBehavior)</code><br><code>WarningsConfiguration WithExplicit(IEnumerable&lt;ValueTuple&lt;EventId, LogLevel&gt;&gt; eventsAndLevels)</code></td></tr></tbody></table></div>
 </div></details>
@@ -1153,7 +1153,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.EntityFrameworkCore.Diagnostics.WarningsConfigurationBuilder</code> · assembly <code>Microsoft.EntityFrameworkCore</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new WarningsConfigurationBuilder(DbContextOptionsBuilder optionsBuilder)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new WarningsConfigurationBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new WarningsConfigurationBuilder().New_([ :param = value ])</code> or <code>dnNew("WarningsConfigurationBuilder",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new WarningsConfigurationBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new WarningsConfigurationBuilder().@New([ :param = value ])</code> or <code>dnNew("WarningsConfigurationBuilder",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Default</code></td><td><span class="muted">—</span></td><td><code>WarningsConfigurationBuilder Default(WarningBehavior warningBehavior)</code></td></tr><tr><td><code>Ignore</code></td><td><span class="muted">—</span></td><td><code>WarningsConfigurationBuilder Ignore(EventId[] eventIds)</code></td></tr><tr><td><code>Log</code></td><td><span class="muted">—</span></td><td><code>WarningsConfigurationBuilder Log(EventId[] eventIds)</code><br><code>WarningsConfigurationBuilder Log(ValueTuple&lt;EventId, LogLevel&gt;[] eventsAndLevels)</code></td></tr><tr><td><code>Throw</code></td><td><span class="muted">—</span></td><td><code>WarningsConfigurationBuilder Throw(EventId[] eventIds)</code></td></tr></tbody></table></div>
 </div></details>
 <div class="pager"></div>

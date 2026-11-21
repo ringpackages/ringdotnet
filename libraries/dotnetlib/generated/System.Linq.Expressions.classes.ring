@@ -353,7 +353,7 @@ Class ExpressionsExpression from Object
 	Func ReduceExtensions 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ReduceExtensions"))
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -550,7 +550,7 @@ Class ExpressionsExpression from Object
 		ok
 		raise("DotNet Error: RightShiftAssign does not take one argument: use named arguments, RightShiftAssign([ :parameter = value, ... ])")
 
-	Func And_ P1
+	Func @And P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:And",P1))
 		ok
@@ -562,7 +562,7 @@ Class ExpressionsExpression from Object
 		ok
 		raise("DotNet Error: AndAssign does not take one argument: use named arguments, AndAssign([ :parameter = value, ... ])")
 
-	Func Or_ P1
+	Func @Or P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s2:Or",P1))
 		ok
@@ -607,7 +607,7 @@ Class ExpressionsExpression from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Block",P1))
 
-	Func Catch_ P1
+	Func @Catch P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Catch",P1))
 		ok
@@ -661,19 +661,19 @@ Class ExpressionsExpression from Object
 		ok
 		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
-	Func Break_ P1
+	Func @Break P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Break",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Break",P1))
 
-	Func Continue_ P1
+	Func @Continue P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Continue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Continue",P1))
 
-	Func Return_ P1
+	Func @Return P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Return",P1))
 		ok
@@ -739,7 +739,7 @@ Class ExpressionsExpression from Object
 		ok
 		raise("DotNet Error: ListInit does not take one argument: use named arguments, ListInit([ :parameter = value, ... ])")
 
-	Func Loop_ P1
+	Func @Loop P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Loop",P1))
 		ok
@@ -769,7 +769,7 @@ Class ExpressionsExpression from Object
 	Func MemberBind P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:MemberBind",P1,P2))
 
-	Func Call_ P1
+	Func @Call P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Call",P1))
 		ok
@@ -799,7 +799,7 @@ Class ExpressionsExpression from Object
 	Func SwitchCase P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:SwitchCase",P1,P2))
 
-	Func Switch_ P1
+	Func @Switch P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Switch",P1))
 		ok
@@ -856,7 +856,7 @@ Class ExpressionsExpression from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s13:NegateChecked",P1))
 
-	Func Not_ P1
+	Func @Not P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:Not",P1))
 		ok
@@ -1112,7 +1112,7 @@ Class LabelTarget from Object
 		ok
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1

@@ -38,7 +38,7 @@ Compare big numbers with `Compare`: it answers -1, 0 or 1. Do not compare their 
 
 ### Complex numbers
 
-A `Complex` has `Real` and `Imaginary` parts. `i` is `Complex(0, 1)` and `i * i` is -1, which step 7 shows. It is made by the names of its parameters (`new Complex().New_([ :real = 0, :imaginary = 1 ])`). `Magnitude` is the distance from zero: 5 for 3 + 4i. `Multiply`, `Add`, `Divide`, `Sqrt`, `Exp`, `Pow` and the trigonometric functions are static methods. Functions such as `Pow` work with doubles inside and may give results like -6.999999999999998; use `Multiply` when you need exact whole values.
+A `Complex` has `Real` and `Imaginary` parts. `i` is `Complex(0, 1)` and `i * i` is -1, which step 7 shows. It is made by the names of its parameters (`new Complex().@New([ :real = 0, :imaginary = 1 ])`). `Magnitude` is the distance from zero: 5 for 3 + 4i. `Multiply`, `Add`, `Divide`, `Sqrt`, `Exp`, `Pow` and the trigonometric functions are static methods. Functions such as `Pow` work with doubles inside and may give results like -6.999999999999998; use `Multiply` when you need exact whole values.
 
 ## What you learned
 

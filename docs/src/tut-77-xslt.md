@@ -39,11 +39,11 @@ Everything happens in `transform`: it writes the stylesheet text to a file, then
 
 ```ring
 oTransform = new XslCompiledTransform()
-oTransform.Load_(cSheet)                 # compile the stylesheet (Load is a Ring keyword, so the method is Load_)
+oTransform.@Load(cSheet)                 # compile the stylesheet (Load is a Ring keyword, so the method is @Load)
 oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])     # input file -> output file
 ```
 
-`Load_` and `Transform` take file names in this form; the output file is read back with `File.ReadAllText`. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls `Transform` many times.
+`@Load` and `Transform` take file names in this form; the output file is read back with `File.ReadAllText`. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls `Transform` many times.
 
 ### Three stylesheets
 
@@ -51,7 +51,7 @@ oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])     # input
 2. **CSV.** The same structure, with a *filter*: `book[price &lt; 10]` keeps only the cheap books (`&lt;` is `<` inside XML).
 3. **HTML.** `method="html" indent="yes"` writes a table. In `<tr class="{@genre}">` the braces put the value of the attribute into the output (an *attribute value template*), so each row gets its genre as a CSS class.
 
-> [!TIP] Writing XSLT strings in Ring code gets crowded. Keep stylesheets in their own `.xsl` files next to the program and pass the path to `Load_`; designers can then change the layout of a report without reading Ring.
+> [!TIP] Writing XSLT strings in Ring code gets crowded. Keep stylesheets in their own `.xsl` files next to the program and pass the path to `@Load`; designers can then change the layout of a report without reading Ring.
 
 ### When to use it
 
@@ -61,7 +61,7 @@ oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])     # input
 
 ## What you learned
 
-- `XslCompiledTransform`, `Load_` and `Transform`,
+- `XslCompiledTransform`, `@Load` and `Transform`,
 - templates, `for-each`, `sort`, `sum`, filters,
 - text, CSV and HTML output,
 - attribute value templates `{@name}`.

@@ -254,7 +254,7 @@ Class Assembly from Object
 	Func GetTypes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetTypes"))
 
-	Func GetExportedTypes_ 
+	Func @GetExportedTypes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetExportedTypes"))
 
 	Func GetForwardedTypes 
@@ -298,7 +298,7 @@ Class Assembly from Object
 	Func GetCustomAttributesData 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCustomAttributesData"))
 
-	Func GetCustomAttributes_ P1
+	Func @GetCustomAttributes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetCustomAttributes",P1))
 		ok
@@ -313,7 +313,7 @@ Class Assembly from Object
 	Func GetModule P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetModule",P1))
 
-	Func GetModules_ P1
+	Func @GetModules P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetModules",P1))
 		ok
@@ -368,7 +368,7 @@ Class Assembly from Object
 		ok
 		raise("DotNet Error: LoadModule does not take one argument: use named arguments, LoadModule([ :parameter = value, ... ])")
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Reflection.Assembly, System.Private.CoreLib',"s4:Load",P1))
 		ok
@@ -593,7 +593,7 @@ Class AssemblyName from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.AssemblyName, System.Private.CoreLib',P1)
@@ -950,7 +950,7 @@ Class CustomAttributeNamedArgument from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.CustomAttributeNamedArgument, System.Private.CoreLib',P1)
@@ -1018,7 +1018,7 @@ Class CustomAttributeTypedArgument from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.CustomAttributeTypedArgument, System.Private.CoreLib',P1)
@@ -1405,7 +1405,7 @@ Class MemberInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetCustomAttributes_ P1
+	Func @GetCustomAttributes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetCustomAttributes",P1))
 		ok
@@ -1629,7 +1629,7 @@ Class Module from Object
 	Func GetCustomAttributesData 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCustomAttributesData"))
 
-	Func GetCustomAttributes_ P1
+	Func @GetCustomAttributes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetCustomAttributes",P1))
 		ok
@@ -1819,7 +1819,7 @@ Class NullabilityInfo from Object
 		ok
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -1922,7 +1922,7 @@ Class ParameterInfo from Object
 	Func GetCustomAttributesData 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCustomAttributesData"))
 
-	Func GetCustomAttributes_ P1
+	Func @GetCustomAttributes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetCustomAttributes",P1))
 		ok
@@ -2077,7 +2077,7 @@ Class ParameterModifier from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.ParameterModifier, System.Private.CoreLib',P1)
@@ -2238,7 +2238,7 @@ Class TypeInfo from Type
 	Func GetDeclaredProperty P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDeclaredProperty",P1))
 
-	Func GetDeclaredMethods_ P1
+	Func @GetDeclaredMethods P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDeclaredMethods",P1))
 
 	Func GetType 
@@ -2330,7 +2330,7 @@ Class EventInfo from MemberInfo
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetOtherMethods",P1))
 
-	Func GetAddMethod_ P1
+	Func @GetAddMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetAddMethod",P1))
 		ok
@@ -2339,7 +2339,7 @@ Class EventInfo from MemberInfo
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetAddMethod",P1))
 
-	Func GetRemoveMethod_ P1
+	Func @GetRemoveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetRemoveMethod",P1))
 		ok
@@ -2348,7 +2348,7 @@ Class EventInfo from MemberInfo
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRemoveMethod",P1))
 
-	Func GetRaiseMethod_ P1
+	Func @GetRaiseMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetRaiseMethod",P1))
 		ok
@@ -2650,7 +2650,7 @@ Class MethodBase from MemberInfo
 	Func GetParameters 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetParameters"))
 
-	Func GetMethodImplementationFlags_ 
+	Func @GetMethodImplementationFlags 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetMethodImplementationFlags"))
 
 	Func GetMethodBody 
@@ -2890,7 +2890,7 @@ Class PropertyInfo from MemberInfo
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetAccessors",P1))
 
-	Func GetGetMethod_ P1
+	Func @GetGetMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetGetMethod",P1))
 		ok
@@ -2899,7 +2899,7 @@ Class PropertyInfo from MemberInfo
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetGetMethod",P1))
 
-	Func GetSetMethod_ P1
+	Func @GetSetMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetSetMethod",P1))
 		ok

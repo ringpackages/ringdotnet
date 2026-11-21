@@ -247,7 +247,7 @@
 <article>
 <h1>A QR code</h1><p class="lead">A QR code is a picture that holds a text, such as a web address or the name and password of a Wi-Fi network. This lesson uses the QRCoder package from nuget.org to make one, prints it as text in the console and writes it as a PNG picture. It is the second lesson on NuGet packages: the first one explained the steps, this one uses them.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>how a <strong>QR code</strong> is made of modules and what the levels of error correction mean,</li><li>the steps of the previous lesson on a second package: project file, <code>dotnet publish</code>, wrap, load,</li><li>a method chosen by the names of its parameters, constructors with <code>New_</code>, and enums as texts,</li><li>reading a value from a result that has no Ring class (<code>getProp</code>),</li><li>writing the bytes of a PNG picture to a file.</li></ul>
+<ul><li>how a <strong>QR code</strong> is made of modules and what the levels of error correction mean,</li><li>the steps of the previous lesson on a second package: project file, <code>dotnet publish</code>, wrap, load,</li><li>a method chosen by the names of its parameters, constructors with <code>@New</code>, and enums as texts,</li><li>reading a value from a result that has no Ring class (<code>getProp</code>),</li><li>writing the bytes of a PNG picture to a file.</li></ul>
 <h2 id="what-a-qr-code-is">What a QR code is<a class="anchor" href="#what-a-qr-code-is">#</a></h2>
 <p>A QR code is a square grid of dark and light <strong>modules</strong>. The three big squares in the corners tell a camera where the code is and how it is turned. Between them the text is stored as bits, together with <strong>extra data</strong> that lets a camera read the code even when a part of it is dirty or covered. The amount of extra data is the <strong>level of error correction</strong>:</p>
 <div class="tablewrap"><table><thead><tr><th>Level</th><th>Part of the code that can be lost</th></tr></thead><tbody><tr><td><code>L</code> (low)</td><td>about 7%</td></tr><tr><td><code>M</code> (medium)</td><td>about 15%</td></tr><tr><td><code>Q</code> (quartile)</td><td>about 25%</td></tr><tr><td><code>H</code> (high)</td><td>about 30%</td></tr></tbody></table></div>
@@ -304,7 +304,7 @@ chdir(cHere)
 	? <span class="s">"1. a QR code for RING, as text (a block is a dark module):"</span>
 
 	<span class="c"># The class that draws it as text takes the code (a constructor chosen by the name of its parameter)</span>
-	oAscii = <span class="k">new</span> <span class="t">AsciiQRCode</span>().<span class="f">New_</span>([ :data = oCode ])
+	oAscii = <span class="k">new</span> <span class="t">AsciiQRCode</span>().@<span class="k">New</span>([ :<span class="t">data</span> = oCode ])
 	? oAscii.<span class="f">GetGraphic</span>(<span class="n">1</span>)
 
 	<span class="c"># 2. A higher level of error correction repeats more data, so the code is bigger. The answer is a List&lt;BitArray&gt; that has no</span>
@@ -317,7 +317,7 @@ chdir(cHere)
 	<span class="k">next</span>
 
 	<span class="c"># 3. A picture: PngByteQRCode gives the bytes of a PNG file, and a byte[] that .NET returns is a Ring text</span>
-	cPng = <span class="k">new</span> <span class="t">PngByteQRCode</span>().<span class="f">New_</span>([ :data = oCode ]).<span class="f">GetGraphic</span>(<span class="n">8</span>)          <span class="c"># 8 pixels for each module</span>
+	cPng = <span class="k">new</span> <span class="t">PngByteQRCode</span>().@<span class="k">New</span>([ :<span class="t">data</span> = oCode ]).<span class="f">GetGraphic</span>(<span class="n">8</span>)          <span class="c"># 8 pixels for each module</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial-qr.png"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllBytes</span>(cFile,cPng)
 	? nl + <span class="s">"3. the picture is a PNG file: "</span> + (substr(cPng,<span class="n">2</span>,<span class="n">3</span>) = <span class="s">"PNG"</span>) + <span class="s">", written to a file: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
@@ -364,7 +364,7 @@ chdir(cHere)
 <p><code>QRCodeGenerator</code> makes the <strong>data</strong> of a code: the grid of modules. Its method <code>CreateQrCode</code> has several versions, so it takes a list of the names of the parameters: <code>[ :plainText = "RING", :eccLevel = "L" ]</code>. The level is an enum of the package, and an enum in Ring is its <strong>name as a text</strong>, <code>"L"</code>.</p>
 <p>The data is not a picture yet. Other classes of the package turn it into a picture of one kind or another:</p>
 <ul><li><code>AsciiQRCode</code> draws it with text characters. <code>GetGraphic(1)</code> returns a text of lines, and the program prints it. A console shows the dark modules as blocks.</li><li><code>PngByteQRCode</code> draws it as the bytes of a PNG file. <code>GetGraphic(8)</code> uses 8 pixels for each module.</li></ul>
-<p>Both classes take the data in their constructor. They have more than one constructor, so the program writes <code>new AsciiQRCode().New_([ :data = oCode ])</code>, the form of the lesson <a href="tut-160-generic-calls.html">The generic functions</a>.</p>
+<p>Both classes take the data in their constructor. They have more than one constructor, so the program writes <code>new AsciiQRCode().@New([ :data = oCode ])</code>, the form of the lesson <a href="tut-160-generic-calls.html">The generic functions</a>.</p>
 <h3 id="a-result-that-has-no-class">A result that has no class<a class="anchor" href="#a-result-that-has-no-class">#</a></h3>
 <p><code>oSized.ModuleMatrix</code> is a list of rows, a <code>List&lt;BitArray&gt;</code>. The package has no Ring class for that type, so a property of it, such as <code>Count</code>, is read with the generic <code>getProp("Count")</code>. The grid is as high as it is wide, so the count is the number of modules on a side: 33 for the longer text at level L, and 41 at level H.</p>
 <h3 id="the-picture">The picture<a class="anchor" href="#the-picture">#</a></h3>
@@ -372,7 +372,7 @@ chdir(cHere)
 <h3 id="using-a-package-safely">Using a package safely<a class="anchor" href="#using-a-package-safely">#</a></h3>
 <ul><li>The program was tested to make a code and a PNG. A real use of a code should be <strong>tried with a camera</strong> of the kind that your users have, with the size and the colours that you chose.</li><li>The text of a code is not secret: anybody who scans it reads it. A code with a password for a Wi-Fi network shows the password to everybody who sees the code.</li><li>Look at the licence of a package before you give your program to others (the page of the package at nuget.org shows it).</li></ul>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>a QR code is a grid of modules, and the level of error correction trades size for safety,</li><li>the same steps bring any package: project file, publish, wrap, load,</li><li>parameters by name, enums as texts, <code>New_</code> for a class with several constructors,</li><li><code>getProp</code> for a value of a type with no class, and bytes written to a file.</li></ul>
+<ul><li>a QR code is a grid of modules, and the level of error correction trades size for safety,</li><li>the same steps bring any package: project file, publish, wrap, load,</li><li>parameters by name, enums as texts, <code>@New</code> for a class with several constructors,</li><li><code>getProp</code> for a value of a type with no class, and bytes written to a file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Make a code for a Wi-Fi network: the text is <code>WIFI:T:WPA;S:name;P:password;;</code>. Change the level to <code>H</code> and compare the sizes.</li><li>Print the codes of three different texts one after the other.</li><li>Write the PNG with <code>GetGraphic(20)</code> and open the file with the picture viewer of your system.</li><li>Show the picture in a window: write the file, then load it into a <code>PictureBox</code> as in the tutorial <a href="tut-22-images.html">Images</a>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

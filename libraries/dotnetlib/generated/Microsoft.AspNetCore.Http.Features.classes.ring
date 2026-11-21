@@ -387,7 +387,7 @@ Class FeatureCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
@@ -406,7 +406,7 @@ Class FeatureCollection from Object
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
-	Func Get_ 
+	Func @Get 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
 
 	Func Set P1
@@ -482,7 +482,7 @@ Class FormFeature from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1093,7 +1093,7 @@ Class IFeatureCollection from DotNetObject
 		ok
 		return self
 
-	Func Get_ 
+	Func @Get 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
 
 	Func Set P1
@@ -2319,7 +2319,7 @@ Class ResponseCookiesFeature from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

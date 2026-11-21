@@ -335,7 +335,7 @@ Class Regex from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

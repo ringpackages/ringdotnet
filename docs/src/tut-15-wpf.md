@@ -57,7 +57,7 @@ means "a `Button`, named `greet`, with the content `Greet`, and a margin on top"
 A *binding* connects a property of one element to a property of another, with no code in between:
 
 ```ring
-oBinding = new WpfBinding().New_([ :path = "Value" ])      # the property to follow: Value
+oBinding = new WpfBinding().@New([ :path = "Value" ])      # the property to follow: Value
 oBinding.Source = oSlider                       # whose property
 oValue.SetBinding(oValue.TextProperty,oBinding) # the Text of this block follows it
 ```

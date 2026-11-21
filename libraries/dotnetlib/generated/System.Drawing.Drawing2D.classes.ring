@@ -106,7 +106,7 @@ Class Blend from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Blend, System.Drawing.Common',P1)
@@ -165,7 +165,7 @@ Class ColorBlend from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',P1)
@@ -219,7 +219,7 @@ Class CustomLineCap from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -321,7 +321,7 @@ Class GraphicsPath from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',P1)
@@ -684,7 +684,7 @@ Class HatchBrush from Brush
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -739,7 +739,7 @@ Class LinearGradientBrush from Brush
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -887,7 +887,7 @@ Class Matrix from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',P1)
@@ -1094,7 +1094,7 @@ Class PathGradientBrush from Brush
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1271,7 +1271,7 @@ Class AdjustableArrowCap from CustomLineCap
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

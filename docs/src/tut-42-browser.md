@@ -46,7 +46,7 @@ oNode.Tag = cFolder
 
 ### Reacting to the choice
 
-`setAfterSelectEvent("folderChosen()")` runs when a node is selected. The function reads `oTree.SelectedNode.Tag`, clears the list, and adds a `ListViewItem` for every file: `new ListViewItem().New_([ :text = name ])` makes the row with its first column, and `SubItems.Add(text)` fills the other columns (size, modified date).
+`setAfterSelectEvent("folderChosen()")` runs when a node is selected. The function reads `oTree.SelectedNode.Tag`, clears the list, and adds a `ListViewItem` for every file: `new ListViewItem().@New([ :text = name ])` makes the row with its first column, and `SubItems.Add(text)` fills the other columns (size, modified date).
 
 ### The ListView
 

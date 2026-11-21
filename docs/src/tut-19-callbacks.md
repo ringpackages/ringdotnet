@@ -43,7 +43,7 @@ func showItem aArgs
 	? "   item: " + aArgs[1]
 ```
 
-`ForEach_` ends with `_` because `ForEach` is a Ring keyword.
+`@ForEach` starts with `@` because `ForEach` is a Ring keyword.
 
 ### 2. A callback that decides
 
@@ -56,7 +56,7 @@ func showItem aArgs
 If the text is not just a function name, it is **Ring code**. It reads the arguments in `aDotNetArgs` and writes its answer into `xDotNetResult`:
 
 ```ring
-oWords.ForEach_(dnCallback("nLetters += len(aDotNetArgs[1])"))
+oWords.@ForEach(dnCallback("nLetters += len(aDotNetArgs[1])"))
 oWords.Sort([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])") ])
 ```
 
@@ -70,7 +70,7 @@ The same works for every event of every class: a button's `Click`, a text box's 
 
 ### 5. Errors
 
-An error raised inside a callback (`raise(...)`) travels back through .NET and comes out of the method that called it, so your `try` / `catch` around `ForEach_` catches it.
+An error raised inside a callback (`raise(...)`) travels back through .NET and comes out of the method that called it, so your `try` / `catch` around `@ForEach` catches it.
 
 ## The rules
 
@@ -91,7 +91,7 @@ An error raised inside a callback (`raise(...)`) travels back through .NET and c
 ## Exercises
 
 1. Sort the words alphabetically by their *last* letter.
-2. Use `FindAll` to keep the words with more than four letters, and `ForEach_` to print them in upper case.
+2. Use `FindAll` to keep the words with more than four letters, and `@ForEach` to print them in upper case.
 3. Make a handler for `CollectionChanged` that prints the new item (`aDotNetArgs[2].getProp('NewItems')`).
 4. Set the same event twice and see that the second handler replaces the first.
 

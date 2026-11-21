@@ -67,7 +67,7 @@ Class ResourceManager from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Resources.ResourceManager, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

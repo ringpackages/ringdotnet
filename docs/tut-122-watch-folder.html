@@ -279,13 +279,13 @@ using {
 	? <span class="s">"1. a folder to watch was created"</span>
 
 	<span class="c"># 2. The watcher: the folder, and the file names that interest us ("*.txt"). IncludeSubdirectories = True would watch the folders below too.</span>
-	oWatcher = <span class="k">new</span> <span class="t">FileSystemWatcher</span>().<span class="f">New_</span>([ :path = cFolder, :filter = <span class="s">"*.txt"</span> ])
+	oWatcher = <span class="k">new</span> <span class="t">FileSystemWatcher</span>().@<span class="k">New</span>([ :<span class="t">path</span> = cFolder, :filter = <span class="s">"*.txt"</span> ])
 	oWatcher.IncludeSubdirectories = <span class="k">False</span>
 	? <span class="s">"2. watching: "</span> + oWatcher.Filter + <span class="s">", subfolders: no"</span>
 
 	<span class="c"># 3. Start the child. It waits a moment, and then it creates a file, writes into it, renames it and deletes it, with a pause</span>
 	<span class="c">#    between the steps.</span>
-	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child "'</span> + cFolder + <span class="s">'"'</span> ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child "'</span> + cFolder + <span class="s">'"'</span> ])
 	oInfo.UseShellExecute = <span class="k">False</span>
 	oInfo.CreateNoWindow = <span class="k">True</span>
 	oChild = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start</span>(oInfo)
@@ -359,7 +359,7 @@ using {
 <h3 id="two-programs">Two programs<a class="anchor" href="#two-programs">#</a></h3>
 <p>A watcher has nothing to report if nobody changes the folder, and the program that waits cannot change it at the same moment. So the program starts a second copy of itself with <code>--child</code> and the name of the folder. The child waits a second, then creates <code>note.txt</code>, appends to it, renames it to <code>done.txt</code>, writes a file that the filter does not match, and deletes <code>done.txt</code>, with a pause between the steps. The parent only watches.</p>
 <h3 id="the-watcher">The watcher<a class="anchor" href="#the-watcher">#</a></h3>
-<p><code>new FileSystemWatcher().New_([ :path = cFolder, :filter = "*.txt" ])</code> watches one folder. The filter is a file name pattern: only the names that match it are reported (it has <code>*</code> and <code>?</code>; the tutorial <a href="tut-112-globbing.html">File patterns (globbing)</a> shows richer patterns for your own code). <code>IncludeSubdirectories = True</code> watches the folders below as well. Each change is a <strong>kind</strong> (<code>Created</code>, <code>Changed</code>, <code>Renamed</code>, <code>Deleted</code>) and the name of the file; a rename also has the old name.</p>
+<p><code>new FileSystemWatcher().@New([ :path = cFolder, :filter = "*.txt" ])</code> watches one folder. The filter is a file name pattern: only the names that match it are reported (it has <code>*</code> and <code>?</code>; the tutorial <a href="tut-112-globbing.html">File patterns (globbing)</a> shows richer patterns for your own code). <code>IncludeSubdirectories = True</code> watches the folders below as well. Each change is a <strong>kind</strong> (<code>Created</code>, <code>Changed</code>, <code>Renamed</code>, <code>Deleted</code>) and the name of the file; a rename also has the old name.</p>
 <h3 id="waiting-for-a-change">Waiting for a change<a class="anchor" href="#waiting-for-a-change">#</a></h3>
 <p><code>WaitForChanged([ :changeType = "All", :timeout = 4000 ])</code> waits for the next change and returns an object with <code>ChangeType</code>, <code>Name</code>, <code>OldName</code> and <code>TimedOut</code>. After four seconds without a change <code>TimedOut</code> is true and the loop ends. The <code>ignored.log</code> file does not match the filter, so the parent sees nothing for it.</p>
 <div class="callout note"><span class="t">Note</span><p>A watcher reports only the changes that happen <strong>while the program waits for them</strong>. Between two calls of <code>WaitForChanged</code> a change is not reported, so this style fits a loop that does nothing else, and tests. A program with a window or a server can use the <em>events</em> of the watcher (<code>Created</code>, <code>Changed</code>, <code>Deleted</code>, <code>Renamed</code>), which .NET raises on its own threads; Ring code runs on the Ring thread only, so such a program uses a timer and looks at the folder (the tutorial <a href="tut-34-timers.html">Timers and progress</a>).</p></div>

@@ -354,7 +354,7 @@ cEntered = <span class="s">""</span>
 <h3 id="many-events-one-function">Many events, one function<a class="anchor" href="#many-events-one-function">#</a></h3>
 <p>After the window exists, a loop connects every digit key: <code>setClickEvent("pressKey(" + nIndex + ")")</code>. All ten keys call the same function with their own digit. <code>pressKey</code> appends to the entered text (at most 12 digits), <code>showEntered</code> writes it into the display (<code>0</code> when empty).</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
-<p>A test raises the click event on a key: <code>RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))</code>, and checks the display: <code>42</code>, backspace gives <code>4</code>, clear gives <code>0</code>. It also reads the <code>Margin</code> of a key and finds <code>4</code>: the style was applied.</p>
+<p>A test raises the click event on a key: <code>RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new WpfButtonBase().ClickEvent ]))</code>, and checks the display: <code>42</code>, backspace gives <code>4</code>, clear gives <code>0</code>. It also reads the <code>Margin</code> of a key and finds <code>4</code>: the style was applied.</p>
 <p>The checks of this program are in a separate file, <code>selftest/ch11_wpf_layout.ring</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_layout.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_layout.ring: run with  ring ch11_wpf_layout.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
@@ -373,7 +373,7 @@ cEntered = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"the style: Margin of a key"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"key5"</span>).Margin.Left,<span class="n">4</span>)
 
 <span class="k">func</span> <span class="f">clickKey</span> cName
-	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))</code></pre></div>
+	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().@<span class="k">New</span>([ :<span class="t">routedEvent</span> = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>Grid</code> rows and columns with <code>Auto</code> and <code>*</code>,</li><li><code>Grid.Row</code>, <code>Grid.Column</code>, <code>Grid.ColumnSpan</code>,</li><li>one <code>Style</code> for all controls of a type,</li><li>XAML assembled by a loop, many events with one function.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

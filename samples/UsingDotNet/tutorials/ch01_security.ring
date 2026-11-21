@@ -15,7 +15,7 @@ func main
 	? "Changing one letter: " + left(lower(oConvert.ToHexString(new SHA256().HashData("abd"))),16) + "... is completely different"
 
 	# HMAC: a hash with a secret key proves that a message was not changed
-	oHmac = new HMACSHA256().New_([ :key = "secret key" ])          # the constructor that takes the key
+	oHmac = new HMACSHA256().@New([ :key = "secret key" ])          # the constructor that takes the key
 	? nl + "HMAC             : " + left(lower(oConvert.ToHexString(oHmac.ComputeHash("message"))),32) + "..."
 
 	# Random bytes for tokens: use RandomNumberGenerator, not Random

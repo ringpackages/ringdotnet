@@ -260,8 +260,8 @@ using {
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># 1. A Vector3 holds three numbers (X, Y, Z): a point or a direction in space (Vector2 has two numbers, Vector4 four).</span>
 	<span class="c">#    The numbers are single-precision floats, so results are shown rounded.</span>
-	oA = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">3</span>, :y = <span class="n">4</span>, :z = <span class="n">0</span> ])
-	oB = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">2</span>, :z = <span class="n">3</span> ])
+	oA = <span class="k">new</span> <span class="t">Vector3</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">3</span>, :y = <span class="n">4</span>, :z = <span class="n">0</span> ])
+	oB = <span class="k">new</span> <span class="t">Vector3</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">1</span>, :y = <span class="n">2</span>, :z = <span class="n">3</span> ])
 	? <span class="s">"1. a = "</span> + show3(oA) + <span class="s">", length of a = "</span> + oA.<span class="f">Length</span>() + <span class="s">", squared length = "</span> + oA.<span class="f">LengthSquared</span>()
 
 	<span class="c"># 2. The operations are static methods: Add, Subtract, Multiply (by a number), Negate</span>
@@ -272,8 +272,8 @@ using {
 	? <span class="s">"   -a    = "</span> + show3(oVector.<span class="f">Negate</span>(oA))
 
 	<span class="c"># 3. Dot product: a number that is 0 when two directions are at a right angle. Cross product: a vector at a right angle to both.</span>
-	oX = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">0</span>, :z = <span class="n">0</span> ])
-	oY = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">0</span>, :y = <span class="n">1</span>, :z = <span class="n">0</span> ])
+	oX = <span class="k">new</span> <span class="t">Vector3</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">1</span>, :y = <span class="n">0</span>, :z = <span class="n">0</span> ])
+	oY = <span class="k">new</span> <span class="t">Vector3</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">0</span>, :y = <span class="n">1</span>, :z = <span class="n">0</span> ])
 	? nl + <span class="s">"3. x . y = "</span> + oVector.<span class="f">Dot</span>(oX,oY) + <span class="s">" (a right angle), a . b = "</span> + oVector.<span class="f">Dot</span>(oA,oB)
 	? <span class="s">"   x cross y = "</span> + show3(oVector.<span class="f">Cross</span>(oX,oY)) + <span class="s">" (the z axis)"</span>
 
@@ -285,7 +285,7 @@ using {
 	? nl + <span class="s">"5. the middle of a and b = "</span> + show3(oVector.<span class="f">Lerp</span>(oA,oB,<span class="n">0.5</span>))
 
 	<span class="c"># 6. A rotation of a 2D point with a matrix. Matrix3x2 does move, scale and rotate in the plane; the angle is in radians.</span>
-	oPoint = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">0</span> ])
+	oPoint = <span class="k">new</span> <span class="t">Vector2</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">1</span>, :y = <span class="n">0</span> ])
 	oMatrix = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">CreateRotation</span>(<span class="n">3.14159265358979</span> / <span class="n">2</span>)       <span class="c"># a quarter of a turn</span>
 	oRotated = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oMatrix)
 	? nl + <span class="s">"6. the point (1, 0) turned by 90 degrees is ("</span> + roundNumber(oRotated.X) + <span class="s">", "</span> + roundNumber(oRotated.Y) + <span class="s">")"</span>
@@ -327,7 +327,7 @@ using {
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="vectors">Vectors<a class="anchor" href="#vectors">#</a></h3>
-<p>A <code>Vector3</code> holds three numbers <code>X</code>, <code>Y</code>, <code>Z</code>. It can be a <strong>position</strong> (a point in space) or a <strong>direction</strong> with a length (a speed, a force). <code>Vector2</code> has two numbers and <code>Vector4</code> four. They are value types (structs): <code>new Vector3().New_([ :x = 3, :y = 4, :z = 0 ])</code> makes one by names, and <code>oV.X</code> reads a component. The numbers are <em>single-precision</em> floats (about 7 digits), so a result such as <code>0.6</code> can really be <code>0.6000000238</code>; the program rounds before printing (<code>roundNumber</code>), and so should yours when you compare.</p>
+<p>A <code>Vector3</code> holds three numbers <code>X</code>, <code>Y</code>, <code>Z</code>. It can be a <strong>position</strong> (a point in space) or a <strong>direction</strong> with a length (a speed, a force). <code>Vector2</code> has two numbers and <code>Vector4</code> four. They are value types (structs): <code>new Vector3().@New([ :x = 3, :y = 4, :z = 0 ])</code> makes one by names, and <code>oV.X</code> reads a component. The numbers are <em>single-precision</em> floats (about 7 digits), so a result such as <code>0.6</code> can really be <code>0.6000000238</code>; the program rounds before printing (<code>roundNumber</code>), and so should yours when you compare.</p>
 <h3 id="operations">Operations<a class="anchor" href="#operations">#</a></h3>
 <p>The operations are <strong>static methods</strong>: <code>Add(a, b)</code>, <code>Subtract(a, b)</code>, <code>Multiply(a, number)</code>, <code>Negate(a)</code>. In Ring you call them on any object of the class (<code>oVector = new Vector3()</code>, then <code>oVector.Add(oA, oB)</code>). <code>Length()</code> is the distance from zero (3, 4, 0 has length 5), <code>Distance(a, b)</code> the distance between two points, and <code>Normalize(a)</code> the direction of <code>a</code> with length 1 — the <em>unit vector</em>, useful when you want a direction without a size. <code>Lerp(a, b, t)</code> is the point at the fraction <code>t</code> between <code>a</code> and <code>b</code> (0.5 is the middle): the base of every smooth movement.</p>
 <h3 id="dot-product">Dot product<a class="anchor" href="#dot-product">#</a></h3>

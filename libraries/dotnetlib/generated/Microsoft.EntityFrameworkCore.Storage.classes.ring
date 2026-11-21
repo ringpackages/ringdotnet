@@ -1615,7 +1615,7 @@ Class IRelationalConnection from DotNetObject
 		ok
 		return self
 
-	Func SetDbConnection_ P1,P2
+	Func @SetDbConnection P1,P2
 		dotnet_callv("s4:call",nHandle,"s15:SetDbConnection",P1,P2)
 
 		return self
@@ -2387,7 +2387,7 @@ Class MaterializationContext from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',P1)
@@ -2595,7 +2595,7 @@ Class ReaderColumn from Object
 		ok
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -2908,7 +2908,7 @@ Class RelationalCommandParameterObject from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',P1)
@@ -2989,7 +2989,7 @@ Class RelationalConnection from Object
 		ok
 		return self
 
-	Func SetDbConnection_ P1,P2
+	Func @SetDbConnection P1,P2
 		dotnet_callv("s4:call",nHandle,"s15:SetDbConnection",P1,P2)
 
 		return self
@@ -4001,7 +4001,7 @@ Class RelationalTypeMappingInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',P1)
@@ -4221,7 +4221,7 @@ Class TypeMappingInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',P1)
@@ -4400,7 +4400,7 @@ Class TypeMaterializationInfo from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4475,7 +4475,7 @@ Class ValueBuffer from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',P1)
@@ -4705,7 +4705,7 @@ Class BoolTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4745,7 +4745,7 @@ Class ByteArrayTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4785,7 +4785,7 @@ Class ByteTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4825,7 +4825,7 @@ Class CharTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4865,7 +4865,7 @@ Class DateOnlyTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4905,7 +4905,7 @@ Class DateTimeOffsetTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4945,7 +4945,7 @@ Class DateTimeTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -4985,7 +4985,7 @@ Class DecimalTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5025,7 +5025,7 @@ Class DoubleTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5065,7 +5065,7 @@ Class FloatTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5105,7 +5105,7 @@ Class GuidTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5145,7 +5145,7 @@ Class IntTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5200,7 +5200,7 @@ Class LongTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5240,7 +5240,7 @@ Class SByteTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5280,7 +5280,7 @@ Class ShortTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5320,7 +5320,7 @@ Class StringTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5360,7 +5360,7 @@ Class TimeOnlyTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5400,7 +5400,7 @@ Class TimeSpanTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5440,7 +5440,7 @@ Class UIntTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5480,7 +5480,7 @@ Class ULongTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5520,7 +5520,7 @@ Class UShortTypeMapping from RelationalTypeMapping
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

@@ -423,7 +423,7 @@ using {
 oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 ? <span class="s">"SHA256(abc)    : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
 ? <span class="s">"MD5(abc)       : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">MD5</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
-oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_</span>([ :key = <span class="s">"secret key"</span> ])
+oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().@<span class="k">New</span>([ :<span class="t">key</span> = <span class="s">"secret key"</span> ])
 ? <span class="s">"HMAC           : "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(oHmac.<span class="f">ComputeHash</span>(<span class="s">"message"</span>))),<span class="n">32</span>) + <span class="s">"..."</span>
 
 <span class="c"># AES encryption round trip</span>
@@ -543,7 +543,7 @@ nFactorial = oBig.<span class="f">Parse</span>(<span class="s">"1"</span>)
 <span class="k">next</span>
 ? <span class="s">"40!            : "</span> + nFactorial.<span class="f">ToString</span>()
 ? <span class="s">"2^200          : "</span> + oBig.<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">200</span>).<span class="f">ToString</span>()
-oZ = <span class="k">new</span> <span class="t">Complex</span>().<span class="f">New_</span>([ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
+oZ = <span class="k">new</span> <span class="t">Complex</span>().@<span class="k">New</span>([ :<span class="t">real</span> = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
 ? <span class="s">"|3+4i|         : "</span> + oZ.Magnitude
 
 <span class="c"># Reflection: explore a type</span>
@@ -553,7 +553,7 @@ aNames = []
 	<span class="k">if</span> find(aNames,oMethod.Name) = <span class="n">0</span> aNames + oMethod.Name <span class="k">ok</span>
 <span class="k">next</span>
 ? <span class="s">"Math methods   : "</span> + len(aNames) + <span class="s">" names, e.g. "</span> + aNames[<span class="n">1</span>] + <span class="s">", "</span> + aNames[<span class="n">2</span>] + <span class="s">", "</span> + aNames[<span class="n">3</span>]
-oAsm = <span class="k">new</span> <span class="t">Assembly</span>().<span class="f">Load_</span>(<span class="s">"System.Linq"</span>)
+oAsm = <span class="k">new</span> <span class="t">Assembly</span>().@<span class="k">Load</span>(<span class="s">"System.Linq"</span>)
 ? <span class="s">"Assembly       : "</span> + oAsm.<span class="f">GetName</span>(<span class="k">NULL</span>).Name + <span class="s">" "</span> + oAsm.<span class="f">GetName</span>(<span class="k">NULL</span>).Version.<span class="f">ToString</span>()
 
 <span class="c"># Environment and encoders</span>

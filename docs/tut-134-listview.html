@@ -293,7 +293,7 @@ lAscending = <span class="k">True</span>
 <span class="k">func</span> <span class="f">fillList</span>
 	oList.Items.<span class="f">Clear</span>()
 	<span class="k">for</span> aTask <span class="k">in</span> aTasks
-		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = aTask[<span class="n">1</span>] ])
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = aTask[<span class="n">1</span>] ])
 		oItem.SubItems.<span class="f">Add</span>(<span class="s">""</span> + aTask[<span class="n">2</span>])
 		oItem.SubItems.<span class="f">Add</span>(aTask[<span class="n">3</span>])
 		oList.Items.<span class="f">Add</span>(oItem)
@@ -357,7 +357,7 @@ lAscending = <span class="k">True</span>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="columns-and-rows">Columns and rows<a class="anchor" href="#columns-and-rows">#</a></h3>
-<p><code>View = "Details"</code> shows the columns. <code>Columns.Add([ :text = "Task", :width = 220 ])</code> adds a column with a title. A row is <code>new ListViewItem().New_([ :text = cName ])</code>: its text is the first cell, and <code>SubItems.Add(text)</code> adds the others. <code>Items.Add(item)</code> puts the row into the list. <code>Items.Item(0)</code> is the first row (counted from 0) and <code>SubItems.Item(2)</code> its third cell. <code>CheckBoxes = True</code> puts a check box in front of each row, and <code>Checked</code> is true when it is on.</p>
+<p><code>View = "Details"</code> shows the columns. <code>Columns.Add([ :text = "Task", :width = 220 ])</code> adds a column with a title. A row is <code>new ListViewItem().@New([ :text = cName ])</code>: its text is the first cell, and <code>SubItems.Add(text)</code> adds the others. <code>Items.Add(item)</code> puts the row into the list. <code>Items.Item(0)</code> is the first row (counted from 0) and <code>SubItems.Item(2)</code> its third cell. <code>CheckBoxes = True</code> puts a check box in front of each row, and <code>Checked</code> is true when it is on.</p>
 <h3 id="the-data-is-the-list">The data is the list<a class="anchor" href="#the-data-is-the-list">#</a></h3>
 <p>The program keeps the tasks in a Ring list <code>aTasks</code>, and <code>fillList</code> clears the <code>ListView</code> and creates the rows again. Sorting then means <em>sorting the list and filling the view again</em>; removing a row means removing the item from the list. The view never has information that the list does not have, so the two cannot disagree.</p>
 <h3 id="the-click-on-a-header">The click on a header<a class="anchor" href="#the-click-on-a-header">#</a></h3>

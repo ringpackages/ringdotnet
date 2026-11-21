@@ -651,7 +651,7 @@ Class AddingNewEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
@@ -871,7 +871,7 @@ Class CancelEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
@@ -1045,7 +1045,7 @@ Class ComponentResourceManager from ResourceManager
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
@@ -1267,7 +1267,7 @@ Class EventDescriptorCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1430,7 +1430,7 @@ Class HandledEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
@@ -2903,7 +2903,7 @@ Class ListChangedEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3005,7 +3005,7 @@ Class ListSortDescriptionCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
@@ -3160,7 +3160,7 @@ Class MaskedTextProvider from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3676,7 +3676,7 @@ Class PropertyDescriptorCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

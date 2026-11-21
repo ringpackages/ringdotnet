@@ -28,7 +28,7 @@ A `PrintDocument` does not draw by itself. `Print()` starts the job, and for eac
 
 ### The page
 
-The unit of the page is a hundredth of an inch. `e.MarginBounds` is the rectangle inside the margins (`Left`, `Top`, `Right`, `Bottom`), so the program never draws into the margin. The height of a line comes from the font: `Font.GetHeight_(graphics)` gives it in the unit of the graphics. The header has the title and the page number, the rows follow, and the loop stops when the next line would not fit above the bottom margin (one line is kept for the footer). In the output the first page has 57 rows and the second 43: 100 rows in all.
+The unit of the page is a hundredth of an inch. `e.MarginBounds` is the rectangle inside the margins (`Left`, `Top`, `Right`, `Bottom`), so the program never draws into the margin. The height of a line comes from the font: `Font.@GetHeight(graphics)` gives it in the unit of the graphics. The header has the title and the page number, the rows follow, and the loop stops when the next line would not fit above the bottom margin (one line is kept for the footer). In the output the first page has 57 rows and the second 43: 100 rows in all.
 
 ### Paper and margins
 

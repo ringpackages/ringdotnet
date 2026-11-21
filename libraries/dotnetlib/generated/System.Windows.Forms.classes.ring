@@ -2753,7 +2753,7 @@ Class Application from Object
 
 		return self
 
-	Func Exit_ P1
+	Func @Exit P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",'System.Windows.Forms.Application, System.Windows.Forms',"s4:Exit",P1)
 			return self
@@ -3083,7 +3083,7 @@ Class ApplicationContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
@@ -3391,7 +3391,7 @@ Class Binding from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Binding, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3564,7 +3564,7 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3853,7 +3853,7 @@ Class BindingMemberInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
@@ -3942,7 +3942,7 @@ Class BindingSource from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
@@ -4698,7 +4698,7 @@ Class ColumnHeader from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
@@ -4912,7 +4912,7 @@ Class ColumnWidthChangingEventArgs from CancelEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5151,7 +5151,7 @@ Class Control from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
@@ -5172,7 +5172,7 @@ Class Control from Component
 
 		return self
 
-	Func GetPreferredSize_ P1
+	Func @GetPreferredSize P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPreferredSize",P1))
 
 	Func BeginInvoke P1
@@ -5373,7 +5373,7 @@ Class Control from Component
 
 		return self
 
-	Func SetBounds_ P1
+	Func @SetBounds P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s9:SetBounds",P1)
 			return self
@@ -6991,7 +6991,7 @@ Class Cursor from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Cursor, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7947,7 +7947,7 @@ Class DataGridViewCellStyle from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
@@ -9112,7 +9112,7 @@ Class DataObject from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
@@ -9369,7 +9369,7 @@ Class DragEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DragEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -9474,7 +9474,7 @@ Class DrawItemEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -10012,7 +10012,7 @@ Class ErrorProvider from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
@@ -10480,7 +10480,7 @@ Class GiveFeedbackEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12353,7 +12353,7 @@ Class IDataGridViewEditingCell from DotNetObject
 		ok
 		return self
 
-	Func GetEditingCellFormattedValue_ P1
+	Func @GetEditingCellFormattedValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetEditingCellFormattedValue",P1))
 
 	Func PrepareEditingCellForEdit P1
@@ -12406,7 +12406,7 @@ Class IDataGridViewEditingControl from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetEditingControlFormattedValue_ P1
+	Func @GetEditingControlFormattedValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetEditingControlFormattedValue",P1))
 
 	Func PrepareEditingControlForEdit P1
@@ -12705,7 +12705,7 @@ Class ImageList from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
@@ -13195,7 +13195,7 @@ Class ItemDragEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13391,7 +13391,7 @@ Class LabelEditEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13519,7 +13519,7 @@ Class LinkArea from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
@@ -13579,7 +13579,7 @@ Class LinkClickedEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13656,7 +13656,7 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -13779,7 +13779,7 @@ Class ListViewGroup from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
@@ -14157,7 +14157,7 @@ Class ListViewItem from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
@@ -14189,7 +14189,7 @@ Class ListViewItem from Object
 	Func FindNearestItem P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindNearestItem",P1))
 
-	Func GetBounds_ P1
+	Func @GetBounds P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
 
 	Func GetSubItemAt P1,P2
@@ -14553,7 +14553,7 @@ Class MeasureItemEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14627,7 +14627,7 @@ Class Message from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetLParam_ P1
+	Func @GetLParam P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetLParam",P1))
 
 	Func Create P1,P2,P3,P4
@@ -14855,7 +14855,7 @@ Class NodeLabelEditEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -14923,7 +14923,7 @@ Class NotifyIcon from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
@@ -15302,7 +15302,7 @@ Class Padding from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
@@ -15653,7 +15653,7 @@ Class PrintControllerWithStatusDialog from PrintController
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -16669,7 +16669,7 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
@@ -16776,7 +16776,7 @@ Class QuestionEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
@@ -16918,10 +16918,10 @@ Class Screen from Object
 	Func FromHandle P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Screen, System.Windows.Forms',"s10:FromHandle",P1))
 
-	Func GetWorkingArea_ P1
+	Func @GetWorkingArea P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Screen, System.Windows.Forms',"s14:GetWorkingArea",P1))
 
-	Func GetBounds_ P1
+	Func @GetBounds P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Screen, System.Windows.Forms',"s9:GetBounds",P1))
 
 	Func getBitsPerPixel
@@ -17074,7 +17074,7 @@ Class ScrollEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -17089,7 +17089,7 @@ Class ScrollEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getType
@@ -17345,7 +17345,7 @@ Class SelectionRange from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
@@ -18592,7 +18592,7 @@ Class TableLayoutPanelCellPosition from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
@@ -19405,7 +19405,7 @@ Class FormsTimer from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
@@ -20164,7 +20164,7 @@ Class ToolStripRenderEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -20527,7 +20527,7 @@ Class ToolTip from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
@@ -20871,7 +20871,7 @@ Class TreeNode from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
@@ -21398,7 +21398,7 @@ Class TreeViewEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -21917,7 +21917,7 @@ Class ListBoxObjectCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -22496,7 +22496,7 @@ Class DataGridViewHitTestInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getColumnIndex
@@ -22572,7 +22572,7 @@ Class ListViewSubItem from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
@@ -23528,7 +23528,7 @@ Class ColumnStyle from TableLayoutStyle
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
@@ -25580,19 +25580,19 @@ Class DataGridViewCell from DataGridViewElement
 
 		return self
 
-	Func GetContentBounds_ P1
+	Func @GetContentBounds P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetContentBounds",P1))
 
-	Func GetEditedFormattedValue_ P1,P2
+	Func @GetEditedFormattedValue P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetEditedFormattedValue",P1,P2))
 
 	Func GetInheritedContextMenuStrip P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetInheritedContextMenuStrip",P1))
 
-	Func GetInheritedState_ P1
+	Func @GetInheritedState P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInheritedState",P1))
 
-	Func GetInheritedStyle_ P1,P2,P3
+	Func @GetInheritedStyle P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInheritedStyle",P1,P2,P3))
 
 	Func InitializeEditingControl P1,P2,P3
@@ -27268,7 +27268,7 @@ Class HandledMouseEventArgs from MouseEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28432,7 +28432,7 @@ Class MonthCalendar from Control
 
 		return self
 
-	Func SetCalendarDimensions_ P1,P2
+	Func @SetCalendarDimensions P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:SetCalendarDimensions",P1,P2)
 
 		return self
@@ -28442,7 +28442,7 @@ Class MonthCalendar from Control
 
 		return self
 
-	Func SetSelectionRange_ P1,P2
+	Func @SetSelectionRange P1,P2
 		dotnet_callv("s4:call",nHandle,"s17:SetSelectionRange",P1,P2)
 
 		return self
@@ -28857,7 +28857,7 @@ Class PictureBox from Control
 
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -29335,7 +29335,7 @@ Class RowStyle from TableLayoutStyle
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
@@ -29483,7 +29483,7 @@ Class ScrollableControl from Control
 
 		return self
 
-	Func SetAutoScrollMargin_ P1,P2
+	Func @SetAutoScrollMargin P1,P2
 		dotnet_callv("s4:call",nHandle,"s19:SetAutoScrollMargin",P1,P2)
 
 		return self
@@ -30120,7 +30120,7 @@ Class TaskDialogButton from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
@@ -30284,7 +30284,7 @@ Class TaskDialogExpander from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
@@ -30375,7 +30375,7 @@ Class TaskDialogFootnote from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
@@ -30434,7 +30434,7 @@ Class TaskDialogProgressBar from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
@@ -30518,7 +30518,7 @@ Class TaskDialogRadioButton from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
@@ -30593,7 +30593,7 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
@@ -31819,7 +31819,7 @@ Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -31935,7 +31935,7 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
@@ -32962,7 +32962,7 @@ Class ComboBox from ListControl
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetItemHeight_ P1
+	Func @GetItemHeight P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetItemHeight",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -33455,7 +33455,7 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
@@ -33471,7 +33471,7 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetEditingCellFormattedValue_ P1
+	Func @GetEditingCellFormattedValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetEditingCellFormattedValue",P1))
 
 	Func PrepareEditingCellForEdit P1
@@ -33572,7 +33572,7 @@ Class DataGridViewColumn from DataGridViewBand
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
@@ -33940,7 +33940,7 @@ Class DataGridViewImageCell from DataGridViewCell
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
@@ -34111,10 +34111,10 @@ Class DataGridViewRow from DataGridViewBand
 
 		return self
 
-	Func GetContextMenuStrip_ P1
+	Func @GetContextMenuStrip P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetContextMenuStrip",P1))
 
-	Func GetErrorText_ P1
+	Func @GetErrorText P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetErrorText",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -34124,7 +34124,7 @@ Class DataGridViewRow from DataGridViewBand
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetState_ P1
+	Func @GetState P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetState",P1))
 
 	Func SetValues P1
@@ -34455,7 +34455,7 @@ Class ListBox from ListControl
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetItemHeight_ P1
+	Func @GetItemHeight P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetItemHeight",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -34727,7 +34727,7 @@ Class MaskedTextBox from TextBoxBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
@@ -35645,7 +35645,7 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
@@ -35845,7 +35845,7 @@ Class ToolStrip from ScrollableControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
@@ -36142,7 +36142,7 @@ Class ToolStripButton from ToolStripItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
@@ -36218,7 +36218,7 @@ Class ToolStripControlHost from ToolStripItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -36464,7 +36464,7 @@ Class ToolStripLabel from ToolStripItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
@@ -36973,7 +36973,7 @@ Class BindingNavigator from ToolStrip
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
@@ -37258,7 +37258,7 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
@@ -37502,7 +37502,7 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetEditingControlFormattedValue_ P1
+	Func @GetEditingControlFormattedValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetEditingControlFormattedValue",P1))
 
 	Func PrepareEditingControlForEdit P1
@@ -37583,7 +37583,7 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
@@ -37813,7 +37813,7 @@ Class DataGridViewTextBoxEditingControl from TextBox
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetEditingControlFormattedValue_ P1
+	Func @GetEditingControlFormattedValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetEditingControlFormattedValue",P1))
 
 	Func PrepareEditingControlForEdit P1
@@ -38007,12 +38007,12 @@ Class Form from ContainerControl
 
 		return self
 
-	Func SetDesktopBounds_ P1,P2,P3,P4
+	Func @SetDesktopBounds P1,P2,P3,P4
 		dotnet_callv("s4:call",nHandle,"s16:SetDesktopBounds",P1,P2,P3,P4)
 
 		return self
 
-	Func SetDesktopLocation_ P1,P2
+	Func @SetDesktopLocation P1,P2
 		dotnet_callv("s4:call",nHandle,"s18:SetDesktopLocation",P1,P2)
 
 		return self
@@ -39263,7 +39263,7 @@ Class TabPage from Panel
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
@@ -39507,7 +39507,7 @@ Class ToolStripComboBox from ToolStripControlHost
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
@@ -40091,7 +40091,7 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
@@ -40145,7 +40145,7 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
@@ -40366,7 +40366,7 @@ Class ToolStripProgressBar from ToolStripControlHost
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
@@ -40498,7 +40498,7 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
@@ -40645,7 +40645,7 @@ Class ToolStripStatusLabel from ToolStripLabel
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
@@ -40735,7 +40735,7 @@ Class ToolStripTextBox from ToolStripControlHost
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
@@ -41573,7 +41573,7 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)

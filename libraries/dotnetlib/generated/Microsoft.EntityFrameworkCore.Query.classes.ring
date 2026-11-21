@@ -921,7 +921,7 @@ Class EntityMaterializerSourceParameters from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',P1)
@@ -1897,13 +1897,13 @@ Class ISqlExpressionFactory from DotNetObject
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
-	Func And_ P1
+	Func @And P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:And",P1))
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
-	Func Or_ P1
+	Func @Or P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Or",P1))
 		ok
@@ -1924,19 +1924,19 @@ Class ISqlExpressionFactory from DotNetObject
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
-	Func Not_ P1
+	Func @Not P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
 
 	Func Negate P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
-	Func Case_ P1
+	Func @Case P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Case",P1))
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
-	Func Function_ P1
+	Func @Function P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Function",P1))
 		ok
@@ -1988,7 +1988,7 @@ Class IncludeExpression from ExpressionsExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2430,7 +2430,7 @@ Class NonQueryExpression from ExpressionsExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2489,7 +2489,7 @@ Class EfPathSegment from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',P1)
@@ -2631,7 +2631,7 @@ Class QueryCompilationContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5123,13 +5123,13 @@ Class SqlExpressionFactory from Object
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
-	Func And_ P1
+	Func @And P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:And",P1))
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
-	Func Or_ P1
+	Func @Or P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Or",P1))
 		ok
@@ -5156,19 +5156,19 @@ Class SqlExpressionFactory from Object
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
-	Func Not_ P1
+	Func @Not P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
 
 	Func Negate P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
-	Func Case_ P1
+	Func @Case P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Case",P1))
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
-	Func Function_ P1
+	Func @Function P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Function",P1))
 		ok
@@ -5325,7 +5325,7 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5493,7 +5493,7 @@ Class EntityQueryRootExpression from QueryRootExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5533,7 +5533,7 @@ Class InlineQueryRootExpression from QueryRootExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5573,7 +5573,7 @@ Class ParameterQueryRootExpression from QueryRootExpression
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5745,7 +5745,7 @@ Class RelationalQueryCompilationContext from QueryCompilationContext
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

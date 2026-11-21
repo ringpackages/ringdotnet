@@ -169,7 +169,7 @@ Class IdentityReferenceCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',P1)
@@ -263,7 +263,7 @@ Class WindowsIdentity from ClaimsIdentity
 		ok
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -423,7 +423,7 @@ Class NTAccount from IdentityReference
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.NTAccount, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -457,7 +457,7 @@ Class SecurityIdentifier from IdentityReference
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

@@ -27,7 +27,7 @@ The tutorial [A folder browser](tut-42-browser.html) filled a `ListView` with fi
 
 ### Columns and rows
 
-`View = "Details"` shows the columns. `Columns.Add([ :text = "Task", :width = 220 ])` adds a column with a title. A row is `new ListViewItem().New_([ :text = cName ])`: its text is the first cell, and `SubItems.Add(text)` adds the others. `Items.Add(item)` puts the row into the list. `Items.Item(0)` is the first row (counted from 0) and `SubItems.Item(2)` its third cell. `CheckBoxes = True` puts a check box in front of each row, and `Checked` is true when it is on.
+`View = "Details"` shows the columns. `Columns.Add([ :text = "Task", :width = 220 ])` adds a column with a title. A row is `new ListViewItem().@New([ :text = cName ])`: its text is the first cell, and `SubItems.Add(text)` adds the others. `Items.Add(item)` puts the row into the list. `Items.Item(0)` is the first row (counted from 0) and `SubItems.Item(2)` its third cell. `CheckBoxes = True` puts a check box in front of each row, and `Checked` is true when it is on.
 
 ### The data is the list
 

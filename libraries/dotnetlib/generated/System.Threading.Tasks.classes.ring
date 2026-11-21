@@ -143,7 +143,7 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',P1)
@@ -213,13 +213,13 @@ Class Parallel from Object
 
 		return self
 
-	Func For_ P1
+	Func @For P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s3:For",P1))
 		ok
 		raise("DotNet Error: For does not take one argument: use named arguments, For([ :parameter = value, ... ])")
 
-	Func ForEach_ P1
+	Func @ForEach P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s7:ForEach",P1))
 		ok
@@ -297,7 +297,7 @@ Class ParallelLoopState from Object
 
 		return self
 
-	Func Break_ 
+	Func @Break 
 		dotnet_callv("s4:call",nHandle,"s5:Break")
 
 		return self
@@ -415,7 +415,7 @@ Class Task from Object
 		ok
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -691,7 +691,7 @@ Class TaskCompletionSource from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',P1)
@@ -823,7 +823,7 @@ Class TaskFactory from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',P1)
@@ -973,7 +973,7 @@ Class TaskToAsyncResult from Object
 	Func Begin P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s5:Begin",P1,P2,P3))
 
-	Func End_ P1
+	Func @End P1
 		dotnet_callv("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
 
 		return self
@@ -1041,7 +1041,7 @@ Class ValueTask from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ValueTask, System.Private.CoreLib',P1)
@@ -1132,7 +1132,7 @@ Class StringTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1174,7 +1174,7 @@ Class ObjectTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1214,7 +1214,7 @@ Class NumberTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1256,7 +1256,7 @@ Class IntTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1298,7 +1298,7 @@ Class BoolTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1340,7 +1340,7 @@ Class BytesTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

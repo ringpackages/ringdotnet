@@ -12,7 +12,7 @@ func itemsText
 	return cText
 
 func clickButton oButton
-	oButton.RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))
+	oButton.RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new WpfButtonBase().ClickEvent ]))
 
 func selfTest
 	# add three items through the text box and the Add button

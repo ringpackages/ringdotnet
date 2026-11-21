@@ -70,7 +70,7 @@ func inspect n
 		aRows + [ oProperty.Name, oProperty.PropertyType.Name, cValue ]
 	next
 	for aRow in sortRows(aRows)
-		oItem = new ListViewItem().New_([ :text = aRow[1] ])
+		oItem = new ListViewItem().@New([ :text = aRow[1] ])
 		oItem.SubItems.Add(aRow[2])
 		oItem.SubItems.Add(aRow[3])
 		oList.Items.Add(oItem)

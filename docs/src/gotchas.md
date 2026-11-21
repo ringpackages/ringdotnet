@@ -51,7 +51,7 @@ In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) 
 
 ### Keywords are not available as names
 
-`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... are Ring keywords, so they are not used as variable or function names, in any letter case. `oK` is `ok`. Names that are keywords get a trailing `_` in the generated classes (`ForEach_`, `Exit_`) and properties with a keyword name use `getFrom()` / `setFrom(value)`.
+`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... are Ring keywords, so they are not used as variable or function names, in any letter case. `oK` is `ok`. Names that are keywords get an `@` at the start in the generated classes (`@ForEach`, `@Exit`) and properties with a keyword name use `getFrom()` / `setFrom(value)`.
 
 Do not define your own functions named like built-ins the library uses (`isNumber`, `len`...).
 
@@ -130,7 +130,7 @@ A method that **fills** an array that you pass in (`Stream.Read(buffer, 0, n)`, 
 | Not supported | Why / what to do |
 |---|---|
 | Declaring .NET classes or interfaces in Ring | Ring is not compiled to .NET. Write them in C#, build a DLL and [wrap it](own-assemblies.html). |
-| .NET members named like some Ring words (`Get`, `And`, `Or`, `Not`, `Next`, `End`, `If`, `For`, `New`, `Load`, `Call`, `Put`, `Give`, `See`) | Ring reserves these after a dot (others, such as `From`, `To`, `Set`, `Step`, `In`, `On`, `Off`, are fine). A method gets a `_` at the end (`Next_`, `Call_`); a property is read with `getProp("Name")` and `setProp("Name", value)`; a method that kept its name is called with `callMethod`. |
+| .NET members named like some Ring words (`Get`, `And`, `Or`, `Not`, `Next`, `End`, `If`, `For`, `New`, `Load`, `Call`, `Put`, `Give`, `See`) | Ring reserves these after a dot (others, such as `From`, `To`, `Set`, `Step`, `In`, `On`, `Off`, are fine). A method gets an `@` at the start (`@Next`, `@Call`); a property is read with `getProp("Name")` and `setProp("Name", value)`; a method that kept its name is called with `callMethod`. |
 | Ring code on .NET threads | One Ring thread. Use callbacks only during calls, or queue work as the web server does. |
 | `ref` struct and pointer parameters, `Span<T>` | The bridge converts values, not memory. Use arrays and strings. |
 | Lambdas and expression trees written in Ring | Callbacks give delegates; EF queries are data ([Entity Framework](ef.html)). |

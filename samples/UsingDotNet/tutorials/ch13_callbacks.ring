@@ -15,7 +15,7 @@ func main
 
 	# 1. A callback that is the NAME of a function. .NET calls it once for each item.
 	? "1. ForEach calls showItem for every word:"
-	oWords.ForEach_(dnCallback("showItem"))
+	oWords.@ForEach(dnCallback("showItem"))
 
 	# 2. A callback that decides: sort with your own comparison
 	oWords.Sort([ :comparison = dnCallback("compareLength") ])
@@ -27,7 +27,7 @@ func main
 	? "   Does 'fig' exist?   : " + oWords.Exists(dnCallback("isFig"))
 
 	# 4. A callback that is a piece of CODE in a text. aDotNetArgs holds the arguments, xDotNetResult is the answer
-	oWords.ForEach_(dnCallback("nLetters += len(aDotNetArgs[1])"))
+	oWords.@ForEach(dnCallback("nLetters += len(aDotNetArgs[1])"))
 	? "4. Total letters: " + nLetters
 	oWords.Sort([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])") ])
 	? "   Longest word : " + oWords.Item(0)
@@ -46,7 +46,7 @@ func main
 
 	# 6. An error inside a callback comes out of the .NET method that called it
 	try
-		oWords.ForEach_(dnCallback("broken"))
+		oWords.@ForEach(dnCallback("broken"))
 	catch
 		? nl + "6. Caught: " + cCatchError
 	done

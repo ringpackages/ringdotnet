@@ -311,7 +311,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 	cOutput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cOutputName])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cSheet, :contents = cStylesheet ])
 	oTransform = <span class="k">new</span> <span class="t">XslCompiledTransform</span>()
-	oTransform.<span class="f">Load_</span>(cSheet)
+	oTransform.@<span class="k">Load</span>(cSheet)
 	oTransform.<span class="f">Transform</span>([ :inputUri = cInput, :resultsFile = cOutput ])
 	<span class="k">return</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cOutput)
 
@@ -375,16 +375,16 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 <h3 id="the-ring-side">The Ring side<a class="anchor" href="#the-ring-side">#</a></h3>
 <p>Everything happens in <code>transform</code>: it writes the stylesheet text to a file, then</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTransform = <span class="k">new</span> <span class="t">XslCompiledTransform</span>()
-oTransform.<span class="f">Load_</span>(cSheet)                 <span class="c"># compile the stylesheet (Load is a Ring keyword, so the method is Load_)</span>
+oTransform.@<span class="k">Load</span>(cSheet)                 <span class="c"># compile the stylesheet (Load is a Ring keyword, so the method is @Load)</span>
 oTransform.<span class="f">Transform</span>([ :inputUri = cInput, :resultsFile = cOutput ])     <span class="c"># input file -&gt; output file</span></code></pre></div>
-<p><code>Load_</code> and <code>Transform</code> take file names in this form; the output file is read back with <code>File.ReadAllText</code>. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls <code>Transform</code> many times.</p>
+<p><code>@Load</code> and <code>Transform</code> take file names in this form; the output file is read back with <code>File.ReadAllText</code>. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls <code>Transform</code> many times.</p>
 <h3 id="three-stylesheets">Three stylesheets<a class="anchor" href="#three-stylesheets">#</a></h3>
 <ol><li><strong>Text.</strong> <code>xsl:output method="text"</code> writes plain text. <code>for-each select="book"</code> repeats for every book; <code>xsl:sort</code> orders them by year, newest first (<code>data-type="number"</code>, otherwise <code>1965</code> sorts after <code>1937</code> only by luck); <code>sum(book/price)</code> adds the prices. <code>&lt;xsl:text&gt;&amp;#10;&lt;/xsl:text&gt;</code> writes a new line.</li><li><strong>CSV.</strong> The same structure, with a <em>filter</em>: <code>book[price &amp;lt; 10]</code> keeps only the cheap books (<code>&amp;lt;</code> is <code>&lt;</code> inside XML).</li><li><strong>HTML.</strong> <code>method="html" indent="yes"</code> writes a table. In <code>&lt;tr class="{@genre}"&gt;</code> the braces put the value of the attribute into the output (an <em>attribute value template</em>), so each row gets its genre as a CSS class.</li></ol>
-<div class="callout tip"><span class="t">Tip</span><p>Writing XSLT strings in Ring code gets crowded. Keep stylesheets in their own <code>.xsl</code> files next to the program and pass the path to <code>Load_</code>; designers can then change the layout of a report without reading Ring.</p></div>
+<div class="callout tip"><span class="t">Tip</span><p>Writing XSLT strings in Ring code gets crowded. Keep stylesheets in their own <code>.xsl</code> files next to the program and pass the path to <code>@Load</code>; designers can then change the layout of a report without reading Ring.</p></div>
 <h3 id="when-to-use-it">When to use it<a class="anchor" href="#when-to-use-it">#</a></h3>
 <ul><li>The result is a <strong>document</strong> with a fixed structure (reports, feeds, HTML pages from XML data).</li><li>The people who change the layout are not the people who write the program.</li><li>Not for logic: loops with counters, calls to your own functions and file access are easier in Ring.</li></ul>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li><code>XslCompiledTransform</code>, <code>Load_</code> and <code>Transform</code>,</li><li>templates, <code>for-each</code>, <code>sort</code>, <code>sum</code>, filters,</li><li>text, CSV and HTML output,</li><li>attribute value templates <code>{@name}</code>.</li></ul>
+<ul><li><code>XslCompiledTransform</code>, <code>@Load</code> and <code>Transform</code>,</li><li>templates, <code>for-each</code>, <code>sort</code>, <code>sum</code>, filters,</li><li>text, CSV and HTML output,</li><li>attribute value templates <code>{@name}</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Write a stylesheet that outputs only the titles of the science fiction books.</li><li>Add a <code>&lt;xsl:if test="price &gt; 10"&gt;</code> that marks expensive books with <code>*</code>.</li><li>Make the HTML a complete page (<code>&lt;html&gt;&lt;body&gt;…</code>) with a heading and the total price.</li><li>Transform an XML file that you create with <code>XDocument</code> (the tutorial <a href="tut-72-xml.html">XML in depth</a>).</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

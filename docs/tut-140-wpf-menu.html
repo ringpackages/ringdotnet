@@ -325,13 +325,13 @@ nNew = <span class="n">0</span>
 <h3 id="combo-box-date-picker-expander">Combo box, date picker, expander<a class="anchor" href="#combo-box-date-picker-expander">#</a></h3>
 <p>A <code>ComboBox</code> has items (<code>ComboBoxItem</code>); <code>IsSelected="True"</code> chooses one at the start, <code>SelectedIndex</code> chooses by number and <code>Text</code> reads the chosen text. A <code>DatePicker</code> has <code>SelectedDate</code> (a <code>DateTime</code>, empty until the user chooses) and a calendar drop-down. An <code>Expander</code> shows its content when <code>IsExpanded</code> is true: it keeps rarely used options out of the way.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
-<p>The test cannot click a menu with a mouse, so it raises the <code>Click</code> event of the item itself: <code>RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new MenuItem().ClickEvent ]))</code>. After each action it reads the property that should have changed: the status text, the <code>Visibility</code> of the status bar, the selected tab, the chosen speed. The menu item <em>New</em> resets the combo box and the check box, and the test checks that too.</p>
+<p>The test cannot click a menu with a mouse, so it raises the <code>Click</code> event of the item itself: <code>RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new MenuItem().ClickEvent ]))</code>. After each action it reads the property that should have changed: the status text, the <code>Visibility</code> of the status bar, the selected tab, the chosen speed. The menu item <em>New</em> resets the combo box and the check box, and the test checks that too.</p>
 <p>The checks of this program are in a separate file, <code>selftest/ch11_wpf_menu.ring</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_menu.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_menu.ring: run with  ring ch11_wpf_menu.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="c"># a menu item is clicked by raising its Click event, as a user would</span>
 <span class="k">func</span> <span class="f">clickItem</span> cName
-	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">MenuItem</span>().ClickEvent ]))
+	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().@<span class="k">New</span>([ :<span class="t">routedEvent</span> = <span class="k">new</span> <span class="t">MenuItem</span>().ClickEvent ]))
 
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="c"># a menu item runs its code</span>

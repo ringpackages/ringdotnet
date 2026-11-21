@@ -322,7 +322,7 @@ cTempFile = <span class="s">""</span>
 		aRows + [ oProperty.Name, oProperty.PropertyType.Name, cValue ]
 	<span class="k">next</span>
 	<span class="k">for</span> aRow <span class="k">in</span> sortRows(aRows)
-		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = aRow[<span class="n">1</span>] ])
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = aRow[<span class="n">1</span>] ])
 		oItem.SubItems.<span class="f">Add</span>(aRow[<span class="n">2</span>])
 		oItem.SubItems.<span class="f">Add</span>(aRow[<span class="n">3</span>])
 		oList.Items.<span class="f">Add</span>(oItem)

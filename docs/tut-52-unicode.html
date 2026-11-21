@@ -313,7 +313,7 @@ using {
 
 <span class="c"># a StringInfo knows the letters you see (text elements) of a text</span>
 <span class="k">func</span> <span class="f">textElements</span> cText
-	<span class="k">return</span> <span class="k">new</span> <span class="t">StringInfo</span>().<span class="f">New_</span>([ :value = cText ])
+	<span class="k">return</span> <span class="k">new</span> <span class="t">StringInfo</span>().@<span class="k">New</span>([ :<span class="t">value</span> = cText ])
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
 	<span class="k">if</span> lValue
@@ -345,7 +345,7 @@ using {
    '€' is: CurrencySymbol
    '!' is: OtherPunctuation</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
-<p>The table compares four counts for six texts. For <code>Ring</code> they are all the same; for <code>café</code> the byte count is 5 but you see 4 letters; Russian and Arabic use two bytes per letter; Japanese three; an emoji four (two units in UTF-16). <code>StringInfo.LengthInTextElements</code> counts what a person sees. Its constructor that takes the text is written <code>new StringInfo().New_([ :value = cText ])</code>.</p>
+<p>The table compares four counts for six texts. For <code>Ring</code> they are all the same; for <code>café</code> the byte count is 5 but you see 4 letters; Russian and Arabic use two bytes per letter; Japanese three; an emoji four (two units in UTF-16). <code>StringInfo.LengthInTextElements</code> counts what a person sees. Its constructor that takes the text is written <code>new StringInfo().@New([ :value = cText ])</code>.</p>
 <p>Step 2 turns <code>é</code> into two bytes (195 and 169) and reads them again as <strong>Latin-1</strong>: the result is <code>Ã©</code>, the classic <em>mojibake</em>. The rule: <strong>the encoding that wrote the bytes must be the one that reads them</strong>. When you read text files, say it: <code>File.ReadAllText(path, encoding)</code>.</p>
 <p>Steps 4 and 5 show that <code>é</code> can be one code point or two. They look the same, but compared as bytes they differ. Compare with a culture-aware method (<code>String.Compare</code>) when users type text.</p>
 <div class="callout note"><span class="t">Note</span><p><code>left()</code>, <code>right()</code> and <code>substr()</code> of Ring work on bytes. For text with accents or other alphabets do not cut by number; use .NET classes or split on spaces and separators.</p></div>

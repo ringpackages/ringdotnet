@@ -468,7 +468,7 @@ Class SslApplicationProtocol from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslApplicationProtocol, System.Net.Security',P1)
@@ -698,7 +698,7 @@ Class SslClientHelloInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslClientHelloInfo, System.Net.Security',P1)
@@ -920,7 +920,7 @@ Class NegotiateStream from AuthenticatedStream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.NegotiateStream, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1042,7 +1042,7 @@ Class SslStream from AuthenticatedStream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslStream, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

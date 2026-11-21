@@ -267,7 +267,7 @@ Class HttpMessageInvoker from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpMessageInvoker, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -412,7 +412,7 @@ Class HttpRequestMessage from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpRequestMessage, System.Net.Http',P1)
@@ -555,7 +555,7 @@ Class HttpResponseMessage from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpResponseMessage, System.Net.Http',P1)
@@ -728,7 +728,7 @@ Class ResponseTask from Task
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Net.Http.HttpResponseMessage, System.Net.Http, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -766,7 +766,7 @@ Class ByteArrayContent from HttpContent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.ByteArrayContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -831,7 +831,7 @@ Class HttpClient from HttpMessageInvoker
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpClient, System.Net.Http',P1)
@@ -1263,7 +1263,7 @@ Class MultipartContent from HttpContent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartContent, System.Net.Http',P1)
@@ -1630,7 +1630,7 @@ Class StreamContent from HttpContent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StreamContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1692,7 +1692,7 @@ Class MultipartFormDataContent from MultipartContent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartFormDataContent, System.Net.Http',P1)
@@ -1731,7 +1731,7 @@ Class StringContent from ByteArrayContent
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StringContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

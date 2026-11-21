@@ -251,7 +251,7 @@
 <p class="net"><code>Microsoft.AspNetCore.Routing.CompositeEndpointDataSource</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <p class="muted">Implements: IDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new CompositeEndpointDataSource(IEnumerable&lt;EndpointDataSource&gt; endpointDataSources)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new CompositeEndpointDataSource(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CompositeEndpointDataSource().New_([ :param = value ])</code> or <code>dnNew("CompositeEndpointDataSource",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new CompositeEndpointDataSource(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new CompositeEndpointDataSource().@New([ :param = value ])</code> or <code>dnNew("CompositeEndpointDataSource",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DataSources</code></td><td><code>IEnumerable&lt;EndpointDataSource&gt;</code></td><td>read</td><td><code>o.DataSources</code></td></tr><tr><td><code>Endpoints</code></td><td><code>IReadOnlyList&lt;Endpoint&gt;</code></td><td>read</td><td><code>o.getEndpoints()</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><span class="muted">—</span></td><td><code>void Dispose()</code></td></tr><tr><td><code>GetChangeToken</code></td><td><span class="muted">—</span></td><td><code>IChangeToken GetChangeToken()</code></td></tr><tr><td><code>GetGroupedEndpoints</code></td><td><span class="muted">—</span></td><td><code>IReadOnlyList&lt;Endpoint&gt; GetGroupedEndpoints(RouteGroupContext context)</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
@@ -260,7 +260,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.ContentEncodingMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new ContentEncodingMetadata(string value, double quality)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new ContentEncodingMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ContentEncodingMetadata().New_([ :param = value ])</code> or <code>dnNew("ContentEncodingMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new ContentEncodingMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new ContentEncodingMetadata().@New([ :param = value ])</code> or <code>dnNew("ContentEncodingMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Value</code></td><td><code>string</code></td><td>read</td><td><code>o.Value</code></td></tr><tr><td><code>Quality</code></td><td><code>double</code></td><td>read</td><td><code>o.Quality</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-ControllerLinkGeneratorExtensions"><summary><b>ControllerLinkGeneratorExtensions</b> <span class="muted">class static</span></summary>
@@ -272,7 +272,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.DataTokensMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DataTokensMetadata(IReadOnlyDictionary&lt;string, object&gt; dataTokens)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DataTokensMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataTokensMetadata().New_([ :param = value ])</code> or <code>dnNew("DataTokensMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DataTokensMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DataTokensMetadata().@New([ :param = value ])</code> or <code>dnNew("DataTokensMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DataTokens</code></td><td><code>IReadOnlyDictionary&lt;string, object&gt;</code></td><td>read</td><td><code>o.DataTokens</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -280,7 +280,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.DefaultEndpointDataSource</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DefaultEndpointDataSource(Endpoint[] endpoints)</code></td></tr><tr><td><code>new DefaultEndpointDataSource(IEnumerable&lt;Endpoint&gt; endpoints)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DefaultEndpointDataSource(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DefaultEndpointDataSource().New_([ :param = value ])</code> or <code>dnNew("DefaultEndpointDataSource",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DefaultEndpointDataSource(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DefaultEndpointDataSource().@New([ :param = value ])</code> or <code>dnNew("DefaultEndpointDataSource",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Endpoints</code></td><td><code>IReadOnlyList&lt;Endpoint&gt;</code></td><td>read</td><td><code>o.getEndpoints()</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GetChangeToken</code></td><td><span class="muted">—</span></td><td><code>IChangeToken GetChangeToken()</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
@@ -289,7 +289,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.DefaultInlineConstraintResolver</code> · assembly <code>Microsoft.AspNetCore.Components</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new DefaultInlineConstraintResolver(IOptions&lt;RouteOptions&gt; routeOptions, IServiceProvider serviceProvider)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new DefaultInlineConstraintResolver(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DefaultInlineConstraintResolver().New_([ :param = value ])</code> or <code>dnNew("DefaultInlineConstraintResolver",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new DefaultInlineConstraintResolver(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new DefaultInlineConstraintResolver().@New([ :param = value ])</code> or <code>dnNew("DefaultInlineConstraintResolver",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ResolveConstraint</code></td><td><span class="muted">—</span></td><td><code>IRouteConstraint ResolveConstraint(string inlineConstraint)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-EndpointDataSource"><summary><b>EndpointDataSource</b> <span class="muted">class abstract</span></summary>
@@ -302,7 +302,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.EndpointNameMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new EndpointNameMetadata(string endpointName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new EndpointNameMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EndpointNameMetadata().New_([ :param = value ])</code> or <code>dnNew("EndpointNameMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new EndpointNameMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new EndpointNameMetadata().@New([ :param = value ])</code> or <code>dnNew("EndpointNameMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EndpointName</code></td><td><code>string</code></td><td>read</td><td><code>o.EndpointName</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -310,7 +310,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.HttpMethodMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new HttpMethodMetadata(IEnumerable&lt;string&gt; httpMethods)</code></td></tr><tr><td><code>new HttpMethodMetadata(IEnumerable&lt;string&gt; httpMethods, bool acceptCorsPreflight)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new HttpMethodMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new HttpMethodMetadata().New_([ :param = value ])</code> or <code>dnNew("HttpMethodMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new HttpMethodMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new HttpMethodMetadata().@New([ :param = value ])</code> or <code>dnNew("HttpMethodMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>AcceptCorsPreflight</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.AcceptCorsPreflight</code> <code>o.AcceptCorsPreflight = v</code></td></tr><tr><td><code>HttpMethods</code></td><td><code>IReadOnlyList&lt;string&gt;</code></td><td>read</td><td><code>o.HttpMethods</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -449,7 +449,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.LinkOptions</code> · assembly <code>Microsoft.AspNetCore.Routing.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LinkOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new LinkOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LinkOptions().New_([ :param = value ])</code> or <code>dnNew("LinkOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new LinkOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new LinkOptions().@New([ :param = value ])</code> or <code>dnNew("LinkOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>LowercaseUrls</code></td><td><code>bool?</code></td><td>read, write</td><td><code>o.LowercaseUrls</code> <code>o.LowercaseUrls = v</code></td></tr><tr><td><code>LowercaseQueryStrings</code></td><td><code>bool?</code></td><td>read, write</td><td><code>o.LowercaseQueryStrings</code> <code>o.LowercaseQueryStrings = v</code></td></tr><tr><td><code>AppendTrailingSlash</code></td><td><code>bool?</code></td><td>read, write</td><td><code>o.AppendTrailingSlash</code> <code>o.AppendTrailingSlash = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-LinkParser"><summary><b>LinkParser</b> <span class="muted">class abstract</span></summary>
@@ -486,7 +486,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.Route</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new Route(IRouter target, string routeTemplate, IInlineConstraintResolver inlineConstraintResolver)</code></td></tr><tr><td><code>new Route(IRouter target, string routeTemplate, RouteValueDictionary defaults, IDictionary&lt;string, object&gt; constraints, RouteValueDictionary dataTokens, IInlineConstraintResolver inlineConstraintResolver)</code></td></tr><tr><td><code>new Route(IRouter target, string routeName, string routeTemplate, RouteValueDictionary defaults, IDictionary&lt;string, object&gt; constraints, RouteValueDictionary dataTokens, IInlineConstraintResolver inlineConstraintResolver)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new Route(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new Route().New_([ :param = value ])</code> or <code>dnNew("Route",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new Route(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new Route().@New([ :param = value ])</code> or <code>dnNew("Route",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RouteTemplate</code></td><td><code>string</code></td><td>read</td><td><code>o.RouteTemplate</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -500,7 +500,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteBuilder</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteBuilder(IApplicationBuilder applicationBuilder)</code></td></tr><tr><td><code>new RouteBuilder(IApplicationBuilder applicationBuilder, IRouter defaultHandler)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteBuilder().New_([ :param = value ])</code> or <code>dnNew("RouteBuilder",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteBuilder().@New([ :param = value ])</code> or <code>dnNew("RouteBuilder",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ApplicationBuilder</code></td><td><code>IApplicationBuilder</code></td><td>read</td><td><code>o.ApplicationBuilder</code></td></tr><tr><td><code>DefaultHandler</code></td><td><code>IRouter</code></td><td>read, write</td><td><code>o.DefaultHandler</code> <code>o.DefaultHandler = v</code></td></tr><tr><td><code>ServiceProvider</code></td><td><code>IServiceProvider</code></td><td>read</td><td><code>o.ServiceProvider</code></td></tr><tr><td><code>Routes</code></td><td><code>IList&lt;IRouter&gt;</code></td><td>read</td><td><code>o.Routes</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Build</code></td><td><span class="muted">—</span></td><td><code>IRouter Build()</code></td></tr></tbody></table></div>
 </div></details>
@@ -508,7 +508,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteCollection</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteCollection()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteCollection(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteCollection().New_([ :param = value ])</code> or <code>dnNew("RouteCollection",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteCollection(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteCollection().@New([ :param = value ])</code> or <code>dnNew("RouteCollection",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
 <h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>IRouter</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><span class="muted">—</span></td><td><code>void Add(IRouter router)</code></td></tr><tr><td><code>GetVirtualPath</code></td><td><span class="muted">—</span></td><td><code>VirtualPathData GetVirtualPath(VirtualPathContext context)</code></td></tr><tr><td><code>RouteAsync</code></td><td><span class="muted">—</span></td><td><code>Task RouteAsync(RouteContext context)</code></td></tr></tbody></table></div>
@@ -517,7 +517,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteConstraintBuilder</code> · assembly <code>Microsoft.AspNetCore.Components</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteConstraintBuilder(IInlineConstraintResolver inlineConstraintResolver, string displayName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteConstraintBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteConstraintBuilder().New_([ :param = value ])</code> or <code>dnNew("RouteConstraintBuilder",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteConstraintBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteConstraintBuilder().@New([ :param = value ])</code> or <code>dnNew("RouteConstraintBuilder",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddResolvedConstraint</code></td><td><span class="muted">—</span></td><td><code>void AddResolvedConstraint(string key, string constraintText)</code></td></tr><tr><td><code>Build</code></td><td><span class="muted">—</span></td><td><code>IDictionary&lt;string, IRouteConstraint&gt; Build()</code></td></tr><tr><td><code>SetOptional</code></td><td><span class="muted">—</span></td><td><code>void SetOptional(string key)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RouteConstraintMatcher"><summary><b>RouteConstraintMatcher</b> <span class="muted">class static</span></summary>
@@ -529,14 +529,14 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteContext</code> · assembly <code>Microsoft.AspNetCore.Routing.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteContext(HttpContext httpContext)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteContext().New_([ :param = value ])</code> or <code>dnNew("RouteContext",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteContext().@New([ :param = value ])</code> or <code>dnNew("RouteContext",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Handler</code></td><td><code>RequestDelegate</code></td><td>read, write</td><td><code>o.Handler</code> <code>o.Handler = v</code></td></tr><tr><td><code>HttpContext</code></td><td><code>HttpContext</code></td><td>read</td><td><code>o.HttpContext</code></td></tr><tr><td><code>RouteData</code></td><td><code>RouteData</code></td><td>read, write</td><td><code>o.RouteData</code> <code>o.RouteData = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RouteData"><summary><b>RouteData</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteData</code> · assembly <code>Microsoft.AspNetCore.Routing.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteData()</code></td></tr><tr><td><code>new RouteData(RouteData other)</code></td></tr><tr><td><code>new RouteData(RouteValueDictionary values)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteData().New_([ :param = value ])</code> or <code>dnNew("RouteData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteData().@New([ :param = value ])</code> or <code>dnNew("RouteData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DataTokens</code></td><td><code>RouteValueDictionary</code></td><td>read</td><td><code>o.DataTokens</code></td></tr><tr><td><code>Routers</code></td><td><code>IList&lt;IRouter&gt;</code></td><td>read</td><td><code>o.Routers</code></td></tr><tr><td><code>Values</code></td><td><code>RouteValueDictionary</code></td><td>read</td><td><code>o.Values</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>PushState</code></td><td><span class="muted">—</span></td><td><code>RouteData.RouteDataSnapshot PushState(IRouter router, RouteValueDictionary values, RouteValueDictionary dataTokens)</code></td></tr></tbody></table></div>
 </div></details>
@@ -544,7 +544,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteEndpoint</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteEndpoint(RequestDelegate requestDelegate, RoutePattern routePattern, int order, EndpointMetadataCollection metadata, string displayName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteEndpoint(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteEndpoint().New_([ :param = value ])</code> or <code>dnNew("RouteEndpoint",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteEndpoint(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteEndpoint().@New([ :param = value ])</code> or <code>dnNew("RouteEndpoint",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Order</code></td><td><code>int</code></td><td>read</td><td><code>o.Order</code></td></tr><tr><td><code>RoutePattern</code></td><td><code>RoutePattern</code></td><td>read</td><td><code>o.RoutePattern</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
@@ -552,7 +552,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteEndpointBuilder</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteEndpointBuilder(RequestDelegate requestDelegate, RoutePattern routePattern, int order)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteEndpointBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteEndpointBuilder().New_([ :param = value ])</code> or <code>dnNew("RouteEndpointBuilder",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteEndpointBuilder(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteEndpointBuilder().@New([ :param = value ])</code> or <code>dnNew("RouteEndpointBuilder",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RoutePattern</code></td><td><code>RoutePattern</code></td><td>read, write</td><td><code>o.RoutePattern</code> <code>o.RoutePattern = v</code></td></tr><tr><td><code>Order</code></td><td><code>int</code></td><td>read, write</td><td><code>o.Order</code> <code>o.Order = v</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Build</code></td><td><span class="muted">—</span></td><td><code>Endpoint Build()</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
@@ -565,21 +565,21 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteGroupContext</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteGroupContext()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteGroupContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteGroupContext().New_([ :param = value ])</code> or <code>dnNew("RouteGroupContext",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteGroupContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteGroupContext().@New([ :param = value ])</code> or <code>dnNew("RouteGroupContext",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Prefix</code></td><td><code>RoutePattern</code></td><td>read, write</td><td><code>o.Prefix</code> <code>o.Prefix = v</code></td></tr><tr><td><code>Conventions</code></td><td><code>IReadOnlyList&lt;Action&lt;EndpointBuilder&gt;&gt;</code></td><td>read, write</td><td><code>o.Conventions</code> <code>o.Conventions = v</code></td></tr><tr><td><code>FinallyConventions</code></td><td><code>IReadOnlyList&lt;Action&lt;EndpointBuilder&gt;&gt;</code></td><td>read, write</td><td><code>o.FinallyConventions</code> <code>o.FinallyConventions = v</code></td></tr><tr><td><code>ApplicationServices</code></td><td><code>IServiceProvider</code></td><td>read, write</td><td><code>o.ApplicationServices</code> <code>o.ApplicationServices = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RouteHandler"><summary><b>RouteHandler</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteHandler</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteHandler(RequestDelegate requestDelegate)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteHandler(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteHandler().New_([ :param = value ])</code> or <code>dnNew("RouteHandler",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteHandler(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteHandler().@New([ :param = value ])</code> or <code>dnNew("RouteHandler",[ :param = value ])</code>.</p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>GetRequestHandler</code></td><td><span class="muted">—</span></td><td><code>RequestDelegate GetRequestHandler(HttpContext httpContext, RouteData routeData)</code></td></tr><tr><td><code>GetVirtualPath</code></td><td><span class="muted">—</span></td><td><code>VirtualPathData GetVirtualPath(VirtualPathContext context)</code></td></tr><tr><td><code>RouteAsync</code></td><td><span class="muted">—</span></td><td><code>Task RouteAsync(RouteContext context)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RouteHandlerOptions"><summary><b>RouteHandlerOptions</b> <span class="muted">class sealed</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteHandlerOptions</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteHandlerOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteHandlerOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteHandlerOptions().New_([ :param = value ])</code> or <code>dnNew("RouteHandlerOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteHandlerOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteHandlerOptions().@New([ :param = value ])</code> or <code>dnNew("RouteHandlerOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ThrowOnBadRequest</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.ThrowOnBadRequest</code> <code>o.ThrowOnBadRequest = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RouteHandlerServices"><summary><b>RouteHandlerServices</b> <span class="muted">class static</span></summary>
@@ -591,7 +591,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteNameMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteNameMetadata(string routeName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteNameMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteNameMetadata().New_([ :param = value ])</code> or <code>dnNew("RouteNameMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteNameMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteNameMetadata().@New([ :param = value ])</code> or <code>dnNew("RouteNameMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RouteName</code></td><td><code>string</code></td><td>read</td><td><code>o.RouteName</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -599,7 +599,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteOptions</code> · assembly <code>Microsoft.AspNetCore.Components</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteOptions()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteOptions().New_([ :param = value ])</code> or <code>dnNew("RouteOptions",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteOptions(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteOptions().@New([ :param = value ])</code> or <code>dnNew("RouteOptions",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ConstraintMap</code></td><td><code>IDictionary&lt;string, Type&gt;</code></td><td>read, write</td><td><code>o.ConstraintMap</code> <code>o.ConstraintMap = v</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>SetParameterPolicy</code></td><td><span class="muted">—</span></td><td><code>void SetParameterPolicy&lt;T&gt;(string token)</code><br><code>void SetParameterPolicy(string token, Type type)</code></td></tr></tbody></table></div>
 </div></details>
@@ -613,7 +613,7 @@
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteValueDictionary</code> · assembly <code>Microsoft.AspNetCore.Http.Abstractions</code></p>
 <p class="muted">Implements: IEnumerable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteValueDictionary()</code></td></tr><tr><td><code>new RouteValueDictionary(object values)</code></td></tr><tr><td><code>new RouteValueDictionary(IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; values)</code></td></tr><tr><td><code>new RouteValueDictionary(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; values)</code></td></tr><tr><td><code>new RouteValueDictionary(RouteValueDictionary dictionary)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteValueDictionary(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValueDictionary().New_([ :param = value ])</code> or <code>dnNew("RouteValueDictionary",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteValueDictionary(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValueDictionary().@New([ :param = value ])</code> or <code>dnNew("RouteValueDictionary",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Comparer</code></td><td><code>IEqualityComparer&lt;string&gt;</code></td><td>read</td><td><code>o.Comparer</code></td></tr><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr><tr><td><code>Keys</code></td><td><code>ICollection&lt;string&gt;</code></td><td>read</td><td><code>o.Keys</code></td></tr><tr><td><code>Values</code></td><td><code>ICollection&lt;object&gt;</code></td><td>read</td><td><code>o.Values</code></td></tr></tbody></table></div>
 <h4>Indexer</h4><p><code>o.Item(string key)</code> → <code>object</code> · <code>o.SetItem(key,value)</code></p>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><span class="muted">—</span></td><td><code>void Add(string key, object value)</code></td></tr><tr><td><code>Clear</code></td><td><span class="muted">—</span></td><td><code>void Clear()</code></td></tr><tr><td><code>ContainsKey</code></td><td><span class="muted">—</span></td><td><code>bool ContainsKey(string key)</code></td></tr><tr><td><code>FromArray</code></td><td><span class="muted">—</span></td><td><code>static RouteValueDictionary FromArray(KeyValuePair&lt;string, object&gt;[] items)</code></td></tr><tr><td><code>GetEnumerator</code></td><td><span class="muted">—</span></td><td><code>RouteValueDictionary.Enumerator GetEnumerator()</code></td></tr><tr><td><code>Remove</code></td><td><span class="muted">—</span></td><td><code>bool Remove(string key)</code><br><code>bool Remove(string key, out object value)</code></td></tr><tr><td><code>TryAdd</code></td><td><span class="muted">—</span></td><td><code>bool TryAdd(string key, object value)</code></td></tr><tr><td><code>TryGetValue</code></td><td><span class="muted">—</span></td><td><code>bool TryGetValue(string key, out object value)</code></td></tr></tbody></table></div>
@@ -622,7 +622,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteValueEqualityComparer</code> · assembly <code>Microsoft.AspNetCore.Components</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteValueEqualityComparer()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteValueEqualityComparer(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValueEqualityComparer().New_([ :param = value ])</code> or <code>dnNew("RouteValueEqualityComparer",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteValueEqualityComparer(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValueEqualityComparer().@New([ :param = value ])</code> or <code>dnNew("RouteValueEqualityComparer",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Default</code></td><td><code>RouteValueEqualityComparer</code></td><td>read · static</td><td><code>o.Default</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Equals</code></td><td><span class="muted">—</span></td><td><code>bool Equals(object x, object y)</code></td></tr><tr><td><code>GetHashCode</code></td><td><span class="muted">—</span></td><td><code>int GetHashCode(object obj)</code></td></tr></tbody></table></div>
 </div></details>
@@ -630,7 +630,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RouteValuesAddress</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RouteValuesAddress()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RouteValuesAddress(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValuesAddress().New_([ :param = value ])</code> or <code>dnNew("RouteValuesAddress",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RouteValuesAddress(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RouteValuesAddress().@New([ :param = value ])</code> or <code>dnNew("RouteValuesAddress",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RouteName</code></td><td><code>string</code></td><td>read, write</td><td><code>o.RouteName</code> <code>o.RouteName = v</code></td></tr><tr><td><code>ExplicitValues</code></td><td><code>RouteValueDictionary</code></td><td>read, write</td><td><code>o.ExplicitValues</code> <code>o.ExplicitValues = v</code></td></tr><tr><td><code>AmbientValues</code></td><td><code>RouteValueDictionary</code></td><td>read, write</td><td><code>o.AmbientValues</code> <code>o.AmbientValues = v</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -638,7 +638,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.RoutingFeature</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new RoutingFeature()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new RoutingFeature(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RoutingFeature().New_([ :param = value ])</code> or <code>dnNew("RoutingFeature",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new RoutingFeature(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new RoutingFeature().@New([ :param = value ])</code> or <code>dnNew("RoutingFeature",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>RouteData</code></td><td><code>RouteData</code></td><td>read, write</td><td><code>o.RouteData</code> <code>o.RouteData = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-RoutingHttpContextExtensions"><summary><b>RoutingHttpContextExtensions</b> <span class="muted">class static</span></summary>
@@ -650,7 +650,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SuppressLinkGenerationMetadata()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SuppressLinkGenerationMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SuppressLinkGenerationMetadata().New_([ :param = value ])</code> or <code>dnNew("SuppressLinkGenerationMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SuppressLinkGenerationMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SuppressLinkGenerationMetadata().@New([ :param = value ])</code> or <code>dnNew("SuppressLinkGenerationMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>SuppressLinkGeneration</code></td><td><code>bool</code></td><td>read</td><td><code>o.SuppressLinkGeneration</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -658,7 +658,7 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.SuppressMatchingMetadata</code> · assembly <code>Microsoft.AspNetCore.Routing</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SuppressMatchingMetadata()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new SuppressMatchingMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SuppressMatchingMetadata().New_([ :param = value ])</code> or <code>dnNew("SuppressMatchingMetadata",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new SuppressMatchingMetadata(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new SuppressMatchingMetadata().@New([ :param = value ])</code> or <code>dnNew("SuppressMatchingMetadata",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>SuppressMatching</code></td><td><code>bool</code></td><td>read</td><td><code>o.SuppressMatching</code></td></tr></tbody></table></div>
 <h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr></tbody></table></div>
 </div></details>
@@ -666,14 +666,14 @@
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.VirtualPathContext</code> · assembly <code>Microsoft.AspNetCore.Routing.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new VirtualPathContext(HttpContext httpContext, RouteValueDictionary ambientValues, RouteValueDictionary values)</code></td></tr><tr><td><code>new VirtualPathContext(HttpContext httpContext, RouteValueDictionary ambientValues, RouteValueDictionary values, string routeName)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new VirtualPathContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new VirtualPathContext().New_([ :param = value ])</code> or <code>dnNew("VirtualPathContext",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new VirtualPathContext(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new VirtualPathContext().@New([ :param = value ])</code> or <code>dnNew("VirtualPathContext",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>AmbientValues</code></td><td><code>RouteValueDictionary</code></td><td>read</td><td><code>o.AmbientValues</code></td></tr><tr><td><code>HttpContext</code></td><td><code>HttpContext</code></td><td>read</td><td><code>o.HttpContext</code></td></tr><tr><td><code>RouteName</code></td><td><code>string</code></td><td>read</td><td><code>o.RouteName</code></td></tr><tr><td><code>Values</code></td><td><code>RouteValueDictionary</code></td><td>read, write</td><td><code>o.Values</code> <code>o.Values = v</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-VirtualPathData"><summary><b>VirtualPathData</b> <span class="muted">class</span></summary>
 <div class="clsbody">
 <p class="net"><code>Microsoft.AspNetCore.Routing.VirtualPathData</code> · assembly <code>Microsoft.AspNetCore.Routing.Abstractions</code></p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new VirtualPathData(IRouter router, string virtualPath)</code></td></tr><tr><td><code>new VirtualPathData(IRouter router, string virtualPath, RouteValueDictionary dataTokens)</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new VirtualPathData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new VirtualPathData().New_([ :param = value ])</code> or <code>dnNew("VirtualPathData",[ :param = value ])</code>.</p>
+<p class="muted">Ring: <code>new VirtualPathData(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new VirtualPathData().@New([ :param = value ])</code> or <code>dnNew("VirtualPathData",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DataTokens</code></td><td><code>RouteValueDictionary</code></td><td>read</td><td><code>o.DataTokens</code></td></tr><tr><td><code>Router</code></td><td><code>IRouter</code></td><td>read, write</td><td><code>o.Router</code> <code>o.Router = v</code></td></tr><tr><td><code>VirtualPath</code></td><td><code>string</code></td><td>read, write</td><td><code>o.VirtualPath</code> <code>o.VirtualPath = v</code></td></tr></tbody></table></div>
 </div></details>
 <div class="pager"></div>

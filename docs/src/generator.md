@@ -71,11 +71,11 @@ The generator names the methods of a class like this:
 
 - a name with overloads of **several parameter counts** is one method that takes one parameter: `NULL` calls the parameterless overload, a list of `:name = value` pairs chooses the overload by the parameter names, and any other value calls the overload with one parameter;
 - a name with **one parameter count** keeps its parameters (`Math.Max(a, b)`); the bridge picks among overloads with the same count by the types of the values;
-- the constructors other than `init` are `New_`;
+- the constructors other than `init` are `@New`;
 - `ToString()` keeps its parameterless form, and its forms with parameters are `Format`;
 - a method with optional parameters is available with every number of parameters from the required ones up;
 - a static and an instance method with the same name and arity are one method;
-- names that are Ring keywords get a trailing `_`, and so does a method whose name would be the getter or setter of a property (`GetValue_`).
+- names that are Ring keywords get an `@` at the start, and so does a method whose name would be the getter or setter of a property (`@GetValue`).
 
 ## How a wrapper class looks
 

@@ -266,7 +266,7 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 	<span class="c"># HTTP is a question and an answer. A WEBSOCKET is a connection that stays open after the first HTTP request: both sides can send a</span>
 	<span class="c"># message whenever they like, which is what a chat, a live price list or a game needs. The first request asks to "upgrade" the</span>
 	<span class="c"># connection, and then the two sides send MESSAGES (text or binary) until one of them closes it.</span>
-	oSource = <span class="k">new</span> <span class="t">CancellationTokenSource</span>().<span class="f">New_</span>([ :millisecondsDelay = <span class="n">20000</span> ])
+	oSource = <span class="k">new</span> <span class="t">CancellationTokenSource</span>().@<span class="k">New</span>([ :<span class="t">millisecondsDelay</span> = <span class="n">20000</span> ])
 	oToken = oSource.Token
 
 	<span class="c"># 1. The server: an HttpListener that accepts the upgrade. The port is a free one, found by asking the system for port 0.</span>

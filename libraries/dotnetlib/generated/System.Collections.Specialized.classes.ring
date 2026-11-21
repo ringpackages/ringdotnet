@@ -87,7 +87,7 @@ Class BitVector32 from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.BitVector32, System.Collections.Specialized',P1)
@@ -223,7 +223,7 @@ Class HybridDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',P1)
@@ -473,7 +473,7 @@ Class ListDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',P1)
@@ -652,7 +652,7 @@ Class OrderedDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',P1)
@@ -1040,7 +1040,7 @@ Class NameValueCollection from NameObjectCollectionBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',P1)
@@ -1080,7 +1080,7 @@ Class NameValueCollection from NameObjectCollectionBase
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

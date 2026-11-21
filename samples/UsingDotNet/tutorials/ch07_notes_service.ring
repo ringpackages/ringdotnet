@@ -63,7 +63,7 @@ func deleteNote oRequest
 # ---------------------------------------------------------------- the client
 
 func send cMethod, cPath, cBody
-	oMessage = new HttpRequestMessage().New_([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
 	ok

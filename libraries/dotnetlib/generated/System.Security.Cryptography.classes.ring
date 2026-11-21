@@ -751,7 +751,7 @@ Class AesGcm from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AesGcm, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -833,7 +833,7 @@ Class AsnEncodedData from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -902,7 +902,7 @@ Class AsnEncodedDataCollection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',P1)
@@ -1548,7 +1548,7 @@ Class CngKey from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Import_ P1
+	Func @Import P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Import",P1))
 		ok
@@ -1846,7 +1846,7 @@ Class CngProperty from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CngProperty, System.Security.Cryptography',P1)
@@ -2048,7 +2048,7 @@ Class CngUIPolicy from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2182,7 +2182,7 @@ Class CryptoStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2414,7 +2414,7 @@ Class CspParameters from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CspParameters, System.Security.Cryptography',P1)
@@ -2923,7 +2923,7 @@ Class FromBase64Transform from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',P1)
@@ -3174,7 +3174,7 @@ Class HashAlgorithmName from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',P1)
@@ -3468,7 +3468,7 @@ Class Kmac128 from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac128, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3543,7 +3543,7 @@ Class Kmac256 from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3618,7 +3618,7 @@ Class KmacXof128 from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3693,7 +3693,7 @@ Class KmacXof256 from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3796,7 +3796,7 @@ Class Oid from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Oid, System.Security.Cryptography',P1)
@@ -4404,7 +4404,7 @@ Class SafeEvpPKeyHandle from SafeHandle
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',P1)
@@ -4610,7 +4610,7 @@ Class SignatureDescription from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',P1)
@@ -5093,7 +5093,7 @@ Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',P1)
@@ -5130,7 +5130,7 @@ Class DSASignatureFormatter from AsymmetricSignatureFormatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',P1)
@@ -5196,7 +5196,7 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		ok
 		return self
 
-	Func Import_ 
+	Func @Import 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Import"))
 
 	Func FromXmlString P1
@@ -5340,7 +5340,7 @@ Class PasswordDeriveBytes from DeriveBytes
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5520,7 +5520,7 @@ Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',P1)
@@ -5560,7 +5560,7 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',P1)
@@ -5613,7 +5613,7 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',P1)
@@ -5659,7 +5659,7 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',P1)
@@ -5703,7 +5703,7 @@ Class RSAPKCS1SignatureDeformatter from AsymmetricSignatureDeformatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',P1)
@@ -5740,7 +5740,7 @@ Class RSAPKCS1SignatureFormatter from AsymmetricSignatureFormatter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',P1)
@@ -5774,7 +5774,7 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6216,7 +6216,7 @@ Class AesCng from Aes
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AesCng, System.Security.Cryptography',P1)
@@ -6255,7 +6255,7 @@ Class DSACng from DSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACng, System.Security.Cryptography',P1)
@@ -6303,7 +6303,7 @@ Class DSACryptoServiceProvider from DSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',P1)
@@ -6397,7 +6397,7 @@ Class DSAOpenSsl from DSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',P1)
@@ -6575,7 +6575,7 @@ Class RSACng from RSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACng, System.Security.Cryptography',P1)
@@ -6623,7 +6623,7 @@ Class RSACryptoServiceProvider from RSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',P1)
@@ -6717,7 +6717,7 @@ Class RSAOpenSsl from RSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',P1)
@@ -6757,7 +6757,7 @@ Class TripleDESCng from TripleDES
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',P1)
@@ -6804,7 +6804,7 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',P1)
@@ -6916,7 +6916,7 @@ Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',P1)
@@ -6959,7 +6959,7 @@ Class ECDsaCng from ECDsa
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',P1)
@@ -7024,7 +7024,7 @@ Class ECDsaOpenSsl from ECDsa
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',P1)
@@ -7067,7 +7067,7 @@ Class HMACMD5 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',P1)
@@ -7132,7 +7132,7 @@ Class HMACSHA1 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',P1)
@@ -7197,7 +7197,7 @@ Class HMACSHA256 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',P1)
@@ -7263,7 +7263,7 @@ Class HMACSHA384 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',P1)
@@ -7338,7 +7338,7 @@ Class HMACSHA3_256 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',P1)
@@ -7412,7 +7412,7 @@ Class HMACSHA3_384 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',P1)
@@ -7486,7 +7486,7 @@ Class HMACSHA3_512 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',P1)
@@ -7560,7 +7560,7 @@ Class HMACSHA512 from HMAC
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',P1)

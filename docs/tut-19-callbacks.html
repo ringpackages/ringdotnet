@@ -270,7 +270,7 @@ nChanges = <span class="n">0</span>
 
 	<span class="c"># 1. A callback that is the NAME of a function. .NET calls it once for each item.</span>
 	? <span class="s">"1. ForEach calls showItem for every word:"</span>
-	oWords.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"showItem"</span>))
+	oWords.@ForEach(<span class="f">dnCallback</span>(<span class="s">"showItem"</span>))
 
 	<span class="c"># 2. A callback that decides: sort with your own comparison</span>
 	oWords.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"compareLength"</span>) ])
@@ -282,7 +282,7 @@ nChanges = <span class="n">0</span>
 	? <span class="s">"   Does 'fig' exist?   : "</span> + oWords.<span class="f">Exists</span>(<span class="f">dnCallback</span>(<span class="s">"isFig"</span>))
 
 	<span class="c"># 4. A callback that is a piece of CODE in a text. aDotNetArgs holds the arguments, xDotNetResult is the answer</span>
-	oWords.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nLetters += len(aDotNetArgs[1])"</span>))
+	oWords.@ForEach(<span class="f">dnCallback</span>(<span class="s">"nLetters += len(aDotNetArgs[1])"</span>))
 	? <span class="s">"4. Total letters: "</span> + nLetters
 	oWords.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"</span>) ])
 	? <span class="s">"   Longest word : "</span> + oWords.<span class="f">Item</span>(<span class="n">0</span>)
@@ -301,7 +301,7 @@ nChanges = <span class="n">0</span>
 
 	<span class="c"># 6. An error inside a callback comes out of the .NET method that called it</span>
 	<span class="k">try</span>
-		oWords.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"broken"</span>))
+		oWords.@ForEach(<span class="f">dnCallback</span>(<span class="s">"broken"</span>))
 	<span class="k">catch</span>
 		? nl + <span class="s">"6. Caught: "</span> + cCatchError
 	<span class="k">done</span>
@@ -357,27 +357,27 @@ nChanges = <span class="n">0</span>
 <p><code>dnCallback("showItem")</code> is the simplest form: the <strong>name</strong> of a Ring function. .NET calls it once per item. The function gets <strong>one parameter, a list of the arguments</strong> that .NET passes, and returns the result:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">func</span> <span class="f">showItem</span> aArgs
 	? <span class="s">"   item: "</span> + aArgs[<span class="n">1</span>]</code></pre></div>
-<p><code>ForEach_</code> ends with <code>_</code> because <code>ForEach</code> is a Ring keyword.</p>
+<p><code>@ForEach</code> starts with <code>@</code> because <code>ForEach</code> is a Ring keyword.</p>
 <h3 id="2-a-callback-that-decides">2. A callback that decides<a class="anchor" href="#2-a-callback-that-decides">#</a></h3>
 <p><code>Sort([ :comparison = dnCallback("compareLength") ])</code> passes a comparison. .NET gives the function two items (<code>aArgs[1]</code>, <code>aArgs[2]</code>); it returns a negative number if the first goes first, a positive one if the second goes first, and <code>0</code> for equal. Subtracting the lengths does exactly that: <code>fig, pear, apple, avocado</code>.</p>
 <p><code>FindAll</code> and <code>Exists</code> take a <em>predicate</em>: a function that returns true or false for an item.</p>
 <h3 id="3-a-piece-of-code-in-a-text">3. A piece of code in a text<a class="anchor" href="#3-a-piece-of-code-in-a-text">#</a></h3>
 <p>If the text is not just a function name, it is <strong>Ring code</strong>. It reads the arguments in <code>aDotNetArgs</code> and writes its answer into <code>xDotNetResult</code>:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oWords.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nLetters += len(aDotNetArgs[1])"</span>))
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oWords.@ForEach(<span class="f">dnCallback</span>(<span class="s">"nLetters += len(aDotNetArgs[1])"</span>))
 oWords.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"</span>) ])</code></pre></div>
 <p>This is handy for one-liners. The code is compiled once, the first time, so using it in a loop costs nothing extra.</p>
 <h3 id="4-events">4. Events<a class="anchor" href="#4-events">#</a></h3>
 <p>An <em>event</em> is a delegate that .NET stores and calls later, possibly many times. <code>setCollectionChangedEvent("code")</code> sets the handler of the event <code>CollectionChanged</code>; <code>clearCollectionChangedEvent()</code> removes it. The code gets <code>aDotNetArgs = [sender, eventArgs]</code>: <code>aDotNetArgs[2].getProp('Action')</code> says what happened (<code>Add</code>, <code>Remove</code>). After the handler was cleared, the third change raised no event.</p>
 <p>The same works for every event of every class: a button's <code>Click</code>, a text box's <code>TextChanged</code>, a form's <code>FormClosing</code>.</p>
 <h3 id="5-errors">5. Errors<a class="anchor" href="#5-errors">#</a></h3>
-<p>An error raised inside a callback (<code>raise(...)</code>) travels back through .NET and comes out of the method that called it, so your <code>try</code> / <code>catch</code> around <code>ForEach_</code> catches it.</p>
+<p>An error raised inside a callback (<code>raise(...)</code>) travels back through .NET and comes out of the method that called it, so your <code>try</code> / <code>catch</code> around <code>@ForEach</code> catches it.</p>
 <h2 id="the-rules">The rules<a class="anchor" href="#the-rules">#</a></h2>
 <div class="callout warn"><span class="t">Warning</span><p><strong>Code in a callback sees only global variables.</strong> It runs later, outside the function that created it. <code>nLetters</code> and <code>nChanges</code> are global in the program. A local variable of <code>main</code> would be unknown to the callback.</p></div>
 <div class="callout note"><span class="t">Note</span><p><strong>Callbacks run on the Ring thread, during a call.</strong> A callback that .NET invokes from another thread (a thread-pool timer, a task) is not run; a message is written on <code>stderr</code>. Use Windows Forms timers (<code>uiTimer</code>) for repeating work, and wait for tasks on the Ring thread.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a callback by function name</td><td><code>dnCallback("showItem")</code></td></tr><tr><td>arguments and result</td><td><code>aArgs[1]</code>, <code>return</code></td></tr><tr><td>code in a text</td><td><code>aDotNetArgs[1]</code>, <code>xDotNetResult</code></td></tr><tr><td>an event</td><td><code>setCollectionChangedEvent("...")</code>, <code>clear...Event()</code></td></tr><tr><td>errors travel back</td><td><code>try</code> around the .NET call</td></tr></tbody></table></div>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Sort the words alphabetically by their <em>last</em> letter.</li><li>Use <code>FindAll</code> to keep the words with more than four letters, and <code>ForEach_</code> to print them in upper case.</li><li>Make a handler for <code>CollectionChanged</code> that prints the new item (<code>aDotNetArgs[2].getProp('NewItems')</code>).</li><li>Set the same event twice and see that the second handler replaces the first.</li></ol>
+<ol><li>Sort the words alphabetically by their <em>last</em> letter.</li><li>Use <code>FindAll</code> to keep the words with more than four letters, and <code>@ForEach</code> to print them in upper case.</li><li>Make a handler for <code>CollectionChanged</code> that prints the new item (<code>aDotNetArgs[2].getProp('NewItems')</code>).</li><li>Set the same event twice and see that the second handler replaces the first.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-20-reflection.html">Exploring .NET with reflection</a></p>
 <div class="pager"><a href="tut-63-chat.html"><small>Previous</small>A chat over TCP</a><a class="next" href="tut-20-reflection.html"><small>Next</small>Reflection</a></div>

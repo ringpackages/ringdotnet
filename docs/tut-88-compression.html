@@ -320,7 +320,7 @@ using {
 	<span class="k">return</span> oMemory.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">decompress</span> cFormat,cData
-	oSource = <span class="k">new</span> <span class="t">MemoryStream</span>().<span class="f">New_</span>([ :buffer = cData ])
+	oSource = <span class="k">new</span> <span class="t">MemoryStream</span>().@<span class="k">New</span>([ :<span class="t">buffer</span> = cData ])
 	oUnpacker = packer(cFormat,oSource,<span class="s">"Decompress"</span>)
 	oOut = <span class="k">new</span> <span class="t">MemoryStream</span>()
 	oUnpacker.<span class="f">CopyTo</span>(oOut)

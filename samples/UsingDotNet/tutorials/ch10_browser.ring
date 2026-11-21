@@ -73,7 +73,7 @@ func folderChosen
 	nBytes = 0
 	for cFile in sort(new Directory().GetFiles(cFolder).toList())
 		oInfo = new FileInfo(cFile)
-		oItem = new ListViewItem().New_([ :text = oInfo.Name ])
+		oItem = new ListViewItem().@New([ :text = oInfo.Name ])
 		oItem.SubItems.Add(sizeText(oInfo.Length))
 		oItem.SubItems.Add(oInfo.LastWriteTime.Format("yyyy-MM-dd HH:mm"))
 		oList.Items.Add(oItem)

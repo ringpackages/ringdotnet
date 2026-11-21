@@ -366,7 +366,7 @@ oWindow = <span class="s">""</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">clickButton</span> oButton
-	oButton.<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
+	oButton.<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().@<span class="k">New</span>([ :<span class="t">routedEvent</span> = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
 
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="c"># add three items through the text box and the Add button</span>

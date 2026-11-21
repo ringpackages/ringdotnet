@@ -1440,7 +1440,7 @@ Class ICheckConstraint from DotNetObject
 		ok
 		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
-	Func GetName_ P1
+	Func @GetName P1
 		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func ToDebugString P1
@@ -2806,7 +2806,7 @@ Class IConventionCheckConstraint from DotNetObject
 		ok
 		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
-	Func GetName_ P1
+	Func @GetName P1
 		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func ToDebugString P1
@@ -11279,7 +11279,7 @@ Class IModel from DotNetObject
 	Func GetEntityTypes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEntityTypes"))
 
-	Func GetModelDependencies_ 
+	Func @GetModelDependencies 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetModelDependencies"))
 
 	Func FindEntityTypes P1
@@ -11517,7 +11517,7 @@ Class IMutableCheckConstraint from DotNetObject
 		ok
 		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
-	Func GetName_ P1
+	Func @GetName P1
 		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func ToDebugString P1
@@ -17434,7 +17434,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		ok
 		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
-	Func GetName_ P1
+	Func @GetName P1
 		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func ToDebugString P1
@@ -21292,7 +21292,7 @@ Class IRelationalAnnotationProvider from DotNetObject
 		ok
 		return self
 
-	Func For_ P1,P2
+	Func @For P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:For",P1,P2))
 
 
@@ -26397,7 +26397,7 @@ Class MemberIdentity from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',P1)
@@ -26501,7 +26501,7 @@ Class ParameterBindingInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.ParameterBindingInfo, Microsoft.EntityFrameworkCore',P1)
@@ -27213,7 +27213,7 @@ Class RelationalAnnotationProvider from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func For_ P1,P2
+	Func @For P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:For",P1,P2))
 
 	Func Equals P1
@@ -27267,7 +27267,7 @@ Class RuntimeDbFunction from AnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeDbFunction, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -27664,7 +27664,7 @@ Class RuntimeModel from RuntimeAnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeModel, Microsoft.EntityFrameworkCore',P1)
@@ -27847,7 +27847,7 @@ Class RuntimeSequence from AnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeSequence, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -28372,7 +28372,7 @@ Class FactoryMethodBinding from InstantiationBinding
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.FactoryMethodBinding, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

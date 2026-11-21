@@ -13,7 +13,7 @@ func main
 
 	# 1. UDP sends separate messages (datagrams) without a connection: no Accept, no stream. A socket that listens binds to a port
 	#    (0 = the system chooses a free one); LocalEndPoint tells which.
-	oServer = new UdpClient().New_([ :port = 0 ])
+	oServer = new UdpClient().@New([ :port = 0 ])
 	nPort = oServer.Client.LocalEndPoint.Port
 	? "1. the server socket is bound to a port: " + (nPort > 0)
 

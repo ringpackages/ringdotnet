@@ -260,13 +260,13 @@ using {
 	<span class="c"># 1. Random with a SEED gives the same sequence every time: perfect for tests and for repeating a simulation</span>
 	oFirst = <span class="k">new</span> <span class="t">Random</span>(<span class="n">2024</span>)
 	oSecond = <span class="k">new</span> <span class="t">Random</span>(<span class="n">2024</span>)
-	? <span class="s">"1. two generators with the same seed: "</span> + oFirst.<span class="f">Next_</span>(<span class="n">100</span>) + <span class="s">" "</span> + oFirst.<span class="f">Next_</span>(<span class="n">100</span>) + <span class="s">" "</span> + oFirst.<span class="f">Next_</span>(<span class="n">100</span>) + <span class="s">"  and  "</span> + oSecond.<span class="f">Next_</span>(<span class="n">100</span>) + <span class="s">" "</span> + oSecond.<span class="f">Next_</span>(<span class="n">100</span>) + <span class="s">" "</span> + oSecond.<span class="f">Next_</span>(<span class="n">100</span>)
+	? <span class="s">"1. two generators with the same seed: "</span> + oFirst.@<span class="k">Next</span>(<span class="n">100</span>) + <span class="s">" "</span> + oFirst.@<span class="k">Next</span>(<span class="n">100</span>) + <span class="s">" "</span> + oFirst.@<span class="k">Next</span>(<span class="n">100</span>) + <span class="s">"  and  "</span> + oSecond.@<span class="k">Next</span>(<span class="n">100</span>) + <span class="s">" "</span> + oSecond.@<span class="k">Next</span>(<span class="n">100</span>) + <span class="s">" "</span> + oSecond.@<span class="k">Next</span>(<span class="n">100</span>)
 
-	<span class="c"># 2. Next_(max) is 0..max-1. A die is Next_(6) + 1. Throw it 6000 times: each side comes up about 1000 times.</span>
+	<span class="c"># 2. @Next(max) is 0..max-1. A die is @Next(6) + 1. Throw it 6000 times: each side comes up about 1000 times.</span>
 	oRandom = <span class="k">new</span> <span class="t">Random</span>(<span class="n">7</span>)
 	aCount = [<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>]
 	<span class="k">for</span> nThrow = <span class="n">1</span> <span class="k">to</span> <span class="n">6000</span>
-		nSide = oRandom.<span class="f">Next_</span>(<span class="n">6</span>) + <span class="n">1</span>
+		nSide = oRandom.@<span class="k">Next</span>(<span class="n">6</span>) + <span class="n">1</span>
 		aCount[nSide]++
 	<span class="k">next</span>
 	? nl + <span class="s">"2. 6000 throws of a die: "</span> + joinWith(aCount,<span class="s">" "</span>)
@@ -284,7 +284,7 @@ using {
 		aDeck + nCard
 	<span class="k">next</span>
 	<span class="k">for</span> nIndex = len(aDeck) <span class="k">to</span> <span class="n">2</span> <span class="k">step</span> -<span class="n">1</span>
-		nOther = oRandom.<span class="f">Next_</span>(nIndex) + <span class="n">1</span>
+		nOther = oRandom.@<span class="k">Next</span>(nIndex) + <span class="n">1</span>
 		aTemp = aDeck[nIndex]
 		aDeck[nIndex] = aDeck[nOther]
 		aDeck[nOther] = aTemp
@@ -295,7 +295,7 @@ using {
 	aItems = [[<span class="s">"common"</span>,<span class="n">70</span>],[<span class="s">"rare"</span>,<span class="n">25</span>],[<span class="s">"legendary"</span>,<span class="n">5</span>]]
 	aWon = [<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>]
 	<span class="k">for</span> nDraw = <span class="n">1</span> <span class="k">to</span> <span class="n">10000</span>
-		nPick = oRandom.<span class="f">Next_</span>(<span class="n">100</span>)
+		nPick = oRandom.@<span class="k">Next</span>(<span class="n">100</span>)
 		nSum = <span class="n">0</span>
 		<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aItems)
 			nSum += aItems[nIndex][<span class="n">2</span>]
@@ -365,11 +365,11 @@ using {
 6. a secure number from RandomNumberGenerator.GetInt32: yes (in range); a different one every run</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="random-numbers-are-calculated">Random numbers are calculated<a class="anchor" href="#random-numbers-are-calculated">#</a></h3>
-<p><code>Random</code> does not roll dice: it follows a formula that gives numbers that <em>look</em> random. The starting value is the <strong>seed</strong>. The same seed gives the same numbers (step 1), which is exactly what you want for a test or a replay: a game level that is the same for the same seed, a simulation you can repeat. Without a seed, <code>new Random(NULL)</code> starts from the clock. <code>Next_(100)</code> gives 0…99 (<code>Next</code> is a Ring keyword, so the method is called <code>Next_</code>).</p>
+<p><code>Random</code> does not roll dice: it follows a formula that gives numbers that <em>look</em> random. The starting value is the <strong>seed</strong>. The same seed gives the same numbers (step 1), which is exactly what you want for a test or a replay: a game level that is the same for the same seed, a simulation you can repeat. Without a seed, <code>new Random(NULL)</code> starts from the clock. <code>@Next(100)</code> gives 0…99 (<code>Next</code> is a Ring keyword, so the method is called <code>@Next</code>).</p>
 <h3 id="dice">Dice<a class="anchor" href="#dice">#</a></h3>
-<p><code>Next_(6) + 1</code> is 1…6. With 6,000 throws every side comes up about 1,000 times; the test in the program accepts 900–1100. <em>About</em> is the important word: with a random generator you test that the result is <strong>in a range</strong>, not that it is a fixed number — unless you fix the seed.</p>
+<p><code>@Next(6) + 1</code> is 1…6. With 6,000 throws every side comes up about 1,000 times; the test in the program accepts 900–1100. <em>About</em> is the important word: with a random generator you test that the result is <strong>in a range</strong>, not that it is a fixed number — unless you fix the seed.</p>
 <h3 id="shuffling">Shuffling<a class="anchor" href="#shuffling">#</a></h3>
-<p>A wrong shuffle is a classic bug. <strong>Fisher–Yates</strong> is right: go from the last card to the second; swap the card with a random card from the first position up to <em>itself</em>. Every order is equally likely. Swapping each card with <em>any</em> random card (<code>Next_(10)</code> every time) looks similar but gives some orders more often than others.</p>
+<p>A wrong shuffle is a classic bug. <strong>Fisher–Yates</strong> is right: go from the last card to the second; swap the card with a random card from the first position up to <em>itself</em>. Every order is equally likely. Swapping each card with <em>any</em> random card (<code>@Next(10)</code> every time) looks similar but gives some orders more often than others.</p>
 <h3 id="weighted-choice">Weighted choice<a class="anchor" href="#weighted-choice">#</a></h3>
 <p>To draw "common" 70 %, "rare" 25 % and "legendary" 5 % of the time, pick a number from 0 to 99 and walk through the weights adding them up until the number is below the sum. The output shows about 6,950 / 2,580 / 470 for 10,000 draws.</p>
 <h3 id="guid">Guid<a class="anchor" href="#guid">#</a></h3>

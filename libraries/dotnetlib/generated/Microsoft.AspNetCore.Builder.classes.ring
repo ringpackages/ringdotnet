@@ -672,7 +672,7 @@ Class ApplicationBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.ApplicationBuilder, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1327,7 +1327,7 @@ Class DefaultFilesOptions from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',P1)
@@ -1508,7 +1508,7 @@ Class DirectoryBrowserOptions from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',P1)
@@ -3895,7 +3895,7 @@ Class StaticFileOptions from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',P1)

@@ -63,7 +63,7 @@ Class XPathDocument from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XPath.XPathDocument, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

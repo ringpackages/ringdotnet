@@ -265,7 +265,7 @@ using {
 	<span class="c"># and then the message itself.</span>
 	oListener = <span class="k">new</span> <span class="t">TcpListener</span>(<span class="k">new</span> <span class="t">IPAddress</span>().Loopback,<span class="n">0</span>)
 	oListener.<span class="f">Start</span>(<span class="k">NULL</span>)
-	oClient = <span class="k">new</span> <span class="t">TcpClient</span>().<span class="f">New_</span>([ :hostname = <span class="s">"127.0.0.1"</span>, :port = oListener.LocalEndpoint.Port ])
+	oClient = <span class="k">new</span> <span class="t">TcpClient</span>().@<span class="k">New</span>([ :<span class="t">hostname</span> = <span class="s">"127.0.0.1"</span>, :port = oListener.LocalEndpoint.Port ])
 	oServerSide = oListener.<span class="f">AcceptTcpClient</span>()
 	oSender = oClient.<span class="f">GetStream</span>()
 	oReceiver = oServerSide.<span class="f">GetStream</span>()

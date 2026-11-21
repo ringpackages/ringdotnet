@@ -9,7 +9,7 @@ Pass `dnCallback(code)` wherever a .NET delegate is expected: `Action`, `Func`, 
 
 ```ring
 nTotal = 0
-oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))                # ForEach is a Ring keyword: ForEach_
+oList.@ForEach(dnCallback("nTotal += len(aDotNetArgs[1])"))                # ForEach is a Ring keyword: @ForEach
 oList.Sort([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])") ])
 oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 ```
@@ -19,7 +19,7 @@ oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 If the text is just a **function name**, that function is called with the argument list as its only parameter, and its return value is the result:
 
 ```ring
-oList.ForEach_(dnCallback("show"))
+oList.@ForEach(dnCallback("show"))
 
 func show aArgs
 	? aArgs[1]

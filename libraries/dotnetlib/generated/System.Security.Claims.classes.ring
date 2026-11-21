@@ -50,7 +50,7 @@ Class Claim from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.Claim, System.Security.Claims',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -79,7 +79,7 @@ Class Claim from Object
 
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -938,7 +938,7 @@ Class ClaimsIdentity from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsIdentity, System.Security.Claims',P1)
@@ -1124,7 +1124,7 @@ Class ClaimsPrincipal from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',P1)

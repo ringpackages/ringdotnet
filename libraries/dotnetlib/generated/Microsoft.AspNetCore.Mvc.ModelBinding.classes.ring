@@ -393,7 +393,7 @@ Class BindingInfo from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',P1)
@@ -658,7 +658,7 @@ Class CompositeValueProvider from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -857,7 +857,7 @@ Class EnumGroupAndName from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',P1)
@@ -1766,7 +1766,7 @@ Class ModelError from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1968,7 +1968,7 @@ Class ModelMetadata from Object
 		ok
 		return self
 
-	Func GetDisplayName_ 
+	Func @GetDisplayName 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDisplayName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2563,7 +2563,7 @@ Class ModelStateDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',P1)
@@ -2602,7 +2602,7 @@ Class ModelStateDictionary from Object
 	Func GetFieldValidationState P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetFieldValidationState",P1))
 
-	Func GetValidationState_ P1
+	Func @GetValidationState P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetValidationState",P1))
 
 	Func MarkFieldValid P1
@@ -3015,7 +3015,7 @@ Class SuppressChildValidationMetadataProvider from Object
 
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -3171,7 +3171,7 @@ Class ValueProviderResult from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',P1)
@@ -3377,7 +3377,7 @@ Class RouteValueProvider from BindingSourceValueProvider
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

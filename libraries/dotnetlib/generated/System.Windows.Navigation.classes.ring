@@ -225,12 +225,12 @@ Class JournalEntry from DependencyObject
 
 		return self
 
-	Func GetName_ P1
+	Func @GetName P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s7:GetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetName_ P1,P2
+	Func @SetName P1,P2
 		dotnet_callv("s4:call",'System.Windows.Navigation.JournalEntry, PresentationFramework',"s7:SetName",P1,P2)
 
 		return self

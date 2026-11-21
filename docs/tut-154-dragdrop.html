@@ -355,13 +355,13 @@ oFilesList = <span class="s">""</span>
 <h3 id="files">Files<a class="anchor" href="#files">#</a></h3>
 <p>A file dropped from the explorer arrives in the format <strong>FileDrop</strong>, and its data is a list of paths. <code>dropFiles</code> goes through the list with <code>toList()</code> and shows the file names (<code>Path.GetFileName</code>). A window or a list needs only <code>AllowDrop</code> and the two events; the paths are real, so the program can open the files.</p>
 <h3 id="testing-without-a-mouse">Testing without a mouse<a class="anchor" href="#testing-without-a-mouse">#</a></h3>
-<p>A test cannot drag with a mouse, so it makes the arguments that .NET would make: <code>new DataObject().New_([ :format = "Text", :data = "banana" ])</code> is the data, and <code>new DragEventArgs(data, keys, x, y, allowed, effect)</code> is the event argument. The test calls <code>dragEnter</code> and <code>dragDrop</code> with them and reads <code>Effect</code> and the lists. The functions are the same that the events call. Only <code>beginDrag</code>, which starts a real drag, is not called by the test.</p>
+<p>A test cannot drag with a mouse, so it makes the arguments that .NET would make: <code>new DataObject().@New([ :format = "Text", :data = "banana" ])</code> is the data, and <code>new DragEventArgs(data, keys, x, y, allowed, effect)</code> is the event argument. The test calls <code>dragEnter</code> and <code>dragDrop</code> with them and reads <code>Effect</code> and the lists. The functions are the same that the events call. Only <code>beginDrag</code>, which starts a real drag, is not called by the test.</p>
 <p>The checks of this program are in a separate file, <code>selftest/ch10_dragdrop.ring</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_dragdrop.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_dragdrop.ring: run with  ring ch10_dragdrop.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="c"># a drag made by the test: a DataObject with the data, and the arguments that .NET would give to the event</span>
 <span class="k">func</span> <span class="f">makeArgs</span> cFormat,xData,nKeys
-	oData = <span class="k">new</span> <span class="t">DataObject</span>().<span class="f">New_</span>([ :format = cFormat, :data = xData ])
+	oData = <span class="k">new</span> <span class="t">DataObject</span>().@<span class="k">New</span>([ :<span class="t">format</span> = cFormat, :data = xData ])
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DragEventArgs</span>(oData, nKeys, <span class="n">10</span>, <span class="n">10</span>, <span class="s">"Copy, Move"</span>, <span class="s">"None"</span>)
 
 <span class="k">func</span> <span class="f">selfTest</span>

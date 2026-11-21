@@ -554,7 +554,7 @@ Class AspContentRangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -638,7 +638,7 @@ Class CookieHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -708,7 +708,7 @@ Class AspEntityTagHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1782,7 +1782,7 @@ Class AspMediaTypeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1818,7 +1818,7 @@ Class AspMediaTypeHeaderValue from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Parse P1
@@ -1990,7 +1990,7 @@ Class AspNameValueHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2130,7 +2130,7 @@ Class AspRangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',P1)
@@ -2229,7 +2229,7 @@ Class SetCookieHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2362,7 +2362,7 @@ Class AspStringWithQualityHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

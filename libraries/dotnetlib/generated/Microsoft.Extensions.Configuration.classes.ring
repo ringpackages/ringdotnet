@@ -317,7 +317,7 @@ Class ChainedConfigurationProvider from Object
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
-	Func Load_ 
+	Func @Load 
 		dotnet_callv("s4:call",nHandle,"s4:Load")
 
 		return self
@@ -429,7 +429,7 @@ Class ConfigurationBinder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s3:Get",P1))
 		ok
@@ -521,7 +521,7 @@ Class ConfigurationDebugViewContext from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
@@ -761,7 +761,7 @@ Class ConfigurationProvider from Object
 
 		return self
 
-	Func Load_ 
+	Func @Load 
 		dotnet_callv("s4:call",nHandle,"s4:Load")
 
 		return self
@@ -1194,7 +1194,7 @@ Class IConfiguration from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
-	Func Get_ 
+	Func @Get 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
 
 	Func Bind P1,P2
@@ -1374,7 +1374,7 @@ Class IConfigurationProvider from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
-	Func Load_ 
+	Func @Load 
 		dotnet_callv("s4:call",nHandle,"s4:Load")
 
 		return self
@@ -1681,7 +1681,7 @@ Class FileConfigurationProvider from ConfigurationProvider
 		ok
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -1720,7 +1720,7 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		ok
 		return self
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self

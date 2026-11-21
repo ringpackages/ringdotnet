@@ -9,13 +9,13 @@ func main
 	# 1. Random with a SEED gives the same sequence every time: perfect for tests and for repeating a simulation
 	oFirst = new Random(2024)
 	oSecond = new Random(2024)
-	? "1. two generators with the same seed: " + oFirst.Next_(100) + " " + oFirst.Next_(100) + " " + oFirst.Next_(100) + "  and  " + oSecond.Next_(100) + " " + oSecond.Next_(100) + " " + oSecond.Next_(100)
+	? "1. two generators with the same seed: " + oFirst.@Next(100) + " " + oFirst.@Next(100) + " " + oFirst.@Next(100) + "  and  " + oSecond.@Next(100) + " " + oSecond.@Next(100) + " " + oSecond.@Next(100)
 
-	# 2. Next_(max) is 0..max-1. A die is Next_(6) + 1. Throw it 6000 times: each side comes up about 1000 times.
+	# 2. @Next(max) is 0..max-1. A die is @Next(6) + 1. Throw it 6000 times: each side comes up about 1000 times.
 	oRandom = new Random(7)
 	aCount = [0,0,0,0,0,0]
 	for nThrow = 1 to 6000
-		nSide = oRandom.Next_(6) + 1
+		nSide = oRandom.@Next(6) + 1
 		aCount[nSide]++
 	next
 	? nl + "2. 6000 throws of a die: " + joinWith(aCount," ")
@@ -33,7 +33,7 @@ func main
 		aDeck + nCard
 	next
 	for nIndex = len(aDeck) to 2 step -1
-		nOther = oRandom.Next_(nIndex) + 1
+		nOther = oRandom.@Next(nIndex) + 1
 		aTemp = aDeck[nIndex]
 		aDeck[nIndex] = aDeck[nOther]
 		aDeck[nOther] = aTemp
@@ -44,7 +44,7 @@ func main
 	aItems = [["common",70],["rare",25],["legendary",5]]
 	aWon = [0,0,0]
 	for nDraw = 1 to 10000
-		nPick = oRandom.Next_(100)
+		nPick = oRandom.@Next(100)
 		nSum = 0
 		for nIndex = 1 to len(aItems)
 			nSum += aItems[nIndex][2]

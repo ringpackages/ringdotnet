@@ -123,12 +123,12 @@ func uiTimer  nMilliseconds, cCode
 func uiMenu  oForm, aMenus
 	ui_oStrip = new MenuStrip()
 	for ui_aMenu in aMenus
-		ui_oTop = new ToolStripMenuItem().New_([ :text = ui_aMenu[1] ])
+		ui_oTop = new ToolStripMenuItem().@New([ :text = ui_aMenu[1] ])
 		for ui_aItem in ui_aMenu[2]
 			if ui_aItem[1] = "-"
 				ui_oTop.DropDownItems.Add(new ToolStripSeparator())
 			else
-				ui_oItem = new ToolStripMenuItem().New_([ :text = ui_aItem[1] ])
+				ui_oItem = new ToolStripMenuItem().@New([ :text = ui_aItem[1] ])
 				if len(ui_aItem) >= 2 and ui_aItem[2] != ""
 					ui_oItem.setClickEvent(ui_aItem[2])
 				ok
@@ -201,7 +201,7 @@ func uiColor  cName
 # A font of a family and size (lBold = true for bold): uiFont("Segoe UI",12,false)
 func uiFont  cName, nSize, lBold
 	if lBold
-		return new Font(cName,nSize).New_([ :familyName = cName, :emSize = nSize, :style = "Bold" ])
+		return new Font(cName,nSize).@New([ :familyName = cName, :emSize = nSize, :style = "Bold" ])
 	ok
 	return new Font(cName,nSize)
 

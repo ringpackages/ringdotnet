@@ -7,7 +7,7 @@ lead: A QR code is a picture that holds a text, such as a web address or the nam
 
 - how a **QR code** is made of modules and what the levels of error correction mean,
 - the steps of the previous lesson on a second package: project file, `dotnet publish`, wrap, load,
-- a method chosen by the names of its parameters, constructors with `New_`, and enums as texts,
+- a method chosen by the names of its parameters, constructors with `@New`, and enums as texts,
 - reading a value from a result that has no Ring class (`getProp`),
 - writing the bytes of a PNG picture to a file.
 
@@ -54,7 +54,7 @@ The data is not a picture yet. Other classes of the package turn it into a pictu
 - `AsciiQRCode` draws it with text characters. `GetGraphic(1)` returns a text of lines, and the program prints it. A console shows the dark modules as blocks.
 - `PngByteQRCode` draws it as the bytes of a PNG file. `GetGraphic(8)` uses 8 pixels for each module.
 
-Both classes take the data in their constructor. They have more than one constructor, so the program writes `new AsciiQRCode().New_([ :data = oCode ])`, the form of the lesson [The generic functions](tut-160-generic-calls.html).
+Both classes take the data in their constructor. They have more than one constructor, so the program writes `new AsciiQRCode().@New([ :data = oCode ])`, the form of the lesson [The generic functions](tut-160-generic-calls.html).
 
 ### A result that has no class
 
@@ -74,7 +74,7 @@ A `byte[]` that .NET returns is a Ring text of bytes (a copy), so the PNG is a R
 
 - a QR code is a grid of modules, and the level of error correction trades size for safety,
 - the same steps bring any package: project file, publish, wrap, load,
-- parameters by name, enums as texts, `New_` for a class with several constructors,
+- parameters by name, enums as texts, `@New` for a class with several constructors,
 - `getProp` for a value of a type with no class, and bytes written to a file.
 
 ## Exercises

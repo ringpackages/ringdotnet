@@ -297,7 +297,7 @@ Class ColorMatrix from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',P1)
@@ -719,7 +719,7 @@ Class EncoderParameter from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -739,7 +739,7 @@ Class EncoderParameter from Object
 
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -797,7 +797,7 @@ Class EncoderParameters from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',P1)
@@ -1280,7 +1280,7 @@ Class ImageFormat from Object
 		ok
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1407,7 +1407,7 @@ Class MetaHeader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -1492,7 +1492,7 @@ Class Metafile from Image
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.Metafile, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1590,7 +1590,7 @@ Class MetafileHeader from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -1689,7 +1689,7 @@ Class PropertyItem from Object
 		ok
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1

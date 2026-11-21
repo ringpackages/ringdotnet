@@ -159,7 +159,7 @@ Class BufferedReadStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -239,7 +239,7 @@ Class FileBufferingReadStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -307,7 +307,7 @@ Class FileBufferingWriteStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',P1)
@@ -362,7 +362,7 @@ Class FileMultipartSection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -427,7 +427,7 @@ Class FormMultipartSection from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -488,7 +488,7 @@ Class FormPipeReader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -565,7 +565,7 @@ Class FormReader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -679,7 +679,7 @@ Class HttpRequestStreamReader from TextReader
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -708,7 +708,7 @@ Class HttpResponseStreamWriter from TextWriter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -800,7 +800,7 @@ Class MultipartReader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1052,7 +1052,7 @@ Class QueryStringEnumerable from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',P1)

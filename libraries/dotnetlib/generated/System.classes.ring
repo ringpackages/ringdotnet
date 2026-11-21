@@ -1298,7 +1298,7 @@ Class Type from MemberInfo
 	Func GetTypeFromHandle P1
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s17:GetTypeFromHandle",P1))
 
-	Func GetTypeHandle_ P1
+	Func @GetTypeHandle P1
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s13:GetTypeHandle",P1))
 
 	Func GetTypeArray P1
@@ -2105,7 +2105,7 @@ Class Array from Object
 		ok
 		return self
 
-	Func GetLength_ P1
+	Func @GetLength P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetLength",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2138,7 +2138,7 @@ Class Array from Object
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
-	Func GetLongLength_ P1
+	Func @GetLongLength P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetLongLength",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2249,7 +2249,7 @@ Class Array from Object
 		ok
 		raise("DotNet Error: FindLastIndex does not take one argument: use named arguments, FindLastIndex([ :parameter = value, ... ])")
 
-	Func ForEach_ P1,P2
+	Func @ForEach P1,P2
 		dotnet_callv("s4:call",'System.Array, System.Private.CoreLib',"s7:ForEach",P1,P2)
 
 		return self
@@ -3310,7 +3310,7 @@ Class Environment from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Exit_ P1
+	Func @Exit P1
 		dotnet_callv("s4:call",'System.Environment, System.Private.CoreLib',"s4:Exit",P1)
 
 		return self
@@ -4733,7 +4733,7 @@ Class Random from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Random, System.Private.CoreLib',P1)
@@ -4749,7 +4749,7 @@ Class Random from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Next_ P1
+	Func @Next P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Next",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4828,7 +4828,7 @@ Class String from Object
 		ok
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.String, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5749,7 +5749,7 @@ Class Uri from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Uri, System.Private.Uri',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6195,7 +6195,7 @@ Class UriBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UriBuilder, System.Private.Uri',P1)
@@ -6370,7 +6370,7 @@ Class Version from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Version, System.Private.CoreLib',P1)
@@ -6481,7 +6481,7 @@ Class WeakReference from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.WeakReference, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6609,7 +6609,7 @@ Class AppDomain from MarshalByRefObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Load",P1))
 		ok
@@ -7499,7 +7499,7 @@ Class ConsoleKeyInfo from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ConsoleKeyInfo, System.Console',P1)
@@ -7585,7 +7585,7 @@ Class DateOnly from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateOnly, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7771,7 +7771,7 @@ Class DateTime from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateTime, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -8163,7 +8163,7 @@ Class DateTimeOffset from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateTimeOffset, System.Private.CoreLib',P1)
@@ -8515,7 +8515,7 @@ Class Decimal from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Decimal, System.Private.CoreLib',P1)
@@ -9844,7 +9844,7 @@ Class Guid from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Guid, System.Private.CoreLib',P1)
@@ -10480,7 +10480,7 @@ Class Index from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Index, System.Private.CoreLib',P1)
@@ -10559,7 +10559,7 @@ Class Int128 from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Int128, System.Private.CoreLib',P1)
@@ -11316,7 +11316,7 @@ Class IntPtr from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IntPtr, System.Private.CoreLib',P1)
@@ -11672,7 +11672,7 @@ Class Range from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Range, System.Private.CoreLib',P1)
@@ -11729,7 +11729,7 @@ Class ResolveEventArgs from EventArgs
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ResolveEventArgs, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -12684,7 +12684,7 @@ Class TimeOnly from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.TimeOnly, System.Private.CoreLib',P1)
@@ -12909,7 +12909,7 @@ Class TimeSpan from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.TimeSpan, System.Private.CoreLib',P1)
@@ -13382,7 +13382,7 @@ Class UInt128 from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UInt128, System.Private.CoreLib',P1)
@@ -14021,7 +14021,7 @@ Class UIntPtr from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UIntPtr, System.Private.CoreLib',P1)

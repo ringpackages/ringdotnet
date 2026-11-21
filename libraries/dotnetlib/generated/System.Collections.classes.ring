@@ -170,7 +170,7 @@ Class ArrayList from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.ArrayList, System.Private.CoreLib',P1)
@@ -424,7 +424,7 @@ Class BitArray from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.BitArray, System.Collections',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -439,7 +439,7 @@ Class BitArray from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Get_ P1
+	Func @Get P1
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -454,16 +454,16 @@ Class BitArray from Object
 
 		return self
 
-	Func And_ P1
+	Func @And P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:And",P1))
 
-	Func Or_ P1
+	Func @Or P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s2:Or",P1))
 
 	Func Xor P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Xor",P1))
 
-	Func Not_ 
+	Func @Not 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not"))
 
 	Func RightShift P1
@@ -570,7 +570,7 @@ Class CaseInsensitiveComparer from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',P1)
@@ -766,7 +766,7 @@ Class DictionaryEntry from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.DictionaryEntry, System.Private.CoreLib',P1)
@@ -828,7 +828,7 @@ Class Hashtable from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Hashtable, System.Private.CoreLib',P1)
@@ -1541,7 +1541,7 @@ Class Queue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Queue, System.Collections.NonGeneric',P1)
@@ -1687,7 +1687,7 @@ Class SortedList from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.SortedList, System.Collections.NonGeneric',P1)
@@ -1880,7 +1880,7 @@ Class Stack from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Stack, System.Collections.NonGeneric',P1)

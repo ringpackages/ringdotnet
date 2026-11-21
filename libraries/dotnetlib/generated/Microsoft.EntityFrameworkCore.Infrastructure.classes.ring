@@ -592,7 +592,7 @@ Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',P1)
@@ -1276,7 +1276,7 @@ Class DbSetProperty from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',P1)
@@ -1292,7 +1292,7 @@ Class DbSetProperty from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
@@ -1843,7 +1843,7 @@ Class ILazyLoader from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
@@ -2153,7 +2153,7 @@ Class LazyLoaderExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions',"s4:Load",P1)
 		if islist(dn_x) return dnAny(dn_x) ok
@@ -2197,7 +2197,7 @@ Class ModelCacheKey from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3075,7 +3075,7 @@ Class ServiceCharacteristics from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',P1)
@@ -3244,7 +3244,7 @@ Class SpatialiteLoader from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Load_ P1
+	Func @Load P1
 		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader, Microsoft.EntityFrameworkCore.Sqlite',"s4:Load",P1)
 
 		return self

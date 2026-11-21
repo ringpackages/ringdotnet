@@ -438,7 +438,7 @@ Class ActionContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
@@ -1224,7 +1224,7 @@ Class DefaultApiConventions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1
+	Func @Get P1
 		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s3:Get",P1)
 
 		return self
@@ -1244,7 +1244,7 @@ Class DefaultApiConventions from Object
 
 		return self
 
-	Func Put_ P1,P2
+	Func @Put P1,P2
 		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core',"s3:Put",P1,P2)
 
 		return self
@@ -1826,7 +1826,7 @@ Class ProblemDetails from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func GetType_ 
+	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
@@ -1905,7 +1905,7 @@ Class SerializableError from ObjectDictionary
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -2005,7 +2005,7 @@ Class ValidationProblemDetails from HttpValidationProblemDetails
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -2169,7 +2169,7 @@ Class ChallengeResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -2356,7 +2356,7 @@ Class ControllerContext from ActionContext
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -2482,7 +2482,7 @@ Class ForbidResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -2531,7 +2531,7 @@ Class JsonResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2595,7 +2595,7 @@ Class LocalRedirectResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2804,7 +2804,7 @@ Class RedirectResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2875,7 +2875,7 @@ Class RedirectToActionResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2973,7 +2973,7 @@ Class RedirectToPageResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3086,7 +3086,7 @@ Class RedirectToRouteResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3169,7 +3169,7 @@ Class SignInResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3231,7 +3231,7 @@ Class SignOutResult from ActionResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -3524,7 +3524,7 @@ Class AcceptedAtRouteResult from ObjectResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3585,7 +3585,7 @@ Class AcceptedResult from ObjectResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
@@ -3749,7 +3749,7 @@ Class CreatedAtRouteResult from ObjectResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3810,7 +3810,7 @@ Class CreatedResult from ObjectResult
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)

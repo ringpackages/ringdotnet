@@ -5,10 +5,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 
-# Ring keywords are not used as method names: a method that has such a name gets "_" at the end
+# Ring keywords are not used as method names: a method that has such a name gets "@" at the start (@New, @Load), as C# writes @class
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
 # The words that Ring accepts after a dot, as the name of an attribute or a method (o.From = x, o.Set(1)): they keep their names.
-# The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "_", attributes are left out.
+# The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "@", attributes are left out.
 aMemberOk = split("from to set step in on off other done ok"," ")
 aMemberKeywords = []
 for cWord in aKeywords
@@ -226,7 +226,7 @@ func split cText, cSep
 
 func ringName cName
 	if find(aMemberKeywords,lower(cName)) > 0
-		return cName + "_"
+		return "@" + cName
 	ok
 	return cName
 
@@ -420,7 +420,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 	next
 	if aInfo[8]
-		nInit = 0	# structs: init() makes the default value, the other constructors are New_N
+		nInit = 0	# structs: init() makes the default value, the other constructors are @New
 	ok
 	if nForceInit >= 0
 		nInit = nForceInit
@@ -471,7 +471,7 @@ func buildPlan cTypeName, nForceInit
 		cCode += "	ok" + nl + nl
 	ok
 
-	# Constructors: init uses the overload with fewer parameters, New_N the others
+	# Constructors: init uses the overload with fewer parameters, @New the others
 	cCode += "	Func init " + paraList(maxz(nInit)) + nl
 	cCode += "		if nDotNetWrapHandle != 0" + nl
 	cCode += "			nHandle = nDotNetWrapHandle" + nl
@@ -504,9 +504,9 @@ func buildPlan cTypeName, nForceInit
 		cCode += "		oDotNetGuard = dotnet_guard(nHandle)" + nl
 	ok
 	cCode += "		return self" + nl + nl
-	# The other constructors: ONE method New_ that takes one parameter, like the methods with overloads:
-	# New_(NULL) calls the parameterless constructor, New_([ :param = value ]) chooses the constructor by the parameter names,
-	# New_(value) calls the constructor with one parameter. Example: new WpfBinding().New_([ :path = "Value" ])  (New is a Ring keyword, so the method is New_)
+	# The other constructors: ONE method @New that takes one parameter, like the methods with overloads:
+	# @New(NULL) calls the parameterless constructor, @New([ :param = value ]) chooses the constructor by the parameter names,
+	# @New(value) calls the constructor with one parameter. Example: new WpfBinding().@New([ :path = "Value" ])  (New is a Ring keyword, so the method is @New)
 	lOtherCtor = false
 	for aCtor in aCtors
 		if len(aCtor) != nInit
@@ -514,7 +514,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 	next
 	if lOtherCtor
-		cCode += "	Func New_ P1" + nl
+		cCode += "	Func @New P1" + nl
 		if lDefaultRegion
 			cCode += "		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group" + nl
 		ok
@@ -556,7 +556,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[2] aAccessors + lower("get" + aMember[1]) ok
 		if aMember[3] aAccessors + lower("set" + aMember[1]) ok
 	next
-	aNames = ["init","new_"]	# New_ is the method of the constructors with parameters (a .NET method called New is not wrapped: use callMethod)
+	aNames = ["init","@new"]	# @New is the method of the constructors with parameters (a .NET method called New is not wrapped: use callMethod)
 	aSeen = []	# "static|name|arity"
 	# The preferred arity of each name: the shortest overload that has parameters (and no array/delegate/comparer parameters), or 0 when
 	# the type has a parameterless form. A name with two or more arities becomes ONE dispatcher method (below): Name(NULL), Name(value),
@@ -613,9 +613,9 @@ func buildPlan cTypeName, nForceInit
 			cDispatch = "Format"
 		ok
 		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length,
-		# GetType(name) vs Type) gets an underscore at the end instead
+		# GetType(name) vs Type) gets "@" at the start instead
 		if find(aAccessors,lower(cDispatch)) > 0
-			cDispatch = cName + "_"
+			cDispatch = "@" + cName
 		ok
 		if find(["tolist","release","isnull","typename","getprop","setprop","callmethod"],cLower) = 0
 			aFamilyAll = familyInfo(aMethods,cLower)
@@ -659,7 +659,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length) is renamed
 		if find(aAccessors,lower(cRing)) > 0
-			cRing = cName + "_"
+			cRing = "@" + cName
 		ok
 		if find(aNames,lower(cRing)) > 0
 			loop

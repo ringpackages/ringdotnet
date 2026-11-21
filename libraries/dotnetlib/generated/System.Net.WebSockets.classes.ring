@@ -206,7 +206,7 @@ Class ValueWebSocketReceiveResult from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',P1)
@@ -623,7 +623,7 @@ Class WebSocketReceiveResult from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

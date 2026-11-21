@@ -104,7 +104,7 @@ dnAssert("corner is white",wpfPixel(oCanvas,100,100,2,2),"ffffffff")
 oSource = new Slider()
 oSource.Maximum = 100
 oTarget = new WpfTextBox()
-oBinding = new WpfBinding().New_([ :path = "Value" ])
+oBinding = new WpfBinding().@New([ :path = "Value" ])
 oBinding.Source = oSource
 oTarget.SetBinding(oTarget.TextProperty,oBinding)
 oSource.Value = 42
@@ -134,7 +134,7 @@ func selfTest
 	dnAssert("button was laid out",oButton.ActualWidth > 10,1)
 	dnAssert("row and column of an attached property",oGrid.GetRow(oText) * 10 + oGrid.GetColumn(oText),11)
 	# click: raise the Click routed event
-	oArgs = new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ])
+	oArgs = new RoutedEventArgs().@New([ :routedEvent = new WpfButtonBase().ClickEvent ])
 	oButton.RaiseEvent(oArgs)
 	oButton.RaiseEvent(oArgs)
 	dnAssert("Click event",nClicks,2)

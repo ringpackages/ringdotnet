@@ -1386,7 +1386,7 @@ Class CharacterRange from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.CharacterRange, System.Drawing.Common',P1)
@@ -2631,7 +2631,7 @@ Class Font from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Font, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2651,7 +2651,7 @@ Class Font from MarshalByRefObject
 
 		return self
 
-	Func GetHeight_ P1
+	Func @GetHeight P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetHeight",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2860,7 +2860,7 @@ Class FontFamily from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.FontFamily, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2880,7 +2880,7 @@ Class FontFamily from MarshalByRefObject
 
 		return self
 
-	Func GetName_ P1
+	Func @GetName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2910,7 +2910,7 @@ Class FontFamily from MarshalByRefObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetFamilies_ P1
+	Func @GetFamilies P1
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.FontFamily, System.Drawing.Common',"s11:GetFamilies",P1))
 
 	Func getName
@@ -3018,7 +3018,7 @@ Class Graphics from MarshalByRefObject
 
 		return self
 
-	Func SetClip_ P1
+	Func @SetClip P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s7:SetClip",P1)
 			return self
@@ -3550,7 +3550,7 @@ Class Icon from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Icon, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3986,7 +3986,7 @@ Class Pen from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Pen, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5199,7 +5199,7 @@ Class Point from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Point, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5289,7 +5289,7 @@ Class PointF from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.PointF, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5372,7 +5372,7 @@ Class Rectangle from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Rectangle, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5579,7 +5579,7 @@ Class RectangleF from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.RectangleF, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5774,7 +5774,7 @@ Class Region from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Region, System.Drawing.Common',P1)
@@ -5912,7 +5912,7 @@ Class Size from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Size, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -5993,7 +5993,7 @@ Class SizeF from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.SizeF, System.Drawing.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -6086,7 +6086,7 @@ Class StringFormat from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.StringFormat, System.Drawing.Common',P1)
@@ -7137,7 +7137,7 @@ Class Bitmap from Image
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Bitmap, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -7276,7 +7276,7 @@ Class TextureBrush from Brush
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.TextureBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

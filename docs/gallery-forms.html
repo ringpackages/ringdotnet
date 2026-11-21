@@ -767,7 +767,7 @@ oPanel = <span class="f">uiPanel</span>(oForm,<span class="n">15</span>,<span cl
 oPanel.BackColor = <span class="f">uiColor</span>(<span class="s">"Lavender"</span>)
 oMenu = <span class="k">new</span> <span class="t">ContextMenuStrip</span>()
 <span class="k">for</span> cColor <span class="k">in</span> [<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>]
-	oItem = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_</span>([ :text = cColor ])
+	oItem = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = cColor ])
 	oItem.<span class="f">setClickEvent</span>(<span class="s">"oPanel.BackColor = uiColor('"</span> + cColor + <span class="s">"')"</span>)
 	oMenu.Items.<span class="f">Add</span>(oItem)
 <span class="k">next</span>

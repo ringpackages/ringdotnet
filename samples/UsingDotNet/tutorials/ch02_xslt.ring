@@ -51,7 +51,7 @@ func transform cFolder, cInput, cStylesheet, cOutputName
 	cOutput = new Path().Combine([cFolder,cOutputName])
 	new File().WriteAllText([ :path = cSheet, :contents = cStylesheet ])
 	oTransform = new XslCompiledTransform()
-	oTransform.Load_(cSheet)
+	oTransform.@Load(cSheet)
 	oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])
 	return new File().ReadAllText(cOutput)
 

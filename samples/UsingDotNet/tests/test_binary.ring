@@ -56,14 +56,14 @@ dnAssert("the bytes of 1000",oConverter.GetBytes(1000),char(232) + char(3) + cha
 # ---- a byte buffer that .NET fills (dnBuffer): Stream.Read writes into an array that Ring can read back
 oBuffer = dnBuffer(300)
 dnAssert("a buffer has the size that was asked",dnBufferSize(oBuffer),300)
-oStream = new MemoryStream().New_([ :buffer = cEvery ])
+oStream = new MemoryStream().@New([ :buffer = cEvery ])
 nRead = oStream.Read(oBuffer,0,300)
 dnAssert("Read gives the number of bytes",nRead,256)
 dnAssert("the buffer has the bytes",dnBufferBytes(oBuffer,nRead),cEvery)
 dnAssert("and all of them",len(dnBufferBytes(oBuffer,nRead)),256)
 
 # reading in parts, with an offset
-oStream = new MemoryStream().New_([ :buffer = cOdd ])
+oStream = new MemoryStream().@New([ :buffer = cOdd ])
 oPart = dnBuffer(16)
 dnAssert("the first 3 bytes",oStream.Read(oPart,0,3),3)
 dnAssert("they are there",dnBufferBytes(oPart,3),"a" + char(0) + "b")
@@ -89,7 +89,7 @@ dnAssert("FileStream.Read gives the bytes",dnBufferBytes(oBig,nFile),cEvery)
 using { "System.Net" "System.Net.Sockets" }
 oListener = new TcpListener(new IPAddress().Loopback,0)
 oListener.Start(NULL)
-oClient = new TcpClient().New_([ :hostname = "127.0.0.1", :port = oListener.LocalEndpoint.Port ])
+oClient = new TcpClient().@New([ :hostname = "127.0.0.1", :port = oListener.LocalEndpoint.Port ])
 oServerSide = oListener.AcceptTcpClient()
 oClient.GetStream().Write(cOdd,0,len(cOdd))
 oReceive = dnBuffer(64)

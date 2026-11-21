@@ -87,7 +87,7 @@ new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
 
-A Ring method has one parameter list, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `Next_([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `New_([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
+A Ring method has one parameter list, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `@Next([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `@New([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
 
 Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 
@@ -239,7 +239,7 @@ Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`,
 
 ```ring
 nTotal = 0
-oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))           # ForEach is a Ring keyword, so ForEach_
+oList.@ForEach(dnCallback("nTotal += len(aDotNetArgs[1])"))           # ForEach is a Ring keyword, so @ForEach
 oList.Sort(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
 oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 ```
@@ -247,7 +247,7 @@ oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 If the text is just a function name, that function is called with the argument list as its only parameter and its return value is the result (define the function after the main code):
 
 ```ring
-oList.ForEach_(dnCallback("show"))
+oList.@ForEach(dnCallback("show"))
 func show aArgs
 	? aArgs[1]
 ```

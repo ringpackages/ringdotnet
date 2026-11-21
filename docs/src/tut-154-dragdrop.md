@@ -42,7 +42,7 @@ A file dropped from the explorer arrives in the format **FileDrop**, and its dat
 
 ### Testing without a mouse
 
-A test cannot drag with a mouse, so it makes the arguments that .NET would make: `new DataObject().New_([ :format = "Text", :data = "banana" ])` is the data, and `new DragEventArgs(data, keys, x, y, allowed, effect)` is the event argument. The test calls `dragEnter` and `dragDrop` with them and reads `Effect` and the lists. The functions are the same that the events call. Only `beginDrag`, which starts a real drag, is not called by the test.
+A test cannot drag with a mouse, so it makes the arguments that .NET would make: `new DataObject().@New([ :format = "Text", :data = "banana" ])` is the data, and `new DragEventArgs(data, keys, x, y, allowed, effect)` is the event argument. The test calls `dragEnter` and `dragDrop` with them and reads `Effect` and the lists. The functions are the same that the events call. Only `beginDrag`, which starts a real drag, is not called by the test.
 
 The checks of this program are in a separate file, `selftest/ch10_dragdrop.ring`:
 

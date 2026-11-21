@@ -61,7 +61,7 @@ func main
 	if not isWindows()
 		cEcho = "echo $GREETING"
 	ok
-	oInfo = new ProcessStartInfo().New_([ :fileName = cShell, :arguments = shellArgs(cEcho) ])
+	oInfo = new ProcessStartInfo().@New([ :fileName = cShell, :arguments = shellArgs(cEcho) ])
 	oInfo {
 		UseShellExecute = False
 		RedirectStandardOutput = True
@@ -97,7 +97,7 @@ func shellArgs cCommand
 
 # start a program; lRedirect = True gives the program's three streams to this program (input, output, error)
 func startProgram cFile, cArguments, lRedirect
-	oInfo = new ProcessStartInfo().New_([ :fileName = cFile, :arguments = cArguments ])
+	oInfo = new ProcessStartInfo().@New([ :fileName = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = False
 	oInfo.CreateNoWindow = True
 	if lRedirect

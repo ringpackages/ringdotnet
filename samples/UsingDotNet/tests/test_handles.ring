@@ -19,7 +19,7 @@ func main
 	nAfter = settle()
 	dnAssert("objects that came back from a method release their handles",nAfter - nBefore < 40,1)
 
-	oObject = new Complex().New_([ :real = 3, :imaginary = 4 ])
+	oObject = new Complex().@New([ :real = 3, :imaginary = 4 ])
 	dnAssert("a constructor chosen by names works",oObject.Magnitude,5)
 	oObject = NULL
 	dnTestSummary()

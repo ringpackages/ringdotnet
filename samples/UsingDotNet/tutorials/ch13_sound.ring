@@ -46,8 +46,8 @@ func main
 
 	# STEP 4. The bytes go to a MemoryStream, and the stream to a SoundPlayer
 	oStream = dnNew("System.IO.MemoryStream",[ :buffer = cWav ])          # the constructor is chosen by the name of its parameter
-	oPlayer = new SoundPlayer().New_([ :stream = oStream ])
-	oPlayer.Load_()
+	oPlayer = new SoundPlayer().@New([ :stream = oStream ])
+	oPlayer.@Load()
 	? "the sound is loaded: " + oPlayer.IsLoadCompleted
 
 	if find(sysargv,"--play") > 0

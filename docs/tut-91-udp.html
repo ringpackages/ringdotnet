@@ -265,7 +265,7 @@ using {
 
 	<span class="c"># 1. UDP sends separate messages (datagrams) without a connection: no Accept, no stream. A socket that listens binds to a port</span>
 	<span class="c">#    (0 = the system chooses a free one); LocalEndPoint tells which.</span>
-	oServer = <span class="k">new</span> <span class="t">UdpClient</span>().<span class="f">New_</span>([ :port = <span class="n">0</span> ])
+	oServer = <span class="k">new</span> <span class="t">UdpClient</span>().@<span class="k">New</span>([ :<span class="t">port</span> = <span class="n">0</span> ])
 	nPort = oServer.Client.LocalEndPoint.Port
 	? <span class="s">"1. the server socket is bound to a port: "</span> + (nPort &gt; <span class="n">0</span>)
 

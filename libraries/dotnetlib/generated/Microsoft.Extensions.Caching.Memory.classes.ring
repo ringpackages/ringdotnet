@@ -125,7 +125,7 @@ Class CacheExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Get_ P1,P2
+	Func @Get P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s3:Get",P1,P2))
 
 	Func TryGetValue P1,P2
@@ -176,25 +176,25 @@ Class ICacheEntry from DotNetObject
 
 		return self
 
-	Func SetPriority_ P1
+	Func @SetPriority P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
 
 	Func AddExpirationToken P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
 
-	Func SetAbsoluteExpiration_ P1
+	Func @SetAbsoluteExpiration P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
 
-	Func SetSlidingExpiration_ P1
+	Func @SetSlidingExpiration P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
 
 	Func RegisterPostEvictionCallback P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RegisterPostEvictionCallback",P1))
 
-	Func SetValue_ P1
+	Func @SetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetValue",P1))
 
-	Func SetSize_ P1
+	Func @SetSize P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
 
 	Func SetOptions P1
@@ -291,7 +291,7 @@ Class IMemoryCache from DotNetObject
 
 		return self
 
-	Func Get_ P1
+	Func @Get P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Set P1,P2
@@ -320,7 +320,7 @@ Class MemoryCache from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -455,19 +455,19 @@ Class MemoryCacheEntryOptions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SetPriority_ P1
+	Func @SetPriority P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
 
-	Func SetSize_ P1
+	Func @SetSize P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
 
 	Func AddExpirationToken P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
 
-	Func SetAbsoluteExpiration_ P1
+	Func @SetAbsoluteExpiration P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
 
-	Func SetSlidingExpiration_ P1
+	Func @SetSlidingExpiration P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
 
 	Func RegisterPostEvictionCallback P1

@@ -38,7 +38,7 @@ The window is described in XAML (the tutorial [WPF](tut-15-wpf.html)): a `Canvas
 oMove = new DoubleAnimation()
 oMove.SetProp("From",10)
 oMove.SetProp("To",340)
-oMove.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(2) ])
+oMove.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(2) ])
 oMove.AutoReverse = True
 oMove.RepeatBehavior = new RepeatBehavior().Forever
 oBall.BeginAnimation(new Canvas().LeftProperty,oMove)

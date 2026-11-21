@@ -41,7 +41,7 @@ func main
 func fillList
 	oList.Items.Clear()
 	for aTask in aTasks
-		oItem = new ListViewItem().New_([ :text = aTask[1] ])
+		oItem = new ListViewItem().@New([ :text = aTask[1] ])
 		oItem.SubItems.Add("" + aTask[2])
 		oItem.SubItems.Add(aTask[3])
 		oList.Items.Add(oItem)

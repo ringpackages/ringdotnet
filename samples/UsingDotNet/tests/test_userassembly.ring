@@ -22,7 +22,7 @@ dnAssert("fluent calls return the class",oCalc.Total,30)
 dnAssert("property read/write",oCalc.Name,"calc")
 oCalc.Name = "mine"
 dnAssert("property write",oCalc.Name,"mine")
-dnAssert("constructor with parameters",new Calculator().New_([ :start = 5 ]).Total,5)
+dnAssert("constructor with parameters",new Calculator().@New([ :start = 5 ]).Total,5)
 dnAssert("static method",new Calculator().Square(7),49)
 dnAssert("enum as string and optional parameter",oCalc.Describe([ :level = "High", :prefix = "Sum" ]),"Sum=30 (High)")
 aDivide = oCalc.TryDivide(4)

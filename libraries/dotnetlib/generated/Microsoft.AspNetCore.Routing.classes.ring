@@ -609,7 +609,7 @@ Class HttpMethodMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1772,7 +1772,7 @@ Class RouteBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1992,7 +1992,7 @@ Class RouteData from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',P1)
@@ -2384,7 +2384,7 @@ Class RouteValueDictionary from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',P1)
@@ -2728,7 +2728,7 @@ Class VirtualPathContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2793,7 +2793,7 @@ Class VirtualPathData from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2892,7 +2892,7 @@ Class Route from RouteBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

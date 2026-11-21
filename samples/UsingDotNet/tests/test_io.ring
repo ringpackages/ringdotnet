@@ -71,7 +71,7 @@ oGz.Write("hello hello hello hello",0,23)
 oGz.Close()
 cPacked = oPacked.ToArray()
 dnAssert("GZip compressed",len(cPacked) > 10,1)
-oGz2 = new GZipStream(new MemoryStream().New_([ :buffer = cPacked ]),"Decompress")
+oGz2 = new GZipStream(new MemoryStream().@New([ :buffer = cPacked ]),"Decompress")
 dnAssert("GZip decompress",new StreamReader(oGz2).ReadToEnd(),"hello hello hello hello")
 
 # Zip archives

@@ -548,7 +548,7 @@ Class XmlImplementation from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
@@ -589,7 +589,7 @@ Class XmlNameTable from Object
 		ok
 		return self
 
-	Func Get_ P1
+	Func @Get P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Get",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1136,7 +1136,7 @@ Class XmlParserContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlParserContext, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1264,7 +1264,7 @@ Class XmlQualifiedName from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
@@ -2863,7 +2863,7 @@ Class XmlDocument from XmlNode
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
@@ -2942,7 +2942,7 @@ Class XmlDocument from XmlNode
 	Func ReadNode P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadNode",P1))
 
-	Func Load_ P1
+	Func @Load P1
 		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
 
 		return self
@@ -3192,7 +3192,7 @@ Class XmlTextReader from XmlReader
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextReader, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -3333,7 +3333,7 @@ Class XmlTextWriter from XmlWriter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextWriter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

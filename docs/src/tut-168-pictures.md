@@ -34,7 +34,7 @@ They are the steps of the lessons [A NuGet package](tut-162-nuget.html), [A QR c
 
 ### Bitmap, canvas, paint
 
-- An `SKBitmap` is the picture: a grid of pixels. `New_([ :width = 200, :height = 100 ])` makes an empty one (a constructor chosen by the names of its parameters).
+- An `SKBitmap` is the picture: a grid of pixels. `@New([ :width = 200, :height = 100 ])` makes an empty one (a constructor chosen by the names of its parameters).
 - An `SKCanvas` is what draws on a bitmap: `new SKCanvas(oBitmap)`. Its methods are `Clear`, `DrawCircle`, `DrawRect`, `DrawText` and more, and each of the ones with several versions takes a list of the names of its parameters.
 - An `SKPaint` says **how** to draw: its `Color`, `IsAntialias` (smooth edges), `TextSize`. The same paint can draw many things, and it can be changed between them: the program draws the circle in yellow and the text in white with one paint.
 

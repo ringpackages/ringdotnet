@@ -578,7 +578,7 @@ Class DbContextId from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',P1)
@@ -687,7 +687,7 @@ Class DbContextOptionsBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, Microsoft.EntityFrameworkCore',P1)
@@ -1152,7 +1152,7 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore',"s15:TagWithCallSite",P1))
 
-	Func Load_ P1
+	Func @Load P1
 		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore',"s4:Load",P1)
 
 		return self
@@ -1268,7 +1268,7 @@ Class ModelBuilder from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',P1)

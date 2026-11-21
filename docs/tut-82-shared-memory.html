@@ -302,7 +302,7 @@ C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
 	? <span class="s">"2. the parent wrote a text at position 100"</span>
 
 	<span class="c"># 4. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.</span>
-	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child'</span> ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child'</span> ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
 		CreateNoWindow = <span class="k">True</span>

@@ -43,7 +43,7 @@ func main
 	wpfFind(oWindow,"greet").setClickEvent("oGreet.Text = 'Hello, ' + oNameBox.Text + '!'")
 
 	# 4. Data binding: the text follows the slider, with no code at all
-	oBinding = new WpfBinding().New_([ :path = "Value" ])
+	oBinding = new WpfBinding().@New([ :path = "Value" ])
 	oBinding.Source = oSlider
 	oValue.SetBinding(oValue.TextProperty,oBinding)
 

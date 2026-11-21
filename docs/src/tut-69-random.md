@@ -22,15 +22,15 @@ lead: Dice, cards, loot tables and unique ids all need random numbers — but no
 
 ### Random numbers are calculated
 
-`Random` does not roll dice: it follows a formula that gives numbers that *look* random. The starting value is the **seed**. The same seed gives the same numbers (step 1), which is exactly what you want for a test or a replay: a game level that is the same for the same seed, a simulation you can repeat. Without a seed, `new Random(NULL)` starts from the clock. `Next_(100)` gives 0…99 (`Next` is a Ring keyword, so the method is called `Next_`).
+`Random` does not roll dice: it follows a formula that gives numbers that *look* random. The starting value is the **seed**. The same seed gives the same numbers (step 1), which is exactly what you want for a test or a replay: a game level that is the same for the same seed, a simulation you can repeat. Without a seed, `new Random(NULL)` starts from the clock. `@Next(100)` gives 0…99 (`Next` is a Ring keyword, so the method is called `@Next`).
 
 ### Dice
 
-`Next_(6) + 1` is 1…6. With 6,000 throws every side comes up about 1,000 times; the test in the program accepts 900–1100. *About* is the important word: with a random generator you test that the result is **in a range**, not that it is a fixed number — unless you fix the seed.
+`@Next(6) + 1` is 1…6. With 6,000 throws every side comes up about 1,000 times; the test in the program accepts 900–1100. *About* is the important word: with a random generator you test that the result is **in a range**, not that it is a fixed number — unless you fix the seed.
 
 ### Shuffling
 
-A wrong shuffle is a classic bug. **Fisher–Yates** is right: go from the last card to the second; swap the card with a random card from the first position up to *itself*. Every order is equally likely. Swapping each card with *any* random card (`Next_(10)` every time) looks similar but gives some orders more often than others.
+A wrong shuffle is a classic bug. **Fisher–Yates** is right: go from the last card to the second; swap the card with a random card from the first position up to *itself*. Every order is equally likely. Swapping each card with *any* random card (`@Next(10)` every time) looks similar but gives some orders more often than others.
 
 ### Weighted choice
 

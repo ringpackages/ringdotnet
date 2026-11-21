@@ -245,7 +245,7 @@ Class TarReader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarReader, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -307,7 +307,7 @@ Class TarWriter from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarWriter, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -423,7 +423,7 @@ Class V7TarEntry from TarEntry
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.V7TarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -455,7 +455,7 @@ Class GnuTarEntry from PosixTarEntry
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -522,7 +522,7 @@ Class PaxTarEntry from PosixTarEntry
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -557,7 +557,7 @@ Class UstarTarEntry from PosixTarEntry
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

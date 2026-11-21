@@ -188,7 +188,7 @@ Class BinaryReader from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BinaryReader, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -346,7 +346,7 @@ Class BinaryWriter from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BinaryWriter, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -1387,7 +1387,7 @@ Class FileSystemWatcher from Component
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',P1)
@@ -1630,7 +1630,7 @@ Class Path from Object
 	Func GetInvalidFileNameChars 
 		return dnObj(dotnet_callo("s4:call",'System.IO.Path, System.Private.CoreLib',"s23:GetInvalidFileNameChars"))
 
-	Func GetInvalidPathChars_ 
+	Func @GetInvalidPathChars 
 		return dnObj(dotnet_callo("s4:call",'System.IO.Path, System.Private.CoreLib',"s19:GetInvalidPathChars"))
 
 	Func GetFullPath P1
@@ -2191,7 +2191,7 @@ Class UnmanagedMemoryAccessor from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2398,7 +2398,7 @@ Class BufferedStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BufferedStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2661,7 +2661,7 @@ Class FileStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.FileStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2751,7 +2751,7 @@ Class MemoryStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.MemoryStream, System.Private.CoreLib',P1)
@@ -2841,7 +2841,7 @@ Class StreamReader from TextReader
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StreamReader, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2901,7 +2901,7 @@ Class StreamWriter from TextWriter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StreamWriter, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -2969,7 +2969,7 @@ Class StringWriter from TextWriter
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StringWriter, System.Private.CoreLib',P1)
@@ -3005,7 +3005,7 @@ Class UnmanagedMemoryStream from Stream
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)

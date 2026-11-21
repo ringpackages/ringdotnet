@@ -223,7 +223,7 @@ Class ArrayWithOffset from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',P1)
@@ -299,7 +299,7 @@ Class CLong from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CLong, System.Private.CoreLib',P1)
@@ -344,7 +344,7 @@ Class CULong from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CULong, System.Private.CoreLib',P1)
@@ -682,7 +682,7 @@ Class HandleCollector from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
@@ -768,7 +768,7 @@ Class HandleRef from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',P1)
@@ -1500,7 +1500,7 @@ Class NFloat from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func New_ P1
+	Func @New P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
 		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',P1)
@@ -1934,7 +1934,7 @@ Class NativeLibrary from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Load_ P1
+	Func @Load P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Load",P1))
 		ok

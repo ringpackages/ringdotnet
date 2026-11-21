@@ -136,7 +136,7 @@ func hashPassword cPassword, cSalt
 
 # send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]
 func visit cMethod, cPath, cForm, cCookie
-	oMessage = new HttpRequestMessage().New_([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cForm != ""
 		oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
 		oMessage.Content = oContent
