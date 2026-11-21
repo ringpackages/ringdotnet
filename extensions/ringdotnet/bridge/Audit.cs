@@ -205,13 +205,16 @@ namespace RingDotNet
 					if (indexParameters == 0) tally.Add("INFO property: public properties", where);
 					else if (indexParameters == 1) tally.Add("OK   property: indexer with one index (Item, SetItem)", where);
 					else tally.Add("GAP  property: indexer with several indexes", where);
-					if (IsRefLike(p.PropertyType) || IsPointer(p.PropertyType)) tally.Add("GAP  property: pointer or ref struct type", where);
-					if (p.PropertyType.IsByRef) tally.Add("GAP  property: ref property", where);
+					Type valueType = p.PropertyType.IsByRef ? p.PropertyType.GetElementType() : p.PropertyType;
+					if (IsRefLike(valueType) && !Bridge.IsSpan(valueType, out _, out _) && Bridge.ResultPlanOf(valueType) == null) tally.Add("GAP  property: ref struct type that cannot be read", where);
+					else if (IsRefLike(valueType) || IsPointer(valueType)) tally.Add("OK   property: Span, ref struct or pointer type (read like the result of a method)", where);
+					if (p.PropertyType.IsByRef) tally.Add("OK   property: ref property (its value)", where);
 				}
 				foreach (FieldInfo f in t.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly))
 				{
 					tally.Add("INFO field: public fields", Short(t, f.Name));
-					if (IsRefLike(f.FieldType) || IsPointer(f.FieldType)) tally.Add("GAP  field: pointer or ref struct type", Short(t, f.Name));
+					if (IsRefLike(f.FieldType)) tally.Add("GAP  field: ref struct type", Short(t, f.Name));
+					else if (IsPointer(f.FieldType)) tally.Add("OK   field: pointer type (an address)", Short(t, f.Name));
 				}
 				foreach (EventInfo ev in t.GetEvents(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly))
 				{

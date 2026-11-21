@@ -367,6 +367,17 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">string</span> <span class="t">Render</span>() { <span class="k">return</span> <span class="s">"["</span> + name.<span class="f">ToString</span>() + <span class="s">"]"</span>; }
 	}
 
+	<span class="c">// properties of a Span, a ref struct and a ref type: read like the results of methods</span>
+	<span class="k">public</span> <span class="k">class</span> Holder
+	{
+		<span class="k">private</span> <span class="k">readonly</span> byte[] data = { <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span> };
+		<span class="k">private</span> <span class="k">int</span> slot = <span class="n">7</span>;
+		<span class="k">public</span> ReadOnlySpan&lt;byte&gt; <span class="t">View</span> { <span class="k">get</span> { <span class="k">return</span> data; } }
+		<span class="k">public</span> ReadOnlySpan&lt;char&gt; <span class="t">Name</span> { <span class="k">get</span> { <span class="k">return</span> <span class="s">"abc"</span>; } }
+		<span class="k">public</span> <span class="t">Label</span> <span class="t">Tag</span> { <span class="k">get</span> { <span class="k">return</span> <span class="k">new</span> <span class="t">Label</span>(<span class="s">"tag"</span>); } }
+		<span class="k">public</span> <span class="k">ref</span> <span class="k">int</span> <span class="t">Slot</span> { <span class="k">get</span> { <span class="k">return</span> <span class="k">ref</span> slot; } }
+	}
+
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
 	{
 		<span class="c">/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */</span>

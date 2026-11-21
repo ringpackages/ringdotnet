@@ -57,4 +57,13 @@ oEnum.asyncDispose()
 dnAssert("IAsyncEnumerable, one item at a time",nSteps,3)
 dnAssert("IAsyncEnumerable, the items",nSum,60)
 
+# properties of a Span, a ref struct and a ref type
+oHolder = new Holder()
+dnAssert("a ReadOnlySpan<byte> property",len(oHolder.View),3)
+dnAssert("a ReadOnlySpan<char> property is a text",oHolder.Name,"abc")
+dnAssert("a ref struct property with a text method",oHolder.Tag,"[tag]")
+dnAssert("a ref property is its value",oHolder.Slot,7)
+oMemory = dnStatic("System.MemoryExtensions","AsMemory",["hello"])
+dnAssert("the Span of a Memory",oMemory.Span,"hello")
+
 dnTestSummary()

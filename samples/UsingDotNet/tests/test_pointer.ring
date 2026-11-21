@@ -30,5 +30,13 @@ oUtf8 = new UTF8Encoding()
 dnStatic("System.Buffer","MemoryCopy",["text",nMemory,16,4])
 dnAssert("GetString(byte*, int) with an address",oUtf8.callMethod("GetString",[nMemory,4]),"text")
 
+# a constructor with a pointer, and a property that is a pointer
+oStream = dnNew("System.IO.UnmanagedMemoryStream",[nMemory,16])
+dnAssert("a constructor with a byte* and a length",oStream.Length,16)
+dnAssert("a property that is a pointer is its address",oStream.PositionPointer,nMemory)
+oStream.Position = 4
+dnAssert("the pointer moves with the position",oStream.PositionPointer,nMemory + 4)
+oStream.Close()
+
 dnStatic("System.Runtime.InteropServices.NativeMemory","Free",[nMemory])
 dnTestSummary()

@@ -1543,7 +1543,7 @@ namespace RingDotNet
 					if (definition != null && (p.GetMethod ?? p.SetMethod).IsStatic) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
-					members.Add(new RingList { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
+					members.Add(new RingList { p.Name, canRead, canWrite && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike, (p.GetMethod ?? p.SetMethod).IsStatic, TName(Unwrap(p.PropertyType)) });
 				}
 				foreach (FieldInfo fi in t.GetFields(f))
 				{
@@ -2948,12 +2948,14 @@ namespace RingDotNet
 				PropertyInfo p = FindProperty(t, name, f);
 				if (p != null && p.GetIndexParameters().Length == 0)
 				{
+					/* a Span or ref struct property, a pointer, or a ref property is read like the result of a method (see InvokeResult) */
+					if (p.GetMethod != null && (p.PropertyType.IsByRefLike || p.PropertyType.IsPointer || p.PropertyType.IsByRef)) return InvokeResult(p.GetMethod, instance, new object[0]);
 					return p.GetValue(instance);
 				}
 				FieldInfo fi = t.GetField(name, f);
 				if (fi != null)
 				{
-					return fi.GetValue(instance);
+					return fi.FieldType.IsPointer ? PointerResult(fi.GetValue(instance)) : fi.GetValue(instance);
 				}
 			}
 			if (instance != null)

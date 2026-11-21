@@ -87,6 +87,17 @@ namespace MyCompany.Tools
 		public string Render() { return "[" + name.ToString() + "]"; }
 	}
 
+	// properties of a Span, a ref struct and a ref type: read like the results of methods
+	public class Holder
+	{
+		private readonly byte[] data = { 1, 2, 3 };
+		private int slot = 7;
+		public ReadOnlySpan<byte> View { get { return data; } }
+		public ReadOnlySpan<char> Name { get { return "abc"; } }
+		public Label Tag { get { return new Label("tag"); } }
+		public ref int Slot { get { return ref slot; } }
+	}
+
 	public static class Spans
 	{
 		/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */
